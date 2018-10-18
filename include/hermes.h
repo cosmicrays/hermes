@@ -1,0 +1,18 @@
+#ifndef HERMES_H
+#define HERMES_H
+
+#include "hermes/Units.h"
+#include "hermes/Vector3.h"
+#include "hermes/Vector3Quantity.h"
+#include "hermes/Grid.h"
+#include "hermes/GridTools.h"
+#include "hermes/Random.h"
+#include "hermes/HEALPix.h"
+#include "hermes/Skymap.h"
+#include "hermes/integrator/Integrator.h"
+
+#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticField/MagneticFieldGrid.h"
+#include "hermes/magneticField/JF12Field.h"
+
+#endif // HERMES_H
