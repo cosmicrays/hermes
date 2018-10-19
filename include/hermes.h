@@ -9,7 +9,8 @@
 #include "hermes/Random.h"
 #include "hermes/HEALPix.h"
 #include "hermes/Skymap.h"
-#include "hermes/integrator/Integrator.h"
+#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/RMIntegrator.h"
 
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/magneticField/MagneticFieldGrid.h"

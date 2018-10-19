@@ -20,9 +20,15 @@ void playground() {
 	Vector3Length vec_x(1.0_kpc);
 
 	//UniformMagneticField UField = UniformMagneticField(B);
-	JF12Field JF12;
+	
+	std::shared_ptr<Skymap> ptr_skymap (new Skymap(4));
+	std::shared_ptr<JF12Field> ptr_JF12 (new JF12Field());
 
-	B = JF12.getField(vec_x);
+	RMIntegrator RM = RMIntegrator(ptr_JF12);
+	RM.set_skymap(ptr_skymap);
+	RM.compute();
+	
+	B = ptr_JF12->getField(vec_x);
 
 	std::cout << (B.getValue()).getX() << " J" << std::endl;
 	

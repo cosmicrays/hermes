@@ -13,6 +13,9 @@ include_directories(include)
 add_library(hermes SHARED
 	src/Random.cpp
 	src/HEALPix.cpp
+	src/Skymap.cpp
+	src/integrators/Integrator.cpp
+	src/integrators/RMIntegrator.cpp
 	src/magneticField/JF12Field.cpp
 	src/magneticField/MagneticField.cpp
 	src/magneticField/MagneticFieldGrid.cpp

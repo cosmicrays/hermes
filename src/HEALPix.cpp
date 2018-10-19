@@ -2,7 +2,7 @@
 
 namespace hermes {
 
-std::array<QAngle, 2> pix2ang_ring(const long nside, const long ipix) {
+std::array<QAngle, 2> pix2ang_ring(long nside, long ipix) {
 	std::array<QAngle, 2> thetaphi = {0, 0};
 
 	/* check in : src/C/subs/chealpix.c */
