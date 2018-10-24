@@ -41,16 +41,22 @@ constexpr QLength operator"" _yd(long double x) { return static_cast<double>(x)*
 constexpr QLength operator"" _ft(long double x) { return static_cast<double>(x)*foot; }
 constexpr QLength operator"" _in(long double x) { return static_cast<double>(x)*inch; }
 constexpr QLength operator"" _mm(unsigned long long int x) { return static_cast<double>(x)*millimetre; }
-constexpr QLength operator"" _cm(unsigned long long int  x) { return static_cast<double>(x)*centimetre; }
+constexpr QLength operator"" _cm(unsigned long long int x) { return static_cast<double>(x)*centimetre; }
 constexpr QLength operator"" _m(unsigned long long int  x) { return static_cast<double>(x)*metre; }
-constexpr QLength operator"" _km(unsigned long long int  x) { return static_cast<double>(x)*kilometre; }
-constexpr QLength operator"" _mi(unsigned long long int  x) { return static_cast<double>(x)*mile; }
-constexpr QLength operator"" _yd(unsigned long long int  x) { return static_cast<double>(x)*yard; }
-constexpr QLength operator"" _ft(unsigned long long int  x) { return static_cast<double>(x)*foot; }
-constexpr QLength operator"" _in(unsigned long long int  x) { return static_cast<double>(x)*inch; }
+constexpr QLength operator"" _km(unsigned long long int x) { return static_cast<double>(x)*kilometre; }
+constexpr QLength operator"" _mi(unsigned long long int x) { return static_cast<double>(x)*mile; }
+constexpr QLength operator"" _yd(unsigned long long int x) { return static_cast<double>(x)*yard; }
+constexpr QLength operator"" _ft(unsigned long long int x) { return static_cast<double>(x)*foot; }
+constexpr QLength operator"" _in(unsigned long long int x) { return static_cast<double>(x)*inch; }
 
+constexpr QLength operator"" _pc(long double x) { return static_cast<double>(x)*parsec; }
+constexpr QLength operator"" _pc(unsigned long long int  x) { return static_cast<double>(x)*parsec; }
 constexpr QLength operator"" _kpc(long double x) { return static_cast<double>(x)*kilo*parsec; }
 constexpr QLength operator"" _kpc(unsigned long long int  x) { return static_cast<double>(x)*kilo*parsec; }
+
+// literals for volume units
+constexpr QVolume operator"" _cm3(unsigned long long int x) { return static_cast<double>(x)*pow<3>(centimetre); }
+constexpr QVolume operator"" _cm3(long double x) { return static_cast<double>(x)*pow<3>(centimetre); }
 
 // literals for energy units
 constexpr QEnergy operator"" _J(long double x) { return static_cast<double>(x) * joule; };
@@ -74,6 +80,8 @@ constexpr QFrequency operator"" _Hz(unsigned long long int x)
 // magnetic field strength
 constexpr QMField operator"" _muG(long double x) { return static_cast<double>(x)*micro*gauss; }
 constexpr QMField operator"" _muG(unsigned long long int  x) { return static_cast<double>(x)*micro*gauss; }
+constexpr QMField operator"" _nG(long double x) { return static_cast<double>(x)*nano*gauss; }
+constexpr QMField operator"" _nG(unsigned long long int  x) { return static_cast<double>(x)*nano*gauss; }
 
 // literals for time units
 constexpr QTime operator"" _min(long double x) { return static_cast<double>(x)*minute; };

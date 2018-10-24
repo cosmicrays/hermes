@@ -22,6 +22,8 @@ QUANTITY_TYPE(2, 0, 0, 0, 0, 0, 0, 0, QArea);
 QUANTITY_TYPE(3, 0, 0, 0, 0, 0, 0, 0, QVolume);
 QUANTITY_TYPE(1, -1, 0, 0, 0, 0, 0, 0, QSpeed);
 QUANTITY_TYPE(1, -2, 0, 0, 0, 0, 0, 0, QAcceleration);
+QUANTITY_TYPE(-3, 0, 0, 0, 0, 0, 0, 0, QPDensity);
+QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 0, QRotationMeasure);
 
 // Predefined derived units:
 constexpr QForce	newton(1.0);
@@ -56,7 +58,7 @@ constexpr auto h_planck 	= 6.62606957e-34 * joule * second;
 constexpr auto h_planck_bar 	= 6.62606957e-34 * joule * second / (2*pi);
 constexpr auto k_boltzmann 	= 1.3806488e-23 * joule / kelvin;
 constexpr auto mu0 		= (4*pi) * 1e-7 * newton / (ampere * ampere);
-constexpr auto epsilon0 	= 1.0 / mu0 / c_squared * farad / metre;
+constexpr auto epsilon0 	= 1.0 / mu0 / c_squared;
 
 // Predefined time-derived units:
 constexpr auto minute = 60. * second;
@@ -122,6 +124,8 @@ constexpr QLength decimetre = deci * metre;
 constexpr QLength centimetre = centi * metre;
 constexpr QLength millimetre = mili *metre;
 constexpr QLength kilometre = kilo * metre;
+
+// Predefined magnetic field-derived units
 
 } // namespace hermes
 

@@ -230,6 +230,7 @@ constexpr Quantity<l, t, m, I, T, N, J, A>
     return Quantity<l, t, m, I, T, N, J, A>(std::fabs(num.getValue()));
 }
 
+// sqrt()
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr Quantity<std::ratio_divide<l, std::ratio<2>>, std::ratio_divide<t, std::ratio<2>>, 
@@ -244,51 +245,35 @@ constexpr Quantity<std::ratio_divide<l, std::ratio<2>>, std::ratio_divide<t, std
                     (std::sqrt(num.getValue()));
 }
 
-// pow() workaround (TODO: should be rewritten)
-
-template<typename l, typename t, typename m, typename I, typename T,
-	 typename N, typename J, typename A, int exp>
-constexpr Quantity<std::ratio_multiply<l, std::ratio<exp>>, std::ratio_multiply<t, std::ratio<exp>>,
-                   std::ratio_multiply<m, std::ratio<exp>>, std::ratio_multiply<I, std::ratio<exp>>,
-                   std::ratio_multiply<T, std::ratio<exp>>, std::ratio_multiply<N, std::ratio<exp>>,
-                   std::ratio_multiply<J, std::ratio<exp>>, std::ratio_multiply<A, std::ratio<exp>>>
- Qpow(const Quantity<l, t, m, I, T, N, J, A>& num) {
-    return Quantity<std::ratio_multiply<l, std::ratio<exp>>, std::ratio_multiply<t, std::ratio<exp>>, 
-                    std::ratio_multiply<m, std::ratio<exp>>, std::ratio_multiply<I, std::ratio<exp>>,
-                    std::ratio_multiply<T, std::ratio<exp>>, std::ratio_multiply<N, std::ratio<exp>>, 
-                    std::ratio_multiply<J, std::ratio<exp>>, std::ratio_multiply<A, std::ratio<exp>>> 
-                    (pow(num.getValue(), exp));
+// pow() 
+template<int power, typename l, typename t, typename m, typename I, typename T,
+	 typename N, typename J, typename A>
+constexpr Quantity<std::ratio_multiply<l, std::ratio<power>>, std::ratio_multiply<t, std::ratio<power>>,
+                   std::ratio_multiply<m, std::ratio<power>>, std::ratio_multiply<I, std::ratio<power>>,
+                   std::ratio_multiply<T, std::ratio<power>>, std::ratio_multiply<N, std::ratio<power>>,
+                   std::ratio_multiply<J, std::ratio<power>>, std::ratio_multiply<A, std::ratio<power>>>
+ pow(const Quantity<l, t, m, I, T, N, J, A>& num) {
+    return Quantity<std::ratio_multiply<l, std::ratio<power>>, std::ratio_multiply<t, std::ratio<power>>, 
+                    std::ratio_multiply<m, std::ratio<power>>, std::ratio_multiply<I, std::ratio<power>>,
+                    std::ratio_multiply<T, std::ratio<power>>, std::ratio_multiply<N, std::ratio<power>>, 
+                    std::ratio_multiply<J, std::ratio<power>>, std::ratio_multiply<A, std::ratio<power>>> 
+                    (std::pow(num.getValue(), power));
 }
 
+// squared()
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr Quantity<std::ratio_multiply<l, std::ratio<2>>, std::ratio_multiply<t, std::ratio<2>>,
                    std::ratio_multiply<m, std::ratio<2>>, std::ratio_multiply<I, std::ratio<2>>,
                    std::ratio_multiply<T, std::ratio<2>>, std::ratio_multiply<N, std::ratio<2>>,
                    std::ratio_multiply<J, std::ratio<2>>, std::ratio_multiply<A, std::ratio<2>>>
- Qsquare(const Quantity<l, t, m, I, T, N, J, A>& num) {
+ squared(const Quantity<l, t, m, I, T, N, J, A>& num) {
     return Quantity<std::ratio_multiply<l, std::ratio<2>>, std::ratio_multiply<t, std::ratio<2>>, 
                     std::ratio_multiply<m, std::ratio<2>>, std::ratio_multiply<I, std::ratio<2>>,
                     std::ratio_multiply<T, std::ratio<2>>, std::ratio_multiply<N, std::ratio<2>>, 
                     std::ratio_multiply<J, std::ratio<2>>, std::ratio_multiply<A, std::ratio<2>>> 
-                    (pow(num.getValue(), 2));
+                    (std::pow(num.getValue(), 2));
 }
-
-template<typename l, typename t, typename m, typename I, typename T,
-	 typename N, typename J, typename A>
-constexpr Quantity<std::ratio_multiply<l, std::ratio<3>>, std::ratio_multiply<t, std::ratio<3>>,
-                   std::ratio_multiply<m, std::ratio<3>>, std::ratio_multiply<I, std::ratio<3>>,
-                   std::ratio_multiply<T, std::ratio<3>>, std::ratio_multiply<N, std::ratio<3>>,
-                   std::ratio_multiply<J, std::ratio<3>>, std::ratio_multiply<A, std::ratio<3>>>
- Qcube(const Quantity<l, t, m, I, T, N, J, A>& num) {
-    return Quantity<std::ratio_multiply<l, std::ratio<3>>, std::ratio_multiply<t, std::ratio<3>>, 
-                    std::ratio_multiply<m, std::ratio<3>>, std::ratio_multiply<I, std::ratio<3>>,
-                    std::ratio_multiply<T, std::ratio<3>>, std::ratio_multiply<N, std::ratio<3>>, 
-                    std::ratio_multiply<J, std::ratio<3>>, std::ratio_multiply<A, std::ratio<3>>> 
-                    (pow(num.getValue(), 3));
-}
-
-// end pow()
 
 
 // Predefined (physical unit) quantity types:

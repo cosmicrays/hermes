@@ -177,10 +177,10 @@ double Random::randPowerLaw(double index, double min, double max) {
 		double part2 = log(min);
 		return exp((part1 - part2) * rand() + part2);
 	} else {
-		double part1 = pow(max, index + 1);
-		double part2 = pow(min, index + 1);
+		double part1 = std::pow(max, index + 1);
+		double part2 = std::pow(min, index + 1);
 		double ex = 1 / (index + 1);
-		return pow((part1 - part2) * rand() + part2, ex);
+		return std::pow((part1 - part2) * rand() + part2, ex);
 	}
 }
 
@@ -200,16 +200,16 @@ double Random::randBrokenPowerLaw(double index1, double index2,
 		if ((std::abs(index1 + 1.0)) < std::numeric_limits<double>::epsilon()) {
 			intPL1 = log(breakpoint / min);
 		} else {
-			intPL1 = (pow(breakpoint, index1 + 1) - pow(min, index1 + 1))
+			intPL1 = (std::pow(breakpoint, index1 + 1) - std::pow(min, index1 + 1))
 					/ (index1 + 1);
 		}
 		double intPL2;
 		// check if index2 = -1
 		if ((std::abs(index2 + 1.0)) < std::numeric_limits<double>::epsilon()) {
-			intPL2 = log(max / breakpoint) * pow(breakpoint, index1 - index2);
+			intPL2 = log(max / breakpoint) * std::pow(breakpoint, index1 - index2);
 		} else {
-			intPL2 = (pow(max, index2 + 1) - pow(breakpoint, index2 + 1))
-					* pow(breakpoint, index1 - index2) / (index2 + 1);
+			intPL2 = (std::pow(max, index2 + 1) - std::pow(breakpoint, index2 + 1))
+					* std::pow(breakpoint, index1 - index2) / (index2 + 1);
 		}
 		if (rand() > intPL1 / (intPL1 + intPL2))
 			return randPowerLaw(index2, breakpoint, max);
