@@ -25,30 +25,21 @@ RMSkymap::tPixel RMIntegrator::integral(tDirection dir) {
 
 	for(QLength dist = 0.0_pc; dist <= 30.0_kpc; dist += delta_d) {
 
-
 		QLength R = distanceFromGC(dir, dist);
 		Vector3Length pos = sphericalToCartesian(dist, dir[0], dir[1]);
 
-		//	R2 = (R_sun > 0) ? pow(R_sun, 2) + pow(d * cos(b), 2) - 2.0 * R_sun * d * cos(b) * cos(l) 
-                //        : pow(R_sun, 2) + pow(d * cos(b), 2) + 2.0 * R_sun * d * cos(b) * cos(l); 
-
-		//       if (R2 < pc * pc) 
-		// 	   R2 = pc * pc;
-		// 	R = sqrt(R2);
-               
+              	//Vector3Length Sun_pos(0_kpc);
+		//Sun_pos.x = -8.5_kpc;
+		//pos += Sun_pos;
 		// 	x = (R_sun > 0) ? R_sun - d * cos(b) * cos(l) : R_sun + d * cos(b) * cos(l);
 		//	y = d * cos(b) * sin(l);
 		//	z = d * sin(b);
 
 		// integrate \int_0^\infty dd I(l,b,d) -> \Delta d \sum_i I_i(x, y, z <- l, b, d)
-
 	
-		//std::cout << sum.getValue() << std::endl;
-		//sum += (delta_d*(const_a0 * mfield->getField(pos).getR() * gdensity->getDensity(pos)));
+		//std::cout << (mfield->getField(pos).getR()).getValue() << std::endl;
 		sum += (const_a0 * mfield->getField(pos).getR() * gdensity->getDensity(pos) * delta_d);
 	}
-
-	//std::cout << (mfield->getField(pos).getR()).getValue() << std::endl;
 
 	return sum;
 }

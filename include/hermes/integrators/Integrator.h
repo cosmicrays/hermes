@@ -5,6 +5,11 @@
 #include "hermes/Grid.h"
 #include "hermes/HEALPix.h"
 
+#if _OPENMP
+#include <omp.h>
+#define OMP_SCHEDULE static,100
+#endif
+
 #include <array>
 #include <memory>
 
@@ -28,6 +33,12 @@ public:
 	virtual typename T::tPixel integral(tDirection iterdir) = 0;
 
 	inline QLength distanceFromGC(tDirection direction, QLength distanceFromSun) {
+		//	R2 = (R_sun > 0) ? pow(R_sun, 2) + pow(d * cos(b), 2) - 2.0 * R_sun * d * cos(b) * cos(l) 
+                //        : pow(R_sun, 2) + pow(d * cos(b), 2) + 2.0 * R_sun * d * cos(b) * cos(l); 
+
+		//       if (R2 < pc * pc) 
+		// 	   R2 = pc * pc;
+		// 	R = sqrt(R2);
 		QAngle theta = direction[0];
 		QAngle phi = direction[1];
 		QLength R_sun = 8_kpc;
@@ -50,15 +61,18 @@ public:
 	inline void compute() {
 		unsigned long ipix;
 
+#if _OPENMP
+       		std::cout << "hermes::Integrator: Number of Threads: " << omp_get_max_threads() << std::endl;
+#endif
+
 		if(working_skymap == 0)
 			// TODO: transform to exception
 			std::cout << "Provide a skymap with the set_skymap() method" << std::endl;
 		else {
-			// TODO: OpenMP will go here
-			for (tPixelIterator pixel = working_skymap->begin(); pixel != working_skymap->end(); ++pixel) {
-				ipix = pixel - working_skymap->begin();
+#pragma omp parallel for schedule(OMP_SCHEDULE)
+			for (ipix = 0; ipix < working_skymap->size(); ++ipix) {
 				iterdir = pix2ang_ring(working_skymap->getNside(), ipix);
-				*pixel = integral(iterdir);
+				working_skymap->updatePixel(ipix, integral(iterdir));
 			}
 	
 		}

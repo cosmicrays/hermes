@@ -23,7 +23,7 @@ public:
 	inline Skymap() { };
 	inline ~Skymap() { };
 	inline std::size_t log2(std::size_t x) {
-		res = -1;
+		res = 0;
 		while (x >>= 1) res++;
 		return res;
 	}

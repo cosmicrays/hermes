@@ -9,15 +9,15 @@ FITSOutput::FITSOutput(const std::string &filename) : Output(), filename(filenam
 
 int FITSOutput::create_file() {
 	int status = 0;
-	fits_create_file(&fptr, filename.c_str(), &status);
-	fits_report_error(stderr, status);
+	if (fits_create_file(&fptr, filename.c_str(), &status))
+		fits_report_error(stderr, status);
 	return status;
 }
 
 int FITSOutput::write_key(const char key[], int type, void *value, const char comment[]) {
 	int status = 0;
-	fits_write_key(fptr, type, key, value, comment, &status);
-	fits_report_error(stderr, status);
+	if (fits_write_key(fptr, type, key, value, comment, &status))
+		fits_report_error(stderr, status);
 	return status;
 }
 
@@ -29,20 +29,36 @@ void FITSOutput::save(std::shared_ptr<Skymap> skymap) {
 	std::size_t nside = skymap->getNside();
 	std::size_t res = skymap->getRes();
 	int naxis  = 1;
+	long int nullnaxes[1] = {1};
+	float nullArray[1] = {0};
 	long int naxes[naxis] = {(long)npix};
 	
 	float tempArray[npix] = {0};
-	std::cout << npix << std::endl;	
 
 	for (unsigned long i = 0; i < npix; ++i)
 		tempArray[i] = (float) skymap->operator[](i);
 
+	
+	//std::cout << tempArray[10] << std::endl;	
+
 
 	status = create_file();
-	fits_report_error(stderr, status);
-
-	if (fits_create_img(fptr, bitpix, naxis, naxes, &status))
+	
+	if (fits_create_img(fptr, bitpix, 1, nullnaxes, &status))
 		fits_report_error(stderr, status);
+	
+	if (fits_write_img(fptr, TFLOAT, 1, 1, nullArray, &status))
+		fits_report_error(stderr, status);
+	
+	long tfields = 1;
+	int nrows = (int) (npix);
+	char* ttype[] = { (char*)("TFLOAT") };
+	char* tform[] = { (char*)("1E") };
+	char* tunit[] = { (char*)("nothing") };
+	const char extname[] = "xtension";
+	
+	if (fits_create_tbl(fptr, BINARY_TBL, nrows, tfields, ttype, tform, tunit, extname, &status))
+
 
 	if (fits_write_date(fptr, &status))
 		fits_report_error(stderr, status);
@@ -57,11 +73,16 @@ void FITSOutput::save(std::shared_ptr<Skymap> skymap) {
 	status = write_key("RES", TDOUBLE, &res, "Resolution of map");
 	char object[] = "FULLSKY";
 	status = write_key("OBJECT", TSTRING, object, "Sky coverage, either FULLSKY or PARTIAL");
+	char indx_str[] = "IMPLICIT";
+	status = write_key("INDXSCHM", TSTRING, indx_str, "Indexing: IMPLICIT or EXPLICIT");
 
 	char process[] = "Rotation_measure";
 	status = write_key("PROCESS", TSTRING, &process, NULL);
 	
-	if (fits_write_img(fptr, TDOUBLE, firstElem, npix, tempArray, &status))
+	//if (fits_write_img(fptr, TDOUBLE, firstElem, npix, tempArray, &status))
+	//	fits_report_error(stderr, status);
+	
+	fits_write_col(fptr, TFLOAT, 1, 1, 1, npix, tempArray, &status);
 		fits_report_error(stderr, status);
 
 	fits_close_file(fptr, &status);

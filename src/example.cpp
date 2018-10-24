@@ -13,16 +13,12 @@ void playground() {
 
 	//UniformMagneticField UField = UniformMagneticField(B);
 	
-	auto ptr_skymap = std::make_shared<RMSkymap>(RMSkymap(6));
+	auto ptr_skymap = std::make_shared<RMSkymap>(RMSkymap(16));
 	std::shared_ptr<Skymap> ptr_skymap_2;
 
 	ptr_skymap_2 = ptr_skymap;
 
-	std::cout << ptr_skymap_2->getNside() << std::endl;
-	std::cout << ptr_skymap_2->getNpix() << std::endl;
-	std::cout << ptr_skymap_2->getRes() << std::endl;
-
-	auto ptr_JF12 = std::make_shared<MagneticField>(JF12Field());
+	auto ptr_JF12 = std::make_shared<JF12Field>(JF12Field());
 	auto ptr_Gas = std::make_shared<HII_Cordes91>(HII_Cordes91());
 	auto ptr_output = std::make_shared<FITSOutput>(FITSOutput("!example.fits.gz"));
 
