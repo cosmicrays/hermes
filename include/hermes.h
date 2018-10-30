@@ -8,6 +8,7 @@
 #include "hermes/GridTools.h"
 #include "hermes/Random.h"
 #include "hermes/HEALPix.h"
+#include "hermes/Common.h"
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapTemplate.h"
 #include "hermes/skymaps/RMSkymap.h"

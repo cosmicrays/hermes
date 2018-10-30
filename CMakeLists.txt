@@ -82,4 +82,8 @@ if(ENABLE_TESTING)
         target_link_libraries(testHEALPix hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testHEALPix testHEALPix)
 
+	add_executable(testIntegrator test/testIntegrator.cpp)
+        target_link_libraries(testIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+        add_test(testIntegrator testIntegrator)
+
 endif(ENABLE_TESTING)

@@ -2,6 +2,30 @@
 
 namespace hermes {
 
+inline long nside2npix(long nside) {
+	return 12*nside*nside;
+}
+
+/*! Returns the remainder of the division \a v1/v2.
+    The result is non-negative.
+    \a v1 can be positive or negative; \a v2 must be positive. */
+inline double fmodulo (double v1, double v2) {
+	if (v1>=0)
+		return (v1<v2) ? v1 : std::fmod(v1,v2);
+	double tmp=std::fmod(v1,v2)+v2;
+		return (tmp==v2) ? 0. : tmp;
+}
+
+std::size_t log2(std::size_t x) {
+                std::size_t res = 0;
+                while (x >>= 1) res++;
+                return res;
+}
+
+inline long nside2order(long nside) {
+	return ((nside)&(nside-1)) ? -1 : log2(nside);
+}
+
 std::array<QAngle, 2> pix2ang_ring(long nside, long ipix) {
 	std::array<QAngle, 2> thetaphi = {0, 0};
 
@@ -12,7 +36,7 @@ std::array<QAngle, 2> pix2ang_ring(long nside, long ipix) {
 	/* check in : src/C/subs/chealpix.c */
 
 	//      parameter (ns_max = 8192) ! 2^13 : largest nside available  
-	npix = 12*nside*nside;      // ! total number of points
+	npix = nside2npix(nside);      // ! total number of points
 
 	ipix1 = ipix + 1; // in {1, npix}
 	nl2 = 2*nside;
@@ -52,6 +76,63 @@ std::array<QAngle, 2> pix2ang_ring(long nside, long ipix) {
 	}
 
 	return thetaphi;
+}
+
+
+long ang2pix_ring(long nside, std::array<QAngle,2> thetaphi) {
+	double theta = thetaphi[0].getValue();
+	double phi = thetaphi[1].getValue();
+
+	return ((theta<0.01) || (theta > 3.14159-0.01)) ?
+        	loc2pix(nside, cos(theta),phi,sin(theta),true) :
+	        loc2pix(nside, cos(theta),phi,0.,false);
+}
+
+long loc2pix(long nside, double z, double phi, double sth, bool have_sth) {
+
+	const double twothird = 2./3.;
+	const double inv_halfpi = 1./(M_PI/2.);
+
+	long order = nside2order(nside);
+	long ncap = 2*nside*(nside-1);// ! points in each polar cap, =0 for nside =1
+	double za = std::abs(z);
+	double tt = fmodulo(phi*inv_halfpi,4.0); // in [0,4)
+
+	if (za<=twothird) // Equatorial region
+	{
+		long nl4 = 4*nside;
+		double temp1 = nside*(0.5+tt);
+		double temp2 = nside*z*0.75;
+		long jp = long(temp1-temp2); // index of  ascending edge line
+		long jm = long(temp1+temp2); // index of descending edge line
+
+		// ring number counted from z=2/3
+		long ir = nside + 1 + jp - jm; // in {1,2n+1}
+		long kshift = 1-(ir&1); // kshift=1 if ir even, 0 otherwise
+
+		long t1 = jp+jm-nside+kshift+1+nl4+nl4;
+		long ip = (order>0) ?
+			(t1>>1)&(nl4-1) : ((t1>>1)%nl4); // in {0,4n-1}
+
+		return ncap + (ir-1)*nl4 + ip;
+	}
+	else  // North & South polar caps
+	{
+		double tp = tt-long(tt);
+		double tmp = ((za<0.99)||(!have_sth)) ?
+			nside*std::sqrt(3*(1-za)) :
+			nside*sth/std::sqrt((1.+za)/3.);
+
+		long jp = long(tp*tmp); // increasing edge line index
+		long jm = long((1.0-tp)*tmp); // decreasing edge line index
+
+		long ir = jp+jm+1; // ring number counted from the closest pole
+		long ip = long(tt*ir); // in {0,4*ir-1}
+		//planck_assert((ip>=0)&&(ip<4*ir),"must not happen");
+		//ip %= 4*ir;
+
+		return (z>0) ? 2*ir*(ir-1) + ip : nside2npix(nside) - 2*ir*(ir+1) + ip;
+	}
 }
 
 } // namespace hermes 

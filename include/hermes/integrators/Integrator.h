@@ -4,6 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/Grid.h"
 #include "hermes/HEALPix.h"
+#include "hermes/Common.h"
 
 #if _OPENMP
 #include <omp.h>
@@ -32,6 +33,10 @@ public:
 
 	virtual typename T::tPixel integral(tDirection iterdir) = 0;
 
+	/**
+		Gives the distance from the galactic centre (GC) by providing the distance 
+		from the Sun and the direction (theta,phi)
+	*/
 	inline QLength distanceFromGC(tDirection direction, QLength distanceFromSun) {
 		//	R2 = (R_sun > 0) ? pow(R_sun, 2) + pow(d * cos(b), 2) - 2.0 * R_sun * d * cos(b) * cos(l) 
                 //        : pow(R_sun, 2) + pow(d * cos(b), 2) + 2.0 * R_sun * d * cos(b) * cos(l); 
@@ -41,21 +46,14 @@ public:
 		// 	R = sqrt(R2);
 		QAngle theta = direction[0];
 		QAngle phi = direction[1];
-		QLength R_sun = 8_kpc;
-		return sqrt(squared(R_sun) + squared(distanceFromSun * cos(theta)) \
-				- 2.*distanceFromSun*R_sun*cos(theta)*cos(phi));
+		Vector3QLength Sun_pos(8.5_kpc, 0_kpc, 0_kpc);
+		return sqrt(squared(Sun_pos.getX()) + squared(distanceFromSun * cos(theta)) \
+				- 2.*distanceFromSun*Sun_pos.getX()*cos(theta)*cos(phi));
 	}
-	
-	inline Vector3Length sphericalToCartesian(QLength r, QAngle theta, QAngle phi) {
 
-		Vector3Length v;
-		v.x = r * sin(theta) * cos(phi);
-		v.z = r * sin(theta) * sin(phi);
-		v.y = r * cos(theta);
-		return v;
-		// 	x = (R_sun > 0) ? R_sun - d * cos(b) * cos(l) : R_sun + d * cos(b) * cos(l);
-		//	y = d * cos(b) * sin(l);
-		//	z = d * sin(b);
+	inline Vector3QLength offsetSunToGC(Vector3QLength v) {
+		Vector3QLength Sun_pos(8.5_kpc, 0_kpc, 0_kpc);
+		return v + Sun_pos; 
 	}
 
 	inline void compute() {

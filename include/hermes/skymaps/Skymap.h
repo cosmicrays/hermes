@@ -1,6 +1,7 @@
 #ifndef HERMES_SKYMAP_H
 #define HERMES_SKYMAP_H
 
+#include "hermes/HEALPix.h"
 //#include "hermes/outputs/Output.h"
 
 #include <memory>
@@ -22,15 +23,11 @@ public:
 	 */
 	inline Skymap() { };
 	inline ~Skymap() { };
-	inline std::size_t log2(std::size_t x) {
-		res = 0;
-		while (x >>= 1) res++;
-		return res;
-	}
+	
 	inline void setNside(std::size_t n) {
 		nside = n;
 		res = log2(nside);
-		npix = 12 * nside * nside;
+		npix = nside2npix(nside);
 	}
 	inline std::size_t getNside() {
 		return nside;
@@ -46,7 +43,7 @@ public:
 		return npix;
 	}
 
-	virtual double operator[](const std::size_t i) const = 0;
+	virtual double operator[](std::size_t i) const = 0;
 	//inline void save(std::shared_ptr<Output> output) { output->save(this); }
 };
 

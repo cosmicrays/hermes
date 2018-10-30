@@ -21,8 +21,9 @@ public:
 	explicit SkymapTemplate(std::size_t nside = 32);
 	~SkymapTemplate();
 	std::size_t size() const;
-	double operator[](const std::size_t i) const;
+	double operator[](std::size_t i) const;
 	void updatePixel(std::size_t i, tPixel value);
+	Q getPixel(std::size_t i) const;
 	void print();
 
         /** iterator goodies */
@@ -54,7 +55,12 @@ std::size_t SkymapTemplate<Q>::size() const {
 }
 
 template <typename Q>
-double SkymapTemplate<Q>::operator[](const std::size_t i) const {
+Q SkymapTemplate<Q>::getPixel(std::size_t i) const {
+        return fluxContainer[i];
+}
+
+template <typename Q>
+double SkymapTemplate<Q>::operator[](std::size_t i) const {
         return fluxContainer[i].getValue();
 }
 

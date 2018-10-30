@@ -156,8 +156,8 @@ bool JF12Field::isUsingTurbulent() {
 	return useTurbulent;
 }
 
-Vector3MField JF12Field::getRegularField(const Vector3Length& pos) const {
-	Vector3MField b(0.);
+Vector3QMField JF12Field::getRegularField(const Vector3QLength& pos) const {
+	Vector3QMField b(0.);
 
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y); // in-plane radius
 	QLength d = pos.getR(); // distance to galactic center
@@ -235,7 +235,7 @@ Vector3MField JF12Field::getRegularField(const Vector3Length& pos) const {
 	return b;
 }
 
-Vector3MField JF12Field::getStriatedField(const Vector3Length& pos) const {
+Vector3QMField JF12Field::getStriatedField(const Vector3QLength& pos) const {
 	return (getRegularField(pos)
 			* (1. + sqrtbeta * striatedGrid->closestValue(
 			 		pos
@@ -244,7 +244,7 @@ Vector3MField JF12Field::getStriatedField(const Vector3Length& pos) const {
 	);
 }
 
-QMField JF12Field::getTurbulentStrength(const Vector3Length& pos) const {
+QMField JF12Field::getTurbulentStrength(const Vector3QLength& pos) const {
 	if (pos.getR() > 20.0_kpc)
 		return 0_muG;
 
@@ -279,12 +279,12 @@ QMField JF12Field::getTurbulentStrength(const Vector3Length& pos) const {
 	return sqrt(bDisk*bDisk + bHalo*bHalo);
 }
 
-Vector3MField JF12Field::getTurbulentField(const Vector3Length& pos) const {
+Vector3QMField JF12Field::getTurbulentField(const Vector3QLength& pos) const {
 	return (turbulentGrid->interpolate(pos) * getTurbulentStrength(pos));
 }
 
-Vector3MField JF12Field::getField(const Vector3Length& pos) const {
-	Vector3MField b(0.);
+Vector3QMField JF12Field::getField(const Vector3QLength& pos) const {
+	Vector3QMField b(0.);
 	if (useTurbulent)
 		b += getTurbulentField(pos);
 	if (useStriated)

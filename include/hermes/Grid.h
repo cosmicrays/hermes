@@ -223,8 +223,8 @@ public:
 
 typedef Grid<float> ScalarGrid;
 typedef Grid<Vector3f> VectorGrid;
-typedef Grid<Vector3Length> VectorLengthGrid;
-typedef Grid<Vector3MField> VectorMFieldGrid;
+typedef Grid<Vector3QLength> VectorQLengthGrid;
+typedef Grid<Vector3QMField> VectorQMFieldGrid;
 
 
 

@@ -103,19 +103,19 @@ public:
 	bool isUsingTurbulent();
 
 	// Regular field component
-	Vector3MField getRegularField(const Vector3Length& pos) const;
+	Vector3QMField getRegularField(const Vector3QLength& pos) const;
 
 	// Regular and striated field component
-	Vector3MField getStriatedField(const Vector3Length& pos) const;
+	Vector3QMField getStriatedField(const Vector3QLength& pos) const;
 
 	// Brms of the turbulent field
-	QMField getTurbulentStrength(const Vector3Length& pos) const;
+	QMField getTurbulentStrength(const Vector3QLength& pos) const;
 
 	// Turbulent field component
-	Vector3MField getTurbulentField(const Vector3Length& pos) const;
+	Vector3QMField getTurbulentField(const Vector3QLength& pos) const;
 
 	// All set field components
-	Vector3MField getField(const Vector3Length& pos) const;
+	Vector3QMField getField(const Vector3QLength& pos) const;
 };
 
 } // namespace hermes

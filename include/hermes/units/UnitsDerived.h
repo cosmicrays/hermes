@@ -118,6 +118,8 @@ constexpr double exa   = 1e18;
 constexpr double zetta = 1e21;
 constexpr double yotta = 1e24;  
 
+// Predefined angle units:
+constexpr QAngle degree = static_cast<double>(2*pi / 360.0) * radian;
 
 // Predefined length-derived units
 constexpr QLength decimetre = deci * metre;

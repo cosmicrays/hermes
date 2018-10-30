@@ -4,6 +4,17 @@
 
 namespace hermes {
 
+TEST(HEALPix, consistency) {
+	std::array<QAngle, 2> thetaphi;
+	long nside = 4;
+	long npix = nside2npix(nside);
+
+	for(long ipix = 0; ipix < npix; ++ipix) {
+		thetaphi = pix2ang_ring(nside, ipix);
+		EXPECT_EQ(ang2pix_ring(nside, thetaphi), ipix);
+	}
+}
+
 TEST(HEALPix, pix2ang_ring) {
 	std::array<QAngle, 2> thetaphi;
 

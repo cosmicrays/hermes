@@ -9,7 +9,7 @@ namespace hermes {
 class GasDensity {
 public:
 	virtual ~GasDensity() { }
-	virtual QPDensity getDensity(const Vector3Length& pos) const = 0;
+	virtual QPDensity getDensity(const Vector3QLength& pos) const = 0;
 };
 
 } // namespace hermes

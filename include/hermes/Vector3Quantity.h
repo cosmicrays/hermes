@@ -67,6 +67,18 @@ public:
 		y = r * sin(theta) * sin(phi);
 		z = r * cos(theta);
 	}
+	
+	T getX() const {
+		return x;
+	}
+
+	T getY() const {
+		return y;
+	}
+
+	T getZ() const {
+		return z;
+	}
 
 	// magnitude (2-norm) of the vector
 	T getR() const {
@@ -105,14 +117,14 @@ public:
 	}
 
 	// return the angle [0, pi] between the vectors
-	double getAngleTo(const Vector3Quantity<T> &v) const {
+	QAngle getAngleTo(const Vector3Quantity<T> &v) const {
 		T cosdistance = dot(v) / v.getR() / getR();
 		// In some directions cosdistance is > 1 on some compilers
 		// This ensures that the correct result is returned
 		if (cosdistance >= 1.)
-			return 0;
+			return QAngle(0);
 		else if (cosdistance <= -1.)
-			return M_PI;
+			return QAngle(M_PI);
 		else
 			return acos(cosdistance);
 	}
@@ -327,8 +339,8 @@ inline Vector3Quantity<Q> operator *(const Vector3Quantity<Q> &q, const double a
 }
 
 
-typedef Vector3Quantity<QLength> Vector3Length;
-typedef Vector3Quantity<QMField> Vector3MField;
+typedef Vector3Quantity<QLength> Vector3QLength;
+typedef Vector3Quantity<QMField> Vector3QMField;
 
 /** @}*/
 } // namespace hermes

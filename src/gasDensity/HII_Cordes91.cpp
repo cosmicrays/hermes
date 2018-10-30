@@ -13,7 +13,7 @@ HII_Cordes91::HII_Cordes91() {
 	R2 = 4.0_kpc;
 }
 
-QPDensity HII_Cordes91::getDensity(const Vector3Length& pos) const {
+QPDensity HII_Cordes91::getDensity(const Vector3QLength& pos) const {
 	QLength r = pos.getR();
 	QPDensity ne1 = fne1 * exp(-fabs(pos.z) / H1) * exp(-pow<2>(r / A1));
 	QPDensity ne2 = fne2 * exp(-fabs(pos.z) / H2) * exp(-pow<2>((r - R2) / A2));

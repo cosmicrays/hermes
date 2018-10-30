@@ -3,30 +3,30 @@
 namespace hermes {
 
 PeriodicMagneticField::PeriodicMagneticField(std::shared_ptr<MagneticField> field,
-		const Vector3Length &extends) :
+		const Vector3QLength &extends) :
 		field(field), extends(extends), origin(0_kpc), reflective(false) {
 
 }
 
 PeriodicMagneticField::PeriodicMagneticField(std::shared_ptr<MagneticField> field,
-		const Vector3Length &extends, const Vector3Length &origin, bool reflective) :
+		const Vector3QLength &extends, const Vector3QLength &origin, bool reflective) :
 		field(field), extends(extends), origin(origin), reflective(reflective) {
 
 }
 
-Vector3Length &PeriodicMagneticField::getOrigin() {
+Vector3QLength &PeriodicMagneticField::getOrigin() {
 	return origin;
 }
 
-void PeriodicMagneticField::setOrigin(const Vector3Length &origin) {
+void PeriodicMagneticField::setOrigin(const Vector3QLength &origin) {
 	this->origin = origin;
 }
 
-Vector3Length &PeriodicMagneticField::getExtends() {
+Vector3QLength &PeriodicMagneticField::getExtends() {
 	return extends;
 }
 
-void PeriodicMagneticField::setExtends(const Vector3Length &origin) {
+void PeriodicMagneticField::setExtends(const Vector3QLength &origin) {
 	this->extends = extends;
 }
 
@@ -38,9 +38,9 @@ void PeriodicMagneticField::setReflective(bool reflective) {
 	this->reflective = reflective;
 }
 
-Vector3MField PeriodicMagneticField::getField(const Vector3Length &position) const {
+Vector3QMField PeriodicMagneticField::getField(const Vector3QLength &position) const {
 	Vector3d n = (((position - origin) / extends).floor());
-	Vector3Length p = position - origin - n * extends;
+	Vector3QLength p = position - origin - n * extends;
 
 	if (reflective) {
 		long mx = (long) std::fabs(n.x) % 2;
@@ -61,8 +61,8 @@ void MagneticFieldList::addField(std::shared_ptr<MagneticField> field) {
 	fields.push_back(field);
 }
 
-Vector3MField MagneticFieldList::getField(const Vector3Length &position) const {
-	Vector3MField b;
+Vector3QMField MagneticFieldList::getField(const Vector3QLength &position) const {
+	Vector3QMField b;
 	for (int i = 0; i < fields.size(); i++)
 		b += fields[i]->getField(position);
 	return b;

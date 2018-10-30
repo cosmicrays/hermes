@@ -1,31 +1,76 @@
 #include "gtest/gtest.h"
+#include <memory>
 
 #include "hermes.h"
 
 namespace hermes {
 
 class TestMagneticField: public MagneticField {
-        Vector3MField value;
+        Vector3QMField value;
 public:
         TestMagneticField() { }
-        Vector3MField getField(const Vector3Length &pos) const {
-		Vector3Length pos_gc(0);
+        Vector3QMField getField(const Vector3QLength &pos) const {
+		Vector3QLength pos_gc(0_pc, 0_pc, 0_pc);
 
-		if (pos == pos_gc)
-	        	value = 1*tesla;
+		if (fabs(pos.x) < 10_pc && pos.y == 0_pc && pos.z == 0_pc)
+	        	return Vector3QMField(1_T, 1_T, 1_T);
 		else
-			value = 0*tesla;
-
-		return value;
+			return Vector3QMField(0_T);
         }
 };
 
+class TestGasDensity: public GasDensity {
+public:
+        TestGasDensity() { }
+        QPDensity getDensity(const Vector3QLength &pos) const {
+		return 1.0 / 1_cm3; 
+	}
+};
 
-TEST(Integrator, MF) {
-
+TEST(Integrator, MagneticField) {
 	auto magfield = TestMagneticField();
-	//EXPECT_NEAR(thetaphi[0].getValue(), 0.0255, 0.001);
-	EXPECT((magfield.getR()).getValue(), 1*tesla);
+	auto pos = Vector3QLength(0_kpc);
+	EXPECT_EQ((magfield.getField(pos)).getX(), 1_T);
+}
+
+TEST(Integrator, HelperFunctions) {
+	auto magfield = std::make_shared<TestMagneticField>(TestMagneticField());
+	auto gasdenisty = std::make_shared<TestGasDensity>(TestGasDensity());
+	auto integrator = RMIntegrator(magfield, gasdenisty);
+	
+	QAngle theta(0);
+	QAngle phi(0);
+	QLength r(1_kpc);
+	
+	EXPECT_EQ(sphericalToCartesian(r,theta,phi).getValue(),
+		Vector3QLength(0_kpc,0_kpc,1_kpc).getValue()
+	);
+
+	EXPECT_EQ(integrator.offsetSunToGC(sphericalToCartesian(r,theta,phi)).getValue(),
+		Vector3QLength(8.5_kpc,0_kpc,1_kpc).getValue()
+	);
+}
+
+TEST(Integrator, Orientation) {
+	QRotationMeasure pixel;
+	auto magfield = std::make_shared<TestMagneticField>(TestMagneticField());
+	auto gasdenisty = std::make_shared<TestGasDensity>(TestGasDensity());
+	auto integrator = RMIntegrator(magfield, gasdenisty);
+	auto ptr_skymap = std::make_shared<RMSkymap>(RMSkymap(4));
+	std::array<QAngle,2> direction;
+
+	integrator.set_skymap(ptr_skymap);
+	integrator.compute();
+	
+	for (long ipix = 0; ipix < ptr_skymap->size(); ++ipix) {
+		pixel = ptr_skymap->getPixel(ipix);
+		direction = pix2ang_ring(4, ipix);
+		// the galactic centre should give > 0
+		if (fabs(direction[0]) < 1_deg && fabs(direction[1]) < 1_deg)
+			EXPECT_GT(pixel.getValue(), 1);
+		else
+			EXPECT_EQ(pixel.getValue(), 0);
+	}
 }
 
 int main(int argc, char **argv) {

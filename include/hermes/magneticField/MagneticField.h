@@ -24,8 +24,8 @@ class MagneticField {
 public:
 	virtual ~MagneticField() {
 	}
-	virtual Vector3MField getField(const Vector3Length &position) const {
-		return Vector3MField(0_muG);
+	virtual Vector3QMField getField(const Vector3QLength &position) const {
+		return Vector3QMField(0_muG);
 	};
 };
 
@@ -35,20 +35,20 @@ public:
  */
 class PeriodicMagneticField: public MagneticField {
 	std::shared_ptr<MagneticField> field;
-	Vector3Length origin, extends;
+	Vector3QLength origin, extends;
 	bool reflective;
 public:
 	PeriodicMagneticField(std::shared_ptr<MagneticField> field,
-			const Vector3Length &extends);
-	PeriodicMagneticField(std::shared_ptr<MagneticField> field, const Vector3Length &extends,
-			const Vector3Length &origin, bool reflective);
-	Vector3Length &getOrigin();
-	void setOrigin(const Vector3Length &origin);
-	Vector3Length &getExtends();
-	void setExtends(const Vector3Length &origin);
+			const Vector3QLength &extends);
+	PeriodicMagneticField(std::shared_ptr<MagneticField> field, const Vector3QLength &extends,
+			const Vector3QLength &origin, bool reflective);
+	Vector3QLength &getOrigin();
+	void setOrigin(const Vector3QLength &origin);
+	Vector3QLength &getExtends();
+	void setExtends(const Vector3QLength &origin);
 	bool isReflective();
 	void setReflective(bool reflective);
-	Vector3MField getField(const Vector3Length &position) const;
+	Vector3QMField getField(const Vector3QLength &position) const;
 };
 
 /**
@@ -59,7 +59,7 @@ class MagneticFieldList: public MagneticField {
 	std::vector<std::shared_ptr<MagneticField> > fields;
 public:
 	void addField(std::shared_ptr<MagneticField> field);
-	Vector3MField getField(const Vector3Length &position) const;
+	Vector3QMField getField(const Vector3QLength &position) const;
 };
 
 /**
@@ -67,12 +67,12 @@ public:
  @brief Magnetic field with one B-field vector.
  */
 class UniformMagneticField: public MagneticField {
-	Vector3MField value;
+	Vector3QMField value;
 public:
-	UniformMagneticField(const Vector3MField &value) :
+	UniformMagneticField(const Vector3QMField &value) :
 			value(value) {
 	}
-	Vector3MField getField(const Vector3Length &position) const {
+	Vector3QMField getField(const Vector3QLength &position) const {
 		return value;
 	}
 };
