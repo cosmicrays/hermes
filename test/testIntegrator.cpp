@@ -33,24 +33,6 @@ TEST(Integrator, MagneticField) {
 	EXPECT_EQ((magfield.getField(pos)).getX(), 1_T);
 }
 
-TEST(Integrator, HelperFunctions) {
-	auto magfield = std::make_shared<TestMagneticField>(TestMagneticField());
-	auto gasdenisty = std::make_shared<TestGasDensity>(TestGasDensity());
-	auto integrator = RMIntegrator(magfield, gasdenisty);
-	
-	QAngle theta(0);
-	QAngle phi(0);
-	QLength r(1_kpc);
-	
-	EXPECT_EQ(sphericalToCartesian(r,theta,phi).getValue(),
-		Vector3QLength(0_kpc,0_kpc,1_kpc).getValue()
-	);
-
-	EXPECT_EQ(integrator.offsetSunToGC(sphericalToCartesian(r,theta,phi)).getValue(),
-		Vector3QLength(8.5_kpc,0_kpc,1_kpc).getValue()
-	);
-}
-
 TEST(Integrator, Orientation) {
 	QRotationMeasure pixel;
 	auto magfield = std::make_shared<TestMagneticField>(TestMagneticField());

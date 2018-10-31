@@ -59,8 +59,8 @@ LITERAL(QFrequency, _MHz, mega*hertz)
 
 // magnetic field strength
 BASELITERAL(QMField, _T)
-LITERAL(QMField, _muG, micro*gauss)
-LITERAL(QMField, _nG, nano*gauss)
+LITERAL(QMField, _muG, microgauss)
+LITERAL(QMField, _nG, nanogauss)
 
 // literals for time units
 BASELITERAL(QTime, _s)

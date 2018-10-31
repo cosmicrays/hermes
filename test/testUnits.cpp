@@ -10,6 +10,13 @@ TEST(UnitsBasic, LengthOperations) {
 	EXPECT_EQ(z, 2303.2_m);
 }
 
+TEST(UnitsBasic, Angles) {
+	QAngle omega(2_pi);
+
+	EXPECT_EQ(omega, 360_deg);
+	EXPECT_EQ(omega - 270_deg, pi/2.*radian);
+}
+
 TEST(UnitsDerived, Derived) {
 	QEnergy E(10.0_J);
 	QPressure P(5.0_Pa);

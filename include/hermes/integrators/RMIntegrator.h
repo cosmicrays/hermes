@@ -21,7 +21,7 @@ public:
 	~RMIntegrator();
 
 	void set_output();
-	RMSkymap::tPixel integral(tDirection iterdir);
+	RMSkymap::tPixel integral(QDirection iterdir);
 };
 
 } // namespace hermes

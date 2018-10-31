@@ -128,6 +128,8 @@ constexpr QLength millimetre = mili *metre;
 constexpr QLength kilometre = kilo * metre;
 
 // Predefined magnetic field-derived units
+constexpr QMField microgauss = micro * gauss;
+constexpr QMField nanogauss = nano * gauss;
 
 } // namespace hermes
 

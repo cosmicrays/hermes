@@ -10,37 +10,26 @@ RMIntegrator::RMIntegrator(const std::shared_ptr<MagneticField> mfield,
 
 RMIntegrator::~RMIntegrator() { }
 
-RMSkymap::tPixel RMIntegrator::integral(tDirection dir) {
-
+RMSkymap::tPixel RMIntegrator::integral(QDirection direction) {
 	constexpr auto const_a0 = pow<3>(e_plus)/(8*pi*pi*epsilon0*squared(m_electron)*pow<3>(c_light));
-	Vector3QLength pos(0_m);
-	QLength delta_d = 10.0_pc;
+	Vector3QLength positionSun(8.5_kpc, 0, 0);
+	Vector3QLength pos(0.0);
+	
+	// TODO: quick hack > implement generic coordinate system transformations
+	direction[1] = pi*radian-direction[1]; // rotate for JF12 (tmp)
 
-	//double dtr = 1.0;
-	dir[1] = pi*radian-dir[1]; // rotate for JF12 (tmp)
-	//auto bdeg = dir[0]/dtr;
-	//auto ldeg = dir[1]/dtr;
+	// distance from the (spherical) galactic border in the given direction
+	QLength maxDistance = distanceToGalBorder(positionSun, direction);
 
 	QRotationMeasure sum(0);
+	QLength delta_d = 10.0_pc;
+	// TODO: implement sophisticated adaptive integration method :-)
+	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
+		pos.setRThetaPhi(dist, direction[0], direction[1]);
+		pos += positionSun;
 
-	for(QLength dist = 0.0_pc; dist <= 30.0_kpc; dist += delta_d) {
-
-		//QLength R = distanceFromGC(dir, dist);
-		Vector3QLength pos = offsetSunToGC(sphericalToCartesian(dist, dir[0], dir[1]));
-
-              	//Vector3QLength Sun_pos(0_kpc);
-		//Sun_pos.x = -8.5_kpc;
-		//pos += Sun_pos;
-		// 	x = (R_sun > 0) ? R_sun - d * cos(b) * cos(l) : R_sun + d * cos(b) * cos(l);
-		//	y = d * cos(b) * sin(l);
-		//	z = d * sin(b);
-
-		// integrate \int_0^\infty dd I(l,b,d) -> \Delta d \sum_i I_i(x, y, z <- l, b, d)
-	
-		//std::cout << (mfield->getField(pos).getR()).getValue() << std::endl;
 		sum += (const_a0 * mfield->getField(pos).getR() * gdensity->getDensity(pos) * delta_d);
 	}
-
 	return sum;
 }
 

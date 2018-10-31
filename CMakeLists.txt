@@ -78,6 +78,10 @@ if(ENABLE_TESTING)
         target_link_libraries(testUnits hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testUnits testUnits)
         
+        add_executable(testCommon test/testCommon.cpp)
+        target_link_libraries(testCommon hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+        add_test(testCommon testCommon)
+
 	add_executable(testHEALPix test/testHEALPix.cpp)
         target_link_libraries(testHEALPix hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testHEALPix testHEALPix)

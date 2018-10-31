@@ -48,7 +48,7 @@ private:
 	QLength wHalo, z0;      // transistion width and vertical scale height
 	// poloidal halo
 	QMField bX;             // field strength at origin
-	double thetaX0;        // constant elevation angle at r > rXc, z = 0
+	QAngle thetaX0;        // constant elevation angle at r > rXc, z = 0
 	double sinThetaX0, cosThetaX0, tanThetaX0;
 	QLength rXc;            // radius of varying elevation angle region
 	QLength rX;             // exponential scale height

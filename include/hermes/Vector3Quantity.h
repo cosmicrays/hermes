@@ -41,6 +41,10 @@ public:
 	Vector3Quantity(const Vector3Quantity<U> &v) :
 			x(v.x), y(v.y), z(v.z) {
 	}
+	
+	explicit Vector3Quantity(const int *v) :
+			x(v[0]), y(v[1]), z(v[2]) {
+	}
 
 	explicit Vector3Quantity(const double *v) :
 			x(v[0]), y(v[1]), z(v[2]) {
@@ -62,7 +66,7 @@ public:
 		return Vector3d(x.getValue(), y.getValue(), z.getValue());
 	}
 
-	void setRThetaPhi(const T r, const T theta, const T phi) {
+	void setRThetaPhi(const T r, const QAngle theta, const QAngle phi) {
 		x = r * sin(theta) * cos(phi);
 		y = r * sin(theta) * sin(phi);
 		z = r * cos(theta);
@@ -118,7 +122,7 @@ public:
 
 	// return the angle [0, pi] between the vectors
 	QAngle getAngleTo(const Vector3Quantity<T> &v) const {
-		T cosdistance = dot(v) / v.getR() / getR();
+		double cosdistance = (dot(v) / v.getR() / getR()).getValue();
 		// In some directions cosdistance is > 1 on some compilers
 		// This ensures that the correct result is returned
 		if (cosdistance >= 1.)
@@ -178,7 +182,7 @@ public:
 	}
 
 	// dot product
-	T dot(const Vector3Quantity<T> &v) const {
+	auto dot(const Vector3Quantity<T> &v) const {
 		return x * v.x + y * v.y + z * v.z;
 	}
 

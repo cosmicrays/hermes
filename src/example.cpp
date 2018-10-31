@@ -15,17 +15,11 @@ public:
 
 void playground() {
 
-	QEnergy E;
-	Vector3QMField B(1.0_muG);
-	Vector3QLength vec_x(1.0_kpc);
+	auto B = Vector3QMField(1_muG, 0_muG, 0_muG);
+	auto ptr_ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 
-	//UniformMagneticField UField = UniformMagneticField(B);
-	
-	auto ptr_skymap = std::make_shared<RMSkymap>(RMSkymap(20));
-	std::shared_ptr<Skymap> ptr_skymap_2;
-
-	ptr_skymap_2 = ptr_skymap;
-
+	int nside = 32;	
+	auto ptr_skymap = std::make_shared<RMSkymap>(RMSkymap(nside));
 	auto ptr_JF12 = std::make_shared<JF12Field>(JF12Field());
 	auto ptr_Gas = std::make_shared<HII_Cordes91>(HII_Cordes91());
 	//auto ptr_Gas = std::make_shared<TestGasDensity>(TestGasDensity());
