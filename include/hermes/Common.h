@@ -39,11 +39,10 @@ namespace hermes {
 		Vector3QLength vecSunToGalBorder;
 	        vecSunToGalBorder.setRThetaPhi(1_m, direction[0], direction[1]);
 
-	        int sign = 1;
         	QLength a = (positionSun-positionGC).getR();
 	        QLength c = galacticBorder;
         	QAngle gamma = vecSunToGalBorder.getAngleTo(positionSun-positionGC);
-	        return (2*a*cos(gamma) + sign*std::sqrt(2)*sqrt(2*c*c - a*a + a*a*cos(2*gamma)))/2.0;
+	        return (2*a*cos(gamma) + std::sqrt(2)*sqrt(2*c*c - a*a + a*a*cos(2*gamma)))/2.0;
 	}
 
 } // namespace hermes

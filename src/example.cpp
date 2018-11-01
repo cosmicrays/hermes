@@ -18,7 +18,7 @@ void playground() {
 	auto B = Vector3QMField(1_muG, 0_muG, 0_muG);
 	auto ptr_ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 
-	int nside = 32;	
+	int nside = 16;	
 	auto ptr_skymap = std::make_shared<RMSkymap>(RMSkymap(nside));
 	auto ptr_JF12 = std::make_shared<JF12Field>(JF12Field());
 	auto ptr_Gas = std::make_shared<HII_Cordes91>(HII_Cordes91());

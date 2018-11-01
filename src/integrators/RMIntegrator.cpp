@@ -15,11 +15,11 @@ RMSkymap::tPixel RMIntegrator::integral(QDirection direction) {
 	Vector3QLength positionSun(8.5_kpc, 0, 0);
 	Vector3QLength pos(0.0);
 	
-	// TODO: quick hack > implement generic coordinate system transformations
-	direction[1] = pi*radian-direction[1]; // rotate for JF12 (tmp)
-
 	// distance from the (spherical) galactic border in the given direction
 	QLength maxDistance = distanceToGalBorder(positionSun, direction);
+
+	// TODO: quick hack > implement generic coordinate system transformations
+	direction[1] = pi*radian-direction[1]; // rotate for JF12 (tmp)
 
 	QRotationMeasure sum(0);
 	QLength delta_d = 10.0_pc;

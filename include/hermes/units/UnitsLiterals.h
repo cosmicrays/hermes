@@ -18,7 +18,7 @@ namespace hermes {
 		return static_cast<double>(x)*_UNIT; }
 
 // Conversion macro, which utilizes the string literals
-#define ConvertTo(_x, _y) (_x).Convert(1.0_##_y)
+#define ConvertTo(_x, _y) (_x).convertTo(1.0_##_y)
 #define ToSIValue(_x) (_x).getValue()
 
 // Angular unit literals:

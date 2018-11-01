@@ -40,7 +40,7 @@ public:
     }
 
     // Returns the value of the quantity in multiples of the specified unit
-    constexpr double Convert(const Quantity& rhs) const {
+    constexpr double convertTo(const Quantity& rhs) const {
         return value / rhs.value;
     }
 
