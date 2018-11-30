@@ -10,6 +10,18 @@ set(HERMES_EXTRA_LIBRARIES)
 # ----------------------------------------------------------------------------
 # Dependencies
 # ----------------------------------------------------------------------------
+
+# GSL required dependency
+#include(FindGSL)
+find_package(GSL REQUIRED)
+if(GSL_FOUND)
+	list(APPEND HERMES_EXTRA_INCLUDES ${GSL_INCLUDE_DIRS})
+	list(APPEND HERMES_EXTRA_LIBRARIES ${GSL_LIBRARIES})
+else(GSL_FOUND)
+	return()
+endif(GSL_FOUND)
+
+
 # googletest (provided, see https://code.google.com/p/googletest/wiki/FAQ
 #     Why is it not recommended use a pre-compiled copy of Google Test?)
 option(ENABLE_TESTING "Build tests and enable test target" ON)
@@ -24,7 +36,7 @@ endif(ENABLE_TESTING)
 # OpenMP (optional for shared memory multiprocessing)
 option(ENABLE_OPENMP "OpenMP for multithreading" ON)
 if(ENABLE_OPENMP)
-include(FindOpenMP)
+find_package(OpenMP)
         if(OPENMP_FOUND)
                 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
                 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
@@ -35,10 +47,11 @@ endif(ENABLE_OPENMP)
 # CFITSIO (optional for FITS output format)
 option(ENABLE_CFITSIO "CFITSIO for FITS output" ON)
 if(ENABLE_CFITSIO)
-include(FindCFITSIO)
+find_package(CFITSIO)
         if(CFITSIO_FOUND)
                 list(APPEND HERMES_EXTRA_INCLUDES ${CFITSIO_INCLUDE_DIR})
                 list(APPEND HERMES_EXTRA_LIBRARIES ${CFITSIO_LIBRARIES})
+		add_definitions(-DHERMES_HAVE_CFITSIO)
         endif(CFITSIO_FOUND)
 endif(ENABLE_CFITSIO)
 

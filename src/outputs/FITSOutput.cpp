@@ -1,3 +1,5 @@
+#ifdef HERMES_HAVE_CFITSIO
+
 #include "hermes/outputs/FITSOutput.h"
 
 #include <iostream>
@@ -89,3 +91,5 @@ void FITSOutput::save(std::shared_ptr<Skymap> skymap) {
 }
 
 } // namespace hermes
+
+#endif // HERMES_HAVE_CFITSIO

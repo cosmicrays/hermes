@@ -3,6 +3,8 @@
 #include <iostream>
 #include <memory>
 
+#include <gsl/gsl_sf_synchrotron.h>
+
 namespace hermes {
 
 class TestGasDensity: public GasDensity {
@@ -23,16 +25,24 @@ void playground() {
 	auto ptr_JF12 = std::make_shared<JF12Field>(JF12Field());
 	auto ptr_Gas = std::make_shared<HII_Cordes91>(HII_Cordes91());
 	//auto ptr_Gas = std::make_shared<TestGasDensity>(TestGasDensity());
-	auto ptr_output = std::make_shared<FITSOutput>(FITSOutput("!example.fits.gz"));
 
 	RMIntegrator RM = RMIntegrator(ptr_JF12, ptr_Gas);
 	RM.set_skymap(ptr_skymap);
+/*
 	RM.compute();
-
+*/
+#ifdef HERMES_HAVE_CFITSIO
+	auto ptr_output = std::make_shared<FITSOutput>(FITSOutput("!example.fits.gz"));
 	ptr_output->save(
 		ptr_skymap
 	);
+#endif // HERMES_HAVE_CFITSIO
 
+// https://www.gnu.org/software/gsl/manual/html_node/Synchrotron-Functions.html
+// http://iopscience.iop.org/article/10.1088/1674-4527/13/6/007#
+	double x = 5.0;
+	double y = gsl_sf_synchrotron_1(x);
+	std::cout << y << std::endl;
 	
 }
 

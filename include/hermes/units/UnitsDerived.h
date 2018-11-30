@@ -23,9 +23,10 @@ QUANTITY_TYPE(3, 0, 0, 0, 0, 0, 0, 0, QVolume);
 QUANTITY_TYPE(1, -1, 0, 0, 0, 0, 0, 0, QSpeed);
 QUANTITY_TYPE(1, -2, 0, 0, 0, 0, 0, 0, QAcceleration);
 QUANTITY_TYPE(-3, 0, 0, 0, 0, 0, 0, 0, QPDensity);
-QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 0, QRotationMeasure);
+QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 1, QRotationMeasure);
 
 // Predefined derived units:
+// doc: https://en.wikipedia.org/wiki/SI_derived_unit
 constexpr QForce	newton(1.0);
 constexpr QPressure	pascal(1.0);
 constexpr QEnergy	joule(1.0);

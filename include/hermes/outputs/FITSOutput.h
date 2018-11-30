@@ -1,3 +1,5 @@
+#ifdef HERMES_HAVE_CFITSIO
+
 #ifndef HERMES_FITSOUTPUT_H
 #define HERMES_FITSOUTPUT_H
 
@@ -23,3 +25,5 @@ public:
 } // namespace hermes
 
 #endif // HERMES_FITSOUTPUT_H
+
+#endif // HERMES_HAVE_CFITSIO

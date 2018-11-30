@@ -28,7 +28,7 @@ RMSkymap::tPixel RMIntegrator::integral(QDirection direction) {
 		pos.setRThetaPhi(dist, direction[0], direction[1]);
 		pos += positionSun;
 
-		sum += (const_a0 * mfield->getField(pos).getR() * gdensity->getDensity(pos) * delta_d);
+		sum += (const_a0 * mfield->getField(pos).getR() * gdensity->getDensity(pos) * delta_d) * radian;
 	}
 	return sum;
 }
