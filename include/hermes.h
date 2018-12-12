@@ -12,8 +12,10 @@
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapTemplate.h"
 #include "hermes/skymaps/RMSkymap.h"
+#include "hermes/skymaps/SynchroSkymap.h"
 #include "hermes/integrators/Integrator.h"
 #include "hermes/integrators/RMIntegrator.h"
+#include "hermes/integrators/SynchroIntegrator.h"
 
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/magneticField/MagneticFieldGrid.h"

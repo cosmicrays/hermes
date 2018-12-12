@@ -26,6 +26,7 @@ void playground() {
 	auto ptr_Gas = std::make_shared<HII_Cordes91>(HII_Cordes91());
 	//auto ptr_Gas = std::make_shared<TestGasDensity>(TestGasDensity());
 
+
 	RMIntegrator RM = RMIntegrator(ptr_JF12, ptr_Gas);
 	RM.set_skymap(ptr_skymap);
 /*
@@ -38,12 +39,6 @@ void playground() {
 	);
 #endif // HERMES_HAVE_CFITSIO
 
-// https://www.gnu.org/software/gsl/manual/html_node/Synchrotron-Functions.html
-// http://iopscience.iop.org/article/10.1088/1674-4527/13/6/007#
-	double x = 5.0;
-	double y = gsl_sf_synchrotron_1(x);
-	std::cout << y << std::endl;
-	
 }
 
 } // namespace hermes
