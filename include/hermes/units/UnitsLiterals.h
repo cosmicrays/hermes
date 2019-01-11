@@ -46,6 +46,9 @@ LITERAL(QVolume, _cm3, pow<3>(centimetre))
 
 // literals for energy units
 LITERAL(QEnergy, _J, joule)
+LITERAL(QEnergy, _eV, electronvolt)
+LITERAL(QEnergy, _GeV, giga*electronvolt)
+LITERAL(QEnergy, _TeV, tera*electronvolt)
 
 // literals for speed units
 BASELITERAL(QSpeed, _mps)
@@ -56,6 +59,8 @@ LITERAL(QSpeed, _kmph, kilometre/hour)
 BASELITERAL(QFrequency, _Hz)
 LITERAL(QFrequency, _kHz, kilo*hertz)
 LITERAL(QFrequency, _MHz, mega*hertz)
+LITERAL(QFrequency, _GHz, giga*hertz)
+LITERAL(QFrequency, _THz, tera*hertz)
 
 // magnetic field strength
 BASELITERAL(QMField, _T)

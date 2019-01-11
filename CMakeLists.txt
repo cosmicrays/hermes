@@ -69,10 +69,12 @@ add_library(hermes SHARED
 	src/HEALPix.cpp
 	src/integrators/Integrator.cpp
 	src/integrators/RMIntegrator.cpp
+	src/integrators/SynchroIntegrator.cpp
 	src/magneticField/JF12Field.cpp
 	src/magneticField/MagneticField.cpp
 	src/magneticField/MagneticFieldGrid.cpp
 	src/gasDensity/HII_Cordes91.cpp
+	src/cosmicRayDensity/SimpleCRDensity.cpp
 	src/outputs/FITSOutput.cpp
 	${HERMES_EXTRA_SOURCES}
 )

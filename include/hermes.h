@@ -24,6 +24,9 @@
 #include "hermes/gasDensity/GasDensity.h"
 #include "hermes/gasDensity/HII_Cordes91.h"
 
+#include "hermes/cosmicRayDensity/CosmicRayDensity.h"
+#include "hermes/cosmicRayDensity/SimpleCRDensity.h"
+
 #include "hermes/outputs/Output.h"
 #include "hermes/outputs/FITSOutput.h"
 

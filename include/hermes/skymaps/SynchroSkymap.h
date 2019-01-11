@@ -5,7 +5,7 @@
 
 namespace hermes {
 
-typedef SkymapTemplate<QEnergy> SynchroSkymap;
+typedef SkymapTemplate<QIntensity> SynchroSkymap;
 
 } // namespace hermes
 

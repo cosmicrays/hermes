@@ -6,6 +6,7 @@
 
 #include <ratio>
 #include <cmath>
+#include <ostream>
 
 namespace hermes {
 
@@ -18,8 +19,7 @@ template<typename LengthDim,
 	 typename SubstanceDim,
 	 typename LIntensityDim,
 	 typename AngleDim>
-class Quantity
-{
+class Quantity {
 private:
     double value;
 
@@ -49,6 +49,14 @@ public:
         return value;
     }
 };
+
+// print Quantity to ostream
+template<typename l, typename t, typename m, typename I, typename T,
+         typename N, typename J, typename A>
+constexpr std::ostream& operator<<(std::ostream& lhs, const Quantity<l, t, m, I, T, N, J, A>& rhs) {
+    lhs << rhs.getValue();
+    return lhs;
+}
 
 // Standard arithmetic operators:
 // ------------------------------
@@ -313,6 +321,9 @@ constexpr double pi = 3.1415926535897932384626433832795;
 
 inline double exp(const QNumber &num) {
     return std::exp(num.getValue());
+}
+inline double log(const QNumber &num) {
+    return std::log(num.getValue());
 }
 
 // Typesafe trigonometric operations

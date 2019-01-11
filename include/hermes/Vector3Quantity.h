@@ -180,7 +180,7 @@ public:
 	T max() const {
 		return std::max(x, std::max(y, z));
 	}
-
+	
 	// dot product
 	auto dot(const Vector3Quantity<T> &v) const {
 		return x * v.x + y * v.y + z * v.z;
@@ -341,7 +341,6 @@ template<typename Q>
 inline Vector3Quantity<Q> operator *(const Vector3Quantity<Q> &q, const double a) {
 	return Vector3Quantity<Q>(q.x * a, q.y * a, q.z * a);
 }
-
 
 typedef Vector3Quantity<QLength> Vector3QLength;
 typedef Vector3Quantity<QMField> Vector3QMField;

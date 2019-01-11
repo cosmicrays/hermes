@@ -45,6 +45,13 @@ namespace hermes {
 	        return (2*a*cos(gamma) + std::sqrt(2)*sqrt(2*c*c - a*a + a*a*cos(2*gamma)))/2.0;
 	}
 
+	/**
+	 	Calculate the Lorentz factor (gamma) from a particle mass and energy
+	*/
+	inline QNumber getLorentzFactor(QMass m, QEnergy E) {
+	        return E / (m * c_squared);
+	}
+
 } // namespace hermes
 
 #endif // HERMES_COMMON_H
