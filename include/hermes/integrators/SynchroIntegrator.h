@@ -20,12 +20,13 @@ private:
 public:
 	SynchroIntegrator(
 		const std::shared_ptr<MagneticField> mfield,
-		const std::shared_ptr<CosmicRayDensity> crdensity,
-		QFrequency freq);
+		const std::shared_ptr<CosmicRayDensity> crdensity);
 	~SynchroIntegrator();
 
 	void set_output();
-	SynchroSkymap::tPixel integral(QDirection iterdir);
+	SynchroSkymap::tPixel integrateOverLOS(QDirection iterdir);
+	QTemperature intensityToTemperature(QIntensity intensity);
+	QEmissivity integrateOverEnergy(Vector3QLength pos, QFrequency freq);
 };
 
 } // namespace hermes

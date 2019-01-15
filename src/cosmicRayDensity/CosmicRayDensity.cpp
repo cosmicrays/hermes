@@ -27,7 +27,7 @@ void SimpleCRDensity::makeEnergyRange() {
 
 QPDensityPerEnergy SimpleCRDensity::getDensityPerEnergy(const Vector3QLength& pos, const QEnergy& E_) const {
 	constexpr int alpha = 3;
-	auto Phi0 = 0.1 / (1_GeV * 1_cm*1_cm * 1_s * c_light) * 4_pi; 
+	auto Phi0 = 0.1 / (1_GeV * 1_cm*1_cm * 1_s * c_light); 
 	auto E0 = 1_GeV;
 	auto E_cutoff = 5_TeV;
 
@@ -36,5 +36,22 @@ QPDensityPerEnergy SimpleCRDensity::getDensityPerEnergy(const Vector3QLength& po
 
 	return profile * spectrum;
 }
+
+SimpleCRDensity::iterator SimpleCRDensity::begin() {
+        return energyRange.begin();
+}
+
+SimpleCRDensity::const_iterator SimpleCRDensity::begin() const {
+        return energyRange.begin();
+}
+
+SimpleCRDensity::iterator SimpleCRDensity::end() {
+        return energyRange.end();
+}
+
+SimpleCRDensity::const_iterator SimpleCRDensity::end() const {
+        return energyRange.end();
+}
+
 
 } // namespace hermes

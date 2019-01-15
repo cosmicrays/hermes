@@ -5,7 +5,22 @@
 
 namespace hermes {
 
-typedef SkymapTemplate<QIntensity> SynchroSkymap;
+class SynchroSkymap: public SkymapTemplate<QTemperature> {
+private:
+	QFrequency freq;
+public:
+	SynchroSkymap(std::size_t nside_, QFrequency freq_) {
+		setNside(nside_);
+		setFrequency(freq_);
+		initContainer();
+	}
+	void setFrequency(QFrequency freq_) {
+		freq = freq_;
+	}
+	QFrequency getFrequency() {
+		return freq;
+	}
+};
 
 } // namespace hermes
 

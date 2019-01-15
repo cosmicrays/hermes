@@ -33,7 +33,7 @@ public:
  		Every child class should implement this method which provides an expression
 		of a given direction prepared for the integration
 	*/
-	virtual typename T::tPixel integral(QDirection iterdir) = 0;
+	virtual typename T::tPixel integrateOverLOS(QDirection iterdir) = 0;
 
 	inline void compute() {
 		unsigned long ipix;
@@ -49,7 +49,7 @@ public:
 #pragma omp parallel for schedule(OMP_SCHEDULE)
 			for (ipix = 0; ipix < working_skymap->size(); ++ipix) {
 				iterdir = pix2ang_ring(working_skymap->getNside(), ipix);
-				working_skymap->updatePixel(ipix, integral(iterdir));
+				working_skymap->updatePixel(ipix, integrateOverLOS(iterdir));
 			}
 	
 		}

@@ -104,5 +104,9 @@ if(ENABLE_TESTING)
 	add_executable(testIntegrator test/testIntegrator.cpp)
         target_link_libraries(testIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testIntegrator testIntegrator)
+	
+	add_executable(testSynchroIntegrator test/testSynchroIntegrator.cpp)
+	target_link_libraries(testSynchroIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testSynchroIntegrator testSynchroIntegrator)
 
 endif(ENABLE_TESTING)

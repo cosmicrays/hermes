@@ -43,6 +43,7 @@ LITERAL(QLength, _kpc, kilo*parsec)
 
 // literals for volume units
 LITERAL(QVolume, _cm3, pow<3>(centimetre))
+LITERAL(QVolume, _m3, pow<3>(metre))
 
 // literals for energy units
 LITERAL(QEnergy, _J, joule)

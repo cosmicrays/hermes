@@ -18,20 +18,21 @@ public:
 void playground() {
 
 	// cosmic ray density model
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity(1_GeV, 1e4_GeV, 10));
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity(1_GeV, 1e4_GeV, 5));
 
 
 	auto B = Vector3QMField(1_muG, 0_muG, 0_muG);
 	auto ptr_ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 	auto ptr_JF12 = std::make_shared<JF12Field>(JF12Field());
 
-	auto pos = Vector3QLength(1_pc);
-	std::cout << ptr_ufield->getField(pos).getPerpendicularTo(pos) << std::endl;
+	//auto pos = Vector3QLength(1_pc);
 
-	auto synchro = SynchroIntegrator(ptr_JF12, simpleModel, 1_GHz);
+	auto synchro = SynchroIntegrator(ptr_JF12, simpleModel);
 
-	int nside = 16;	
-	auto ptr_skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside));
+	std::cerr << gsl_sf_synchrotron_1(1e-10) << std::endl;
+
+	int nside = 18;	
+	auto ptr_skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
 	synchro.set_skymap(ptr_skymap);
 	synchro.compute();
 

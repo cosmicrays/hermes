@@ -14,9 +14,10 @@ template <typename Q>
 class SkymapTemplate: public Skymap {
 public:
 	typedef Q tPixel;
-private:
+protected:
 	typedef std::vector<tPixel> tFluxContainer;
 	mutable tFluxContainer fluxContainer;
+	void initContainer();
 public:
 	explicit SkymapTemplate(std::size_t nside = 32);
 	~SkymapTemplate();
@@ -38,10 +39,15 @@ public:
 /* Definitions */
 
 template <typename Q>
-SkymapTemplate<Q>::SkymapTemplate(std::size_t nside) {
-	setNside(nside);
+void SkymapTemplate<Q>::initContainer() {
 	fluxContainer.reserve(npix);
 	fluxContainer.insert(fluxContainer.begin(), npix, 0.0);
+}
+
+template <typename Q>
+SkymapTemplate<Q>::SkymapTemplate(std::size_t nside_) {
+	setNside(nside_);
+	initContainer();
 }
 
 template <typename Q>

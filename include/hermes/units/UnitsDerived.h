@@ -25,6 +25,7 @@ QUANTITY_TYPE( 1,-2, 0, 0, 0, 0, 0, 0, QAcceleration);
 QUANTITY_TYPE(-3, 0, 0, 0, 0, 0, 0, 0, QPDensity);
 QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 1, QRotationMeasure);
 QUANTITY_TYPE(-5, 2,-1, 0, 0, 0, 0, 0, QPDensityPerEnergy);
+QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, QEmissivity);
 QUANTITY_TYPE( 0,-2, 1, 0, 0, 0, 0, 0, QIntensity);
 
 // Predefined derived units:
