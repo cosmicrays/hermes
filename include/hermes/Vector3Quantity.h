@@ -341,9 +341,19 @@ template<typename Q>
 inline Vector3Quantity<Q> operator *(const Vector3Quantity<Q> &q, const double a) {
 	return Vector3Quantity<Q>(q.x * a, q.y * a, q.z * a);
 }
+template<typename Q>
+inline Vector3Quantity<Q> operator *(const Vector3Quantity<Q> &q, const QNumber &a) {
+	return Vector3Quantity<Q>(q.x * a, q.y * a, q.z * a);
+}
 
+typedef Vector3Quantity<QNumber> Vector3QNumber;
 typedef Vector3Quantity<QLength> Vector3QLength;
 typedef Vector3Quantity<QMField> Vector3QMField;
+
+template<typename T>
+inline Vector3QMField operator *(const Vector3<T> &q, const QMField &a) {
+	return Vector3QMField(q.x * a, q.y * a, q.z * a);
+}
 
 /** @}*/
 } // namespace hermes

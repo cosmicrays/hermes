@@ -1,9 +1,9 @@
-#ifndef CRPROPA_PSHIRKOVFIELD_H
-#define CRPROPA_PSHIRKOVFIELD_H
+#ifndef HERMES_PSHIRKOVFIELD_H
+#define HERMES_PSHIRKOVFIELD_H
 
-#include "crpropa/magneticField/MagneticField.h"
+#include "hermes/magneticField/MagneticField.h"
 
-namespace crpropa {
+namespace hermes {
 
 /**
  @class PshirkovField
@@ -26,20 +26,21 @@ private:
 	bool useHalo; // switch for halo field
 
 	// disk parameters
-	double pitch, cos_pitch, sin_pitch, PHI, cos_PHI;  // pitch angle parameters
-	double d;     // distance to first field reversal
-	double R_sun; // distance between sun and galactic center
-	double R_c;   // radius of central region
-	double z0_D;    // vertical thickness in the galactic disk
-	double B0_D;    // magnetic field scale
+	QAngle pitch, PHI;
+	QNumber cos_pitch, sin_pitch, cos_PHI;  // pitch angle parameters
+	QLength d;     // distance to first field reversal
+	QLength R_sun; // distance between sun and galactic center
+	QLength R_c;   // radius of central region
+	QLength z0_D;    // vertical thickness in the galactic disk
+	QMField B0_D;    // magnetic field scale
 
 	// halo parameters
-	double z0_H;  // halo vertical position
-	double R0_H;  // halo radial position
-	double B0_Hn; // halo magnetic field scale (north)
-	double B0_Hs; // halo magnetic field scale (south)
-	double z11_H; // halo vertical thickness towards disc
-	double z12_H; // halo vertical thickness off the disk
+	QLength z0_H;  // halo vertical position
+	QLength R0_H;  // halo radial position
+	QMField B0_Hn; // halo magnetic field scale (north)
+	QMField B0_Hs; // halo magnetic field scale (south)
+	QLength z11_H; // halo vertical thickness towards disc
+	QLength z12_H; // halo vertical thickness off the disk
 
 	void SetParams();
 
@@ -54,9 +55,9 @@ public:
 	bool isUsingBSS();
 	bool isUsingHalo();
 
-	Vector3d getField(const Vector3d& pos) const;
+	Vector3QMField getField(const Vector3QLength& pos) const;
 };
 
-} // namespace crpropa
+} // namespace hermes
 
-#endif // CRPROPA_PSHIRKOVFIELD_H
+#endif // HERMES_PSHIRKOVFIELD_H

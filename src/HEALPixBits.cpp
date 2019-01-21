@@ -1,4 +1,4 @@
-#include "hermes/HEALPix.h"
+#include "hermes/HEALPixBits.h"
 
 namespace hermes {
 

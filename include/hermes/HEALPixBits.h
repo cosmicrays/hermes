@@ -1,5 +1,5 @@
-#ifndef HERMES_HEALPIX_H
-#define HERMES_HEALPIX_H
+#ifndef HERMES_HEALPIXBITS_H
+#define HERMES_HEALPIXBITS_H
 
 #include "hermes/Units.h"
 
@@ -19,4 +19,4 @@ long loc2pix(long _nside, double z, double phi, double sth, bool have_sth);
 
 } // namespace hermes
 
-#endif // HERMES_HEALPIX_H
+#endif // HERMES_HEALPIXBITS_H

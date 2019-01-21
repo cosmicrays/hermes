@@ -45,15 +45,15 @@ find_package(OpenMP)
 endif(ENABLE_OPENMP)
 
 # CFITSIO (optional for FITS output format)
-option(ENABLE_CFITSIO "CFITSIO for FITS output" ON)
-if(ENABLE_CFITSIO)
-find_package(CFITSIO)
-        if(CFITSIO_FOUND)
+#option(ENABLE_CFITSIO "CFITSIO for FITS output" ON)
+#if(ENABLE_CFITSIO)
+	find_package(CFITSIO REQUIRED)
+	#        if(CFITSIO_FOUND)
                 list(APPEND HERMES_EXTRA_INCLUDES ${CFITSIO_INCLUDE_DIR})
                 list(APPEND HERMES_EXTRA_LIBRARIES ${CFITSIO_LIBRARIES})
 		add_definitions(-DHERMES_HAVE_CFITSIO)
-        endif(CFITSIO_FOUND)
-endif(ENABLE_CFITSIO)
+		#endif(CFITSIO_FOUND)
+		#endif(ENABLE_CFITSIO)
 
 # ----------------------------------------------------------------------------
 # Library and Binary
@@ -66,15 +66,18 @@ include_directories(include ${HERMES_EXTRA_INCLUDES})
 
 add_library(hermes SHARED
 	src/Random.cpp
-	src/HEALPix.cpp
+	src/HEALPixBits.cpp
+	src/FITSWrapper.cpp
 	src/integrators/Integrator.cpp
 	src/integrators/RMIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
 	src/magneticField/JF12Field.cpp
+	src/magneticField/PT11Field.cpp
 	src/magneticField/MagneticField.cpp
 	src/magneticField/MagneticFieldGrid.cpp
 	src/gasDensity/HII_Cordes91.cpp
 	src/cosmicRayDensity/SimpleCRDensity.cpp
+	src/cosmicRayDensity/DragonCRDensity.cpp
 	src/outputs/FITSOutput.cpp
 	${HERMES_EXTRA_SOURCES}
 )
@@ -100,10 +103,14 @@ if(ENABLE_TESTING)
 	add_executable(testHEALPix test/testHEALPix.cpp)
         target_link_libraries(testHEALPix hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testHEALPix testHEALPix)
+	
+	add_executable(testFITS test/testFITS.cpp)
+	target_link_libraries(testFITS hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testFITS testFITS)
 
-	add_executable(testIntegrator test/testIntegrator.cpp)
-        target_link_libraries(testIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
-        add_test(testIntegrator testIntegrator)
+	add_executable(testRMIntegrator test/testRMIntegrator.cpp)
+	target_link_libraries(testRMIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testRMIntegrator testRMIntegrator)
 	
 	add_executable(testSynchroIntegrator test/testSynchroIntegrator.cpp)
 	target_link_libraries(testSynchroIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})

@@ -3,7 +3,7 @@
 
 #include "hermes/Units.h"
 #include "hermes/Grid.h"
-#include "hermes/HEALPix.h"
+#include "hermes/HEALPixBits.h"
 #include "hermes/Common.h"
 
 #if _OPENMP

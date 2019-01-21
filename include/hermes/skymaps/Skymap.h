@@ -1,7 +1,7 @@
 #ifndef HERMES_SKYMAP_H
 #define HERMES_SKYMAP_H
 
-#include "hermes/HEALPix.h"
+#include "hermes/HEALPixBits.h"
 //#include "hermes/outputs/Output.h"
 
 #include <memory>
