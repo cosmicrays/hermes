@@ -12,16 +12,14 @@
 
 namespace hermes {
 
-class RMIntegrator: public Integrator<RMSkymap> {
+class RMIntegrator: public IntegratorTemplate<QRotationMeasure> {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<GasDensity> gdensity;
 public:
 	RMIntegrator(const std::shared_ptr<MagneticField> mfield, const std::shared_ptr<GasDensity> gdensity);
 	~RMIntegrator();
-
-	void set_output();
-	RMSkymap::tPixel integrateOverLOS(QDirection iterdir);
+	QRotationMeasure integrateOverLOS(QDirection iterdir);
 };
 
 } // namespace hermes

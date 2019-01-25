@@ -37,15 +37,15 @@ TEST(Integrator, Orientation) {
 	QRotationMeasure pixel;
 	auto magfield = std::make_shared<TestMagneticField>(TestMagneticField());
 	auto gasdenisty = std::make_shared<TestGasDensity>(TestGasDensity());
-	auto integrator = RMIntegrator(magfield, gasdenisty);
-	auto ptr_skymap = std::make_shared<RMSkymap>(RMSkymap(4));
+	auto integrator = std::make_shared<RMIntegrator>(RMIntegrator(magfield, gasdenisty));
+	auto skymap = std::make_shared<RMSkymap>(RMSkymap(4));
 	std::array<QAngle,2> direction;
 
-	integrator.set_skymap(ptr_skymap);
-	integrator.compute();
-	
-	for (long ipix = 0; ipix < ptr_skymap->size(); ++ipix) {
-		pixel = ptr_skymap->getPixel(ipix);
+	skymap->setIntegrator(integrator);
+	skymap->compute();
+
+	for (long ipix = 0; ipix < skymap->getSize(); ++ipix) {
+		pixel = skymap->getPixel(ipix);
 		direction = pix2ang_ring(4, ipix);
 		// the galactic centre should give > 0
 		if (fabs(direction[0]) < 1_deg && fabs(direction[1]) < 1_deg)

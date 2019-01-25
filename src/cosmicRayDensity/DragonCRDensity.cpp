@@ -8,8 +8,6 @@
 #include <string>
 #include <vector>
 
-#include "fitsio.h"
-
 namespace hermes {
 
 DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_)
@@ -19,13 +17,14 @@ DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_)
 }
 
 QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(const Vector3QLength& pos, const QEnergy& E_) const {
-    	// HERE WE SHOULD PUT SOME KIND OF INTERPOLATION
+    	return 0;
+	// HERE WE SHOULD PUT SOME KIND OF INTERPOLATION
 }
 
 void DragonCRDensity::readHeaderFromFITS() {
 	ffile = std::make_unique<FITSFile>(FITSFile(filename)); 
   
-	ffile->openFile(read);
+	ffile->openFile(FITS::READ);
 	ffile->moveToHDU(1);
 
 	readEnergyAxis();
@@ -89,10 +88,10 @@ void DragonCRDensity::readDensityFromFITS() {
     
 	int Z = 0, A = 0;
 
-	long nElements = r.size() * z.size() * y.size();
+	long nElements = E.size() * r.size() * z.size() * y.size();
 	//nElements *= (do3D) ? y.size() : 1;
     
-	std::unique_ptr<std::vector<float> > densityForE;
+	std::unique_ptr<std::vector<float> > density;
 	
     	auto hduNumber = ffile->getNumberOfHDUs();
     
@@ -113,8 +112,9 @@ void DragonCRDensity::readDensityFromFITS() {
 	
 			std::cout << "... reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual << std::endl;
 	
-			densityForE = ffile->readImageAsFloat(firstElement, nElements);
-	
+			density = ffile->readImageAsFloat(firstElement, nElements);
+//  inline int index (int J, int K, int L) { return ((J)*nr+(K))*nz+(L); }
+//  inline int index (int I, int J, int K, int L) { return ((J*ny+K)*nz+L)*nE+I; }	
 			counterInd = 0;
 	
 			// HERE WE ADD readingCrDensityVec TO A 2D or 3D grid, consider that there could be MORE THAN 1 HDUs

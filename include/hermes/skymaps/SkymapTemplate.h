@@ -2,7 +2,13 @@
 #define HERMES_SKYMAPTEMP_H
 
 #include "hermes/Units.h"
+#include "hermes/integrators/Integrator.h"
 #include "hermes/skymaps/Skymap.h"
+
+#if _OPENMP
+#include <omp.h>
+#define OMP_SCHEDULE static,100
+#endif
 
 #include <memory>
 #include <vector>
@@ -12,20 +18,34 @@ namespace hermes {
 
 template <typename Q>
 class SkymapTemplate: public Skymap {
-public:
-	typedef Q tPixel;
 protected:
+	typedef Q tPixel;
+	QDirection iterdir;
+	
 	typedef std::vector<tPixel> tFluxContainer;
 	mutable tFluxContainer fluxContainer;
 	void initContainer();
+	std::shared_ptr<IntegratorTemplate<Q> > integrator;
 public:
-	explicit SkymapTemplate(std::size_t nside = 32);
+	SkymapTemplate(std::size_t nside = 32);
 	~SkymapTemplate();
-	std::size_t size() const;
-	double operator[](std::size_t i) const;
-	void updatePixel(std::size_t i, tPixel value);
-	Q getPixel(std::size_t i) const;
-	void print();
+	
+	std::size_t getSize() const;
+	double operator[](std::size_t ipix) const;
+	Q getPixel(std::size_t ipix) const;
+
+	void setIntegrator(std::shared_ptr<IntegratorTemplate<Q> > integrator_);
+	void setOutput();
+	
+	//TODO: mask-vector
+	void printPixels();
+	virtual void computePixel(
+			std::size_t ipix,
+			std::shared_ptr<IntegratorTemplate<Q> > integrator_);
+	void compute();
+	
+	/** output **/
+	void save(std::shared_ptr<Output> output) const;
 
         /** iterator goodies */
         typedef typename tFluxContainer::iterator iterator;
@@ -45,8 +65,7 @@ void SkymapTemplate<Q>::initContainer() {
 }
 
 template <typename Q>
-SkymapTemplate<Q>::SkymapTemplate(std::size_t nside_) {
-	setNside(nside_);
+SkymapTemplate<Q>::SkymapTemplate(std::size_t nside_) : Skymap(nside_) {
 	initContainer();
 }
 
@@ -56,7 +75,7 @@ SkymapTemplate<Q>::~SkymapTemplate() {
 }
 
 template <typename Q>
-std::size_t SkymapTemplate<Q>::size() const {
+std::size_t SkymapTemplate<Q>::getSize() const {
 	return fluxContainer.size();
 }
 
@@ -71,14 +90,53 @@ double SkymapTemplate<Q>::operator[](std::size_t i) const {
 }
 
 template <typename Q>
-void SkymapTemplate<Q>::updatePixel(std::size_t i, tPixel value) {
-	fluxContainer[i] = value;
+void SkymapTemplate<Q>::printPixels() {
+	for (auto i: fluxContainer)
+		std::cout << i.getValue() << ' ';
 }
 
 template <typename Q>
-void SkymapTemplate<Q>::print() {
-	for (auto i: fluxContainer)
-		std::cout << i.getValue() << ' ';
+void SkymapTemplate<Q>::setIntegrator(
+		std::shared_ptr<IntegratorTemplate<Q> > integrator_) {
+	integrator = integrator_;
+}
+
+template <typename Q>
+void SkymapTemplate<Q>::computePixel(
+		std::size_t ipix,
+		std::shared_ptr<IntegratorTemplate<Q> > integrator_) {
+	iterdir = pix2ang_ring(getNside(), ipix);
+	fluxContainer[ipix] = integrator->integrateOverLOS(iterdir);
+}
+
+template <typename Q>
+void SkymapTemplate<Q>::compute() {
+#if _OPENMP
+       	std::cout << "hermes::Integrator: Number of Threads: " << omp_get_max_threads() << std::endl;
+#endif
+	if(integrator == nullptr)
+		// TODO: transform to exception
+		std::cout << "Provide an integrator with the setIntegrator() method" << std::endl;
+	else {
+#pragma omp parallel for schedule(OMP_SCHEDULE)
+		for (std::size_t ipix = 0; ipix < getSize(); ++ipix)
+			computePixel(ipix, integrator);
+		
+	}
+}
+
+template <typename Q>
+void SkymapTemplate<Q>::save(std::shared_ptr<Output> output) const {
+	
+	output->initOutput();
+	output->createTable(static_cast<int>(npix));
+	output->writeMetadata(nside, res, description);
+
+	float tempArray[npix] = {0};
+	for (unsigned long i = 0; i < npix; ++i)
+		tempArray[i] = static_cast<float>(fluxContainer[i].getValue());
+
+	output->writeColumn(npix, tempArray);
 }
 
 template <typename Q>

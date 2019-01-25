@@ -3,8 +3,9 @@
 #ifndef HERMES_FITSOUTPUT_H
 #define HERMES_FITSOUTPUT_H
 
-#include "hermes/FITSWrapper.h"
 #include "hermes/outputs/Output.h"
+#include "hermes/FITSWrapper.h"
+#include <memory>
 
 namespace hermes {
 
@@ -12,10 +13,13 @@ namespace hermes {
 class FITSOutput: public Output {
 private:
 	std::string filename;
-	fitsfile *fptr = 0;
+	std::unique_ptr<FITSFile> ffile;
 public:
 	FITSOutput(const std::string &filename);
-	virtual void save(std::shared_ptr<Skymap> skymap);
+	void initOutput();
+	void createTable(int nrows);
+	void writeMetadata(int nside, double res, const std::string &description);
+	void writeColumn(int nElements, void *array);
 };
 
 } // namespace hermes

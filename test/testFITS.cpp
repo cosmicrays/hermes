@@ -5,7 +5,7 @@
 
 namespace hermes {
 
-TEST(FITS, testFITSValue) {
+TEST(FITS, testFITSKeyValue) {
 	std::string str = "xtension";
 	auto fstr = FITSKeyValue("EXTNAME", str);
 	EXPECT_EQ(fstr.getType(), TSTRING);
@@ -28,7 +28,7 @@ TEST(FITS, testFITSValue) {
 TEST(FITS, createDeleteFile) {
 	auto ffile = std::make_unique<FITSFile>(FITSFile("!testFITSNewFile.fits"));
 	long int nullnaxes[1] = {1};
-
+	
 	ffile->createFile();
 	ffile->createImage(FLOAT_IMG, 1, nullnaxes);
 	ffile->deleteFile();
@@ -37,14 +37,47 @@ TEST(FITS, createDeleteFile) {
 TEST(FITS, setGetKey) {
 	auto ffile = std::make_unique<FITSFile>(FITSFile("!testFITSNewFile.fits"));
 	long int nullnaxes[1] = {1};
+	float nullArray[1] = {0};
 
+	// Create a file with some keywords	
 	ffile->createFile();
 	ffile->createImage(FLOAT_IMG, 1, nullnaxes);
-	auto kv = FITSKeyValue("EXTNAME", "xtension");
-	ffile->writeKeyValue(kv, "Some comment");
-	//auto str = ffile->readKeyValue("EXTNAME", TSTRING);
-	//EXPECT_EQ(str.getValueAsString(), kv.getValueAsString());
-	//ffile->deleteFile();
+	ffile->writeImage(FITS::FLOAT, 1, 1, nullArray);
+	
+	long tfields = 1;
+	int nrows = (int) (20);
+	char* ttype[] = { (char*)("TFLOAT") };
+	char* tform[] = { (char*)("1E") };
+	char* tunit[] = { (char*)("nothing") };
+	const char extname[] = "xtension";
+
+	ffile->createTable(BINARY_TBL, nrows, tfields, ttype, tform, tunit, extname);
+	ffile->writeDate();
+
+	auto str_type = FITSKeyValue("PIXTYPE", "HEALPIX");
+	ffile->writeKeyValue(str_type, "HEALPIX Pixelisation");
+	auto ext_str = FITSKeyValue("EXTNAME", "xtension");
+	ffile->writeKeyValue(ext_str, "Name of this binary table extension");
+	auto ordering = FITSKeyValue("ORDERING", "RING    ");
+	ffile->writeKeyValue(ordering, "Pixel ordering scheme, either RING or NESTED");
+	auto f_nside = FITSKeyValue("NSIDE", 16);
+	ffile->writeKeyValue(f_nside, "Resolution parameter for HEALPIX");
+	
+	ffile->closeFile();
+	EXPECT_EQ(ffile->getStatus(), 0);
+
+	// Open it again
+	auto new_ffile = std::make_unique<FITSFile>(FITSFile("testFITSNewFile.fits"));
+	new_ffile->openFile(FITS::READ);
+	new_ffile->moveToHDU(2);
+	
+	EXPECT_EQ(new_ffile->getHDUType(), FITS::BINARY);
+
+	std::string new_ext_str = new_ffile->readKeyValueAsString("EXTNAME");
+	EXPECT_EQ(ext_str.getValueAsString(), new_ext_str);
+	int new_f_nside = new_ffile->readKeyValueAsInt("NSIDE");
+	EXPECT_EQ(f_nside.getValueAsInt(), new_f_nside);
+	new_ffile->deleteFile();
 }
 
 int main(int argc, char **argv) {

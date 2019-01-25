@@ -10,10 +10,13 @@
 #include "hermes/HEALPixBits.h"
 #include "hermes/FITSWrapper.h"
 #include "hermes/Common.h"
+
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapTemplate.h"
 #include "hermes/skymaps/RMSkymap.h"
 #include "hermes/skymaps/SynchroSkymap.h"
+#include "hermes/skymaps/SynchroSkymapRange.h"
+
 #include "hermes/integrators/Integrator.h"
 #include "hermes/integrators/RMIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"

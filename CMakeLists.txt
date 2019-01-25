@@ -45,15 +45,15 @@ find_package(OpenMP)
 endif(ENABLE_OPENMP)
 
 # CFITSIO (optional for FITS output format)
-#option(ENABLE_CFITSIO "CFITSIO for FITS output" ON)
-#if(ENABLE_CFITSIO)
+option(ENABLE_CFITSIO "CFITSIO for FITS output" ON)
+if(ENABLE_CFITSIO)
 	find_package(CFITSIO REQUIRED)
-	#        if(CFITSIO_FOUND)
+	if(CFITSIO_FOUND)
                 list(APPEND HERMES_EXTRA_INCLUDES ${CFITSIO_INCLUDE_DIR})
                 list(APPEND HERMES_EXTRA_LIBRARIES ${CFITSIO_LIBRARIES})
 		add_definitions(-DHERMES_HAVE_CFITSIO)
-		#endif(CFITSIO_FOUND)
-		#endif(ENABLE_CFITSIO)
+	endif(CFITSIO_FOUND)
+endif(ENABLE_CFITSIO)
 
 # ----------------------------------------------------------------------------
 # Library and Binary
@@ -68,6 +68,8 @@ add_library(hermes SHARED
 	src/Random.cpp
 	src/HEALPixBits.cpp
 	src/FITSWrapper.cpp
+	src/skymaps/Skymap.cpp
+	src/skymaps/SynchroSkymapRange.cpp
 	src/integrators/Integrator.cpp
 	src/integrators/RMIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp

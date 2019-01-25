@@ -2,7 +2,6 @@
 #define HERMES_SYNCHROINTEGRATOR_H
 
 #include "hermes/Units.h"
-#include "hermes/skymaps/SynchroSkymap.h"
 #include "hermes/integrators/Integrator.h"
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
@@ -12,21 +11,22 @@
 
 namespace hermes {
 
-class SynchroIntegrator: public Integrator<SynchroSkymap> {
+class SynchroIntegrator: public IntegratorTemplate<QTemperature> {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<CosmicRayDensity> crdensity;
-	QFrequency freq;
 public:
 	SynchroIntegrator(
 		const std::shared_ptr<MagneticField> mfield,
 		const std::shared_ptr<CosmicRayDensity> crdensity);
 	~SynchroIntegrator();
 
-	void set_output();
-	SynchroSkymap::tPixel integrateOverLOS(QDirection iterdir);
-	QTemperature intensityToTemperature(QIntensity intensity);
-	QEmissivity integrateOverEnergy(Vector3QLength pos, QFrequency freq);
+	QTemperature integrateOverLOS(QDirection iterdir_);
+	QTemperature integrateOverLOS(QDirection iterdir_, QFrequency freq_);
+	QTemperature intensityToTemperature(
+			QIntensity intensity_, QFrequency freq_);
+	QEmissivity integrateOverEnergy(
+			Vector3QLength pos, QFrequency freq_);
 };
 
 } // namespace hermes

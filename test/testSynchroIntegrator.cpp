@@ -47,15 +47,26 @@ TEST(Integrator, integrateOverEnergy) {
 	auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
         auto mfield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 
-	auto integrator = SynchroIntegrator(mfield, crdensity);
-	auto ptr_skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(4, 1_MHz));
+	auto integrator = std::make_shared<SynchroIntegrator>(SynchroIntegrator(mfield, crdensity));
 
-	integrator.set_skymap(ptr_skymap);
-	QEmissivity emissivity = integrator.integrateOverEnergy(
+	QEmissivity emissivity = integrator->integrateOverEnergy(
 			Vector3QLength(1_pc,0,0),
-			ptr_skymap->getFrequency());
+			1_MHz);
 
 	EXPECT_NEAR(emissivity.getValue(), 3.91e-55, 2e-56); // J/m^3
+}
+
+TEST(Integrator, intensityToTemperature) {
+	auto B = Vector3QMField(0, 0, 1_muG);
+	auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
+        auto mfield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
+	auto integrator = std::make_shared<SynchroIntegrator>(SynchroIntegrator(mfield, crdensity));
+
+	// T = I * c^2 / (2 * nu^2 * k_boltzmann)
+	QIntensity intensity(1);
+	QTemperature temp = integrator->intensityToTemperature(intensity, 1_Hz);
+
+	EXPECT_NEAR(temp.getValue(), 3.2548e39, 1e36);
 }
 
 int main(int argc, char **argv) {
