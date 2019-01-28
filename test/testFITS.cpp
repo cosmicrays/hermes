@@ -8,19 +8,19 @@ namespace hermes {
 TEST(FITS, testFITSKeyValue) {
 	std::string str = "xtension";
 	auto fstr = FITSKeyValue("EXTNAME", str);
-	EXPECT_EQ(fstr.getType(), TSTRING);
+	EXPECT_EQ(fstr.getType(), FITS::STRING);
 	EXPECT_EQ(static_cast<std::string>(fstr.getKey()), "EXTNAME");
 	EXPECT_EQ(fstr.getValueAsString(), str);
 
 	int nside = 16;
 	auto fint = FITSKeyValue("NSIDE", nside);
-	EXPECT_EQ(fint.getType(), TINT);
+	EXPECT_EQ(fint.getType(), FITS::INT);
 	EXPECT_EQ(static_cast<std::string>(fint.getKey()), "NSIDE");
 	EXPECT_EQ(fint.getValueAsInt(), nside);
 	
 	double mypi = 3.14;
 	auto fdouble = std::make_unique<FITSKeyValue>(FITSKeyValue("PI", mypi));
-	EXPECT_EQ(fdouble->getType(), TDOUBLE);
+	EXPECT_EQ(fdouble->getType(), FITS::DOUBLE);
 	EXPECT_EQ(static_cast<std::string>(fdouble->getKey()), "PI");
 	EXPECT_EQ(fdouble->getValueAsDouble(), mypi);
 }
@@ -30,7 +30,7 @@ TEST(FITS, createDeleteFile) {
 	long int nullnaxes[1] = {1};
 	
 	ffile->createFile();
-	ffile->createImage(FLOAT_IMG, 1, nullnaxes);
+	ffile->createImage(FITS::IMGFLOAT, 1, nullnaxes);
 	ffile->deleteFile();
 }
 
@@ -41,7 +41,7 @@ TEST(FITS, setGetKey) {
 
 	// Create a file with some keywords	
 	ffile->createFile();
-	ffile->createImage(FLOAT_IMG, 1, nullnaxes);
+	ffile->createImage(FITS::IMGFLOAT, 1, nullnaxes);
 	ffile->writeImage(FITS::FLOAT, 1, 1, nullArray);
 	
 	long tfields = 1;
@@ -51,7 +51,7 @@ TEST(FITS, setGetKey) {
 	char* tunit[] = { (char*)("nothing") };
 	const char extname[] = "xtension";
 
-	ffile->createTable(BINARY_TBL, nrows, tfields, ttype, tform, tunit, extname);
+	ffile->createTable(FITS::BINARY, nrows, tfields, ttype, tform, tunit, extname);
 	ffile->writeDate();
 
 	auto str_type = FITSKeyValue("PIXTYPE", "HEALPIX");
@@ -67,6 +67,7 @@ TEST(FITS, setGetKey) {
 	EXPECT_EQ(ffile->getStatus(), 0);
 
 	// Open it again
+	
 	auto new_ffile = std::make_unique<FITSFile>(FITSFile("testFITSNewFile.fits"));
 	new_ffile->openFile(FITS::READ);
 	new_ffile->moveToHDU(2);

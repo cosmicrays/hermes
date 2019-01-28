@@ -7,10 +7,11 @@
 
 namespace hermes {
 
-FITSFile::FITSFile(const std::string &filename_) : filename(filename_) { };
+FITSFile::FITSFile(const std::string &filename_) : filename(filename_) {
+};
 
 FITSFile::~FITSFile() {
-	if (status != 0 || fptr != nullptr)
+	if (status != 0)
 		closeFile();
 }
 
@@ -31,7 +32,7 @@ void FITSFile::deleteFile() {
 }
 
 void FITSFile::openFile(FITS::IOMode ioMode) {
-	if (fits_open_file(&fptr, filename.c_str(), static_cast<int>(ioMode), &status))
+	if (fits_open_file(&fptr, filename.c_str(), ioMode, &status))
                 fits_report_error(stderr, status);
         if (status != 0)
                 throw std::runtime_error("Cannot open file.");
@@ -46,9 +47,9 @@ void FITSFile::closeFile() {
 
 /* HDU-related operations */
 
-void FITSFile::moveToHDU(int hduNumber) {
+void FITSFile::moveToHDU(int hduNumber_) {
 	int readHDUType;
-	if (fits_movabs_hdu(fptr, hduNumber, &readHDUType, &status)) 
+	if (fits_movabs_hdu(fptr, hduNumber_, &readHDUType, &status)) 
                 fits_report_error(stderr, status);
         if (status != 0)
                 throw std::runtime_error("Cannot move to the specified HDU.");
@@ -79,17 +80,6 @@ FITS::HDUType FITSFile::intToHDUType(int hduType_) {
 		case ASCII_TBL : return FITS::ASCII;
 		case BINARY_TBL : return FITS::BINARY;
 		default : throw std::runtime_error("Unknown HDU type!");
-	}
-}
-
-int FITSFile::HDUDataTypeToInt(FITS::DataType dataType_) {
-	switch (dataType_) {
-		case FITS::INT : return TINT;
-		case FITS::LONG : return TLONG;
-		case FITS::FLOAT : return TFLOAT;
-		case FITS::DOUBLE : return TDOUBLE;
-		case FITS::STRING : return TSTRING;
-		default : throw std::runtime_error("Unknown FITS data type!");
 	}
 }
 
@@ -167,8 +157,8 @@ FITSKeyValue FITSFile::readKeyValue(std::string key_, FITS::DataType type_) {
 
 /* Image-related operations */
 
-void FITSFile::createImage(int bitpix, int naxis, long *naxes) {
-	if (fits_create_img(fptr, bitpix, naxis, naxes, &status))
+void FITSFile::createImage(FITS::ImgType bitpix, int naxis, long *naxes) {
+	if (fits_create_img(fptr, static_cast<int>(bitpix), naxis, naxes, &status))
 		fits_report_error(stderr, status);
         if (status != 0)
                 throw std::runtime_error("Cannot create image in FITS file.");
@@ -176,7 +166,7 @@ void FITSFile::createImage(int bitpix, int naxis, long *naxes) {
 
 void FITSFile::writeImage(FITS::DataType dataType, int firstElement,
 		int nElements, void *array) {	
-	if (fits_write_img(fptr, HDUDataTypeToInt(dataType), firstElement, nElements, array, &status))
+	if (fits_write_img(fptr, static_cast<int>(dataType), firstElement, nElements, array, &status))
 		fits_report_error(stderr, status);
         if (status != 0)
                 throw std::runtime_error("Cannot write image in FITS file.");
@@ -201,7 +191,7 @@ std::unique_ptr<std::vector<float> > FITSFile::readImageAsFloat(int firstElement
 	return resultArray; 
 }
 
-void FITSFile::createTable(int tableType, long int nRows, int nColumns, char *columnName[],
+void FITSFile::createTable(FITS::HDUType tableType, long int nRows, int nColumns, char *columnName[],
 		char *columnType[], char *columnUnit[], const char *tableName) {
 	if (fits_create_tbl(fptr, tableType, nRows, nColumns,
 	    columnName, columnType, columnUnit, tableName, &status))
@@ -213,7 +203,7 @@ void FITSFile::createTable(int tableType, long int nRows, int nColumns, char *co
 
 void FITSFile::writeColumn(FITS::DataType dataType, int column, long int firstRow, long int firstElement,
 		long int nElements, void *array) {
-	if(fits_write_col(fptr, HDUDataTypeToInt(dataType), column, firstRow, firstElement, nElements,
+	if(fits_write_col(fptr, static_cast<int>(dataType), column, firstRow, firstElement, nElements,
 				array, &status))
 		fits_report_error(stderr, status);
         if (status != 0)

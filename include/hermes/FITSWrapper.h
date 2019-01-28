@@ -17,6 +17,8 @@ namespace FITS {
 	enum IOMode {READ = READONLY, WRITE = READWRITE};
 	enum HDUType {IMAGE = IMAGE_HDU, ASCII = ASCII_TBL,
 		BINARY = BINARY_TBL};
+	enum ImgType {IMGBYTE = BYTE_IMG, IMGSHORT = SHORT_IMG,
+		IMGFLOAT = FLOAT_IMG, IMGDOUBLE = DOUBLE_IMG};
 }
 
 struct FITSKeyValue {
@@ -95,7 +97,6 @@ private:
 	
 	FITS::HDUType hduType = FITS::IMAGE; 
 	FITS::HDUType intToHDUType(int hduType_);
-	int HDUDataTypeToInt(FITS::DataType dataType_);
 public:
 	FITSFile(const std::string &filename_);
 	~FITSFile();
@@ -129,12 +130,12 @@ public:
 	};
 
 	/* Image-related operations */
-	void createImage(int bitpix, int naxis, long *naxes);
+	void createImage(FITS::ImgType bitpix, int naxis, long *naxes);
 	void writeImage(FITS::DataType dtype, int firstElement,
 			int nElements, void *array);
 	std::unique_ptr<std::vector<float> > readImageAsFloat(int firstElement, int nElements);
 
-	void createTable(int tableType, long int nRows, int nColumns, char *columnName[],
+	void createTable(FITS::HDUType, long int nRows, int nColumns, char *columnName[],
                 char *columnType[], char *columnUnit[], const char *tableName);
 	void writeDate();
 	void writeColumn(FITS::DataType dataType, int column, long int firstRow,

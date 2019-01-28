@@ -18,12 +18,11 @@ void FITSOutput::initOutput() {
 	ffile->createFile();
 
 
-	int bitpix = FLOAT_IMG; // DOUBLE_IMG;
 	int firstElem = 1;
 	long int nullnaxes[1] = {1};
 	float nullArray[1] = {0};
 	
-	ffile->createImage(bitpix, 1, nullnaxes);
+	ffile->createImage(FITS::IMGFLOAT, 1, nullnaxes);
 	ffile->writeImage(FITS::FLOAT, 1, 1, nullArray);
 }
 
@@ -38,7 +37,7 @@ void FITSOutput::createTable(int nrows) {
 	char* tunit[] = { (char*)("nothing") };
 	const char extname[] = "xtension";
 
-	ffile->createTable(BINARY_TBL, nrows, tfields, ttype, tform, tunit, extname);
+	ffile->createTable(FITS::BINARY, nrows, tfields, ttype, tform, tunit, extname);
 
 	ffile->writeDate();
 }
