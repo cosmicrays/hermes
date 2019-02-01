@@ -25,8 +25,8 @@ public:
 		energyRange.push_back(E_c+2_eV);
 	}
 	// dn/dE is delta-function reproduce F(1) \approx 0.655
-        QPDensityPerEnergy getDensityPerEnergy(const Vector3QLength &pos, const QEnergy &E) const {
-		if (E == E_c)
+        QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const {
+		if (E_ == E_c)
 			return 1.0 / (1_m3 * 1_J);
 		else
 			return 0;

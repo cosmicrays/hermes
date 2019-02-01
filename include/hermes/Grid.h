@@ -1,9 +1,16 @@
+/* Grid.h
+ * Adapted from CRPropa3
+ * https://crpropa.desy.de/
+ */
+
 #ifndef HERMES_GRID_H
 #define HERMES_GRID_H
 
 #include "hermes/Vector3.h"
 #include "hermes/Vector3Quantity.h"
 #include <vector>
+#include <memory>
+#include <algorithm>
 
 namespace hermes {
 
@@ -45,10 +52,11 @@ class Grid {
 	size_t Nx, Ny, Nz; /**< Number of grid points */
 	Vector3d origin; /**< Origin of the volume that is represented by the grid. */
 	Vector3d gridOrigin; /**< Grid origin */
-	double spacing; /**< Distance between grid points, determines the extension of the grid */
+	Vector3d spacing; /**< Distance between grid points, determines the extension of the grid */
 	bool reflective; /**< If set to true, the grid is repeated reflectively instead of periodically */
 
 public:
+
 	/** Constructor for cubic grid
 	 @param	origin	Position of the lower left front corner of the volume
 	 @param	N		Number of grid points in one direction
@@ -57,7 +65,7 @@ public:
 	Grid(Vector3d origin, size_t N, double spacing) {
 		setOrigin(origin);
 		setGridSize(N, N, N);
-		setSpacing(spacing);
+		setSpacing(Vector3d(spacing));
 		setReflective(false);
 	}
 
@@ -71,13 +79,27 @@ public:
 	Grid(Vector3d origin, size_t Nx, size_t Ny, size_t Nz, double spacing) {
 		setOrigin(origin);
 		setGridSize(Nx, Ny, Nz);
-		setSpacing(spacing);
+		setSpacing(Vector3d(spacing));
 		setReflective(false);
 	}
+	
+	/** Constructor for non-cubic grid with spacing vector
+	@param	origin	Position of the lower left front corner of the volume
+	 @param	Nx		Number of grid points in x-direction
+	 @param	Ny		Number of grid points in y-direction
+	 @param	Nz		Number of grid points in z-direction
+	 @param spacing	Spacing vector between grid points
+	*/
+	 Grid(Vector3d origin, size_t Nx, size_t Ny, size_t Nz, Vector3d spacing) {
+	 	setOrigin(origin);
+	 	setGridSize(Nx, Ny, Nz);
+	 	setSpacing(spacing);
+	 	setReflective(false);
+	} 
 
 	void setOrigin(Vector3d origin) {
 		this->origin = origin;
-		this->gridOrigin = origin + Vector3d(spacing/2);
+		this->gridOrigin = origin + spacing/2;
 	}
 
 	/** Resize grid, also enlarges the volume as the spacing stays constant */
@@ -88,16 +110,37 @@ public:
 		grid.resize(Nx * Ny * Nz);
 		setOrigin(origin);
 	}
+	
+	size_t getGridSize() const {
+		return grid.size();
+	}
 
-	void setSpacing(double spacing) {
+	void setSpacing(Vector3d spacing) {
 		this->spacing = spacing;
 		setOrigin(origin);
+	}
+
+	Vector3d getSpacing() const {
+		return spacing;
 	}
 
 	void setReflective(bool b) {
 		reflective = b;
 	}
 
+	void setVector(const std::vector<float> &v) {
+		std::transform(
+			v.begin(), v.end(), grid.begin(),
+			[](const float i) { return static_cast<T>(i); });
+	}
+
+	void addVector(std::unique_ptr<std::vector<T> > v2) {
+		std::transform(
+			v2->begin(), v2->end(),
+			grid.begin(), grid.begin(),
+			[](T el1, T el2) { return (el1+el2); });
+	}
+	
 	Vector3d getOrigin() const {
 		return origin;
 	}
@@ -111,10 +154,6 @@ public:
 
 	size_t getNz() const {
 		return Nz;
-	}
-
-	double getSpacing() const {
-		return spacing;
 	}
 
 	bool isReflective() const {
@@ -222,6 +261,7 @@ public:
 };
 
 typedef Grid<float> ScalarGrid;
+typedef Grid<QPDensityPerEnergy> ScalarGridQPDensityPerEnergy;
 typedef Grid<Vector3f> VectorGrid;
 typedef Grid<Vector3QLength> VectorQLengthGrid;
 typedef Grid<Vector3QMField> VectorQMFieldGrid;

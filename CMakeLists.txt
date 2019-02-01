@@ -68,6 +68,7 @@ add_library(hermes SHARED
 	src/Random.cpp
 	src/HEALPixBits.cpp
 	src/FITSWrapper.cpp
+	src/ProgressBar.cpp
 	src/skymaps/Skymap.cpp
 	src/skymaps/SynchroSkymapRange.cpp
 	src/integrators/Integrator.cpp

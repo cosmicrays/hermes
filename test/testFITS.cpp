@@ -39,7 +39,7 @@ TEST(FITS, setGetKey) {
 	long int nullnaxes[1] = {1};
 	float nullArray[1] = {0};
 
-	// Create a file with some keywords	
+	// Create a file with some keywords and data	
 	ffile->createFile();
 	ffile->createImage(FITS::IMGFLOAT, 1, nullnaxes);
 	ffile->writeImage(FITS::FLOAT, 1, 1, nullArray);
@@ -62,6 +62,14 @@ TEST(FITS, setGetKey) {
 	ffile->writeKeyValue(ordering, "Pixel ordering scheme, either RING or NESTED");
 	auto f_nside = FITSKeyValue("NSIDE", 16);
 	ffile->writeKeyValue(f_nside, "Resolution parameter for HEALPIX");
+
+	long int naxes[10] = { 1 };
+	float smallImg[100] = { 0 };
+	smallImg[0] = 137;
+	smallImg[99] = 42;
+	naxes[0] = 100;
+	ffile->createImage(FITS::IMGFLOAT, 1, naxes);
+	ffile->writeImage(FITS::FLOAT, 1, 100, smallImg);
 	
 	ffile->closeFile();
 	EXPECT_EQ(ffile->getStatus(), 0);
@@ -78,6 +86,13 @@ TEST(FITS, setGetKey) {
 	EXPECT_EQ(ext_str.getValueAsString(), new_ext_str);
 	int new_f_nside = new_ffile->readKeyValueAsInt("NSIDE");
 	EXPECT_EQ(f_nside.getValueAsInt(), new_f_nside);
+	
+	new_ffile->moveToHDU(3);
+
+	auto imgVec = new_ffile->readImageAsFloat(1, 100);
+	EXPECT_EQ(imgVec[0], 137);
+	EXPECT_EQ(imgVec[99], 42);
+	
 	new_ffile->deleteFile();
 }
 

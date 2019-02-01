@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 namespace hermes {
 
@@ -14,11 +15,6 @@ DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_)
     : filename(filename_), pid(pid_) {
     readHeaderFromFITS();
     readDensityFromFITS();
-}
-
-QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(const Vector3QLength& pos, const QEnergy& E_) const {
-    	return 0;
-	// HERE WE SHOULD PUT SOME KIND OF INTERPOLATION
 }
 
 void DragonCRDensity::readHeaderFromFITS() {
@@ -31,74 +27,84 @@ void DragonCRDensity::readHeaderFromFITS() {
 	readSpatialGrid();
 }
 
+QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
+		const QEnergy &E_, const Vector3QLength& pos_) const {
+    	return (grid[getIndexOfE(E_)])->interpolate(pos_);
+}
+
+
+
 void DragonCRDensity::readEnergyAxis() {
     
 	double Ekmin = ffile->readKeyValueAsDouble("Ekmin");
 	double Ekfact = ffile->readKeyValueAsDouble("Ekin_fac");
 	int nE = ffile->readKeyValueAsInt("dimE");
-	
+
+	// input files are in GeV	
 	for (int i = 0; i < nE; ++i) {
     		energyRange.push_back(std::exp(std::log(Ekmin) +
-					static_cast<double>(i) * std::log(Ekfact)) * 1_eV); 
+			static_cast<double>(i) * std::log(Ekfact)) * 1_GeV); 
 	}
 }
 
 void DragonCRDensity::readSpatialGrid() {
-   	int nr, ny, nz;
 
-	double rmax = ffile->readKeyValueAsDouble("rmax");
-	double zmin = ffile->readKeyValueAsDouble("zmin");
-	double zmax = ffile->readKeyValueAsDouble("zmax");
-	int dimr = ffile->readKeyValueAsInt("dimr");
-	int dimz = ffile->readKeyValueAsInt("dimz");
-	int dimy = ffile->readKeyValueAsInt("dimy");
+	QLength xmax = ffile->readKeyValueAsDouble("xmax") * 1_kpc;
+	QLength xmin = ffile->readKeyValueAsDouble("xmin") * 1_kpc;
+	QLength ymax = ffile->readKeyValueAsDouble("ymax") * 1_kpc;
+	QLength ymin = ffile->readKeyValueAsDouble("ymin") * 1_kpc;
+	QLength zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
+	QLength zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
+	//int dimr = ffile->readKeyValueAsInt("dimr");
+	dimx = ffile->readKeyValueAsInt("dimx");
+	dimy = ffile->readKeyValueAsInt("dimy");
+	dimz = ffile->readKeyValueAsInt("dimz");
 
 	// ?!
-    	if (ffile->getStatus()) { 
+    	/*if (ffile->getStatus()) { 
 		std::cout << "Setting up 2D grid\n"; 
 		ny = 0;
 		do3D = false;
 	} else {
 		std::cout << "Setting up 3D grid\n";
 		do3D = true;
+	}*/
+   
+	QLength deltax = (xmax - xmin) / (dimx - 1);
+	QLength deltay = (ymax - ymin) / (dimy - 1);
+	QLength deltaz = (zmax - zmin) / (dimz - 1);
+ 
+	Vector3d origin(xmin.getValue(), ymin.getValue(), zmin.getValue());
+	Vector3d spacing(deltax.getValue(), deltay.getValue(), deltaz.getValue());
+	
+	for (int i = 0; i < energyRange.size(); ++i) {
+		grid.push_back(
+			std::make_unique<ScalarGridQPDensityPerEnergy>(
+				ScalarGridQPDensityPerEnergy(origin,
+					dimx, dimy, dimz, spacing)));
 	}
-    
-    auto deltar = rmax / (double)(nr - 1);
-    auto deltay = (!ny) ? 0.0 : rmax / double(ny - 1);
-    auto deltaz = (zmax - zmin) / (double)(nz - 1);
-  
-    for (int i = 0; i < nr; ++i)
-      r.push_back((double)i * deltar);
-    for (int i = 0; i < ny; ++i)
-      y.push_back((double)i * deltar);
-    for (int i = 0; i < nz; ++i)
-      z.push_back(zmin + (double)i * deltaz);
-  }
+
+}
  
 
 void DragonCRDensity::readDensityFromFITS() {
     
-	int counterInd = 0;
 	int anynul = -1;
 	int status = 0;
 	int hduIndex = 2;  
 	int hduActual = 0;
 	int hdu_type = 0;
 	int firstElement = 1;
+	std::vector<float>::const_iterator start, end;
     
 	int Z = 0, A = 0;
-
-	long nElements = E.size() * r.size() * z.size() * y.size();
-	//nElements *= (do3D) ? y.size() : 1;
-    
-	std::unique_ptr<std::vector<float> > density;
+	
+	auto vecSize = dimx * dimy * dimz;
+	long nElements = energyRange.size() * vecSize;
 	
     	auto hduNumber = ffile->getNumberOfHDUs();
-    
 	while (hduActual < hduNumber) {
-	
 		ffile->moveToHDU(hduIndex); // Move to the next HDU (the first HDU = 1)
-      
 		if (ffile->getHDUType() != IMAGE_HDU)
 			std::cerr << "Not an image!" << std::endl;
 
@@ -111,16 +117,22 @@ void DragonCRDensity::readDensityFromFITS() {
 		 	isPresent = true;
 	
 			std::cout << "... reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual << std::endl;
-	
-			density = ffile->readImageAsFloat(firstElement, nElements);
-//  inline int index (int J, int K, int L) { return ((J)*nr+(K))*nz+(L); }
-//  inline int index (int I, int J, int K, int L) { return ((J*ny+K)*nz+L)*nE+I; }	
-			counterInd = 0;
-	
-			// HERE WE ADD readingCrDensityVec TO A 2D or 3D grid, consider that there could be MORE THAN 1 HDUs
-      		}
+
+			std::vector<float> origVec = ffile->readImageAsFloat(firstElement, nElements);
+			
+			for (int i = 0; i < energyRange.size(); ++i) {
+				start = origVec.begin() + i * vecSize;
+				end = origVec.begin() + (i+1) * vecSize;
+				auto densityPerE = std::make_unique<std::vector<QPDensityPerEnergy> >(vecSize);
+				std::transform(start, end, densityPerE->begin(),
+					[](const float i) { return static_cast<QPDensityPerEnergy>(i); });
+				grid[i]->addVector(std::move(densityPerE));
+			}
+		}
 		hduIndex++;
     }
+
+    std::cerr << "Value: " << grid[3]->getValue(10, 1, 1) << std::endl;
 }
 
 } // namespace hermes

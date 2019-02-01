@@ -2,6 +2,7 @@
 #define HERMES_SKYMAPTEMP_H
 
 #include "hermes/Units.h"
+#include "hermes/ProgressBar.h"
 #include "hermes/integrators/Integrator.h"
 #include "hermes/skymaps/Skymap.h"
 
@@ -115,13 +116,16 @@ void SkymapTemplate<Q>::compute() {
        	std::cout << "hermes::Integrator: Number of Threads: " << omp_get_max_threads() << std::endl;
 #endif
 	if(integrator == nullptr)
-		// TODO: transform to exception
-		std::cout << "Provide an integrator with the setIntegrator() method" << std::endl;
-	else {
+		throw std::runtime_error("Provide an integrator with the setIntegrator() method");
+	
+	ProgressBar progressbar(getSize());
+	progressbar.start("Compute skymap");
+
 #pragma omp parallel for schedule(OMP_SCHEDULE)
-		for (std::size_t ipix = 0; ipix < getSize(); ++ipix)
-			computePixel(ipix, integrator);
-		
+	for (std::size_t ipix = 0; ipix < getSize(); ++ipix) {
+		computePixel(ipix, integrator);
+#pragma omp critical(progressbarUpdate)
+		progressbar.update();
 	}
 }
 

@@ -46,6 +46,7 @@ private:
   	std::string filename;
 	std::unique_ptr<FITSFile> ffile;
 	PID pid;
+
 	void readHeaderFromFITS();
 	void readDensityFromFITS();
 	void readEnergyAxis();
@@ -53,19 +54,13 @@ private:
   
 	bool do3D = false;
 	bool isPresent = false;
-	std::vector<double> r, y, z;
-	std::vector<double> E;
-	std::vector<double> density;
+	int dimx, dimy, dimz;
+	std::vector<std::unique_ptr<ScalarGridQPDensityPerEnergy> > grid;
 public:
 	DragonCRDensity();
 	DragonCRDensity(const std::string& filename_, const PID& pid_);
 	DragonCRDensity(QEnergy minE, QEnergy maxE, int steps);
-	QPDensityPerEnergy getDensityPerEnergy(const Vector3QLength& pos, const QEnergy& E) const;
-
-	iterator begin();
-        const_iterator begin() const;
-	iterator end();
-	const_iterator end() const;
+	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const;
 };
 
 } // namespace hermes

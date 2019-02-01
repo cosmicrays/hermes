@@ -11,7 +11,7 @@ FITSFile::FITSFile(const std::string &filename_) : filename(filename_) {
 };
 
 FITSFile::~FITSFile() {
-	if (status != 0)
+	if (fptr != nullptr)
 		closeFile();
 }
 
@@ -29,6 +29,7 @@ void FITSFile::deleteFile() {
 	        fits_report_error(stderr, status);
         if (status != 0)
                 throw std::runtime_error("Cannot delete file.");
+	fptr = nullptr;
 }
 
 void FITSFile::openFile(FITS::IOMode ioMode) {
@@ -43,6 +44,7 @@ void FITSFile::closeFile() {
 		fits_report_error(stderr, status);
 	if (status != 0)
                 throw std::runtime_error("Cannot close file.");
+	fptr = nullptr;
 }
 
 /* HDU-related operations */
@@ -172,22 +174,21 @@ void FITSFile::writeImage(FITS::DataType dataType, int firstElement,
                 throw std::runtime_error("Cannot write image in FITS file.");
 }
 
-// TODO: ugly - should be rewritten
-std::unique_ptr<std::vector<float> > FITSFile::readImageAsFloat(int firstElement, int nElements) {
-	std::unique_ptr<std::vector<float> > resultArray =
-		std::make_unique<std::vector<float> >(nElements);
-
-	void * arrayPtr = static_cast<void*>(resultArray->data());
-	float * nullval = nullptr;
+std::vector<float> FITSFile::readImageAsFloat(int firstElement, int nElements) {
+	std::vector<float> resultArray(nElements, 0);
+	void * arrayPtr = static_cast<void*>(resultArray.data());
+	float nullval = 0;
 	int dataType = TFLOAT;
 	int anynul = -1;
-
-	if (fits_read_img(fptr, dataType, firstElement, nElements, nullval,
+	
+	if (nElements == 0)
+		throw std::runtime_error("Cannot read image of size 0.");
+	if (fits_read_img(fptr, dataType, firstElement, nElements, &nullval,
 				arrayPtr, &anynul, &status)) 
 		fits_report_error(stderr, status);
         if (status != 0)
                 throw std::runtime_error("Cannot read image.");
-
+	
 	return resultArray; 
 }
 

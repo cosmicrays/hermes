@@ -21,12 +21,12 @@ public:
 		const std::shared_ptr<CosmicRayDensity> crdensity);
 	~SynchroIntegrator();
 
-	QTemperature integrateOverLOS(QDirection iterdir_);
-	QTemperature integrateOverLOS(QDirection iterdir_, QFrequency freq_);
+	QTemperature integrateOverLOS(QDirection iterdir_) const;
+	QTemperature integrateOverLOS(QDirection iterdir_, QFrequency freq_) const;
 	QTemperature intensityToTemperature(
-			QIntensity intensity_, QFrequency freq_);
+			QIntensity intensity_, QFrequency freq_) const;
 	QEmissivity integrateOverEnergy(
-			Vector3QLength pos, QFrequency freq_);
+			Vector3QLength pos, QFrequency freq_) const;
 };
 
 } // namespace hermes

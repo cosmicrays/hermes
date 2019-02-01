@@ -13,13 +13,13 @@ namespace hermes {
 template <class T>
 class IntegratorTemplate {
 public:
-	inline IntegratorTemplate() { };
+	IntegratorTemplate() { };
 
 	/**
  		Every child class should implement this method which provides an expression
 		of a given direction prepared for the integration
 	*/
-	virtual T integrateOverLOS(QDirection iterdir) = 0;
+	virtual T integrateOverLOS(QDirection iterdir) const = 0;
 };
 
 } // namespace hermes

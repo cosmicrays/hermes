@@ -12,6 +12,7 @@
 namespace hermes {
 
 namespace FITS {
+	//TODO: switch to enum class
 	enum DataType {INT = TINT, LONG = TLONG, FLOAT = TFLOAT,
 		DOUBLE = TDOUBLE, STRING = TSTRING};
 	enum IOMode {READ = READONLY, WRITE = READWRITE};
@@ -133,7 +134,7 @@ public:
 	void createImage(FITS::ImgType bitpix, int naxis, long *naxes);
 	void writeImage(FITS::DataType dtype, int firstElement,
 			int nElements, void *array);
-	std::unique_ptr<std::vector<float> > readImageAsFloat(int firstElement, int nElements);
+	std::vector<float> readImageAsFloat(int firstElement, int nElements);
 
 	void createTable(FITS::HDUType, long int nRows, int nColumns, char *columnName[],
                 char *columnType[], char *columnUnit[], const char *tableName);

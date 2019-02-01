@@ -19,7 +19,7 @@ private:
 public:
 	RMIntegrator(const std::shared_ptr<MagneticField> mfield, const std::shared_ptr<GasDensity> gdensity);
 	~RMIntegrator();
-	QRotationMeasure integrateOverLOS(QDirection iterdir);
+	QRotationMeasure integrateOverLOS(QDirection iterdir) const;
 };
 
 } // namespace hermes

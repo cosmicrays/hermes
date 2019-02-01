@@ -15,18 +15,18 @@ SynchroIntegrator::SynchroIntegrator(
 SynchroIntegrator::~SynchroIntegrator() { }
 
 QTemperature SynchroIntegrator::intensityToTemperature(
-		QIntensity intensity_, QFrequency freq_) {
+		QIntensity intensity_, QFrequency freq_) const {
 	return intensity_*c_squared /
 		(2*pow<2>(freq_)*k_boltzmann);
 }
 
 QTemperature SynchroIntegrator::integrateOverLOS(
-		QDirection direction) {
+		QDirection direction) const {
 	return integrateOverLOS(direction, 1_GHz);
 }
 
 QTemperature SynchroIntegrator::integrateOverLOS(
-		QDirection direction, QFrequency freq_) {
+		QDirection direction, QFrequency freq_) const {
 
 	Vector3QLength positionSun(8.5_kpc, 0, 0);
 	Vector3QLength pos(0.0);
@@ -51,7 +51,7 @@ QTemperature SynchroIntegrator::integrateOverLOS(
 	return intensityToTemperature(total_intensity / 4_pi, freq_);
 }
 
-QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_, QFrequency freq_) {
+QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_, QFrequency freq_) const {
 
 	QEmissivity emissivity(0);
 	constexpr auto const_synchro =
@@ -86,7 +86,7 @@ QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_, QFrequen
 		
 		emissivity += const_synchro *
                 	B_perp * gsl_sf_synchrotron_1(ratio) *
-                        crdensity->getDensityPerEnergy(pos_, *itE) * deltaE;
+                        crdensity->getDensityPerEnergy(*itE, pos_) * deltaE;
         }
 
 	return emissivity;

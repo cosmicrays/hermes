@@ -13,7 +13,7 @@ private:
 public:
 	SimpleCRDensity();
 	SimpleCRDensity(QEnergy minE, QEnergy maxE, int steps);
-	QPDensityPerEnergy getDensityPerEnergy(const Vector3QLength& pos, const QEnergy& E) const;
+	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const;
 };
 
 } // namespace hermes

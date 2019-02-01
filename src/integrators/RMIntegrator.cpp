@@ -10,7 +10,7 @@ RMIntegrator::RMIntegrator(const std::shared_ptr<MagneticField> mfield,
 
 RMIntegrator::~RMIntegrator() { }
 
-QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) {
+QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) const {
 	constexpr auto const_a0 = pow<3>(e_plus)/(8*pi*pi*epsilon0*squared(m_electron)*pow<3>(c_light));
 	Vector3QLength positionSun(8.5_kpc, 0, 0);
 	Vector3QLength pos(0.0);

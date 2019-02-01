@@ -9,6 +9,7 @@
 #include "hermes/Random.h"
 #include "hermes/HEALPixBits.h"
 #include "hermes/FITSWrapper.h"
+#include "hermes/ProgressBar.h"
 #include "hermes/Common.h"
 
 #include "hermes/skymaps/Skymap.h"
