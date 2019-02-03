@@ -10,19 +10,29 @@ class CosmicRayDensity {
 protected:
 	typedef std::vector<QEnergy> tEnergyRange;
 	mutable tEnergyRange energyRange;
+	bool scaleFactorFlag;
+	double energyScaleFactor;
 public:
         typedef tEnergyRange::iterator iterator;
         typedef tEnergyRange::const_iterator const_iterator;
 
+	CosmicRayDensity() : scaleFactorFlag(false) {	
+	}
         virtual ~CosmicRayDensity() { }
         virtual QPDensityPerEnergy getDensityPerEnergy(
 			const QEnergy& E_, const Vector3QLength& pos_) const = 0;
 	std::size_t getIndexOfE(const QEnergy& E_) const {
-		const_iterator it =
-			std::find_if(begin(), end(),
+		const_iterator it = std::find_if(begin(), end(),
 				[E_](const auto &a) {return a == E_;});
 		return std::distance(begin(), it);
 	}
+	bool existsScaleFactor() {
+		return scaleFactorFlag;
+	}
+	double getEnergyScaleFactor() {
+		return energyScaleFactor;
+	}
+
         iterator begin() {
 		return energyRange.begin();	
 	}

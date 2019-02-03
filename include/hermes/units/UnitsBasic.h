@@ -289,7 +289,12 @@ constexpr Quantity<std::ratio_multiply<l, std::ratio<2>>, std::ratio_multiply<t,
 #define QUANTITY_TYPE(_ldim, _tdim, _mdim, _Idim, _Tdim, _Ndim, _Jdim, _Adim, name) \
     typedef Quantity<std::ratio<_ldim>, std::ratio<_tdim>, std::ratio<_mdim>, \
 		     std::ratio<_Idim>, std::ratio<_Tdim>, std::ratio<_Ndim>, \
-		     std::ratio<_Jdim>, std::ratio<_Adim>> name;
+		     std::ratio<_Jdim>, std::ratio<_Adim>> name; \
+    typedef Quantity<std::ratio_multiply<std::ratio<_ldim>, std::ratio<2>>, std::ratio_multiply<std::ratio<_tdim>, std::ratio<2>>, \
+                   std::ratio_multiply<std::ratio<_mdim>, std::ratio<2>>, std::ratio_multiply<std::ratio<_Idim>, std::ratio<2>>, \
+                   std::ratio_multiply<std::ratio<_Tdim>, std::ratio<2>>, std::ratio_multiply<std::ratio<_Ndim>, std::ratio<2>>, \
+                   std::ratio_multiply<std::ratio<_Jdim>, std::ratio<2>>, std::ratio_multiply<std::ratio<_Adim>, std::ratio<2>>> name ## Squared;
+
 
 // Replacement of "double" type
 QUANTITY_TYPE(0, 0, 0, 0, 0, 0, 0, 0, QNumber);
@@ -306,6 +311,9 @@ QUANTITY_TYPE(0, 0, 0, 0, 0, 0, 1, 0, QLIntensity);
 // Angle type:
 QUANTITY_TYPE(0, 0, 0, 0, 0, 0, 0, 1, QAngle);
 
+// Math
+constexpr double pi = 3.1415926535897932384626433832795;
+
 // Predefined basic SI units:
 constexpr QLength	metre(1.0);
 constexpr QTime		second(1.0);
@@ -315,9 +323,6 @@ constexpr QTemperature	kelvin(1.0);
 constexpr QSubstance	mole(1.0);
 constexpr QLIntensity	candela(1.0);
 constexpr QAngle	radian(1.0);
-
-// Math
-constexpr double pi = 3.1415926535897932384626433832795;
 
 inline double exp(const QNumber &num) {
     return std::exp(num.getValue());

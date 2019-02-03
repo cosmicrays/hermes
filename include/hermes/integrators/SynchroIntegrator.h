@@ -24,9 +24,11 @@ public:
 	QTemperature integrateOverLOS(QDirection iterdir_) const;
 	QTemperature integrateOverLOS(QDirection iterdir_, QFrequency freq_) const;
 	QTemperature intensityToTemperature(
-			QIntensity intensity_, QFrequency freq_) const;
+		QIntensity intensity_, QFrequency freq_) const;
 	QEmissivity integrateOverEnergy(
-			Vector3QLength pos, QFrequency freq_) const;
+		Vector3QLength pos_, QFrequency freq_) const;
+	QEmissivity integrateOverLogEnergy(
+		Vector3QLength pos_, QFrequency freq_) const;
 };
 
 } // namespace hermes

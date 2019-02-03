@@ -1,6 +1,7 @@
 cmake_minimum_required (VERSION 2.6)
 project(hermes)
 
+set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 set(HERMES_EXTRA_SOURCES)
@@ -45,15 +46,22 @@ find_package(OpenMP)
 endif(ENABLE_OPENMP)
 
 # CFITSIO (optional for FITS output format)
-option(ENABLE_CFITSIO "CFITSIO for FITS output" ON)
+option(ENABLE_CFITSIO "CFITSIO for FITS output" OFF)
 if(ENABLE_CFITSIO)
+        list(APPEND HERMES_EXTRA_INCLUDES libs/cfitsio/)
+        list(APPEND HERMES_EXTRA_LIBRARIES cfitsio)
+	add_definitions(-DHERMES_HAVE_CFITSIO)
+endif(ENABLE_CFITSIO)
+	
+option(ENABLE_SYS_CFITSIO "CFITSIO for FITS output" ON)
+if(ENABLE_SYS_CFITSIO)
 	find_package(CFITSIO REQUIRED)
 	if(CFITSIO_FOUND)
                 list(APPEND HERMES_EXTRA_INCLUDES ${CFITSIO_INCLUDE_DIR})
                 list(APPEND HERMES_EXTRA_LIBRARIES ${CFITSIO_LIBRARIES})
 		add_definitions(-DHERMES_HAVE_CFITSIO)
 	endif(CFITSIO_FOUND)
-endif(ENABLE_CFITSIO)
+endif(ENABLE_SYS_CFITSIO)
 
 # ----------------------------------------------------------------------------
 # Library and Binary
@@ -87,6 +95,47 @@ add_library(hermes SHARED
 
 add_executable(example src/example.cpp)
 target_link_libraries(example ${PROJECT_NAME} ${HERMES_EXTRA_LIBRARIES})
+
+# ----------------------------------------------------------------------------
+# Python
+# ----------------------------------------------------------------------------
+option(ENABLE_PYTHON "Create python library via SWIG" OFF)
+find_package(PythonInterp)
+find_package(PythonLibs)
+
+if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
+
+	find_package(SWIG 2.0 REQUIRED)
+	include_directories(${PYTHON_INCLUDE_PATH})
+
+	if(ENABLE_SWIG_BUILTIN)
+		set(BUILTIN "-builtin")
+		set(PY3 "-py3")
+	else(ENABLE_SWIG_BUILTIN)
+		set(BUILTIN "")
+		set(PY3 "")
+	endif(ENABLE_SWIG_BUILTIN)
+
+	if(PYTHON_VERSION_STRING VERSION_GREATER 3.0)
+		list(APPEND HERMES_SWIG_DEFINES -DSWIG_PYTHON3)
+	endif(PYTHON_VERSION_STRING VERSION_GREATER 3.0)
+
+	file(GLOB_RECURSE HERMES_SWIG_INPUTS python/*.i)
+	set_source_files_properties( ${CMAKE_CURRENT_BINARY_DIR}/hermes_wrap.cxx PROPERTIES GENERATED true )
+	add_custom_command( OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/hermes_wrap.cxx
+		COMMAND swig ${BUILTIN} -c++ -python ${PY3} -I${CMAKE_SOURCE_DIR}/include ${HERMES_SWIG_DEFINES} -dirprot -o ${CMAKE_CURRENT_BINARY_DIR}/hermes_wrap.cxx -outdir ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR}/python/hermes.i
+		DEPENDS ${HERMES_SWIG_INPUTS} ${HERMES_INCLUDES} ${HERMES_EXTRA_INCLUDES})
+
+	add_library(hermes-swig MODULE ${CMAKE_CURRENT_BINARY_DIR}/hermes_wrap.cxx)
+	set_target_properties(hermes-swig PROPERTIES PREFIX "")
+	set_target_properties(hermes-swig PROPERTIES OUTPUT_NAME "_hermes")
+	target_link_libraries(hermes-swig hermes ${PYTHON_LIBRARIES} ${HERMES_EXTRA_LIBRARIES})
+
+	install(DIRECTORY "${CMAKE_SOURCE_DIR}/python/hermes" DESTINATION "${PYTHON_SITE_PACKAGES}")
+	install(FILES "${CMAKE_CURRENT_BINARY_DIR}/hermes.py" DESTINATION "${PYTHON_SITE_PACKAGES}/hermes")
+	install(TARGETS hermes-swig LIBRARY DESTINATION "${PYTHON_SITE_PACKAGES}/hermes")
+	install(FILES ${HERMES_SWIG_INPUTS} DESTINATION share/hermes/swig_interface)
+endif(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 
 
 # ----------------------------------------------------------------------------

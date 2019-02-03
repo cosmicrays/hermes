@@ -34,7 +34,7 @@ void playground() {
 	auto synchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, dragonModel));
 	auto RM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gas));
 
-	int nside = 32;	
+	int nside = 8;	
 
 	//auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 500_MHz, 10));
 	auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));

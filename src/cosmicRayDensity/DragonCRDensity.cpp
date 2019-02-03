@@ -12,9 +12,9 @@
 namespace hermes {
 
 DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_)
-    : filename(filename_), pid(pid_) {
-    readHeaderFromFITS();
-    readDensityFromFITS();
+    : CosmicRayDensity(), filename(filename_), pid(pid_) {
+	readHeaderFromFITS();
+	readDensityFromFITS();
 }
 
 void DragonCRDensity::readHeaderFromFITS() {
@@ -29,21 +29,27 @@ void DragonCRDensity::readHeaderFromFITS() {
 
 QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
 		const QEnergy &E_, const Vector3QLength& pos_) const {
-    	return (grid[getIndexOfE(E_)])->interpolate(pos_);
+    	return (grid[energyIndex.at(E_)])->interpolate(pos_);
 }
 
-
+QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
+		int iE_, const Vector3QLength& pos_) const {
+    	return (grid[iE_])->interpolate(pos_);
+}
 
 void DragonCRDensity::readEnergyAxis() {
-    
+    	QEnergy E;
 	double Ekmin = ffile->readKeyValueAsDouble("Ekmin");
-	double Ekfact = ffile->readKeyValueAsDouble("Ekin_fac");
 	int nE = ffile->readKeyValueAsInt("dimE");
+	energyScaleFactor = ffile->readKeyValueAsDouble("Ekin_fac");
+	scaleFactorFlag = true;
 
 	// input files are in GeV	
 	for (int i = 0; i < nE; ++i) {
-    		energyRange.push_back(std::exp(std::log(Ekmin) +
-			static_cast<double>(i) * std::log(Ekfact)) * 1_GeV); 
+		E = 1_GeV * std::exp(std::log(Ekmin) +
+			static_cast<double>(i) * std::log(energyScaleFactor));
+    		energyRange.push_back(E);
+		energyIndex[E] = i;
 	}
 }
 
@@ -105,8 +111,12 @@ void DragonCRDensity::readDensityFromFITS() {
     	auto hduNumber = ffile->getNumberOfHDUs();
 	while (hduActual < hduNumber) {
 		ffile->moveToHDU(hduIndex); // Move to the next HDU (the first HDU = 1)
-		if (ffile->getHDUType() != IMAGE_HDU)
-			std::cerr << "Not an image!" << std::endl;
+
+		if (ffile->getHDUType() != IMAGE_HDU) {
+			std::cerr << "HDU is not an image!" << std::endl;
+			hduIndex++;
+			continue;
+		}
 
 	  	hduActual = ffile->getCurrentHDUNumber();	
       
@@ -114,9 +124,8 @@ void DragonCRDensity::readDensityFromFITS() {
 		A = ffile->readKeyValueAsInt("A");
       
       		if (Z == pid.atomicNr() && A == pid.massNr()) {
-		 	isPresent = true;
 	
-			std::cout << "... reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual << std::endl;
+			std::cerr << "... reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual << std::endl;
 
 			std::vector<float> origVec = ffile->readImageAsFloat(firstElement, nElements);
 			
@@ -131,8 +140,6 @@ void DragonCRDensity::readDensityFromFITS() {
 		}
 		hduIndex++;
     }
-
-    std::cerr << "Value: " << grid[3]->getValue(10, 1, 1) << std::endl;
 }
 
 } // namespace hermes

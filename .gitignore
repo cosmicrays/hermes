@@ -36,3 +36,6 @@ build/*
 
 # Others
 GammaSky/*
+
+#Libraries
+libs/cfitsio*

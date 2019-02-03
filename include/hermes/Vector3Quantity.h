@@ -182,6 +182,7 @@ public:
 	}
 	
 	// dot product
+	//auto dot(const Vector3Quantity<T> &v) const {
 	auto dot(const Vector3Quantity<T> &v) const {
 		return x * v.x + y * v.y + z * v.z;
 	}

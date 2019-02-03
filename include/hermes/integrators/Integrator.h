@@ -16,8 +16,8 @@ public:
 	IntegratorTemplate() { };
 
 	/**
- 		Every child class should implement this method which provides an expression
-		of a given direction prepared for the integration
+ 		Every child class should implement this method which represents an integral
+		of a targeted accumulated quantity `T` in a given direction `interdir`
 	*/
 	virtual T integrateOverLOS(QDirection iterdir) const = 0;
 };
