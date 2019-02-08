@@ -6,7 +6,7 @@
 
 namespace hermes {
 
-double logisticFunction(QLength x, QLength x0, QLength w) {
+QNumber logisticFunction(QLength x, QLength x0, QLength w) {
 	return 1. / (1. + exp(-2. * (fabs(x) - x0) / w));
 }
 
@@ -158,120 +158,115 @@ bool JF12Field::isUsingTurbulent() {
 }
 
 Vector3QMField JF12Field::getRegularField(const Vector3QLength& pos) const {
-	Vector3QMField b(0.0_muG);
+	Vector3d b(0.);
 
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y); // in-plane radius
 	QLength d = pos.getR(); // distance to galactic center
-	if ((d < 1.0_kpc) or (d > 20.0_kpc))
-		return b; // 0 field for d < 1 kpc or d > 20 kpc
+	if ((d < 1_kpc) or (d > 20_kpc))
+		return Vector3QMField(b); // 0 field for d < 1 kpc or d > 20 kpc
 
 	QAngle phi = pos.getPhi(); // azimuth
-	double sinPhi = sin(phi);
-	double cosPhi = cos(phi);
+	QNumber sinPhi = sin(phi);
+	QNumber cosPhi = cos(phi);
 
-	double lfDisk = logisticFunction(pos.z, hDisk, wDisk);
+	QNumber lfDisk = logisticFunction(pos.z, hDisk, wDisk);
 
 	// disk field
 	if (r > 3_kpc) {
-		QMField bMag;
+		double bMag;
 		if (r < 5_kpc) {
 			// molecular ring
-			bMag = (1 - lfDisk) * bRing * (5_kpc / r);
-			b.x += sinPhi * -bMag;
-			b.y += cosPhi * bMag;
+			bMag = static_cast<double>(bRing * (5_kpc / r) * (QNumber(1) - lfDisk));
+			b.x += -bMag * static_cast<double>(sinPhi);
+			b.y += bMag * static_cast<double>(cosPhi);
 
 		} else {
 			// spiral region
-			QLength r_negx = r * exp(-(phi - pi*radian)/radian / tan90MinusPitch);
+			QLength r_negx = r * exp((-(phi - QAngle(pi)) / tan90MinusPitch)/1_rad);
 			if (r_negx > rArms[7])
-				r_negx = r * exp(-(phi + pi*radian)/radian / tan90MinusPitch);
+				r_negx = r * exp((-(phi + QAngle(pi)) / tan90MinusPitch)/1_rad);
 			if (r_negx > rArms[7])
-				r_negx = r * exp(-(phi + 3*pi*radian)/radian / tan90MinusPitch);
+				r_negx = r * exp((-(phi + QAngle(3*pi)) / tan90MinusPitch)/1_rad);
 
 			for (int i = 7; i >= 0; i--)
 				if (r_negx < rArms[i])
-					bMag = bDisk[i];
+					bMag = static_cast<double>(bDisk[i]);
 
-			bMag *= (5_kpc / r) * (1 - lfDisk);
-			b.x += bMag * (sinPitch * cosPhi - cosPitch * sinPhi);
-			b.y += bMag * (sinPitch * sinPhi + cosPitch * cosPhi);
+			bMag *= static_cast<double>((5_kpc / r) * (QNumber(1) - lfDisk));
+			b.x += bMag * static_cast<double>(sinPitch * cosPhi - cosPitch * sinPhi);
+			b.y += bMag * static_cast<double>(sinPitch * sinPhi + cosPitch * cosPhi);
 		}
 	}
 
 	// toroidal halo field
-	QMField bMagH;
-	double pre_term = exp(-fabs(pos.z) / z0) * lfDisk;
-	if (pos.z >= 0_kpc)
-		bMagH = pre_term * bNorth * (1 - logisticFunction(r, rNorth, wHalo));
+	double bMagH = static_cast<double>(exp(-fabs(pos.z) / z0) * lfDisk);
+	if (pos.z >= 0_m)
+		bMagH *= static_cast<double>(bNorth * (QNumber(1) - logisticFunction(r, rNorth, wHalo)));
 	else
-		bMagH = pre_term * bSouth * (1 - logisticFunction(r, rSouth, wHalo));
-	b.x += -bMagH * sinPhi;
-	b.y += bMagH * cosPhi;
+		bMagH *= static_cast<double>(bSouth * (QNumber(1) - logisticFunction(r, rSouth, wHalo)));
+	b.x += -bMagH * static_cast<double>(sinPhi);
+	b.y += bMagH * static_cast<double>(cosPhi);
 
 	// poloidal halo field
-	QMField bMagX;
-	double sinThetaX, cosThetaX;
+	double bMagX;
+	QNumber sinThetaX, cosThetaX;
 	QLength rp;
 	QLength rc = rXc + fabs(pos.z) / tanThetaX0;
 	if (r < rc) {
 		// varying elevation region
 		rp = r * rXc / rc;
-		bMagX = bX * exp(-1 * rp / rX) * pow<2>(rXc / rc);
+		bMagX = static_cast<double>(bX * exp(-1 * rp / rX) * pow<2>(rXc / rc));
 		QAngle thetaX = atan2(fabs(pos.z), (r - rp));
-		if (pos.z == 0_kpc)
-			thetaX = 90_deg;
+		if (pos.z == 0_m)
+			thetaX = pi / 2.;
 		sinThetaX = sin(thetaX);
 		cosThetaX = cos(thetaX);
 	} else {
 		// constant elevation region
 		rp = r - fabs(pos.z) / tanThetaX0;
-		bMagX = bX * exp(-rp / rX) * (rp / r);
+		bMagX = static_cast<double>(bX * exp(-rp / rX) * (rp / r));
 		sinThetaX = sinThetaX0;
 		cosThetaX = cosThetaX0;
 	}
-	double zsign = pos.z < 0_kpc ? -1 : 1;
-	b.x += zsign * bMagX * cosThetaX * cosPhi;
-	b.y += zsign * bMagX * cosThetaX * sinPhi;
-	b.z += bMagX * sinThetaX;
+	double zsign = pos.z < 0_m ? -1 : 1;
+	b.x += zsign * bMagX * static_cast<double>(cosThetaX * cosPhi);
+	b.y += zsign * bMagX * static_cast<double>(cosThetaX * sinPhi);
+	b.z += bMagX * static_cast<double>(sinThetaX);
 
-	return b;
+	return Vector3QMField(b);
 }
 
 Vector3QMField JF12Field::getStriatedField(const Vector3QLength& pos) const {
 	return (getRegularField(pos)
-			* (1. + sqrtbeta * striatedGrid->closestValue(
-			 		pos
-			  	)
-			  )
-	);
+			* (1. + sqrtbeta * striatedGrid->closestValue(pos)));
 }
 
 QMField JF12Field::getTurbulentStrength(const Vector3QLength& pos) const {
-	if (pos.getR() > 20.0_kpc)
-		return 0_muG;
+	if (pos.getR() > 20_kpc)
+		return QMField(0);
 
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y); // in-plane radius
 	QAngle phi = pos.getPhi(); // azimuth
 
 	// disk
-	QMField bDisk = 0_muG;
-	if (r < 5.0_kpc) {
+	QMField bDisk = 0;
+	if (r < 5_kpc) {
 		bDisk = bDiskTurb5;
 	} else {
 		// spiral region
-		QLength r_negx = r * exp(-(phi - pi*radian)/radian / tan90MinusPitch);
+		QLength r_negx = r * exp(-(phi - QAngle(pi)) / tan90MinusPitch / 1_rad);
 		if (r_negx > rArms[7])
-			r_negx = r * exp(-(phi + pi*radian)/radian / tan90MinusPitch);
+			r_negx = r * exp(-(phi + QAngle(pi)) / tan90MinusPitch / 1_rad);
 		if (r_negx > rArms[7])
-			r_negx = r * exp(-(phi + 3 * pi*radian)/radian / tan90MinusPitch);
+			r_negx = r * exp(-(phi + QAngle(3*pi)) / tan90MinusPitch / 1_rad);
 
 		for (int i = 7; i >= 0; i--)
 			if (r_negx < rArms[i])
 				bDisk = bDiskTurb[i];
 
-		bDisk *= (5.0_kpc) / r;
+		bDisk = bDisk * (5_kpc) / r;
 	}
-	bDisk *= exp(-0.5 * pow<2>(pos.z / zDiskTurb));
+	bDisk = bDisk * exp(-0.5 * pow<2>(pos.z / zDiskTurb));
 
 	// halo
 	QMField bHalo = bHaloTurb * exp(-r / rHaloTurb)
@@ -285,8 +280,12 @@ Vector3QMField JF12Field::getTurbulentField(const Vector3QLength& pos) const {
 	return (turbulentGrid->interpolate(pos) * getTurbulentStrength(pos));
 }
 
-Vector3QMField JF12Field::getField(const Vector3QLength& pos) const {
-	Vector3QMField b(0.0_muG);
+Vector3QMField JF12Field::getField(const Vector3QLength& pos_) const {
+	Vector3QMField b(0.);
+	Vector3QLength pos = pos_;
+	pos.setX(-pos_.getX());
+	pos.setY(-pos_.getY());
+
 	if (useTurbulent)
 		b += getTurbulentField(pos);
 	if (useStriated)

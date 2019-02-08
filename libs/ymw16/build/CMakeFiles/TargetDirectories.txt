@@ -1,0 +1,3 @@
+/home/andy/Projects/category_science/hermes/libs/ymw16/build/CMakeFiles/rebuild_cache.dir
+/home/andy/Projects/category_science/hermes/libs/ymw16/build/CMakeFiles/ymw16.dir
+/home/andy/Projects/category_science/hermes/libs/ymw16/build/CMakeFiles/edit_cache.dir

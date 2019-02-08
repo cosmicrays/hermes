@@ -39,7 +39,7 @@ void PeriodicMagneticField::setReflective(bool reflective) {
 }
 
 Vector3QMField PeriodicMagneticField::getField(const Vector3QLength &position) const {
-	Vector3d n = (((position - origin) / extends).floor());
+	Vector3d n = (((position - origin).getValue() / extends.getValue()).floor());
 	Vector3QLength p = position - origin - n * extends;
 
 	if (reflective) {

@@ -108,7 +108,7 @@ constexpr double femto = 1e-15;
 constexpr double pico  = 1e-12;
 constexpr double nano  = 1e-9;
 constexpr double micro = 1e-6;
-constexpr double mili  = 1e-3;
+constexpr double milli  = 1e-3;
 constexpr double centi = 1e-2;
 constexpr double deci  = 1e-1;
 constexpr double deca  = 1e1;
@@ -124,16 +124,6 @@ constexpr double yotta = 1e24;
 
 // Predefined angle units:
 constexpr QAngle degree = static_cast<double>(2*pi / 360.0) * radian;
-
-// Predefined length-derived units
-constexpr QLength decimetre = deci * metre;
-constexpr QLength centimetre = centi * metre;
-constexpr QLength millimetre = mili *metre;
-constexpr QLength kilometre = kilo * metre;
-
-// Predefined magnetic field-derived units
-constexpr QMField microgauss = micro * gauss;
-constexpr QMField nanogauss = nano * gauss;
 
 } // namespace hermes
 

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libymw16.a  CMakeFiles/ymw16.dir/ymw16.c.o
+/usr/bin/ranlib libymw16.a

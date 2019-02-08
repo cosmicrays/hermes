@@ -81,8 +81,7 @@ bool PT11Field::isUsingHalo() {
 Vector3QMField PT11Field::getField(const Vector3QLength& pos) const {
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y);  // in-plane radius
 
-	Vector3QMField b(0.);
-	Vector3QNumber temp_b(0.);
+	Vector3d b(0.);
 
 	// disk field
 	if ((useASS) or (useBSS)) {
@@ -95,38 +94,39 @@ Vector3QMField PT11Field::getField(const Vector3QLength& pos) const {
 		// thus we have to rotate our position by 180 degree in azimuth
 		QAngle theta = QAngle(pi) - pos.getPhi();  // azimuth angle theta: PT11 paper uses opposite convention for azimuth
 		// the following is equivalent to sin(pi - phi) and cos(pi - phi) which is computationally slower
-		QNumber cos_theta = - pos.x / r;
+		//orig: QNumber cos_theta = - pos.x / r;
+		QNumber cos_theta = pos.x / r;
 		QNumber sin_theta = pos.y / r;
-
-		QMField bMag = cos(theta - 1_rad * cos_pitch / sin_pitch * log(r / R_sun) + PHI);
-		if (useASS)
-			bMag = fabs(bMag);
-		bMag *= B0_D * R_sun / std::max(r, R_c) / cos_PHI * exp(-fabs(pos.z) / z0_D);
 
 		// After some geometry calculations (on whiteboard) one finds:
 		// Bx = +cos(theta) * B_r - sin(theta) * B_{theta}
 		// By = -sin(theta) * B_r - cos(theta) * B_{theta}
 		// Use from paper: B_theta = B * cos(pitch)	and B_r = B * sin(pitch)
-		temp_b.x = sin_pitch * cos_theta - cos_pitch * sin_theta;
-		temp_b.y = - sin_pitch * sin_theta - cos_pitch * cos_theta;
-		temp_b *= -1;	// flip magnetic field direction, as B_{theta} and B_{phi} refering to 180 degree rotated field
+		b.x = static_cast<double>(sin_pitch * cos_theta - cos_pitch * sin_theta);
+		b.y = - static_cast<double>(sin_pitch * sin_theta - cos_pitch * cos_theta);
+		b *= -1;	// flip magnetic field direction, as B_{theta} and B_{phi} refering to 180 degree rotated field
 
-		b = temp_b * bMag;
+		double bMag = static_cast<double>(cos(theta - 1_rad * cos_pitch / sin_pitch * log(r / R_sun) + PHI));
+		if (useASS)
+			bMag = fabs(bMag);
+		bMag *= static_cast<double>(B0_D * R_sun / std::max(r, R_c) / cos_PHI * exp(-fabs(pos.z) / z0_D));
+		b *= bMag;
 	}
 
 	// halo field
 	if (useHalo) {
-		QMField bStrength = (pos.z > 0_pc ? B0_Hn : - B0_Hs);
-		QLength z1 = (fabs(pos.z) < z0_H ? z11_H : z12_H);
-		bStrength *= r / R0_H * exp(QNumber(1) - r / R0_H) / (QNumber(1) + pow<2>((fabs(pos.z) - z0_H) / z1));
+		double bMag = static_cast<double>(pos.z > 0_m ? B0_Hn : - B0_Hs);
+		QLength z1 = static_cast<double>(fabs(pos.z) < z0_H ? z11_H : z12_H);
+		bMag *= static_cast<double>((r / R0_H) * exp(QNumber(1) - r / R0_H) / (QNumber(1) + pow<2>((fabs(pos.z) - z0_H) / z1)));
 		// equation (8) in paper: theta uses now the conventional azimuth definition in contrast to equation (3)
 		// cos(phi) = pos.x / r (phi going counter-clockwise)
 		// sin(phi) = pos.y / r
 		// unitvector of phi in polar coordinates: (-sin(phi), cos(phi), 0)
-		b += Vector3d((-pos.y / r).getValue(), (pos.x / r).getValue(), 0) * bStrength;
+		//b += bMag * Vector3d(-static_cast<double>(pos.y / r), static_cast<double>(pos.x / r), 0);
+		b += bMag * Vector3d(-static_cast<double>(pos.y / r), static_cast<double>(- pos.x / r), 0);
 	}
 
-	return b;
+	return Vector3QMField(b);
 }
 
 } // namespace hermes

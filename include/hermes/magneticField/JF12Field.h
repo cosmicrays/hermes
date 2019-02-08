@@ -23,7 +23,7 @@ namespace hermes {
  cannot be changed.
 
  The field is defined in the usual galactocentric coordinate system with the
- Galactic center at the origin, the x-axis pointing in the opposite direction of
+ Galactic center at the origin, the x-axis pointing in the direction of
  the Sun, and the z-axis pointing towards Galactic north.
  */
 class JF12Field: public MagneticField {

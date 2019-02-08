@@ -57,29 +57,31 @@ public:
 			x(t), y(t), z(t) {
 	}
 
-	void setX(const T X) {
+	virtual void setX(const T X) {
 		x = X;
 	}
 
-	void setY(const T Y) {
+	virtual void setY(const T Y) {
 		y = Y;
 	}
 
-	void setZ(const T Z) {
+	virtual void setZ(const T Z) {
 		z = Z;
 	}
 
-	void setXYZ(const T X, const T Y, const T Z) {
+	virtual void setXYZ(const T X, const T Y, const T Z) {
 		x = X;
 		y = Y;
 		z = Z;
 	}
 
-	void setR(const T r) {
-		*this *= r / getR();
+	virtual void setR(const T r) {
+		x *= (r / getR());
+		y *= (r / getR());
+		z *= (r / getR());
 	}
 
-	void setRThetaPhi(const T r, const T theta, const T phi) {
+	void setRThetaPhi(const T r, const QAngle theta, const QAngle phi) {
 		x = r * sin(theta) * cos(phi);
 		y = r * sin(theta) * sin(phi);
 		z = r * cos(theta);
@@ -99,7 +101,7 @@ public:
 
 	// magnitude (2-norm) of the vector
 	T getR() const {
-		return std::sqrt(x * x + y * y + z * z);
+		return sqrt(x * x + y * y + z * z);
 	}
 
 	// square of magnitude of the vector
@@ -132,8 +134,8 @@ public:
 
 	// return the unit-vector e_theta
 	Vector3<T> getUnitVectorTheta() const {
-		T theta = getTheta();
-		T phi = getPhi();
+		QAngle theta = getTheta();
+		QAngle phi = getPhi();
 		return Vector3<T>(cos(theta) * cos(phi), cos(theta) * sin(phi),
 				-sin(theta));
 	}

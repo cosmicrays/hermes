@@ -17,6 +17,31 @@ TEST(UnitsBasic, Angles) {
 	EXPECT_EQ(omega - 270_deg, pi/2.*radian);
 }
 
+TEST(UnitsBasic, Trigonometry) {
+	QAngle alpha(1_pi/4);
+
+	EXPECT_NEAR(sin(alpha), sqrt(2)/2, 0.0000001);
+	EXPECT_NEAR(cos(alpha), sqrt(2)/2, 0.0000001);
+	EXPECT_NEAR(tan(alpha), 1, 0.0000001);
+}
+
+TEST(UnitsBasic, MinMax) {
+	QEnergy E1(1_J);
+	QEnergy E2(2_eV);
+
+	EXPECT_EQ(std::min(E1,E2), E2);
+	EXPECT_EQ(std::max(E1,E2), E1);
+}
+
+TEST(UnitsBasic, OtherOperations) {
+	QTime t1(1);
+	QTime t2(3);
+
+	EXPECT_EQ(squared(t2) + squared(t1), 10*pow<2>(1_s));
+	EXPECT_LT(t1, 1_h);
+	EXPECT_GT(t1, 1_ms);
+}
+
 TEST(UnitsDerived, Derived) {
 	QEnergy E(10.0_J);
 	QPressure P(5.0_Pa);

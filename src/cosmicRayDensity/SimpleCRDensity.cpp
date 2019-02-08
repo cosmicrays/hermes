@@ -34,7 +34,8 @@ QPDensityPerEnergy SimpleCRDensity::getDensityPerEnergy(const QEnergy& E_, const
 	QNumber profile = exp(-1.*fabs(pos_.getZ())/1_kpc);
 	QPDensityPerEnergy spectrum = Phi0 * pow<-1*alpha>(E_ / E0) * exp(-E_ / E_cutoff);
 
-	return profile * spectrum;
+	//return profile * spectrum;
+	return QPDensityPerEnergy(1);
 }
 
 } // namespace hermes

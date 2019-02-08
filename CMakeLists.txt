@@ -13,7 +13,6 @@ set(HERMES_EXTRA_LIBRARIES)
 # ----------------------------------------------------------------------------
 
 # GSL required dependency
-#include(FindGSL)
 find_package(GSL REQUIRED)
 if(GSL_FOUND)
 	list(APPEND HERMES_EXTRA_INCLUDES ${GSL_INCLUDE_DIRS})
@@ -48,12 +47,12 @@ endif(ENABLE_OPENMP)
 # CFITSIO (optional for FITS output format)
 option(ENABLE_CFITSIO "CFITSIO for FITS output" OFF)
 if(ENABLE_CFITSIO)
-        list(APPEND HERMES_EXTRA_INCLUDES libs/cfitsio/)
+        list(APPEND HERMES_EXTRA_INCLUDES libs/cfitsio)
         list(APPEND HERMES_EXTRA_LIBRARIES cfitsio)
 	add_definitions(-DHERMES_HAVE_CFITSIO)
 endif(ENABLE_CFITSIO)
 	
-option(ENABLE_SYS_CFITSIO "CFITSIO for FITS output" ON)
+option(ENABLE_SYS_CFITSIO "System CFITSIO for FITS output" ON)
 if(ENABLE_SYS_CFITSIO)
 	find_package(CFITSIO REQUIRED)
 	if(CFITSIO_FOUND)
@@ -63,14 +62,18 @@ if(ENABLE_SYS_CFITSIO)
 	endif(CFITSIO_FOUND)
 endif(ENABLE_SYS_CFITSIO)
 
+# ymw16 library
+# YMW16 is a model for the distribution of free electrons"
+
+add_subdirectory(libs/ymw16)
+list(APPEND HERMES_EXTRA_INCLUDES libs/ymw16)
+list(APPEND HERMES_EXTRA_LIBRARIES ymw16)
+
 # ----------------------------------------------------------------------------
 # Library and Binary
 # ----------------------------------------------------------------------------
 file(GLOB_RECURSE HERMES_INCLUDES RELATIVE ${CMAKE_SOURCE_DIR} include/*.h)
 include_directories(include ${HERMES_EXTRA_INCLUDES})
-
-#set(SOURCE_FILES
-#)
 
 add_library(hermes SHARED
 	src/Random.cpp
@@ -151,6 +154,10 @@ if(ENABLE_TESTING)
         add_executable(testCommon test/testCommon.cpp)
         target_link_libraries(testCommon hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testCommon testCommon)
+        
+	add_executable(testVector3 test/testVector3.cpp)
+        target_link_libraries(testVector3 hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+        add_test(testVector3 testVector3)
 
 	add_executable(testHEALPix test/testHEALPix.cpp)
         target_link_libraries(testHEALPix hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})

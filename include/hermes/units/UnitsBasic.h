@@ -46,7 +46,12 @@ public:
 
     // returns the raw value of the quantity (should not be used)
     constexpr double getValue() const {
-        return value;
+	return value;
+    }
+    
+    // overload explicitly the typecast operator
+    constexpr explicit operator double() const {
+	return value;
     }
 };
 
@@ -252,6 +257,9 @@ constexpr Quantity<std::ratio_divide<l, std::ratio<2>>, std::ratio_divide<t, std
                     std::ratio_divide<J, std::ratio<2>>, std::ratio_divide<A, std::ratio<2>>> 
                     (std::sqrt(num.getValue()));
 }
+constexpr double sqrt(double num) {
+    return std::sqrt(num);
+}
 
 // pow() 
 template<int power, typename l, typename t, typename m, typename I, typename T,
@@ -311,9 +319,6 @@ QUANTITY_TYPE(0, 0, 0, 0, 0, 0, 1, 0, QLIntensity);
 // Angle type:
 QUANTITY_TYPE(0, 0, 0, 0, 0, 0, 0, 1, QAngle);
 
-// Math
-constexpr double pi = 3.1415926535897932384626433832795;
-
 // Predefined basic SI units:
 constexpr QLength	metre(1.0);
 constexpr QTime		second(1.0);
@@ -324,11 +329,17 @@ constexpr QSubstance	mole(1.0);
 constexpr QLIntensity	candela(1.0);
 constexpr QAngle	radian(1.0);
 
+// Math
+constexpr double pi = 3.1415926535897932384626433832795;
+
 inline double exp(const QNumber &num) {
     return std::exp(num.getValue());
 }
 inline double log(const QNumber &num) {
     return std::log(num.getValue());
+}
+inline double fabs(double num) {
+    return std::fabs(num);
 }
 
 // Typesafe trigonometric operations

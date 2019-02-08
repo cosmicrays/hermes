@@ -32,9 +32,9 @@ LITERAL(QAngle, _deg, degree)
 
 // literals for length units
 BASELITERAL(QLength, _m)
-LITERAL(QLength, _mm, millimetre)
-LITERAL(QLength, _cm, centimetre)
-LITERAL(QLength, _km, kilometre)
+LITERAL(QLength, _mm, milli*metre)
+LITERAL(QLength, _cm, centi*metre)
+LITERAL(QLength, _km, kilo*metre)
 LITERAL(QLength, _mi, mile)
 LITERAL(QLength, _yd, yard)
 LITERAL(QLength, _in, foot)
@@ -42,7 +42,7 @@ LITERAL(QLength, _pc, parsec)
 LITERAL(QLength, _kpc, kilo*parsec)
 
 // literals for volume units
-LITERAL(QVolume, _cm3, pow<3>(centimetre))
+LITERAL(QVolume, _cm3, pow<3>(centi*metre))
 LITERAL(QVolume, _m3, pow<3>(metre))
 
 // literals for energy units
@@ -54,7 +54,7 @@ LITERAL(QEnergy, _TeV, tera*electronvolt)
 // literals for speed units
 BASELITERAL(QSpeed, _mps)
 LITERAL(QSpeed, _miph, mile/hour)
-LITERAL(QSpeed, _kmph, kilometre/hour)
+LITERAL(QSpeed, _kmph, kilo*metre/hour)
 
 // literal for frequency unit
 BASELITERAL(QFrequency, _Hz)
@@ -65,11 +65,13 @@ LITERAL(QFrequency, _THz, tera*hertz)
 
 // magnetic field strength
 BASELITERAL(QMField, _T)
-LITERAL(QMField, _muG, microgauss)
-LITERAL(QMField, _nG, nanogauss)
+LITERAL(QMField, _nG, nano*gauss)
+LITERAL(QMField, _muG, micro*gauss)
 
 // literals for time units
 BASELITERAL(QTime, _s)
+LITERAL(QTime, _ns, nano*second)
+LITERAL(QTime, _ms, micro*second)
 LITERAL(QTime, _min, minute)
 LITERAL(QTime, _h, hour)
 LITERAL(QTime, _day, day)

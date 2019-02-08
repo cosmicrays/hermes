@@ -28,20 +28,38 @@ namespace hermes {
  theta [0, pi]: zenith angle towards the z axis, 0 pointing in z-direction
  */
 template<typename T>
-class Vector3Quantity: public Vector3d {
+class Vector3Quantity: public Vector3<T> {
 public:
-	T x, y, z;
-
-	Vector3Quantity() :
-			x(T(0)), y(T(0)), z(T(0)) {
+	Vector3Quantity() : Vector3<T>() {
 	}
 
 	// Provides implicit conversion
-	template<typename U>
-	Vector3Quantity(const Vector3Quantity<U> &v) :
-			x(v.x), y(v.y), z(v.z) {
+	Vector3Quantity(const Vector3Quantity<T> &v) :
+			Vector3<T>(v.getX(), v.getY(), v.getZ()) {
 	}
 	
+	template<typename U>
+	Vector3Quantity(const Vector3Quantity<U> &v) :
+			Vector3<T>(static_cast<T>(v.getX()),
+				   static_cast<T>(v.getY()),
+				   static_cast<T>(v.getZ())) {
+	}
+	
+	template<typename U>
+	Vector3Quantity(const Vector3<U> &v) :
+			Vector3<T>(static_cast<T>(v.getX()),
+				   static_cast<T>(v.getY()),
+				   static_cast<T>(v.getZ())) {
+	}
+
+	explicit Vector3Quantity(const T &X) :
+			Vector3<T>(X, X, X) {
+	}
+	
+	explicit Vector3Quantity(const T &X, const T &Y, const T &Z) :
+			Vector3<T>(X, Y, Z) {
+	}
+/*	
 	explicit Vector3Quantity(const int *v) :
 			x(v[0]), y(v[1]), z(v[2]) {
 	}
@@ -53,76 +71,51 @@ public:
 	explicit Vector3Quantity(const float *v) :
 			x(v[0]), y(v[1]), z(v[2]) {
 	}
-
-	explicit Vector3Quantity(const T &X, const T &Y, const T &Z) :
-			x(X), y(Y), z(Z) {
-	}
-
+	
 	explicit Vector3Quantity(T t) :
-			x(t), y(t), z(t) {
+			Vector3d(t.getValue()), x(t), y(t), z(t) {
 	}
-
-	Vector3d getValue() {
-		return Vector3d(x.getValue(), y.getValue(), z.getValue());
-	}
-
-	void setRThetaPhi(const T r, const QAngle theta, const QAngle phi) {
-		x = r * sin(theta) * cos(phi);
-		y = r * sin(theta) * sin(phi);
-		z = r * cos(theta);
+*/
+	Vector3d getValue() const {
+		return Vector3d((this->x).getValue(),
+				(this->y).getValue(),
+				(this->z).getValue());
 	}
 	
-	T getX() const {
-		return x;
-	}
-
-	T getY() const {
-		return y;
-	}
-
-	T getZ() const {
-		return z;
-	}
-
-	// magnitude (2-norm) of the vector
-	T getR() const {
-		return sqrt(x * x + y * y + z * z);
-	}
-
 	// return the azimuth angle
 	QAngle getPhi() const {
 		T eps = std::numeric_limits < T > ::min();
-		if ((fabs(x) < eps) and (fabs(y) < eps))
+		if ((fabs(this->x) < eps) and (fabs(this->y) < eps))
 			return 0.0;
 		else
-			return atan2(y, x);
+			return atan2(this->y, this->x);
 	}
 
 	// return the zenith angle
 	QAngle getTheta() const {
 		T eps = std::numeric_limits < T > ::min();
-		if ((fabs(x) < eps) and (fabs(y) < eps) and (fabs(z) < eps))
+		if ((fabs(this->x) < eps) and (fabs(this->y) < eps) and (fabs(this->z) < eps))
 			return 0.0;
 		else
-			return atan2((T) sqrt(x * x + y * y), z);
+			return atan2((T) sqrt(this->x * this->x + this->y * this->y), this->z);
 	}
 
 	// return the unit-vector e_theta
 	Vector3Quantity<T> getUnitVectorTheta() const {
-		T theta = getTheta();
-		T phi = getPhi();
+		T theta = this->getTheta();
+		T phi = this->getPhi();
 		return Vector3Quantity<T>(cos(theta) * cos(phi), cos(theta) * sin(phi),
 				-sin(theta));
 	}
 
 	// return the unit-vector e_phi
 	Vector3Quantity<T> getUnitVectorPhi() const {
-		return Vector3Quantity<T>(-sin(getPhi()), cos(getPhi()), 0);
+		return Vector3Quantity<T>(-sin(this->getPhi()), cos(this->getPhi()), 0);
 	}
 
 	// return the angle [0, pi] between the vectors
 	QAngle getAngleTo(const Vector3Quantity<T> &v) const {
-		double cosdistance = (dot(v) / v.getR() / getR()).getValue();
+		double cosdistance = (this->dot(v) / v.getR() / this->getR()).getValue();
 		// In some directions cosdistance is > 1 on some compilers
 		// This ensures that the correct result is returned
 		if (cosdistance >= 1.)
@@ -150,178 +143,170 @@ public:
 	// return vector with values limited to the range [lower, upper]
 	Vector3Quantity<T> clip(T lower, T upper) const {
 		Vector3Quantity<T> out;
-		out.x = std::max(lower, std::min(x, upper));
-		out.y = std::max(lower, std::min(y, upper));
-		out.z = std::max(lower, std::min(z, upper));
+		out.x = std::max(lower, std::min(this->x, upper));
+		out.y = std::max(lower, std::min(this->y, upper));
+		out.z = std::max(lower, std::min(this->z, upper));
 		return out;
 	}
 
 	// return vector with absolute values
 	Vector3Quantity<T> abs() const {
-		return Vector3Quantity<T>(std::abs(x), std::abs(y), std::abs(z));
+		return Vector3Quantity<T>(std::abs(this->x), std::abs(this->y), std::abs(this->z));
 	}
 
 	// return vector with floored values
 	Vector3Quantity<T> floor() const {
-		return Vector3Quantity<T>(std::floor(x), std::floor(y), std::floor(z));
+		return Vector3Quantity<T>(std::floor(this->x), std::floor(this->y), std::floor(this->z));
 	}
 
 	// return vector with ceiled values
 	Vector3Quantity<T> ceil() const {
-		return Vector3Quantity<T>(std::ceil(x), std::ceil(y), std::ceil(z));
+		return Vector3Quantity<T>(std::ceil(this->x), std::ceil(this->y), std::ceil(this->z));
 	}
 
-	// minimum element
-	T min() const {
-		return std::min(x, std::min(y, z));
-	}
-
-	// maximum element
-	T max() const {
-		return std::max(x, std::max(y, z));
-	}
-	
 	// dot product
 	//auto dot(const Vector3Quantity<T> &v) const {
 	auto dot(const Vector3Quantity<T> &v) const {
-		return x * v.x + y * v.y + z * v.z;
+		return this->x * v.x + this->y * v.y + this->z * v.z;
 	}
 
 	// cross product
 	Vector3Quantity<T> cross(const Vector3Quantity<T> &v) const {
-		return Vector3Quantity<T>(y * v.z - v.y * z, z * v.x - v.z * x,
-				x * v.y - v.x * y);
+		return Vector3Quantity<T>(this->y * v.z - v.y * this->z, this->z * v.x - v.z * this->x,
+				this->x * v.y - v.x * this->y);
 	}
 
 	// returns true if all elements of the two vectors are equal
 	bool operator ==(const Vector3Quantity<T> &v) const {
-		if (x != v.x)
+		if (this->x != v.x)
 			return false;
-		if (y != v.y)
+		if (this->y != v.y)
 			return false;
-		if (z != v.z)
+		if (this->z != v.z)
 			return false;
 		return true;
 	}
 
+	
 	Vector3Quantity<T> operator +(const Vector3Quantity<T> &v) const {
-		return Vector3Quantity(x + v.x, y + v.y, z + v.z);
+		return Vector3Quantity(this->x + v.x, this->y + v.y, this->z + v.z);
 	}
 
 	Vector3Quantity<T> operator +(const T &f) const {
-		return Vector3Quantity(x + f, y + f, z + f);
+		return Vector3Quantity(this->x + f, this->y + f, this->z + f);
 	}
 
 	Vector3Quantity<T> operator -(const Vector3Quantity<T> &v) const {
-		return Vector3Quantity(x - v.x, y - v.y, z - v.z);
+		return Vector3Quantity(this->x - v.x, this->y - v.y, this->z - v.z);
 	}
 
 	Vector3Quantity<T> operator -(const T &f) const {
-		return Vector3Quantity(x - f, y - f, z - f);
+		return Vector3Quantity(this->x - f, this->y - f, this->z - f);
 	}
-	/*
+	
+	
 	// element-wise division
 	Vector3Quantity<T> operator /(const Vector3Quantity<T> &v) const {
-		return Vector3Quantity(x / v.x, y / v.y, z / v.z);
+		return Vector3Quantity<T>(this->x / v.x, this->y / v.y, this->z / v.z);
 	}
 
 	Vector3Quantity<T> operator /(const T &f) const {
-		return Vector3Quantity<T>(x / f, y / f, z / f);
+		return Vector3Quantity<T>(this->x / f, this->y / f, this->z / f);
 	}
-	*/
+	
 	// element-wise modulo operation
 	Vector3Quantity<T> operator %(const Vector3Quantity<T> &v) const {
-		return Vector3(fmod(x, v.x), fmod(y, v.y), fmod(z, v.z));
+		return Vector3Quantity<T>(fmod(this->x, v.x), fmod(this->y, v.y), fmod(this->z, v.z));
 	}
 
 	Vector3Quantity<T> operator %(const T &f) const {
-		return Vector3(fmod(x, f), fmod(y, f), fmod(z, f));
+		return Vector3Quantity<T>(fmod(this->x, f), fmod(this->y, f), fmod(this->z, f));
 	}
 
 	Vector3Quantity<T> &operator -=(const Vector3Quantity<T> &v) {
-		x -= v.x;
-		y -= v.y;
-		z -= v.z;
+		this->x -= v.x;
+		this->y -= v.y;
+		this->z -= v.z;
 		return *this;
 	}
 
 	Vector3Quantity<T> &operator -=(const T &f) {
-		x -= f;
-		y -= f;
-		z -= f;
+		this->x -= f;
+		this->y -= f;
+		this->z -= f;
 		return *this;
 	}
 
 	Vector3Quantity<T> &operator +=(const Vector3Quantity<T> &v) {
-		x += v.x;
-		y += v.y;
-		z += v.z;
+		this->x += v.x;
+		this->y += v.y;
+		this->z += v.z;
 		return *this;
 	}
 
 	Vector3Quantity<T> &operator +=(const T &f) {
-		x += f;
-		y += f;
-		z += f;
+		this->x += f;
+		this->y += f;
+		this->z += f;
 		return *this;
 	}
 
 	// element-wise multiplication
 	Vector3Quantity<T> &operator *=(const Vector3Quantity<T> &v) {
-		x *= v.x;
-		y *= v.y;
-		z *= v.z;
+		this->x *= v.x;
+		this->y *= v.y;
+		this->z *= v.z;
 		return *this;
 	}
 
 	Vector3Quantity<T> &operator *=(const T &f) {
-		x *= f;
-		y *= f;
-		z *= f;
+		this->x *= f;
+		this->y *= f;
+		this->z *= f;
 		return *this;
 	}
 
 	// element-wise division
 	Vector3Quantity<T> &operator /=(const Vector3Quantity<T> &v) {
-		x /= v.x;
-		y /= v.y;
-		z /= v.z;
+		this->x /= v.x;
+		this->y /= v.y;
+		this->z /= v.z;
 		return *this;
 	}
 
 	Vector3Quantity<T> &operator /=(const T &f) {
-		x /= f;
-		y /= f;
-		z /= f;
+		this->x /= f;
+		this->y /= f;
+		this->z /= f;
 		return *this;
 	}
 
 	// element-wise modulo operation
 	Vector3Quantity<T> &operator %=(const Vector3Quantity<T> &v) {
-		x = fmod(x, v.x);
-		y = fmod(y, v.y);
-		z = fmod(z, v.z);
+		this->x = fmod(this->x, v.x);
+		this->y = fmod(this->y, v.y);
+		this->z = fmod(this->z, v.z);
 		return *this;
 	}
 
 	Vector3Quantity<T> &operator %=(const T &f) {
-		x = fmod(x, f);
-		y = fmod(y, f);
-		z = fmod(z, f);
+		this->x = fmod(this->x, f);
+		this->y = fmod(this->y, f);
+		this->z = fmod(this->z, f);
 		return *this;
 	}
 
 	Vector3Quantity<T> &operator =(const Vector3Quantity<T> &v) {
-		x = v.x;
-		y = v.y;
-		z = v.z;
+		this->x = v.x;
+		this->y = v.y;
+		this->z = v.z;
 		return *this;
 	}
 
 	Vector3Quantity<T> &operator =(const T &f) {
-		x = f;
-		y = f;
-		z = f;
+		this->x = f;
+		this->y = f;
+		this->z = f;
 		return *this;
 	}
 };
@@ -336,7 +321,7 @@ inline Vector3Quantity<Q> operator *(const Vector3<T> &v, const Vector3Quantity<
 }
 template<typename T, typename Q>
 inline Vector3Quantity<Q> operator *(const Vector3<T> &v, const Q q) {
-	return Vector3Quantity<Q>(v.x * q, v.y * q, v.z * q);
+	return Vector3Quantity<Q>(T(v.x * q), T(v.y * q), T(v.z * q));
 }
 template<typename Q>
 inline Vector3Quantity<Q> operator *(const Vector3Quantity<Q> &q, const double a) {
