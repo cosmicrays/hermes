@@ -38,4 +38,3 @@ build/*
 GammaSky/*
 
 #Libraries
-libs/cfitsio*

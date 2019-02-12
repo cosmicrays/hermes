@@ -5,6 +5,14 @@
 
 namespace hermes {
 
+class DummyGasDensity: public GasDensity {
+public:
+        DummyGasDensity() { };
+        QPDensity getDensity(const Vector3QLength& pos) const {
+		return QPDensity(1);
+	}
+};
+
 class TestMagneticField: public MagneticField {
         Vector3QMField value;
 public:
@@ -36,6 +44,7 @@ void playground() {
 	// gas models
 	//auto gas = std::make_shared<HII_Cordes91>(HII_Cordes91());
 	auto gas = std::make_shared<YMW16>(YMW16());
+	//auto gas = std::make_shared<DummyGasDensity>(DummyGasDensity());
 
 	/*	
 	std::cout << "# X\tY\tZ\teta" << std::endl;

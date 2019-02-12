@@ -281,6 +281,8 @@ Vector3QMField JF12Field::getTurbulentField(const Vector3QLength& pos) const {
 }
 
 Vector3QMField JF12Field::getField(const Vector3QLength& pos_) const {
+	// the JF12 model uses right-handed Cartesian and
+	// cylindrical coordinate system
 	Vector3QMField b(0.);
 	Vector3QLength pos = pos_;
 	pos.setX(-pos_.getX());
