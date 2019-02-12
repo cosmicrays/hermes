@@ -14,12 +14,12 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
-#if (CFITSIO_INCLUDE_DIR AND CFITSIO_LIBRARIES)
+if (CFITSIO_INCLUDE_DIR AND CFITSIO_LIBRARIES)
 
   # in cache already, be quiet
-  #  set(CFITSIO_FIND_QUIETLY TRUE)
+  set(CFITSIO_FIND_QUIETLY TRUE)
 
-#else (CFITSIO_INCLUDE_DIR AND CFITSIO_LIBRARIES)
+else (CFITSIO_INCLUDE_DIR AND CFITSIO_LIBRARIES)
 
   # JM: Packages from different distributions have different suffixes
   find_path(CFITSIO_INCLUDE_DIR fitsio.h
@@ -64,4 +64,4 @@
 
   mark_as_advanced(CFITSIO_INCLUDE_DIR CFITSIO_LIBRARIES)
 
-#endif (CFITSIO_INCLUDE_DIR AND CFITSIO_LIBRARIES)
+endif (CFITSIO_INCLUDE_DIR AND CFITSIO_LIBRARIES)

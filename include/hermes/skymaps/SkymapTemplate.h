@@ -136,7 +136,7 @@ void SkymapTemplate<Q>::save(std::shared_ptr<Output> output) const {
 	output->createTable(static_cast<int>(npix));
 	output->writeMetadata(nside, res, description);
 
-	float tempArray[npix] = {0};
+	float tempArray[npix];
 	for (unsigned long i = 0; i < npix; ++i)
 		tempArray[i] = static_cast<float>(fluxContainer[i].getValue());
 

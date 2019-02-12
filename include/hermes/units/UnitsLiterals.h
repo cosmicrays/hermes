@@ -1,4 +1,4 @@
-#ifndef HERMES_UNITSLITERAS_H
+#ifndef HERMES_UNITSLITERALS_H
 #define HERMES_UNITSLITERALS_H
 
 #include "UnitsDerived.h"

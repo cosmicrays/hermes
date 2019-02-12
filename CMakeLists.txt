@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.1)
 project(hermes)
 
 set(CMAKE_BUILD_TYPE Debug)
@@ -7,6 +7,8 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 set(HERMES_EXTRA_SOURCES)
 set(HERMES_EXTRA_INCLUDES)
 set(HERMES_EXTRA_LIBRARIES)
+
+set (CMAKE_CXX_STANDARD 14)
 
 # ----------------------------------------------------------------------------
 # Dependencies
@@ -45,14 +47,14 @@ find_package(OpenMP)
 endif(ENABLE_OPENMP)
 
 # CFITSIO (optional for FITS output format)
-option(ENABLE_CFITSIO "CFITSIO for FITS output" OFF)
+option(ENABLE_CFITSIO "CFITSIO for FITS output" ON)
 if(ENABLE_CFITSIO)
         list(APPEND HERMES_EXTRA_INCLUDES libs/cfitsio)
         list(APPEND HERMES_EXTRA_LIBRARIES cfitsio)
 	add_definitions(-DHERMES_HAVE_CFITSIO)
 endif(ENABLE_CFITSIO)
 	
-option(ENABLE_SYS_CFITSIO "System CFITSIO for FITS output" ON)
+option(ENABLE_SYS_CFITSIO "System CFITSIO for FITS output" OFF)
 if(ENABLE_SYS_CFITSIO)
 	find_package(CFITSIO REQUIRED)
 	if(CFITSIO_FOUND)
@@ -64,7 +66,6 @@ endif(ENABLE_SYS_CFITSIO)
 
 # ymw16 library
 # YMW16 is a model for the distribution of free electrons"
-
 add_subdirectory(libs/ymw16)
 list(APPEND HERMES_EXTRA_INCLUDES libs/ymw16)
 list(APPEND HERMES_EXTRA_LIBRARIES ymw16)
