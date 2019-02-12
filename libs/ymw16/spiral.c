@@ -24,6 +24,8 @@ Jumei Yao (yaojumei@xao.ac.cn), Richard N Manchester
 (dick.manchester@csiro.au), Na Wang (na.wang@xao.ac.cn).
 */
 #include "cn.h"
+#include "spiral_par.h"
+
 void spiral(double xx,  double yy,  double zz,  double gd, double *ne3,  double rr,  struct Spiral t3, char *filedir)
 {
   int i, which_arm;
@@ -43,14 +45,11 @@ void spiral(double xx,  double yy,  double zz,  double gd, double *ne3,  double 
   Hg=32+0.0016*rr+0.0000004*pow(rr, 2);
   HH=t3.Ka*Hg;
   if(ww==1){
-    strcpy(filen,filedir);
-    strcat(filen,"/spiral.txt");
-    fp=fopen(filen,"r");
-    
-    for(i=0;i<=4;i++){
-      fscanf(fp, "%lf %lf %lf %lf %lf", &rmin[i], &thmin[i], &tpitch[i], &cspitch[i], &sspitch[i]);
-    }
-    fclose(fp);
+      rmin[0] = sp_1_1; thmin[0] = sp_1_2; tpitch[0] = sp_1_3; cspitch[0] = sp_1_4; sspitch[0] = sp_1_5;
+      rmin[1] = sp_2_1; thmin[1] = sp_2_2; tpitch[1] = sp_2_3; cspitch[1] = sp_2_4; sspitch[1] = sp_2_5;
+      rmin[2] = sp_3_1; thmin[2] = sp_3_2; tpitch[2] = sp_3_3; cspitch[2] = sp_3_4; sspitch[2] = sp_3_5;
+      rmin[3] = sp_4_1; thmin[3] = sp_4_2; tpitch[3] = sp_4_3; cspitch[3] = sp_4_4; sspitch[3] = sp_4_5;
+      rmin[4] = sp_5_1; thmin[4] = sp_5_2; tpitch[4] = sp_5_3; cspitch[4] = sp_5_4; sspitch[4] = sp_5_5;
     ww++;
   }
 

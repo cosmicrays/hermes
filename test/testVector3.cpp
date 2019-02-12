@@ -55,11 +55,11 @@ TEST(Vector3, cross) {
 
 TEST(Vector3, angle) {
 	// 45 degrees
-	double a = Vector3d(1, 1, 0).getAngleTo(Vector3d(1, 0, 0));
-	EXPECT_DOUBLE_EQ(a, 45 * M_PI / 180);
+	QAngle a = Vector3d(1, 1, 0).getAngleTo(Vector3d(1, 0, 0));
+	EXPECT_DOUBLE_EQ(static_cast<double>(a), static_cast<double>(45_deg));
 	// perpendicular vectors
-	double b = Vector3d(0, 0, 1).getAngleTo(Vector3d(0, 0, 1));
-	EXPECT_DOUBLE_EQ(b, 0);
+	QAngle b = Vector3d(0, 0, 1).getAngleTo(Vector3d(0, 0, 1));
+	EXPECT_DOUBLE_EQ(static_cast<double>(b), static_cast<double>(0_deg));
 }
 
 TEST(Vector3, unitVectors) {

@@ -2,6 +2,18 @@
 
 namespace hermes {
 
+QDirection OffsetFromHEALPix(QDirection dir) {
+//	dir[0] = 90_deg - dir[0];
+	dir[1] -= 180_deg;
+	return dir;
+}
+
+QDirection OffsetToHEALPix(QDirection dir) {
+//	dir[0] = 90_deg - dir[0];
+	dir[1] += 180_deg;
+	return dir;
+}
+
 inline long nside2npix(long nside) {
 	return 12*nside*nside;
 }
@@ -26,12 +38,12 @@ inline long nside2order(long nside) {
 	return ((nside)&(nside-1)) ? -1 : log2(nside);
 }
 
-std::array<QAngle, 2> pix2ang_ring(long nside, long ipix) {
-	std::array<QAngle, 2> thetaphi = {0, 0};
+QDirection pix2ang_ring(long nside, long ipix) {
+	QDirection thetaphi = {0, 0};
 
 	int nl2, nl4, npix, ncap, iring, iphi, ip, ipix1;
-	double  fact1, fact2, fodd, hip, fihip;
-	double PI=M_PI;
+	double fact1, fact2, fodd, hip, fihip;
+	double PI = M_PI;
 
 	/* check in : src/C/subs/chealpix.c */
 
@@ -57,9 +69,9 @@ std::array<QAngle, 2> pix2ang_ring(long nside, long ipix) {
 
 		ip    = ipix1 - ncap - 1;
 		iring = (int)floor( ip / nl4 ) + nside;// ! counted from North pole
-		iphi  = (int)fmod(ip,nl4) + 1;
+		iphi  = (int)std::fmod(ip,nl4) + 1;
 
-		fodd  = 0.5 * (1 + fmod((double)(iring+nside),2));//  ! 1 if iring+nside is odd, 1/2 otherwise
+		fodd  = 0.5 * (1 + std::fmod((double)(iring+nside),2));//  ! 1 if iring+nside is odd, 1/2 otherwise
 		thetaphi[0] = acos( (nl2 - iring) / fact1 );
 		thetaphi[1]   = (1.*iphi - fodd) * PI /(2.*nside);
 	} else {//! South Polar cap -----------------------------------
@@ -79,7 +91,7 @@ std::array<QAngle, 2> pix2ang_ring(long nside, long ipix) {
 }
 
 
-long ang2pix_ring(long nside, std::array<QAngle,2> thetaphi) {
+long ang2pix_ring(long nside, QDirection thetaphi) {
 	double theta = thetaphi[0].getValue();
 	double phi = thetaphi[1].getValue();
 

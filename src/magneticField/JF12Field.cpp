@@ -284,7 +284,7 @@ Vector3QMField JF12Field::getField(const Vector3QLength& pos_) const {
 	Vector3QMField b(0.);
 	Vector3QLength pos = pos_;
 	pos.setX(-pos_.getX());
-	pos.setY(-pos_.getY());
+	//pos.setY(-pos_.getY());
 
 	if (useTurbulent)
 		b += getTurbulentField(pos);

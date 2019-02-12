@@ -36,9 +36,6 @@ QTemperature SynchroIntegrator::integrateOverLOS(
 	// distance from the (spherical) galactic border in the given direction
 	QLength maxDistance = distanceToGalBorder(positionSun, direction);
 
-	// TODO: quick hack > implement generic coordinate system transformations
-	direction[1] = pi*radian-direction[1]; // rotate for JF12 (tmp)
-
 	// TODO: implement sophisticated adaptive integration method :-)
 	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
 		pos.setRThetaPhi(dist, direction[0], direction[1]);

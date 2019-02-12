@@ -5,7 +5,7 @@
 namespace hermes {
 
 TEST(HEALPix, consistency) {
-	std::array<QAngle, 2> thetaphi;
+	QDirection thetaphi;
 	long nside = 4;
 	long npix = nside2npix(nside);
 
@@ -13,6 +13,17 @@ TEST(HEALPix, consistency) {
 		thetaphi = pix2ang_ring(nside, ipix);
 		EXPECT_EQ(ang2pix_ring(nside, thetaphi), ipix);
 	}
+}
+
+TEST(HEALPix, galacticCentre) {
+	long nside = 2;
+
+	// see fig. 3 in The HEALPix Primer
+	QDirection thetaphi = {pi/2, pi + 0.01};
+	EXPECT_EQ(ang2pix_ring(nside, thetaphi), 24);
+	
+	thetaphi[0] = 0.7; thetaphi[1] = 2*pi - 0.1;
+	EXPECT_EQ(ang2pix_ring(nside, thetaphi), 11);
 }
 
 TEST(HEALPix, pix2ang_ring) {

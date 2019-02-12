@@ -77,6 +77,7 @@ include_directories(include ${HERMES_EXTRA_INCLUDES})
 
 add_library(hermes SHARED
 	src/Random.cpp
+	src/Common.cpp
 	src/HEALPixBits.cpp
 	src/FITSWrapper.cpp
 	src/ProgressBar.cpp
@@ -90,6 +91,7 @@ add_library(hermes SHARED
 	src/magneticField/MagneticField.cpp
 	src/magneticField/MagneticFieldGrid.cpp
 	src/gasDensity/HII_Cordes91.cpp
+	src/gasDensity/YMW16.cpp
 	src/cosmicRayDensity/SimpleCRDensity.cpp
 	src/cosmicRayDensity/DragonCRDensity.cpp
 	src/outputs/FITSOutput.cpp
@@ -162,6 +164,10 @@ if(ENABLE_TESTING)
 	add_executable(testHEALPix test/testHEALPix.cpp)
         target_link_libraries(testHEALPix hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testHEALPix testHEALPix)
+	
+	add_executable(testSkymap test/testSkymap.cpp)
+	target_link_libraries(testSkymap hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testSkymap testSkymap)
 	
 	add_executable(testFITS test/testFITS.cpp)
 	target_link_libraries(testFITS hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})

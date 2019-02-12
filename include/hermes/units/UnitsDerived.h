@@ -2,6 +2,7 @@
 #define HERMES_UNITSDERIVED_H
 
 #include "UnitsBasic.h"
+#include <array>
 
 namespace hermes {
 
@@ -124,6 +125,9 @@ constexpr double yotta = 1e24;
 
 // Predefined angle units:
 constexpr QAngle degree = static_cast<double>(2*pi / 360.0) * radian;
+
+// Direction quantity (l, b)
+typedef std::array<QAngle, 2> QDirection;
 
 } // namespace hermes
 

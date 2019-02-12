@@ -2,9 +2,7 @@
 #define HERMES_COMMON_H
 
 #include "hermes/Units.h"
-
-#include <iostream>
-#include <array>
+#include "hermes/Vector3Quantity.h"
 
 /**
  @file
@@ -13,44 +11,29 @@
 
 namespace hermes {
 
-	typedef std::array<QAngle, 2> QDirection;
+/**
+	Gives a distance from the galactic centre (GC) by providing the distance 
+	from the Sun and the direction (theta,phi)
+*/
+QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
+				Vector3QLength vecGCSun);
 
-	/**
-		Gives a distance from the galactic centre (GC) by providing the distance 
-		from the Sun and the direction (theta,phi)
-	*/
-	inline QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
-					Vector3QLength vecGCSun) {
-		Vector3QLength vecSunTarget;
-		vecSunTarget.setRThetaPhi(distanceFromSun, direction[0], direction[1]);
-		Vector3QLength vecGCTarget = vecSunTarget - vecGCSun;
+/**
+	Gives a distance from an observer to the (spherical) galactic border
+	in the given direction (law of cosines)
+*/
+QLength distanceToGalBorder(Vector3QLength positionSun, QDirection direction);
 
-		return vecGCTarget.getR();
-	}
+/**
+	Test if two directions are close one another, within d
 
-        /**
- 		Gives a distance from an observer to the (spherical) galactic border
-		in the given direction (law of cosines)
-        */
-	inline QLength distanceToGalBorder(Vector3QLength positionSun, QDirection direction) {
-	
-		Vector3QLength positionGC(0, 0, 0);
-		QLength galacticBorder = 20_kpc; // JF12 is zero for r > 20kpc
-		Vector3QLength vecSunToGalBorder;
-	        vecSunToGalBorder.setRThetaPhi(1_m, direction[0], direction[1]);
+*/
+bool isWithinAngle(QDirection a, QDirection b, QAngle d);
 
-        	QLength a = (positionSun-positionGC).getR();
-	        QLength c = galacticBorder;
-        	QAngle gamma = vecSunToGalBorder.getAngleTo(positionSun-positionGC);
-	        return (2*a*cos(gamma) + std::sqrt(2)*sqrt(2*c*c - a*a + a*a*cos(2*gamma)))/2.0;
-	}
-
-	/**
-	 	Calculate the Lorentz factor (gamma) from a particle mass and energy
-	*/
-	inline QNumber getLorentzFactor(QMass m, QEnergy E) {
-	        return E / (m * c_squared);
-	}
+/**
+ 	Calculate the Lorentz factor (gamma) from a particle mass and energy
+*/
+QNumber getLorentzFactor(QMass m, QEnergy E);
 
 } // namespace hermes
 

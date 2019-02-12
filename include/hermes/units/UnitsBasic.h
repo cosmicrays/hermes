@@ -243,6 +243,14 @@ constexpr Quantity<l, t, m, I, T, N, J, A>
     return Quantity<l, t, m, I, T, N, J, A>(std::fabs(num.getValue()));
 }
 
+// Computes the floating-point remainder of the division operation
+template<typename l, typename t, typename m, typename I, typename T,
+	 typename N, typename J, typename A>
+constexpr Quantity<l, t, m, I, T, N, J, A>
+    fmod(const Quantity<l, t, m, I, T, N, J, A>& first, const Quantity<l, t, m, I, T, N, J, A>& second) {
+    return Quantity<l, t, m, I, T, N, J, A>(std::fmod(first.getValue(), second.getValue()));
+}
+
 // sqrt()
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>

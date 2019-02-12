@@ -17,16 +17,13 @@ QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) const {
 	Vector3QMField B;
 	QMField B_parallel;
 
-	// TODO: quick hack > implement generic coordinate system transformations
-        direction[1] = pi*radian+direction[1];
-
 	// distance from the (spherical) galactic border in the given direction
-	//QLength maxDistance = distanceToGalBorder(positionSun, direction);
-	QLength maxDistance = 15_kpc;
+	QLength maxDistance = distanceToGalBorder(positionSun, direction);
 
 	QRotationMeasure sum(0);
-	QLength delta_d = 10.0_pc;
+	QLength delta_d = 5.0_pc;
 	// TODO: implement sophisticated adaptive integration method :-)
+
 	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
 		pos.setRThetaPhi(dist, direction[0], direction[1]);
 		pos += positionSun;

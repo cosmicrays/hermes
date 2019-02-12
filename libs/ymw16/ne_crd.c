@@ -68,7 +68,6 @@ double ne_crd(double *x, double *y, double *z, double *gl, double *gb, double *d
   int w_lmc=0;
   int w_smc=0;
 
-
   struct Warp_Sun t0;
   struct Thick t1;
   struct Thin t2;

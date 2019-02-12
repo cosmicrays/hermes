@@ -146,14 +146,14 @@ public:
 	}
 
 	// return the angle [0, pi] between the vectors
-	T getAngleTo(const Vector3<T> &v) const {
+	QAngle getAngleTo(const Vector3<T> &v) const {
 		T cosdistance = dot(v) / v.getR() / getR();
 		// In some directions cosdistance is > 1 on some compilers
 		// This ensures that the correct result is returned
 		if (cosdistance >= 1.)
-			return 0;
+			return QAngle(0);
 		else if (cosdistance <= -1.)
-			return M_PI;
+			return QAngle(pi);
 		else
 			return acos(cosdistance);
 	}
@@ -292,11 +292,11 @@ public:
 
 	// element-wise modulo operation
 	Vector3<T> operator %(const Vector3<T> &v) const {
-		return Vector3(fmod(x, v.x), fmod(y, v.y), fmod(z, v.z));
+		return Vector3(std::fmod(x, v.x), std::fmod(y, v.y), std::fmod(z, v.z));
 	}
 
 	Vector3<T> operator %(const T &f) const {
-		return Vector3(fmod(x, f), fmod(y, f), fmod(z, f));
+		return Vector3(std::fmod(x, f), std::fmod(y, f), std::fmod(z, f));
 	}
 
 	Vector3<T> &operator -=(const Vector3<T> &v) {
@@ -359,16 +359,16 @@ public:
 
 	// element-wise modulo operation
 	Vector3<T> &operator %=(const Vector3<T> &v) {
-		x = fmod(x, v.x);
-		y = fmod(y, v.y);
-		z = fmod(z, v.z);
+		x = std::fmod(x, v.x);
+		y = std::fmod(y, v.y);
+		z = std::fmod(z, v.z);
 		return *this;
 	}
 
 	Vector3<T> &operator %=(const T &f) {
-		x = fmod(x, f);
-		y = fmod(y, f);
-		z = fmod(z, f);
+		x = std::fmod(x, f);
+		y = std::fmod(y, f);
+		z = std::fmod(z, f);
 		return *this;
 	}
 

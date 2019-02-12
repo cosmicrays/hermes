@@ -23,15 +23,15 @@ public:
 void playground() {
 
 	// magnetic field models
-	//auto B = Vector3QMField(1_muG, 0_muG, 0_muG);
-	//auto ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
+	auto B = Vector3QMField(1_muG, 0_muG, 0_muG);
+	auto ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 	auto JF12 = std::make_shared<JF12Field>(JF12Field());
-	//auto PT11 = std::make_shared<PT11Field>(PT11Field());
+	auto PT11 = std::make_shared<PT11Field>(PT11Field());
 	//auto testField = std::make_shared<TestMagneticField>(TestMagneticField());
 
 	// cosmic ray density models
-	//auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity(1_GeV, 1e4_GeV, 10));
-	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity(1_GeV, 1e4_GeV, 10));
+	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
 	
 	// gas models
 	//auto gas = std::make_shared<HII_Cordes91>(HII_Cordes91());
@@ -49,10 +49,10 @@ void playground() {
 				Vector3QLength pos(x.getValue(), y.getValue(), z.getValue());
 				//auto density = dragonModel->getDensityPerEnergy(*energy, pos);
 				//auto density = simpleModel->getDensityPerEnergy(*energy, pos);
-				auto density = (JF12->getField(pos)).getR();
+				//auto density = (JF12->getField(pos)).getR();
 				//auto density = (PT11->getField(pos)).getR();
 				//auto density = (testField->getField(pos)).getR();
-				//auto density = gas->getDensity(pos);
+				auto density = gas->getDensity(pos);
 				std::cout << x.getValue()/1_pc << "\t" <<
 					     y.getValue()/1_pc << "\t" <<
 					     z.getValue()/1_pc << "\t" <<
@@ -60,12 +60,13 @@ void playground() {
 			}
 	*/
 	
+	
 
 	// integrators
 	//auto synchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, dragonModel));
 	auto RM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gas));
 
-	int nside = 16;	
+	int nside = 32;	
 
 	//auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 500_MHz, 10));
 	//auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
