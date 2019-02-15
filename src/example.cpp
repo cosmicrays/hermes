@@ -38,7 +38,7 @@ void playground() {
 	//auto testField = std::make_shared<TestMagneticField>(TestMagneticField());
 
 	// cosmic ray density models
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity(1_GeV, 1e4_GeV, 10));
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity(1_GeV, 1e4_GeV, 50));
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
 	
 	// gas models
@@ -72,16 +72,16 @@ void playground() {
 	
 
 	// integrators
-	//auto synchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, dragonModel));
-	auto RM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gas));
+	auto synchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(PT11, simpleModel));
+	//auto RM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gas));
 
 	int nside = 32;	
 
 	//auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 500_MHz, 10));
-	//auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
-	auto skymap = std::make_shared<RMSkymap>(RMSkymap(nside));
-	//skymap->setIntegrator(synchro);
-	skymap->setIntegrator(RM);
+	auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
+	//auto skymap = std::make_shared<RMSkymap>(RMSkymap(nside));
+	skymap->setIntegrator(synchro);
+	//skymap->setIntegrator(RM);
 
 	skymap->compute();
 

@@ -11,6 +11,28 @@ set(HERMES_EXTRA_LIBRARIES)
 set (CMAKE_CXX_STANDARD 14)
 
 # ----------------------------------------------------------------------------
+# Fix Apple RPATH
+# ----------------------------------------------------------------------------
+set(CMAKE_MACOSX_RPATH 1)
+option(USE_ABSOLUTE_RPATH "Add absolute rpath to all libraries and executables" ON)
+if(APPLE OR USE_ABSOLUTE_RPATH)
+	set(CMAKE_SKIP_BUILD_RPATH  FALSE)
+	set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+	set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+	set(ABSOLUTE_RPATH "${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}")
+	if(NOT IS_ABSOLUTE ${ABSOLUTE_RPATH})
+		set(ABSOLUTE_RPATH ${CMAKE_BINARY_DIR}/${ABSOLUTE_RPATH})
+	endif()
+
+	list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${ABSOLUTE_RPATH}" isSystemDir)
+	if("${isSystemDir}" STREQUAL "-1")
+		message(STATUS "Use absolute RPATH ${ABSOLUTE_RPATH}")
+		set(CMAKE_INSTALL_RPATH "${ABSOLUTE_RPATH}")
+	endif("${isSystemDir}" STREQUAL "-1")
+endif()
+
+
+# ----------------------------------------------------------------------------
 # Dependencies
 # ----------------------------------------------------------------------------
 

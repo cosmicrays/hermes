@@ -22,7 +22,7 @@ QTemperature SynchroIntegrator::intensityToTemperature(
 
 QTemperature SynchroIntegrator::integrateOverLOS(
 		QDirection direction) const {
-	return integrateOverLOS(direction, 1_GHz);
+	return integrateOverLOS(direction, 408_MHz);
 }
 
 QTemperature SynchroIntegrator::integrateOverLOS(
@@ -31,7 +31,7 @@ QTemperature SynchroIntegrator::integrateOverLOS(
 	Vector3QLength positionSun(8.5_kpc, 0, 0);
 	Vector3QLength pos(0.0);
 	QIntensity total_intensity(0);
-	QLength delta_d = 10.0_pc;
+	QLength delta_d = 5.0_pc;
 
 	// distance from the (spherical) galactic border in the given direction
 	QLength maxDistance = distanceToGalBorder(positionSun, direction);

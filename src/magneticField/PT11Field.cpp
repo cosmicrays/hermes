@@ -78,7 +78,10 @@ bool PT11Field::isUsingHalo() {
 	return useHalo;
 }
 
-Vector3QMField PT11Field::getField(const Vector3QLength& pos) const {
+Vector3QMField PT11Field::getField(const Vector3QLength& pos_) const {
+        Vector3QLength pos = pos_;
+	//pos.set(-pos_.getY());
+
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y);  // in-plane radius
 
 	Vector3d b(0.);
