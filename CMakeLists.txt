@@ -1,14 +1,28 @@
 cmake_minimum_required (VERSION 3.1)
-project(hermes)
+project(hermes C CXX)
 
-set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+set(CMAKE_BUILD_TYPE Debug)
 
 set(HERMES_EXTRA_SOURCES)
 set(HERMES_EXTRA_INCLUDES)
 set(HERMES_EXTRA_LIBRARIES)
 
 set (CMAKE_CXX_STANDARD 14)
+cmake_policy(SET CMP0048 NEW)
+
+# Set default build-type to release to enable performance improvements
+if (NOT CMAKE_BUILD_TYPE)
+        set(CMAKE_BUILD_TYPE Release)
+endif(NOT CMAKE_BUILD_TYPE)
+message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
+
+if(CMAKE_COMPILER_IS_GNUCXX AND NOT APPLE)
+        set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--as-needed")
+        set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,--as-needed")
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--as-needed")
+        message(STATUS "Use --as-needed linker flags!")
+endif(CMAKE_COMPILER_IS_GNUCXX AND NOT APPLE)
 
 # ----------------------------------------------------------------------------
 # Fix Apple RPATH
@@ -69,7 +83,7 @@ find_package(OpenMP)
 endif(ENABLE_OPENMP)
 
 # CFITSIO (optional for FITS output format)
-option(ENABLE_CFITSIO "CFITSIO for FITS output" ON)
+option(ENABLE_CFITSIO "CFITSIO for FITS output" OFF)
 if(ENABLE_CFITSIO)
 	add_subdirectory(libs/cfitsio)
         list(APPEND HERMES_EXTRA_INCLUDES libs/cfitsio)
@@ -77,12 +91,15 @@ if(ENABLE_CFITSIO)
 	add_definitions(-DHERMES_HAVE_CFITSIO)
 endif(ENABLE_CFITSIO)
 	
-option(ENABLE_SYS_CFITSIO "System CFITSIO for FITS output" OFF)
+option(ENABLE_SYS_CFITSIO "System CFITSIO for FITS output" ON)
 if(ENABLE_SYS_CFITSIO)
+	#set(CFITSIO_EXE_LINKER_FLAGS "-static")
 	find_package(CFITSIO REQUIRED)
 	if(CFITSIO_FOUND)
                 list(APPEND HERMES_EXTRA_INCLUDES ${CFITSIO_INCLUDE_DIR})
                 list(APPEND HERMES_EXTRA_LIBRARIES ${CFITSIO_LIBRARIES})
+                set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CFITSIO_C_FLAGS}")
+                set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${CFITSIO_EXE_LINKER_FLAGS}")
 		add_definitions(-DHERMES_HAVE_CFITSIO)
 	endif(CFITSIO_FOUND)
 endif(ENABLE_SYS_CFITSIO)
