@@ -1,3 +1,5 @@
+#ifdef HERMES_HAVE_CFITSIO
+
 #include "gtest/gtest.h"
 
 #include "hermes.h"
@@ -103,3 +105,4 @@ int main(int argc, char **argv) {
 
 } // namespace hermes
 
+#endif // HERMES_HAVE_CFITSIO

@@ -1,3 +1,5 @@
+#ifdef HERMES_HAVE_CFITSIO
+
 #include "hermes/cosmicRayDensity/DragonCRDensity.h"
 
 #include <iostream>
@@ -143,3 +145,5 @@ void DragonCRDensity::readDensityFromFITS() {
 }
 
 } // namespace hermes
+
+#endif // HERMES_HAVE_CFITSIO

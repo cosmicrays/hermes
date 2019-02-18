@@ -39,8 +39,10 @@ void playground() {
 
 	// cosmic ray density models
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity(1_GeV, 1e4_GeV, 50));
+#ifdef HERMES_HAVE_CFITSIO
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
-	
+#endif // HERMES_HAVE_CFITSIO
+
 	// gas models
 	//auto gas = std::make_shared<HII_Cordes91>(HII_Cordes91());
 	auto gas = std::make_shared<YMW16>(YMW16());

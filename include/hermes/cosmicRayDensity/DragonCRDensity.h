@@ -1,3 +1,5 @@
+#ifdef HERMES_HAVE_CFITSIO
+
 #ifndef HERMES_DRAGONCRDENSITY_H
 #define HERMES_DRAGONCRDENSITY_H
 
@@ -67,3 +69,5 @@ public:
 } // namespace hermes
 
 #endif // HERMES_DRAGONCRDENSITY_H
+
+#endif // HERMES_HAVE_CFITSIO
