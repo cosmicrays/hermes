@@ -45,6 +45,10 @@ if(APPLE OR USE_ABSOLUTE_RPATH)
 	endif("${isSystemDir}" STREQUAL "-1")
 endif()
 
+# Fix for linker error on mac, Issue: #147
+if(APPLE)
+	add_definitions(-arch x86_64)
+endif(APPLE)
 
 # ----------------------------------------------------------------------------
 # Dependencies
@@ -55,8 +59,6 @@ find_package(GSL REQUIRED)
 if(GSL_FOUND)
 	list(APPEND HERMES_EXTRA_INCLUDES ${GSL_INCLUDE_DIRS})
 	list(APPEND HERMES_EXTRA_LIBRARIES ${GSL_LIBRARIES})
-else(GSL_FOUND)
-	return()
 endif(GSL_FOUND)
 
 
@@ -138,9 +140,7 @@ add_library(hermes SHARED
 	src/outputs/FITSOutput.cpp
 	${HERMES_EXTRA_SOURCES}
 )
-
-add_executable(example src/example.cpp)
-target_link_libraries(example ${PROJECT_NAME} ${HERMES_EXTRA_LIBRARIES})
+target_link_libraries(hermes ${HERMES_EXTRA_LIBRARIES})
 
 # ----------------------------------------------------------------------------
 # Python
@@ -223,3 +223,9 @@ if(ENABLE_TESTING)
 	add_test(testSynchroIntegrator testSynchroIntegrator)
 
 endif(ENABLE_TESTING)
+
+# ----------------------------------------------------------------------------
+# Playground
+# ----------------------------------------------------------------------------
+add_executable(example src/example.cpp)
+target_link_libraries(example ${PROJECT_NAME} ${HERMES_EXTRA_LIBRARIES})
