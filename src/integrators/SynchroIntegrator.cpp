@@ -69,7 +69,7 @@ QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_, QFrequen
 	// skip B null-vector as it will produce NaN in the next step
 	if (B.getR() == 0_muG) return emissivity;
 
-	B_perp = B.getR() * sin( (B.getValue()).getAngleTo(pos_.getValue()) );
+	B_perp = B.getR(); // * sin( (B.getValue()).getAngleTo(pos_.getValue()) );
 	// TODO: non-relativistic factor (c/v) (see Longair eq. 8.55)
 	freq_giro = e_plus * B_perp / (2.*pi*m_electron);
 

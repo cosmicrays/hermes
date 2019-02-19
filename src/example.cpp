@@ -27,18 +27,53 @@ public:
         }
 };
 
+class DummyCRDensity: public CosmicRayDensity {
+QEnergy minE, maxE;
+int steps;
+public:
+	DummyCRDensity() {
+        	minE = 1_GeV;
+	        maxE = 1e4_GeV;
+        	steps = 10;
+	        makeEnergyRange();
+	}
+
+	void makeEnergyRange() {
+        	QEnergy energy = minE;
+	        float energyRatio =
+        	        exp(1./static_cast<double>(steps-1) * log(maxE/minE));
+
+	        for (int i = 0; i < steps; ++i) {
+        	        energyRange.push_back(energy);
+                	energy = energy * energyRatio;
+	        }
+	}
+
+	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const {
+        	constexpr int alpha = 3;
+	        auto Phi0 = 0.1 / (1_GeV * 1_cm*1_cm * 1_s * c_light);// * 4_pi; 
+        	auto E0 = 1_GeV;
+	        auto E_cutoff = 5_TeV;
+
+        	QNumber profile = 1.;
+	        QPDensityPerEnergy spectrum = Phi0 * pow<-1*alpha>(E_ / E0) * exp(-E_ / E_cutoff);
+
+        	return profile * spectrum;
+	}
+};
+
 
 void playground() {
 
 	// magnetic field models
-	auto B = Vector3QMField(1_muG, 0_muG, 0_muG);
+	auto B = Vector3QMField(0_muG, 0_muG, 1_muG);
 	auto ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 	auto JF12 = std::make_shared<JF12Field>(JF12Field());
 	auto PT11 = std::make_shared<PT11Field>(PT11Field());
 	//auto testField = std::make_shared<TestMagneticField>(TestMagneticField());
 
 	// cosmic ray density models
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity(1_GeV, 1e4_GeV, 50));
+	auto simpleModel = std::make_shared<DummyCRDensity>(DummyCRDensity());
 #ifdef HERMES_HAVE_CFITSIO
 	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
 #endif // HERMES_HAVE_CFITSIO
@@ -74,10 +109,10 @@ void playground() {
 	
 
 	// integrators
-	auto synchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(PT11, simpleModel));
+	auto synchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(ufield, simpleModel));
 	//auto RM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gas));
 
-	int nside = 32;	
+	int nside = 16;	
 
 	//auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 500_MHz, 10));
 	auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
