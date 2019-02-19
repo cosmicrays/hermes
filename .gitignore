@@ -38,3 +38,6 @@ build/*
 GammaSky/*
 
 #Libraries
+
+# Editor stuff
+*.swp
