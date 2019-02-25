@@ -56,7 +56,7 @@ public:
 	        auto E_cutoff = 5_TeV;
 
         	QNumber profile = 1.;
-	        QPDensityPerEnergy spectrum = Phi0 * pow<-1*alpha>(E_ / E0) * exp(-E_ / E_cutoff);
+	        QPDensityPerEnergy spectrum = Phi0;
 
         	return profile * spectrum;
 	}
@@ -73,7 +73,8 @@ void playground() {
 	//auto testField = std::make_shared<TestMagneticField>(TestMagneticField());
 
 	// cosmic ray density models
-	auto simpleModel = std::make_shared<DummyCRDensity>(DummyCRDensity());
+	auto dummyModel = std::make_shared<DummyCRDensity>(DummyCRDensity());
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 #ifdef HERMES_HAVE_CFITSIO
 	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
 #endif // HERMES_HAVE_CFITSIO
@@ -105,12 +106,16 @@ void playground() {
 					     density << std::endl;
 			}
 	*/
-	
-	
+
+	/*	
+	if (fabs(direction[0] - 90_deg) < 15_deg && (direction[1] < 15_deg || direction[1] > 345_deg)) {
+		std::cerr << direction[0] << std::endl;
+		return QRotationMeasure(0);
+	}*/
 
 	// integrators
 	auto synchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(ufield, simpleModel));
-	//auto RM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gas));
+	auto RM = std::make_shared<RMIntegrator>(RMIntegrator(ufield, gas));
 
 	int nside = 16;	
 

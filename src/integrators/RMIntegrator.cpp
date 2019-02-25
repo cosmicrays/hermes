@@ -26,7 +26,7 @@ QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) const {
 
 	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
 		pos.setRThetaPhi(dist, direction[0], direction[1]);
-		pos += positionSun;
+		pos -= positionSun;
 
 		B = mfield->getField(pos);
 		if (B.getR() == 0_muG) continue;

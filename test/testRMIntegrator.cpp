@@ -12,10 +12,10 @@ public:
         Vector3QMField getField(const Vector3QLength &pos) const {
 		Vector3QLength pos_gc(0_pc, 0_pc, 0_pc);
 
-		if (fabs(pos.x) < 10_pc && pos.y == 0_pc && pos.z == 0_pc)
+		if (pos.getR() < 1.5_kpc)
 	        	return Vector3QMField(1_T, 1_T, 1_T);
 		else
-			return Vector3QMField(0_T);
+			return Vector3QMField(0);
         }
 };
 
@@ -39,7 +39,7 @@ TEST(Integrator, Orientation) {
 	auto gasdenisty = std::make_shared<TestGasDensity>(TestGasDensity());
 	auto integrator = std::make_shared<RMIntegrator>(RMIntegrator(magfield, gasdenisty));
 	auto skymap = std::make_shared<RMSkymap>(RMSkymap(4));
-	std::array<QAngle,2> direction;
+	QDirection direction;
 
 	skymap->setIntegrator(integrator);
 	skymap->compute();
@@ -47,9 +47,11 @@ TEST(Integrator, Orientation) {
 	for (long ipix = 0; ipix < skymap->getSize(); ++ipix) {
 		pixel = skymap->getPixel(ipix);
 		direction = pix2ang_ring(4, ipix);
-		// the galactic centre should give > 0
-		if (fabs(direction[0]) < 1_deg && fabs(direction[1]) < 1_deg)
-			EXPECT_GT(pixel.getValue(), 1);
+		if (pixel.getValue() != 0)
+			std::cerr << direction[0]/pi*180 << ", " << direction[1]/pi*180 << std::endl;
+		// the galactic centre (theta ~ 90, phi ~ 0) should give != 0
+		if (fabs(direction[0] - 90_deg) <= 10_deg && direction[1] == 0_deg)
+			EXPECT_NE(pixel.getValue(), 0);
 		else
 			EXPECT_EQ(pixel.getValue(), 0);
 	}

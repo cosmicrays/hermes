@@ -27,11 +27,11 @@ QLength distanceToGalBorder(Vector3QLength positionSun, QDirection direction) {
         Vector3QLength vecSunToGalBorder;
         vecSunToGalBorder.setRThetaPhi(1_m, direction[0], direction[1]);
 
-        QLength a = (positionSun-positionGC).getR();
+        QLength a = (positionGC - positionSun).getR();
         QLength c = galacticBorder;
         QAngle gamma = vecSunToGalBorder.getAngleTo(positionSun-positionGC);
 
-        return (2*a*cos(gamma) + std::sqrt(2)*sqrt(2*c*c - a*a + a*a*cos(2*gamma)))/2.0;
+        return a*cos(gamma) + sqrt(c*c - a*a*(1 - cos(2*gamma))/2.0);
 }
 
 QNumber getLorentzFactor(QMass m, QEnergy E) {
