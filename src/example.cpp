@@ -115,15 +115,15 @@ void playground() {
 
 	// integrators
 	auto synchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(ufield, simpleModel));
-	auto RM = std::make_shared<RMIntegrator>(RMIntegrator(ufield, gas));
+	auto RM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gas));
 
-	int nside = 16;	
+	int nside = 32;	
 
 	//auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 500_MHz, 10));
-	auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
-	//auto skymap = std::make_shared<RMSkymap>(RMSkymap(nside));
-	skymap->setIntegrator(synchro);
-	//skymap->setIntegrator(RM);
+	//auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
+	auto skymap = std::make_shared<RMSkymap>(RMSkymap(nside));
+	//skymap->setIntegrator(synchro);
+	skymap->setIntegrator(RM);
 
 	skymap->compute();
 

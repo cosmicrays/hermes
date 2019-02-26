@@ -17,7 +17,7 @@ public:
 		QDirection galacticCentre = {90_deg, 0};
 		QDirection galacticNorth = {0, 0};
 
-		if(isWithinAngle(direction, galacticCentre, 50_deg)) //20
+		if(isWithinAngle(direction, galacticCentre, 20_deg))
 			return QNumber(1);
 		if(isWithinAngle(direction, galacticNorth, 30_deg))
 			return QNumber(-1);

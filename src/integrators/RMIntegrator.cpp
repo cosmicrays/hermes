@@ -25,8 +25,7 @@ QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) const {
 	// TODO: implement sophisticated adaptive integration method :-)
 
 	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
-		pos.setRThetaPhi(dist, direction[0], direction[1]);
-		pos -= positionSun;
+		pos = getGalacticPosition(positionSun, dist, direction);
 
 		B = mfield->getField(pos);
 		if (B.getR() == 0_muG) continue;
