@@ -63,11 +63,12 @@ void DragonCRDensity::readSpatialGrid() {
 	QLength ymin = ffile->readKeyValueAsDouble("ymin") * 1_kpc;
 	QLength zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
 	QLength zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
-	//int dimr = ffile->readKeyValueAsInt("dimr");
+	
 	dimx = ffile->readKeyValueAsInt("dimx");
 	dimy = ffile->readKeyValueAsInt("dimy");
 	dimz = ffile->readKeyValueAsInt("dimz");
-
+	//int dimr = ffile->readKeyValueAsInt("dimr");
+	
 	// ?!
     	/*if (ffile->getStatus()) { 
 		std::cout << "Setting up 2D grid\n"; 
@@ -137,38 +138,17 @@ void DragonCRDensity::readDensityFromFITS() {
 
 				dv = std::div(index, dimE);
 				iE = dv.rem;
-				dv = std::div(dv.quot, dimz);
-				iz = dv.rem;
-				dv = std::div(dv.quot, dimy);
-				iy = dv.rem;
 				dv = std::div(dv.quot, dimx);
 				ix = dv.rem;
+				dv = std::div(dv.quot, dimy);
+				iy = dv.rem;
+				dv = std::div(dv.quot, dimz);
+				iz = dv.rem;
 
 				grid[iE]->addValue(ix, iy, iz, static_cast<QPDensityPerEnergy>(*it));
 			}
-			/*
-			for (std::size_t ix = 0; ix < dimx; ++ix)
-				for (std::size_t iy = 0; iy < dimy; ++iy)
-					for (std::size_t iz = 0; iz < dimz; ++iz) {
-						for (std::size_t iE = 0; iE < energyRange.size(); ++iE) {
-							std::size_t index = ((ix*dimy + iy) * dimz + iz) * energyRange.size() + iE;
-							grid[iE]->pushValue(iter) 
-			}
-							
-
-				start = origVec.begin() + i * vecSize;
-				end = origVec.begin() + (i+1) * vecSize;
-
-				auto densityPerE = std::make_unique<std::vector<QPDensityPerEnergy> >(vecSize);
-				std::transform(start, end, densityPerE->begin(),
-					[](const float i) { return static_cast<QPDensityPerEnergy>(i); });
-
-				grid[i]->addVector(std::move(densityPerE));
-			*/
 		}
 		hduIndex++;
-		//for (std::size_t iE = 0; iE < dimE; ++iE)
-    		//	std::cerr << "Density at (15,15,15) " << (grid[iE]->getValue(10,10,10)) << std::endl;
     }
 }
 

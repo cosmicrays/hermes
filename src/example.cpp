@@ -78,8 +78,9 @@ void exampleSynchro() {
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
 	
 	// integrator
-	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, simpleModel));
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, dragonModel));
 	
+	/*	
 	std::cout << "# X\tY\tZ\teta" << std::endl;
 	auto energy = std::next(dragonModel->begin());
 	energy++;
@@ -100,11 +101,11 @@ void exampleSynchro() {
 					     z.getValue()/1_pc << "\t" <<
 					     density << std::endl;
 			}
-	
+	*/
 
 	// skymap
-	int nside = 16;
-	auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 500_MHz, 10));
+	int nside = 20;
+	auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 408_MHz, 10));
 	auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
 	skymap->setIntegrator(intSynchro);
 	//skymap->compute();

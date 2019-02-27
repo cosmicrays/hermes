@@ -31,7 +31,7 @@ QTemperature SynchroIntegrator::integrateOverLOS(
 	Vector3QLength positionSun(8.5_kpc, 0, 0);
 	Vector3QLength pos(0.0);
 	QIntensity total_intensity(0);
-	QLength delta_d = 5.0_pc;
+	QLength delta_d = 10.0_pc;
 
 	// distance from the (spherical) galactic border in the given direction
 	QLength maxDistance = distanceToGalBorder(positionSun, direction);
@@ -58,7 +58,6 @@ QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_, QFrequen
 	Vector3QMField B;
        	QMField B_perp;
 	double ratio;
-	QNumber gamma;
 
 	B = mfield->getField(pos_);
 	// skip B null-vector as it will produce NaN in the next step
