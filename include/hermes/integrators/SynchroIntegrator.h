@@ -15,6 +15,9 @@ class SynchroIntegrator: public IntegratorTemplate<QTemperature> {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<CosmicRayDensity> crdensity;
+	const QSynchroConstant const_synchro =
+		std::sqrt(3)*pow<3>(e_plus)/(8*pi*pi*epsilon0*c_light*m_electron);
+
 public:
 	SynchroIntegrator(
 		const std::shared_ptr<MagneticField> mfield,

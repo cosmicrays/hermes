@@ -5,28 +5,6 @@
 
 namespace hermes {
 
-class DummyGasDensity: public GasDensity {
-public:
-        DummyGasDensity() { };
-        QPDensity getDensity(const Vector3QLength& pos) const {
-		return QPDensity(1);
-	}
-};
-
-class TestMagneticField: public MagneticField {
-        Vector3QMField value;
-public:
-        TestMagneticField() { }
-        Vector3QMField getField(const Vector3QLength &pos) const {
-                Vector3QLength pos_gc(0_pc, 0_pc, 0_pc);
-
-                if (fabs(pos.x) < 10_kpc && pos.y < 1_kpc && fabs(pos.z) < 0.5_kpc)
-                        return Vector3QMField(QMField(static_cast<double>(pos.getR())));
-                else
-                        return Vector3QMField(0_T);
-        }
-};
-
 class DummyCRDensity: public CosmicRayDensity {
 QEnergy minE, maxE;
 int steps;
@@ -62,29 +40,46 @@ public:
 	}
 };
 
+void exampleRM() {
+	// magnetic field models
+	auto B = Vector3QMField(0_muG, 0_muG, 1_muG);
+	auto ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
+	auto JF12 = std::make_shared<JF12Field>(JF12Field());
 
-void playground() {
+	// gas models
+	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
+	auto gasYMW16 = std::make_shared<YMW16>(YMW16());
+	
+	// integrator
+	auto intRM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gasYMW16));
+
+	// skymap
+	int nside = 32;	
+	auto skymap = std::make_shared<RMSkymap>(RMSkymap(nside));
+	skymap->setIntegrator(intRM);
+	skymap->compute();
+
+	// save
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!example.fits.gz"));
+	skymap->save(output);
+}
+
+void exampleSynchro() {
 
 	// magnetic field models
 	auto B = Vector3QMField(0_muG, 0_muG, 1_muG);
 	auto ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 	auto JF12 = std::make_shared<JF12Field>(JF12Field());
 	auto PT11 = std::make_shared<PT11Field>(PT11Field());
-	//auto testField = std::make_shared<TestMagneticField>(TestMagneticField());
-
+	
 	// cosmic ray density models
 	auto dummyModel = std::make_shared<DummyCRDensity>(DummyCRDensity());
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
-#ifdef HERMES_HAVE_CFITSIO
-	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
-#endif // HERMES_HAVE_CFITSIO
-
-	// gas models
-	//auto gas = std::make_shared<HII_Cordes91>(HII_Cordes91());
-	auto gas = std::make_shared<YMW16>(YMW16());
-	//auto gas = std::make_shared<DummyGasDensity>(DummyGasDensity());
-
-	/*	
+	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
+	
+	// integrator
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, simpleModel));
+	
 	std::cout << "# X\tY\tZ\teta" << std::endl;
 	auto energy = std::next(dragonModel->begin());
 	energy++;
@@ -94,45 +89,36 @@ void playground() {
 		for (QLength y = -12_kpc; y < 12_kpc; y += 0.5_kpc)
 			for (QLength z = -4_kpc; z < 4_kpc; z += 0.2_kpc) {
 				Vector3QLength pos(x.getValue(), y.getValue(), z.getValue());
-				//auto density = dragonModel->getDensityPerEnergy(*energy, pos);
+				auto density = dragonModel->getDensityPerEnergy(*energy, pos);
 				//auto density = simpleModel->getDensityPerEnergy(*energy, pos);
 				//auto density = (JF12->getField(pos)).getR();
 				//auto density = (PT11->getField(pos)).getR();
 				//auto density = (testField->getField(pos)).getR();
-				auto density = gas->getDensity(pos);
+				if (density.getValue() == 0) continue;
 				std::cout << x.getValue()/1_pc << "\t" <<
 					     y.getValue()/1_pc << "\t" <<
 					     z.getValue()/1_pc << "\t" <<
 					     density << std::endl;
 			}
-	*/
+	
 
-	/*	
-	if (fabs(direction[0] - 90_deg) < 15_deg && (direction[1] < 15_deg || direction[1] > 345_deg)) {
-		std::cerr << direction[0] << std::endl;
-		return QRotationMeasure(0);
-	}*/
-
-	// integrators
-	auto synchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(ufield, simpleModel));
-	auto RM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gas));
-
-	int nside = 32;	
-
-	//auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 500_MHz, 10));
-	//auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
-	auto skymap = std::make_shared<RMSkymap>(RMSkymap(nside));
-	//skymap->setIntegrator(synchro);
-	skymap->setIntegrator(RM);
-
-	skymap->compute();
+	// skymap
+	int nside = 16;
+	auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 500_MHz, 10));
+	auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
+	skymap->setIntegrator(intSynchro);
+	//skymap->compute();
 
 	//skymap->printPixels();
 	
-#ifdef HERMES_HAVE_CFITSIO
 	auto output = std::make_shared<FITSOutput>(FITSOutput("!example.fits.gz"));
-	skymap->save(output);
-#endif // HERMES_HAVE_CFITSIO
+	//skymap->save(output);
+}
+
+void playground() {
+
+	//exampleRM();
+	exampleSynchro();
 
 }
 

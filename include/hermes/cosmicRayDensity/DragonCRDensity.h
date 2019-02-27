@@ -54,7 +54,7 @@ private:
 	void readEnergyAxis();
 	void readSpatialGrid();
   
-	int dimx, dimy, dimz;
+	int dimE, dimx, dimy, dimz;
 	std::vector<std::unique_ptr<ScalarGridQPDensityPerEnergy> > grid;
 	
 	//TODO: implement as std::unordered_map
