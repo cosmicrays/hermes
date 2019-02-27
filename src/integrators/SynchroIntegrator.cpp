@@ -17,7 +17,7 @@ SynchroIntegrator::~SynchroIntegrator() { }
 QTemperature SynchroIntegrator::intensityToTemperature(
 		QIntensity intensity_, QFrequency freq_) const {
 	return intensity_*c_squared /
-		(2*pow<2>(freq_)*k_boltzmann);
+		(2*freq_*freq_*k_boltzmann);
 }
 
 QTemperature SynchroIntegrator::integrateOverLOS(
@@ -38,48 +38,44 @@ QTemperature SynchroIntegrator::integrateOverLOS(
 
 	// TODO: implement sophisticated adaptive integration method :-)
 	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
-		pos.setRThetaPhi(dist, direction[0], direction[1]);
-		pos += positionSun;
-	
-		if (crdensity->existsScaleFactor()) {
+		pos = getGalacticPosition(positionSun, dist, direction);
+
+		if (crdensity->existsScaleFactor())
 			total_intensity +=
 				integrateOverLogEnergy(pos, freq_) * delta_d;
-
-		} else {
+		else
 			total_intensity +=
 				integrateOverEnergy(pos, freq_) * delta_d;
-		}
 	}
-	
 	return intensityToTemperature(total_intensity / 4_pi, freq_);
 }
 
 QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_, QFrequency freq_) const {
 
 	QEmissivity emissivity(0);
-	constexpr auto const_synchro =
-		std::sqrt(3)*pow<3>(e_plus)/(8*pi*pi*epsilon0*c_light*m_electron);
 	QEnergy deltaE;
 	QFrequency freq_c, freq_giro;
 	Vector3QMField B;
        	QMField B_perp;
 	double ratio;
+	QNumber gamma;
 
 	B = mfield->getField(pos_);
 	// skip B null-vector as it will produce NaN in the next step
 	if (B.getR() == 0_muG) return emissivity;
-
+	if (pos_ == Vector3QLength(0)) return emissivity; // skip the origin
 	B_perp = B.getR() * sin( (B.getValue()).getAngleTo(pos_.getValue()) );
+	if (B_perp == 0_T) return emissivity;
+	
 	// TODO: non-relativistic factor (c/v) (see Longair eq. 8.55)
 	freq_giro = e_plus * B_perp / (2.*pi*m_electron);
 
-	if (B_perp == 0_T) return emissivity;
 
 	for (auto itE = std::next(crdensity->begin()); itE != crdensity->end(); ++itE) {
 		deltaE = (*itE) - *std::prev(itE);
 
 		freq_c = 3./2. * pow<2>(getLorentzFactor(m_electron, *itE))
-                	* freq_giro;
+		       	* freq_giro;
                 ratio = (freq_/freq_c).getValue();
         
 		if (ratio > 100) continue; // speed-up by skipping negligible contributions
@@ -91,15 +87,12 @@ QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_, QFrequen
                 	B_perp * gsl_sf_synchrotron_1(ratio) *
                         crdensity->getDensityPerEnergy(*itE, pos_) * deltaE;
         }
-
 	return emissivity;
 }
 
 QEmissivity SynchroIntegrator::integrateOverLogEnergy(Vector3QLength pos_, QFrequency freq_) const {
 
 	QEmissivity emissivity(0);
-	constexpr auto const_synchro =
-		std::sqrt(3)*pow<3>(e_plus)/(8*pi*pi*epsilon0*c_light*m_electron);
 	QEnergy deltaE;
 	QFrequency freq_c, freq_giro;
 	Vector3QMField B;
@@ -108,11 +101,11 @@ QEmissivity SynchroIntegrator::integrateOverLogEnergy(Vector3QLength pos_, QFreq
 
 	B = mfield->getField(pos_);
 	if (B.getR() == 0_muG) return emissivity;
-
+	if (pos_ == Vector3QLength(0)) return emissivity; // skip the origin
 	B_perp = B.getR() * sin( (B.getValue()).getAngleTo(pos_.getValue()) );
-	freq_giro = e_plus * B_perp / (2.*pi*m_electron);
-
 	if (B_perp == 0_T) return emissivity;
+
+	freq_giro = e_plus * B_perp / (2.*pi*m_electron);
 
 	for (auto itE = crdensity->begin(); itE != crdensity->end(); ++itE) {
 		freq_c = 3./2. * pow<2>(getLorentzFactor(m_electron, *itE))

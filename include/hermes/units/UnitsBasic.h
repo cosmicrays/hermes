@@ -299,9 +299,7 @@ constexpr Quantity<std::ratio_multiply<l, std::ratio<2>>, std::ratio_multiply<t,
                     (std::pow(num.getValue(), 2));
 }
 
-
-// Predefined (physical unit) quantity types:
-// ------------------------------------------
+// Abbrevation for defining quantities and their squared values
 #define QUANTITY_TYPE(_ldim, _tdim, _mdim, _Idim, _Tdim, _Ndim, _Jdim, _Adim, name) \
     typedef Quantity<std::ratio<_ldim>, std::ratio<_tdim>, std::ratio<_mdim>, \
 		     std::ratio<_Idim>, std::ratio<_Tdim>, std::ratio<_Ndim>, \
@@ -311,6 +309,8 @@ constexpr Quantity<std::ratio_multiply<l, std::ratio<2>>, std::ratio_multiply<t,
                    std::ratio_multiply<std::ratio<_Tdim>, std::ratio<2>>, std::ratio_multiply<std::ratio<_Ndim>, std::ratio<2>>, \
                    std::ratio_multiply<std::ratio<_Jdim>, std::ratio<2>>, std::ratio_multiply<std::ratio<_Adim>, std::ratio<2>>> name ## Squared;
 
+// Predefined (physical unit) quantity types:
+// ------------------------------------------
 
 // Replacement of "double" type
 QUANTITY_TYPE(0, 0, 0, 0, 0, 0, 0, 0, QNumber);

@@ -48,23 +48,21 @@ public:
 
 TEST(Skymap, computePixel) {
 
-	int nside = 8;
+	int nside = 4;
         auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
 	auto integrator = std::make_shared<DummyIntegrator>(DummyIntegrator());
 	QDirection galacticCentre = {90_deg, 0};
-	long int gcPixel = ang2pix_ring(nside, OffsetToHEALPix(galacticCentre));
+	long int gcPixel = ang2pix_ring(nside, galacticCentre);
+	std::cerr << gcPixel << std::endl;
 	QDirection galacticNorth = {0, 0};
-	long int gnPixel = ang2pix_ring(nside, OffsetToHEALPix(galacticNorth));
+	long int gnPixel = ang2pix_ring(nside, galacticNorth);
 
 	//skymap->setIntegrator(integrator);
 	skymap->computePixel(gcPixel, integrator);
 	skymap->computePixel(gnPixel, integrator);
-
+	
 	EXPECT_EQ(static_cast<double>(skymap->getPixel(gcPixel)), 1);
 	EXPECT_EQ(static_cast<double>(skymap->getPixel(gnPixel)), -1);
-
-        //auto output = std::make_shared<FITSOutput>(FITSOutput("!test.fits.gz"));
-        //skymap->save(output);
 }
 
 int main(int argc, char **argv) {

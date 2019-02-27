@@ -188,7 +188,7 @@ std::vector<float> FITSFile::readImageAsFloat(int firstElement, int nElements) {
 		fits_report_error(stderr, status);
         if (status != 0)
                 throw std::runtime_error("Cannot read image.");
-	
+
 	return resultArray; 
 }
 

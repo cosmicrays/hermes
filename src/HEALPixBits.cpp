@@ -2,18 +2,6 @@
 
 namespace hermes {
 
-QDirection OffsetFromHEALPix(QDirection dir) {
-//	dir[0] = 90_deg - dir[0];
-	dir[1] -= 180_deg;
-	return dir;
-}
-
-QDirection OffsetToHEALPix(QDirection dir) {
-//	dir[0] = 90_deg - dir[0];
-	dir[1] += 180_deg;
-	return dir;
-}
-
 inline long nside2npix(long nside) {
 	return 12*nside*nside;
 }

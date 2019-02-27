@@ -140,6 +140,10 @@ public:
 			grid.begin(), grid.begin(),
 			[](T el1, T el2) { return (el1+el2); });
 	}
+
+	void pushValue(T value) {
+		grid.push_back(value);
+	}
 	
 	Vector3d getOrigin() const {
 		return origin;
@@ -176,6 +180,10 @@ public:
 
 	void setValue(size_t ix, size_t iy, size_t iz, T value) {
 		grid[ix * Ny * Nz + iy * Nz + iz] = value;
+	}
+	
+	void addValue(size_t ix, size_t iy, size_t iz, T value) {
+		grid[ix * Ny * Nz + iy * Nz + iz] += value;
 	}
 
 	/** Return a reference to the grid values */

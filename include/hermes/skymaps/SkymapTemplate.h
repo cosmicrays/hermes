@@ -106,7 +106,7 @@ template <typename Q>
 void SkymapTemplate<Q>::computePixel(
 		std::size_t ipix,
 		std::shared_ptr<IntegratorTemplate<Q> > integrator_) {
-	iterdir = OffsetFromHEALPix(pix2ang_ring(getNside(), ipix));
+	iterdir = pix2ang_ring(getNside(), ipix);
 	fluxContainer[ipix] = integrator_->integrateOverLOS(iterdir);
 }
 

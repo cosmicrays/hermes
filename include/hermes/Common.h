@@ -25,6 +25,21 @@ QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
 QLength distanceToGalBorder(Vector3QLength positionSun, QDirection direction);
 
 /**
+	Returns XYZ position in the (right-handed) galacto-centric
+	coordinate system by giving distance and direction from the observer
+*/
+inline Vector3QLength getGalacticPosition(const Vector3QLength &posSun,
+		const QLength &dist, const QDirection &dir) {
+	Vector3QLength pos(0);
+
+	// TODO: should be more general for any observer position
+	pos.setRThetaPhi(dist, dir[0], dir[1]);
+	pos.x = posSun.x - pos.x;
+	pos.y = -pos.y;
+
+	return pos;
+}
+/**
 	Test if two directions are close one another, within d
 
 */

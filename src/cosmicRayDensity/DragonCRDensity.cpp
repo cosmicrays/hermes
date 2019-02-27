@@ -42,12 +42,12 @@ QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
 void DragonCRDensity::readEnergyAxis() {
     	QEnergy E;
 	double Ekmin = ffile->readKeyValueAsDouble("Ekmin");
-	int nE = ffile->readKeyValueAsInt("dimE");
+	dimE = ffile->readKeyValueAsInt("dimE");
 	energyScaleFactor = ffile->readKeyValueAsDouble("Ekin_fac");
 	scaleFactorFlag = true;
 
 	// input files are in GeV	
-	for (int i = 0; i < nE; ++i) {
+	for (int i = 0; i < dimE; ++i) {
 		E = 1_GeV * std::exp(std::log(Ekmin) +
 			static_cast<double>(i) * std::log(energyScaleFactor));
     		energyRange.push_back(E);
@@ -125,22 +125,50 @@ void DragonCRDensity::readDensityFromFITS() {
 		Z = ffile->readKeyValueAsInt("Z_");
 		A = ffile->readKeyValueAsInt("A");
       
-      		if (Z == pid.atomicNr() && A == pid.massNr()) {
+      		if ( (Z == -1 || Z == 1) && A == 0 ) {
 	
 			std::cerr << "... reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual << std::endl;
 
-			std::vector<float> origVec = ffile->readImageAsFloat(firstElement, nElements);
+			std::vector<float> rawData = ffile->readImageAsFloat(firstElement, nElements);
 			
-			for (int i = 0; i < energyRange.size(); ++i) {
+			std::size_t index, iE, ix, iy, iz; std::div_t dv;
+			for (auto it = rawData.begin(); it != rawData.end(); ++it ) {
+				index = it - rawData.begin();
+
+				dv = std::div(index, dimE);
+				iE = dv.rem;
+				dv = std::div(dv.quot, dimz);
+				iz = dv.rem;
+				dv = std::div(dv.quot, dimy);
+				iy = dv.rem;
+				dv = std::div(dv.quot, dimx);
+				ix = dv.rem;
+
+				grid[iE]->addValue(ix, iy, iz, static_cast<QPDensityPerEnergy>(*it));
+			}
+			/*
+			for (std::size_t ix = 0; ix < dimx; ++ix)
+				for (std::size_t iy = 0; iy < dimy; ++iy)
+					for (std::size_t iz = 0; iz < dimz; ++iz) {
+						for (std::size_t iE = 0; iE < energyRange.size(); ++iE) {
+							std::size_t index = ((ix*dimy + iy) * dimz + iz) * energyRange.size() + iE;
+							grid[iE]->pushValue(iter) 
+			}
+							
+
 				start = origVec.begin() + i * vecSize;
 				end = origVec.begin() + (i+1) * vecSize;
+
 				auto densityPerE = std::make_unique<std::vector<QPDensityPerEnergy> >(vecSize);
 				std::transform(start, end, densityPerE->begin(),
 					[](const float i) { return static_cast<QPDensityPerEnergy>(i); });
+
 				grid[i]->addVector(std::move(densityPerE));
-			}
+			*/
 		}
 		hduIndex++;
+		//for (std::size_t iE = 0; iE < dimE; ++iE)
+    		//	std::cerr << "Density at (15,15,15) " << (grid[iE]->getValue(10,10,10)) << std::endl;
     }
 }
 
