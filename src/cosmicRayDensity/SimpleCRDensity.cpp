@@ -27,7 +27,7 @@ void SimpleCRDensity::makeEnergyRange() {
 
 QPDensityPerEnergy SimpleCRDensity::getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const {
 	constexpr int alpha = 3;
-	auto Phi0 = 0.1 / (1_GeV * 1_cm*1_cm * 1_s * c_light);// * 4_pi; 
+	auto Phi0 = 0.1 / (1_GeV * 1_cm*1_cm * 1_s * c_light) * 4_pi; 
 	auto E0 = 1_GeV;
 	auto E_cutoff = 5_TeV;
 

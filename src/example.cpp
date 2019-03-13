@@ -40,6 +40,19 @@ public:
 	}
 };
 
+class DummyField: public MagneticField {
+	Vector3QMField getField(const Vector3QLength& pos_) const {
+		Vector3QMField bOuter(0.);
+		Vector3QMField bInner(0,0,1e-10);
+
+		if (pos_.getR() < 7_kpc)
+			return bInner;
+		else
+			return bOuter;
+	}
+};
+
+
 void exampleRM() {
 	// magnetic field models
 	auto B = Vector3QMField(0_muG, 0_muG, 1_muG);
@@ -71,49 +84,52 @@ void exampleSynchro() {
 	auto ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 	auto JF12 = std::make_shared<JF12Field>(JF12Field());
 	auto PT11 = std::make_shared<PT11Field>(PT11Field());
+	auto dfield = std::make_shared<DummyField>(DummyField());
 	
 	// cosmic ray density models
 	auto dummyModel = std::make_shared<DummyCRDensity>(DummyCRDensity());
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
-	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_3D.fits", Electron)); 
+	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_2D.fits", Electron, DragonFileType::_2D)); 
 	
 	// integrator
-	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, dragonModel));
-	
-	/*	
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(ufield, simpleModel));
+	//auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(ufield, simpleModel));
+
+/*				
 	std::cout << "# X\tY\tZ\teta" << std::endl;
 	auto energy = std::next(dragonModel->begin());
-	energy++;
+	//energy++;
 	QLength x = 1_kpc;
 	QLength y = 1_kpc;
+#pragma omp critical(print)
 	for (QLength x = -12_kpc; x < 12_kpc; x += 0.5_kpc)
 		for (QLength y = -12_kpc; y < 12_kpc; y += 0.5_kpc)
 			for (QLength z = -4_kpc; z < 4_kpc; z += 0.2_kpc) {
 				Vector3QLength pos(x.getValue(), y.getValue(), z.getValue());
 				auto density = dragonModel->getDensityPerEnergy(*energy, pos);
 				//auto density = simpleModel->getDensityPerEnergy(*energy, pos);
-				//auto density = (JF12->getField(pos)).getR();
+				//auto density = (JF12->getField(pos)).getZ();
 				//auto density = (PT11->getField(pos)).getR();
 				//auto density = (testField->getField(pos)).getR();
-				if (density.getValue() == 0) continue;
+				//if (density.getValue() == 0) continue;
 				std::cout << x.getValue()/1_pc << "\t" <<
 					     y.getValue()/1_pc << "\t" <<
 					     z.getValue()/1_pc << "\t" <<
 					     density << std::endl;
 			}
-	*/
+*/	
 
 	// skymap
-	int nside = 20;
+	int nside = 16;
 	auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 408_MHz, 10));
 	auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
 	skymap->setIntegrator(intSynchro);
-	//skymap->compute();
 
-	//skymap->printPixels();
-	
 	auto output = std::make_shared<FITSOutput>(FITSOutput("!example.fits.gz"));
-	//skymap->save(output);
+	
+	skymap->compute();
+	//skymap->printPixels();
+	skymap->save(output);
 }
 
 void playground() {

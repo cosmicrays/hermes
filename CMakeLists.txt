@@ -129,6 +129,7 @@ add_library(hermes SHARED
 	src/integrators/Integrator.cpp
 	src/integrators/RMIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
+	src/integrators/FreeFreeIntegrator.cpp
 	src/magneticField/JF12Field.cpp
 	src/magneticField/PT11Field.cpp
 	src/magneticField/MagneticField.cpp

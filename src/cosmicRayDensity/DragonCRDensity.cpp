@@ -14,19 +14,34 @@
 namespace hermes {
 
 DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_)
-    : CosmicRayDensity(), filename(filename_), pid(pid_) {
-	readHeaderFromFITS();
-	readDensityFromFITS();
+    : CosmicRayDensity(), filename(filename_), pid(pid_), fileType(DragonFileType::_3D) {
+	readFile();
 }
 
-void DragonCRDensity::readHeaderFromFITS() {
+DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_, DragonFileType type_)
+    : CosmicRayDensity(), filename(filename_), pid(pid_), fileType(type_) {
+	readFile();
+}
+
+void DragonCRDensity::readFile() {
 	ffile = std::make_unique<FITSFile>(FITSFile(filename)); 
   
 	ffile->openFile(FITS::READ);
 	ffile->moveToHDU(1);
-
+	
+	// read header
 	readEnergyAxis();
-	readSpatialGrid();
+	
+	if (fileType == DragonFileType::_2D)
+		readSpatialGrid2D();
+	else
+		readSpatialGrid3D();
+	
+	// read density grid
+	if (fileType == DragonFileType::_2D)
+		readDensity2D();
+	else
+		readDensity3D();
 }
 
 QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
@@ -55,29 +70,44 @@ void DragonCRDensity::readEnergyAxis() {
 	}
 }
 
-void DragonCRDensity::readSpatialGrid() {
+void DragonCRDensity::readSpatialGrid2D() {
 
-	QLength xmax = ffile->readKeyValueAsDouble("xmax") * 1_kpc;
+	QLength rmin = ffile->readKeyValueAsDouble("rmin") * 1_kpc;
+	QLength rmax = ffile->readKeyValueAsDouble("rmax") * 1_kpc;
+	QLength zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
+	QLength zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
+	
+	dimr = ffile->readKeyValueAsInt("dimr");
+	dimz = ffile->readKeyValueAsInt("dimz");
+	
+	QLength deltar = (rmax - rmin) / (dimr - 1);
+	QLength deltaz = (zmax - zmin) / (dimz - 1);
+ 
+	Vector3d origin(-1*rmax.getValue(), -1*rmax.getValue(), zmin.getValue());
+	Vector3d spacing(deltar.getValue(), deltar.getValue(), deltaz.getValue());
+	
+	for (int i = 0; i < dimE; ++i) {
+		grid.push_back(
+			std::make_unique<ScalarGridQPDensityPerEnergy>(
+				ScalarGridQPDensityPerEnergy(origin,
+					2*dimr, 2*dimr, dimz, spacing)));
+	}
+
+}
+ 
+
+void DragonCRDensity::readSpatialGrid3D() {
+
 	QLength xmin = ffile->readKeyValueAsDouble("xmin") * 1_kpc;
-	QLength ymax = ffile->readKeyValueAsDouble("ymax") * 1_kpc;
+	QLength xmax = ffile->readKeyValueAsDouble("xmax") * 1_kpc;
 	QLength ymin = ffile->readKeyValueAsDouble("ymin") * 1_kpc;
+	QLength ymax = ffile->readKeyValueAsDouble("ymax") * 1_kpc;
 	QLength zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
 	QLength zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
 	
 	dimx = ffile->readKeyValueAsInt("dimx");
 	dimy = ffile->readKeyValueAsInt("dimy");
 	dimz = ffile->readKeyValueAsInt("dimz");
-	//int dimr = ffile->readKeyValueAsInt("dimr");
-	
-	// ?!
-    	/*if (ffile->getStatus()) { 
-		std::cout << "Setting up 2D grid\n"; 
-		ny = 0;
-		do3D = false;
-	} else {
-		std::cout << "Setting up 3D grid\n";
-		do3D = true;
-	}*/
    
 	QLength deltax = (xmax - xmin) / (dimx - 1);
 	QLength deltay = (ymax - ymin) / (dimy - 1);
@@ -86,7 +116,7 @@ void DragonCRDensity::readSpatialGrid() {
 	Vector3d origin(xmin.getValue(), ymin.getValue(), zmin.getValue());
 	Vector3d spacing(deltax.getValue(), deltay.getValue(), deltaz.getValue());
 	
-	for (int i = 0; i < energyRange.size(); ++i) {
+	for (int i = 0; i < dimE; ++i) {
 		grid.push_back(
 			std::make_unique<ScalarGridQPDensityPerEnergy>(
 				ScalarGridQPDensityPerEnergy(origin,
@@ -94,17 +124,86 @@ void DragonCRDensity::readSpatialGrid() {
 	}
 
 }
+	
+std::size_t DragonCRDensity::calcArrayIndex2D(
+	std::size_t iE, std::size_t ir, std::size_t iz) {
+	return (iz*dimr + ir)*dimE + iE;
+}
+	
  
-
-void DragonCRDensity::readDensityFromFITS() {
+void DragonCRDensity::readDensity2D() {
     
-	int anynul = -1;
-	int status = 0;
 	int hduIndex = 2;  
 	int hduActual = 0;
 	int hdu_type = 0;
 	int firstElement = 1;
-	std::vector<float>::const_iterator start, end;
+    
+	int Z = 0, A = 0;
+	
+	auto vecSize = dimr * dimz;
+	long nElements = energyRange.size() * vecSize;
+	
+    	auto hduNumber = ffile->getNumberOfHDUs();
+	while (hduActual < hduNumber) {
+		ffile->moveToHDU(hduIndex); // Move to the next HDU (the first HDU = 1)
+
+		if (ffile->getHDUType() != IMAGE_HDU) {
+			std::cerr << "HDU is not an image!" << std::endl;
+			hduIndex++;
+			continue;
+		}
+
+	  	hduActual = ffile->getCurrentHDUNumber();	
+      
+		Z = ffile->readKeyValueAsInt("Z_");
+		A = ffile->readKeyValueAsInt("A");
+      
+      		if ( (Z == -1 || Z == 1) && A == 0 ) {
+	
+			std::cerr << "... reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual << std::endl;
+
+			std::vector<float> rawData = ffile->readImageAsFloat(firstElement, nElements);
+	
+			double dist;
+			std::size_t ix_c, iy_c, ir_back, ir_front;
+			QPDensityPerEnergy frontValue, backValue, interpolatedValue;
+
+			for (std::size_t iE = 0; iE < dimE; ++iE) {
+				for (std::size_t ix = 0; ix < 2*dimr; ++ix) {
+					for (std::size_t iy = 0; iy < 2*dimr; ++iy) {
+						
+						ix_c = ix-dimr+2; iy_c = iy-dimr+2;
+						dist = std::sqrt(ix_c*ix_c + iy_c*iy_c);
+						
+						// determine discrete points
+						ir_back = static_cast<int>(std::trunc(dist));
+						ir_front = ir_back + 1;
+
+						if (ir_front >= dimr) continue;
+
+						for (std::size_t iz = 0; iz < dimz; ++iz) {
+							frontValue = rawData[calcArrayIndex2D(iE, ir_back, iz)];
+							backValue = rawData[calcArrayIndex2D(iE, ir_front, iz)];
+	
+							// two-point linear interpolation (between two "rings")
+							interpolatedValue = (frontValue - backValue) * (dist - ir_back)
+										+ backValue;
+							grid[iE]->addValue(ix, iy, iz, interpolatedValue);
+						}
+					}
+				}
+			}
+		}
+		hduIndex++;
+    }
+}
+
+void DragonCRDensity::readDensity3D() {
+    
+	int hduIndex = 2;  
+	int hduActual = 0;
+	int hdu_type = 0;
+	int firstElement = 1;
     
 	int Z = 0, A = 0;
 	
@@ -145,7 +244,7 @@ void DragonCRDensity::readDensityFromFITS() {
 				dv = std::div(dv.quot, dimz);
 				iz = dv.rem;
 
-				grid[iE]->addValue(ix, iy, iz, static_cast<QPDensityPerEnergy>(*it));
+				grid[iE]->addValue(ix, iy, iz, static_cast<QPDensityPerEnergy>(*it) * 4_pi);
 			}
 		}
 		hduIndex++;

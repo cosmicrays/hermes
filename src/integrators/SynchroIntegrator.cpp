@@ -69,7 +69,6 @@ QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_, QFrequen
 	// TODO: non-relativistic factor (c/v) (see Longair eq. 8.55)
 	freq_giro = e_plus * B_perp / (2.*pi*m_electron);
 
-
 	for (auto itE = std::next(crdensity->begin()); itE != crdensity->end(); ++itE) {
 		deltaE = (*itE) - *std::prev(itE);
 

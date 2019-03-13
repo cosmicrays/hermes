@@ -43,18 +43,26 @@ static const PID Positron(1, 0);
 static const PID Proton(1, 1);
 static const PID Helium(2, 4);
 
+enum class DragonFileType { _2D, _3D };
+
 class DragonCRDensity: public CosmicRayDensity {
 private:
   	std::string filename;
 	std::unique_ptr<FITSFile> ffile;
 	PID pid;
+	DragonFileType fileType;
 
-	void readHeaderFromFITS();
-	void readDensityFromFITS();
+	void readFile();
 	void readEnergyAxis();
-	void readSpatialGrid();
+	void readSpatialGrid2D();
+	void readSpatialGrid3D();
+	void readDensity2D();
+	void readDensity3D();
+	std::size_t calcArrayIndex2D(
+		std::size_t iE, std::size_t ir, std::size_t iz);
   
-	int dimE, dimx, dimy, dimz;
+	int dimE;
+	int dimx, dimy, dimz, dimr;
 	std::vector<std::unique_ptr<ScalarGridQPDensityPerEnergy> > grid;
 	
 	//TODO: implement as std::unordered_map
@@ -62,6 +70,7 @@ private:
 public:
 	DragonCRDensity();
 	DragonCRDensity(const std::string& filename_, const PID& pid_);
+	DragonCRDensity(const std::string& filename_, const PID& pid_, DragonFileType type_);
 	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const;
 	QPDensityPerEnergy getDensityPerEnergy(int iE_, const Vector3QLength& pos_) const;
 };
