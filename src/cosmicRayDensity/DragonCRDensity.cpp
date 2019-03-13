@@ -188,7 +188,7 @@ void DragonCRDensity::readDensity2D() {
 							// two-point linear interpolation (between two "rings")
 							interpolatedValue = (frontValue - backValue) * (dist - ir_back)
 										+ backValue;
-							grid[iE]->addValue(ix, iy, iz, interpolatedValue);
+							grid[iE]->addValue(ix, iy, iz, interpolatedValue * 4_pi);
 						}
 					}
 				}
