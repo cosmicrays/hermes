@@ -4,6 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/Grid.h"
+#include "hermes/GridTools.h"
 #include <memory>
 
 namespace hermes {

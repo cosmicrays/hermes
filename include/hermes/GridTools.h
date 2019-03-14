@@ -51,7 +51,7 @@ void scaleGrid(std::unique_ptr<VectorGrid> grid, double a);
  @param Brms	RMS field strength
  @param seed	Random seed
  */
-void initTurbulence(std::unique_ptr<VectorGrid> grid, double Brms, double lMin, double lMax, 
+void initTurbulence(std::shared_ptr<VectorGrid> grid, double Brms, double lMin, double lMax, 
 	   double alpha = -11./3., int seed = 0, bool helicity = false, double H = 0);
 #endif // HERMES_HAVE_FFTW3F
 

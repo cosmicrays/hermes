@@ -159,7 +159,7 @@ public:
 	}
 
 	// return true if the angle between the vectors is smaller than a threshold
-	bool isParallelTo(const Vector3<T> &v, T maxAngle) const {
+	bool isParallelTo(const Vector3<T> &v, QAngle maxAngle) const {
 		return getAngleTo(v) < maxAngle;
 	}
 

@@ -102,8 +102,8 @@ void JF12Field::randomStriated(int seed) {
 void JF12Field::randomTurbulent(int seed) {
 	useTurbulent = true;
 	// turbulent field with Kolmogorov spectrum, B_rms = 1 and Lc = 60 parsec
-	turbulentGrid = std::make_shared<VectorQMFieldGrid>(VectorQMFieldGrid(Vector3d(0.), 256, (4_pc).getValue());
-	initTurbulence(turbulentGrid, 1, 8_pc.getValue(), 272_pc.getValue(), -11./3., seed);
+	turbulentGrid = std::make_shared<VectorGrid>(VectorGrid(Vector3d(0.), 256, static_cast<double>(4_pc)));
+	initTurbulence(turbulentGrid, 1, static_cast<double>(8_pc), static_cast<double>(272_pc), -11./3., seed);
 }
 #endif
 

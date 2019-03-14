@@ -84,6 +84,15 @@ find_package(OpenMP)
         endif(OPENMP_FOUND)
 endif(ENABLE_OPENMP)
 
+# FFTW3F (optional for turbulent magnetic fields)
+find_package(FFTW3F)
+if(FFTW3F_FOUND)
+        list(APPEND HERMES_EXTRA_INCLUDES ${FFTW3F_INCLUDE_DIR})
+        list(APPEND HERMES_EXTRA_LIBRARIES ${FFTW3F_LIBRARIES})
+        add_definitions(-DHERMES_HAVE_FFTW3F)
+        list(APPEND HERMES_SWIG_DEFINES -DHERMES_HAVE_FFTW3F)
+endif(FFTW3F_FOUND)
+
 # CFITSIO (optional for FITS output format)
 option(ENABLE_CFITSIO "CFITSIO for FITS output" OFF)
 if(ENABLE_CFITSIO)
@@ -124,6 +133,7 @@ add_library(hermes SHARED
 	src/HEALPixBits.cpp
 	src/FITSWrapper.cpp
 	src/ProgressBar.cpp
+	src/GridTools.cpp
 	src/skymaps/Skymap.cpp
 	src/skymaps/SynchroSkymapRange.cpp
 	src/integrators/Integrator.cpp
