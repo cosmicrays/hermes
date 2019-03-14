@@ -83,6 +83,8 @@ void exampleSynchro() {
 	auto B = Vector3QMField(0_muG, 0_muG, 1_muG);
 	auto ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 	auto JF12 = std::make_shared<JF12Field>(JF12Field());
+	JF12->randomStriated(137);
+	JF12->randomTurbulent(1337);
 	auto PT11 = std::make_shared<PT11Field>(PT11Field());
 	auto dfield = std::make_shared<DummyField>(DummyField());
 	
@@ -92,7 +94,7 @@ void exampleSynchro() {
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_2D.fits", Electron, DragonFileType::_2D)); 
 	
 	// integrator
-	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(ufield, simpleModel));
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, simpleModel));
 	//auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(ufield, simpleModel));
 
 /*				

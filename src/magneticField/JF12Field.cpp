@@ -84,7 +84,7 @@ void JF12Field::randomStriated(int seed) {
 	useStriated = true;
 	int N = 100;
 	striatedGrid = std::make_shared<ScalarGrid>(ScalarGrid(
-				Vector3d(0.), N, (0.1_kpc).getValue()));
+				Vector3d(0.), N, static_cast<double>(0.1_kpc)));
 
 	Random random;
 	if (seed != 0)
