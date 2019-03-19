@@ -140,13 +140,17 @@ add_library(hermes SHARED
 	src/integrators/RMIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
 	src/integrators/FreeFreeIntegrator.cpp
-	src/magneticField/JF12Field.cpp
-	src/magneticField/PT11Field.cpp
 	src/magneticField/MagneticField.cpp
 	src/magneticField/MagneticFieldGrid.cpp
+	src/magneticField/WMAP07Field.cpp
+	src/magneticField/Sun08Field.cpp
+	src/magneticField/PT11Field.cpp
+	src/magneticField/JF12Field.cpp
 	src/gasDensity/HII_Cordes91.cpp
 	src/gasDensity/YMW16.cpp
 	src/cosmicRayDensity/SimpleCRDensity.cpp
+	src/cosmicRayDensity/WMAP07CRDensity.cpp
+	src/cosmicRayDensity/Sun08CRDensity.cpp
 	src/cosmicRayDensity/DragonCRDensity.cpp
 	src/outputs/FITSOutput.cpp
 	${HERMES_EXTRA_SOURCES}

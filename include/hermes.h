@@ -25,8 +25,10 @@
 
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/magneticField/MagneticFieldGrid.h"
-#include "hermes/magneticField/JF12Field.h"
+#include "hermes/magneticField/WMAP07Field.h"
+#include "hermes/magneticField/Sun08Field.h"
 #include "hermes/magneticField/PT11Field.h"
+#include "hermes/magneticField/JF12Field.h"
 
 #include "hermes/gasDensity/GasDensity.h"
 #include "hermes/gasDensity/HII_Cordes91.h"
@@ -34,6 +36,8 @@
 
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
 #include "hermes/cosmicRayDensity/SimpleCRDensity.h"
+#include "hermes/cosmicRayDensity/Sun08CRDensity.h"
+#include "hermes/cosmicRayDensity/WMAP07CRDensity.h"
 #include "hermes/cosmicRayDensity/DragonCRDensity.h"
 
 #include "hermes/outputs/Output.h"

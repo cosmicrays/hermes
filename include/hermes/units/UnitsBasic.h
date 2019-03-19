@@ -360,6 +360,12 @@ inline double cos(const QAngle &num) {
 inline double tan(const QAngle &num) {
     return std::tan(num.getValue());
 }
+inline double cosh(const QNumber &num) {
+    return std::cosh(num.getValue());
+}
+inline double tanh(const QNumber &num) {
+    return std::tanh(num.getValue());
+}
 inline QAngle atan2(const QLength &lhs, const QLength &rhs) {
     return QAngle(std::atan2(lhs.getValue(), rhs.getValue()));
 }
