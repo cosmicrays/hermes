@@ -17,9 +17,14 @@ public:
 
 	/**
  		Every child class should implement this method which represents an integral
-		of a targeted accumulated quantity `T` in a given direction `interdir`
+		of a targeted accumulated quantity `T` in a given direction `interdir`.
 	*/
 	virtual T integrateOverLOS(QDirection iterdir) const = 0;
+	/**
+		Additionally, for a frequency dependent integrals should implement
+		the second method too.
+	*/
+	virtual T integrateOverLOS(QDirection iterdir, QFrequency) const { return T(0); };
 };
 
 } // namespace hermes

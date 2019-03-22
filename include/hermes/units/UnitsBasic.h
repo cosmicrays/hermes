@@ -53,6 +53,9 @@ public:
     constexpr explicit operator double() const {
 	return value;
     }
+    constexpr explicit operator float() const {
+	return static_cast<float>(value);
+    }
 };
 
 // print Quantity to ostream
@@ -339,6 +342,7 @@ constexpr QAngle	radian(1.0);
 
 // Math
 constexpr double pi = 3.1415926535897932384626433832795;
+constexpr double eulerGamma = 0.5772156649015328606065120900824;
 
 inline double exp(const QNumber &num) {
     return std::exp(num.getValue());

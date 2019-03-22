@@ -23,4 +23,50 @@ void SynchroSkymapRange::initFrequencyRange() {
 	}
 }
 
+void SynchroSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature> > integrator_) {
+	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
+		it->setIntegrator(integrator_);
+	}
+}
+
+void SynchroSkymapRange::compute() {
+	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
+		it->compute();
+	}
+}
+
+void SynchroSkymapRange::save(std::shared_ptr<Output> output) const {
+	
+	output->initOutput();
+	
+	for(const_iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
+		int npix = static_cast<int>((it)->getNpix());
+
+		output->createTable(npix);
+		output->writeMetadata(it->getNside(), it->getRes(), it->getDescription());
+
+		float tempArray[npix];
+		for (unsigned long i = 0; i < npix; ++i)
+			tempArray[i] = static_cast<float>(it->operator[](i));
+
+		output->writeColumn(npix, tempArray);
+	}
+}
+
+SynchroSkymapRange::iterator SynchroSkymapRange::begin() {
+        return skymaps.begin();
+}
+
+SynchroSkymapRange::const_iterator SynchroSkymapRange::begin() const {
+        return skymaps.begin();
+}
+
+SynchroSkymapRange::iterator SynchroSkymapRange::end() {
+        return skymaps.end();
+}
+
+SynchroSkymapRange::const_iterator SynchroSkymapRange::end() const {
+        return skymaps.end();
+}
+
 } // namespace hermes

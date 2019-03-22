@@ -7,7 +7,8 @@ namespace hermes {
 
 class SynchroSkymapRange {
 private:
-	std::vector<SynchroSkymap> skymaps;
+	typedef std::vector<SynchroSkymap> tSkymapsContainer;
+	tSkymapsContainer skymaps;
 	std::vector<QFrequency> freqs;
 	QFrequency minFreq, maxFreq;
 	std::size_t nside;
@@ -16,6 +17,20 @@ private:
 public:
 	SynchroSkymapRange(std::size_t nside_, QFrequency minFreq_, QFrequency maxFreq_, int freqSteps_);
 	~SynchroSkymapRange();
+
+	void setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature> > integrator_);
+	void compute();
+       
+	/** output **/
+	void save(std::shared_ptr<Output> output) const;
+ 
+	/** iterator goodies */
+        typedef typename tSkymapsContainer::iterator iterator;
+        typedef typename tSkymapsContainer::const_iterator const_iterator;
+        iterator begin();
+        const_iterator begin() const;
+        iterator end();
+        const_iterator end() const;
 };
 
 } // namespace hermes

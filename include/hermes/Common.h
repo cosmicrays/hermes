@@ -50,6 +50,12 @@ bool isWithinAngle(QDirection a, QDirection b, QAngle d);
 */
 QNumber getLorentzFactor(QMass m, QEnergy E);
 
+/**
+ 	Intensity to temperature coversion
+*/
+QTemperature intensityToTemperature(QIntensity intensity, QFrequency freq);
+
+
 } // namespace hermes
 
 #endif // HERMES_COMMON_H

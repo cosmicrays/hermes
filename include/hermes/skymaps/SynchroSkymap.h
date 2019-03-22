@@ -20,7 +20,7 @@ public:
 	}
 	void computePixel(
 		std::size_t ipix,
-		std::shared_ptr<SynchroIntegrator> integrator_) {
+		std::shared_ptr<IntegratorTemplate<QTemperature> > integrator_) {
 		iterdir = pix2ang_ring(getNside(), ipix);
 		fluxContainer[ipix] = integrator_->integrateOverLOS(iterdir, freq);
 	}

@@ -27,10 +27,10 @@ public:
 	}
 	
 	void setNside(std::size_t nside_);
-	std::size_t getNside();
+	std::size_t getNside() const;
 	void setRes(std::size_t res_);
-	std::size_t getRes();
-	std::size_t getNpix();
+	std::size_t getRes() const;
+	std::size_t getNpix() const;
 
         virtual std::string getDescription() const;
         void setDescription(const std::string &description);

@@ -1,6 +1,6 @@
 #include "hermes/integrators/SynchroIntegrator.h"
+#include "hermes/Common.h"
 
-#include <iostream>
 #include <memory>
 #include <gsl/gsl_sf_synchrotron.h>
 
@@ -13,12 +13,6 @@ SynchroIntegrator::SynchroIntegrator(
 }
 
 SynchroIntegrator::~SynchroIntegrator() { }
-
-QTemperature SynchroIntegrator::intensityToTemperature(
-		QIntensity intensity_, QFrequency freq_) const {
-	return intensity_*c_squared /
-		(2*freq_*freq_*k_boltzmann);
-}
 
 QTemperature SynchroIntegrator::integrateOverLOS(
 		QDirection direction) const {

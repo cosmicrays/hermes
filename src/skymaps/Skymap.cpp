@@ -24,7 +24,7 @@ void Skymap::setNside(std::size_t nside_) {
         npix = nside2npix(nside_);
 }
 
-std::size_t Skymap::getNside() {
+std::size_t Skymap::getNside() const {
 	return nside;
 }
 
@@ -33,11 +33,11 @@ void Skymap::setRes(std::size_t res_) {
         setNside(1 << res); // 2*res
 }
 
-std::size_t Skymap::getRes() {
+std::size_t Skymap::getRes() const {
         return res;
 }
 
-std::size_t Skymap::getNpix() {
+std::size_t Skymap::getNpix() const {
         return npix;
 }
 

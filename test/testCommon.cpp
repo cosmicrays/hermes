@@ -41,6 +41,14 @@ TEST(Common, galacticBorder) {
 			(18.103_kpc).getValue(), (10_pc).getValue());
 }
 
+TEST(Common, intensityToTemperature) {
+	// T = I * c^2 / (2 * nu^2 * k_boltzmann)
+	QIntensity intensity(1);
+	QTemperature temp = intensityToTemperature(intensity, 1_Hz);
+	EXPECT_NEAR(temp.getValue(), 3.2548e39, 1e36);
+}
+
+
 int main(int argc, char **argv) {
         ::testing::InitGoogleTest(&argc, argv);
         return RUN_ALL_TESTS();

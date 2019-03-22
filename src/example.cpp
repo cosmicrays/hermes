@@ -141,11 +141,30 @@ void exampleSynchro() {
 	skymap->save(output);
 }
 
+void exampleFreeFree() {
+	// gas models
+	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
+	auto gasYMW16 = std::make_shared<YMW16>(YMW16());
+	
+	// integrator
+	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gasYMW16));
+
+	// skymap
+	int nside = 8;	
+	auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 408_MHz, 10));
+	skymaps->setIntegrator(intFreeFree);
+	skymaps->compute();
+
+	// save
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-multi.fits.gz"));
+	skymaps->save(output);
+}
+
 void playground() {
 
-	exampleRM();
+	//exampleRM();
 	//exampleSynchro();
-
+	exampleFreeFree();
 }
 
 } // namespace hermes

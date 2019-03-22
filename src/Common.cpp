@@ -1,7 +1,5 @@
 #include "hermes/Common.h"
 
-#include <iostream>
-
 namespace hermes {
 
 bool isWithinAngle(QDirection a, QDirection b, QAngle d) {
@@ -37,5 +35,11 @@ QLength distanceToGalBorder(Vector3QLength positionSun, QDirection direction) {
 QNumber getLorentzFactor(QMass m, QEnergy E) {
         return E / (m * c_squared);
 }
+
+
+QTemperature intensityToTemperature(QIntensity intensity_, QFrequency freq_) {
+	return intensity_*c_squared / (2*freq_*freq_*k_boltzmann);
+}
+
 
 } // namespace hermes 

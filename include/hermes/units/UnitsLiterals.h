@@ -56,17 +56,21 @@ BASELITERAL(QSpeed, _mps)
 LITERAL(QSpeed, _miph, mile/hour)
 LITERAL(QSpeed, _kmph, kilo*metre/hour)
 
-// literal for frequency unit
+// literal for frequency units
 BASELITERAL(QFrequency, _Hz)
 LITERAL(QFrequency, _kHz, kilo*hertz)
 LITERAL(QFrequency, _MHz, mega*hertz)
 LITERAL(QFrequency, _GHz, giga*hertz)
 LITERAL(QFrequency, _THz, tera*hertz)
 
-// magnetic field strength
+// literals for magnetic field strength units
 BASELITERAL(QMField, _T)
 LITERAL(QMField, _nG, nano*gauss)
 LITERAL(QMField, _muG, micro*gauss)
+
+// literals for temperature units
+BASELITERAL(QTemperature, _K)
+LITERAL(QTemperature, _muK, micro*kelvin)
 
 // literals for time units
 BASELITERAL(QTime, _s)
