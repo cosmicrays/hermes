@@ -1,21 +1,21 @@
-#ifndef HERMES_SYNCHROSKYMAP_H
-#define HERMES_SYNCHROSKYMAP_H
+#ifndef HERMES_RADIOSKYMAP_H
+#define HERMES_RADIOSKYMAP_H
 
 #include <hermes/skymaps/SkymapTemplate.h>
 #include <hermes/integrators/SynchroIntegrator.h>
 
 namespace hermes {
 
-class SynchroSkymap: public SkymapTemplate<QTemperature> {
+class RadioSkymap: public SkymapTemplate<QTemperature> {
 private:
 	QFrequency freq;
 public:
-	SynchroSkymap(std::size_t nside_, QFrequency freq_) : SkymapTemplate(nside_), freq(freq_) { };
+	RadioSkymap(std::size_t nside_, QFrequency freq_) : SkymapTemplate(nside_), freq(freq_) { };
 
 	void setFrequency(QFrequency freq_) {
 		freq = freq_;
 	}
-	QFrequency getFrequency() {
+	QFrequency getFrequency() const {
 		return freq;
 	}
 	void computePixel(
@@ -28,4 +28,4 @@ public:
 
 } // namespace hermes
 
-#endif // HERMES_SYNCHROSKYMAP_H
+#endif // HERMES_RADIOSKYMAP_H

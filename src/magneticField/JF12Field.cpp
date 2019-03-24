@@ -145,15 +145,15 @@ void JF12Field::setUseTurbulent(bool use) {
 	useTurbulent = use;
 }
 
-bool JF12Field::isUsingRegular() {
+bool JF12Field::isUsingRegular() const {
 	return useRegular;
 }
 
-bool JF12Field::isUsingStriated() {
+bool JF12Field::isUsingStriated() const {
 	return useStriated;
 }
 
-bool JF12Field::isUsingTurbulent() {
+bool JF12Field::isUsingTurbulent() const {
 	return useTurbulent;
 }
 

@@ -19,6 +19,8 @@ public:
 	void initOutput();
 	void createTable(int nrows);
 	void writeMetadata(int nside, double res, const std::string &description);
+	void writeKeyValueAsDouble(
+		const std::string &key, double value, const std::string &description);
 	void writeColumn(int nElements, void *array);
 };
 

@@ -59,7 +59,10 @@ void exampleRM() {
 	auto ufield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
 	auto WMAP07 = std::make_shared<WMAP07Field>(WMAP07Field());
 	auto Sun08 = std::make_shared<Sun08Field>(Sun08Field());
+	//Sun08->randomTurbulent(1337);
 	auto JF12 = std::make_shared<JF12Field>(JF12Field());
+	JF12->randomStriated(137);
+	JF12->randomTurbulent(1337);
 	auto PT11 = std::make_shared<PT11Field>(PT11Field());
 
 	// gas models
@@ -67,7 +70,7 @@ void exampleRM() {
 	auto gasYMW16 = std::make_shared<YMW16>(YMW16());
 	
 	// integrator
-	auto intRM = std::make_shared<RMIntegrator>(RMIntegrator(WMAP07, gasYMW16));
+	auto intRM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gasYMW16));
 
 	// skymap
 	int nside = 32;	
@@ -101,7 +104,7 @@ void exampleSynchro() {
 	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_2D.fits", Electron, DragonFileType::_2D)); 
 	
 	// integrator
-	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(Sun08, Sun08Model));
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(WMAP07, WMAP07Model));
 	//auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(ufield, simpleModel));
 
 /*				
@@ -129,9 +132,9 @@ void exampleSynchro() {
 */	
 
 	// skymap
-	int nside = 32;
-	auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 408_MHz, 10));
-	auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(nside, 408_MHz));
+	int nside = 16;
+	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 100_GHz, 10));
+	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(nside, 408_MHz));
 	skymap->setIntegrator(intSynchro);
 
 	auto output = std::make_shared<FITSOutput>(FITSOutput("!example.fits.gz"));
@@ -151,7 +154,7 @@ void exampleFreeFree() {
 
 	// skymap
 	int nside = 8;	
-	auto skymaps = std::make_shared<SynchroSkymapRange>(SynchroSkymapRange(nside, 1_MHz, 408_MHz, 10));
+	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 100_GHz, 10));
 	skymaps->setIntegrator(intFreeFree);
 	skymaps->compute();
 

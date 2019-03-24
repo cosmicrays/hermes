@@ -15,8 +15,8 @@
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapTemplate.h"
 #include "hermes/skymaps/RMSkymap.h"
-#include "hermes/skymaps/SynchroSkymap.h"
-#include "hermes/skymaps/SynchroSkymapRange.h"
+#include "hermes/skymaps/RadioSkymap.h"
+#include "hermes/skymaps/RadioSkymapRange.h"
 
 #include "hermes/integrators/Integrator.h"
 #include "hermes/integrators/RMIntegrator.h"

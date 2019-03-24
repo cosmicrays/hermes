@@ -1,13 +1,13 @@
-#ifndef HERMES_SYNCHROSKYMAPRANGE_H
-#define HERMES_SYNCHROSKYMAPRANGE_H
+#ifndef HERMES_RADIOSKYMAPRANGE_H
+#define HERMES_RADIOSKYMAPRANGE_H
 
-#include <hermes/skymaps/SynchroSkymap.h>
+#include <hermes/skymaps/RadioSkymap.h>
 
 namespace hermes {
 
-class SynchroSkymapRange {
+class RadioSkymapRange {
 private:
-	typedef std::vector<SynchroSkymap> tSkymapsContainer;
+	typedef std::vector<RadioSkymap> tSkymapsContainer;
 	tSkymapsContainer skymaps;
 	std::vector<QFrequency> freqs;
 	QFrequency minFreq, maxFreq;
@@ -15,8 +15,8 @@ private:
 	int freqSteps;
 	void initFrequencyRange();
 public:
-	SynchroSkymapRange(std::size_t nside_, QFrequency minFreq_, QFrequency maxFreq_, int freqSteps_);
-	~SynchroSkymapRange();
+	RadioSkymapRange(std::size_t nside_, QFrequency minFreq_, QFrequency maxFreq_, int freqSteps_);
+	~RadioSkymapRange();
 
 	void setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature> > integrator_);
 	void compute();
@@ -35,4 +35,4 @@ public:
 
 } // namespace hermes
 
-#endif // HERMES_SYNCHROSKYMAPRANGE_H
+#endif // HERMES_RADIOSKYMAPRANGE_H

@@ -4,6 +4,7 @@
 namespace hermes {
 
 Sun08Field::Sun08Field() {
+	// regular field parameters
 	R_Earth = 8.5_kpc;
 	R_0 = 10_kpc;
 	z_0 = 1_kpc;
@@ -15,9 +16,39 @@ Sun08Field::Sun08Field() {
 	B_H0 = 10_muG;
 	R_H0 = 4_kpc;
 	pitch = 6_deg;
+
+	// turbulent field parameters
+	useTurbulent = false;
+	B_turbulent = 3_muG;
 }
 
-Vector3QMField Sun08Field::getField(const Vector3QLength& pos_) const {
+#ifdef HERMES_HAVE_FFTW3F
+void Sun08Field::randomTurbulent(int seed) {
+	useTurbulent = true;
+	// turbulent field with Kolmogorov spectrum, B_rms = 1 and Lc = 60 parsec
+	turbulentGrid = std::make_shared<VectorGrid>(VectorGrid(Vector3d(0.), 256, static_cast<double>(4_pc)));
+	initTurbulence(turbulentGrid, 1, static_cast<double>(8_pc), static_cast<double>(272_pc), -11./3., seed);
+}
+#endif
+
+void Sun08Field::setTurbulentGrid(std::shared_ptr<VectorGrid> grid) {
+	useTurbulent = true;
+	turbulentGrid = grid;
+}
+
+void Sun08Field::setUseTurbulent(bool use) {
+	if ((use) and (turbulentGrid)) {
+		std::cout << "JF12Field: No turbulent field set: ignored" << std::endl;
+		return;
+	}
+	useTurbulent = use;
+}
+
+bool Sun08Field::isUsingTurbulent() const {
+	return useTurbulent;
+}
+
+Vector3QMField Sun08Field::getRegularField(const Vector3QLength& pos_) const {
 	Vector3QMField B_disc(0);
 	Vector3QMField B_halo(0);
 
@@ -52,6 +83,20 @@ Vector3QMField Sun08Field::getField(const Vector3QLength& pos_) const {
 	B_halo.z = 0;
 
 	return B_disc + B_halo;
+}
+
+Vector3QMField Sun08Field::getTurbulentField(const Vector3QLength& pos_) const {
+	return (turbulentGrid->interpolate(pos_) * B_turbulent);
+}
+
+Vector3QMField Sun08Field::getField(const Vector3QLength& pos_) const {
+	Vector3QMField b(0.);
+
+	b = getRegularField(pos_);
+	if (useTurbulent)
+		b += getTurbulentField(pos_);
+	
+	return b;
 }
 
 } // namespace hermes

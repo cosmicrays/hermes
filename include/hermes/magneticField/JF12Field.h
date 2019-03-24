@@ -99,9 +99,9 @@ public:
 	void setUseStriated(bool use);
 	void setUseTurbulent(bool use);
 
-	bool isUsingRegular();
-	bool isUsingStriated();
-	bool isUsingTurbulent();
+	bool isUsingRegular() const;
+	bool isUsingStriated() const;
+	bool isUsingTurbulent() const;
 
 	// Regular field component
 	Vector3QMField getRegularField(const Vector3QLength& pos) const;

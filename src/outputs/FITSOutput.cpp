@@ -61,6 +61,11 @@ void FITSOutput::writeMetadata(int nside, double res, const std::string &descrip
 	ffile->writeKeyValue(process, NULL);
 }
 
+void FITSOutput::writeKeyValueAsDouble(const std::string &key, double value, const std::string &description) {
+	auto keyvalue = FITSKeyValue(key.c_str(), value);
+	ffile->writeKeyValue(keyvalue, description.c_str());
+}
+
 void FITSOutput::writeColumn(int nElements, void *array) {
 	ffile->writeColumn(FITS::FLOAT, 1, 1, 1, nElements, array);
 }

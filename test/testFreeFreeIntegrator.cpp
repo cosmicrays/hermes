@@ -61,7 +61,7 @@ TEST(FreeFreeIntegrator, integrateSkymap) {
 		FreeFreeIntegrator(gdensity));
 
 	QFrequency f = 22_GHz;
-	auto skymap = std::make_shared<SynchroSkymap>(SynchroSkymap(2, f));
+	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(2, f));
 	skymap->setIntegrator(intFreeFree);
 	skymap->compute();
 
