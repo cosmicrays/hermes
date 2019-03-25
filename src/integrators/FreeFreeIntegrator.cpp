@@ -69,6 +69,7 @@ QTemperature FreeFreeIntegrator::integrateOverLOS(
 		pos = getGalacticPosition(positionSun, dist, direction);
 		total_intensity += spectralEmissivity(pos, freq_) * delta_d;
 	}
+	
 	return intensityToTemperature(total_intensity / 4_pi, freq_);
 }
 

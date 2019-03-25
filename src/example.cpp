@@ -140,7 +140,7 @@ void exampleFreeFree() {
 
 	// skymap
 	int nside = 16;	
-	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 100_GHz, 10));
+	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 10_MHz, 10_GHz, 10));
 	skymaps->setIntegrator(intFreeFree);
 	skymaps->compute();
 

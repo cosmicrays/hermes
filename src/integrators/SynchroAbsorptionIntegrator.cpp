@@ -55,6 +55,7 @@ QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(
 		absorptionIntegrals.push_back(absorption);
 	}
 
+
 	// TODO: implement sophisticated adaptive integration method :-)
 	auto i = 0;
 	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
