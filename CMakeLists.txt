@@ -140,6 +140,7 @@ add_library(hermes SHARED
 	src/integrators/RMIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
 	src/integrators/FreeFreeIntegrator.cpp
+	src/integrators/SynchroAbsorptionIntegrator.cpp
 	src/magneticField/MagneticField.cpp
 	src/magneticField/MagneticFieldGrid.cpp
 	src/magneticField/WMAP07Field.cpp

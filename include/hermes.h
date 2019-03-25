@@ -22,6 +22,7 @@
 #include "hermes/integrators/RMIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
+#include "hermes/integrators/SynchroAbsorptionIntegrator.h"
 
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/magneticField/MagneticFieldGrid.h"

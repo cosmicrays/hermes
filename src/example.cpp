@@ -54,7 +54,7 @@ void exampleSynchro() {
 	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_2D.fits", Electron, DragonFileType::_2D)); 
 	
 	// integrator
-	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(Sun08, simpleModel));
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, simpleModel));
 	//auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(ufield, simpleModel));
 
 /*				
