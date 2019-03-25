@@ -17,6 +17,11 @@ private:
 	std::shared_ptr<CosmicRayDensity> crdensity;
 	const QSynchroConstant const_synchro =
 		std::sqrt(3)*pow<3>(e_plus)/(8*pi*pi*epsilon0*c_light*m_electron);
+	
+	QEmissivity integrateOverSumEnergy(
+		Vector3QLength pos_, QFrequency freq_) const;
+	QEmissivity integrateOverLogEnergy(
+		Vector3QLength pos_, QFrequency freq_) const;
 
 public:
 	SynchroIntegrator(
@@ -27,8 +32,6 @@ public:
 	QTemperature integrateOverLOS(QDirection iterdir_) const;
 	QTemperature integrateOverLOS(QDirection iterdir_, QFrequency freq_) const;
 	QEmissivity integrateOverEnergy(
-		Vector3QLength pos_, QFrequency freq_) const;
-	QEmissivity integrateOverLogEnergy(
 		Vector3QLength pos_, QFrequency freq_) const;
 };
 

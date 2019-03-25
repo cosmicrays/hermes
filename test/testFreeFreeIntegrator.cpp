@@ -7,7 +7,7 @@ namespace hermes {
 
 class TestGasDensity: public GasDensity {
 public:
-        TestGasDensity() { }
+        TestGasDensity() : GasDensity(1e4_K) { }
         QPDensity getDensity(const Vector3QLength &pos) const {
 		return 1.0 / 1_cm3; 
 	}
@@ -30,7 +30,7 @@ TEST(FreeFreeIntegrator, gauntFactor) {
 		5.4154, 1e-4);
 }
 
-TEST(FreeFreeIntegrator, spectralEmissivity) {
+TEST(FreeFreeIntegrator, spectralEmissivityExplicit) {
 
 	auto gdensity = std::make_shared<TestGasDensity>(
 		TestGasDensity());
@@ -39,17 +39,17 @@ TEST(FreeFreeIntegrator, spectralEmissivity) {
 
 	auto N = 1.0/1_cm3;
 	EXPECT_NEAR(static_cast<double>(
-		intFreeFree->spectralEmissivity(N, N, 1_GHz, 1e4_K, 1)),
+		intFreeFree->spectralEmissivityExplicit(N, N, 1_GHz, 1e4_K, 1)),
 		4.4472e-40, 1e-41);
 	
 	N = 1.0/1_cm3;
 	EXPECT_NEAR(static_cast<double>(
-		intFreeFree->spectralEmissivity(N, N, 22_GHz, 1e4_K, 1)),
+		intFreeFree->spectralEmissivityExplicit(N, N, 22_GHz, 1e4_K, 1)),
 		3.3124e-40, 1e-42);
 	
 	N = 10.0/1_cm3;
 	EXPECT_NEAR(static_cast<double>(
-		intFreeFree->spectralEmissivity(N, N, 1000_GHz, 1e4_K, 1)),
+		intFreeFree->spectralEmissivityExplicit(N, N, 1000_GHz, 1e4_K, 1)),
 		1.8642e-38, 1e-42);
 }
 

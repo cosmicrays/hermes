@@ -1,12 +1,20 @@
 #ifndef HERMES_SYNCHROABSORPTIONINTEGRATOR_H
 #define HERMES_SYNCHROABSORPTIONINTEGRATOR_H
 
+#include "hermes/integrators/Integrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
 
 namespace hermes {
 
-class SynchroAbsorptionIntegrator: public SynchroIntegrator, FreeFreeIntegrator {
+class SynchroAbsorptionIntegrator: public IntegratorTemplate<QTemperature> {
+private:
+	std::shared_ptr<MagneticField> mfield;
+	std::shared_ptr<CosmicRayDensity> crdensity;
+	std::shared_ptr<GasDensity> gdensity;
+	std::shared_ptr<SynchroIntegrator> intSynchro;
+	std::shared_ptr<FreeFreeIntegrator> intFreeFree;
+
 public:
 	SynchroAbsorptionIntegrator(
 		const std::shared_ptr<MagneticField> mfield,
@@ -14,8 +22,11 @@ public:
 		const std::shared_ptr<GasDensity> gdensity);
 	~SynchroAbsorptionIntegrator();
 
+	QInverseLength absorptionCoefficient(
+		Vector3QLength pos, QFrequency freq) const;
+	
 	QTemperature integrateOverLOS(QDirection iterdir_) const;
-	QTemperature integrateOverLOS(QDirection iterdir_, QFrequency freq_) const;
+	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;
 };
 
 } // namespace hermes

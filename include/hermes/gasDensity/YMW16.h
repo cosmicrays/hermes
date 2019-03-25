@@ -14,7 +14,7 @@ private:
 	QPDensity fne1, fne2;
 	QLength	  H1, A1, H2, A2, R2;
 public:
-	YMW16() { };
+	YMW16();
 	QPDensity getDensity(const Vector3QLength& pos) const;
 };
 

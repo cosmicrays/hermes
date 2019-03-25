@@ -33,18 +33,19 @@ QTemperature SynchroIntegrator::integrateOverLOS(
 	// TODO: implement sophisticated adaptive integration method :-)
 	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
 		pos = getGalacticPosition(positionSun, dist, direction);
-
-		if (crdensity->existsScaleFactor())
-			total_intensity +=
-				integrateOverLogEnergy(pos, freq_) * delta_d;
-		else
-			total_intensity +=
-				integrateOverEnergy(pos, freq_) * delta_d;
+		total_intensity += integrateOverEnergy(pos, freq_) * delta_d;
 	}
 	return intensityToTemperature(total_intensity / 4_pi, freq_);
 }
 
 QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_, QFrequency freq_) const {
+		if (crdensity->existsScaleFactor())
+			return integrateOverLogEnergy(pos_, freq_);
+		else
+			return integrateOverSumEnergy(pos_, freq_);
+}
+
+QEmissivity SynchroIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QFrequency freq_) const {
 
 	QEmissivity emissivity(0);
 	QEnergy deltaE;

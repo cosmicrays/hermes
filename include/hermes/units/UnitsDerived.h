@@ -28,6 +28,7 @@ QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 1, QRotationMeasure);
 QUANTITY_TYPE(-5, 2,-1, 0, 0, 0, 0, 0, QPDensityPerEnergy);
 QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, QEmissivity);
 QUANTITY_TYPE( 0,-2, 1, 0, 0, 0, 0, 0, QIntensity);
+QUANTITY_TYPE(-1, 0, 0, 0, 0, 0, 0, 0, QInverseLength);
 
 // Predefined derived units:
 // doc: https://en.wikipedia.org/wiki/SI_derived_unit

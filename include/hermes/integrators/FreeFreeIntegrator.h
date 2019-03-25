@@ -20,12 +20,13 @@ public:
 		const std::shared_ptr<GasDensity> gdensity);
 	~FreeFreeIntegrator();
 
-	QTemperature integrateOverLOS(QDirection iterdir_) const;
-	QTemperature integrateOverLOS(QDirection iterdir_, QFrequency freq_) const;
+	QTemperature integrateOverLOS(QDirection iterdir) const;
+	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;
 
 	QNumber gauntFactor(QFrequency freq, QTemperature T, int Z) const;
-	QEmissivity spectralEmissivity(
+	QEmissivity spectralEmissivityExplicit(
 	        QPDensity N, QPDensity N_e, QFrequency freq, QTemperature T, int Z) const;
+	QEmissivity spectralEmissivity(Vector3QLength pos, QFrequency freq) const;
 };
 
 } // namespace hermes

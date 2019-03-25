@@ -24,6 +24,18 @@ QNumber FreeFreeIntegrator::gauntFactor(QFrequency freq, QTemperature T, int Z) 
 }
 
 QEmissivity FreeFreeIntegrator::spectralEmissivity(
+	Vector3QLength pos_, QFrequency freq_) const {
+
+	int Z = 1;
+	QPDensity N, N_e;
+	QTemperature T = gdensity->getTemperature();
+	N = N_e = gdensity->getDensity(pos_); 
+		
+	return spectralEmissivityExplicit(N, N_e, freq_, T, Z);
+	
+}
+
+QEmissivity FreeFreeIntegrator::spectralEmissivityExplicit(
 	QPDensity N, QPDensity N_e, QFrequency freq, QTemperature T, int Z) const {
 
 	// optimisation of constants
@@ -34,6 +46,7 @@ QEmissivity FreeFreeIntegrator::spectralEmissivity(
 	return K * Z*Z * gauntFactor(freq, T, Z) * N * N_e * sqrt(1/T) *
 		exp(-h_planck*freq/(k_boltzmann*T));
 }
+
 
 QTemperature FreeFreeIntegrator::integrateOverLOS(
                 QDirection direction) const {
@@ -47,9 +60,6 @@ QTemperature FreeFreeIntegrator::integrateOverLOS(
 	Vector3QLength pos(0.0);
 	QIntensity total_intensity(0);
 	QLength delta_d = 10.0_pc;
-	QPDensity N, N_e;
-	QTemperature T = 1e4_K;
-	int Z = 1;
 
 	// distance from the (spherical) galactic border in the given direction
 	QLength maxDistance = distanceToGalBorder(positionSun, direction);
@@ -57,8 +67,7 @@ QTemperature FreeFreeIntegrator::integrateOverLOS(
 	// TODO: implement sophisticated adaptive integration method :-)
 	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
 		pos = getGalacticPosition(positionSun, dist, direction);
-		N = N_e = gdensity->getDensity(pos); 
-		total_intensity += spectralEmissivity(N, N_e, freq_, T, Z) * delta_d;
+		total_intensity += spectralEmissivity(pos, freq_) * delta_d;
 	}
 	return intensityToTemperature(total_intensity / 4_pi, freq_);
 }

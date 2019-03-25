@@ -2,6 +2,10 @@
 
 namespace hermes {
 
+YMW16::YMW16() {
+	setTemperature(1e4_K);
+}
+
 QPDensity YMW16::getDensity(const Vector3QLength& pos) const {
 	auto conversion = [](QLength x) { return static_cast<double>(x.convertTo(parsec)); };
 
