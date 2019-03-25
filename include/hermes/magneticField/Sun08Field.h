@@ -9,7 +9,7 @@ namespace hermes {
 
 /**
  @class Sun08Field
- @brief 3-year WMAP galactic magnetic field model
+ @brief 
 
  Implemented the galactic magnetic field model used in 3-year WMAP analyses. 
 
@@ -19,13 +19,19 @@ namespace hermes {
 class Sun08Field: public MagneticField {
 private:
 	bool useTurbulent;
+	bool useHalo;
 	std::shared_ptr<VectorGrid> turbulentGrid;
 
-	QLength R_Earth, R_0, z_0, R_c;
-	QMField B_0, B_c, B_turbulent;
-	QLength z_H0, z_H1, R_H0;
-	QMField B_H0;
+	QLength R_Sun;
+	// disk parameters
+	QLength disk_z_0, disk_R_c;
+	QLength disk_R_0, disk_R_1, disk_R_2, disk_R_3;
+	QMField disk_B_0, disk_B_c, disk_B_turbulent;
+	// halo parameters
+	QLength halo_z_0, halo_z_1, halo_R_0;
+	QMField halo_B_0;
 	QAngle pitch;
+	QMField B_turbulent;
 
 public:
 	Sun08Field();
@@ -44,7 +50,9 @@ public:
 	std::shared_ptr<VectorGrid> getTurbulentGrid();
 
 	void setUseTurbulent(bool use);
+	void setUseHalo(bool use);
 	bool isUsingTurbulent() const;
+	bool isUsingHalo() const;
 
 	// Regular field component
 	Vector3QMField getRegularField(const Vector3QLength& pos) const;

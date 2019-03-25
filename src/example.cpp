@@ -5,54 +5,6 @@
 
 namespace hermes {
 
-class DummyCRDensity: public CosmicRayDensity {
-QEnergy minE, maxE;
-int steps;
-public:
-	DummyCRDensity() {
-        	minE = 1_GeV;
-	        maxE = 1e4_GeV;
-        	steps = 10;
-	        makeEnergyRange();
-	}
-
-	void makeEnergyRange() {
-        	QEnergy energy = minE;
-	        float energyRatio =
-        	        exp(1./static_cast<double>(steps-1) * log(maxE/minE));
-
-	        for (int i = 0; i < steps; ++i) {
-        	        energyRange.push_back(energy);
-                	energy = energy * energyRatio;
-	        }
-	}
-
-	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const {
-        	constexpr int alpha = 3;
-	        auto Phi0 = 0.1 / (1_GeV * 1_cm*1_cm * 1_s * c_light);// * 4_pi; 
-        	auto E0 = 1_GeV;
-	        auto E_cutoff = 5_TeV;
-
-        	QNumber profile = 1.;
-	        QPDensityPerEnergy spectrum = Phi0;
-
-        	return profile * spectrum;
-	}
-};
-
-class DummyField: public MagneticField {
-	Vector3QMField getField(const Vector3QLength& pos_) const {
-		Vector3QMField bOuter(0.);
-		Vector3QMField bInner(0,0,1e-10);
-
-		if (pos_.getR() < 7_kpc)
-			return bInner;
-		else
-			return bOuter;
-	}
-};
-
-
 void exampleRM() {
 	// magnetic field models
 	auto B = Vector3QMField(0_muG, 0_muG, 1_muG);
@@ -70,7 +22,7 @@ void exampleRM() {
 	auto gasYMW16 = std::make_shared<YMW16>(YMW16());
 	
 	// integrator
-	auto intRM = std::make_shared<RMIntegrator>(RMIntegrator(JF12, gasYMW16));
+	auto intRM = std::make_shared<RMIntegrator>(RMIntegrator(Sun08, gasYMW16));
 
 	// skymap
 	int nside = 32;	
@@ -94,17 +46,15 @@ void exampleSynchro() {
 	auto PT11 = std::make_shared<PT11Field>(PT11Field());
 	auto WMAP07 = std::make_shared<WMAP07Field>(WMAP07Field());
 	auto Sun08 = std::make_shared<Sun08Field>(Sun08Field());
-	auto dfield = std::make_shared<DummyField>(DummyField());
 	
 	// cosmic ray density models
-	auto dummyModel = std::make_shared<DummyCRDensity>(DummyCRDensity());
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
 	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_2D.fits", Electron, DragonFileType::_2D)); 
 	
 	// integrator
-	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(WMAP07, WMAP07Model));
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(Sun08, simpleModel));
 	//auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(ufield, simpleModel));
 
 /*				
@@ -132,16 +82,16 @@ void exampleSynchro() {
 */	
 
 	// skymap
-	int nside = 16;
+	int nside = 8;
 	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 100_GHz, 10));
-	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(nside, 408_MHz));
-	skymap->setIntegrator(intSynchro);
+	//auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(nside, 408_MHz));
+	skymaps->setIntegrator(intSynchro);
 
-	auto output = std::make_shared<FITSOutput>(FITSOutput("!example.fits.gz"));
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-multi.fits.gz"));
 	
-	skymap->compute();
+	skymaps->compute();
 	//skymap->printPixels();
-	skymap->save(output);
+	skymaps->save(output);
 }
 
 void exampleFreeFree() {
@@ -153,7 +103,7 @@ void exampleFreeFree() {
 	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gasYMW16));
 
 	// skymap
-	int nside = 8;	
+	int nside = 16;	
 	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 100_GHz, 10));
 	skymaps->setIntegrator(intFreeFree);
 	skymaps->compute();
@@ -166,8 +116,8 @@ void exampleFreeFree() {
 void playground() {
 
 	//exampleRM();
-	//exampleSynchro();
-	exampleFreeFree();
+	exampleSynchro();
+	//exampleFreeFree();
 }
 
 } // namespace hermes

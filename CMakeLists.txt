@@ -241,6 +241,10 @@ if(ENABLE_TESTING)
 	target_link_libraries(testFreeFreeIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testFreeFreeIntegrator testFreeFreeIntegrator)
 
+	add_executable(testMFieldModels test/testMFieldModels.cpp)
+	target_link_libraries(testMFieldModels hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testMFieldModels testMFieldModels)
+
 endif(ENABLE_TESTING)
 
 # ----------------------------------------------------------------------------
