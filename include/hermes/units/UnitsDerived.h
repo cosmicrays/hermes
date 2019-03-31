@@ -12,11 +12,12 @@ namespace hermes {
 QUANTITY_TYPE( 1,-2, 1, 0, 0, 0, 0, 0, QForce);
 QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, QPressure);
 QUANTITY_TYPE( 2,-2, 1, 0, 0, 0, 0, 0, QEnergy);
+QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, QEnergyDensity);
 QUANTITY_TYPE( 0, 1, 0, 1, 0, 0, 0, 0, QECharge);
 QUANTITY_TYPE( 0,-2, 1,-1, 0, 0, 0, 0, QMField);
 QUANTITY_TYPE( 2,-3, 1,-1, 0, 0, 0, 0, QEPotential);
 QUANTITY_TYPE( 0,-1, 0, 0, 0, 0, 0, 0, QFrequency);
-QUANTITY_TYPE( 2,-2, 1, 0, 0, 0, 0, 0, QPower);
+QUANTITY_TYPE( 2,-3, 1, 0, 0, 0, 0, 0, QPower);
 QUANTITY_TYPE( 2,-2, 1,-2, 0, 0, 0, 0, QEResistance);
 QUANTITY_TYPE(-2, 4,-1, 2, 0, 0, 0, 0, QECapacitance);
 QUANTITY_TYPE( 2, 0, 0, 0, 0, 0, 0, 0, QArea);

@@ -36,8 +36,13 @@ TEST(FreeFreeIntegrator, spectralEmissivityExplicit) {
 		TestGasDensity());
 	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(
 		FreeFreeIntegrator(gdensity));
-
+	
 	auto N = 1.0/1_cm3;
+	EXPECT_NEAR(static_cast<double>(
+		intFreeFree->spectralEmissivityExplicit(N, N, 10_MHz, 1e4_K, 1)),
+		6.2158e-40, 1e-41);
+
+	N = 1.0/1_cm3;
 	EXPECT_NEAR(static_cast<double>(
 		intFreeFree->spectralEmissivityExplicit(N, N, 1_GHz, 1e4_K, 1)),
 		4.4472e-40, 1e-41);
@@ -69,6 +74,8 @@ TEST(FreeFreeIntegrator, integrateSkymap) {
 	QTemperature minT = intensityToTemperature(em * 11.5_kpc / 4_pi, f);
 	QTemperature maxT = intensityToTemperature(em * 28.5_kpc / 4_pi, f);
 
+	std::cerr << maxT << std::endl;
+
 	QTemperature pixel;
 	for (long ipix = 0; ipix < skymap->getSize(); ++ipix) {
 		pixel = skymap->getPixel(ipix);
@@ -76,6 +83,22 @@ TEST(FreeFreeIntegrator, integrateSkymap) {
 		EXPECT_LE(pixel.getValue(), maxT.getValue());
 	}
 }
+
+TEST(FreeFreeIntegrator, absorptionCoefficient) {
+	auto gdensity = std::make_shared<TestGasDensity>(
+		TestGasDensity());
+	auto integrator = std::make_shared<FreeFreeIntegrator>(
+		FreeFreeIntegrator(gdensity));
+
+	QInverseLength absorption = integrator->absorptionCoefficient(
+			Vector3QLength(1_pc,0,0), 10_MHz);
+	EXPECT_NEAR(absorption.getValue(), 1.61e-19, 1e-21); // 1/m
+	
+	absorption = integrator->absorptionCoefficient(
+			Vector3QLength(1_pc,0,0), 1_GHz);
+	EXPECT_NEAR(absorption.getValue(), 1.1512e-23, 1e-25); // 1/m
+}
+
 
 int main(int argc, char **argv) {
         ::testing::InitGoogleTest(&argc, argv);

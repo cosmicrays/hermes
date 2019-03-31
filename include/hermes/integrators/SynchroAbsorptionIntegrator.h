@@ -22,9 +22,6 @@ public:
 		const std::shared_ptr<GasDensity> gdensity);
 	~SynchroAbsorptionIntegrator();
 
-	QInverseLength absorptionCoefficient(
-		Vector3QLength pos, QFrequency freq) const;
-	
 	QTemperature integrateOverLOS(QDirection iterdir_) const;
 	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;
 };

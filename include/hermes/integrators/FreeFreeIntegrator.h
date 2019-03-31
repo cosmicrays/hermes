@@ -23,10 +23,15 @@ public:
 	QTemperature integrateOverLOS(QDirection iterdir) const;
 	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;
 
-	QNumber gauntFactor(QFrequency freq, QTemperature T, int Z) const;
+	QNumber gauntFactor(
+		QFrequency freq, QTemperature T, int Z) const;
 	QEmissivity spectralEmissivityExplicit(
 	        QPDensity N, QPDensity N_e, QFrequency freq, QTemperature T, int Z) const;
-	QEmissivity spectralEmissivity(Vector3QLength pos, QFrequency freq) const;
+	QEmissivity spectralEmissivity(
+		Vector3QLength pos, QFrequency freq) const;
+	QInverseLength absorptionCoefficient(
+		Vector3QLength pos, QFrequency freq) const;
+	
 };
 
 } // namespace hermes

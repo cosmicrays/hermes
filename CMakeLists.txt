@@ -245,6 +245,10 @@ if(ENABLE_TESTING)
 	add_executable(testMFieldModels test/testMFieldModels.cpp)
 	target_link_libraries(testMFieldModels hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testMFieldModels testMFieldModels)
+	
+	add_executable(testSynchroAbsorptionIntegrator test/testSynchroAbsorptionIntegrator.cpp)
+	target_link_libraries(testSynchroAbsorptionIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testSynchroAbsorptionIntegrator testSynchroAbsorptionIntegrator)
 
 endif(ENABLE_TESTING)
 

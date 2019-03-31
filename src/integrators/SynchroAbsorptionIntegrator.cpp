@@ -19,16 +19,6 @@ SynchroAbsorptionIntegrator::SynchroAbsorptionIntegrator(
 
 SynchroAbsorptionIntegrator::~SynchroAbsorptionIntegrator() { }
 
-QInverseLength SynchroAbsorptionIntegrator::absorptionCoefficient(
-	Vector3QLength pos_, QFrequency freq_) const {
-
-	QTemperature T = 1e4_K;
-	
-	return intFreeFree->spectralEmissivity(pos_, freq_) *
-		c_squared / (8_pi*h_planck*pow<3>(freq_)) *
-		(exp(h_planck*freq_/(k_boltzmann*T)) - 1);
-}
-
 QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(
 		QDirection direction) const {
 	return integrateOverLOS(direction, 408_MHz);
@@ -42,30 +32,29 @@ QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(
 	QIntensity total_intensity(0);
 	QLength delta_d = 10.0_pc;
 
-	QNumber absorption(0);
-	std::vector<QNumber> absorptionIntegrals;
-
+	QNumber opticalDepth(0);
+	std::vector<QNumber> opticalDepthLOS;
 
 	// distance from the (spherical) galactic border in the given direction
 	QLength maxDistance = distanceToGalBorder(positionSun, direction_);
 	
-	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
+	for(QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
 		pos = getGalacticPosition(positionSun, dist, direction_);
-		absorption += absorptionCoefficient(pos, freq_) * delta_d;
-		absorptionIntegrals.push_back(absorption);
+		opticalDepth += intFreeFree->absorptionCoefficient(pos, freq_) * delta_d;
+		opticalDepthLOS.push_back(opticalDepth);
 	}
-
 
 	// TODO: implement sophisticated adaptive integration method :-)
-	auto i = 0;
-	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
+	auto opticalDepthIter = opticalDepthLOS.begin();
+	for(QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
 		pos = getGalacticPosition(positionSun, dist, direction_);
-		total_intensity += intSynchro->integrateOverEnergy(pos, freq_) * 
-					exp(-absorptionIntegrals[i]) * delta_d;
-		++i;
+	
+		total_intensity += intSynchro->integrateOverEnergy(pos, freq_) / 4_pi * 
+					exp((*opticalDepthIter) - opticalDepthLOS[opticalDepthLOS.size()-1]) * delta_d;
+		++opticalDepthIter;
 	}
 
-	return intensityToTemperature(total_intensity / 4_pi, freq_);
+	return intensityToTemperature(total_intensity, freq_);
 }
 
 } // namespace hermes 

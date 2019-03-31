@@ -190,8 +190,17 @@ constexpr Quantity<std::ratio_subtract<std::ratio<0>, l>, std::ratio_subtract<st
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr Quantity<l, t, m, I, T, N, J, A> 
-    operator/(const Quantity<l, t, m, I, T, N, J, A>& rhs, double x) {
-    return Quantity<l, t, m, I, T, N, J, A>(rhs.getValue() / x);
+    operator/(const Quantity<l, t, m, I, T, N, J, A>& lhs,
+	      double rhs) {
+    return Quantity<l, t, m, I, T, N, J, A>(lhs.getValue() / rhs);
+}
+
+template<typename l, typename t, typename m, typename I, typename T,
+	 typename N, typename J, typename A>
+constexpr Quantity<l, t, m, I, T, N, J, A> 
+    operator/=(const Quantity<l, t, m, I, T, N, J, A>& lhs,
+	       const double& rhs) {
+    return Quantity<l, t, m, I, T, N, J, A>(lhs.getValue() / rhs);
 }
 
 

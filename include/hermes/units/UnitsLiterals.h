@@ -48,6 +48,7 @@ LITERAL(QVolume, _m3, pow<3>(metre))
 // literals for energy units
 LITERAL(QEnergy, _J, joule)
 LITERAL(QEnergy, _eV, electronvolt)
+LITERAL(QEnergy, _keV, kilo*electronvolt)
 LITERAL(QEnergy, _GeV, giga*electronvolt)
 LITERAL(QEnergy, _TeV, tera*electronvolt)
 

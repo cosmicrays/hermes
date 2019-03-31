@@ -35,6 +35,17 @@ QEmissivity FreeFreeIntegrator::spectralEmissivity(
 	
 }
 
+QInverseLength FreeFreeIntegrator::absorptionCoefficient(
+	Vector3QLength pos_, QFrequency freq_) const {
+
+	QTemperature T = 1e4_K;
+	
+	return spectralEmissivity(pos_, freq_) *
+		c_squared / (8_pi*h_planck*pow<3>(freq_)) *
+		(exp(h_planck*freq_/(k_boltzmann*T)) - 1);
+}
+
+
 QEmissivity FreeFreeIntegrator::spectralEmissivityExplicit(
 	QPDensity N, QPDensity N_e, QFrequency freq, QTemperature T, int Z) const {
 
