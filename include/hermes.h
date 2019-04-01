@@ -14,11 +14,13 @@
 
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapTemplate.h"
+#include "hermes/skymaps/GenericSkymap.h"
 #include "hermes/skymaps/RMSkymap.h"
 #include "hermes/skymaps/RadioSkymap.h"
 #include "hermes/skymaps/RadioSkymapRange.h"
 
 #include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/GenericIntegrator.h"
 #include "hermes/integrators/RMIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"

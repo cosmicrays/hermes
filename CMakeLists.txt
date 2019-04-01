@@ -137,6 +137,7 @@ add_library(hermes SHARED
 	src/skymaps/Skymap.cpp
 	src/skymaps/RadioSkymapRange.cpp
 	src/integrators/Integrator.cpp
+	src/integrators/GenericIntegrator.cpp
 	src/integrators/RMIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
 	src/integrators/FreeFreeIntegrator.cpp

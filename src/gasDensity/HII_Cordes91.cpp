@@ -4,6 +4,8 @@
 namespace hermes {
 
 HII_Cordes91::HII_Cordes91() {
+	setTemperature(1e4_K);
+
 	fne1 = 0.025 / 1_cm3;
 	H1 = 1.00_kpc;
 	A1 = 20.0_kpc;
