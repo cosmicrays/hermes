@@ -25,9 +25,9 @@ public:
         }
 };
 
-class TestGasDensity: public GasDensity {
+class TestChargedGasDensity: public ChargedGasDensity {
 public:
-        TestGasDensity() { }
+        TestChargedGasDensity() { }
         QPDensity getDensity(const Vector3QLength &pos) const {
 		return 1.0 / 1_cm3; 
 	}
@@ -42,7 +42,7 @@ TEST(Integrator, MagneticField) {
 TEST(Integrator, Orientation) {
 	QRotationMeasure pixel;
 	auto magfield = std::make_shared<TestMagneticField>(TestMagneticField());
-	auto gasdenisty = std::make_shared<TestGasDensity>(TestGasDensity());
+	auto gasdenisty = std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
 	auto integrator = std::make_shared<RMIntegrator>(RMIntegrator(magfield, gasdenisty));
 	auto skymap = std::make_shared<RMSkymap>(RMSkymap(4));
 	QDirection direction;

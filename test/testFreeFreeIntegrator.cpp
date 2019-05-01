@@ -5,9 +5,9 @@
 
 namespace hermes {
 
-class TestGasDensity: public GasDensity {
+class TestChargedGasDensity: public ChargedGasDensity {
 public:
-        TestGasDensity() : GasDensity(1e4_K) { }
+        TestChargedGasDensity() : ChargedGasDensity(1e4_K) { }
         QPDensity getDensity(const Vector3QLength &pos) const {
 		return 1.0 / 1_cm3; 
 	}
@@ -15,8 +15,8 @@ public:
 
 TEST(FreeFreeIntegrator, gauntFactor) {
 
-	auto gdensity = std::make_shared<TestGasDensity>(
-		TestGasDensity());
+	auto gdensity = std::make_shared<TestChargedGasDensity>(
+		TestChargedGasDensity());
 	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(
 		FreeFreeIntegrator(gdensity));
 
@@ -32,8 +32,8 @@ TEST(FreeFreeIntegrator, gauntFactor) {
 
 TEST(FreeFreeIntegrator, spectralEmissivityExplicit) {
 
-	auto gdensity = std::make_shared<TestGasDensity>(
-		TestGasDensity());
+	auto gdensity = std::make_shared<TestChargedGasDensity>(
+		TestChargedGasDensity());
 	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(
 		FreeFreeIntegrator(gdensity));
 	
@@ -60,8 +60,8 @@ TEST(FreeFreeIntegrator, spectralEmissivityExplicit) {
 
 TEST(FreeFreeIntegrator, integrateSkymap) {
 
-	auto gdensity = std::make_shared<TestGasDensity>(
-		TestGasDensity());
+	auto gdensity = std::make_shared<TestChargedGasDensity>(
+		TestChargedGasDensity());
 	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(
 		FreeFreeIntegrator(gdensity));
 
@@ -85,8 +85,8 @@ TEST(FreeFreeIntegrator, integrateSkymap) {
 }
 
 TEST(FreeFreeIntegrator, absorptionCoefficient) {
-	auto gdensity = std::make_shared<TestGasDensity>(
-		TestGasDensity());
+	auto gdensity = std::make_shared<TestChargedGasDensity>(
+		TestChargedGasDensity());
 	auto integrator = std::make_shared<FreeFreeIntegrator>(
 		FreeFreeIntegrator(gdensity));
 

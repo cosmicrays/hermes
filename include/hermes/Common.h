@@ -12,6 +12,11 @@
 namespace hermes {
 
 /**
+	Returns the full path to a data file
+*/
+std::string getDataPath(std::string filename);
+
+/**
 	Gives a distance from the galactic centre (GC) by providing the distance 
 	from the Sun and the direction (theta,phi)
 */

@@ -6,7 +6,7 @@
 namespace hermes {
 
 FreeFreeIntegrator::FreeFreeIntegrator(
-	const std::shared_ptr<GasDensity> gdensity_) : 
+	const std::shared_ptr<ChargedGasDensity> gdensity_) : 
 	gdensity(gdensity_) {	
 }
 

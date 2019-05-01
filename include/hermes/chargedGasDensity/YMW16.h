@@ -1,7 +1,7 @@
 #ifndef HERMES_YMW16_H
 #define HERMES_YMW16_H
 
-#include "hermes/gasDensity/GasDensity.h"
+#include "hermes/chargedGasDensity/ChargedGasDensity.h"
 
 extern "C" {
 	#include "cn.h"
@@ -9,7 +9,7 @@ extern "C" {
 
 namespace hermes {
 
-class YMW16: public GasDensity {
+class YMW16: public ChargedGasDensity {
 private:
 	QPDensity fne1, fne2;
 	QLength	  H1, A1, H2, A2, R2;

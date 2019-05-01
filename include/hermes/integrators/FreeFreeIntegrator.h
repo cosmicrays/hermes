@@ -4,7 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/integrators/Integrator.h"
 #include "hermes/magneticField/MagneticField.h"
-#include "hermes/gasDensity/GasDensity.h"
+#include "hermes/chargedGasDensity/ChargedGasDensity.h"
 
 #include <memory>
 #include <array>
@@ -13,11 +13,11 @@ namespace hermes {
 
 class FreeFreeIntegrator: public IntegratorTemplate<QTemperature> {
 private:
-	std::shared_ptr<GasDensity> gdensity;
+	std::shared_ptr<ChargedGasDensity> gdensity;
 
 public:
 	FreeFreeIntegrator(
-		const std::shared_ptr<GasDensity> gdensity);
+		const std::shared_ptr<ChargedGasDensity> gdensity);
 	~FreeFreeIntegrator();
 
 	QTemperature integrateOverLOS(QDirection iterdir) const;

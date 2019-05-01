@@ -1,4 +1,4 @@
-#include "hermes/gasDensity/HII_Cordes91.h"
+#include "hermes/chargedGasDensity/HII_Cordes91.h"
 
 
 namespace hermes {

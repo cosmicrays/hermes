@@ -1,6 +1,54 @@
 #include "hermes/Common.h"
 
+#include "kiss/path.h"
+#include "kiss/logger.h"
+
+#include <cstdlib>
+
 namespace hermes {
+
+std::string getDataPath(std::string filename) {
+        // adopted from CRPropa3
+        static std::string dataPath;
+        if (dataPath.size())
+                return concat_path(dataPath, filename);
+
+        const char *env_path = getenv("HERME_DATA_PATH");
+        if (env_path) {
+                if (is_directory(env_path)) {
+                        dataPath = env_path;
+                        KISS_LOG_INFO << "getDataPath: use environment variable, "
+                                        << dataPath << std::endl;
+                        return concat_path(dataPath, filename);
+                }
+        }
+
+#ifdef HERMES_INSTALL_PREFIX
+        {
+                std::string _path = HERMES_INSTALL_PREFIX "/share/crpropa";
+                if (is_directory(_path)) {
+                        dataPath = _path;
+                        KISS_LOG_INFO
+                        << "getDataPath: use install prefix, " << dataPath << std::endl;
+                        return concat_path(dataPath, filename);
+                }
+        }
+#endif
+
+        {
+                std::string _path = executable_path() + "../data";
+                if (is_directory(_path)) {
+                        dataPath = _path;
+                        KISS_LOG_INFO << "getDataPath: use executable path, " << dataPath
+                                        << std::endl;
+                        return concat_path(dataPath, filename);
+                }
+        }
+
+        dataPath = "data";
+        KISS_LOG_INFO << "getDataPath: use default, " << dataPath << std::endl;
+        return concat_path(dataPath, filename);
+}
 
 bool isWithinAngle(QDirection a, QDirection b, QAngle d) {
 	Vector3d v1, v2;

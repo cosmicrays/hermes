@@ -108,7 +108,7 @@ void exampleSynchroAbsorption() {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
-	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_2D.fits", Electron, DragonFileType::_2D)); 
+	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(getDataPath("RingModelDensity/run_2D.fits"), Electron, DragonFileType::_2D)); 
 	
 	// gas models
 	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
@@ -143,7 +143,7 @@ void exampleGeneric() {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
-	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_2D.fits", Electron, DragonFileType::_2D)); 
+	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(getDataPath("RingModelDensity/run_2D.fits"), Electron, DragonFileType::_2D)); 
 	
 	// gas models
 	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
@@ -188,8 +188,10 @@ void playground() {
 	//exampleGeneric();
 	//exampleRM();
 	//exampleSynchro();
-	exampleSynchroAbsorption();
+	//exampleSynchroAbsorption();
 	//exampleFreeFree();
+
+	RingModelDensity rmd;
 }
 
 } // namespace hermes

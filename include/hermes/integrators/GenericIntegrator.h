@@ -14,7 +14,7 @@ class GenericIntegrator: public IntegratorTemplate<QNumber> {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<CosmicRayDensity> crdensity;
-	std::shared_ptr<GasDensity> gdensity;
+	std::shared_ptr<ChargedGasDensity> gdensity;
 	std::shared_ptr<SynchroIntegrator> intSynchro;
 	std::shared_ptr<FreeFreeIntegrator> intFreeFree;
 
@@ -22,7 +22,7 @@ public:
 	GenericIntegrator(
 		const std::shared_ptr<MagneticField> mfield,
 		const std::shared_ptr<CosmicRayDensity> crdensity,
-		const std::shared_ptr<GasDensity> gdensity);
+		const std::shared_ptr<ChargedGasDensity> gdensity);
 	~GenericIntegrator();
 	QNumber integrateOverLOS(QDirection iterdir) const;
 	QNumber integrateOverLOS(QDirection iterdir, QFrequency freq) const;

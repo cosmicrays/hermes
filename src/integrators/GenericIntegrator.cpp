@@ -8,7 +8,7 @@ namespace hermes {
 GenericIntegrator::GenericIntegrator(
 	const std::shared_ptr<MagneticField> mfield_,
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
-	const std::shared_ptr<GasDensity> gdensity_) : 
+	const std::shared_ptr<ChargedGasDensity> gdensity_) : 
 	mfield(mfield_), crdensity(crdensity_), gdensity(gdensity_) {
 
 	intSynchro = std::make_shared<SynchroIntegrator>(

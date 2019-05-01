@@ -115,6 +115,11 @@ if(ENABLE_SYS_CFITSIO)
 	endif(CFITSIO_FOUND)
 endif(ENABLE_SYS_CFITSIO)
 
+# kiss (provided)
+add_subdirectory(libs/kiss)
+list(APPEND HERMES_EXTRA_LIBRARIES kiss)
+list(APPEND HERMES_EXTRA_INCLUDES libs/kiss/include)
+
 # ymw16 library
 # YMW16 is a model for the distribution of free electrons"
 add_subdirectory(libs/ymw16)
@@ -148,8 +153,9 @@ add_library(hermes SHARED
 	src/magneticField/Sun08Field.cpp
 	src/magneticField/PT11Field.cpp
 	src/magneticField/JF12Field.cpp
-	src/gasDensity/HII_Cordes91.cpp
-	src/gasDensity/YMW16.cpp
+	src/chargedGasDensity/HII_Cordes91.cpp
+	src/chargedGasDensity/YMW16.cpp
+	src/neutralGasDensity/RingModelDensity.cpp
 	src/cosmicRayDensity/SimpleCRDensity.cpp
 	src/cosmicRayDensity/WMAP07CRDensity.cpp
 	src/cosmicRayDensity/Sun08CRDensity.cpp

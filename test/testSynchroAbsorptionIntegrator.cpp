@@ -5,9 +5,9 @@
 
 namespace hermes {
 
-class TestGasDensity: public GasDensity {
+class TestChargedGasDensity: public ChargedGasDensity {
 public:
-        TestGasDensity() : GasDensity(1e4_K) { }
+        TestChargedGasDensity() : ChargedGasDensity(1e4_K) { }
         QPDensity getDensity(const Vector3QLength &pos) const {
 		return 1.0 / 1_cm3; 
 	}
@@ -39,7 +39,7 @@ public:
 TEST(SynchroAbsorptionIntegrator, integrateOverLOS) {
 	auto B = Vector3QMField(0, 0, 1_muG);
         auto mfield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
-	auto gdensity = std::make_shared<TestGasDensity>(TestGasDensity());
+	auto gdensity = std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
 	auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity());
 	
 	auto intSynchro = std::make_shared<SynchroIntegrator>(

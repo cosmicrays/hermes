@@ -33,9 +33,11 @@
 #include "hermes/magneticField/PT11Field.h"
 #include "hermes/magneticField/JF12Field.h"
 
-#include "hermes/gasDensity/GasDensity.h"
-#include "hermes/gasDensity/HII_Cordes91.h"
-#include "hermes/gasDensity/YMW16.h"
+#include "hermes/chargedGasDensity/ChargedGasDensity.h"
+#include "hermes/chargedGasDensity/HII_Cordes91.h"
+#include "hermes/chargedGasDensity/YMW16.h"
+
+#include "hermes/neutralGasDensity/RingModelDensity.h"
 
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
 #include "hermes/cosmicRayDensity/SimpleCRDensity.h"
