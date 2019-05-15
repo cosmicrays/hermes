@@ -23,43 +23,46 @@ void RingModelDensity::readDataFiles() {
 			FITSFile(getDataPath("RingModelDensity/NHrings_Ts300K.fits"))); 
 	ffile->openFile(FITS::READ);
 
-	int nr = ffile->readKeyValueAsInt("NAXIS1");
-	int nz = ffile->readKeyValueAsInt("NAXIS2");
-	int nRings = ffile->readKeyValueAsInt("NAXIS3");
-	double rmin = ffile->readKeyValueAsDouble("CRVAL1");
-	double dr = ffile->readKeyValueAsDouble("CDELT1");
-	double zmin = ffile->readKeyValueAsDouble("CRVAL2");
-	double dz = ffile->readKeyValueAsDouble("CDELT2");
+	n_lon = ffile->readKeyValueAsInt("NAXIS1");
+	n_lat = ffile->readKeyValueAsInt("NAXIS2");
+	n_rings = ffile->readKeyValueAsInt("NAXIS3");
+	
+	min_lon = ffile->readKeyValueAsDouble("CRVAL1");
+	delta_lon = ffile->readKeyValueAsDouble("CDELT1");
+	min_lat = ffile->readKeyValueAsDouble("CRVAL2");
+	delta_lat = ffile->readKeyValueAsDouble("CDELT2");
+	
+	//std::string comment = ffile->readKeyValueAsString("COMMENT");
 
-	std::cerr << "Number of rings:" << nRings << std::endl;
+	std::cerr << "Number of rings:" << n_rings << std::endl;
+	//std::cerr << "Comment: " << comment << std::endl;
+
+	int firstElement = 1;
+	int nElements = n_lon*n_lat*n_rings;
+	dataVector = ffile->readImageAsFloat(firstElement, nElements);
+}
+
+QPDensity RingModelDensity::getDensityInRing(int ring, const QDirection& dir) const {
+	QAngle lat = dir[0];
+    	QAngle lon = dir[1] + 180_deg; // becaue the galactic centre of
+				       // the ring model is the middle of the image
+
+	int pxl_lat = static_cast<int>(
+			std::round(
+				static_cast<double>((lat / 180_deg) * n_lat))
+			);
+	int pxl_lon = static_cast<int>(
+			std::round(
+				static_cast<double>((lon / 360_deg) * n_lon))
+			);
+
+	// NAXIS1 x NAXIS2 x NAXIS3 => lon x lat x ring
+	return dataVector[
+		(ring * n_lat + pxl_lat) * n_lon + pxl_lon
+	];
 }
 
 /*
-void DragonCRDensity::readFile() {
-	ffile = std::make_unique<FITSFile>(FITSFile(filename)); 
-  
-	ffile->moveToHDU(1);
-	
-	// read header
-	readEnergyAxis();
-	
-	if (fileType == DragonFileType::_2D)
-		readSpatialGrid2D();
-	else
-		readSpatialGrid3D();
-	
-	// read density grid
-	if (fileType == DragonFileType::_2D)
-		readDensity2D();
-	else
-		readDensity3D();
-}
-
-QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
-		const QEnergy &E_, const Vector3QLength& pos_) const {
-    	return (grid[energyIndex.at(E_)])->interpolate(pos_);
-}
-
 QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
 		int iE_, const Vector3QLength& pos_) const {
     	return (grid[iE_])->interpolate(pos_);

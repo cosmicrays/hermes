@@ -13,12 +13,16 @@ class RingModelDensity {
 private:
         std::unique_ptr<FITSFile> ffile;
 	QTemperature gasTemp;
-        
+	
+	int n_lon, n_lat, n_rings;
+	double min_lon, min_lat, delta_lon, delta_lat;
+	std::vector<float> dataVector;
+
 	void readDataFiles();
 public:
 	RingModelDensity();
-	~RingModelDensity() { }
-	//virtual QPDensity getDensity(const Vector3QLength& pos) const = 0;
+	//~RingModelDensity() { }
+	QPDensity getDensityInRing(int ring, const QDirection& dir) const;
 
 	inline void setTemperature(QTemperature T) {
 		gasTemp = T;

@@ -1,4 +1,4 @@
-#include "hermes/example.h"
+#include "hermes.h"
 
 #include <iostream>
 #include <memory>
@@ -94,6 +94,26 @@ void exampleSynchro() {
 	skymaps->save(output);
 }
 
+void exampleFreeFree() {
+	// gas models
+	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
+	auto gasYMW16 = std::make_shared<YMW16>(YMW16());
+	
+	// integrator
+	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gasYMW16));
+
+	// skymap
+	int nside = 16;	
+	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 10_MHz, 10_GHz, 10));
+	skymaps->setIntegrator(intFreeFree);
+	skymaps->compute();
+
+	// save
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-freefree.fits.gz"));
+	skymaps->save(output);
+}
+
+
 void exampleSynchroAbsorption() {
 
 	// magnetic field models
@@ -148,13 +168,14 @@ void exampleGeneric() {
 	// gas models
 	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
 	auto gasYMW16 = std::make_shared<YMW16>(YMW16());
+	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity());
 	
 	// integrator
 	auto intGeneric = std::make_shared<GenericIntegrator>(
-		GenericIntegrator(JF12, simpleModel, gasYMW16));
+		GenericIntegrator(JF12, simpleModel, gasYMW16, ringModel));
 
 	// skymap
-	int nside = 16;
+	int nside = 64;
 	auto skymap = std::make_shared<GenericSkymap>(GenericSkymap(nside, 10_MHz));
 	skymap->setIntegrator(intGeneric);
 
@@ -164,34 +185,14 @@ void exampleGeneric() {
 	skymap->save(output);
 }
 
-void exampleFreeFree() {
-	// gas models
-	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
-	auto gasYMW16 = std::make_shared<YMW16>(YMW16());
-	
-	// integrator
-	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gasYMW16));
-
-	// skymap
-	int nside = 16;	
-	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 10_MHz, 10_GHz, 10));
-	skymaps->setIntegrator(intFreeFree);
-	skymaps->compute();
-
-	// save
-	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-freefree.fits.gz"));
-	skymaps->save(output);
-}
-
 void playground() {
 
-	//exampleGeneric();
+	exampleGeneric();
 	//exampleRM();
 	//exampleSynchro();
 	//exampleSynchroAbsorption();
 	//exampleFreeFree();
 
-	RingModelDensity rmd;
 }
 
 } // namespace hermes

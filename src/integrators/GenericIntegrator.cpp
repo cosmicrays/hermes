@@ -8,13 +8,15 @@ namespace hermes {
 GenericIntegrator::GenericIntegrator(
 	const std::shared_ptr<MagneticField> mfield_,
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
-	const std::shared_ptr<ChargedGasDensity> gdensity_) : 
-	mfield(mfield_), crdensity(crdensity_), gdensity(gdensity_) {
+	const std::shared_ptr<ChargedGasDensity> cgdensity_, 
+	const std::shared_ptr<RingModelDensity> ngdensity_) : 
+	mfield(mfield_), crdensity(crdensity_), cgdensity(cgdensity_),
+        ngdensity(ngdensity_) {
 
 	intSynchro = std::make_shared<SynchroIntegrator>(
 		SynchroIntegrator(mfield, crdensity));
 	intFreeFree = std::make_shared<FreeFreeIntegrator>(
-		FreeFreeIntegrator(gdensity));
+		FreeFreeIntegrator(cgdensity));
 }
 
 GenericIntegrator::~GenericIntegrator() { }
@@ -32,6 +34,13 @@ QNumber GenericIntegrator::integrateOverLOS(
 	QIntensity total_intensity(0);
 	QLength delta_d = 1.0_pc;
 
+	double tot = 0;
+	//for (int i = 6; i < 7; ++i)
+		tot += static_cast<double>(ngdensity->getDensityInRing(5, direction_));
+
+	return tot;
+	/*
+
 	QInverseLength opticalDepth(0);
 	std::vector<QInverseLength> opticalDepthLOS;
 
@@ -43,7 +52,7 @@ QNumber GenericIntegrator::integrateOverLOS(
 		opticalDepth += intFreeFree->absorptionCoefficient(pos, freq_);
 		opticalDepthLOS.push_back(opticalDepth);
 	}
-	return QNumber(opticalDepth.getValue()/opticalDepthLOS.size()); //opticalDepthLOS[opticalDepthLOS.size()-1];
+	return QNumber(opticalDepth.getValue()/opticalDepthLOS.size()); //opticalDepthLOS[opticalDepthLOS.size()-1]; */
 	//if (opticalDepthLOS[opticalDepthLOS.size()-1] > QNumber(1))
 	//	std::cerr << opticalDepthLOS[opticalDepthLOS.size()-1] << std::endl;
 

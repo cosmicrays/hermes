@@ -50,6 +50,32 @@ if(APPLE)
 	add_definitions(-arch x86_64)
 endif(APPLE)
 
+# ---------------------------------------------------------------------------
+# Download data files
+# ----------------------------------------------------------------------------
+OPTION(DOWNLOAD_DATA "Download HERMES data files" ON)
+if(DOWNLOAD_DATA)
+	message("-- Downloading data file from heat.gssi.it/hermes ~ 80 MB")
+	file(DOWNLOAD
+		https://heat.gssi.it/hermes/data/hermes-data.tar.gz-CHECKSUM
+		${CMAKE_BINARY_DIR}/hermes-data.tar.gz-CHECKSUM)
+	file(STRINGS ${CMAKE_BINARY_DIR}/hermes-data.tar.gz-CHECKSUM DATA_CHECKSUM LIMIT_COUNT 1 LENGTH_MINIMUM 32 LENGTH_MAXIMUM 32)
+	file(DOWNLOAD
+		https://heat.gssi.it/hermes/data/hermes-data.tar.gz
+		${CMAKE_BINARY_DIR}/hermes-data.tar.gz
+		EXPECTED_MD5 "${DATA_CHECKSUM}")
+	message("-- Extracting data file")
+else()
+	message("-- Downloading of data file disabled")
+endif(DOWNLOAD_DATA)
+if(EXISTS ${CMAKE_BINARY_DIR}/hermes-data.tar.gz)
+	execute_process(COMMAND ${CMAKE_COMMAND} -E tar xzf ${CMAKE_BINARY_DIR}/hermes-data.tar.gz WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+else()
+	message(WARNING "HERMES data file not found at ${CMAKE_BINARY_DIR}/hermes-data.tar.gz
+	HERMES should compile, but not all components will work without them! Please install data file manually, or use the automatic download which is enabled by default.")
+endif()
+
+
 # ----------------------------------------------------------------------------
 # Dependencies
 # ----------------------------------------------------------------------------
@@ -264,3 +290,14 @@ endif(ENABLE_TESTING)
 # ----------------------------------------------------------------------------
 add_executable(example src/example.cpp)
 target_link_libraries(example ${PROJECT_NAME} ${HERMES_EXTRA_LIBRARIES})
+
+# ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+add_definitions(-DHERMES_INSTALL_PREFIX="${CMAKE_INSTALL_PREFIX}")
+install(TARGETS hermes DESTINATION lib)
+install(DIRECTORY include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY ${CMAKE_BINARY_DIR}/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY ${CMAKE_BINARY_DIR}/data/ DESTINATION share/hermes/ PATTERN ".git" EXCLUDE)
+install(DIRECTORY libs/ymw16/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
+
