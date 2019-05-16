@@ -1,0 +1,55 @@
+2008-05-16 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Python Bugfixes in ParamModel.py
+
+	* Documentation updated to reflect updates
+
+2008-01-17 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Documentation extended with tutorial, though pT example is
+	  still missing.
+
+	* Examples divided into separate executables.
+	
+2007-12-30 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Option --enable-userdoc added so that documentation is not
+	  always built.
+	
+2007-12-20 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Implementation Changed PARAMSET_PT to contain three double arrays
+	  instead of mix of doubles and double arrays.
+	
+2007-12-14 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Documentation A first version of doxygen generated documentation is
+	  implemented.
+	
+2007-12-07 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Now only checks for SWIG if --enable-python is used and only builds
+	  in directory python in that case.
+
+2007-09-10 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Option --enable-pythonbuild [default = no] changed back to
+	  --enable-python [default = no].
+	
+2007-06-04 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Interface Major interface changes:
+	  1. All parameter calculating functions now takes a pointer
+	     to a struct containing necessary parameters.
+	  2. Added sigma_pt_<component> for calculation of pT dists.
+	
+	* Option --enable-python [default = no] changed to
+	  --enable-pythonbuild [default = no]
+	
+2006-11-27 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Option --enable-python [default = no] added.
+
+2006-11-24 Niklas Karlsson <niklas@slac.stanford.edu>
+
+	* Now uses autoconf/automake/libtool.

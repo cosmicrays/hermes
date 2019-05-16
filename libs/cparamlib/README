@@ -1,0 +1,233 @@
+Description
+-----------
+
+cparamlib is a simple library for calculation of fluxes for stable secondary particles
+created in proton-proton interactions in astronomical environment according to the model
+described in 
+  Tuneyoshi Kamae, Niklas Karlsson, Tsunefumi Mizuno, Toshinori Abe, and Tatsumi Koi; 
+  "Parameterization of $\gamma$, $e^{\pm}$ and Neutrino Spectra Produced by $p-p$ Interaction in Astronomical Environment"
+to appear in Astrophysical Journal (2006) and
+  Niklas Karlsson and Tuneyoshi Kamae;
+  "Parameterization of the Angular Distribution of Gamma Rays Produced by P-P Interaction in Astronomical Environment"
+to by submitted to Astrophysical Journal (2007).
+
+IMPORTANT! The maintainer cannot be held responsible for anything that is caused by using
+this library or its extension.
+
+Requirements
+------------
+
+To build this library and the python wrapper one needs a working compiler, such as gcc, and must
+have SWIG installed. SWIG is used to build the python wrapper code.
+
+Build
+-----
+
+The library is now built using the autoconf/automake method:
+
+./configure
+make
+make install
+
+The user will most probably want to do
+./configure --prefix=/your/path
+to put the library in a non-standard path.
+
+By default, the Python interface is not built. To build it, one would use
+./configure --enable-python
+This will compile the code and when issuing "make install", the Python package will be put
+in ${prefix}/lib/pythonN.N/site-packages.
+
+On 64-bit systems the library directory might be ${prefix}/lib64 rather than ${prefix}/lib. To make
+sure the library is installed in the correct directory, pass the --libdir=${prefix}/lib64 option to
+./configure. For example
+./configure --prefix=/your/path --libdir=/your/path/lib64 --enable-pythonbuild
+
+Using the library
+-----------------
+
+There is one example program, params.c, that uses the library to calculate inclusive cross sections
+for non-diffractive, diffractive, Delta1232 and Reson1600 processes and for all secondary particles.
+
+Generally, the library is linked to your program using something like
+
+gcc yourprogram.c -L/usr/lib -lm -lcparamlib -o yourprogram.bin
+
+or if you like to use pkg-config
+
+gcc yourprogram.c `pkgconfig --libs --cflags cparamlib` -o yourprogram.bin
+
+In the directory examples/ you will find two example programs that builds with the library and an
+example Makefile. In these examples, pkg-config is used to determine the location of libraries and
+include files. If the library was installed in a non-standard path, e.g. /opt, then you must set
+PKG_CONFIG_PATH to reflect this, e.g. PKG_CONFIG_PATH=/opt/lib/pkgconfig. 
+
+Also, do not forget to set LD_LIBRARY_PATH if you install the library somewhere else than /usr/lib
+and intend to use the dynamic libraries.
+
+We have chosen not to build these example binaries with autoconf for two reasons:
+
+  1) This way a normal user can use the Makefile as a template
+  2) This does not clutter /usr/bin with unwanted binaries
+
+In Python you import the cparamlib package, like this
+
+import cparamlib
+
+Subroutines
+-----------
+
+The subroutines in the libraryare used to calculate parameters and inclusive cross sections
+according to tables 3 through 9.
+
+Parameter calculation:
+
+Step one is to calculate the parameter arrays a,b,c and d given in tables 3
+through 9. Do this by calling the four functions for each of the secondary
+particle species. Suffices for the functions are:
+  nd		 contribution from non-diffractive process 
+  diff	 contribution from diffractive process 
+	nr		 sum of non-diffractive and diffraction 
+  delta	 contribution from Delta(1232) excitation process 
+  res		 contribution from res(1600) excitation process
+				 (note that res(1600) represents a collaction of resonances) 
+
+Arguments:
+  Tp			proton kinetic energy in GeV
+  params  pointer to a struct PARAMSET or a struct PARAMSET_PT where parameter 
+					arrays are stored
+
+Gamma rays (table 3, Kamae et al. 2006 and table 1, Karlsson and Kamae 2007):
+  void gamma_param_nd(double Tp, PARAMSET* params);
+  void gamma_param_diff(double Tp, PARAMSET* params);
+  void gamma_param_delta(double Tp, PARAMSET* params);
+  void gamma_param_res(double Tp, PARAMSET* params);
+
+  void gamma_param_nr(double Tp, PARAMSET_PT* params);
+  void gamma_param_delta(double Tp, PARAMSET_PT* params);
+  void gamma_param_res(double Tp, PARAMSET_PT* params);
+
+Electrons (table 4, Kamae et al. 2006):
+  void elec_param_nd(double Tp, PARAMSET* params);
+  void elec_param_diff(double Tp, PARAMSET* params);
+  void elec_param_delta(double Tp, PARAMSET* params);
+  void elec_param_res(double Tp, PARAMSET* params);
+
+Positrons (table 5, Kamae et al. 2006):
+  void posi_param_nd(double Tp, PARAMSET* params);
+  void posi_param_diff(double Tp, PARAMSET* params);
+  void posi_param_delta(double Tp, PARAMSET* params);
+  void posi_param_res(double Tp, PARAMSET* params);
+
+Electron neutrinos (table 6, Kamae et al. 2006):
+	void nue_param_nd(double Tp, PARAMSET* params);
+  void nue_param_diff(double Tp, PARAMSET* params);
+  void nue_param_delta(double Tp, PARAMSET* params);
+  void nue_param_res(double Tp, PARAMSET* params);
+
+Electron anti-neutrinos (table 7, Kamae et al. 2006):
+  void antinue_param_nd(double Tp, PARAMSET* params);
+  void antinue_param_diff(double Tp, PARAMSET* params);
+  void antinue_param_delta(double Tp, PARAMSET* params);
+  void antinue_param_res(double Tp, PARAMSET* params);
+
+Muon neutrinos (table 8, Kamae et al. 2006):
+  void numu_param_nd(double Tp, PARAMSET* params);
+  void numu_param_diff(double Tp, PARAMSET* params);
+  void numu_param_delta(double Tp, PARAMSET* params);
+  void numu_param_res(double Tp, PARAMSET* params);
+
+Muon neutrinos (table 8, Kamae et al. 2006):
+  void antinumu_param_nd(double Tp, PARAMSET* params);
+  void antinumu_param_diff(double Tp, PARAMSET* params);
+  void antinumu_param_delta(double Tp, PARAMSET* params);
+  void antinumu_param_res(double Tp, PARAMSET* params);
+
+Secondary particle id's:
+
+The library uses the following id's for secondary particle species
+ID_GAMMA				0
+ID_ELECTRON			1
+ID_POSITRON			2
+ID_NUE					3
+ID_NUMU					4
+ID_ANTINUE			5
+ID_ANTINUMU			6
+which are all defined in the header file.
+
+Inclusive cross sections:
+
+Inclusive cross sections in mb are calculated separately for the four contributions
+(non-diff, diff, delta and res). Note that that delta does not contribute to electrons
+or electrons anti-neutrinos in the present modeling.
+
+Arguments:
+  particle  id of the secondary particle to calculate for
+						(see list above)
+  E					energy of the secondary particle in GeV
+  Tp				proton kinetic energy in GeV
+  params		pointer to a struct PARAMSET where parameter arrays are stored
+
+Individual contributions are calculated with:
+  double sigma_incl_nd(int particle, double E, double Tp, PARAMSET* params);
+  double sigma_incl_diff(int particle, double E, double Tp, PARAMSET* params);
+  double sigma_incl_delta(int particle, double E, double Tp, PARAMSET* params);
+  double sigma_incl_res(int particle, double E, double Tp, PARAMSET* params);
+
+Total inclusive cross sections is calculated with:
+  double sigma_incl_tot(int particle, double E, double Tp);
+
+pT Distributions:
+
+pT distributions, i.e. differential cross section dsigma^2/dlogEdpT, are calculated for
+gamma rays only.
+
+Arguments:
+  particle  id of the secondary particle to calculate for
+						(see list above)
+	pT				transverse momentum of particle in GeV/c
+  E					energy of the secondary particle in GeV
+  Tp				proton kinetic energy in GeV
+  params		pointer to a struct PARAMSET_PT where parameters are stored
+
+Individual contributions are calculated with:
+  double sigma_pt_nr(int particle, double pT, double E, double Tp, PARAMSET_PT* params);
+  double sigma_pt_delta(int particle, double pT, double E, double Tp, PARAMSET_PT* params);
+  double sigma_pt_res(int particle, double pT, double E, double Tp, PARAMSET_PT* params);
+
+Total inclusive cross sections is calculated with:
+  double sigma_pt_tot(int particle, double pT, double E, double Tp);
+
+Inelastic p-p cross sections:
+
+Functions for calculating sigma_pp according to equations 1-4. Pp is the proton momentum
+in GeV/c.
+  double sigma_pp_nd(double Pp);
+  double sigma_pp_diff(double Pp);
+  double sigma_pp_delta(double Pp);
+  double sigma_pp_res(double Pp);
+
+Test program
+------------
+
+A test program "test.c" shows how subroutines in the library lcparamlib can be used. 
+
+To run the program, make sure that two executables "params" and "test" are made by
+the "make all" command you have executed. In the directory where the two executables
+are, execute "params" to create the parameters,
+  > ./params 
+You will then find 28 files with extension .dat in the directory.
+
+Then execute "test" as,
+  > ./test
+  
+A data file gammaspectrum.csv contains the E*dSigma(E)/dlog(E) of the gamma-ray
+spectrum produced by continuum protons with power-law-index of 2 from the pion
+threshold to Tp=512TeV. The first column of gammaspectrum.csv is log10 of gamma-ray
+energy at log(E)=0.05 steps and the log(E*dSigma/dlogE) is log10 of E*dSigma(E)/dlog(E)
+for each bin. Here E is in GeV and Sigma is the inclusive pp-gamma production
+cross section in mb.  
+
+You can change the program "test.c" to calculate secondary particle spectra produce
+by any incident proton spectrum. You are reminded to "make clean" and "make all"
+to create a new executable.

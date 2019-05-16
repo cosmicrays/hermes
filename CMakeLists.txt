@@ -146,11 +146,17 @@ add_subdirectory(libs/kiss)
 list(APPEND HERMES_EXTRA_LIBRARIES kiss)
 list(APPEND HERMES_EXTRA_INCLUDES libs/kiss/include)
 
-# ymw16 library
-# YMW16 is a model for the distribution of free electrons"
+# ymw16 (provided)
+# YMW16 is a model for the distribution of free electrons
 add_subdirectory(libs/ymw16)
 list(APPEND HERMES_EXTRA_INCLUDES libs/ymw16)
 list(APPEND HERMES_EXTRA_LIBRARIES ymw16)
+
+# cparamlib (provided)
+# p-p cross-sections
+add_subdirectory(libs/cparamlib)
+list(APPEND HERMES_EXTRA_INCLUDES libs/cparamlib)
+list(APPEND HERMES_EXTRA_LIBRARIES cparamlib)
 
 # ----------------------------------------------------------------------------
 # Library and Binary
@@ -186,6 +192,7 @@ add_library(hermes SHARED
 	src/cosmicRayDensity/WMAP07CRDensity.cpp
 	src/cosmicRayDensity/Sun08CRDensity.cpp
 	src/cosmicRayDensity/DragonCRDensity.cpp
+	src/interactions/Kamae06.cpp
 	src/outputs/FITSOutput.cpp
 	${HERMES_EXTRA_SOURCES}
 )
@@ -282,6 +289,11 @@ if(ENABLE_TESTING)
 	add_executable(testSynchroAbsorptionIntegrator test/testSynchroAbsorptionIntegrator.cpp)
 	target_link_libraries(testSynchroAbsorptionIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testSynchroAbsorptionIntegrator testSynchroAbsorptionIntegrator)
+	
+	add_executable(testInteractions test/testInteractions.cpp)
+	target_link_libraries(testInteractions hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testInteractions testInteractions)
+
 
 endif(ENABLE_TESTING)
 

@@ -30,9 +30,11 @@ QUANTITY_TYPE(-5, 2,-1, 0, 0, 0, 0, 0, QPDensityPerEnergy);
 QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, QEmissivity);
 QUANTITY_TYPE( 0,-2, 1, 0, 0, 0, 0, 0, QIntensity);
 QUANTITY_TYPE(-1, 0, 0, 0, 0, 0, 0, 0, QInverseLength);
+QUANTITY_TYPE( 0, 2,-1, 0, 0, 0, 0, 0, QDiffCrossSection);
 
 // Predefined derived units:
 // doc: https://en.wikipedia.org/wiki/SI_derived_unit
+constexpr QArea		square_metre(1.0);
 constexpr QForce	newton(1.0);
 constexpr QPressure	pascal(1.0);
 constexpr QEnergy	joule(1.0);
@@ -68,11 +70,11 @@ constexpr auto mu0 		= (4*pi) * 1e-7 * newton / (ampere * ampere);
 constexpr auto epsilon0 	= 1.0 / mu0 / c_squared;
 
 // Predefined time-derived units:
-constexpr auto minute = 60. * second;
-constexpr auto hour = 60. * minute;
-constexpr auto day = 24. * hour;
-constexpr auto week = 7. * day;
-constexpr auto year = 365.25 * day;
+constexpr QTime minute = 60. * second;
+constexpr QTime hour = 60. * minute;
+constexpr QTime day = 24. * hour;
+constexpr QTime week = 7. * day;
+constexpr QTime year = 365.25 * day;
 
 // Predefined mass units:
 constexpr QMass gramme = 0.001 * kilogram;
@@ -88,16 +90,18 @@ constexpr QLength yard = 3 * foot;
 constexpr QLength mile = 5280 * foot;
 
 // Astronomical distances
-constexpr auto astronomical_unit = 149597870700.0 * metre;
-constexpr auto lightyear = year * c_light;
-constexpr auto parsec = 648000.0 / (1*pi) * astronomical_unit;
+constexpr QLength astronomical_unit = 149597870700.0 * metre;
+constexpr QLength lightyear = year * c_light;
+constexpr QLength parsec = 648000.0 / (1*pi) * astronomical_unit;
+
+// Predefined area units:
+constexpr QArea hectare = 1e4 * square_metre;
+constexpr QArea barn = 1e-28 * square_metre;
 
 // Predefined mixed units:
 constexpr QAcceleration G = 9.80665 *  metre / (second*second);
-
 constexpr QForce poundforce = pound*G;
 constexpr QForce kilopond = kilogram*G;
-
 constexpr auto gauss = 1e-4 * tesla;
 constexpr auto electronvolt = e_plus * volt;
 constexpr QPressure bar = 100000 * pascal;

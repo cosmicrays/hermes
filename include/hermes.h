@@ -45,6 +45,9 @@
 #include "hermes/cosmicRayDensity/WMAP07CRDensity.h"
 #include "hermes/cosmicRayDensity/DragonCRDensity.h"
 
+#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/Kamae06.h"
+
 #include "hermes/outputs/Output.h"
 #include "hermes/outputs/FITSOutput.h"
 

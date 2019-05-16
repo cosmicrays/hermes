@@ -41,6 +41,10 @@ LITERAL(QLength, _in, foot)
 LITERAL(QLength, _pc, parsec)
 LITERAL(QLength, _kpc, kilo*parsec)
 
+// literals for area units
+LITERAL(QArea, _barn, barn)
+LITERAL(QArea, _mbarn, milli*barn)
+
 // literals for volume units
 LITERAL(QVolume, _cm3, pow<3>(centi*metre))
 LITERAL(QVolume, _m3, pow<3>(metre))
