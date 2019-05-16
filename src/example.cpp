@@ -51,39 +51,16 @@ void exampleSynchro() {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
-	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity("/home/andy/Work/notebooks/Hermes/run_2D.fits", Electron, DragonFileType::_2D)); 
+	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
+				getDataPath("DragonRuns/run_B-C_D03,7_delta0,45_vA13.fits.gz"),
+				Electron, DragonFileType::_2D)); 
 	
 	// integrator
-	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, simpleModel));
-	//auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(ufield, simpleModel));
-
-/*				
-	std::cout << "# X\tY\tZ\teta" << std::endl;
-	auto energy = std::next(dragonModel->begin());
-	//energy++;
-	QLength x = 1_kpc;
-	QLength y = 1_kpc;
-#pragma omp critical(print)
-	for (QLength x = -12_kpc; x < 12_kpc; x += 0.5_kpc)
-		for (QLength y = -12_kpc; y < 12_kpc; y += 0.5_kpc)
-			for (QLength z = -4_kpc; z < 4_kpc; z += 0.2_kpc) {
-				Vector3QLength pos(x.getValue(), y.getValue(), z.getValue());
-				auto density = dragonModel->getDensityPerEnergy(*energy, pos);
-				//auto density = simpleModel->getDensityPerEnergy(*energy, pos);
-				//auto density = (JF12->getField(pos)).getZ();
-				//auto density = (PT11->getField(pos)).getR();
-				//auto density = (testField->getField(pos)).getR();
-				//if (density.getValue() == 0) continue;
-				std::cout << x.getValue()/1_pc << "\t" <<
-					     y.getValue()/1_pc << "\t" <<
-					     z.getValue()/1_pc << "\t" <<
-					     density << std::endl;
-			}
-*/	
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, dragonModel));
 
 	// skymap
 	int nside = 16;
-	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 1_MHz, 10_GHz, 20));
+	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 20_GHz, 20));
 	//auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(nside, 408_MHz));
 	skymaps->setIntegrator(intSynchro);
 
@@ -128,7 +105,8 @@ void exampleSynchroAbsorption() {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
-	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(getDataPath("RingModelDensity/run_2D.fits"), Electron, DragonFileType::_2D)); 
+	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
+	//	getDataPath("RingModelDensity/run_2D.fits"), Electron, DragonFileType::_2D)); 
 	
 	// gas models
 	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
@@ -163,7 +141,8 @@ void exampleGeneric() {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
-	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(getDataPath("RingModelDensity/run_2D.fits"), Electron, DragonFileType::_2D)); 
+	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
+	//	getDataPath("RingModelDensity/run_2D.fits"), Electron, DragonFileType::_2D)); 
 	
 	// gas models
 	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
@@ -187,9 +166,9 @@ void exampleGeneric() {
 
 void playground() {
 
-	exampleGeneric();
+	//exampleGeneric();
 	//exampleRM();
-	//exampleSynchro();
+	exampleSynchro();
 	//exampleSynchroAbsorption();
 	//exampleFreeFree();
 

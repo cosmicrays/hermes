@@ -38,7 +38,7 @@ void RadioSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QTempera
 void RadioSkymapRange::compute() {
 	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
        		std::cout << "hermes::SkymapRante: "
-			  << it - skymaps.begin() << "/" << skymaps.size()
+			  << it - skymaps.begin() + 1 << "/" << skymaps.size()
 			  << ", freq = " << it->getFrequency() << " Hz" << std::endl;
 		it->compute();
 	}
