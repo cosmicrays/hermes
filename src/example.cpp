@@ -52,22 +52,28 @@ void exampleSynchro() {
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
-				getDataPath("DragonRuns/run_B-C_D03,7_delta0,45_vA13.fits.gz"),
+				getDataPath("DragonRuns/run_2D.fits.gz"),
 				Electron, DragonFileType::_2D)); 
 	
 	// integrator
 	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, dragonModel));
 
 	// skymap
-	int nside = 16;
-	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 20_GHz, 20));
+	int nside = 8;
+	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 100_GHz, 20));
 	//auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(nside, 408_MHz));
 	skymaps->setIntegrator(intSynchro);
 
 	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-synchro.fits.gz"));
 	
+	//auto energy = std::next(dragonModel->begin());
+	/*for(auto energy = dragonModel->begin(); energy != dragonModel->end(); ++energy) {
+		Vector3QLength pos(8.19_kpc, 0, 0.097_kpc);
+		auto density = dragonModel->getDensityPerEnergy(*energy, pos);
+		std::cout << *energy << " " << density << std::endl;
+	}*/
+	
 	skymaps->compute();
-	//skymap->printPixels();
 	skymaps->save(output);
 }
 

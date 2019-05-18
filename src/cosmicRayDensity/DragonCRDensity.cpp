@@ -14,13 +14,27 @@
 namespace hermes {
 
 DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_)
-    : CosmicRayDensity(), filename(filename_), pid(pid_), fileType(DragonFileType::_3D) {
+    : CosmicRayDensity(), filename(filename_), fileType(DragonFileType::_3D) {
+	enablePID(pid_);
 	readFile();
 }
 
 DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_, DragonFileType type_)
-    : CosmicRayDensity(), filename(filename_), pid(pid_), fileType(type_) {
+    : CosmicRayDensity(), filename(filename_), fileType(type_) {
+	enablePID(pid_);
 	readFile();
+}
+
+void DragonCRDensity::enablePID(const PID &pid_) {
+	listOfPIDs.insert(pid_.getID());
+}
+	
+void DragonCRDensity::disablePID(const PID &pid_) {
+	listOfPIDs.erase(listOfPIDs.find(pid_.getID()));
+}
+
+bool DragonCRDensity::isPIDEnabled(const PID &pid_) const {
+	return (listOfPIDs.count(pid_.getID()) > 0);
 }
 
 void DragonCRDensity::readFile() {
@@ -142,6 +156,7 @@ void DragonCRDensity::readDensity2D() {
 	
 	auto vecSize = dimr * dimz;
 	long nElements = energyRange.size() * vecSize;
+	constexpr double fluxToDensity = static_cast<double>(4_pi/(c_light*1_GeV));
 	
     	auto hduNumber = ffile->getNumberOfHDUs();
 	while (hduActual < hduNumber) {
@@ -157,8 +172,8 @@ void DragonCRDensity::readDensity2D() {
       
 		Z = ffile->readKeyValueAsInt("Z_");
 		A = ffile->readKeyValueAsInt("A");
-      
-      		if ( (Z == -1 || Z == 1) && A == 0 ) {
+     
+      		if (isPIDEnabled(PID(Z,A))) {
 	
 			std::cerr << "... reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual << std::endl;
 
@@ -182,13 +197,13 @@ void DragonCRDensity::readDensity2D() {
 						if (ir_front >= dimr) continue;
 
 						for (std::size_t iz = 0; iz < dimz; ++iz) {
-							frontValue = rawData[calcArrayIndex2D(iE, ir_back, iz)];
-							backValue = rawData[calcArrayIndex2D(iE, ir_front, iz)];
+							frontValue = fluxToDensity * rawData[calcArrayIndex2D(iE, ir_back, iz)];
+							backValue = fluxToDensity * rawData[calcArrayIndex2D(iE, ir_front, iz)];
 	
 							// two-point linear interpolation (between two "rings")
 							interpolatedValue = (frontValue - backValue) * (dist - ir_back)
 										+ backValue;
-							grid[iE]->addValue(ix, iy, iz, interpolatedValue * 4_pi);
+							grid[iE]->addValue(ix, iy, iz, interpolatedValue);
 						}
 					}
 				}
@@ -209,6 +224,7 @@ void DragonCRDensity::readDensity3D() {
 	
 	auto vecSize = dimx * dimy * dimz;
 	long nElements = energyRange.size() * vecSize;
+	constexpr double fluxToDensity = static_cast<double>(4_pi/(c_light*1_GeV));
 	
     	auto hduNumber = ffile->getNumberOfHDUs();
 	while (hduActual < hduNumber) {
@@ -225,7 +241,7 @@ void DragonCRDensity::readDensity3D() {
 		Z = ffile->readKeyValueAsInt("Z_");
 		A = ffile->readKeyValueAsInt("A");
       
-      		if ( (Z == -1 || Z == 1) && A == 0 ) {
+      		if (isPIDEnabled(PID(Z,A))) {
 	
 			std::cerr << "... reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual << std::endl;
 
@@ -244,7 +260,9 @@ void DragonCRDensity::readDensity3D() {
 				dv = std::div(dv.quot, dimz);
 				iz = dv.rem;
 
-				grid[iE]->addValue(ix, iy, iz, static_cast<QPDensityPerEnergy>(*it) * 4_pi);
+				(*it) *= fluxToDensity;
+
+				grid[iE]->addValue(ix, iy, iz, static_cast<QPDensityPerEnergy>(*it));
 			}
 		}
 		hduIndex++;

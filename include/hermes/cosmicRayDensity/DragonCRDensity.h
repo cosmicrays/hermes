@@ -8,6 +8,7 @@
 #include <cassert>
 #include <memory>
 #include <map>
+#include <set>
 
 namespace hermes {
 
@@ -20,6 +21,10 @@ public:
 	PID(int Z_, int A_) : Z(Z_), A(A_) {
 		assert(A_ >= 0);
 		id = Z * 100 + A;
+	}
+
+	int getID() const {
+		return id;
 	}
 
 	virtual ~PID() {
@@ -49,7 +54,6 @@ class DragonCRDensity: public CosmicRayDensity {
 private:
   	std::string filename;
 	std::unique_ptr<FITSFile> ffile;
-	PID pid;
 	DragonFileType fileType;
 
 	void readFile();
@@ -60,10 +64,15 @@ private:
 	void readDensity3D();
 	std::size_t calcArrayIndex2D(
 		std::size_t iE, std::size_t ir, std::size_t iz);
+
+	void enablePID(const PID &pid_);
+	void disablePID(const PID &pid_);
+	bool isPIDEnabled(const PID &pid_) const;
   
 	int dimE;
 	int dimx, dimy, dimz, dimr;
 	std::vector<std::unique_ptr<ScalarGridQPDensityPerEnergy> > grid;
+	std::set<int> listOfPIDs;
 	
 	//TODO: implement as std::unordered_map
 	std::map<QEnergy, std::size_t> energyIndex;

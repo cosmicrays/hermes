@@ -14,6 +14,9 @@
 
 %{
 #include "hermes/Units.h"
+#include "hermes/units/UnitsBasic.h"
+#include "hermes/units/UnitsDerived.h"
+#include "hermes/units/UnitsLiterals.h"
 %}
 
 %ignore operator<<;
