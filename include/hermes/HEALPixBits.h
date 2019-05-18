@@ -5,6 +5,8 @@
 
 namespace hermes {
 
+static const double UNSEEN = -1.6375e30;
+
 std::size_t log2(std::size_t x);
 
 // Adopted from HEALPix pix2ang_ring (https://healpix.sourceforge.io/)

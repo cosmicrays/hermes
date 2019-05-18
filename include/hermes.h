@@ -13,6 +13,7 @@
 #include "hermes/Common.h"
 
 #include "hermes/skymaps/Skymap.h"
+#include "hermes/skymaps/SkymapMask.h"
 #include "hermes/skymaps/SkymapTemplate.h"
 #include "hermes/skymaps/GenericSkymap.h"
 #include "hermes/skymaps/RMSkymap.h"

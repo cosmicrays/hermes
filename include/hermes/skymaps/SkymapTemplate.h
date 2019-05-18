@@ -5,6 +5,7 @@
 #include "hermes/ProgressBar.h"
 #include "hermes/integrators/Integrator.h"
 #include "hermes/skymaps/Skymap.h"
+#include "hermes/skymaps/SkymapMask.h"
 
 #if _OPENMP
 #include <omp.h>
@@ -25,10 +26,17 @@ protected:
 	
 	typedef std::vector<tPixel> tFluxContainer;
 	mutable tFluxContainer fluxContainer;
-	void initContainer();
+	mutable std::vector<bool> maskContainer;
+	std::shared_ptr<SkymapMask> mask;
 	std::shared_ptr<IntegratorTemplate<Q> > integrator;
+	
+	void initContainer();
+	void initMask();
 public:
-	SkymapTemplate(std::size_t nside = 32);
+	SkymapTemplate(
+		std::size_t nside = 32,
+		const std::shared_ptr<SkymapMask> mask_ =
+	       		std::make_shared<SkymapMask>(SkymapMask()));
 	~SkymapTemplate();
 	
 	std::size_t getSize() const;
@@ -38,7 +46,6 @@ public:
 	void setIntegrator(std::shared_ptr<IntegratorTemplate<Q> > integrator_);
 	void setOutput();
 	
-	//TODO: mask-vector
 	void printPixels();
 	virtual void computePixel(
 			std::size_t ipix,
@@ -66,8 +73,16 @@ void SkymapTemplate<Q>::initContainer() {
 }
 
 template <typename Q>
-SkymapTemplate<Q>::SkymapTemplate(std::size_t nside_) : Skymap(nside_) {
+void SkymapTemplate<Q>::initMask() {
+	maskContainer = mask->getMask(nside);
+}
+
+template <typename Q>
+SkymapTemplate<Q>::SkymapTemplate(
+		std::size_t nside_,
+		const std::shared_ptr<SkymapMask> mask_) : Skymap(nside_), mask(mask_) {
 	initContainer();
+	initMask();
 }
 
 template <typename Q>
@@ -106,8 +121,12 @@ template <typename Q>
 void SkymapTemplate<Q>::computePixel(
 		std::size_t ipix,
 		std::shared_ptr<IntegratorTemplate<Q> > integrator_) {
-	iterdir = pix2ang_ring(getNside(), ipix);
-	fluxContainer[ipix] = integrator_->integrateOverLOS(iterdir);
+	if (maskContainer[ipix] == true) {
+		iterdir = pix2ang_ring(getNside(), ipix);
+		fluxContainer[ipix] = integrator_->integrateOverLOS(iterdir);
+	} else {
+		fluxContainer[ipix] = UNSEEN;
+	}
 }
 
 template <typename Q>
@@ -123,7 +142,7 @@ void SkymapTemplate<Q>::compute() {
 
 #pragma omp parallel for schedule(OMP_SCHEDULE)
 	for (std::size_t ipix = 0; ipix < getSize(); ++ipix) {
-		computePixel(ipix, integrator);
+			computePixel(ipix, integrator);
 #pragma omp critical(progressbarUpdate)
 		progressbar.update();
 	}

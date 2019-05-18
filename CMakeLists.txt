@@ -172,6 +172,7 @@ add_library(hermes SHARED
 	src/ProgressBar.cpp
 	src/GridTools.cpp
 	src/skymaps/Skymap.cpp
+	src/skymaps/SkymapMask.cpp
 	src/skymaps/RadioSkymapRange.cpp
 	src/integrators/Integrator.cpp
 	src/integrators/GenericIntegrator.cpp

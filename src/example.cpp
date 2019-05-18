@@ -60,6 +60,8 @@ void exampleSynchro() {
 
 	// skymap
 	int nside = 8;
+        auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
+                        QAngle(45_deg), QAngle(10_deg), QAngle(40_deg), QAngle(340_deg)));
 	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 100_GHz, 20));
 	//auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(nside, 408_MHz));
 	skymaps->setIntegrator(intSynchro);

@@ -23,8 +23,7 @@ public:
 	 *	npix	= 12 * nside^2	: The total number of pixels in the map.
 	 */
 	Skymap(std::size_t nside_);
-	virtual ~Skymap() {
-	}
+	virtual ~Skymap() { };
 	
 	void setNside(std::size_t nside_);
 	std::size_t getNside() const;
