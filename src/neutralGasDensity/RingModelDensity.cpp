@@ -32,10 +32,7 @@ void RingModelDensity::readDataFiles() {
 	min_lat = ffile->readKeyValueAsDouble("CRVAL2");
 	delta_lat = ffile->readKeyValueAsDouble("CDELT2");
 	
-	//std::string comment = ffile->readKeyValueAsString("COMMENT");
-
 	std::cerr << "Number of rings:" << n_rings << std::endl;
-	//std::cerr << "Comment: " << comment << std::endl;
 
 	int firstElement = 1;
 	int nElements = n_lon*n_lat*n_rings;

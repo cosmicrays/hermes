@@ -55,7 +55,7 @@ endif(APPLE)
 # ----------------------------------------------------------------------------
 OPTION(DOWNLOAD_DATA "Download HERMES data files" ON)
 if(DOWNLOAD_DATA)
-	message("-- Downloading data file from heat.gssi.it/hermes ~ 80 MB")
+	message("-- Downloading data file from heat.gssi.it ~ 130 MB")
 	file(DOWNLOAD
 		https://heat.gssi.it/hermes/data/hermes-data.tar.gz-CHECKSUM
 		${CMAKE_BINARY_DIR}/hermes-data.tar.gz-CHECKSUM)

@@ -47,6 +47,8 @@ public:
 	void setOutput();
 	
 	void printPixels();
+	void setMask(std::shared_ptr<SkymapMask> mask_);
+	std::vector<bool> getMask();
 	virtual void computePixel(
 			std::size_t ipix,
 			std::shared_ptr<IntegratorTemplate<Q> > integrator_);
@@ -69,7 +71,7 @@ public:
 template <typename Q>
 void SkymapTemplate<Q>::initContainer() {
 	fluxContainer.reserve(npix);
-	fluxContainer.insert(fluxContainer.begin(), npix, 0.0);
+	fluxContainer.insert(fluxContainer.begin(), npix, UNSEEN);
 }
 
 template <typename Q>
@@ -121,12 +123,8 @@ template <typename Q>
 void SkymapTemplate<Q>::computePixel(
 		std::size_t ipix,
 		std::shared_ptr<IntegratorTemplate<Q> > integrator_) {
-	if (maskContainer[ipix] == true) {
 		iterdir = pix2ang_ring(getNside(), ipix);
 		fluxContainer[ipix] = integrator_->integrateOverLOS(iterdir);
-	} else {
-		fluxContainer[ipix] = UNSEEN;
-	}
 }
 
 template <typename Q>
@@ -142,6 +140,7 @@ void SkymapTemplate<Q>::compute() {
 
 #pragma omp parallel for schedule(OMP_SCHEDULE)
 	for (std::size_t ipix = 0; ipix < getSize(); ++ipix) {
+		if (maskContainer[ipix] == true)
 			computePixel(ipix, integrator);
 #pragma omp critical(progressbarUpdate)
 		progressbar.update();
@@ -160,6 +159,17 @@ void SkymapTemplate<Q>::save(std::shared_ptr<Output> output) const {
 		tempArray[i] = static_cast<float>(fluxContainer[i].getValue());
 
 	output->writeColumn(npix, tempArray);
+}
+
+template <typename Q>
+void SkymapTemplate<Q>::setMask(std::shared_ptr<SkymapMask> mask_) {
+	mask = mask_;
+	initMask();
+}
+
+template <typename Q>
+std::vector<bool> SkymapTemplate<Q>::getMask() {
+	return maskContainer;
 }
 
 template <typename Q>

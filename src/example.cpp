@@ -51,6 +51,8 @@ void exampleSynchro() {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
+	
+	std::vector<PID> ptypes = {Electron, Positron};
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
 				getDataPath("DragonRuns/run_2D.fits.gz"),
 				Electron, DragonFileType::_2D)); 
@@ -59,11 +61,12 @@ void exampleSynchro() {
 	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, dragonModel));
 
 	// skymap
-	int nside = 8;
+	int nside = 16;
         auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
                         QAngle(45_deg), QAngle(10_deg), QAngle(40_deg), QAngle(340_deg)));
-	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 100_MHz, 100_GHz, 20));
+	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 10_MHz, 100_GHz, 20));
 	//auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(nside, 408_MHz));
+	skymaps->setMask(mask);
 	skymaps->setIntegrator(intSynchro);
 
 	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-synchro.fits.gz"));

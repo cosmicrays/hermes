@@ -35,6 +35,12 @@ void RadioSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QTempera
 	}
 }
 
+void RadioSkymapRange::setMask(std::shared_ptr<SkymapMask> mask_) {
+	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
+		it->setMask(mask_);
+	}
+}
+
 void RadioSkymapRange::compute() {
 	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
        		std::cout << "hermes::SkymapRante: "

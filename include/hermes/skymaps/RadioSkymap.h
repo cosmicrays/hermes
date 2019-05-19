@@ -1,8 +1,7 @@
 #ifndef HERMES_RADIOSKYMAP_H
 #define HERMES_RADIOSKYMAP_H
 
-#include <hermes/skymaps/SkymapTemplate.h>
-#include <hermes/integrators/SynchroIntegrator.h>
+#include "hermes/skymaps/SkymapTemplate.h"
 
 namespace hermes {
 

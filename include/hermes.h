@@ -17,6 +17,7 @@
 #include "hermes/skymaps/SkymapTemplate.h"
 #include "hermes/skymaps/GenericSkymap.h"
 #include "hermes/skymaps/RMSkymap.h"
+#include "hermes/skymaps/IntensitySkymap.h"
 #include "hermes/skymaps/RadioSkymap.h"
 #include "hermes/skymaps/RadioSkymapRange.h"
 
@@ -26,6 +27,7 @@
 #include "hermes/integrators/SynchroIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
+#include "hermes/integrators/PiZeroIntegrator.h"
 
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/magneticField/MagneticFieldGrid.h"

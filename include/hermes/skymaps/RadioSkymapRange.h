@@ -19,6 +19,7 @@ public:
 	~RadioSkymapRange();
 
 	void setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature> > integrator_);
+	void setMask(std::shared_ptr<SkymapMask> mask_);
 	void compute();
        
 	/** output **/
