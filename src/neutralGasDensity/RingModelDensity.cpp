@@ -58,7 +58,7 @@ QColumnDensity RingData::getColumnDensityInRing(int ring, const QDirection& dir)
 	// NAXIS1 x NAXIS2 x NAXIS3 => lon x lat x ring
 	return dataVector[
 		(ring * n_lat + pxl_lat) * n_lon + pxl_lon
-	];
+	] / 1_cm2; // the data is given in cm^-2
 }
 
 Ring::Ring(std::size_t index_, std::shared_ptr<RingData> dataPtr_,

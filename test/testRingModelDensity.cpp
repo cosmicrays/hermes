@@ -32,7 +32,7 @@ TEST(RingModelDensity, RingBoundaries) {
 
 TEST(RingModelDensity, RingValues) {
 	auto ringModel = RingModelDensity();
-	QDirection dir = {0_deg,1_deg};
+	QDirection dir = {90_deg,1_deg};
 	for (auto ring : ringModel) {
 		std::cerr << "Index: " << ring->getIndex() << std::endl;
 		std::cerr << ring->getColumnDensity(dir) << std::endl;

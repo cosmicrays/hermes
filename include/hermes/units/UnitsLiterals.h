@@ -42,6 +42,7 @@ LITERAL(QLength, _pc, parsec)
 LITERAL(QLength, _kpc, kilo*parsec)
 
 // literals for area units
+LITERAL(QArea, _cm2, pow<2>(centi*metre))
 LITERAL(QArea, _barn, barn)
 LITERAL(QArea, _mbarn, milli*barn)
 
@@ -53,6 +54,7 @@ LITERAL(QVolume, _m3, pow<3>(metre))
 LITERAL(QEnergy, _J, joule)
 LITERAL(QEnergy, _eV, electronvolt)
 LITERAL(QEnergy, _keV, kilo*electronvolt)
+LITERAL(QEnergy, _MeV, mega*electronvolt)
 LITERAL(QEnergy, _GeV, giga*electronvolt)
 LITERAL(QEnergy, _TeV, tera*electronvolt)
 

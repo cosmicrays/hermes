@@ -81,6 +81,7 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QE
 	QPiZeroIntegral integral(0);
 	QEnergy deltaE;
 
+	// TODO: optimization - E_min = E_gamma + m_pi^2c^4/(4E_gamma) 
 	for (auto itE = std::next(crdensity->begin()); itE != crdensity->end(); ++itE) {
 		deltaE = (*itE) - *std::prev(itE);
 		integral += crossSec->getDiffCrossSection(*itE, Egamma_) *
@@ -94,6 +95,7 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverLogEnergy(Vector3QLength pos_, QE
 
 	QPiZeroIntegral integral(0);
 
+	// TODO: optimization - E_min = E_gamma + m_pi^2c^4/(4E_gamma) 
 	for (auto itE = crdensity->begin(); itE != crdensity->end(); ++itE) {
 		integral += crossSec->getDiffCrossSection(*itE, Egamma_) * 
 	                        crdensity->getDensityPerEnergy(*itE, pos_) * (*itE) * c_light / 4_pi;

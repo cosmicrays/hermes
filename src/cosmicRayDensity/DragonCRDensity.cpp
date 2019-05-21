@@ -61,11 +61,18 @@ void DragonCRDensity::readFile() {
 
 QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
 		const QEnergy &E_, const Vector3QLength& pos_) const {
-    	return (grid[energyIndex.at(E_)])->interpolate(pos_);
+    	return getDensityPerEnergy(energyIndex.at(E_), pos_);
 }
 
 QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
 		int iE_, const Vector3QLength& pos_) const {
+	if (pos_.z < zmin || pos_.z > zmax)
+		return QPDensityPerEnergy(0);
+	
+	QLength rho = sqrt(pos_.x*pos_.x + pos_.y*pos_.y);
+	if (rho > rmax)
+		return QPDensityPerEnergy(0);
+
     	return (grid[iE_])->interpolate(pos_);
 }
 
@@ -87,10 +94,10 @@ void DragonCRDensity::readEnergyAxis() {
 
 void DragonCRDensity::readSpatialGrid2D() {
 
-	QLength rmin = ffile->readKeyValueAsDouble("rmin") * 1_kpc;
-	QLength rmax = ffile->readKeyValueAsDouble("rmax") * 1_kpc;
-	QLength zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
-	QLength zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
+	rmin = ffile->readKeyValueAsDouble("rmin") * 1_kpc;
+	rmax = ffile->readKeyValueAsDouble("rmax") * 1_kpc;
+	zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
+	zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
 	
 	dimr = ffile->readKeyValueAsInt("dimr");
 	dimz = ffile->readKeyValueAsInt("dimz");
@@ -113,12 +120,13 @@ void DragonCRDensity::readSpatialGrid2D() {
 
 void DragonCRDensity::readSpatialGrid3D() {
 
-	QLength xmin = ffile->readKeyValueAsDouble("xmin") * 1_kpc;
-	QLength xmax = ffile->readKeyValueAsDouble("xmax") * 1_kpc;
-	QLength ymin = ffile->readKeyValueAsDouble("ymin") * 1_kpc;
-	QLength ymax = ffile->readKeyValueAsDouble("ymax") * 1_kpc;
-	QLength zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
-	QLength zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
+	xmin = ffile->readKeyValueAsDouble("xmin") * 1_kpc;
+	xmax = ffile->readKeyValueAsDouble("xmax") * 1_kpc;
+	ymin = ffile->readKeyValueAsDouble("ymin") * 1_kpc;
+	ymax = ffile->readKeyValueAsDouble("ymax") * 1_kpc;
+	zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
+	zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
+	rmax = sqrt(xmax*xmax + ymax*ymax);
 	
 	dimx = ffile->readKeyValueAsInt("dimx");
 	dimy = ffile->readKeyValueAsInt("dimy");

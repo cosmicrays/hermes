@@ -43,9 +43,9 @@ void RadioSkymapRange::setMask(std::shared_ptr<SkymapMask> mask_) {
 
 void RadioSkymapRange::compute() {
 	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
-       		std::cout << "hermes::SkymapRante: "
+       		std::cout << "hermes::SkymapRange: "
 			  << it - skymaps.begin() + 1 << "/" << skymaps.size()
-			  << ", freq = " << it->getFrequency() << " Hz" << std::endl;
+			  << ", Frequency = " << it->getFrequency() << " Hz" << std::endl;
 		it->compute();
 	}
 }

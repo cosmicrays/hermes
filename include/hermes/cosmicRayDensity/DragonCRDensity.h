@@ -69,6 +69,8 @@ private:
 	void disablePID(const PID &pid_);
 	bool isPIDEnabled(const PID &pid_) const;
   
+	QLength rmin, rmax, zmin, zmax;
+	QLength xmin, xmax, ymin, ymax;
 	int dimE;
 	int dimx, dimy, dimz, dimr;
 	std::vector<std::unique_ptr<ScalarGridQPDensityPerEnergy> > grid;
