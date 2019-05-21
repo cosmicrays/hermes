@@ -52,21 +52,21 @@ void exampleSynchro() {
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
 	
-	std::vector<PID> ptypes = {Electron, Positron};
+	std::vector<PID> particletypes = {Electron, Positron};
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
 				getDataPath("DragonRuns/run_2D.fits.gz"),
-				Electron, DragonFileType::_2D)); 
+				particletypes, DragonFileType::_2D)); 
 	
 	// integrator
-	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(JF12, dragonModel));
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(ufield, dragonModel));
 
 	// skymap
-	int nside = 16;
-        auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
-                        QAngle(45_deg), QAngle(10_deg), QAngle(40_deg), QAngle(340_deg)));
-	auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 10_MHz, 100_GHz, 20));
-	//auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(nside, 408_MHz));
-	skymaps->setMask(mask);
+	int nside = 32;
+        //auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
+        //                QAngle(45_deg), QAngle(10_deg), QAngle(40_deg), QAngle(340_deg)));
+	//auto skymaps = std::make_shared<RadioSkymapRange>(RadioSkymapRange(nside, 10_MHz, 100_GHz, 20));
+	auto skymaps = std::make_shared<RadioSkymap>(RadioSkymap(nside, 408_MHz));
+	//skymaps->setMask(mask);
 	skymaps->setIntegrator(intSynchro);
 
 	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-synchro.fits.gz"));
@@ -138,6 +138,37 @@ void exampleSynchroAbsorption() {
 	skymaps->save(output);
 }
 
+void examplePiZero() {
+
+	// cosmic ray density models
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	std::vector<PID> particletypes = {Electron, Positron};
+	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
+				getDataPath("DragonRuns/run_2D.fits.gz"),
+				particletypes, DragonFileType::_2D)); 
+
+	// interaction
+	auto kamae = std::make_shared<Kamae06>(Kamae06());
+
+	// HI model
+	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity());
+	
+	// integrator
+	auto intPiZero = std::make_shared<PiZeroIntegrator>(
+		PiZeroIntegrator(dragonModel, ringModel, kamae));
+
+	// skymap
+	int nside = 32;
+	auto skymap = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 1_GeV));
+	skymap->setIntegrator(intPiZero);
+
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-pion.fits.gz"));
+	
+	skymap->compute();
+	skymap->save(output);
+}
+
+
 void exampleGeneric() {
 
 	// magnetic field models
@@ -182,7 +213,7 @@ void playground() {
 	exampleSynchro();
 	//exampleSynchroAbsorption();
 	//exampleFreeFree();
-
+	//examplePiZero();
 }
 
 } // namespace hermes

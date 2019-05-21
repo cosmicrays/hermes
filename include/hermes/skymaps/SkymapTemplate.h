@@ -133,7 +133,7 @@ void SkymapTemplate<Q>::compute() {
        	std::cout << "hermes::Integrator: Number of Threads: " << omp_get_max_threads() << std::endl;
 #endif
 	if(integrator == nullptr)
-		throw std::runtime_error("Provide an integrator with the setIntegrator() method");
+		throw std::runtime_error("Provide an integrator with Skymap::setIntegrator()");
 	
 	ProgressBar progressbar(getSize());
 	progressbar.start("Compute skymap");

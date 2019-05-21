@@ -180,6 +180,7 @@ add_library(hermes SHARED
 	src/integrators/SynchroIntegrator.cpp
 	src/integrators/FreeFreeIntegrator.cpp
 	src/integrators/SynchroAbsorptionIntegrator.cpp
+	src/integrators/PiZeroIntegrator.cpp
 	src/magneticField/MagneticField.cpp
 	src/magneticField/MagneticFieldGrid.cpp
 	src/magneticField/WMAP07Field.cpp
@@ -295,6 +296,13 @@ if(ENABLE_TESTING)
 	target_link_libraries(testInteractions hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testInteractions testInteractions)
 
+	add_executable(testRingModelDensity test/testRingModelDensity.cpp)
+	target_link_libraries(testRingModelDensity hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testRingModelDensity testRingModelDensity)
+
+	add_executable(testPiZeroIntegrator test/testPiZeroIntegrator.cpp)
+	target_link_libraries(testPiZeroIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testPiZeroIntegrator testPiZeroIntegrator)
 
 endif(ENABLE_TESTING)
 

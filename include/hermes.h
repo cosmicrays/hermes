@@ -17,7 +17,7 @@
 #include "hermes/skymaps/SkymapTemplate.h"
 #include "hermes/skymaps/GenericSkymap.h"
 #include "hermes/skymaps/RMSkymap.h"
-#include "hermes/skymaps/IntensitySkymap.h"
+#include "hermes/skymaps/DiffFluxSkymap.h"
 #include "hermes/skymaps/RadioSkymap.h"
 #include "hermes/skymaps/RadioSkymapRange.h"
 

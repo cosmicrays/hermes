@@ -25,6 +25,7 @@ public:
 		the second method too.
 	*/
 	virtual T integrateOverLOS(QDirection iterdir, QFrequency) const { return T(0); };
+	virtual T integrateOverLOS(QDirection iterdir, QEnergy) const { return T(0); };
 };
 
 } // namespace hermes

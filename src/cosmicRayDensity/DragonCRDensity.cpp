@@ -13,15 +13,16 @@
 
 namespace hermes {
 
-DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_)
-    : CosmicRayDensity(), filename(filename_), fileType(DragonFileType::_3D) {
+DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_, DragonFileType type_)
+    : CosmicRayDensity(), filename(filename_), fileType(type_) {
 	enablePID(pid_);
 	readFile();
 }
 
-DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_, DragonFileType type_)
+DragonCRDensity::DragonCRDensity(const std::string& filename_, const std::vector<PID> &pids_, DragonFileType type_)
     : CosmicRayDensity(), filename(filename_), fileType(type_) {
-	enablePID(pid_);
+	for(auto const& p: pids_)
+		enablePID(p);
 	readFile();
 }
 

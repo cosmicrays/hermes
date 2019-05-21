@@ -78,8 +78,10 @@ private:
 	std::map<QEnergy, std::size_t> energyIndex;
 public:
 	DragonCRDensity();
-	DragonCRDensity(const std::string& filename_, const PID& pid_);
-	DragonCRDensity(const std::string& filename_, const PID& pid_, DragonFileType type_);
+	DragonCRDensity(const std::string &filename_,
+			const PID &pid_, DragonFileType type_ = DragonFileType::_3D);
+	DragonCRDensity(const std::string &filename_,
+			const std::vector<PID> &pids_, DragonFileType type_ = DragonFileType::_3D);
 	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const;
 	QPDensityPerEnergy getDensityPerEnergy(int iE_, const Vector3QLength& pos_) const;
 };

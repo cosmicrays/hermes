@@ -36,7 +36,7 @@ QNumber GenericIntegrator::integrateOverLOS(
 
 	double tot = 0;
 	//for (int i = 6; i < 7; ++i)
-		tot += static_cast<double>(ngdensity->getDensityInRing(5, direction_));
+		tot += static_cast<double>((ngdensity->operator[](5))->getColumnDensity(direction_));
 
 	return tot;
 	/*

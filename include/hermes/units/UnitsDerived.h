@@ -11,6 +11,7 @@ namespace hermes {
 //             l  t  m  I  T  N  J  A
 QUANTITY_TYPE( 1,-2, 1, 0, 0, 0, 0, 0, QForce);
 QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, QPressure);
+QUANTITY_TYPE( 2,-2, 1, 0, 0, 0, 0, 0, QTorque);
 QUANTITY_TYPE( 2,-2, 1, 0, 0, 0, 0, 0, QEnergy);
 QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, QEnergyDensity);
 QUANTITY_TYPE( 0, 1, 0, 1, 0, 0, 0, 0, QECharge);
@@ -25,10 +26,12 @@ QUANTITY_TYPE( 3, 0, 0, 0, 0, 0, 0, 0, QVolume);
 QUANTITY_TYPE( 1,-1, 0, 0, 0, 0, 0, 0, QSpeed);
 QUANTITY_TYPE( 1,-2, 0, 0, 0, 0, 0, 0, QAcceleration);
 QUANTITY_TYPE(-3, 0, 0, 0, 0, 0, 0, 0, QPDensity);
+QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 0, QColumnDensity);
 QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 1, QRotationMeasure);
 QUANTITY_TYPE(-5, 2,-1, 0, 0, 0, 0, 0, QPDensityPerEnergy);
 QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, QEmissivity);
 QUANTITY_TYPE( 0,-2, 1, 0, 0, 0, 0, 0, QIntensity);
+QUANTITY_TYPE(-4, 1,-1, 0, 0, 0, 0, 0, QDifferentialFlux);
 QUANTITY_TYPE(-1, 0, 0, 0, 0, 0, 0, 0, QInverseLength);
 QUANTITY_TYPE( 0, 2,-1, 0, 0, 0, 0, 0, QDiffCrossSection);
 
