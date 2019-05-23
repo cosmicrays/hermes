@@ -14,13 +14,13 @@
 namespace hermes {
 
 DragonCRDensity::DragonCRDensity(const std::string& filename_, const PID& pid_, DragonFileType type_)
-    : CosmicRayDensity(), filename(filename_), fileType(type_) {
+    : CosmicRayDensity(true), filename(filename_), fileType(type_) {
 	enablePID(pid_);
 	readFile();
 }
 
 DragonCRDensity::DragonCRDensity(const std::string& filename_, const std::vector<PID> &pids_, DragonFileType type_)
-    : CosmicRayDensity(), filename(filename_), fileType(type_) {
+    : CosmicRayDensity(true), filename(filename_), fileType(type_) {
 	for(auto const& p: pids_)
 		enablePID(p);
 	readFile();
@@ -81,7 +81,6 @@ void DragonCRDensity::readEnergyAxis() {
 	double Ekmin = ffile->readKeyValueAsDouble("Ekmin");
 	dimE = ffile->readKeyValueAsInt("dimE");
 	energyScaleFactor = ffile->readKeyValueAsDouble("Ekin_fac");
-	scaleFactorFlag = true;
 
 	// input files are in GeV	
 	for (int i = 0; i < dimE; ++i) {

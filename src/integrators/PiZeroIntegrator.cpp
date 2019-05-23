@@ -51,16 +51,15 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 
 		} 
 	}
-
+	
 	for(const auto &ring : *ngdensity) {
 		if(normIntegrals[ring->getIndex()] == QColumnDensity(0))
-			continue;
-		if(ring->getColumnDensity(direction_) == QColumnDensity(0))
 			continue;
 		total_diff_flux +=
 			ring->getColumnDensity(direction_) / normIntegrals[ring->getIndex()] *
 			losIntegrals[ring->getIndex()];
 	}
+	
 	return total_diff_flux;
 }
 

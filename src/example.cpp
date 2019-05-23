@@ -26,8 +26,11 @@ void examplePiZero() {
 
 	// skymap
 	int nside = 32;
+        auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
+                        QAngle(8_deg), QAngle(-8_deg), QAngle(-80_deg), QAngle(80_deg)));
 	//auto skymaps = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 1_GeV));
-	auto skymaps = std::make_shared<DiffFluxSkymapRange>(DiffFluxSkymapRange(nside, 100_MeV, 100_GeV, 10));
+	auto skymaps = std::make_shared<DiffFluxSkymapRange>(DiffFluxSkymapRange(nside, 100_MeV, 100_GeV, 30));
+	skymaps->setMask(mask);
 	skymaps->setIntegrator(intPiZero);
 
 	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-pion.fits.gz"));

@@ -1,5 +1,7 @@
 #include "hermes/skymaps/SkymapMask.h"
 
+#include <iostream>
+
 namespace hermes {
 
 SkymapMask::SkymapMask() {
@@ -33,11 +35,33 @@ RectangularWindow::RectangularWindow(const QAngle &b_top_, const QAngle &b_botto
       	theta_close = 90_deg - b_bottom_;
 	phi_open = l_left_;
 	phi_close = l_right_;
+	
+	phi_open = normalizeAngle(phi_open);
+	phi_close = normalizeAngle(phi_close);
 }
 
+QAngle RectangularWindow::normalizeAngle(QAngle angle) {
+	while (angle < -180_deg) angle += 360_deg;
+	while (angle >  180_deg) angle -= 360_deg;
+	return angle;
+}
+
+bool RectangularWindow::isAngleBetween(
+		const QAngle &testAngle, QAngle first, QAngle last) {
+	first -= testAngle;
+	last  -= testAngle;
+	first = normalizeAngle(first);
+	last  = normalizeAngle(last);
+	if (static_cast<double>(first) * static_cast<double>(last) >= 0)
+		return false;
+	return fabs(first - last) < 180_deg;
+}
+
+
+
 bool RectangularWindow::isAllowed(const QDirection &dir_) {
-	if (dir_[0] > theta_open && dir_[0] < theta_close)
-		if(dir_[1] > phi_open && dir_[1] < phi_close) 
+	if (isAngleBetween(dir_[0], theta_open, theta_close))
+		if(isAngleBetween(dir_[1], phi_open, phi_close))
 			return true;
 	return false;
 }	

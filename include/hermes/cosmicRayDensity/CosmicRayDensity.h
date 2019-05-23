@@ -16,9 +16,9 @@ public:
         typedef tEnergyRange::iterator iterator;
         typedef tEnergyRange::const_iterator const_iterator;
 
-	CosmicRayDensity() : scaleFactorFlag(false) {	
-	}
+	CosmicRayDensity(bool scaleFactorFlag_ = false) : scaleFactorFlag(scaleFactorFlag_) { }
         virtual ~CosmicRayDensity() { }
+
         virtual QPDensityPerEnergy getDensityPerEnergy(
 			const QEnergy& E_, const Vector3QLength& pos_) const = 0;
 	std::size_t getIndexOfE(const QEnergy& E_) const {

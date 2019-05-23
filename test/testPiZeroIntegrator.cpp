@@ -39,15 +39,18 @@ public:
 TEST(PiZeroIntegrator, integrateOverEnergy) {
 	//auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
-	std::vector<PID> particletypes = {Electron, Positron};
 	
+	std::vector<PID> particletypes = {Proton};
+	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
+				getDataPath("DragonRuns/run_2D.fits.gz"),
+				particletypes, DragonFileType::_2D)); 
 	// interaction
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
 	// HI model
 	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity());
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(
-		PiZeroIntegrator(simpleModel, ringModel, kamae));
+		PiZeroIntegrator(dragonModel, ringModel, kamae));
 
 	// skymap
 	int nside = 4;
@@ -59,8 +62,8 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	auto pos = Vector3QLength(8.5_kpc, 0, 0);
 	QDirection dir = {90_deg,1_deg};
 	//std::cerr << intPiZero->integrateOverEnergy(pos, 1_GeV) << std::endl;
-	std::cerr << intPiZero->integrateOverEnergy(pos, 1_GeV) << std::endl;
-	//std::cerr << intPiZero->integrateOverLOS(dir, 1_GeV) << std::endl;
+	//std::cerr << intPiZero->integrateOverEnergy(pos, 100_MeV) << std::endl;
+	std::cerr << intPiZero->integrateOverLOS(dir, 1000_MeV) << std::endl;
 	//skymap->compute();
 	//skymap->save(output);
 
