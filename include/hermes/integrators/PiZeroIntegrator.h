@@ -31,6 +31,7 @@ public:
 	~PiZeroIntegrator();
 
 	QPDensity densityProfile(const Vector3QLength &) const;
+	QRingX0Unit X0Function(const Vector3QLength &) const;
 
 	QDifferentialFlux integrateOverLOS(QDirection iterdir) const;
 	QDifferentialFlux integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;

@@ -29,8 +29,10 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 	QLength delta_d = 10.0_pc;
 
 
-	std::vector<QColumnDensity> normIntegrals(ngdensity->getRingNumber(), QColumnDensity(0.0));
-	std::vector<QDifferentialFlux> losIntegrals(ngdensity->getRingNumber(), QDifferentialFlux(0.0));
+	std::vector<QColumnDensity> normIntegrals(
+			ngdensity->getRingNumber(GasType::HI), QColumnDensity(0.0));
+	std::vector<QDifferentialFlux> losIntegrals(
+			ngdensity->getRingNumber(GasType::HI), QDifferentialFlux(0.0));
 
 	//std::function<QPDensity(const QLength &r)> profile;
 	//profile = simpleDensityDistribution;
@@ -42,10 +44,9 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 
 		for (const auto &ring : *ngdensity) {
 			if(ring->isInside(pos)) {
-				normIntegrals[ring->getIndex()] +=
-					densityProfile(pos) * delta_d;
-				losIntegrals[ring->getIndex()] +=
-					densityProfile(pos) *
+				auto i = ring->getIndex();
+				normIntegrals[i] += densityProfile(pos) * delta_d;
+				losIntegrals[i] += densityProfile(pos) *
 					integrateOverEnergy(pos, Egamma_) * delta_d;
 			}
 
@@ -56,16 +57,22 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 		if(normIntegrals[ring->getIndex()] == QColumnDensity(0))
 			continue;
 		total_diff_flux +=
-			ring->getColumnDensity(direction_) / normIntegrals[ring->getIndex()] *
-			losIntegrals[ring->getIndex()];
+			(ring->getHIColumnDensity(direction_) +
+			 2 * X0Function(Vector3QLength(0)) *
+			 ring->getCOIntensity(direction_)) /
+			 normIntegrals[ring->getIndex()] *
+			 losIntegrals[ring->getIndex()];
 	}
 	
 	return total_diff_flux;
 }
 
 QPDensity PiZeroIntegrator::densityProfile(const Vector3QLength &pos) const {
-	QLength r_0 = 5_kpc;
 	return QPDensity(1);
+}
+
+QRingX0Unit PiZeroIntegrator::X0Function(const Vector3QLength &pos) const {
+	return 1.8e20 / (1_cm2*1_K*1_km) * 1_s;
 }
 
 QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {

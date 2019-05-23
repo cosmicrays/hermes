@@ -56,6 +56,9 @@ public:
     constexpr explicit operator float() const {
 	return static_cast<float>(value);
     }
+    constexpr explicit operator int() const {
+	return static_cast<int>(value);
+    }
 };
 
 // print Quantity to ostream
@@ -254,6 +257,14 @@ constexpr Quantity<l, t, m, I, T, N, J, A>
     fabs(const Quantity<l, t, m, I, T, N, J, A>& num) {
     return Quantity<l, t, m, I, T, N, J, A>(std::fabs(num.getValue()));
 }
+
+template<typename l, typename t, typename m, typename I, typename T,
+	 typename N, typename J, typename A>
+constexpr Quantity<l, t, m, I, T, N, J, A>
+    round(const Quantity<l, t, m, I, T, N, J, A>& num) {
+    return Quantity<l, t, m, I, T, N, J, A>(std::round(num.getValue()));
+}
+
 
 // Computes the floating-point remainder of the division operation
 template<typename l, typename t, typename m, typename I, typename T,

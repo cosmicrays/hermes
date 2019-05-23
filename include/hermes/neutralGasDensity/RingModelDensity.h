@@ -8,23 +8,31 @@
 #include "hermes/FITSWrapper.h"
 
 #include <utility>
+#include <array>
 
 namespace hermes {
+
+enum GasType { HI = 0, CO = 1 };
 
 class RingData {
 private:
         std::unique_ptr<FITSFile> ffile;
 	
-	int n_lon, n_lat, n_rings;
-	double min_lon, min_lat, delta_lon, delta_lat;
-	std::vector<float> dataVector;
+	std::array<int, 2> n_lon, n_lat, n_rings;
+	std::array<double, 2> min_lon, min_lat;
+	std::array<double, 2> delta_lon, delta_lat;
+	std::array<std::vector<float>, 2> dataVector;
 
-	void readDataFiles();
+	void readDataFile(GasType t, std::string filename);
+	double getRawValue(GasType t, int ring, const QDirection& dir) const;
 public:
 	RingData();
-	QColumnDensity getColumnDensityInRing(int ring, const QDirection& dir) const;
+	QColumnDensity getHIColumnDensityInRing(
+			int ring, const QDirection& dir) const;
+	QRingCOIntensity getCOIntensityInRing(
+			int ring, const QDirection& dir) const;
 
-	int getRingNumber() const;
+	int getRingNumber(GasType t) const;
 };
 
 class Ring {
@@ -38,7 +46,8 @@ public:
 	std::size_t getIndex() const;
 	std::pair<QLength, QLength> getBoundaries() const;
 	bool isInside(const Vector3QLength &pos) const;
-	QColumnDensity getColumnDensity(const QDirection& dir_) const;
+	QColumnDensity getHIColumnDensity(const QDirection& dir_) const;
+	QRingCOIntensity getCOIntensity(const QDirection& dir) const;
 };
 
 class RingModelDensity {
@@ -55,7 +64,7 @@ private:
 public:
 	RingModelDensity();
 	~RingModelDensity() { }
-	int getRingNumber() const;
+	int getRingNumber(GasType t) const;
 
 	inline void setTemperature(QTemperature T) {
 		gasTemp = T;

@@ -32,10 +32,12 @@ TEST(RingModelDensity, RingBoundaries) {
 
 TEST(RingModelDensity, RingValues) {
 	auto ringModel = RingModelDensity();
-	QDirection dir = {90_deg,1_deg};
+	QDirection dir = {90_deg,5_deg};
+	auto X0 = 1.8e20 / 1_cm2 / 1_K / 1_km * 1_s;
 	for (auto ring : ringModel) {
 		std::cerr << "Index: " << ring->getIndex() << std::endl;
-		std::cerr << ring->getColumnDensity(dir) << std::endl;
+		std::cerr << "HI: " << ring->getHIColumnDensity(dir) << std::endl;
+		std::cerr << "H2: " << X0*ring->getCOIntensity(dir) << std::endl;
         }
 }
 
