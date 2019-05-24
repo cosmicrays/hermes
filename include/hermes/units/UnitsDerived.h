@@ -86,6 +86,9 @@ constexpr QMass ounce = 0.028349523125 * kilogram;
 constexpr QMass pound = 16 * ounce;
 constexpr QMass stone = 14 * pound;
 
+// Predefined energy units:
+constexpr QEnergy erg = 1e-7 * joule;
+
 // Predefined length units:
 constexpr QLength inch = 2.54 * 0.01 * metre;
 constexpr QLength foot = 12 * inch;

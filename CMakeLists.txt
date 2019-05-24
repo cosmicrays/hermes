@@ -196,6 +196,7 @@ add_library(hermes SHARED
 	src/cosmicRayDensity/Sun08CRDensity.cpp
 	src/cosmicRayDensity/DragonCRDensity.cpp
 	src/interactions/Kamae06.cpp
+	src/interactions/KleinNishina.cpp
 	src/outputs/FITSOutput.cpp
 	${HERMES_EXTRA_SOURCES}
 )

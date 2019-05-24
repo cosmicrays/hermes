@@ -5,9 +5,14 @@
 
 namespace hermes {
 
-TEST(RingModelDensity, RingBoundaries) {
-	auto ringModel = RingModelDensity();
+class RingModel : public ::testing::Test {
+protected:
+  //void SetUp() override {}
+  // void TearDown() override {}
+  RingModelDensity ringModel = RingModelDensity();
+};
 
+TEST_F(RingModel, RingBoundaries) {
 	std::vector<std::pair<QLength, QLength> > result;
 
 	for (auto ring : ringModel) {
@@ -23,22 +28,30 @@ TEST(RingModelDensity, RingBoundaries) {
 			static_cast<double>(b[2]));	
 	EXPECT_EQ(static_cast<double>(result[11].first),
 			static_cast<double>(b[11]));	
+}
 
+TEST_F(RingModel, isInside) {
 	Vector3QLength pos(3.5_kpc, 0_kpc, 1_kpc);
 
 	EXPECT_TRUE(ringModel[2]->isInside(pos));
 	EXPECT_FALSE(ringModel[3]->isInside(pos));
 }
 
-TEST(RingModelDensity, RingValues) {
-	auto ringModel = RingModelDensity();
+TEST_F(RingModel, RingValues) {
 	QDirection dir = {90_deg,5_deg};
 	auto X0 = 1.8e20 / 1_cm2 / 1_K / 1_km * 1_s;
+	QColumnDensity col_HI(0);
+	QColumnDensity col_H2(0);
+
 	for (auto ring : ringModel) {
-		std::cerr << "Index: " << ring->getIndex() << std::endl;
-		std::cerr << "HI: " << ring->getHIColumnDensity(dir) << std::endl;
-		std::cerr << "H2: " << X0*ring->getCOIntensity(dir) << std::endl;
+		col_HI += ring->getHIColumnDensity(dir);
+		col_H2 += X0*ring->getCOIntensity(dir);
         }
+
+	EXPECT_NEAR(static_cast<double>(col_HI),
+		2e26, 5e25);
+	EXPECT_NEAR(static_cast<double>(col_H2),
+		3e26, 5e25);
 }
 
 int main(int argc, char **argv) {
