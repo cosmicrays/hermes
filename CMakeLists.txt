@@ -195,6 +195,7 @@ add_library(hermes SHARED
 	src/cosmicRayDensity/WMAP07CRDensity.cpp
 	src/cosmicRayDensity/Sun08CRDensity.cpp
 	src/cosmicRayDensity/DragonCRDensity.cpp
+	src/photonField/ISRF.cpp
 	src/interactions/Kamae06.cpp
 	src/interactions/KleinNishina.cpp
 	src/outputs/FITSOutput.cpp
@@ -306,6 +307,9 @@ if(ENABLE_TESTING)
 	target_link_libraries(testPiZeroIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testPiZeroIntegrator testPiZeroIntegrator)
 
+	add_executable(testPhotonField test/testPhotonField.cpp)
+	target_link_libraries(testPhotonField hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testPhotonField testPhotonField)
 endif(ENABLE_TESTING)
 
 # ----------------------------------------------------------------------------

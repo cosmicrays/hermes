@@ -20,7 +20,7 @@ RingData::RingData() {
 void RingData::readDataFile(GasType t, std::string filename) {
 
 	ffile = std::make_unique<FITSFile>(
-			FITSFile(getDataPath("RingModelDensity/" + filename))); 
+			FITSFile(getDataPath("GasDensity/Remy18/" + filename))); 
 	ffile->openFile(FITS::READ);
 
 	n_lon[t] = ffile->readKeyValueAsInt("NAXIS1");

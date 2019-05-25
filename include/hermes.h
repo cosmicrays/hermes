@@ -49,6 +49,8 @@
 #include "hermes/cosmicRayDensity/WMAP07CRDensity.h"
 #include "hermes/cosmicRayDensity/DragonCRDensity.h"
 
+#include "hermes/photonField/ISRF.h"
+
 #include "hermes/interactions/DifferentialCrossSection.h"
 #include "hermes/interactions/Kamae06.h"
 #include "hermes/interactions/KleinNishina.h"
