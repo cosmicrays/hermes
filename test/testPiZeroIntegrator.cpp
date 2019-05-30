@@ -42,7 +42,7 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	
 	std::vector<PID> particletypes = {Proton};
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
-				getDataPath("DragonRuns/run_2D.fits.gz"),
+				getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
 				particletypes, DragonFileType::_2D)); 
 	// interaction
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
@@ -57,7 +57,7 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	auto skymap = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 1_GeV));
 	skymap->setIntegrator(intPiZero);
 
-	auto output = std::make_shared<FITSOutput>(FITSOutput("!test-pion.fits.gz"));
+	//auto output = std::make_shared<FITSOutput>(FITSOutput("!test-pion.fits.gz"));
 	
 	auto pos = Vector3QLength(8.5_kpc, 0, 0);
 	QDirection dir = {90_deg,1_deg};

@@ -11,7 +11,7 @@ void examplePiZero() {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	std::vector<PID> particletypes = {Proton};
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
-				getDataPath("DragonRuns/run_2D.fits.gz"),
+				getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
 				particletypes, DragonFileType::_2D)); 
 
 	// interaction
@@ -55,7 +55,7 @@ void exampleGeneric() {
 	auto WMAP07Model = std::make_shared<WMAP07CRDensity>(WMAP07CRDensity());
 	auto Sun08Model = std::make_shared<Sun08CRDensity>(Sun08CRDensity());
 	//auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
-	//	getDataPath("RingModelDensity/run_2D.fits"), Electron, DragonFileType::_2D)); 
+	//	getDataPath("CosmicRays/Gaggero17/run_2D.fits"), Electron, DragonFileType::_2D)); 
 	
 	// gas models
 	auto gasCordes91 = std::make_shared<HII_Cordes91>(HII_Cordes91());
