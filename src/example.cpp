@@ -5,13 +5,46 @@
 
 namespace hermes {
 
-void examplePiZero() {
-
+void exampleIC() {
 	// cosmic ray density models
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	std::vector<PID> particletypes = {Electron, Positron};
+	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
+	//			getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
+		"/home/andy/Projects/category_science/hermes-data/tmp_data/run_B-C_D03,7_delta0,45_vA13.fits.gz",
+				particletypes, DragonFileType::_2D)); 
+
+	// interaction
+	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
+
+	// photon field model
+	auto photonField = std::make_shared<ISRF>(ISRF()); 
+
+	// integrator
+	auto intIC = std::make_shared<InverseComptonIntegrator>(
+		InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
+	
+	// skymap
+	int nside = 16;
+        auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
+                        QAngle(8_deg), QAngle(-8_deg), QAngle(-80_deg), QAngle(80_deg)));
+	auto skymaps = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 100_MeV));
+	//auto skymaps = std::make_shared<DiffFluxSkymapRange>(DiffFluxSkymapRange(nside, 100_MeV, 300_GeV, 2));
+	//skymaps->setMask(mask);
+	skymaps->setIntegrator(intIC);
+
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!daniele-ic.fits.gz"));
+	
+	skymaps->compute();
+	skymaps->save(output);
+}
+
+void examplePiZero() {
+	// cosmic ray density models
+	//auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	std::vector<PID> particletypes = {Proton};
 	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
-				getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
+		//		getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
+		"/home/andy/Projects/category_science/hermes-data/tmp_data/run_B-C_D03,7_delta0,45_vA13.fits.gz",
 				particletypes, DragonFileType::_2D)); 
 
 	// interaction
@@ -29,7 +62,7 @@ void examplePiZero() {
         auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
                         QAngle(8_deg), QAngle(-8_deg), QAngle(-80_deg), QAngle(80_deg)));
 	//auto skymaps = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 1_GeV));
-	auto skymaps = std::make_shared<DiffFluxSkymapRange>(DiffFluxSkymapRange(nside, 100_MeV, 100_GeV, 10));
+	auto skymaps = std::make_shared<DiffFluxSkymapRange>(DiffFluxSkymapRange(nside, 100_MeV, 300_GeV, 5));
 	skymaps->setMask(mask);
 	skymaps->setIntegrator(intPiZero);
 
@@ -78,17 +111,15 @@ void exampleGeneric() {
 }
 
 void playground() {
-
 	//exampleGeneric();
-	examplePiZero();
+	//examplePiZero();
+	exampleIC();
 }
 
 } // namespace hermes
 
 int main(void){
-
 	hermes::playground();
-
 	return 0;
 }
 

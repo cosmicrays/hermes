@@ -51,7 +51,7 @@ namespace hermes {
 		}
 	}
 
-	int ISRF::getSize() {
+	int ISRF::getSize() const {
 		return isrf.size();
 	}
 
@@ -83,17 +83,23 @@ namespace hermes {
 	}
 
 
-	QEnergyDensity ISRF::getCMB(QFrequency nu) {
+	QEnergyDensity ISRF::getCMB(QFrequency nu) const {
 		QTemperature T_CMB = 2.73_K;
 		return (8_pi * h_planck * pow<3>(nu)) / pow<3>(c_light) / (exp(h_planck*nu / (k_boltzmann * T_CMB)) - 1.) * nu;
 	}
 
-	double ISRF::getISRF(const int& ir, const int& iz, const int& imu) {
+	double ISRF::getISRF(const int& ir, const int& iz, const int& imu) const {
 		long int i = imu + iz * logwavelenghts.size() + ir * (logwavelenghts.size() * zs.size());
 		return isrf.at(i);
 	}
+	
+	QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos, const QEnergy &E_photon) const {
+		QLength r = sqrt(pos.x*pos.x + pos.y*pos.y);
+		QLength z = pos.z;
+		return getEnergyDensity(r, z, E_photon);
+	}
 
-	QEnergyDensity ISRF::getEnergyDensity(const QLength &r, const QLength &z, const QEnergy &E_photon) {
+	QEnergyDensity ISRF::getEnergyDensity(const QLength &r, const QLength &z, const QEnergy &E_photon) const {
 		double r_ = static_cast<double>(r / 1_kpc);
 		double z_ = static_cast<double>(fabs(z) / 1_kpc);
 		double f_mu = static_cast<double>(h_planck * c_light / E_photon / (micro*metre));

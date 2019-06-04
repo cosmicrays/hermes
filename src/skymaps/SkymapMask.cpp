@@ -17,6 +17,7 @@ void SkymapMask::setDescription(const std::string &description_) {
 }
 
 std::vector<bool> SkymapMask::getMask(std::size_t nside) {
+	// TODO: fix not to calculate the mask for every skymap in a skymap range
 	long npix = nside2npix(nside);
 	std::vector<bool> maskContainer(npix, false);
 

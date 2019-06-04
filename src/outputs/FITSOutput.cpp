@@ -17,7 +17,6 @@ void FITSOutput::initOutput() {
 	
 	ffile->createFile();
 
-
 	int firstElem = 1;
 	long int nullnaxes[1] = {1};
 	float nullArray[1] = {0};

@@ -29,6 +29,7 @@
 #include "hermes/integrators/FreeFreeIntegrator.h"
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
 #include "hermes/integrators/PiZeroIntegrator.h"
+#include "hermes/integrators/InverseComptonIntegrator.h"
 
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/magneticField/MagneticFieldGrid.h"

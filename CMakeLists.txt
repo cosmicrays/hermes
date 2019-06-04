@@ -182,6 +182,7 @@ add_library(hermes SHARED
 	src/integrators/FreeFreeIntegrator.cpp
 	src/integrators/SynchroAbsorptionIntegrator.cpp
 	src/integrators/PiZeroIntegrator.cpp
+	src/integrators/InverseComptonIntegrator.cpp
 	src/magneticField/MagneticField.cpp
 	src/magneticField/MagneticFieldGrid.cpp
 	src/magneticField/WMAP07Field.cpp
