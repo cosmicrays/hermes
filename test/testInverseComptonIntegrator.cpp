@@ -23,6 +23,7 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 	
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
+	std::cerr << "res: " << res << std::endl;
 	std::cerr << "Photon: " << milliseconds.count() << " ms" << std::endl;
 	
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
@@ -44,6 +45,7 @@ TEST(InverseComptonIntegrator, integrateOverEnergy) {
 	
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
+	std::cerr << "res: " << res << std::endl;
 	std::cerr << "Electron: " << milliseconds.count() << " ms" << std::endl;
 	
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
@@ -66,7 +68,8 @@ TEST(InverseComptonIntegrator, integrateOverLOS) {
 	
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
-	std::cerr << "Electron: " << milliseconds.count() << " ms" << std::endl;
+	std::cerr << "res: " << res << std::endl;
+	std::cerr << "LOS: " << milliseconds.count() << " ms" << std::endl;
 	
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
 }

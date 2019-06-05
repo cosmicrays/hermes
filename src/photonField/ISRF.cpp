@@ -117,11 +117,11 @@ namespace hermes {
 		double z_d = (z_ - z_id[iz]) / (z_id[iz + 1] - z_id[iz]);
 		double f_d = (logf_ - logwavelenghts[ifreq]) / (logwavelenghts[ifreq + 1] - logwavelenghts[ifreq]);
 
-		if (r_d >= 0 && r_d <= 1);
+		if (!(r_d >= 0 && r_d <= 1))
 			return 0;
-		if (z_d >= 0 && z_d <= 1);
+		if (!(z_d >= 0 && z_d <= 1))
 			return 0;
-		if (f_d >= 0 && f_d <= 1);
+		if (!(f_d >= 0 && f_d <= 1))
 			return 0;
 
 		double c_00 = getISRF(ir, iz, ifreq)         * (1. - r_d) + getISRF(ir + 1, iz, ifreq)         * r_d;
