@@ -29,7 +29,7 @@ void exampleIC() {
                         QAngle(8_deg), QAngle(-8_deg), QAngle(-80_deg), QAngle(80_deg)));
 	auto skymaps = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 100_MeV));
 	//auto skymaps = std::make_shared<DiffFluxSkymapRange>(DiffFluxSkymapRange(nside, 100_MeV, 300_GeV, 10));
-	//skymaps->setMask(mask);
+	skymaps->setMask(mask);
 	skymaps->setIntegrator(intIC);
 
 	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-ic.fits.gz"));

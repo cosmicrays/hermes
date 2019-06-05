@@ -36,8 +36,11 @@ TEST(InverseComptonIntegrator, integrateOverEnergy) {
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
 	
-	Vector3QLength pos(0);
-	QEnergy Egamma = 1_GeV;
+	Vector3QLength pos;
+	pos.setX(30_pc);
+	pos.setY(100_pc);
+	pos.setZ(20_pc);
+	QEnergy Egamma = 10_GeV;
 
 	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
 	auto res = intIC->integrateOverEnergy(pos, Egamma);
@@ -47,6 +50,7 @@ TEST(InverseComptonIntegrator, integrateOverEnergy) {
 
 	std::cerr << "res: " << res << std::endl;
 	std::cerr << "Electron: " << milliseconds.count() << " ms" << std::endl;
+	std::cerr << pos << std::endl;
 	
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
 }
@@ -71,6 +75,9 @@ TEST(InverseComptonIntegrator, integrateOverLOS) {
 	std::cerr << "res: " << res << std::endl;
 	std::cerr << "LOS: " << milliseconds.count() << " ms" << std::endl;
 	
+	dir[0] = 40_deg; dir[1] = 30_deg;
+	res = intIC->integrateOverLOS(dir, Egamma);
+	std::cerr << "res: " << res << std::endl;
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
 }
 

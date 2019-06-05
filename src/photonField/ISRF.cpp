@@ -102,6 +102,7 @@ namespace hermes {
 		if (logf_ < logwavelenghts.front() || logf_ > logwavelenghts.back())
 			return 0;
 
+
 		int ir = std::lower_bound(r_id.begin(), r_id.end(), r_) - r_id.begin();
 		int iz = std::lower_bound(z_id.begin(), z_id.end(), z_) - z_id.begin();
 		int ifreq = std::lower_bound(logwavelenghts.begin(), logwavelenghts.end(), logf_) - logwavelenghts.begin() - 1;
@@ -117,12 +118,14 @@ namespace hermes {
 		double z_d = (z_ - z_id[iz]) / (z_id[iz + 1] - z_id[iz]);
 		double f_d = (logf_ - logwavelenghts[ifreq]) / (logwavelenghts[ifreq + 1] - logwavelenghts[ifreq]);
 
+		/*
 		if (!(r_d >= 0 && r_d <= 1))
 			return 0;
 		if (!(z_d >= 0 && z_d <= 1))
 			return 0;
 		if (!(f_d >= 0 && f_d <= 1))
 			return 0;
+		*/
 
 		double c_00 = getISRF(ir, iz, ifreq)         * (1. - r_d) + getISRF(ir + 1, iz, ifreq)         * r_d;
 		double c_01 = getISRF(ir, iz, ifreq + 1)     * (1. - r_d) + getISRF(ir + 1, iz, ifreq + 1)     * r_d;
@@ -133,7 +136,7 @@ namespace hermes {
 		double c_1 = c_01 * (1. - z_d) + c_11 * z_d;
 
 		double c = c_0 * (1. - f_d) + c_1 * f_d;
-
+		
 		return c * 1_eV / 1_cm3;
 	}
 
