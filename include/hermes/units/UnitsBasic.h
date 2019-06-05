@@ -65,7 +65,7 @@ public:
 template<typename l, typename t, typename m, typename I, typename T,
          typename N, typename J, typename A>
 constexpr std::ostream& operator<<(std::ostream& lhs, const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    lhs << rhs.getValue();
+    lhs << static_cast<double>(rhs);
     return lhs;
 }
 
@@ -77,7 +77,7 @@ template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr Quantity<l, t, m, I, T, N, J, A> 
 	operator-(const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return Quantity<l, t, m, I, T, N, J, A>(-1 * rhs.getValue());
+    return Quantity<l, t, m, I, T, N, J, A>(-1 * static_cast<double>(rhs));
 }
 
 // Addition (X+Y)

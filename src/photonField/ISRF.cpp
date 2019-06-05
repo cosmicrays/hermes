@@ -11,6 +11,7 @@
 #include <cmath>
 #include <iomanip>
 #include <algorithm>
+#include <iterator>
 
 namespace hermes {
 
@@ -21,8 +22,12 @@ namespace hermes {
 	}
 
 	ISRF::ISRF() {
+
+		setEnergyScaleFactor(1.1); // 145 steps
+    		setStartEnergy(1e10_Hz*h_planck);
+    		setEndEnergy(1e16_Hz*h_planck);
+
 		loadFrequencyAxis();
-		loadSpatialAxis();
 		loadISRF();
 	}
 
@@ -42,15 +47,6 @@ namespace hermes {
 		}
 	}
 
-	void ISRF::loadSpatialAxis() {
-		for (auto i: r_id) {
-			rs.push_back(static_cast<double>(i) / 10.);
-		}
-		for (auto i: z_id) {
-			zs.push_back(static_cast<double>(i) / 10.);
-		}
-	}
-
 	int ISRF::getSize() const {
 		return isrf.size();
 	}
@@ -63,7 +59,7 @@ namespace hermes {
 		for (auto i: r_id) {
 			for (auto j: z_id) {
 				std::ostringstream name;
-				name << "RadiationField/Vernetto16/spectrum_r" << str(i) << "_z" << str(j) << ".dat";
+				name << "RadiationField/Vernetto16/spectrum_r" << str(i*10) << "_z" << str(j*10) << ".dat";
 				std::string filename = getDataPath(name.str());
 
 				// TODO: exception if file not found
@@ -79,18 +75,12 @@ namespace hermes {
 				n++;
 			}
 		}
-		assert(isrf.size() == rs.size() * zs.size() * logwavelenghts.size());
-	}
-
-
-	QEnergyDensity ISRF::getCMB(QFrequency nu) const {
-		QTemperature T_CMB = 2.73_K;
-		return (8_pi * h_planck * pow<3>(nu)) / pow<3>(c_light) / (exp(h_planck*nu / (k_boltzmann * T_CMB)) - 1.) * nu;
+		assert(isrf.size() == r_id.size() * z_id.size() * logwavelenghts.size());
 	}
 
 	double ISRF::getISRF(const int& ir, const int& iz, const int& imu) const {
-		long int i = imu + iz * logwavelenghts.size() + ir * (logwavelenghts.size() * zs.size());
-		return isrf.at(i);
+		long int i = imu + iz * logwavelenghts.size() + ir * (logwavelenghts.size() * z_id.size());
+		return isrf[i];
 	}
 	
 	QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos, const QEnergy &E_photon) const {
@@ -105,40 +95,34 @@ namespace hermes {
 		double f_mu = static_cast<double>(h_planck * c_light / E_photon / (micro*metre));
 		double logf_ = std::log10(f_mu);
 
-		if (r_ < rs.front() || r_ > rs.back())
+		if (r_ < r_id.front() || r_ > r_id.back())
 			return 0;
-		if (z_ < zs.front() || z_ > zs.back())
+		if (z_ < z_id.front() || z_ > z_id.back())
 			return 0;
 		if (logf_ < logwavelenghts.front() || logf_ > logwavelenghts.back())
 			return 0;
 
-		int ir = 0;
-		for (int i = 0; i < rs.size(); ++i) {
-			if (rs.at(i) < r_)
-				ir = i;
-		}
-		int iz = 0;
-		for (int i = 0; i < zs.size(); ++i) {
-			if (zs.at(i) < z_)
-				iz = i;
-		}
-		int ifreq = 0;
-		for (int i = 0; i < logwavelenghts.size(); ++i) {
-			if (logwavelenghts.at(i) < logf_)
-				ifreq = i;
-		}
+		int ir = std::lower_bound(r_id.begin(), r_id.end(), r_) - r_id.begin();
+		int iz = std::lower_bound(z_id.begin(), z_id.end(), z_) - z_id.begin();
+		int ifreq = std::lower_bound(logwavelenghts.begin(), logwavelenghts.end(), logf_) - logwavelenghts.begin() - 1;
 
-		assert(r_ >= rs.at(ir) && r_ <= rs.at(ir + 1));
-		assert(z_ >= zs.at(iz) && z_ <= zs.at(iz + 1));
-		assert(logf_ >= logwavelenghts.at(ifreq) && logf_ <= logwavelenghts.at(ifreq + 1));
+		if (ir == r_id.size())
+			return 0;
+		if (iz == z_id.size())
+			return 0;
+		if (ifreq == logwavelenghts.size())
+			return 0;
 
-		double r_d = (r_ - rs.at(ir)) / (rs.at(ir + 1) - rs.at(ir));
-		double z_d = (z_ - zs.at(iz)) / (zs.at(iz + 1) - zs.at(iz));
-		double f_d = (logf_ - logwavelenghts.at(ifreq)) / (logwavelenghts.at(ifreq + 1) - logwavelenghts.at(ifreq));
+		double r_d = (r_ - r_id[ir]) / (r_id[ir + 1] - r_id[ir]);
+		double z_d = (z_ - z_id[iz]) / (z_id[iz + 1] - z_id[iz]);
+		double f_d = (logf_ - logwavelenghts[ifreq]) / (logwavelenghts[ifreq + 1] - logwavelenghts[ifreq]);
 
-		assert(r_d >= 0 && r_d <= 1);
-		assert(z_d >= 0 && z_d <= 1);
-		assert(f_d >= 0 && f_d <= 1);
+		if (r_d >= 0 && r_d <= 1);
+			return 0;
+		if (z_d >= 0 && z_d <= 1);
+			return 0;
+		if (f_d >= 0 && f_d <= 1);
+			return 0;
 
 		double c_00 = getISRF(ir, iz, ifreq)         * (1. - r_d) + getISRF(ir + 1, iz, ifreq)         * r_d;
 		double c_01 = getISRF(ir, iz, ifreq + 1)     * (1. - r_d) + getISRF(ir + 1, iz, ifreq + 1)     * r_d;

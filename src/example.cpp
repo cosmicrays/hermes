@@ -24,15 +24,15 @@ void exampleIC() {
 		InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
 	
 	// skymap
-	int nside = 16;
+	int nside = 8;
         auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
                         QAngle(8_deg), QAngle(-8_deg), QAngle(-80_deg), QAngle(80_deg)));
 	auto skymaps = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 100_MeV));
-	//auto skymaps = std::make_shared<DiffFluxSkymapRange>(DiffFluxSkymapRange(nside, 100_MeV, 300_GeV, 2));
+	//auto skymaps = std::make_shared<DiffFluxSkymapRange>(DiffFluxSkymapRange(nside, 100_MeV, 300_GeV, 10));
 	//skymaps->setMask(mask);
 	skymaps->setIntegrator(intIC);
 
-	auto output = std::make_shared<FITSOutput>(FITSOutput("!daniele-ic.fits.gz"));
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!example-ic.fits.gz"));
 	
 	skymaps->compute();
 	skymaps->save(output);
@@ -61,7 +61,7 @@ void examplePiZero() {
 	int nside = 32;
         auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
                         QAngle(8_deg), QAngle(-8_deg), QAngle(-80_deg), QAngle(80_deg)));
-	//auto skymaps = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 1_GeV));
+	//auto skymaps = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 100_MeV));
 	auto skymaps = std::make_shared<DiffFluxSkymapRange>(DiffFluxSkymapRange(nside, 100_MeV, 300_GeV, 5));
 	skymaps->setMask(mask);
 	skymaps->setIntegrator(intPiZero);

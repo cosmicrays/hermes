@@ -6,7 +6,7 @@
 #include "hermes/neutralGasDensity/RingModelDensity.h"
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
 #include "hermes/interactions/KleinNishina.h"
-#include "hermes/photonField/ISRF.h"
+#include "hermes/photonField/PhotonField.h"
 
 #include <memory>
 #include <array>
@@ -16,20 +16,17 @@ namespace hermes {
 class InverseComptonIntegrator: public IntegratorTemplate<QDifferentialFlux> {
 private:
 	std::shared_ptr<CosmicRayDensity> crdensity;
-	std::shared_ptr<ISRF> phdensity;
+	std::shared_ptr<PhotonField> phdensity;
 	std::shared_ptr<KleinNishina> crossSec; 
 
 	QICOuterIntegral integrateOverSumEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
 	QICOuterIntegral integrateOverLogEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
-	QICInnerIntegral integrateOverPhotonEnergy(Vector3QLength pos,
-		QEnergy Egamma, QEnergy Eelectron) const;
-
 public:
 	InverseComptonIntegrator(
 		const std::shared_ptr<CosmicRayDensity>,
-		const std::shared_ptr<ISRF>,
+		const std::shared_ptr<PhotonField>,
 		const std::shared_ptr<KleinNishina>); 
 	~InverseComptonIntegrator();
 
@@ -37,6 +34,8 @@ public:
 	QDifferentialFlux integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
 	QICOuterIntegral integrateOverEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
+	QICInnerIntegral integrateOverPhotonEnergy(Vector3QLength pos,
+		QEnergy Egamma, QEnergy Eelectron) const;
 };
 
 } // namespace hermes

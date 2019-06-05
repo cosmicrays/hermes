@@ -50,6 +50,8 @@
 #include "hermes/cosmicRayDensity/WMAP07CRDensity.h"
 #include "hermes/cosmicRayDensity/DragonCRDensity.h"
 
+#include "hermes/photonField/PhotonField.h"
+#include "hermes/photonField/CMB.h"
 #include "hermes/photonField/ISRF.h"
 
 #include "hermes/interactions/DifferentialCrossSection.h"

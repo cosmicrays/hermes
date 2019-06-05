@@ -1,27 +1,26 @@
 #ifndef HERMES_ISRF_H
 #define HERMES_ISRF_H
 
-#include "hermes/Units.h"
-#include "hermes/Grid.h"
+#include "hermes/photonField/PhotonField.h"
 
 #include <array>
 
 namespace hermes {
 
-class ISRF {
+class ISRF : public PhotonField {
 private:
     std::vector<double> logwavelenghts;
-    std::vector<double> rs;
-    std::vector<double> zs;
     std::vector<double> isrf;
-    std::vector<int> r_id = {0, 2, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80,  85,  90,  95, 100, 110, 120, 140, 160, 180, 200, 250, 300};
-    std::vector<int> z_id = {0, 1, 2,  3,  4,  5,  6,  8, 10, 12, 15, 20, 25, 30, 40, 50, 60, 80, 100, 120, 150, 200, 250, 300};
+    std::array<double, 30> r_id = {0.0, 0.2, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5,
+	    4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0,  8.5,  9.0,  9.5, 10.0,
+	    11.0, 12.0, 14.0, 16.0, 18.0, 20.0, 25.0, 30.0}; // in kpc (30)
+    std::array<double, 24> z_id = {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0,
+	    1.2, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0, 6.0, 8.0, 10.0, 12.0, 15.0,
+	    20.0, 25.0, 30.0}; // in kpc (24)
 
     double getISRF(const int& ir, const int& iz, const int& ifreq) const;
-    QEnergyDensity getCMB(QFrequency nu) const;
 
     void loadFrequencyAxis();
-    void loadSpatialAxis();
     void loadISRF();
 
 public:

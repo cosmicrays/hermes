@@ -311,6 +311,10 @@ if(ENABLE_TESTING)
 	add_executable(testPhotonField test/testPhotonField.cpp)
 	target_link_libraries(testPhotonField hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testPhotonField testPhotonField)
+	
+	add_executable(testInverseComptonIntegrator test/testInverseComptonIntegrator.cpp)
+	target_link_libraries(testInverseComptonIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testInverseComptonIntegrator testInverseComptonIntegrator)
 endif(ENABLE_TESTING)
 
 # ----------------------------------------------------------------------------

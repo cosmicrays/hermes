@@ -8,7 +8,7 @@ namespace hermes {
 
 InverseComptonIntegrator::InverseComptonIntegrator(
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
-	const std::shared_ptr<ISRF> phdensity_,
+	const std::shared_ptr<PhotonField> phdensity_,
 	const std::shared_ptr<KleinNishina> crossSec_) : 
 	crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_) {
 }
@@ -26,7 +26,7 @@ QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 	Vector3QLength positionSun(8.5_kpc, 0, 0);
 	Vector3QLength pos(0.0);
 	QDifferentialFlux total_diff_flux(0.0);
-	QLength delta_d = 10.0_pc;
+	QLength delta_d = 50.0_pc;
 
 	// distance from the (spherical) galactic border in the given direction
 	QLength maxDistance = distanceToGalBorder(positionSun, direction_);
@@ -76,9 +76,11 @@ QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
 		Vector3QLength pos_, QEnergy Egamma_, QEnergy Eelectron_) const {
 	
 	QICInnerIntegral integral(0);
-	double scaling = 1.1;
+	static const double scaling = phdensity->getEnergyScaleFactor();
+	static const QEnergy E_start = phdensity->getStartEnergy();
+	static const QEnergy E_end = phdensity->getEndEnergy();
 	
-	for (QEnergy E_ph = 1e10_Hz * h_planck; E_ph < 1e16_Hz * h_planck; E_ph = E_ph*scaling) {
+	for (QEnergy E_ph = E_start; E_ph < E_end; E_ph = E_ph*scaling) {
 		integral += crossSec->getDiffCrossSection(Eelectron_, E_ph, Egamma_) *
 				phdensity->getEnergyDensity(pos_, E_ph) / E_ph;
 	}
