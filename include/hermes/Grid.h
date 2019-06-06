@@ -38,6 +38,220 @@ inline double round(double r) {
  * @{
  */
 /**
+ @class Grid2D
+ @brief Template class for fields on a periodic grid with trilinear interpolation
+
+ The grid spacing is constant and equal along all three axes.
+ Values are calculated by trilinear interpolation of the surrounding 8 grid points.
+ The grid is periodically (default) or reflectively extended.
+ The grid sample positions are at 1/2 * size/N, 3/2 * size/N ... (2N-1)/2 * size/N.
+ */
+template<typename T>
+class Grid2D {
+	std::vector<T> grid;
+	size_t Nx, Ny; /**< Number of grid points */
+	Vector3d origin; /**< Origin of the volume that is represented by the grid. */
+	Vector3d gridOrigin; /**< Grid origin */
+	Vector3d spacing; /**< Distance between grid points, determines the extension of the grid */
+	bool reflective; /**< If set to true, the grid is repeated reflectively instead of periodically */
+
+public:
+
+	/** Constructor for cubic grid
+	 @param	origin	Position of the lower left front corner of the volume
+	 @param	N		Number of grid points in one direction
+	 @param spacing	Spacing between grid points
+	 */
+	Grid2D(Vector3d origin, size_t N, double spacing) {
+		setOrigin(origin);
+		setGridSize(N, N);
+		setSpacing(Vector3d(spacing));
+		setReflective(false);
+	}
+
+	/** Constructor for non-cubic grid
+	 @param	origin	Position of the lower left front corner of the volume
+	 @param	Nx		Number of grid points in x-direction
+	 @param	Ny		Number of grid points in y-direction
+	 @param	Nz		Number of grid points in z-direction
+	 @param spacing	Spacing between grid points
+	 */
+	Grid2D(Vector3d origin, size_t Nx, size_t Ny, double spacing) {
+		setOrigin(origin);
+		setGridSize(Nx, Ny);
+		setSpacing(Vector3d(spacing));
+		setReflective(false);
+	}
+	
+	/** Constructor for non-cubic grid with spacing vector
+	@param	origin	Position of the lower left front corner of the volume
+	 @param	Nx		Number of grid points in x-direction
+	 @param	Ny		Number of grid points in y-direction
+	 @param	Nz		Number of grid points in z-direction
+	 @param spacing	Spacing vector between grid points
+	*/
+	Grid2D(Vector3d origin, size_t Nx, size_t Ny, Vector3d spacing) {
+	 	setOrigin(origin);
+	 	setGridSize(Nx, Ny);
+	 	setSpacing(spacing);
+	 	setReflective(false);
+	} 
+
+	void setOrigin(Vector3d origin) {
+		this->origin = origin;
+		this->gridOrigin = origin + spacing/2;
+	}
+
+	/** Resize grid, also enlarges the volume as the spacing stays constant */
+	void setGridSize(size_t Nx, size_t Ny) {
+		this->Nx = Nx;
+		this->Ny = Ny;
+		grid.resize(Nx * Ny);
+		setOrigin(origin);
+	}
+	
+	size_t getGridSize() const {
+		return grid.size();
+	}
+
+	void setSpacing(Vector3d spacing) {
+		this->spacing = spacing;
+		setOrigin(origin);
+	}
+
+	Vector3d getSpacing() const {
+		return spacing;
+	}
+
+	void setReflective(bool b) {
+		reflective = b;
+	}
+
+	void setVector(const std::vector<float> &v) {
+		std::transform(
+			v.begin(), v.end(), grid.begin(),
+			[](const float i) { return static_cast<T>(i); });
+	}
+
+	void addVector(std::unique_ptr<std::vector<T> > v2) {
+		std::transform(
+			v2->begin(), v2->end(),
+			grid.begin(), grid.begin(),
+			[](T el1, T el2) { return (el1+el2); });
+	}
+
+	void pushValue(T value) {
+		grid.push_back(value);
+	}
+	
+	Vector3d getOrigin() const {
+		return origin;
+	}
+	size_t getNx() const {
+		return Nx;
+	}
+
+	size_t getNy() const {
+		return Ny;
+	}
+
+	bool isReflective() const {
+		return reflective;
+	}
+
+	/** Inspector & Mutator */
+	T &get(size_t ix, size_t iy) {
+		return grid[ix * Ny + iy];
+	}
+
+	/** Inspector */
+	const T &get(size_t ix, size_t iy) const {
+		return grid[ix * Ny + iy];
+	}
+
+	T getValue(size_t ix, size_t iy) {
+		return grid[ix * Ny + iy];
+	}
+
+	void setValue(size_t ix, size_t iy, T value) {
+		grid[ix * Ny + iy] = value;
+	}
+	
+	void addValue(size_t ix, size_t iy, T value) {
+		grid[ix * Ny + iy] += value;
+	}
+
+	/** Return a reference to the grid values */
+	std::vector<T> &getGrid() {
+		return grid;
+	}
+
+	/** Position of the grid point of a given index */
+	Vector3d positionFromIndex(int index) const {
+		int ix = index / Ny;
+		int iy = index % Ny;
+		return Vector3d(ix, iy, 0) * spacing + gridOrigin;
+	}
+
+	/** Value of a grid point that is closest to a given position */
+	T closestValue(const Vector3d &position) const {
+		Vector3d r = (position - gridOrigin) / spacing;
+		int ix = round(r.x);
+		int iy = round(r.y);
+		if (reflective) {
+			while ((ix < 0) or (ix > Nx))
+				ix = 2 * Nx * (ix > Nx) - ix;
+			while ((iy < 0) or (iy > Ny))
+				iy = 2 * Ny * (iy > Ny) - iy;
+		} else {
+			ix = ((ix % Nx) + Nx) % Nx;
+			iy = ((iy % Ny) + Ny) % Ny;
+		}
+		return get(ix, iy);
+	}
+
+	/** Interpolate the grid at a given position */
+	T interpolate(const Vector3d &position) const {
+		// position on a unit grid
+		Vector3d r = (position - gridOrigin) / spacing;
+
+		// indices of lower and upper neighbors
+		int ix, iX, iy, iY;
+		if (reflective) {
+			reflectiveClamp(r.x, Nx, ix, iX);
+			reflectiveClamp(r.y, Ny, iy, iY);
+		} else {
+			periodicClamp(r.x, Nx, ix, iX);
+			periodicClamp(r.y, Ny, iy, iY);
+		}
+
+		// linear fraction to lower and upper neighbors
+		double fx = r.x - floor(r.x);
+		double fX = 1 - fx;
+		double fy = r.y - floor(r.y);
+		double fY = 1 - fy;
+		
+		// bilinear interpolation (see https://en.wikipedia.org/wiki/Bilinear_interpolation#Unit_square)
+		T b(0.);
+		//   f(0,0) (1 - x) (1 - y) +
+		b += get(ix, iy) * fX * fY;
+		//   f(1,0) x (1 - y) +
+		b += get(iX, iy) * fx * fY;
+		//   f(0,1) (1 - x) y +
+		b += get(ix, iY) * fX * fy;
+		//   f(1,1) x y +
+		b += get(iX, iY) * fx * fy;
+		
+		return b;
+	}
+};
+
+
+/**
+ * \addtogroup Core
+ * @{
+ */
+/**
  @class Grid
  @brief Template class for fields on a periodic grid with trilinear interpolation
 
@@ -268,15 +482,17 @@ public:
 	}
 };
 
+typedef Grid2D<float> Scalar2DGrid;
 typedef Grid<float> ScalarGrid;
+typedef Grid2D<QPDensityPerEnergy> ScalarGrid2DQPDensityPerEnergy;
 typedef Grid<QPDensityPerEnergy> ScalarGridQPDensityPerEnergy;
 typedef Grid<Vector3f> VectorGrid;
 typedef Grid<Vector3QLength> VectorQLengthGrid;
 typedef Grid<Vector3QMField> VectorQMFieldGrid;
 
-
-
 /** @}*/
+
+
 
 } // namespace hermes
 
