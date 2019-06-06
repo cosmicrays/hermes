@@ -52,7 +52,8 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 
 		} 
 	}
-	
+
+	// normalize according to the ring density model	
 	for(const auto &ring : *ngdensity) {
 		if(normIntegrals[ring->getIndex()] == QColumnDensity(0))
 			continue;

@@ -24,7 +24,9 @@ QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
 	
-	return sumIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(
+	//QDifferentialFlux tolerance = 1e10; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
+
+	return simpsonIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(
 			direction_,
 			[this](Vector3QLength pos, QEnergy Egamma) {return this->integrateOverEnergy(pos, Egamma);},
 			Egamma_);

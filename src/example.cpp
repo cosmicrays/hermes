@@ -25,7 +25,7 @@ void exampleIC() {
 		InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
 	
 	// skymap
-	int nside = 4;
+	int nside = 16;
         auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
                         QAngle(8_deg), QAngle(-8_deg), QAngle(-80_deg), QAngle(80_deg)));
 	auto skymaps = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 100_MeV));
