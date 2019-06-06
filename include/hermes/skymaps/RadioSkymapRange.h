@@ -18,7 +18,7 @@ public:
 	RadioSkymapRange(std::size_t nside_, QFrequency minFreq_, QFrequency maxFreq_, int freqSteps_);
 	~RadioSkymapRange();
 
-	void setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature> > integrator_);
+	void setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency> > integrator_);
 	void setMask(std::shared_ptr<SkymapMask> mask_);
 	void compute();
        

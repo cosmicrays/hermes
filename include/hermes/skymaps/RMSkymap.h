@@ -5,7 +5,7 @@
 
 namespace hermes {
 
-typedef SkymapTemplate<QRotationMeasure> RMSkymap;
+typedef SkymapTemplate<QRotationMeasure, QNumber> RMSkymap;
 
 } // namespace hermes
 

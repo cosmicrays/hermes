@@ -11,7 +11,7 @@
 
 namespace hermes {
 
-class SynchroIntegrator: public IntegratorTemplate<QTemperature> {
+class SynchroIntegrator: public IntegratorTemplate<QTemperature, QFrequency> {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<CosmicRayDensity> crdensity;

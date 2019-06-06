@@ -1,6 +1,5 @@
 #include "hermes/integrators/RMIntegrator.h"
-
-#include <iostream>
+#include "hermes/integrators/LOSIntegrationMethods.h"
 
 namespace hermes {
 
@@ -11,30 +10,19 @@ RMIntegrator::RMIntegrator(const std::shared_ptr<MagneticField> mfield,
 RMIntegrator::~RMIntegrator() { }
 
 QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) const {
+	return sumIntegration<QRotationMeasure, QRMIntegral>(
+			direction, [this](Vector3QLength pos) {return this->integralFunction(pos);});
+}
+
+QRMIntegral RMIntegrator::integralFunction(Vector3QLength pos) const {
 	constexpr auto const_a0 = pow<3>(e_plus)/(8*pi*pi*epsilon0*squared(m_electron)*pow<3>(c_light));
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	Vector3QLength pos(0.0);
-	Vector3QMField B;
-	QMField B_parallel;
+	
+	Vector3QMField B = mfield->getField(pos);
+	if (B.getR() == 0_muG) return 0;
+	// TODO: optimise
+	QMField B_parallel = B.getR() * cos((B.getValue()).getAngleTo(pos.getValue()));
 
-	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, direction);
-
-	QRotationMeasure sum(0);
-	QLength delta_d = 5.0_pc;
-	// TODO: implement sophisticated adaptive integration method :-)
-
-	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, direction);
-
-		B = mfield->getField(pos);
-		if (B.getR() == 0_muG) continue;
-		// TODO: optimise
-		B_parallel = B.getR() * cos((B.getValue()).getAngleTo(pos.getValue()));
-
-		sum += (const_a0 * B_parallel * gdensity->getDensity(pos) * delta_d) * radian;
-	}
-	return sum;
+	return const_a0 * B_parallel * gdensity->getDensity(pos) * radian;
 }
 
 } // namespace hermes 

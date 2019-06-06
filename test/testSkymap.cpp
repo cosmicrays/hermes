@@ -4,9 +4,9 @@
 
 namespace hermes {
 
-typedef SkymapTemplate<QNumber> SimpleSkymap;
+typedef SkymapTemplate<QNumber, QFrequency> SimpleSkymap;
 
-class DummyIntegrator: public IntegratorTemplate<QNumber> {
+class DummyIntegrator: public IntegratorTemplate<QNumber, QFrequency> {
 public:
         DummyIntegrator() {
 	};

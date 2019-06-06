@@ -18,7 +18,7 @@ public:
 	DiffFluxSkymapRange(std::size_t nside_, QEnergy minEn_, QEnergy maxEn_, int enSteps_);
 	~DiffFluxSkymapRange();
 
-	void setIntegrator(std::shared_ptr<IntegratorTemplate<QDifferentialFlux> > integrator_);
+	void setIntegrator(std::shared_ptr<IntegratorTemplate<QDifferentialFlux, QEnergy> > integrator_);
 	void setMask(std::shared_ptr<SkymapMask> mask_);
 	void compute();
        

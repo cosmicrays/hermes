@@ -29,7 +29,7 @@ void DiffFluxSkymapRange::initEnergyRange() {
 	}
 }
 
-void DiffFluxSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QDifferentialFlux> > integrator_) {
+void DiffFluxSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QDifferentialFlux, QEnergy> > integrator_) {
 	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		it->setIntegrator(integrator_);
 	}

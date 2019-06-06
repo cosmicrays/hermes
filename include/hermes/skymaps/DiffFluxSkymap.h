@@ -5,7 +5,7 @@
 
 namespace hermes {
 
-class DiffFluxSkymap: public SkymapTemplate<QDifferentialFlux> {
+class DiffFluxSkymap: public SkymapTemplate<QDifferentialFlux, QEnergy> {
 private:
 	QEnergy Egamma;
 public:
@@ -19,7 +19,7 @@ public:
 	}
 	void computePixel(
 		std::size_t ipix,
-		std::shared_ptr<IntegratorTemplate<QDifferentialFlux> > integrator_) {
+		std::shared_ptr<IntegratorTemplate<QDifferentialFlux, QEnergy> > integrator_) {
 		iterdir = pix2ang_ring(getNside(), ipix);
 		fluxContainer[ipix] = integrator_->integrateOverLOS(iterdir, Egamma);
 	}

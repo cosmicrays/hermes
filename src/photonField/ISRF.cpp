@@ -1,5 +1,3 @@
-#ifdef HERMES_HAVE_CFITSIO
-
 #include "hermes/photonField/ISRF.h"
 #include "hermes/Common.h"
 
@@ -141,5 +139,3 @@ namespace hermes {
 	}
 
 } // namespace hermes
-
-#endif // HERMES_HAVE_CFITSIO

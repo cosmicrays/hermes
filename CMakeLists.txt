@@ -175,7 +175,6 @@ add_library(hermes SHARED
 	src/skymaps/SkymapMask.cpp
 	src/skymaps/DiffFluxSkymapRange.cpp
 	src/skymaps/RadioSkymapRange.cpp
-	src/integrators/Integrator.cpp
 	src/integrators/GenericIntegrator.cpp
 	src/integrators/RMIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
@@ -330,7 +329,7 @@ add_definitions(-DHERMES_INSTALL_PREFIX="${CMAKE_INSTALL_PREFIX}")
 install(TARGETS hermes DESTINATION lib)
 install(DIRECTORY include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 install(DIRECTORY ${CMAKE_BINARY_DIR}/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
-install(DIRECTORY ${CMAKE_BINARY_DIR}/data/ DESTINATION share/hermes/ PATTERN ".git" EXCLUDE)
+install(DIRECTORY ${CMAKE_BINARY_DIR}/data/ DESTINATION share/hermes/data PATTERN ".git" EXCLUDE)
 install(DIRECTORY libs/ymw16/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
 install(DIRECTORY libs/cparamlib/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
 install(DIRECTORY libs/kiss/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)

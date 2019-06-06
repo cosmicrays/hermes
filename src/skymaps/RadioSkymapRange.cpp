@@ -29,7 +29,7 @@ void RadioSkymapRange::initFrequencyRange() {
 	}
 }
 
-void RadioSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature> > integrator_) {
+void RadioSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency> > integrator_) {
 	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		it->setIntegrator(integrator_);
 	}

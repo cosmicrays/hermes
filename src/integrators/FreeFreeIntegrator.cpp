@@ -1,6 +1,6 @@
 #include "hermes/integrators/FreeFreeIntegrator.h"
+#include "hermes/integrators/LOSIntegrationMethods.h"
 
-#include <iostream>
 #include <memory>
 
 namespace hermes {
@@ -11,6 +11,20 @@ FreeFreeIntegrator::FreeFreeIntegrator(
 }
 
 FreeFreeIntegrator::~FreeFreeIntegrator() { }
+
+QTemperature FreeFreeIntegrator::integrateOverLOS(
+                QDirection direction) const {
+	return integrateOverLOS(direction, 408.0_GHz);
+}
+
+QTemperature FreeFreeIntegrator::integrateOverLOS(
+		QDirection direction, QFrequency freq_) const {
+
+	QIntensity total_intensity = sumIntegration<QIntensity, QEmissivity, QFrequency>(
+			direction, [this](Vector3QLength pos, QFrequency freq) {return this->spectralEmissivity(pos, freq);}, freq_);
+
+	return intensityToTemperature(total_intensity / 4_pi, freq_);
+}
 
 QNumber FreeFreeIntegrator::gauntFactor(QFrequency freq, QTemperature T, int Z) const {
 
@@ -56,32 +70,6 @@ QEmissivity FreeFreeIntegrator::spectralEmissivityExplicit(
 
 	return K * Z*Z * gauntFactor(freq, T, Z) * N * N_e * sqrt(1/T) *
 		exp(-h_planck*freq/(k_boltzmann*T));
-}
-
-
-QTemperature FreeFreeIntegrator::integrateOverLOS(
-                QDirection direction) const {
-	return integrateOverLOS(direction, 408.0_GHz);
-}
-
-QTemperature FreeFreeIntegrator::integrateOverLOS(
-		QDirection direction, QFrequency freq_) const {
-
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	Vector3QLength pos(0.0);
-	QIntensity total_intensity(0);
-	QLength delta_d = 10.0_pc;
-
-	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, direction);
-
-	// TODO: implement sophisticated adaptive integration method :-)
-	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, direction);
-		total_intensity += spectralEmissivity(pos, freq_) * delta_d;
-	}
-	
-	return intensityToTemperature(total_intensity / 4_pi, freq_);
 }
 
 } // namespace hermes 

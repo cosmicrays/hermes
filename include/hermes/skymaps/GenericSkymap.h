@@ -6,7 +6,7 @@
 
 namespace hermes {
 
-class GenericSkymap: public SkymapTemplate<QNumber> {
+class GenericSkymap: public SkymapTemplate<QNumber, QFrequency> {
 private:
 	QFrequency freq;
 public:
@@ -20,7 +20,7 @@ public:
 	}
 	void computePixel(
 		std::size_t ipix,
-		std::shared_ptr<IntegratorTemplate<QNumber> > integrator_) {
+		std::shared_ptr<IntegratorTemplate<QNumber, QFrequency> > integrator_) {
 		iterdir = pix2ang_ring(getNside(), ipix);
 		fluxContainer[ipix] = integrator_->integrateOverLOS(iterdir, freq);
 	}

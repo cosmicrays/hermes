@@ -41,9 +41,9 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	
 	std::vector<PID> particletypes = {Proton};
-	auto dragonModel = std::make_shared<DragonCRDensity>(DragonCRDensity(
+	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(
 				getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
-				particletypes, DragonFileType::_2D)); 
+				particletypes)); 
 	// interaction
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
 	// HI model

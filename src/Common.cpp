@@ -13,7 +13,7 @@ std::string getDataPath(std::string filename) {
         if (dataPath.size())
                 return concat_path(dataPath, filename);
 
-        const char *env_path = getenv("HERME_DATA_PATH");
+        const char *env_path = getenv("HERMES_DATA_PATH");
         if (env_path) {
                 if (is_directory(env_path)) {
                         dataPath = env_path;
@@ -25,7 +25,7 @@ std::string getDataPath(std::string filename) {
 
 #ifdef HERMES_INSTALL_PREFIX
         {
-                std::string _path = HERMES_INSTALL_PREFIX "/share/crpropa";
+                std::string _path = HERMES_INSTALL_PREFIX "/share/hermes/data";
                 if (is_directory(_path)) {
                         dataPath = _path;
                         KISS_LOG_INFO

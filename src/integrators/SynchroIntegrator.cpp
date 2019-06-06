@@ -1,4 +1,5 @@
 #include "hermes/integrators/SynchroIntegrator.h"
+#include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/Common.h"
 
 #include <memory>
@@ -22,19 +23,9 @@ QTemperature SynchroIntegrator::integrateOverLOS(
 QTemperature SynchroIntegrator::integrateOverLOS(
 		QDirection direction, QFrequency freq_) const {
 
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	Vector3QLength pos(0.0);
-	QIntensity total_intensity(0);
-	QLength delta_d = 10.0_pc;
+	QIntensity total_intensity = sumIntegration<QIntensity, QEmissivity, QFrequency>(
+			direction, [this](Vector3QLength pos, QFrequency freq) {return this->integrateOverEnergy(pos, freq);}, freq_);
 
-	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, direction);
-
-	// TODO: implement sophisticated adaptive integration method :-)
-	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, direction);
-		total_intensity += integrateOverEnergy(pos, freq_) * delta_d;
-	}
 	return intensityToTemperature(total_intensity / 4_pi, freq_);
 }
 

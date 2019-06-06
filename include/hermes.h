@@ -23,6 +23,7 @@
 #include "hermes/skymaps/RadioSkymapRange.h"
 
 #include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/integrators/GenericIntegrator.h"
 #include "hermes/integrators/RMIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"

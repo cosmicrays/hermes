@@ -12,10 +12,12 @@
 
 namespace hermes {
 
-class RMIntegrator: public IntegratorTemplate<QRotationMeasure> {
+class RMIntegrator: public IntegratorTemplate<QRotationMeasure, QNumber> {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<ChargedGasDensity> gdensity;
+
+	QRMIntegral integralFunction(Vector3QLength pos) const;
 public:
 	RMIntegrator(const std::shared_ptr<MagneticField> mfield, const std::shared_ptr<ChargedGasDensity> gdensity);
 	~RMIntegrator();

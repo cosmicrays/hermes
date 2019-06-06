@@ -6,26 +6,22 @@
 #include "hermes/HEALPixBits.h"
 #include "hermes/Common.h"
 
-#include <memory>
-
 namespace hermes {
 
-template <class T>
+template <class QPXL, typename QSTEP>
 class IntegratorTemplate {
 public:
 	IntegratorTemplate() { };
-
 	/**
  		Every child class should implement this method which represents an integral
 		of a targeted accumulated quantity `T` in a given direction `interdir`.
 	*/
-	virtual T integrateOverLOS(QDirection iterdir) const = 0;
+	virtual QPXL integrateOverLOS(QDirection iterdir) const { return  QPXL(0); };
 	/**
-		Additionally, for a frequency dependent integrals should implement
-		the second method too.
+		Additionally, for a frequency or energy dependent integrals one should
+		implement the following method too.
 	*/
-	virtual T integrateOverLOS(QDirection iterdir, QFrequency) const { return T(0); };
-	virtual T integrateOverLOS(QDirection iterdir, QEnergy) const { return T(0); };
+	virtual QPXL integrateOverLOS(QDirection iterdir, QSTEP) const { return QPXL(0); };
 };
 
 } // namespace hermes

@@ -13,7 +13,7 @@
 
 namespace hermes {
 
-class InverseComptonIntegrator: public IntegratorTemplate<QDifferentialFlux> {
+class InverseComptonIntegrator: public IntegratorTemplate<QDifferentialFlux, QEnergy> {
 private:
 	std::shared_ptr<CosmicRayDensity> crdensity;
 	std::shared_ptr<PhotonField> phdensity;

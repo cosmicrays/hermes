@@ -29,45 +29,9 @@ QNumber GenericIntegrator::integrateOverLOS(
 QNumber GenericIntegrator::integrateOverLOS(
 		QDirection direction_, QFrequency freq_) const {
 
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	Vector3QLength pos(0.0);
-	QIntensity total_intensity(0);
-	QLength delta_d = 1.0_pc;
-
 	double tot = 0;
-	//for (int i = 6; i < 7; ++i)
-		tot += static_cast<double>((ngdensity->operator[](5))->getHIColumnDensity(direction_));
-
+	tot = static_cast<double>((ngdensity->operator[](5))->getHIColumnDensity(direction_));
 	return tot;
-	/*
-
-	QInverseLength opticalDepth(0);
-	std::vector<QInverseLength> opticalDepthLOS;
-
-	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, direction_);
-	
-	for(QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, direction_);
-		opticalDepth += intFreeFree->absorptionCoefficient(pos, freq_);
-		opticalDepthLOS.push_back(opticalDepth);
-	}
-	return QNumber(opticalDepth.getValue()/opticalDepthLOS.size()); //opticalDepthLOS[opticalDepthLOS.size()-1]; */
-	//if (opticalDepthLOS[opticalDepthLOS.size()-1] > QNumber(1))
-	//	std::cerr << opticalDepthLOS[opticalDepthLOS.size()-1] << std::endl;
-
-	// TODO: implement sophisticated adaptive integration method :-)
-	/*auto opticalDepthIter = opticalDepthLOS.begin();
-	for(QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, direction_);
-	
-		total_intensity += intSynchro->integrateOverEnergy(pos, freq_) / 4_pi * 
-					exp((*opticalDepthIter) - opticalDepthLOS[opticalDepthLOS.size()-1]) * delta_d;
-		++opticalDepthIter;
-	}
-
-	return intensityToTemperature(total_intensity, freq_);
-	*/
 }
 
 } // namespace hermes 

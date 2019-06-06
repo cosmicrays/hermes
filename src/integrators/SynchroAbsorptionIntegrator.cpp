@@ -43,14 +43,11 @@ QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(
 		opticalDepth += intFreeFree->absorptionCoefficient(pos, freq_) * delta_d;
 		opticalDepthLOS.push_back(opticalDepth);
 	}
-	//if (opticalDepthLOS[opticalDepthLOS.size()-1] > QNumber(1))
-	//	std::cerr << opticalDepthLOS[opticalDepthLOS.size()-1] << std::endl;
 
 	// TODO: implement sophisticated adaptive integration method :-)
 	auto opticalDepthIter = opticalDepthLOS.begin();
 	for(QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
 		pos = getGalacticPosition(positionSun, dist, direction_);
-	
 		total_intensity += intSynchro->integrateOverEnergy(pos, freq_) / 4_pi * 
 					exp((*opticalDepthIter) - opticalDepthLOS[opticalDepthLOS.size()-1]) * delta_d;
 		++opticalDepthIter;

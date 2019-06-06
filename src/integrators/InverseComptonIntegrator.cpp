@@ -1,4 +1,5 @@
 #include "hermes/integrators/InverseComptonIntegrator.h"
+#include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/Common.h"
 
 #include <memory>
@@ -22,21 +23,11 @@ QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 
 QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
-
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	Vector3QLength pos(0.0);
-	QDifferentialFlux total_diff_flux(0.0);
-	QLength delta_d = 50.0_pc;
-
-	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, direction_);
 	
-	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, direction_);
-		total_diff_flux += integrateOverEnergy(pos, Egamma_) * delta_d;
-	}
-	
-	return total_diff_flux;
+	return sumIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(
+			direction_,
+			[this](Vector3QLength pos, QEnergy Egamma) {return this->integrateOverEnergy(pos, Egamma);},
+			Egamma_);
 }
 
 QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {

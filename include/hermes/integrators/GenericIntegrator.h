@@ -11,7 +11,7 @@
 
 namespace hermes {
 
-class GenericIntegrator: public IntegratorTemplate<QNumber> {
+class GenericIntegrator: public IntegratorTemplate<QNumber, QFrequency> {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<CosmicRayDensity> crdensity;

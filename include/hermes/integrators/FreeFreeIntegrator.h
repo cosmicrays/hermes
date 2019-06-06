@@ -11,7 +11,7 @@
 
 namespace hermes {
 
-class FreeFreeIntegrator: public IntegratorTemplate<QTemperature> {
+class FreeFreeIntegrator: public IntegratorTemplate<QTemperature, QFrequency> {
 private:
 	std::shared_ptr<ChargedGasDensity> gdensity;
 
