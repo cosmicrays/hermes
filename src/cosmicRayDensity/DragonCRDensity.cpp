@@ -13,34 +13,34 @@
 
 namespace hermes {
 
-DragonCRDensity::DragonCRDensity(
-		const std::string& filename_, const PID& pid_, DragonFileType type_)
-    : CosmicRayDensity(true), filename(filename_), fileType(type_) {
+Dragon2DCRDensity::Dragon2DCRDensity(
+		const std::string& filename_, const PID& pid_)
+    : CosmicRayDensity(true), filename(filename_) {
 	enablePID(pid_);
 	readFile();
 }
 
-DragonCRDensity::DragonCRDensity(
-		const std::string& filename_, const std::vector<PID> &pids_, DragonFileType type_)
-    : CosmicRayDensity(true), filename(filename_), fileType(type_) {
+Dragon2DCRDensity::Dragon2DCRDensity(
+		const std::string& filename_, const std::vector<PID> &pids_)
+    : CosmicRayDensity(true), filename(filename_) {
 	for(auto const& p: pids_)
 		enablePID(p);
 	readFile();
 }
 
-void DragonCRDensity::enablePID(const PID &pid_) {
+void Dragon2DCRDensity::enablePID(const PID &pid_) {
 	listOfPIDs.insert(pid_.getID());
 }
 	
-void DragonCRDensity::disablePID(const PID &pid_) {
+void Dragon2DCRDensity::disablePID(const PID &pid_) {
 	listOfPIDs.erase(listOfPIDs.find(pid_.getID()));
 }
 
-bool DragonCRDensity::isPIDEnabled(const PID &pid_) const {
+bool Dragon2DCRDensity::isPIDEnabled(const PID &pid_) const {
 	return (listOfPIDs.count(pid_.getID()) > 0);
 }
 
-void DragonCRDensity::readFile() {
+void Dragon2DCRDensity::readFile() {
 	ffile = std::make_unique<FITSFile>(FITSFile(filename)); 
   
 	ffile->openFile(FITS::READ);
@@ -48,25 +48,17 @@ void DragonCRDensity::readFile() {
 	
 	// read header
 	readEnergyAxis();
-	
-	if (fileType == DragonFileType::_2D)
-		readSpatialGrid2D();
-	else
-		readSpatialGrid3D();
-	
-	// read density grid
-	if (fileType == DragonFileType::_2D)
-		readDensity2D();
-	else
-		readDensity3D();
+
+	readSpatialGrid2D();
+	readDensity2D();
 }
 
-QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
+QPDensityPerEnergy Dragon2DCRDensity::getDensityPerEnergy(
 		const QEnergy &E_, const Vector3QLength& pos_) const {
     	return getDensityPerEnergy(energyIndex.at(E_), pos_);
 }
 
-QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
+QPDensityPerEnergy Dragon2DCRDensity::getDensityPerEnergy(
 		int iE_, const Vector3QLength& pos_) const {
 	if (pos_.z < zmin || pos_.z > zmax)
 		return QPDensityPerEnergy(0);
@@ -75,10 +67,11 @@ QPDensityPerEnergy DragonCRDensity::getDensityPerEnergy(
 	if (rho > rmax)
 		return QPDensityPerEnergy(0);
 
-    	return (grid[iE_])->interpolate(pos_);
+	auto pos = Vector3QLength(rho, pos_.z, 0);
+    	return (grid[iE_])->interpolate(pos);
 }
 
-void DragonCRDensity::readEnergyAxis() {
+void Dragon2DCRDensity::readEnergyAxis() {
     	QEnergy E;
 	double Ekmin = ffile->readKeyValueAsDouble("Ekmin");
 	dimE = ffile->readKeyValueAsInt("dimE");
@@ -93,7 +86,7 @@ void DragonCRDensity::readEnergyAxis() {
 	}
 }
 
-void DragonCRDensity::readSpatialGrid2D() {
+void Dragon2DCRDensity::readSpatialGrid2D() {
 
 	rmin = ffile->readKeyValueAsDouble("rmin") * 1_kpc;
 	rmax = ffile->readKeyValueAsDouble("rmax") * 1_kpc;
@@ -106,56 +99,26 @@ void DragonCRDensity::readSpatialGrid2D() {
 	QLength deltar = (rmax - rmin) / (dimr - 1);
 	QLength deltaz = (zmax - zmin) / (dimz - 1);
  
-	Vector3d origin(-1*rmax.getValue(), -1*rmax.getValue(), zmin.getValue());
-	Vector3d spacing(deltar.getValue(), deltar.getValue(), deltaz.getValue());
+	//Vector3d origin(-1*rmax.getValue(), -1*rmax.getValue(), zmin.getValue());
+	Vector3d origin(-1*rmax.getValue(), zmin.getValue(), 0);
+	Vector3d spacing(deltar.getValue(), deltaz.getValue(), 0);
 	
 	for (int i = 0; i < dimE; ++i) {
 		grid.push_back(
-			std::make_unique<ScalarGridQPDensityPerEnergy>(
-				ScalarGridQPDensityPerEnergy(origin,
-					2*dimr, 2*dimr, dimz, spacing)));
+			std::make_unique<ScalarGrid2DQPDensityPerEnergy>(
+				ScalarGrid2DQPDensityPerEnergy(origin,
+					dimr, dimz, spacing)));
 	}
 
 }
  
-
-void DragonCRDensity::readSpatialGrid3D() {
-
-	xmin = ffile->readKeyValueAsDouble("xmin") * 1_kpc;
-	xmax = ffile->readKeyValueAsDouble("xmax") * 1_kpc;
-	ymin = ffile->readKeyValueAsDouble("ymin") * 1_kpc;
-	ymax = ffile->readKeyValueAsDouble("ymax") * 1_kpc;
-	zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
-	zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
-	rmax = sqrt(xmax*xmax + ymax*ymax);
-	
-	dimx = ffile->readKeyValueAsInt("dimx");
-	dimy = ffile->readKeyValueAsInt("dimy");
-	dimz = ffile->readKeyValueAsInt("dimz");
-   
-	QLength deltax = (xmax - xmin) / (dimx - 1);
-	QLength deltay = (ymax - ymin) / (dimy - 1);
-	QLength deltaz = (zmax - zmin) / (dimz - 1);
- 
-	Vector3d origin(xmin.getValue(), ymin.getValue(), zmin.getValue());
-	Vector3d spacing(deltax.getValue(), deltay.getValue(), deltaz.getValue());
-	
-	for (int i = 0; i < dimE; ++i) {
-		grid.push_back(
-			std::make_unique<ScalarGridQPDensityPerEnergy>(
-				ScalarGridQPDensityPerEnergy(origin,
-					dimx, dimy, dimz, spacing)));
-	}
-
-}
-	
-std::size_t DragonCRDensity::calcArrayIndex2D(
+std::size_t Dragon2DCRDensity::calcArrayIndex2D(
 	std::size_t iE, std::size_t ir, std::size_t iz) {
 	return (iz*dimr + ir)*dimE + iE;
 }
 	
  
-void DragonCRDensity::readDensity2D() {
+void Dragon2DCRDensity::readDensity2D() {
     
 	int hduIndex = 2;  
 	int hduActual = 0;
@@ -188,33 +151,11 @@ void DragonCRDensity::readDensity2D() {
 			std::cerr << "... reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual << std::endl;
 
 			std::vector<float> rawData = ffile->readImageAsFloat(firstElement, nElements);
-	
-			double dist;
-			std::size_t ix_c, iy_c, ir_back, ir_front;
-			QPDensityPerEnergy frontValue, backValue, interpolatedValue;
-
 			for (std::size_t iE = 0; iE < dimE; ++iE) {
-				for (std::size_t ix = 0; ix < 2*dimr; ++ix) {
-					for (std::size_t iy = 0; iy < 2*dimr; ++iy) {
-						
-						ix_c = ix-dimr+2; iy_c = iy-dimr+2;
-						dist = std::sqrt(ix_c*ix_c + iy_c*iy_c);
-						
-						// determine discrete points
-						ir_back = static_cast<int>(std::trunc(dist));
-						ir_front = ir_back + 1;
-
-						if (ir_front >= dimr) continue;
-
-						for (std::size_t iz = 0; iz < dimz; ++iz) {
-							frontValue = fluxToDensity * rawData[calcArrayIndex2D(iE, ir_back, iz)];
-							backValue = fluxToDensity * rawData[calcArrayIndex2D(iE, ir_front, iz)];
-	
-							// two-point linear interpolation (between two "rings")
-							interpolatedValue = (frontValue - backValue) * (dist - ir_back)
-										+ backValue;
-							grid[iE]->addValue(ix, iy, iz, interpolatedValue);
-						}
+				for (std::size_t ir = 0; ir < dimr; ++ir) {
+					for (std::size_t iz = 0; iz < dimz; ++iz) {
+						grid[iE]->addValue(ir, iz,
+								fluxToDensity * rawData[calcArrayIndex2D(iE, ir, iz)]);
 					}
 				}
 			}
@@ -223,7 +164,111 @@ void DragonCRDensity::readDensity2D() {
     }
 }
 
-void DragonCRDensity::readDensity3D() {
+// Dragon3DCRDensity
+
+Dragon3DCRDensity::Dragon3DCRDensity(
+		const std::string& filename_, const PID& pid_)
+    : CosmicRayDensity(true), filename(filename_) {
+	enablePID(pid_);
+	readFile();
+}
+
+Dragon3DCRDensity::Dragon3DCRDensity(
+		const std::string& filename_, const std::vector<PID> &pids_)
+    : CosmicRayDensity(true), filename(filename_) {
+	for(auto const& p: pids_)
+		enablePID(p);
+	readFile();
+}
+
+void Dragon3DCRDensity::enablePID(const PID &pid_) {
+	listOfPIDs.insert(pid_.getID());
+}
+	
+void Dragon3DCRDensity::disablePID(const PID &pid_) {
+	listOfPIDs.erase(listOfPIDs.find(pid_.getID()));
+}
+
+bool Dragon3DCRDensity::isPIDEnabled(const PID &pid_) const {
+	return (listOfPIDs.count(pid_.getID()) > 0);
+}
+
+void Dragon3DCRDensity::readFile() {
+	ffile = std::make_unique<FITSFile>(FITSFile(filename)); 
+  
+	ffile->openFile(FITS::READ);
+	ffile->moveToHDU(1);
+	
+	// read header
+	readEnergyAxis();
+	
+	readSpatialGrid3D();
+	readDensity3D();
+}
+
+QPDensityPerEnergy Dragon3DCRDensity::getDensityPerEnergy(
+		const QEnergy &E_, const Vector3QLength& pos_) const {
+    	return getDensityPerEnergy(energyIndex.at(E_), pos_);
+}
+
+QPDensityPerEnergy Dragon3DCRDensity::getDensityPerEnergy(
+		int iE_, const Vector3QLength& pos_) const {
+	if (pos_.z < zmin || pos_.z > zmax)
+		return QPDensityPerEnergy(0);
+	
+	QLength rho = sqrt(pos_.x*pos_.x + pos_.y*pos_.y);
+	if (rho > rmax)
+		return QPDensityPerEnergy(0);
+
+    	return (grid[iE_])->interpolate(pos_);
+}
+
+void Dragon3DCRDensity::readEnergyAxis() {
+    	QEnergy E;
+	double Ekmin = ffile->readKeyValueAsDouble("Ekmin");
+	dimE = ffile->readKeyValueAsInt("dimE");
+	energyScaleFactor = ffile->readKeyValueAsDouble("Ekin_fac");
+
+	// input files are in GeV	
+	for (int i = 0; i < dimE; ++i) {
+		E = 1_GeV * std::exp(std::log(Ekmin) +
+			static_cast<double>(i) * std::log(energyScaleFactor));
+    		energyRange.push_back(E);
+		energyIndex[E] = i;
+	}
+}
+
+void Dragon3DCRDensity::readSpatialGrid3D() {
+
+	xmin = ffile->readKeyValueAsDouble("xmin") * 1_kpc;
+	xmax = ffile->readKeyValueAsDouble("xmax") * 1_kpc;
+	ymin = ffile->readKeyValueAsDouble("ymin") * 1_kpc;
+	ymax = ffile->readKeyValueAsDouble("ymax") * 1_kpc;
+	zmin = ffile->readKeyValueAsDouble("zmin") * 1_kpc;
+	zmax = ffile->readKeyValueAsDouble("zmax") * 1_kpc;
+	rmax = sqrt(xmax*xmax + ymax*ymax);
+	
+	dimx = ffile->readKeyValueAsInt("dimx");
+	dimy = ffile->readKeyValueAsInt("dimy");
+	dimz = ffile->readKeyValueAsInt("dimz");
+   
+	QLength deltax = (xmax - xmin) / (dimx - 1);
+	QLength deltay = (ymax - ymin) / (dimy - 1);
+	QLength deltaz = (zmax - zmin) / (dimz - 1);
+ 
+	Vector3d origin(xmin.getValue(), ymin.getValue(), zmin.getValue());
+	Vector3d spacing(deltax.getValue(), deltay.getValue(), deltaz.getValue());
+	
+	for (int i = 0; i < dimE; ++i) {
+		grid.push_back(
+			std::make_unique<ScalarGridQPDensityPerEnergy>(
+				ScalarGridQPDensityPerEnergy(origin,
+					dimx, dimy, dimz, spacing)));
+	}
+
+}
+	
+void Dragon3DCRDensity::readDensity3D() {
     
 	int hduIndex = 2;  
 	int hduActual = 0;

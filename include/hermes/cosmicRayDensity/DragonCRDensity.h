@@ -48,19 +48,48 @@ static const PID Positron(1, 0);
 static const PID Proton(1, 1);
 static const PID Helium(2, 4);
 
-enum class DragonFileType { _2D, _3D };
-
-class DragonCRDensity: public CosmicRayDensity {
+class Dragon2DCRDensity: public CosmicRayDensity {
 private:
   	std::string filename;
 	std::unique_ptr<FITSFile> ffile;
-	DragonFileType fileType;
 
 	void readFile();
 	void readEnergyAxis();
 	void readSpatialGrid2D();
-	void readSpatialGrid3D();
 	void readDensity2D();
+	std::size_t calcArrayIndex2D(
+		std::size_t iE, std::size_t ir, std::size_t iz);
+
+	void enablePID(const PID &pid_);
+	void disablePID(const PID &pid_);
+	bool isPIDEnabled(const PID &pid_) const;
+  
+	QLength rmin, rmax, zmin, zmax;
+	int dimE;
+	int dimz, dimr;
+	std::vector<std::unique_ptr<ScalarGrid2DQPDensityPerEnergy> > grid;
+	std::set<int> listOfPIDs;
+	
+	//TODO: implement as std::unordered_map
+	std::map<QEnergy, std::size_t> energyIndex;
+public:
+	Dragon2DCRDensity();
+	Dragon2DCRDensity(const std::string &filename_,
+			const PID &pid_);
+	Dragon2DCRDensity(const std::string &filename_,
+			const std::vector<PID> &pids_);
+	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const;
+	QPDensityPerEnergy getDensityPerEnergy(int iE_, const Vector3QLength& pos_) const;
+};
+
+class Dragon3DCRDensity: public CosmicRayDensity {
+private:
+  	std::string filename;
+	std::unique_ptr<FITSFile> ffile;
+
+	void readFile();
+	void readEnergyAxis();
+	void readSpatialGrid3D();
 	void readDensity3D();
 	std::size_t calcArrayIndex2D(
 		std::size_t iE, std::size_t ir, std::size_t iz);
@@ -79,14 +108,15 @@ private:
 	//TODO: implement as std::unordered_map
 	std::map<QEnergy, std::size_t> energyIndex;
 public:
-	DragonCRDensity();
-	DragonCRDensity(const std::string &filename_,
-			const PID &pid_, DragonFileType type_ = DragonFileType::_3D);
-	DragonCRDensity(const std::string &filename_,
-			const std::vector<PID> &pids_, DragonFileType type_ = DragonFileType::_3D);
+	Dragon3DCRDensity();
+	Dragon3DCRDensity(const std::string &filename_,
+			const PID &pid_);
+	Dragon3DCRDensity(const std::string &filename_,
+			const std::vector<PID> &pids_);
 	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const;
 	QPDensityPerEnergy getDensityPerEnergy(int iE_, const Vector3QLength& pos_) const;
 };
+
 
 } // namespace hermes
 
