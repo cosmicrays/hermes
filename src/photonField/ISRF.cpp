@@ -31,16 +31,16 @@ namespace hermes {
 
 	void ISRF::loadFrequencyAxis() {
 		double logwl = log10(0.01); // micron
-		for (size_t i = 0; i < 200; ++i) {
-			logwavelenghts.push_back(logwl);
+		for (size_t i = 0; i < freqR1; ++i) {
+			logwavelenghts[i] = logwl;
 			logwl += 0.01;
 		}
-		for (size_t i = 0; i < 680; ++i) {
-			logwavelenghts.push_back(logwl);
+		for (size_t i = 0; i < freqR2; ++i) {
+			logwavelenghts[freqR1 + i] = logwl;
 			logwl += 0.0025;
 		}
-		for (size_t i = 0; i < 331; ++i) {
-			logwavelenghts.push_back(logwl);
+		for (size_t i = 0; i < freqR3; ++i) {
+			logwavelenghts[freqR1 + freqR2 + i] = logwl;
 			logwl += 0.01;
 		}
 	}

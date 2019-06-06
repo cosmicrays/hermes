@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include <memory>
+#include <chrono>
 
 #include "hermes.h"
 
@@ -69,6 +70,36 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 
 	// sqrt(3)*e_charge^3/(8*pi^2*epsilon_0*c*electron_mass)*0.655*1*microGauss*1/(m^3*J)*1_eV
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
+}
+
+TEST(PiZeroIntegrator, PerformanceTest) {
+        // cosmic rays
+	std::vector<PID> particletypes = {Proton};
+        auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(
+                                getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
+                                particletypes));
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	// interaction
+	auto kamae = std::make_shared<Kamae06>(Kamae06());
+	// HI model
+	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity());
+	// integrator
+	auto in = std::make_shared<PiZeroIntegrator>(
+		PiZeroIntegrator(simpleModel, ringModel, kamae));
+
+        QDirection dir;
+        dir[0] = 90_deg; dir[1] = 10_deg;
+        QEnergy Egamma = 1_GeV;
+
+        std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+        auto res = in->integrateOverLOS(dir, Egamma);
+        std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
+
+        auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+	
+	std::cerr << "LOS: " << milliseconds.count() << " ms" << std::endl;
+
+        EXPECT_LE(milliseconds.count(), 350); // ms
 }
 
 int main(int argc, char **argv) {

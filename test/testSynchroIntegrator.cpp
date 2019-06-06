@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include <memory>
+#include <chrono>
 
 #include "hermes.h"
 
@@ -116,6 +117,26 @@ TEST(SynchroIntegrator, integrateOverLOS) {
 	QTemperature T_expected = intensityToTemperature(
 		QIntensity(1.3892e-34)/4_pi, freq);
 	EXPECT_NEAR(T.getValue(), T_expected.getValue(), 1e-9); // K
+}
+
+TEST(SynchroIntegrator, PerformanceTest) {
+        auto mfield = std::make_shared<JF12Field>(JF12Field());
+	std::vector<PID> particletypes = {Electron, Positron};
+	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(
+				getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
+				particletypes)); 
+	auto in = std::make_shared<SynchroIntegrator>(SynchroIntegrator(mfield, dragonModel));
+
+        QDirection dir;
+        dir[0] = 90_deg; dir[1] = 10_deg;
+
+        std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+        auto res = in->integrateOverLOS(dir);
+        std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
+
+        auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+        EXPECT_LE(milliseconds.count(), 100); // ms
 }
 
 

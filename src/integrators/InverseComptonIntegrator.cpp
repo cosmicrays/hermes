@@ -24,12 +24,13 @@ QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
 	
-	//QDifferentialFlux tolerance = 1e10; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
+	QDifferentialFlux tolerance = 1e10; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
 
-	return simpsonIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(
+	return adaptiveSimpsonIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(
 			direction_,
 			[this](Vector3QLength pos, QEnergy Egamma) {return this->integrateOverEnergy(pos, Egamma);},
-			Egamma_);
+			Egamma_,
+			tolerance, 20);
 }
 
 QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {

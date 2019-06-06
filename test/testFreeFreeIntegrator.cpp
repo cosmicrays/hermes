@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+#include <chrono>
 #include <memory>
 
 #include "hermes.h"
@@ -99,6 +100,21 @@ TEST(FreeFreeIntegrator, absorptionCoefficient) {
 	EXPECT_NEAR(absorption.getValue(), 1.1512e-23, 1e-25); // 1/m
 }
 
+TEST(FreeFreeIntegrator, PerformanceTest) {
+        auto gasdenisty = std::make_shared<YMW16>(YMW16());
+        auto in = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gasdenisty));
+
+        QDirection dir;
+        dir[0] = 90_deg; dir[1] = 10_deg;
+
+        std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+        auto res = in->integrateOverLOS(dir);
+        std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
+
+        auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+        EXPECT_LE(milliseconds.count(), 10); // ms
+}
 
 int main(int argc, char **argv) {
         ::testing::InitGoogleTest(&argc, argv);

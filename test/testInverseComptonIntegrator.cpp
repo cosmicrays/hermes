@@ -55,19 +55,19 @@ TEST(InverseComptonIntegrator, integrateOverEnergy) {
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
 }
 
-TEST(InverseComptonIntegrator, integrateOverLOS) {
+TEST(InverseComptonIntegrator, PerformanceTest) {
 	std::vector<PID> particletypes = {Electron, Positron};
 	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(
 				getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
 				particletypes)); 
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
-	auto photonField = std::make_shared<CMB>(CMB()); 
+	auto photonField = std::make_shared<ISRF>(ISRF()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
 	
 	QDirection dir;
-	dir[0] = 90_deg; dir[1] = 90_deg;
+	dir[0] = 90_deg; dir[1] = 10_deg;
 	QEnergy Egamma = 1_GeV;
 
 	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
@@ -79,10 +79,7 @@ TEST(InverseComptonIntegrator, integrateOverLOS) {
 	std::cerr << "res: " << res << std::endl;
 	std::cerr << "LOS: " << milliseconds.count() << " ms" << std::endl;
 	
-	//dir[0] = 40_deg; dir[1] = 30_deg;
-	//res = intIC->integrateOverLOS(dir, Egamma);
-	//std::cerr << "res: " << res << std::endl;
-	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
+	EXPECT_LE(milliseconds.count(), 350); // ms
 }
 
 int main(int argc, char **argv) {

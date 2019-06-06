@@ -86,7 +86,7 @@ template<typename l, typename t, typename m, typename I, typename T,
 constexpr Quantity<l, t, m, I, T, N, J, A> 
 	operator+(const Quantity<l, t, m, I, T, N, J, A>& lhs,
 		  const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return Quantity<l, t, m, I, T, N, J, A>(lhs.getValue() + rhs.getValue());
+    return Quantity<l, t, m, I, T, N, J, A>(static_cast<double>(lhs) + static_cast<double>(rhs));
 }
 
 // Subtraction (X-Y) 
@@ -95,7 +95,7 @@ template<typename l, typename t, typename m, typename I, typename T,
 constexpr Quantity<l, t, m, I, T, N, J, A> 
 	operator-(const Quantity<l, t, m, I, T, N, J, A>& lhs,
 		  const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return Quantity<l, t, m, I, T, N, J, A>(lhs.getValue() - rhs.getValue());
+    return Quantity<l, t, m, I, T, N, J, A>(static_cast<double>(lhs) - static_cast<double>(rhs));
 }
 
 // Multiplication (X*Y)
@@ -113,7 +113,7 @@ constexpr Quantity<std::ratio_add<l1, l2>, std::ratio_add<t1, t2>,
                     std::ratio_add<m1, m2>, std::ratio_add<I1, I2>,
                     std::ratio_add<T1, T2>, std::ratio_add<N1, N2>,
                     std::ratio_add<J1, J2>, std::ratio_add<A1, A2>>
-                    (lhs.getValue()*rhs.getValue());
+                    (static_cast<double>(lhs)*static_cast<double>(rhs));
 }
 
 // Multiplication *=
@@ -131,7 +131,7 @@ constexpr Quantity<std::ratio_add<l1, l2>, std::ratio_add<t1, t2>,
                     std::ratio_add<m1, m2>, std::ratio_add<I1, I2>,
                     std::ratio_add<T1, T2>, std::ratio_add<N1, N2>,
                     std::ratio_add<J1, J2>, std::ratio_add<A1, A2>>
-                    (lhs.getValue()*rhs.getValue());
+                    (static_cast<double>(lhs))*static_cast<double>(rhs);
 }
 
 // Multiplication with scalar (a*X, X*a)
@@ -139,13 +139,13 @@ template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr Quantity<l, t, m, I, T, N, J, A> 
     operator*(const double& lhs, const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return Quantity<l, t, m, I, T, N, J, A>(lhs*rhs.getValue());
+    return Quantity<l, t, m, I, T, N, J, A>(lhs*static_cast<double>(rhs));
 }
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr Quantity<l, t, m, I, T, N, J, A> 
     operator*(const Quantity<l, t, m, I, T, N, J, A>& lhs, const double& rhs) {
-    return Quantity<l, t, m, I, T, N, J, A>(lhs.getValue()*rhs);
+    return Quantity<l, t, m, I, T, N, J, A>(static_cast<double>(lhs)*rhs);
 }
 
 template<typename l, typename t, typename m, typename I, typename T,
@@ -153,7 +153,7 @@ template<typename l, typename t, typename m, typename I, typename T,
 constexpr Quantity<l, t, m, I, T, N, J, A> 
     operator*=(const Quantity<l, t, m, I, T, N, J, A>& lhs,
 	       const double& rhs) {
-    return Quantity<l, t, m, I, T, N, J, A>(lhs.getValue()*rhs);
+    return Quantity<l, t, m, I, T, N, J, A>(static_cast<double>(lhs)*rhs);
 }
 
 // Division (X/Y)
@@ -171,7 +171,7 @@ constexpr Quantity<std::ratio_subtract<l1, l2>, std::ratio_subtract<t1, t2>,
                     std::ratio_subtract<m1, m2>, std::ratio_subtract<I1, I2>,
                     std::ratio_subtract<T1, T2>, std::ratio_subtract<N1, N2>,
                     std::ratio_subtract<J1, J2>, std::ratio_subtract<A1, A2>>
-                    (lhs.getValue() / rhs.getValue());
+                    (static_cast<double>(lhs) / static_cast<double>(rhs));
 }
 
 // Division with scalar (a/X)
@@ -186,7 +186,7 @@ constexpr Quantity<std::ratio_subtract<std::ratio<0>, l>, std::ratio_subtract<st
 		    std::ratio_subtract<std::ratio<0>, m>, std::ratio_subtract<std::ratio<0>, I>,
 		    std::ratio_subtract<std::ratio<0>, T>, std::ratio_subtract<std::ratio<0>, N>,
                     std::ratio_subtract<std::ratio<0>, J>, std::ratio_subtract<std::ratio<0>, A>> 
-                    (x / rhs.getValue());
+                    (x / static_cast<double>(rhs));
 }
 
 // Division with scalar (X/a)
@@ -195,7 +195,7 @@ template<typename l, typename t, typename m, typename I, typename T,
 constexpr Quantity<l, t, m, I, T, N, J, A> 
     operator/(const Quantity<l, t, m, I, T, N, J, A>& lhs,
 	      double rhs) {
-    return Quantity<l, t, m, I, T, N, J, A>(lhs.getValue() / rhs);
+    return Quantity<l, t, m, I, T, N, J, A>(static_cast<double>(lhs) / rhs);
 }
 
 template<typename l, typename t, typename m, typename I, typename T,
@@ -203,7 +203,7 @@ template<typename l, typename t, typename m, typename I, typename T,
 constexpr Quantity<l, t, m, I, T, N, J, A> 
     operator/=(const Quantity<l, t, m, I, T, N, J, A>& lhs,
 	       const double& rhs) {
-    return Quantity<l, t, m, I, T, N, J, A>(lhs.getValue() / rhs);
+    return Quantity<l, t, m, I, T, N, J, A>(static_cast<double>(lhs) / rhs);
 }
 
 
@@ -213,56 +213,56 @@ template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr bool operator==(const Quantity<l, t, m, I, T, N, J, A>& lhs,
 			  const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return (lhs.getValue() == rhs.getValue());
+    return (static_cast<double>(lhs) == static_cast<double>(rhs));
 }
 
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr bool operator!=(const Quantity<l, t, m, I, T, N, J, A>& lhs,
 			  const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return (lhs.getValue() != rhs.getValue());
+    return (static_cast<double>(lhs) != static_cast<double>(rhs));
 }
 
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr bool operator<=(const Quantity<l, t, m, I, T, N, J, A>& lhs,
 			  const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return (lhs.getValue() <= rhs.getValue());
+    return (static_cast<double>(lhs) <= static_cast<double>(rhs));
 }
 
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr bool operator>=(const Quantity<l, t, m, I, T, N, J, A>& lhs,
 			  const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return (lhs.getValue() >= rhs.getValue());
+    return (static_cast<double>(lhs) >= static_cast<double>(rhs));
 }
 
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr bool operator< (const Quantity<l, t, m, I, T, N, J, A>& lhs,
 			  const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return (lhs.getValue()<rhs.getValue());
+    return (static_cast<double>(lhs)<static_cast<double>(rhs));
 }
 
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr bool operator> (const Quantity<l, t, m, I, T, N, J, A>& lhs,
 			  const Quantity<l, t, m, I, T, N, J, A>& rhs) {
-    return (lhs.getValue()>rhs.getValue());
+    return (static_cast<double>(lhs)>static_cast<double>(rhs));
 }
 
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr Quantity<l, t, m, I, T, N, J, A>
     fabs(const Quantity<l, t, m, I, T, N, J, A>& num) {
-    return Quantity<l, t, m, I, T, N, J, A>(std::fabs(num.getValue()));
+    return Quantity<l, t, m, I, T, N, J, A>(std::fabs(static_cast<double>(num)));
 }
 
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr Quantity<l, t, m, I, T, N, J, A>
     round(const Quantity<l, t, m, I, T, N, J, A>& num) {
-    return Quantity<l, t, m, I, T, N, J, A>(std::round(num.getValue()));
+    return Quantity<l, t, m, I, T, N, J, A>(std::round(static_cast<double>(num)));
 }
 
 
@@ -286,7 +286,7 @@ constexpr Quantity<std::ratio_divide<l, std::ratio<2>>, std::ratio_divide<t, std
                     std::ratio_divide<m, std::ratio<2>>, std::ratio_divide<I, std::ratio<2>>,
                     std::ratio_divide<T, std::ratio<2>>, std::ratio_divide<N, std::ratio<2>>, 
                     std::ratio_divide<J, std::ratio<2>>, std::ratio_divide<A, std::ratio<2>>> 
-                    (std::sqrt(num.getValue()));
+                    (std::sqrt(static_cast<double>(num)));
 }
 constexpr double sqrt(double num) {
     return std::sqrt(num);
@@ -304,7 +304,7 @@ constexpr Quantity<std::ratio_multiply<l, std::ratio<power>>, std::ratio_multipl
                     std::ratio_multiply<m, std::ratio<power>>, std::ratio_multiply<I, std::ratio<power>>,
                     std::ratio_multiply<T, std::ratio<power>>, std::ratio_multiply<N, std::ratio<power>>, 
                     std::ratio_multiply<J, std::ratio<power>>, std::ratio_multiply<A, std::ratio<power>>> 
-                    (std::pow(num.getValue(), power));
+                    (std::pow(static_cast<double>(num), power));
 }
 
 // squared()
@@ -319,7 +319,7 @@ constexpr Quantity<std::ratio_multiply<l, std::ratio<2>>, std::ratio_multiply<t,
                     std::ratio_multiply<m, std::ratio<2>>, std::ratio_multiply<I, std::ratio<2>>,
                     std::ratio_multiply<T, std::ratio<2>>, std::ratio_multiply<N, std::ratio<2>>, 
                     std::ratio_multiply<J, std::ratio<2>>, std::ratio_multiply<A, std::ratio<2>>> 
-                    (std::pow(num.getValue(), 2));
+                    (std::pow(static_cast<double>(num), 2));
 }
 
 // Abbrevation for defining quantities and their squared values
@@ -365,10 +365,10 @@ constexpr double pi = 3.1415926535897932384626433832795;
 constexpr double eulerGamma = 0.5772156649015328606065120900824;
 
 inline double exp(const QNumber &num) {
-    return std::exp(num.getValue());
+    return std::exp(static_cast<double>(num));
 }
 inline double log(const QNumber &num) {
-    return std::log(num.getValue());
+    return std::log(static_cast<double>(num));
 }
 inline double fabs(double num) {
     return std::fabs(num);
@@ -376,22 +376,22 @@ inline double fabs(double num) {
 
 // Typesafe trigonometric operations
 inline double sin(const QAngle &num) {
-    return std::sin(num.getValue());
+    return std::sin(static_cast<double>(num));
 }
 inline double cos(const QAngle &num) {
-    return std::cos(num.getValue());
+    return std::cos(static_cast<double>(num));
 }
 inline double tan(const QAngle &num) {
-    return std::tan(num.getValue());
+    return std::tan(static_cast<double>(num));
 }
 inline double cosh(const QNumber &num) {
-    return std::cosh(num.getValue());
+    return std::cosh(static_cast<double>(num));
 }
 inline double tanh(const QNumber &num) {
-    return std::tanh(num.getValue());
+    return std::tanh(static_cast<double>(num));
 }
 inline QAngle atan2(const QLength &lhs, const QLength &rhs) {
-    return QAngle(std::atan2(lhs.getValue(), rhs.getValue()));
+    return QAngle(std::atan2(static_cast<double>(lhs), static_cast<double>(rhs)));
 }
 
 } // namespace hermes

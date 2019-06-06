@@ -10,8 +10,9 @@ RMIntegrator::RMIntegrator(const std::shared_ptr<MagneticField> mfield,
 RMIntegrator::~RMIntegrator() { }
 
 QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) const {
-	return sumIntegration<QRotationMeasure, QRMIntegral>(
-			direction, [this](Vector3QLength pos) {return this->integralFunction(pos);});
+	return simpsonIntegration<QRotationMeasure, QRMIntegral>(
+			direction, [this](Vector3QLength pos) {return this->integralFunction(pos);},
+			500);
 }
 
 QRMIntegral RMIntegrator::integralFunction(Vector3QLength pos) const {

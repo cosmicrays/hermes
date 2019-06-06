@@ -18,7 +18,6 @@ QPXL sumIntegration(const QDirection &dir,
 		std::function<INTTYPE(Vector3QLength)> f, int N = 100) {
 	
 	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	// distance from the (spherical) galactic border in the given direction
 	QLength maxDistance = distanceToGalBorder(positionSun, dir);
 	QLength delta_d = maxDistance/N;
 
@@ -30,6 +29,36 @@ QPXL sumIntegration(const QDirection &dir,
 	}
 	return total;
 }
+
+template <typename QPXL, typename INTTYPE>
+QPXL simpsonIntegration(const QDirection &dir,
+		std::function<INTTYPE(Vector3QLength)> f, int N = 100) {
+	
+	Vector3QLength positionSun(8.5_kpc, 0, 0);
+	QLength maxDistance = distanceToGalBorder(positionSun, dir);
+	
+	auto fw = [f, dir, positionSun](const QLength &dist) {
+		return f(getGalacticPosition(positionSun, dist, dir)); };
+	
+	QLength a = 0_pc;
+	QLength b = maxDistance;
+
+        QLength h = (b - a)/N;
+        INTTYPE XI0 = fw(a) + fw(b);
+        QLength X = 0;
+	INTTYPE XI1 = 0, XI2 = 0;
+
+        for (int i = 1; i < N; ++i) {
+                X = a + i*h;
+                if (i % 2 == 0)
+                        XI2 = XI2 + fw(X);
+                else
+                        XI1 = XI1 + fw(X);
+        }
+
+        return h*(XI0 + 2*XI2 + 4*XI1)/3.0;
+}
+
 
 template <typename QPXL, typename INTTYPE, typename QSTEP>
 QPXL sumIntegration(const QDirection &dir,

@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include <memory>
+#include <chrono>
 
 #include "hermes.h"
 
@@ -39,7 +40,7 @@ TEST(Integrator, MagneticField) {
 	EXPECT_EQ((magfield.getField(pos)).getX(), 1_T);
 }
 
-TEST(Integrator, Orientation) {
+TEST(RMIntegrator, Orientation) {
 	QRotationMeasure pixel;
 	auto magfield = std::make_shared<TestMagneticField>(TestMagneticField());
 	auto gasdenisty = std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
@@ -66,6 +67,23 @@ TEST(Integrator, Orientation) {
 		else
 			EXPECT_EQ(pixel.getValue(), 0);
 	}
+}
+
+TEST(RMIntegrator, PerformanceTest) {
+	auto magfield = std::make_shared<JF12Field>(JF12Field());
+	auto gasdenisty = std::make_shared<YMW16>(YMW16());
+	auto in = std::make_shared<RMIntegrator>(RMIntegrator(magfield, gasdenisty));
+       
+        QDirection dir;
+        dir[0] = 90_deg; dir[1] = 10_deg;
+
+        std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+        auto res = in->integrateOverLOS(dir);
+        std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
+
+        auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+
+        EXPECT_LE(milliseconds.count(), 10); // ms
 }
 
 int main(int argc, char **argv) {

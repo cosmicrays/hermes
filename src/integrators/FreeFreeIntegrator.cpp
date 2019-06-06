@@ -20,8 +20,9 @@ QTemperature FreeFreeIntegrator::integrateOverLOS(
 QTemperature FreeFreeIntegrator::integrateOverLOS(
 		QDirection direction, QFrequency freq_) const {
 
-	QIntensity total_intensity = sumIntegration<QIntensity, QEmissivity, QFrequency>(
-			direction, [this](Vector3QLength pos, QFrequency freq) {return this->spectralEmissivity(pos, freq);}, freq_);
+	QIntensity total_intensity = simpsonIntegration<QIntensity, QEmissivity, QFrequency>(
+			direction, [this](Vector3QLength pos, QFrequency freq) {return this->spectralEmissivity(pos, freq);},
+			freq_, 500);
 
 	return intensityToTemperature(total_intensity / 4_pi, freq_);
 }
