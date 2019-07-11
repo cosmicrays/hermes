@@ -16,6 +16,9 @@ to by submitted to Astrophysical Journal (2007).
 */
 
 #include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/CacheTools.h"
+
+#include <memory>
 
 extern "C" {
 	#include "cparamlib.h"
@@ -24,9 +27,17 @@ extern "C" {
 namespace hermes {
 
 class Kamae06: public DifferentialCrossSection {
+private:
+	bool cacheStoragePresent;
+        std::unique_ptr<CacheStorageKamae> cache;
 public:
 	Kamae06();
+	void setCacheStorage(
+		std::unique_ptr<CacheStorageKamae> cache);
+	
 	QDiffCrossSection getDiffCrossSection(
+			const QEnergy &E_proton, const QEnergy &E_gamma) const;
+	QDiffCrossSection getDiffCrossSectionDirectly(
 			const QEnergy &E_proton, const QEnergy &E_gamma) const;
 };
 

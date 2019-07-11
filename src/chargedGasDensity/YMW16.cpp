@@ -7,7 +7,7 @@ YMW16::YMW16() {
 }
 
 QPDensity YMW16::getDensity(const Vector3QLength& pos) const {
-	auto conversion = [](QLength x) { return static_cast<double>(x.convertTo(parsec)); };
+	auto conversion = [](QLength x) { return static_cast<double>(x/parsec); };
 
 	double x = -1*conversion(pos.getY()); // change coordinates X<>Z since in YMW16
 	double y = conversion(pos.getX()); // the sun position is at (0,+8.3_kpc,6.0_pc)

@@ -57,15 +57,15 @@ TEST(RMIntegrator, Orientation) {
 		
 		// the galactic centre (theta ~ 90, phi ~ 0) should give != 0
 		if ((fabs(direction[0] - 90_deg) <= 10_deg) && direction[1] == 0_deg)
-			EXPECT_NE(pixel.getValue(), 0);
+			EXPECT_NE(static_cast<double>(pixel), 0);
 		// the galactic north
 		else if (direction[0] <= 12_deg)
-			EXPECT_LE(pixel.getValue(), 0);
+			EXPECT_LE(static_cast<double>(pixel), 0);
 		// right-hand side
 		else if (fabs(direction[0] - 90_deg) <= 12_deg && fabs(direction[1] - 270_deg) < 12_deg)
-			EXPECT_GE(pixel.getValue(), 0);
+			EXPECT_GE(static_cast<double>(pixel), 0);
 		else
-			EXPECT_EQ(pixel.getValue(), 0);
+			EXPECT_EQ(static_cast<double>(pixel), 0);
 	}
 }
 
@@ -73,17 +73,17 @@ TEST(RMIntegrator, PerformanceTest) {
 	auto magfield = std::make_shared<JF12Field>(JF12Field());
 	auto gasdenisty = std::make_shared<YMW16>(YMW16());
 	auto in = std::make_shared<RMIntegrator>(RMIntegrator(magfield, gasdenisty));
-       
-        QDirection dir;
-        dir[0] = 90_deg; dir[1] = 10_deg;
+	auto skymap = std::make_shared<RMSkymap>(RMSkymap(4));
+	skymap->setIntegrator(in);
 
         std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-        auto res = in->integrateOverLOS(dir);
+	skymap->compute();
         std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
         auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+	float pxl_speed = milliseconds.count()/skymap->getNpix()*skymap->getThreadsNumber();
 
-        EXPECT_LE(milliseconds.count(), 10); // ms
+        EXPECT_LE(pxl_speed, 15); // ms
 }
 
 int main(int argc, char **argv) {

@@ -209,9 +209,9 @@ QPXL saveIntegrationProfile(const QDirection &dir,
 
 	std::ostringstream filename;
 	filename << "integral_profiles/integral-"
-		 << "b" << dir[0].getValue()
+		 << "b" << static_cast<double>(dir[0])
 		 << "-"
-		 << "l" << dir[1].getValue()
+		 << "l" << static_cast<double>(dir[1])
 		 << ".txt";
 
 	std::ofstream integraldump(filename.str());

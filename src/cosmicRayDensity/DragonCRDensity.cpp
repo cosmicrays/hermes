@@ -55,7 +55,7 @@ void Dragon2DCRDensity::readFile() {
 
 QPDensityPerEnergy Dragon2DCRDensity::getDensityPerEnergy(
 		const QEnergy &E_, const Vector3QLength& pos_) const {
-    	return getDensityPerEnergy(energyIndex.at(E_), pos_);
+    	return getDensityPerEnergy(static_cast<int>(energyIndex.at(E_)), pos_);
 }
 
 QPDensityPerEnergy Dragon2DCRDensity::getDensityPerEnergy(
@@ -100,8 +100,8 @@ void Dragon2DCRDensity::readSpatialGrid2D() {
 	QLength deltaz = (zmax - zmin) / (dimz - 1);
  
 	//Vector3d origin(-1*rmax.getValue(), -1*rmax.getValue(), zmin.getValue());
-	Vector3d origin(-1*rmax.getValue(), zmin.getValue(), 0);
-	Vector3d spacing(deltar.getValue(), deltaz.getValue(), 0);
+	Vector3d origin(-1*static_cast<double>(rmax), static_cast<double>(zmin), 0);
+	Vector3d spacing(static_cast<double>(deltar), static_cast<double>(deltaz), 0);
 	
 	for (int i = 0; i < dimE; ++i) {
 		grid.push_back(
@@ -208,7 +208,7 @@ void Dragon3DCRDensity::readFile() {
 
 QPDensityPerEnergy Dragon3DCRDensity::getDensityPerEnergy(
 		const QEnergy &E_, const Vector3QLength& pos_) const {
-    	return getDensityPerEnergy(energyIndex.at(E_), pos_);
+    	return getDensityPerEnergy(static_cast<int>(energyIndex.at(E_)), pos_);
 }
 
 QPDensityPerEnergy Dragon3DCRDensity::getDensityPerEnergy(
@@ -256,8 +256,8 @@ void Dragon3DCRDensity::readSpatialGrid3D() {
 	QLength deltay = (ymax - ymin) / (dimy - 1);
 	QLength deltaz = (zmax - zmin) / (dimz - 1);
  
-	Vector3d origin(xmin.getValue(), ymin.getValue(), zmin.getValue());
-	Vector3d spacing(deltax.getValue(), deltay.getValue(), deltaz.getValue());
+	Vector3d origin(static_cast<double>(xmin), static_cast<double>(ymin), static_cast<double>(zmin));
+	Vector3d spacing(static_cast<double>(deltax), static_cast<double>(deltay), static_cast<double>(deltaz));
 	
 	for (int i = 0; i < dimE; ++i) {
 		grid.push_back(

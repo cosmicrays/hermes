@@ -259,6 +259,10 @@ if(ENABLE_TESTING)
         target_link_libraries(testCommon hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testCommon testCommon)
         
+	add_executable(testCacheTools test/testCacheTools.cpp)
+        target_link_libraries(testCacheTools hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+        add_test(testCacheTools testCacheTools)
+        
 	add_executable(testVector3 test/testVector3.cpp)
         target_link_libraries(testVector3 hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testVector3 testVector3)

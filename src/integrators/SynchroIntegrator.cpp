@@ -37,7 +37,7 @@ QEnergy SynchroIntegrator::singleElectronEmission(QFrequency freq_,
 	QFrequency freq_giro = e_plus * B_perp_ / m_electron;
 	QFrequency freq_c = 3./2. * pow<2>(getLorentzFactor(m_electron, E_)) *
 				freq_giro / 2_pi;
-        double ratio = (freq_/freq_c).getValue();
+        double ratio = static_cast<double>(freq_/freq_c);
        
 	// speed-up by skipping negligible contributions
 	// F(100) ~ 4e-43

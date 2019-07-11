@@ -73,33 +73,32 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 }
 
 TEST(PiZeroIntegrator, PerformanceTest) {
-        // cosmic rays
 	std::vector<PID> particletypes = {Proton};
         auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(
                                 getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
                                 particletypes));
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
-	// interaction
+	
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
-	// HI model
+    	CacheStorageKamae KamaeCache;
+    	auto cacheKamae = std::make_unique<CacheStorageKamae>(std::move(KamaeCache));
+    	kamae->setCacheStorage(std::move(cacheKamae));
+	
 	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity());
-	// integrator
 	auto in = std::make_shared<PiZeroIntegrator>(
-		PiZeroIntegrator(simpleModel, ringModel, kamae));
-
-        QDirection dir;
-        dir[0] = 90_deg; dir[1] = 10_deg;
-        QEnergy Egamma = 1_GeV;
+		PiZeroIntegrator(dragonModel, ringModel, kamae));
+	auto skymap = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(4, 1_GeV));
+	skymap->setIntegrator(in);
 
         std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-        auto res = in->integrateOverLOS(dir, Egamma);
+	skymap->compute();
         std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
         auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	
-	std::cerr << "LOS: " << milliseconds.count() << " ms" << std::endl;
+	float pxl_speed = milliseconds.count()/skymap->getNpix()*skymap->getThreadsNumber();
 
-        EXPECT_LE(milliseconds.count(), 350); // ms
+	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+
+        EXPECT_LE(pxl_speed, 130); // ms
 }
 
 int main(int argc, char **argv) {

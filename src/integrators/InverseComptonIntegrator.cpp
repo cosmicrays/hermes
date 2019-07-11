@@ -4,6 +4,8 @@
 
 #include <memory>
 #include <functional>
+#include <stdexcept>
+#include <iostream>
 
 namespace hermes {
 
@@ -12,7 +14,18 @@ InverseComptonIntegrator::InverseComptonIntegrator(
 	const std::shared_ptr<PhotonField> phdensity_,
 	const std::shared_ptr<KleinNishina> crossSec_) : 
 	crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_) {
+	
+	cacheStoragePresent = false;
 }
+
+void InverseComptonIntegrator::setCacheStorage(std::unique_ptr<CacheStorageIC> cache_) {
+	cache = std::move(cache_);	
+	cacheStoragePresent = true;
+	constexpr QLength cache_block = 10_pc;
+	auto f = [this,cache_block](int rho, int z, QEnergy E_gamma) {
+			return this->integrateOverEnergy(Vector3QLength(cache_block*rho, 0, cache_block*z), E_gamma); };
+	cache->setFunction(f);
+};
 
 InverseComptonIntegrator::~InverseComptonIntegrator() { }
 
@@ -26,18 +39,29 @@ QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 	
 	QDifferentialFlux tolerance = 1e10; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
 
-	return adaptiveSimpsonIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(
+	return simpsonIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(
 			direction_,
-			[this](Vector3QLength pos, QEnergy Egamma) {return this->integrateOverEnergy(pos, Egamma);},
+			[this](Vector3QLength pos, QEnergy Egamma) {return this->axialCacheForIoE(pos, Egamma);},
 			Egamma_,
-			tolerance, 20);
+			30);
+}
+
+QICOuterIntegral InverseComptonIntegrator::axialCacheForIoE(Vector3QLength pos_, QEnergy Egamma_) const {
+	if (!cacheStoragePresent)
+		throw std::runtime_error("Cache storage is not present.");
+	QLength rho = sqrt(pos_.x*pos_.x + pos_.y*pos_.y);
+	constexpr QLength cache_block = 10_pc;
+	int irho = static_cast<int>(floor(rho / cache_block));
+	int iz = static_cast<int>(floor(pos_.z / cache_block));
+
+	return cache->getValue(irho, iz, Egamma_);
 }
 
 QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
-		if (crdensity->existsScaleFactor())
-			return integrateOverLogEnergy(pos_, Egamma_);
-		else
-			return integrateOverSumEnergy(pos_, Egamma_);
+	if (crdensity->existsScaleFactor())
+		return integrateOverLogEnergy(pos_, Egamma_);
+	else
+		return integrateOverSumEnergy(pos_, Egamma_);
 }
 
 QICOuterIntegral InverseComptonIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
@@ -60,7 +84,7 @@ QICOuterIntegral InverseComptonIntegrator::integrateOverLogEnergy(Vector3QLength
 
 	for (auto itE = crdensity->begin(); itE != crdensity->end(); ++itE) {
 		integral += integrateOverPhotonEnergy(pos_, Egamma_, (*itE)) * 
-	                        crdensity->getDensityPerEnergy(*itE, pos_) * (*itE) * c_light / 4_pi;
+	                        crdensity->getDensityPerEnergy((*itE), pos_) * (*itE) * c_light / 4_pi;
         }
 
 	return integral * log(crdensity->getEnergyScaleFactor());
@@ -70,16 +94,13 @@ QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
 		Vector3QLength pos_, QEnergy Egamma_, QEnergy Eelectron_) const {
 	
 	QICInnerIntegral integral(0);
-	static const double scaling = phdensity->getEnergyScaleFactor();
-	static const QEnergy E_start = phdensity->getStartEnergy();
-	static const QEnergy E_end = phdensity->getEndEnergy();
 	
-	for (QEnergy E_ph = E_start; E_ph < E_end; E_ph = E_ph*scaling) {
-		integral += crossSec->getDiffCrossSection(Eelectron_, E_ph, Egamma_) *
-				phdensity->getEnergyDensity(pos_, E_ph) / E_ph;
+	for (auto itE = phdensity->begin(); itE != phdensity->end(); ++itE) {
+		integral += crossSec->getDiffCrossSection(Eelectron_, static_cast<double>(*itE), Egamma_) *
+				phdensity->getEnergyDensity(pos_, static_cast<int>(itE - phdensity->begin())) / (*itE);
 	}
 
-	return integral * log(scaling);
+	return integral * log(phdensity->getEnergyScaleFactor());
 }
 
 } // namespace hermes 

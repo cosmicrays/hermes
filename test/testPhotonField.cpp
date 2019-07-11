@@ -5,10 +5,10 @@
 
 namespace hermes {
 
-TEST(ISRF, getEnergyDensity) {
+TEST(CMB, getEnergyDensity) {
 
-	auto field = std::make_shared<ISRF>(ISRF());
-	
+	auto field = std::make_shared<CMB>(CMB());
+/*	
     	std::ofstream spectrumfile("isrf.txt");
     	for (QFrequency f = 1e10_Hz; f < 1e16_Hz; f = f*1.01) {
         	QEnergy photon_energy = f*h_planck;
@@ -18,6 +18,7 @@ TEST(ISRF, getEnergyDensity) {
         	spectrumfile << field->getEnergyDensity(0.01_kpc, 0., photon_energy) / 1_eV * 1_cm3 << "\n";
     	}
     	spectrumfile.close();
+*/
 }
 
 int main(int argc, char **argv) {

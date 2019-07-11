@@ -2,6 +2,7 @@
 #define HERMES_HEALPIXBITS_H
 
 #include "hermes/Units.h"
+#include <cstddef>
 
 namespace hermes {
 

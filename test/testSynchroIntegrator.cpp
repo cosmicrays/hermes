@@ -66,7 +66,7 @@ TEST(SynchroIntegrator, totalEnergyLoss) {
 	expectedEnergyLoss = 2*sigma_Thomson*c_light*U_mag*std::pow(sin(90_deg),2) *
 				pow<2>(getLorentzFactor(m_electron, electronEnergy));
 
-	EXPECT_NEAR(expectedEnergyLoss.getValue(), totalEnergyLoss.getValue(), 1e-32);
+	EXPECT_NEAR(static_cast<double>(expectedEnergyLoss), static_cast<double>(totalEnergyLoss), 1e-32);
 }
 
 
@@ -91,7 +91,7 @@ TEST(SynchroIntegrator, integrateOverEnergy) {
 			1_MHz);
 
 	// sqrt(3)*e_charge^3/(8*pi^2*epsilon_0*c*electron_mass)*0.655*1*microGauss*1/(m^3*J)*1_eV
-	EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
+	EXPECT_NEAR(static_cast<double>(emissivity), 3.915573e-55, 2e-56); // J/m^3
 }
 
 TEST(SynchroIntegrator, integrateOverLOS) {
@@ -116,7 +116,7 @@ TEST(SynchroIntegrator, integrateOverLOS) {
 	// 3.915573e-55 * 11.5_kpc
 	QTemperature T_expected = intensityToTemperature(
 		QIntensity(1.3892e-34)/4_pi, freq);
-	EXPECT_NEAR(T.getValue(), T_expected.getValue(), 1e-9); // K
+	EXPECT_NEAR(static_cast<double>(T), static_cast<double>(T_expected), 1e-9); // K
 }
 
 TEST(SynchroIntegrator, PerformanceTest) {
@@ -126,17 +126,17 @@ TEST(SynchroIntegrator, PerformanceTest) {
 				getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
 				particletypes)); 
 	auto in = std::make_shared<SynchroIntegrator>(SynchroIntegrator(mfield, dragonModel));
-
-        QDirection dir;
-        dir[0] = 90_deg; dir[1] = 10_deg;
+	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(4, 1_GHz));
+	skymap->setIntegrator(in);
 
         std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-        auto res = in->integrateOverLOS(dir);
+	skymap->compute();
         std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
         auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+	float pxl_speed = milliseconds.count()/skymap->getNpix()*skymap->getThreadsNumber();
 
-        EXPECT_LE(milliseconds.count(), 100); // ms
+        EXPECT_LE(pxl_speed, 40); // ms
 }
 
 

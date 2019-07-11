@@ -7,6 +7,7 @@
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
 #include "hermes/interactions/KleinNishina.h"
 #include "hermes/photonField/PhotonField.h"
+#include "hermes/CacheTools.h"
 
 #include <memory>
 #include <array>
@@ -19,6 +20,10 @@ private:
 	std::shared_ptr<PhotonField> phdensity;
 	std::shared_ptr<KleinNishina> crossSec; 
 
+	bool cacheStoragePresent;
+	std::shared_ptr<CacheStorageIC> cache; 
+	QICOuterIntegral axialCacheForIoE(Vector3QLength pos, QEnergy Egamma) const;
+
 	QICOuterIntegral integrateOverSumEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
 	QICOuterIntegral integrateOverLogEnergy(
@@ -29,6 +34,8 @@ public:
 		const std::shared_ptr<PhotonField>,
 		const std::shared_ptr<KleinNishina>); 
 	~InverseComptonIntegrator();
+
+	void setCacheStorage(std::unique_ptr<CacheStorageIC> cache);
 
 	QDifferentialFlux integrateOverLOS(QDirection iterdir) const;
 	QDifferentialFlux integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;

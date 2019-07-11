@@ -1,4 +1,5 @@
 #include "hermes/integrators/PiZeroIntegrator.h"
+#include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/Common.h"
 
 #include <memory>
@@ -23,37 +24,32 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
 
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	Vector3QLength pos(0.0);
-	QDifferentialFlux total_diff_flux(0.0);
-	QLength delta_d = 10.0_pc;
-
+	QDifferentialFlux tolerance = 1e9; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
 
 	std::vector<QColumnDensity> normIntegrals(
 			ngdensity->getRingNumber(GasType::HI), QColumnDensity(0.0));
-	std::vector<QDifferentialFlux> losIntegrals(
-			ngdensity->getRingNumber(GasType::HI), QDifferentialFlux(0.0));
-
-	//std::function<QPDensity(const QLength &r)> profile;
-	//profile = simpleDensityDistribution;
-	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, direction_);
 	
-	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, direction_);
-
-		for (const auto &ring : *ngdensity) {
-			if(ring->isInside(pos)) {
-				auto i = ring->getIndex();
-				normIntegrals[i] += densityProfile(pos) * delta_d;
-				losIntegrals[i] += densityProfile(pos) *
-					integrateOverEnergy(pos, Egamma_) * delta_d;
-			}
-
-		} 
+	for (const auto &ring : *ngdensity) {
+		auto normI_f = [ring, this](const Vector3QLength &pos)
+			{ return (ring->isInside(pos)) ?
+				this->densityProfile(pos) : 0;};
+		normIntegrals[ring->getIndex()] =
+			simpsonIntegration<QColumnDensity, QPDensity>(direction_, normI_f, 150);
 	}
 
+	std::vector<QDifferentialFlux> losIntegrals(
+			ngdensity->getRingNumber(GasType::HI), QDifferentialFlux(0.0));
+	
+	for (const auto &ring : *ngdensity) {
+		auto losI_f = [ring, this](const Vector3QLength &pos, const QEnergy &Egamma_)
+			{ return (ring->isInside(pos)) ?
+				this->densityProfile(pos)*this->integrateOverEnergy(pos, Egamma_) : 0;};
+		losIntegrals[ring->getIndex()] =
+			simpsonIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(direction_, losI_f, Egamma_, 200);
+	}
+	
 	// normalize according to the ring density model	
+	QDifferentialFlux total_diff_flux(0.0);
 	for(const auto &ring : *ngdensity) {
 		if(normIntegrals[ring->getIndex()] == QColumnDensity(0))
 			continue;

@@ -1,4 +1,5 @@
 #include "hermes/HEALPixBits.h"
+#include <cmath>
 
 namespace hermes {
 
@@ -47,8 +48,8 @@ QDirection pix2ang_ring(long nside, long ipix) {
 
 	if( ipix1 <= ncap ) {  //! North Polar cap -------------
 		hip   = ipix1/2.;
-		fihip = floor(hip);
-		iring = (int)floor( std::sqrt( hip - std::sqrt(fihip) ) ) + 1;// ! counted from North pole
+		fihip = std::floor(hip);
+		iring = (int)std::floor( std::sqrt( hip - std::sqrt(fihip) ) ) + 1;// ! counted from North pole
 		iphi  = ipix1 - 2*iring*(iring - 1);
 
 		thetaphi[0] = acos( 1. - iring*iring / fact2 );
@@ -56,7 +57,7 @@ QDirection pix2ang_ring(long nside, long ipix) {
 	} else if( ipix1 <= nl2*(5*nside+1) ) {//then ! Equatorial region ------
 
 		ip    = ipix1 - ncap - 1;
-		iring = (int)floor( ip / nl4 ) + nside;// ! counted from North pole
+		iring = (int)std::floor( ip / nl4 ) + nside;// ! counted from North pole
 		iphi  = (int)std::fmod(ip,nl4) + 1;
 
 		fodd  = 0.5 * (1 + std::fmod((double)(iring+nside),2));//  ! 1 if iring+nside is odd, 1/2 otherwise
@@ -67,8 +68,8 @@ QDirection pix2ang_ring(long nside, long ipix) {
 		ip    = npix - ipix1 + 1;
 		hip   = ip/2.;
 		/* bug corrige floor instead of 1.* */
-		fihip = floor(hip);
-		iring = (int)floor( std::sqrt( hip - std::sqrt(fihip) ) ) + 1;//     ! counted from South pole
+		fihip = std::floor(hip);
+		iring = (int)std::floor( std::sqrt( hip - std::sqrt(fihip) ) ) + 1;//     ! counted from South pole
 		iphi  = (int)(4.*iring + 1 - (ip - 2.*iring*(iring-1)));
 
 		thetaphi[0]   = acos( -1. + iring*iring / fact2 );
@@ -80,8 +81,8 @@ QDirection pix2ang_ring(long nside, long ipix) {
 
 
 long ang2pix_ring(long nside, QDirection thetaphi) {
-	double theta = thetaphi[0].getValue();
-	double phi = thetaphi[1].getValue();
+	double theta = static_cast<double>(thetaphi[0]);
+	double phi = static_cast<double>(thetaphi[1]);
 
 	return ((theta<0.01) || (theta > 3.14159-0.01)) ?
         	loc2pix(nside, cos(theta),phi,sin(theta),true) :

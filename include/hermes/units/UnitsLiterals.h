@@ -1,7 +1,11 @@
 #ifndef HERMES_UNITSLITERALS_H
 #define HERMES_UNITSLITERALS_H
 
-#include "UnitsDerived.h"
+#ifndef HERMES_UNITSDISABLE
+#include "UnitsBasic.h"
+#else
+#include "UnitsDisable.h"
+#endif
 
 namespace hermes {
 

@@ -52,7 +52,9 @@ public:
 	virtual void computePixel(
 			std::size_t ipix,
 			std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_);
+	
 	void compute();
+	int getThreadsNumber();
 	
 	/** output **/
 	void save(std::shared_ptr<Output> output) const;
@@ -104,13 +106,13 @@ QPXL SkymapTemplate<QPXL, QSTEP>::getPixel(std::size_t i) const {
 
 template <typename QPXL, typename QSTEP>
 double SkymapTemplate<QPXL, QSTEP>::operator[](std::size_t i) const {
-        return fluxContainer[i].getValue();
+        return static_cast<double>(fluxContainer[i]);
 }
 
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::printPixels() {
 	for (auto i: fluxContainer)
-		std::cout << i.getValue() << ' ';
+		std::cout << static_cast<double>(i) << ' ';
 }
 
 template <typename QPXL, typename QSTEP>
@@ -129,9 +131,9 @@ void SkymapTemplate<QPXL, QSTEP>::computePixel(
 
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::compute() {
-#if _OPENMP
-       	std::cout << "hermes::Integrator: Number of Threads: " << omp_get_max_threads() << std::endl;
-#endif
+       	
+	std::cout << "hermes::Integrator: Number of Threads: " << getThreadsNumber() << std::endl;
+	
 	if(integrator == nullptr)
 		throw std::runtime_error("Provide an integrator with Skymap::setIntegrator()");
 	
@@ -140,11 +142,20 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
 
 #pragma omp parallel for schedule(OMP_SCHEDULE)
 	for (std::size_t ipix = 0; ipix < getSize(); ++ipix) {
-		if (maskContainer[ipix] == true)
+		if (maskContainer[ipix] == true) {
 			computePixel(ipix, integrator);
 #pragma omp critical(progressbarUpdate)
-		progressbar.update();
+			progressbar.update();
+		}
 	}
+}
+
+template <typename QPXL, typename QSTEP>
+int SkymapTemplate<QPXL, QSTEP>::getThreadsNumber() {
+#if _OPENMP
+       return omp_get_max_threads();
+#endif
+       return 1;
 }
 
 template <typename QPXL, typename QSTEP>
@@ -156,7 +167,7 @@ void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<Output> output) const {
 
 	float tempArray[npix];
 	for (unsigned long i = 0; i < npix; ++i)
-		tempArray[i] = static_cast<float>(fluxContainer[i].getValue());
+		tempArray[i] = static_cast<float>(fluxContainer[i]);
 
 	output->writeColumn(npix, tempArray);
 }

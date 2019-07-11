@@ -72,16 +72,16 @@ TEST(FreeFreeIntegrator, integrateSkymap) {
 	skymap->compute();
 
 	QEmissivity em(3.3124e-40); // see the test above for f=22_GHz
-	QTemperature minT = intensityToTemperature(em * 11.5_kpc / 4_pi, f);
+	// for spherical boundary:
+	// QTemperature minT = intensityToTemperature(em * 11.5_kpc / 4_pi, f);
+	QTemperature minT = intensityToTemperature(em * 5_kpc / 4_pi, f);
 	QTemperature maxT = intensityToTemperature(em * 28.5_kpc / 4_pi, f);
-
-	std::cerr << maxT << std::endl;
 
 	QTemperature pixel;
 	for (long ipix = 0; ipix < skymap->getSize(); ++ipix) {
 		pixel = skymap->getPixel(ipix);
-		EXPECT_GE(pixel.getValue(), minT.getValue());
-		EXPECT_LE(pixel.getValue(), maxT.getValue());
+		EXPECT_GE(static_cast<double>(pixel), static_cast<double>(minT));
+		EXPECT_LE(static_cast<double>(pixel), static_cast<double>(maxT));
 	}
 }
 
@@ -93,27 +93,27 @@ TEST(FreeFreeIntegrator, absorptionCoefficient) {
 
 	QInverseLength absorption = integrator->absorptionCoefficient(
 			Vector3QLength(1_pc,0,0), 10_MHz);
-	EXPECT_NEAR(absorption.getValue(), 1.61e-19, 1e-21); // 1/m
+	EXPECT_NEAR(static_cast<double>(absorption), 1.61e-19, 1e-21); // 1/m
 	
 	absorption = integrator->absorptionCoefficient(
 			Vector3QLength(1_pc,0,0), 1_GHz);
-	EXPECT_NEAR(absorption.getValue(), 1.1512e-23, 1e-25); // 1/m
+	EXPECT_NEAR(static_cast<double>(absorption), 1.1512e-23, 1e-25); // 1/m
 }
 
 TEST(FreeFreeIntegrator, PerformanceTest) {
         auto gasdenisty = std::make_shared<YMW16>(YMW16());
         auto in = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gasdenisty));
-
-        QDirection dir;
-        dir[0] = 90_deg; dir[1] = 10_deg;
+	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(4, 100_MHz));
+	skymap->setIntegrator(in);
 
         std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-        auto res = in->integrateOverLOS(dir);
+	skymap->compute();
         std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
         auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+	float pxl_speed = milliseconds.count()/skymap->getNpix()*skymap->getThreadsNumber();
 
-        EXPECT_LE(milliseconds.count(), 10); // ms
+        EXPECT_LE(pxl_speed, 15); // ms
 }
 
 int main(int argc, char **argv) {

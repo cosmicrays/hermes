@@ -261,6 +261,13 @@ constexpr Quantity<l, t, m, I, T, N, J, A>
 template<typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A>
 constexpr Quantity<l, t, m, I, T, N, J, A>
+    floor(const Quantity<l, t, m, I, T, N, J, A>& num) {
+    return Quantity<l, t, m, I, T, N, J, A>(std::floor(static_cast<double>(num)));
+}
+
+template<typename l, typename t, typename m, typename I, typename T,
+	 typename N, typename J, typename A>
+constexpr Quantity<l, t, m, I, T, N, J, A>
     round(const Quantity<l, t, m, I, T, N, J, A>& num) {
     return Quantity<l, t, m, I, T, N, J, A>(std::round(static_cast<double>(num)));
 }
@@ -319,7 +326,7 @@ constexpr Quantity<std::ratio_multiply<l, std::ratio<2>>, std::ratio_multiply<t,
                     std::ratio_multiply<m, std::ratio<2>>, std::ratio_multiply<I, std::ratio<2>>,
                     std::ratio_multiply<T, std::ratio<2>>, std::ratio_multiply<N, std::ratio<2>>, 
                     std::ratio_multiply<J, std::ratio<2>>, std::ratio_multiply<A, std::ratio<2>>> 
-                    (std::pow(static_cast<double>(num), 2));
+                    (static_cast<double>(num)*static_cast<double>(num));
 }
 
 // Abbrevation for defining quantities and their squared values
@@ -372,6 +379,10 @@ inline double log(const QNumber &num) {
 }
 inline double fabs(double num) {
     return std::fabs(num);
+}
+
+inline double floor(const QNumber &num) {
+    return std::floor(static_cast<double>(num));
 }
 
 // Typesafe trigonometric operations

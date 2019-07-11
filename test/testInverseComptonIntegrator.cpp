@@ -9,7 +9,7 @@ namespace hermes {
 TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
-	auto photonField = std::make_shared<ISRF>(ISRF()); 
+	auto photonField = std::make_shared<CMB>(CMB()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
 	
@@ -32,7 +32,7 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 TEST(InverseComptonIntegrator, integrateOverEnergy) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
-	auto photonField = std::make_shared<ISRF>(ISRF()); 
+	auto photonField = std::make_shared<CMB>(CMB()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
 	
@@ -62,24 +62,22 @@ TEST(InverseComptonIntegrator, PerformanceTest) {
 				particletypes)); 
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
-	auto photonField = std::make_shared<ISRF>(ISRF()); 
-	auto intIC = std::make_shared<InverseComptonIntegrator>(
+	auto photonField = std::make_shared<CMB>(CMB()); 
+	auto in = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
-	
-	QDirection dir;
-	dir[0] = 90_deg; dir[1] = 10_deg;
-	QEnergy Egamma = 1_GeV;
+	auto skymap = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(4, 1_GeV));
+	skymap->setIntegrator(in);
 
-	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-	auto res = intIC->integrateOverLOS(dir, Egamma);
-	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
-	
-	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+        std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+	skymap->compute();
+        std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
-	std::cerr << "res: " << res << std::endl;
-	std::cerr << "LOS: " << milliseconds.count() << " ms" << std::endl;
+        auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+	float pxl_speed = milliseconds.count()/skymap->getNpix()*skymap->getThreadsNumber();
 	
-	EXPECT_LE(milliseconds.count(), 350); // ms
+	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+	
+	EXPECT_LE(pxl_speed, 350); // ms
 }
 
 int main(int argc, char **argv) {

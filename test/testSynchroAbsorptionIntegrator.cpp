@@ -56,19 +56,19 @@ TEST(SynchroAbsorptionIntegrator, integrateOverLOS) {
 	// 100_GHz => optical depth = 1e-5	
 	QTemperature T_S = intSynchro->integrateOverLOS(direction, 100_GHz);
 	QTemperature T_A = intAbsorp->integrateOverLOS(direction, 100_GHz);
-	EXPECT_NEAR(T_S.getValue(), T_A.getValue(), 1e-5); // K
+	EXPECT_NEAR(static_cast<double>(T_S), static_cast<double>(T_A), 1e-5); // K
 	
 	// 100_MHz => optical depth = 0.49
 	// T_abs / T_sync = (1-exp(-depth))/depth \approx 0.79
 	T_S = intSynchro->integrateOverLOS(direction, 100_MHz);
 	T_A = intAbsorp->integrateOverLOS(direction, 100_MHz);
-	EXPECT_NEAR(T_A.getValue()/T_S.getValue(), 0.79, 0.01);
+	EXPECT_NEAR(static_cast<double>(T_A)/static_cast<double>(T_S), 0.79, 0.01);
 	
 	// 10_MHz => optical depth = 57.13
 	// T_abs / T_sync = (1-exp(-depth))/depth \approx 0.79
 	T_S = intSynchro->integrateOverLOS(direction, 10_MHz);
 	T_A = intAbsorp->integrateOverLOS(direction, 10_MHz);
-	EXPECT_NEAR(T_A.getValue()/T_S.getValue(), 0.017, 0.001);
+	EXPECT_NEAR(static_cast<double>(T_A)/static_cast<double>(T_S), 0.017, 0.001);
 }
 
 

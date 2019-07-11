@@ -68,8 +68,9 @@ QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
 
 QLength distanceToGalBorder(Vector3QLength positionSun, QDirection direction) {
 
-        Vector3QLength positionGC(0, 0, 0);
-        QLength galacticBorder = 20_kpc; // for example JF12 is zero for r > 20kpc
+        static const Vector3QLength positionGC(0, 0, 0);
+        static const QLength galacticBorder = 20_kpc; // for example JF12 is zero for r > 20kpc
+	static const QLength zBorder = 5_kpc;
         Vector3QLength vecSunToGalBorder;
         vecSunToGalBorder.setRThetaPhi(1_m, direction[0], direction[1]);
 
@@ -77,7 +78,12 @@ QLength distanceToGalBorder(Vector3QLength positionSun, QDirection direction) {
         QLength c = galacticBorder;
         QAngle gamma = vecSunToGalBorder.getAngleTo(positionSun-positionGC);
 
-        return a*cos(gamma) + sqrt(c*c - a*a*(1 - cos(2*gamma))/2.0);
+        QLength sphericalBorder = a*cos(gamma) + sqrt(c*c - a*a*(1 - cos(2*gamma))/2.0);
+	QLength heightBroder = fabs(zBorder / cos(direction[0]));
+
+	return std::min(heightBroder,sphericalBorder);
+
+
 }
 
 QNumber getLorentzFactor(QMass m, QEnergy E) {

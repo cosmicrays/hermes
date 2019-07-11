@@ -103,7 +103,7 @@ void initTurbulence(std::shared_ptr<VectorGrid> grid, double Brms, double lMin, 
 		throw std::runtime_error("turbulentField: lMax > size / 2");
 
 	size_t n = Nx; // size of array
-	size_t n2 = (size_t) floor(n / 2) + 1; // size array in z-direction in configuration space
+	size_t n2 = (size_t) std::floor(n / 2) + 1; // size array in z-direction in configuration space
 
 	// arrays to hold the complex vector components of the B(k)-field
 	fftwf_complex *Bkx, *Bky, *Bkz;

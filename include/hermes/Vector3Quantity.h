@@ -77,9 +77,9 @@ public:
 	}
 */
 	Vector3d getValue() const {
-		return Vector3d((this->x).getValue(),
-				(this->y).getValue(),
-				(this->z).getValue());
+		return Vector3d(static_cast<double>(this->x),
+				static_cast<double>(this->y),
+				static_cast<double>(this->z));
 	}
 	
 	// return the azimuth angle
@@ -115,7 +115,7 @@ public:
 
 	// return the angle [0, pi] between the vectors
 	QAngle getAngleTo(const Vector3Quantity<T> &v) const {
-		double cosdistance = (this->dot(v) / v.getR() / this->getR()).getValue();
+		double cosdistance = static_cast<double>(this->dot(v) / v.getR() / this->getR());
 		// In some directions cosdistance is > 1 on some compilers
 		// This ensures that the correct result is returned
 		if (cosdistance >= 1.)
@@ -319,6 +319,7 @@ template<typename T, typename Q>
 inline Vector3Quantity<Q> operator *(const Vector3<T> &v, const Vector3Quantity<Q> &q) {
 	return Vector3Quantity<Q>(v.x * q.x, v.y * q.y, v.z * q.z);
 }
+#ifndef HERMES_UNITSDISABLE
 template<typename T, typename Q>
 inline Vector3Quantity<Q> operator *(const Vector3<T> &v, const Q q) {
 	return Vector3Quantity<Q>(T(v.x * q), T(v.y * q), T(v.z * q));
@@ -327,6 +328,7 @@ template<typename Q>
 inline Vector3Quantity<Q> operator *(const Vector3Quantity<Q> &q, const double a) {
 	return Vector3Quantity<Q>(q.x * a, q.y * a, q.z * a);
 }
+#endif
 template<typename Q>
 inline Vector3Quantity<Q> operator *(const Vector3Quantity<Q> &q, const QNumber &a) {
 	return Vector3Quantity<Q>(q.x * a, q.y * a, q.z * a);
