@@ -1,11 +1,11 @@
-#include "hermes/skymaps/DiffFluxSkymapRange.h"
+#include "hermes/skymaps/GammaSkymapRange.h"
 
 #include <iostream>
 #include <stdexcept>
 
 namespace hermes {
 
-DiffFluxSkymapRange::DiffFluxSkymapRange(
+GammaSkymapRange::GammaSkymapRange(
 		std::size_t nside_, QEnergy minEn_,
 		QEnergy maxEn_, int enSteps_) :
 		nside(nside_), minEn(minEn_),
@@ -13,10 +13,10 @@ DiffFluxSkymapRange::DiffFluxSkymapRange(
 	initEnergyRange();
 }
 
-DiffFluxSkymapRange::~DiffFluxSkymapRange() {
+GammaSkymapRange::~GammaSkymapRange() {
 }
 
-void DiffFluxSkymapRange::initEnergyRange() {
+void GammaSkymapRange::initEnergyRange() {
 	
 	double scaleFactor = std::pow(static_cast<double>(maxEn/minEn),
 					1.0/(enSteps-1));
@@ -25,32 +25,32 @@ void DiffFluxSkymapRange::initEnergyRange() {
 	for (int i = 0; i < enSteps; ++i) {
 		e = std::pow(scaleFactor, i) * minEn;
 		energies.push_back(e);
-		skymaps.push_back(DiffFluxSkymap(nside, e));
+		skymaps.push_back(GammaSkymap(nside, e));
 	}
 }
 
-void DiffFluxSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QDifferentialFlux, QEnergy> > integrator_) {
+void GammaSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QDifferentialFlux, QEnergy> > integrator_) {
 	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		it->setIntegrator(integrator_);
 	}
 }
 
-void DiffFluxSkymapRange::setMask(std::shared_ptr<SkymapMask> mask_) {
+void GammaSkymapRange::setMask(std::shared_ptr<SkymapMask> mask_) {
 	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		it->setMask(mask_);
 	}
 }
 
-void DiffFluxSkymapRange::compute() {
+void GammaSkymapRange::compute() {
 	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
-       		std::cout << "hermes::SkymapRange: "
+       		std::cerr << "hermes::SkymapRange: "
 			  << it - skymaps.begin() + 1 << "/" << skymaps.size()
 			  << ", Energy = " << it->getEnergy()/1_MeV << " MeV" << std::endl;
 		it->compute();
 	}
 }
 
-void DiffFluxSkymapRange::save(std::shared_ptr<Output> output) const {
+void GammaSkymapRange::save(std::shared_ptr<Output> output) const {
 	
 	output->initOutput();
 	
@@ -71,19 +71,19 @@ void DiffFluxSkymapRange::save(std::shared_ptr<Output> output) const {
 	}
 }
 
-DiffFluxSkymapRange::iterator DiffFluxSkymapRange::begin() {
+GammaSkymapRange::iterator GammaSkymapRange::begin() {
         return skymaps.begin();
 }
 
-DiffFluxSkymapRange::const_iterator DiffFluxSkymapRange::begin() const {
+GammaSkymapRange::const_iterator GammaSkymapRange::begin() const {
         return skymaps.begin();
 }
 
-DiffFluxSkymapRange::iterator DiffFluxSkymapRange::end() {
+GammaSkymapRange::iterator GammaSkymapRange::end() {
         return skymaps.end();
 }
 
-DiffFluxSkymapRange::const_iterator DiffFluxSkymapRange::end() const {
+GammaSkymapRange::const_iterator GammaSkymapRange::end() const {
         return skymaps.end();
 }
 

@@ -55,7 +55,7 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 
 	// skymap
 	int nside = 4;
-	auto skymap = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(nside, 1_GeV));
+	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(nside, 1_GeV));
 	skymap->setIntegrator(intPiZero);
 
 	//auto output = std::make_shared<FITSOutput>(FITSOutput("!test-pion.fits.gz"));
@@ -86,7 +86,7 @@ TEST(PiZeroIntegrator, PerformanceTest) {
 	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity());
 	auto in = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, kamae));
-	auto skymap = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(4, 1_GeV));
+	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, 1_GeV));
 	skymap->setIntegrator(in);
 
         std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();

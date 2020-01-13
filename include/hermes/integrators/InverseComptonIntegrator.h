@@ -13,6 +13,10 @@
 #include <array>
 
 namespace hermes {
+/**
+ * \addtogroup Integrators
+ * @{
+ */
 
 class InverseComptonIntegrator: public IntegratorTemplate<QDifferentialFlux, QEnergy> {
 private:
@@ -45,6 +49,7 @@ public:
 		QEnergy Egamma, QEnergy Eelectron) const;
 };
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_INVERSECOMPTONINTEGRATOR_H

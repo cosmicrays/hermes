@@ -9,6 +9,10 @@
 #include <ostream>
 
 namespace hermes {
+/**
+ * \addtogroup Units
+ * @{
+ */
 
 // Basic template class for Units
 template<typename LengthDim,
@@ -368,8 +372,15 @@ constexpr QLIntensity	candela(1.0);
 constexpr QAngle	radian(1.0);
 
 // Math
-constexpr double pi = 3.1415926535897932384626433832795;
-constexpr double eulerGamma = 0.5772156649015328606065120900824;
+#ifndef M_PI
+#define M_PI 3.1415926535897932384626433832795
+#endif
+constexpr double pi = M_PI;
+
+#ifndef M_PI
+#define M_E 0.5772156649015328606065120900824
+#endif
+constexpr double eulerGamma = M_E;
 
 inline double exp(const QNumber &num) {
     return std::exp(static_cast<double>(num));
@@ -405,6 +416,7 @@ inline QAngle atan2(const QLength &lhs, const QLength &rhs) {
     return QAngle(std::atan2(static_cast<double>(lhs), static_cast<double>(rhs)));
 }
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_UNITSBASIC_H

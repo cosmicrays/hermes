@@ -11,6 +11,10 @@
 #include <array>
 
 namespace hermes {
+/**
+ * \addtogroup Integrators
+ * @{
+ */
 
 class RMIntegrator: public IntegratorTemplate<QRotationMeasure, QNumber> {
 private:
@@ -24,6 +28,7 @@ public:
 	QRotationMeasure integrateOverLOS(QDirection iterdir) const;
 };
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_RMINTEGRATOR_H

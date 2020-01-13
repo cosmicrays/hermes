@@ -10,6 +10,10 @@
 #include <array>
 
 namespace hermes {
+/**
+ * \addtogroup Integrators
+ * @{
+ */
 
 class SynchroIntegrator: public IntegratorTemplate<QTemperature, QFrequency> {
 private:
@@ -37,6 +41,7 @@ public:
 		Vector3QLength pos, QFrequency freq) const;
 };
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_SYNCHROINTEGRATOR_H

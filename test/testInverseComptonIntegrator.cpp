@@ -65,7 +65,7 @@ TEST(InverseComptonIntegrator, PerformanceTest) {
 	auto photonField = std::make_shared<CMB>(CMB()); 
 	auto in = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
-	auto skymap = std::make_shared<DiffFluxSkymap>(DiffFluxSkymap(4, 1_GeV));
+	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, 1_GeV));
 	skymap->setIntegrator(in);
 
         std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();

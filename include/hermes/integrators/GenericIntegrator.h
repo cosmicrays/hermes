@@ -10,6 +10,10 @@
 #include <memory>
 
 namespace hermes {
+/**
+ * \addtogroup Integrators
+ * @{
+ */
 
 class GenericIntegrator: public IntegratorTemplate<QNumber, QFrequency> {
 private:
@@ -31,6 +35,7 @@ public:
 	QNumber integrateOverLOS(QDirection iterdir, QFrequency freq) const;
 };
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_GENERICINTEGRATOR_H

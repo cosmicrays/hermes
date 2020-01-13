@@ -5,6 +5,10 @@
 #include <array>
 
 namespace hermes {
+/**
+ * \addtogroup Units
+ * @{
+ */
 
 // Derived units types:
 // ------------------------------------
@@ -141,6 +145,7 @@ constexpr QAngle degree = static_cast<double>(2*pi / 360.0) * radian;
 // Direction quantity (l, b)
 typedef std::array<QAngle, 2> QDirection;
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_UNITSDERIVED_H

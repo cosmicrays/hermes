@@ -1,10 +1,10 @@
-#ifndef CRPROPA_GALACTICMAGNETICFIELD_H
-#define CRPROPA_GALACTICMAGNETICFIELD_H
+#ifndef HERMES_GALACTICMAGNETICFIELD_H
+#define HERMES_GALACTICMAGNETICFIELD_H
 
-#include "crpropa/magneticField/MagneticField.h"
+#include "hermes/magneticField/MagneticField.h"
 #include <cmath>
 
-namespace crpropa {
+namespace hermes {
 
 /**
  @class TorroidalHaloField
@@ -91,6 +91,6 @@ public:
 	}
 };
 
-}// namespace crpropa
+}// namespace hermes
 
-#endif // CRPROPA_GALACTICMAGNETICFIELD_H
+#endif // HERMES_GALACTICMAGNETICFIELD_H

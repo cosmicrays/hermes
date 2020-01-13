@@ -8,6 +8,10 @@
 #endif
 
 namespace hermes {
+/**
+ * \addtogroup Units
+ * @{
+ */
 
 #define BASELITERAL(_QUANTITY, _STRING) \
 	constexpr _QUANTITY operator"" _STRING(long double x) { \
@@ -114,6 +118,7 @@ BASELITERAL(QPressure, _Pa)
 LITERAL(QPressure, _bar, bar)
 LITERAL(QPressure, _psi, psi)
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_UNITSLITERALS_H

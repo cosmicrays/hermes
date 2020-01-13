@@ -11,6 +11,10 @@
 #include <array>
 
 namespace hermes {
+/**
+ * \addtogroup Integrators
+ * @{
+ */
 
 class PiZeroIntegrator: public IntegratorTemplate<QDifferentialFlux, QEnergy> {
 private:
@@ -39,6 +43,7 @@ public:
 		Vector3QLength pos, QEnergy Egamma) const;
 };
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_PIZEROINTEGRATOR_H

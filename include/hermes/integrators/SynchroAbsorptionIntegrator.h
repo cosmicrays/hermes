@@ -6,6 +6,10 @@
 #include "hermes/integrators/FreeFreeIntegrator.h"
 
 namespace hermes {
+/**
+ * \addtogroup Integrators
+ * @{
+ */
 
 class SynchroAbsorptionIntegrator: public IntegratorTemplate<QTemperature, QFrequency> {
 private:
@@ -26,6 +30,7 @@ public:
 	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;
 };
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_SYNCHROABSORPTIONINTEGRATOR_H

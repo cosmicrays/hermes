@@ -10,6 +10,10 @@
 #include <array>
 
 namespace hermes {
+/**
+ * \addtogroup Integrators
+ * @{
+ */
 
 class FreeFreeIntegrator: public IntegratorTemplate<QTemperature, QFrequency> {
 private:
@@ -34,6 +38,7 @@ public:
 	
 };
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_FREEFREEINTEGRATOR_H

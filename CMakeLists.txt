@@ -173,7 +173,7 @@ add_library(hermes SHARED
 	src/GridTools.cpp
 	src/skymaps/Skymap.cpp
 	src/skymaps/SkymapMask.cpp
-	src/skymaps/DiffFluxSkymapRange.cpp
+	src/skymaps/GammaSkymapRange.cpp
 	src/skymaps/RadioSkymapRange.cpp
 	src/integrators/GenericIntegrator.cpp
 	src/integrators/RMIntegrator.cpp
@@ -243,6 +243,18 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	install(TARGETS hermes-swig LIBRARY DESTINATION "${PYTHON_SITE_PACKAGES}/hermes")
 	install(FILES ${HERMES_SWIG_INPUTS} DESTINATION share/hermes/swig_interface)
 endif(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
+
+# ------------------------------------------------------------------
+# Documentation
+# ------------------------------------------------------------------
+find_package(Doxygen)
+if(DOXYGEN_FOUND)
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/doc/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/doc/DoxygenLayout.xml ${CMAKE_CURRENT_BINARY_DIR}/DoxygenLayout.xml COPYONLY)
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/doc/Mainpage.md.in ${CMAKE_CURRENT_BINARY_DIR}/Mainpage.md)
+        add_custom_target(doc ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} COMMENT "Generating API documentation with Doxygen" VERBATIM
+)
+endif(DOXYGEN_FOUND)
 
 
 # ----------------------------------------------------------------------------

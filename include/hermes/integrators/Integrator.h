@@ -7,6 +7,17 @@
 #include "hermes/Common.h"
 
 namespace hermes {
+/**
+ * \addtogroup Integrators
+ * @{
+ */
+
+/**
+ @class IntegratorTemplate
+ @brief Provides the integrator interface and implements methods shared across integrators.
+ * \tparam QPXL A type of pixel which an integrator returns (for example, QTemperature, QIntensity)
+ * \tparam QSTEP A physical quantity that describes a specific map (for example, QFrequency, QEnergy)
+ */
 
 template <class QPXL, typename QSTEP>
 class IntegratorTemplate {
@@ -24,6 +35,7 @@ public:
 	virtual QPXL integrateOverLOS(QDirection iterdir, QSTEP) const { return QPXL(0); };
 };
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_INTEGRATOR_H
