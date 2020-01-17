@@ -207,12 +207,14 @@ target_link_libraries(hermes ${HERMES_EXTRA_LIBRARIES})
 # Python
 # ----------------------------------------------------------------------------
 option(ENABLE_PYTHON "Create python library via Pybind11" ON)
-find_package(Python COMPONENTS Interpreter Development)
+find_package(PythonInterp)
+find_package(PythonLibs)
 
-if(ENABLE_PYTHON AND Python_INCLUDE_DIRS)
+if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	include_directories(${PYTHON_INCLUDE_DIRS})
+	include(cmake/FindPython.cmake)
 	add_subdirectory(libs/pybind11)
-
+	
 	pybind11_add_module(pyhermes
 		python/Units.cpp
 		python/Skymaps.cpp
@@ -222,12 +224,14 @@ if(ENABLE_PYTHON AND Python_INCLUDE_DIRS)
 		python/PyHermes.cpp
 	)
 
+	set_target_properties(pyhermes PROPERTIES
+				        PREFIX ""
+					OUTPUT_NAME "pyhermes"
+				        LINKER_LANGUAGE CXX)
 	target_link_libraries(pyhermes PRIVATE hermes)
-	#target_link_libraries(hermes-swig hermes ${PYTHON_LIBRARIES} ${HERMES_EXTRA_LIBRARIES})
 
-	#install(FILES "${CMAKE_CURRENT_BINARY_DIR}/hermes.py" DESTINATION "${PYTHON_SITE_PACKAGES}/hermes")
-	install(TARGETS pyhermes LIBRARY DESTINATION "${Python_SITELIB}/hermes")
-endif(ENABLE_PYTHON AND Python_INCLUDE_DIRS)
+	install(TARGETS pyhermes LIBRARY DESTINATION "${PYTHON_SITE_PACKAGES}")
+endif(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 
 # ------------------------------------------------------------------
 # Documentation
