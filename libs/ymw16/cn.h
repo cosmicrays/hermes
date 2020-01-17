@@ -23,6 +23,10 @@ authors. Please provide an example illustrating the problem.
 Jumei Yao (yaojumei@xao.ac.cn), Richard N Manchester
 (dick.manchester@csiro.au), Na Wang (na.wang@xao.ac.cn).
 */
+
+#ifndef YMW16_CN_H
+#define YMW16_CN_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -151,3 +155,5 @@ void frb_d(double DDM, double DM_Gal, double DM_MC, double DM_Host, int uu, int 
 double tsc(double dm);
 void dmdtau(double gl, double gb ,double dordm, double DM_Host, int ndir, int np, int vbs, char *dirname, char *text);
 double ne_crd(double *x, double *y, double *z, double *gl, double *gb, double *dd, int ncrd, int vbs, char *dirname, char *text);
+
+#endif

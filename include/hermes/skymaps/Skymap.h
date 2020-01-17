@@ -31,7 +31,7 @@ public:
 	std::size_t getRes() const;
 	std::size_t getNpix() const;
 
-        virtual std::string getDescription() const;
+        std::string getDescription() const;
         void setDescription(const std::string &description);
 
 	virtual double operator[](std::size_t i) const = 0;

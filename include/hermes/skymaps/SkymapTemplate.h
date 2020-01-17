@@ -42,6 +42,7 @@ public:
 	std::size_t getSize() const;
 	double operator[](std::size_t ipix) const;
 	QPXL getPixel(std::size_t ipix) const;
+	QPXL* data() { return fluxContainer.data(); }
 
 	void setIntegrator(std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_);
 	void setOutput();

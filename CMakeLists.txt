@@ -206,43 +206,28 @@ target_link_libraries(hermes ${HERMES_EXTRA_LIBRARIES})
 # ----------------------------------------------------------------------------
 # Python
 # ----------------------------------------------------------------------------
-option(ENABLE_PYTHON "Create python library via SWIG" OFF)
-find_package(PythonInterp)
-find_package(PythonLibs)
+option(ENABLE_PYTHON "Create python library via Pybind11" ON)
+find_package(Python COMPONENTS Interpreter Development)
 
-if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
+if(ENABLE_PYTHON AND Python_INCLUDE_DIRS)
+	include_directories(${PYTHON_INCLUDE_DIRS})
+	add_subdirectory(libs/pybind11)
 
-	find_package(SWIG 2.0 REQUIRED)
-	include_directories(${PYTHON_INCLUDE_PATH})
+	pybind11_add_module(pyhermes
+		python/Units.cpp
+		python/Skymaps.cpp
+		python/Integrators.cpp
+		python/MagneticFields.cpp
+		python/ChargedGasDensity.cpp
+		python/PyHermes.cpp
+	)
 
-	if(ENABLE_SWIG_BUILTIN)
-		set(BUILTIN "-builtin")
-		set(PY3 "-py3")
-	else(ENABLE_SWIG_BUILTIN)
-		set(BUILTIN "")
-		set(PY3 "")
-	endif(ENABLE_SWIG_BUILTIN)
+	target_link_libraries(pyhermes PRIVATE hermes)
+	#target_link_libraries(hermes-swig hermes ${PYTHON_LIBRARIES} ${HERMES_EXTRA_LIBRARIES})
 
-	if(PYTHON_VERSION_STRING VERSION_GREATER 3.0)
-		list(APPEND HERMES_SWIG_DEFINES -DSWIG_PYTHON3)
-	endif(PYTHON_VERSION_STRING VERSION_GREATER 3.0)
-
-	file(GLOB_RECURSE HERMES_SWIG_INPUTS python/*.i)
-	set_source_files_properties( ${CMAKE_CURRENT_BINARY_DIR}/hermes_wrap.cxx PROPERTIES GENERATED true )
-	add_custom_command( OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/hermes_wrap.cxx
-		COMMAND swig ${BUILTIN} -c++ -python ${PY3} -I${CMAKE_SOURCE_DIR}/include ${HERMES_SWIG_DEFINES} -dirprot -o ${CMAKE_CURRENT_BINARY_DIR}/hermes_wrap.cxx -outdir ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR}/python/hermes.i
-		DEPENDS ${HERMES_SWIG_INPUTS} ${HERMES_INCLUDES} ${HERMES_EXTRA_INCLUDES})
-
-	add_library(hermes-swig MODULE ${CMAKE_CURRENT_BINARY_DIR}/hermes_wrap.cxx)
-	set_target_properties(hermes-swig PROPERTIES PREFIX "")
-	set_target_properties(hermes-swig PROPERTIES OUTPUT_NAME "_hermes")
-	target_link_libraries(hermes-swig hermes ${PYTHON_LIBRARIES} ${HERMES_EXTRA_LIBRARIES})
-
-	install(DIRECTORY "${CMAKE_SOURCE_DIR}/python/hermes" DESTINATION "${PYTHON_SITE_PACKAGES}")
-	install(FILES "${CMAKE_CURRENT_BINARY_DIR}/hermes.py" DESTINATION "${PYTHON_SITE_PACKAGES}/hermes")
-	install(TARGETS hermes-swig LIBRARY DESTINATION "${PYTHON_SITE_PACKAGES}/hermes")
-	install(FILES ${HERMES_SWIG_INPUTS} DESTINATION share/hermes/swig_interface)
-endif(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
+	#install(FILES "${CMAKE_CURRENT_BINARY_DIR}/hermes.py" DESTINATION "${PYTHON_SITE_PACKAGES}/hermes")
+	install(TARGETS pyhermes LIBRARY DESTINATION "${Python_SITELIB}/hermes")
+endif(ENABLE_PYTHON AND Python_INCLUDE_DIRS)
 
 # ------------------------------------------------------------------
 # Documentation
