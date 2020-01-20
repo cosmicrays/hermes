@@ -17,8 +17,12 @@ QPDensity YMW16::getDensity(const Vector3QLength& pos) const {
 	int vbs = 0; // verbose
 	char dirname[] = "empty"; // not important since we put YMW16 parameters inside its source
 	char text[10]; // dummy var
+	QPDensity density;
 
-	return QPDensity(ne_crd(&x, &y, &z, &gl, &gb, &dd, ncrd, vbs, dirname, text))/1_cm3*1_m3;
+	#pragma omp critical
+		density = QPDensity(ne_crd(&x, &y, &z, &gl, &gb, &dd, ncrd, vbs, dirname, text))/1_cm3*1_m3;
+
+	return density;
 };
 
 } // namespace hermes

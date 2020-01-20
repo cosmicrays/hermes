@@ -38,6 +38,7 @@ QUANTITY_TYPE( 0,-2, 1, 0, 0, 0, 0, 0, QIntensity);
 QUANTITY_TYPE(-4, 1,-1, 0, 0, 0, 0, 0, QDifferentialFlux);
 QUANTITY_TYPE(-1, 0, 0, 0, 0, 0, 0, 0, QInverseLength);
 QUANTITY_TYPE( 0, 2,-1, 0, 0, 0, 0, 0, QDiffCrossSection);
+QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 0, QDispersionMeasure);
 
 // Predefined derived units:
 // doc: https://en.wikipedia.org/wiki/SI_derived_unit
@@ -52,6 +53,50 @@ constexpr QFrequency	hertz(1.0);
 constexpr QPower	watt(1.0);
 constexpr QEResistance	ohm(1.0);
 constexpr QECapacitance farad(1.0);
+
+// SI prefixes
+constexpr double yocto = 1e-24;
+constexpr double zepto = 1e-21;
+constexpr double atto  = 1e-18;
+constexpr double femto = 1e-15;
+constexpr double pico  = 1e-12;
+constexpr double nano  = 1e-9;
+constexpr double micro = 1e-6;
+constexpr double milli  = 1e-3;
+constexpr double centi = 1e-2;
+constexpr double deci  = 1e-1;
+constexpr double deca  = 1e1;
+constexpr double hecto = 1e2;
+constexpr double kilo  = 1e3;
+constexpr double mega  = 1e6;
+constexpr double giga  = 1e9;
+constexpr double tera  = 1e12;
+constexpr double peta  = 1e15;
+constexpr double exa   = 1e18;
+constexpr double zetta = 1e21;
+constexpr double yotta = 1e24;  
+
+#define GENERATE_PREFIXED_UNITS(_UNIT) \
+	constexpr auto yocto##_UNIT = yocto * _UNIT; \
+	constexpr auto zepto##_UNIT = zepto * _UNIT; \
+	constexpr auto atto##_UNIT  = atto  * _UNIT; \
+	constexpr auto femto##_UNIT = femto * _UNIT; \
+	constexpr auto pico##_UNIT  = pico  * _UNIT; \
+	constexpr auto nano##_UNIT  = nano  * _UNIT; \
+	constexpr auto micro##_UNIT = micro * _UNIT; \
+	constexpr auto milli##_UNIT = milli * _UNIT; \
+	constexpr auto centi##_UNIT = centi * _UNIT; \
+	constexpr auto deci##_UNIT  = deci  * _UNIT; \
+	constexpr auto hecto##_UNIT = hecto * _UNIT; \
+	constexpr auto kilo##_UNIT  = kilo  * _UNIT; \
+	constexpr auto mega##_UNIT  = mega  * _UNIT; \
+	constexpr auto giga##_UNIT  = giga  * _UNIT; \
+	constexpr auto tera##_UNIT  = tera  * _UNIT; \
+	constexpr auto peta##_UNIT  = peta  * _UNIT; \
+	constexpr auto exa##_UNIT   = exa   * _UNIT; \
+	constexpr auto zetta##_UNIT = zetta * _UNIT; \
+	constexpr auto yotta##_UNIT = yotta * _UNIT;
+
 
 // Physical constants
 /* Definition of SI base units and constants used elsewhere in the code.
@@ -94,6 +139,7 @@ constexpr QMass stone = 14 * pound;
 constexpr QEnergy erg = 1e-7 * joule;
 
 // Predefined length units:
+GENERATE_PREFIXED_UNITS(metre)
 constexpr QLength inch = 2.54 * 0.01 * metre;
 constexpr QLength foot = 12 * inch;
 constexpr QLength yard = 3 * foot;
@@ -103,10 +149,15 @@ constexpr QLength mile = 5280 * foot;
 constexpr QLength astronomical_unit = 149597870700.0 * metre;
 constexpr QLength lightyear = year * c_light;
 constexpr QLength parsec = 648000.0 / (1*pi) * astronomical_unit;
+GENERATE_PREFIXED_UNITS(parsec)
 
 // Predefined area units:
 constexpr QArea hectare = 1e4 * square_metre;
 constexpr QArea barn = 1e-28 * square_metre;
+
+// Predefined volume units:
+constexpr QVolume metre3 = metre*metre*metre;
+constexpr QVolume centimetre3 = centimetre*centimetre*centimetre;
 
 // Predefined mixed units:
 constexpr QAcceleration G = 9.80665 *  metre / (second*second);
@@ -116,28 +167,6 @@ constexpr auto gauss = 1e-4 * tesla;
 constexpr auto electronvolt = e_plus * volt;
 constexpr QPressure bar = 100000 * pascal;
 constexpr QPressure psi = pound*G / (inch*inch);
-
-// SI prefixes
-constexpr double yocto = 1e-24;
-constexpr double zepto = 1e-21;
-constexpr double atto  = 1e-18;
-constexpr double femto = 1e-15;
-constexpr double pico  = 1e-12;
-constexpr double nano  = 1e-9;
-constexpr double micro = 1e-6;
-constexpr double milli  = 1e-3;
-constexpr double centi = 1e-2;
-constexpr double deci  = 1e-1;
-constexpr double deca  = 1e1;
-constexpr double hecto = 1e2;
-constexpr double kilo  = 1e3;
-constexpr double mega  = 1e6;
-constexpr double giga  = 1e9;
-constexpr double tera  = 1e12;
-constexpr double peta  = 1e15;
-constexpr double exa   = 1e18;
-constexpr double zetta = 1e21;
-constexpr double yotta = 1e24;  
 
 // Predefined angle units:
 constexpr QAngle degree = static_cast<double>(2*pi / 360.0) * radian;

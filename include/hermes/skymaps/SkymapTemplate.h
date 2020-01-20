@@ -27,6 +27,7 @@ protected:
 	typedef std::vector<tPixel> tFluxContainer;
 	mutable tFluxContainer fluxContainer;
 	mutable std::vector<bool> maskContainer;
+	mutable tPixel outputUnits;
 	std::shared_ptr<SkymapMask> mask;
 	std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator;
 	
@@ -58,6 +59,8 @@ public:
 	int getThreadsNumber();
 	
 	/** output **/
+	void setOutputUnits(QPXL units_);
+	void convertToUnits(QPXL units_);
 	void save(std::shared_ptr<Output> output) const;
 
         /** iterator goodies */
@@ -70,6 +73,11 @@ public:
 };
 
 /* Definitions */
+
+template <typename QPXL, typename QSTEP>
+void SkymapTemplate<QPXL, QSTEP>::setOutputUnits(QPXL units_) {
+	outputUnits = units_;
+}
 
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::initContainer() {
@@ -86,6 +94,7 @@ template <typename QPXL, typename QSTEP>
 SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
 		std::size_t nside_,
 		const std::shared_ptr<SkymapMask> mask_) : Skymap(nside_), mask(mask_) {
+	setOutputUnits(QPXL(1));
 	initContainer();
 	initMask();
 }
@@ -157,6 +166,13 @@ int SkymapTemplate<QPXL, QSTEP>::getThreadsNumber() {
        return omp_get_max_threads();
 #endif
        return 1;
+}
+
+template <typename QPXL, typename QSTEP>
+void SkymapTemplate<QPXL, QSTEP>::convertToUnits(QPXL units_) {
+	setOutputUnits(units_);
+	for (auto& i: fluxContainer)
+		i /= static_cast<double>(units_);
 }
 
 template <typename QPXL, typename QSTEP>

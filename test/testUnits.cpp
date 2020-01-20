@@ -10,6 +10,12 @@ TEST(UnitsBasic, LengthOperations) {
 	EXPECT_EQ(z, 2303.2_m);
 }
 
+TEST(UnitsBasic, Literals) {
+	QVolume V(3_cm3);
+	EXPECT_DOUBLE_EQ(static_cast<double>(V),
+			static_cast<double>(3*0.01*metre*centi*metre*centimetre));
+}
+
 TEST(UnitsBasic, Angles) {
 	QAngle omega(2_pi);
 

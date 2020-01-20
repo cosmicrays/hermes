@@ -17,6 +17,7 @@
 #include "hermes/skymaps/SkymapMask.h"
 #include "hermes/skymaps/SkymapTemplate.h"
 #include "hermes/skymaps/GenericSkymap.h"
+#include "hermes/skymaps/DMSkymap.h"
 #include "hermes/skymaps/RMSkymap.h"
 #include "hermes/skymaps/GammaSkymap.h"
 #include "hermes/skymaps/GammaSkymapRange.h"

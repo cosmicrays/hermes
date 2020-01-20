@@ -21,8 +21,12 @@ namespace hermes {
 
 template <class QPXL, typename QSTEP>
 class IntegratorTemplate {
+protected:
+	Vector3QLength positionSun;
 public:
-	IntegratorTemplate() { };
+	IntegratorTemplate() {
+		positionSun.setXYZ(8.5_kpc, 0, 0);
+	};
 	/**
  		Every child class should implement this method which represents an integral
 		of a targeted accumulated quantity `T` in a given direction `interdir`.
@@ -33,6 +37,29 @@ public:
 		implement the following method too.
 	*/
 	virtual QPXL integrateOverLOS(QDirection iterdir, QSTEP) const { return QPXL(0); };
+
+	/**
+	 	Set the position of the Sun in the galaxy as a vector (x, y, z) from which
+		the LOS integration starts, default: (8.5_kpc, 0, 0)
+	*/
+	void setSunPosition(Vector3QLength pos_) {
+		positionSun = pos_;
+	}
+
+	/**
+	 	Get the position of the Sun in the galaxy as a vector (x, y, z)
+	*/
+	inline Vector3QLength getSunPosition() const {
+		return positionSun;
+	}
+	
+	/**
+		Wrapper within the class for distanceToGalBorder(positionSun, direction)
+		becomes getMaxDistance(direction)
+	*/
+	inline QLength getMaxDistance(QDirection direction) const {
+		return distanceToGalBorder(positionSun, direction);
+	}
 };
 
 /** @}*/

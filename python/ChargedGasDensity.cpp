@@ -29,6 +29,9 @@ void init_charged_gas_density(py::module &m) {
     py::class_<HII_Cordes91, std::shared_ptr<HII_Cordes91>, ChargedGasDensity>(m, "HII_Cordes91")
 	      .def(py::init<>())
 	      .def("getDensity", &ChargedGasDensity::getDensity);
+    py::class_<YMW16, std::shared_ptr<YMW16>, ChargedGasDensity>(m, "YMW16")
+	      .def(py::init<>())
+	      .def("getDensity", &ChargedGasDensity::getDensity);
 }
 
 }

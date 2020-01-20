@@ -33,8 +33,12 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 		auto normI_f = [ring, this](const Vector3QLength &pos)
 			{ return (ring->isInside(pos)) ?
 				this->densityProfile(pos) : 0;};
+
+		auto integrand = [this, normI_f, direction_](const QLength &dist) {
+	                return normI_f(getGalacticPosition(this->positionSun, dist, direction_)); };
+
 		normIntegrals[ring->getIndex()] =
-			simpsonIntegration<QColumnDensity, QPDensity>(direction_, normI_f, 150);
+			simpsonIntegration<QColumnDensity, QPDensity>(integrand, 0, getMaxDistance(direction_), 150);
 	}
 
 	std::vector<QDifferentialFlux> losIntegrals(

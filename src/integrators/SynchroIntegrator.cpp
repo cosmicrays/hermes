@@ -22,10 +22,12 @@ QTemperature SynchroIntegrator::integrateOverLOS(
 
 QTemperature SynchroIntegrator::integrateOverLOS(
 		QDirection direction, QFrequency freq_) const {
+	
+	auto integrand = [this, direction, freq_](const QLength &dist) {
+		return this->integrateOverEnergy(getGalacticPosition(this->positionSun, dist, direction), freq_); };
 
-	QIntensity total_intensity = simpsonIntegration<QIntensity, QEmissivity, QFrequency>(
-			direction, [this](Vector3QLength pos, QFrequency freq) {return this->integrateOverEnergy(pos, freq);},
-			freq_, 100);
+	QIntensity total_intensity = simpsonIntegration<QIntensity, QEmissivity>(
+			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 100);
 
 	return intensityToTemperature(total_intensity / 4_pi, freq_);
 }

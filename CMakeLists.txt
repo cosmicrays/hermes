@@ -176,6 +176,7 @@ add_library(hermes SHARED
 	src/skymaps/GammaSkymapRange.cpp
 	src/skymaps/RadioSkymapRange.cpp
 	src/integrators/GenericIntegrator.cpp
+	src/integrators/DMIntegrator.cpp
 	src/integrators/RMIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
 	src/integrators/FreeFreeIntegrator.cpp
@@ -217,6 +218,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	
 	pybind11_add_module(pyhermes
 		python/Units.cpp
+		python/Vectors.cpp
 		python/Skymaps.cpp
 		python/Integrators.cpp
 		python/MagneticFields.cpp

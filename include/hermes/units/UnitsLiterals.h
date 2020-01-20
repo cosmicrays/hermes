@@ -40,23 +40,23 @@ LITERAL(QAngle, _deg, degree)
 
 // literals for length units
 BASELITERAL(QLength, _m)
-LITERAL(QLength, _mm, milli*metre)
-LITERAL(QLength, _cm, centi*metre)
-LITERAL(QLength, _km, kilo*metre)
+LITERAL(QLength, _mm, millimetre)
+LITERAL(QLength, _cm, centimetre)
+LITERAL(QLength, _km, kilometre)
 LITERAL(QLength, _mi, mile)
 LITERAL(QLength, _yd, yard)
 LITERAL(QLength, _in, foot)
 LITERAL(QLength, _pc, parsec)
-LITERAL(QLength, _kpc, kilo*parsec)
+LITERAL(QLength, _kpc, kiloparsec)
 
 // literals for area units
-LITERAL(QArea, _cm2, (centi*metre*centi*metre))
+LITERAL(QArea, _cm2, (centimetre*centimetre))
 LITERAL(QArea, _barn, barn)
 LITERAL(QArea, _mbarn, milli*barn)
 
 // literals for volume units
-LITERAL(QVolume, _cm3, (centi*metre*centi*metre*centi*metre))
-LITERAL(QVolume, _m3, (metre*metre*metre))
+LITERAL(QVolume, _cm3, (centimetre3))
+LITERAL(QVolume, _m3, (metre3))
 
 // literals for energy units
 LITERAL(QEnergy, _J, joule)

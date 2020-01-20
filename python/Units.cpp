@@ -37,6 +37,7 @@ void init_units(py::module &m) {
     declare_quantity<QAngle>(m, "QAngle", "_rad");
     // |- derived
     declare_quantity<QArea>(m, "QArea", "_m2");
+    declare_quantity<QVolume>(m, "QVolume", "_m3");
     declare_quantity<QForce>(m, "QForce", "_N");
     declare_quantity<QPressure>(m, "QPressure", "_Pa");
     declare_quantity<QEnergy>(m, "QEnergy", "_J");
@@ -47,7 +48,18 @@ void init_units(py::module &m) {
     declare_quantity<QPower>(m, "QPower", "_W");
     declare_quantity<QEResistance>(m, "QEResistance", "_Ohm");
     declare_quantity<QECapacitance>(m, "QECapacitance", "_F");
+    declare_quantity<QDispersionMeasure>(m, "QDispersionMeasure", "_m-2");
     declare_quantity<QRotationMeasure>(m, "QRotationMeasure,", "_rad/m2");
+
+    // Length
+    m.attr("metre") = metre;
+    m.attr("centimetre") = centimetre;
+    m.attr("parsec") = parsec;
+    m.attr("kiloparsec") = kiloparsec;
+    
+    // Volume
+    m.attr("metre3") = metre3;
+    m.attr("centimetre3") = centimetre3;
 }
 
 }

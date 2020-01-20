@@ -38,12 +38,12 @@ QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
 	
 	QDifferentialFlux tolerance = 1e10; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
+	
+	auto integrand = [this, direction_, Egamma_](const QLength &dist) {
+		return this->axialCacheForIoE(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
 
-	return simpsonIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(
-			direction_,
-			[this](Vector3QLength pos, QEnergy Egamma) {return this->axialCacheForIoE(pos, Egamma);},
-			Egamma_,
-			30);
+	return simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
+			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction_), 500);
 }
 
 QICOuterIntegral InverseComptonIntegrator::axialCacheForIoE(Vector3QLength pos_, QEnergy Egamma_) const {

@@ -10,9 +10,11 @@ RMIntegrator::RMIntegrator(const std::shared_ptr<MagneticField> mfield,
 RMIntegrator::~RMIntegrator() { }
 
 QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) const {
+	auto integrand = [this, direction](const QLength &dist) {
+		return this->integralFunction(getGalacticPosition(this->positionSun, dist, direction)); };
+
 	return simpsonIntegration<QRotationMeasure, QRMIntegral>(
-			direction, [this](Vector3QLength pos) {return this->integralFunction(pos);},
-			500);
+			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 500);
 }
 
 QRMIntegral RMIntegrator::integralFunction(Vector3QLength pos) const {
