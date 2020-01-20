@@ -171,6 +171,7 @@ add_library(hermes SHARED
 	src/FITSWrapper.cpp
 	src/ProgressBar.cpp
 	src/GridTools.cpp
+	src/Signals.cpp
 	src/skymaps/Skymap.cpp
 	src/skymaps/SkymapMask.cpp
 	src/skymaps/GammaSkymapRange.cpp

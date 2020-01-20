@@ -3,6 +3,7 @@
 
 #include "hermes/Units.h"
 #include "hermes/ProgressBar.h"
+#include "hermes/Signals.h"
 #include "hermes/integrators/Integrator.h"
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapMask.h"
@@ -14,7 +15,6 @@
 
 #include <memory>
 #include <vector>
-#include <iostream>
 
 namespace hermes {
 
@@ -150,14 +150,28 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
 	ProgressBar progressbar(getSize());
 	progressbar.start("Compute skymap");
 
+	g_cancel_signal_flag = 0;
+        sighandler_t old_sigint_handler = std::signal(SIGINT,
+                        g_cancel_signal_callback);
+        sighandler_t old_sigterm_handler = std::signal(SIGTERM,
+                        g_cancel_signal_callback);
+
 #pragma omp parallel for schedule(OMP_SCHEDULE)
 	for (std::size_t ipix = 0; ipix < getSize(); ++ipix) {
+		if (g_cancel_signal_flag != 0)
+                        continue;
 		if (maskContainer[ipix] == true) {
 			computePixel(ipix, integrator);
 #pragma omp critical(progressbarUpdate)
 			progressbar.update();
 		}
 	}
+
+	std::signal(SIGINT, old_sigint_handler);
+        std::signal(SIGTERM, old_sigterm_handler);
+        // Propagate signal to old handler.
+        if (g_cancel_signal_flag > 0)
+                raise(g_cancel_signal_flag);
 }
 
 template <typename QPXL, typename QSTEP>
@@ -172,7 +186,7 @@ template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::convertToUnits(QPXL units_) {
 	setOutputUnits(units_);
 	for (auto& i: fluxContainer)
-		i /= static_cast<double>(units_);
+		i = i / static_cast<double>(units_);
 }
 
 template <typename QPXL, typename QSTEP>

@@ -12,6 +12,7 @@
 #include "hermes/ProgressBar.h"
 #include "hermes/Common.h"
 #include "hermes/CacheTools.h"
+#include "hermes/Signals.h"
 
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapMask.h"
