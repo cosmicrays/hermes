@@ -42,6 +42,7 @@ void init_skymaps(py::module &m) {
 	       .def("getDescription", &DMSkymap::getDescription)
 	       .def("setIntegrator", [](DMSkymap &s, std::shared_ptr<DMIntegrator> i) { s.setIntegrator(i); })
 	       .def("compute", &DMSkymap::compute)
+	       .def("save", &DMSkymap::save)
 	       .def_buffer([](DMSkymap &s) -> py::buffer_info {
 		        return py::buffer_info(
 			        s.data(),          /* Pointer to buffer */
@@ -58,6 +59,7 @@ void init_skymaps(py::module &m) {
 	       .def("getDescription", &RMSkymap::getDescription)
 	       .def("setIntegrator", [](RMSkymap &s, std::shared_ptr<RMIntegrator> i) { s.setIntegrator(i); })
 	       .def("compute", &RMSkymap::compute)
+	       .def("save", &RMSkymap::save)
 	       .def_buffer([](RMSkymap &s) -> py::buffer_info {
 		        return py::buffer_info(
 			        s.data(),          /* Pointer to buffer */
