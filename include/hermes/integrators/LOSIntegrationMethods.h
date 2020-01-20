@@ -49,165 +49,39 @@ QPXL simpsonIntegration(std::function<INTTYPE(QLength)> f,
 
         return h*(XI0 + 2*XI2 + 4*XI1)/3.0;
 }
+	
+// 8-points Gauß-Legendre integral
+static const double X[8] = {.0950125098, .2816035507, .4580167776, .6178762444, .7554044083, .8656312023, .9445750230, .9894009349};
+static const double W[8] = {.1894506104, .1826034150, .1691565193, .1495959888, .1246289712, .0951585116, .0622535239, .0271524594};
 
 template <typename QPXL, typename INTTYPE>
-QPXL adaptiveSimpsonIntegration(const QDirection &dir,
-		std::function<INTTYPE(Vector3QLength)> f, QPXL tolerance, int N = 30) {
-	
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	QLength maxDistance = distanceToGalBorder(positionSun, dir);
-
-	QPXL total(0);
-
-	auto fw = [f, dir, positionSun](const QLength &dist) {
-		return f(getGalacticPosition(positionSun, dist, dir)); };
-	
-	QLength a = 0_pc;
-	QLength b = maxDistance;
-
-        std::vector<QPXL> tolerance_i(N, 10*tolerance);
-        std::vector<QLength> a_i(N, a);
-        std::vector<QLength> h_i(N, (b-a)/2.);
-        std::vector<double> L_i(N, 1);
-
-        INTTYPE FA = fw(a);
-        INTTYPE FB = fw(b);
-        INTTYPE FD, FE;
-	QPXL S1, S2;
-	INTTYPE v2, v3, v4;
-        QLength v1, v5;
-	QPXL v6, v7;
-       	double v8;
-        std::vector<INTTYPE> FA_i(N, FA);
-        std::vector<INTTYPE> FB_i(N, FB);
-        std::vector<INTTYPE> FC_i(N, 0);
-        std::vector<QPXL> S_i(N, 0);
-        for (int j = 0; j < N; ++j) {
-                FC_i[j] = fw(a + h_i[j]);
-                S_i[j] = h_i[j] * (FA_i[j] + 4*FC_i[j] + FB_i[j])/3.0;
-        }
-
-        int i = 0;
-        while (i >= 0) {
-                FD = fw(a_i[i] + h_i[i]/2);
-                FE = fw(a_i[i] + 3*h_i[i]/2);
-                S1 = h_i[i] * (FA_i[i] + 4*FD + FC_i[i])/6.0;
-                S2 = h_i[i] * (FC_i[i] + 4*FE + FB_i[i])/6.0;
-                v1 = a_i[i];
-                v2 = FA_i[i];
-                v3 = FC_i[i];
-                v4 = FB_i[i];
-                v5 = h_i[i];
-                v6 = tolerance_i[i];
-                v7 = S_i[i];
-                v8 = L_i[i];
-
-                i -= 1;
-
-                if (fabs(S1 + S2 - v7) < v6) {
-                        total += (S1 + S2);
-                } else {
-                        assert(v8 < N);
-
-                        i += 1; // data for the right half subinterval
-                        a_i[i] = v1 + v5;
-                        FA_i[i] = v3;
-                        FC_i[i] = FE;
-                        FB_i[i] = v4;
-                        h_i[i] = v5/2.0;
-                        tolerance_i[i] = v6/2.0;
-                        S_i[i] = S2;
-                        L_i[i] = v8 + 1;
-
-                        i += 1; // data for the left half subinterval
-                        a_i[i] = v1;
-                        FA_i[i] = v2;
-                        FC_i[i] = FD;
-                        FB_i[i] = v3;
-                        h_i[i] = h_i[i-1];
-                        tolerance_i[i] = tolerance_i[i-1];
-                        S_i[i] = S1;
-                        L_i[i] = L_i[i-1];
-                }
-        }
-
-        return total;
-}
-
-// dim(QPXL) = dim(INTTYPE) * dim(L)
-template <typename QPXL, typename INTTYPE, typename QSTEP>
-QPXL sumIntegration(const QDirection &dir,
-		std::function<INTTYPE(Vector3QLength, QSTEP)> f, const QSTEP &step, int N = 100) {
-	
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, dir);
-	QLength delta_d = maxDistance/N;
-
-	QPXL total(0);
-	Vector3QLength pos(0.0);
-
-	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, dir);
-		total += f(pos, step) * delta_d;
+QPXL gaussIntegration(std::function<INTTYPE(QLength)> f, QLength start, QLength stop, int N = 1) {
+	const QLength XM = 0.5 * (stop + start);
+	const QLength XR = 0.5 * (stop - start);
+	INTTYPE SS = 0.;
+	for (int i = 0; i < 8; ++i) {
+		QLength DX = XR * X[i];
+		SS += W[i] * (f(XM + DX) + f(XM - DX));
 	}
+	return XR * SS;
+}	
 
-	return total;
-}
-
-template <typename QPXL, typename INTTYPE, typename QSTEP>
-QPXL simpsonIntegration(const QDirection &dir,
-		std::function<INTTYPE(Vector3QLength, QSTEP)> f, const QSTEP &step, int N = 100) {
+template <typename QPXL, typename INTTYPE>
+QPXL adaptiveSimpsonIntegration(std::function<INTTYPE(QLength)> f,
+		QLength start, QLength stop, QPXL tolerance, int N = 30) {
 	
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, dir);
-	
-	auto fw = [f, dir, positionSun, step](const QLength &dist) {
-		return f(getGalacticPosition(positionSun, dist, dir), step); };
-	
-	QLength a = 0_pc;
-	QLength b = maxDistance;
-
-        QLength h = (b - a)/N;
-        INTTYPE XI0 = fw(a) + fw(b);
-        QLength X = 0;
-	INTTYPE XI1 = 0, XI2 = 0;
-
-        for (int i = 1; i < N; ++i) {
-                X = a + i*h;
-                if (i % 2 == 0)
-                        XI2 = XI2 + fw(X);
-                else
-                        XI1 = XI1 + fw(X);
-        }
-
-        return h*(XI0 + 2*XI2 + 4*XI1)/3.0;
-}
-
-template <typename QPXL, typename INTTYPE, typename QSTEP>
-QPXL adaptiveSimpsonIntegration(const QDirection &dir,
-		std::function<INTTYPE(Vector3QLength, QSTEP)> f, const QSTEP &step,
-		QPXL tolerance, int N = 30) {
-	
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	QLength maxDistance = distanceToGalBorder(positionSun, dir);
-
 	QPXL total(0);
 
-	auto fw = [f, dir, positionSun, step](const QLength &dist) {
-		return f(getGalacticPosition(positionSun, dist, dir), step); };
-	
-	QLength a = 0_pc;
-	QLength b = maxDistance;
+	QLength a = start;
+	QLength b = stop;
 
         std::vector<QPXL> tolerance_i(N, 10*tolerance);
         std::vector<QLength> a_i(N, a);
         std::vector<QLength> h_i(N, (b-a)/2.);
         std::vector<double> L_i(N, 1);
 
-        INTTYPE FA = fw(a);
-        INTTYPE FB = fw(b);
+        INTTYPE FA = f(a);
+        INTTYPE FB = f(b);
         INTTYPE FD, FE;
 	QPXL S1, S2;
 	INTTYPE v2, v3, v4;
@@ -219,14 +93,14 @@ QPXL adaptiveSimpsonIntegration(const QDirection &dir,
         std::vector<INTTYPE> FC_i(N, 0);
         std::vector<QPXL> S_i(N, 0);
         for (int j = 0; j < N; ++j) {
-                FC_i[j] = fw(a + h_i[j]);
+                FC_i[j] = f(a + h_i[j]);
                 S_i[j] = h_i[j] * (FA_i[j] + 4*FC_i[j] + FB_i[j])/3.0;
         }
 
         int i = 0;
         while (i >= 0) {
-                FD = fw(a_i[i] + h_i[i]/2);
-                FE = fw(a_i[i] + 3*h_i[i]/2);
+                FD = f(a_i[i] + h_i[i]/2);
+                FE = f(a_i[i] + 3*h_i[i]/2);
                 S1 = h_i[i] * (FA_i[i] + 4*FD + FC_i[i])/6.0;
                 S2 = h_i[i] * (FC_i[i] + 4*FE + FB_i[i])/6.0;
                 v1 = a_i[i];

@@ -48,8 +48,12 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 		auto losI_f = [ring, this](const Vector3QLength &pos, const QEnergy &Egamma_)
 			{ return (ring->isInside(pos)) ?
 				this->densityProfile(pos)*this->integrateOverEnergy(pos, Egamma_) : 0;};
+		
+		auto integrand = [this, losI_f, direction_, Egamma_](const QLength &dist) {
+	                return losI_f(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
+
 		losIntegrals[ring->getIndex()] =
-			simpsonIntegration<QDifferentialFlux, QICOuterIntegral, QEnergy>(direction_, losI_f, Egamma_, 200);
+			simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(integrand, 0, getMaxDistance(direction_), 200);
 	}
 	
 	// normalize according to the ring density model	

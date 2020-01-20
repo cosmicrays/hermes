@@ -13,8 +13,8 @@ QDispersionMeasure DMIntegrator::integrateOverLOS(QDirection direction) const {
 	auto integrand = [this, direction](const QLength &dist) {
 		return (this->gdensity)->getDensity(getGalacticPosition(this->positionSun, dist, direction)); };
 
-	return sumIntegration<QDispersionMeasure, QPDensity>(
-			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 1000);
+	return gaussIntegration<QDispersionMeasure, QPDensity>(
+			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 10);
 }
 
 } // namespace hermes 

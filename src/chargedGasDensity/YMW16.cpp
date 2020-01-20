@@ -19,10 +19,11 @@ QPDensity YMW16::getDensity(const Vector3QLength& pos) const {
 	char text[10]; // dummy var
 	QPDensity density;
 
-	#pragma omp critical
+  	#pragma omp critical
 		density = QPDensity(ne_crd(&x, &y, &z, &gl, &gb, &dd, ncrd, vbs, dirname, text))/1_cm3*1_m3;
 
 	return density;
 };
+
 
 } // namespace hermes
