@@ -4,16 +4,34 @@
 
 namespace hermes {
 
+TEST(UnitsBasic, SIPrefixes) {
+	QLength l1 = 1*kilometre;
+	QLength l2 = 1e6*millimetre;
+	EXPECT_EQ(l1, l2);
+
+	QTemperature T1 = 2*nanokelvin;
+	QTemperature T2 = 2e-15*megakelvin;
+	EXPECT_EQ(T1, T2);
+
+	QMass m1(1); // kilogram
+	QMass m2 = 1e9*microgram;
+	EXPECT_EQ(m1, m2);
+}
+
 TEST(UnitsBasic, LengthOperations) {
-	QLength x(2.3_km), y(3.2_m), z(0.0);
-	z = x + y;
+	QLength x = 2.3_km, y = 3.2_m;
+	QLength z = x + y;
 	EXPECT_EQ(z, 2303.2_m);
+	
+	QLength w = x - 2*y;
+	EXPECT_EQ(w, 2293.6_m);
 }
 
 TEST(UnitsBasic, Literals) {
 	QVolume V(3_cm3);
 	EXPECT_DOUBLE_EQ(static_cast<double>(V),
-			static_cast<double>(3*0.01*metre*centi*metre*centimetre));
+			static_cast<double>(
+				3*0.01*metre * centi*metre * centimetre));
 }
 
 TEST(UnitsBasic, Angles) {

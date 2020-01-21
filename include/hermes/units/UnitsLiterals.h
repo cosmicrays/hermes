@@ -4,7 +4,7 @@
 #ifndef HERMES_UNITSDISABLE
 #include "UnitsBasic.h"
 #else
-#include "UnitsDisable.h"
+#include "UnitsSimple.h"
 #endif
 
 namespace hermes {
@@ -98,7 +98,7 @@ LITERAL(QTime, _day, day)
 
 // literals for mass units
 BASELITERAL(QMass, _kg)
-LITERAL(QMass, _g, gramme)
+LITERAL(QMass, _g, gram)
 LITERAL(QMass, _t, tonne)
 LITERAL(QMass, _oz, ounce)
 LITERAL(QMass, _lb, pound)

@@ -1,0 +1,18 @@
+#ifndef HERMES_UNITS_H
+#define HERMES_UNITS_H
+
+@HERMES_UNIT_SYSTEM_DISABLE@
+
+#ifndef HERMES_UNITSDISABLE
+//#include "hermes/units/UnitsQClass.h"
+#include "hermes/units/UnitsHERMES.h"
+#else
+//#include "hermes/units/UnitsSimple.h"
+#endif
+
+#include "hermes/units/UnitsBasic.h"
+#include "hermes/units/UnitsFunctions.h"
+#include "hermes/units/UnitsDerived.h"
+#include "hermes/units/UnitsLiterals.h"
+
+#endif // HERMES_UNITS_H

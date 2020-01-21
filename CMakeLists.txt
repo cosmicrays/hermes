@@ -161,6 +161,18 @@ list(APPEND HERMES_EXTRA_LIBRARIES cparamlib)
 # ----------------------------------------------------------------------------
 # Library and Binary
 # ----------------------------------------------------------------------------
+
+# Configuration of the Units system
+option(HERMES_UNIT_SYSTEM_OPTION "Physical units dimensionality checks in variables" OFF)
+if(HERMES_UNIT_SYSTEM_OPTION)
+	message("Units dimensionality check enabled.")
+	set(HERMES_UNIT_SYSTEM_DISABLE "" CACHE INTERNAL "A definition string that disable part of Units header")
+else(HERMES_UNIT_SYSTEM_OPTION)
+	message("Units dimensionality check disabled.")
+	set(HERMES_UNIT_SYSTEM_DISABLE "#define HERMES_UNITSDISABLE" CACHE INTERNAL "A definition string that disable part of Units header")
+endif(HERMES_UNIT_SYSTEM_OPTION)
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/include/hermes/Units.h.in" "${CMAKE_CURRENT_BINARY_DIR}/include/hermes/Units.h" @ONLY)
+include_directories("${CMAKE_CURRENT_BINARY_DIR}/include")
 file(GLOB_RECURSE HERMES_INCLUDES RELATIVE ${CMAKE_SOURCE_DIR} include/*.h)
 include_directories(include ${HERMES_EXTRA_INCLUDES})
 

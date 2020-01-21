@@ -32,7 +32,7 @@ QTemperature FreeFreeIntegrator::integrateOverLOS(
 QNumber FreeFreeIntegrator::gauntFactor(QFrequency freq, QTemperature T, int Z) const {
 
 	// optimisation of constants
-	constexpr double sqrtEuler = std::sqrt(eulerGamma);
+	constexpr double sqrtEuler = sqrt(eulerGamma);
 	constexpr auto K = (128*pow<2>(epsilon0)*pow<3>(k_boltzmann)) /
 			(m_electron*pow<4>(e_plus));
 
