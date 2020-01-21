@@ -29,7 +29,8 @@ template<typename QPXL, typename QSTEP>
 	using Class = SkymapTemplate<QPXL, QSTEP>;
 	py::class_<Class, std::shared_ptr<Class>>(m, classname.c_str())
 	       .def(py::init<const std::size_t>())
-	       .def("setIntegrator", &Class::setIntegrator);
+	       .def("setIntegrator", &Class::setIntegrator)
+	       .def("getNpix", &Class::getNpix);
     }
 
 
@@ -40,10 +41,13 @@ void init_skymaps(py::module &m) {
 	       .def("setOutputUnits", &DMSkymap::setOutputUnits)
 	       .def("convertToUnits", &DMSkymap::setOutputUnits)
 	       .def("getDescription", &DMSkymap::getDescription)
+	       .def("getNpix", &DMSkymap::getNpix)
 	       .def("setIntegrator", [](DMSkymap &s, std::shared_ptr<DMIntegrator> i) { s.setIntegrator(i); })
 	       .def("compute", &DMSkymap::compute)
 	       .def("save", &DMSkymap::save)
 	       .def_buffer([](DMSkymap &s) -> py::buffer_info {
+			// TODO: move default units to the C++ source
+			s.convertToUnits(parsec/centimetre3); // set default units to pc/cm3
 		        return py::buffer_info(
 			        s.data(),          /* Pointer to buffer */
 			        sizeof(QDispersionMeasure),   /* Size of one scalar */

@@ -184,9 +184,13 @@ int SkymapTemplate<QPXL, QSTEP>::getThreadsNumber() {
 
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::convertToUnits(QPXL units_) {
-	setOutputUnits(units_);
+	if(units_ == outputUnits)
+		return;
+	
 	for (auto& i: fluxContainer)
-		i = i / static_cast<double>(units_);
+		i = i / (units_/outputUnits);
+	
+	setOutputUnits(units_);
 }
 
 template <typename QPXL, typename QSTEP>

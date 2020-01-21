@@ -9,12 +9,12 @@ DMIntegrator::DMIntegrator(const std::shared_ptr<ChargedGasDensity> gdensity) : 
 DMIntegrator::~DMIntegrator() { }
 
 QDispersionMeasure DMIntegrator::integrateOverLOS(QDirection direction) const {
-	
+
 	auto integrand = [this, direction](const QLength &dist) {
 		return (this->gdensity)->getDensity(getGalacticPosition(this->positionSun, dist, direction)); };
 
 	return simpsonIntegration<QDispersionMeasure, QPDensity>(
-			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 1000);
+			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 200);
 }
 
 } // namespace hermes 

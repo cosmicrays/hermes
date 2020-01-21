@@ -20,8 +20,8 @@ namespace hermes {
 		.def(py::self *= float())
 		.def("__repr__",
 			[suffix](const Q &q) {
-	            return std::to_string(q.getValue()) + suffix.c_str(); })
-		.def("__float__", [](const Q &q) { return q.getValue(); });
+	            return std::to_string(static_cast<double>(q)) + suffix.c_str(); })
+		.def("__float__", [](const Q &q) { return static_cast<double>(q); });
     }
     
 void init_units(py::module &m) {

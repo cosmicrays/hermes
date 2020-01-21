@@ -264,6 +264,10 @@ if(ENABLE_TESTING)
         target_link_libraries(testCommon hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testCommon testCommon)
         
+	add_executable(testNumericalIntegration test/testNumericalIntegration.cpp)
+	target_link_libraries(testNumericalIntegration hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testNumericalIntegration testNumericalIntegration)
+        
 	add_executable(testCacheTools test/testCacheTools.cpp)
         target_link_libraries(testCacheTools hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testCacheTools testCacheTools)
@@ -283,6 +287,10 @@ if(ENABLE_TESTING)
 	add_executable(testFITS test/testFITS.cpp)
 	target_link_libraries(testFITS hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testFITS testFITS)
+	
+	add_executable(testDMIntegrator test/testDMIntegrator.cpp)
+	target_link_libraries(testDMIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testDMIntegrator testDMIntegrator)
 
 	add_executable(testRMIntegrator test/testRMIntegrator.cpp)
 	target_link_libraries(testRMIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
