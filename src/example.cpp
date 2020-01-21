@@ -25,7 +25,8 @@ void exampleIC() {
     */
 
     // photon field model
-    auto photonField = std::make_shared<CMB>(CMB());
+    //auto photonField = std::make_shared<CMB>(CMB());
+    auto photonField = std::make_shared<ISRF>(ISRF());
 
     // integrator
     auto intIC = std::make_shared<InverseComptonIntegrator>(
@@ -141,8 +142,8 @@ void exampleGeneric() {
 
 void playground() {
     //exampleGeneric();
-    examplePiZero();
-    //exampleIC();
+    //examplePiZero();
+    exampleIC();
 }
 
 } // namespace hermes

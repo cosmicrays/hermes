@@ -33,6 +33,8 @@ public:
 		    const QLength &r, const QLength &z, const QEnergy &E_photon) const;
     QEnergyDensity getEnergyDensity(
 		    const Vector3QLength &pos, const QEnergy &E_photon) const;
+    QEnergyDensity getEnergyDensity(
+		    const Vector3QLength &pos_, int iE_) const;
     
 };
 

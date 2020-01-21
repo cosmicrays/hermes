@@ -80,6 +80,11 @@ namespace hermes {
 		long int i = imu + iz * logwavelenghts.size() + ir * (logwavelenghts.size() * z_id.size());
 		return isrf[i];
 	}
+    
+	QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos_, int iE_) const {
+		// TODO: not implemented
+		return QEnergyDensity(0);
+	}
 	
 	QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos, const QEnergy &E_photon) const {
 		QLength r = sqrt(pos.x*pos.x + pos.y*pos.y);

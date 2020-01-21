@@ -49,7 +49,7 @@ void init_units(py::module &m) {
     declare_quantity<QEResistance>(m, "QEResistance", "_Ohm");
     declare_quantity<QECapacitance>(m, "QECapacitance", "_F");
     declare_quantity<QDispersionMeasure>(m, "QDispersionMeasure", "_m-2");
-    declare_quantity<QRotationMeasure>(m, "QRotationMeasure,", "_rad/m2");
+    declare_quantity<QRotationMeasure>(m, "QRotationMeasure", "_rad/m2");
 
     // Length
     m.attr("metre") = metre;
