@@ -46,7 +46,7 @@ public:
 	}
 	
 	template<typename U>
-	Vector3Quantity(const Vector3<U> &v) :
+	explicit Vector3Quantity(const Vector3<U> &v) :
 			Vector3<T>(static_cast<T>(v.getX()),
 				   static_cast<T>(v.getY()),
 				   static_cast<T>(v.getZ())) {

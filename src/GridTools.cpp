@@ -278,7 +278,7 @@ void fromMagneticField(std::shared_ptr<VectorGrid> grid, std::shared_ptr<Magneti
 		for (size_t iy = 0; iy < Ny; iy++)
 			for (size_t iz = 0; iz < Nz; iz++) {
 				Vector3d pos = Vector3d(double(ix) + 0.5, double(iy) + 0.5, double(iz) + 0.5) * spacing + origin;
-				Vector3d B = field->getField(pos);
+				Vector3d B = field->getField(static_cast<Vector3QLength>(pos));
 				grid->get(ix, iy, iz) = B;
 	}
 }
@@ -293,7 +293,7 @@ void fromMagneticFieldStrength(std::shared_ptr<ScalarGrid> grid, std::shared_ptr
 		for (size_t iy = 0; iy < Ny; iy++)
 			for (size_t iz = 0; iz < Nz; iz++) {
 				Vector3d pos = Vector3d(double(ix) + 0.5, double(iy) + 0.5, double(iz) + 0.5) * spacing + origin;
-				QMField s = field->getField(pos).getR();
+				QMField s = field->getField(static_cast<Vector3QLength>(pos)).getR();
 				grid->get(ix, iy, iz) = static_cast<double>(s);
 	}
 }

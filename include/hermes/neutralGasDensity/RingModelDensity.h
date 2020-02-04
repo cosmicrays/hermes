@@ -23,7 +23,7 @@ private:
 	std::array<double, 2> delta_lon, delta_lat;
 	std::array<std::vector<float>, 2> dataVector;
 
-	void readDataFile(GasType t, std::string filename);
+	void readDataFile(GasType t, const std::string &filename);
 	double getRawValue(GasType t, int ring, const QDirection& dir) const;
 public:
 	RingData();

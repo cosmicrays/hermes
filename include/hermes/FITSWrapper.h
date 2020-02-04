@@ -39,11 +39,11 @@ public:
 	void setType(FITS::DataType type_) { type = type_; }
 	void setTypeAsInt(int type_) { 
 		switch (type) {
-			case TINT : type = FITS::INT;
-			case TLONG : type = FITS::LONG;
-			case TFLOAT : type = FITS::FLOAT;
-			case TDOUBLE : type = FITS::DOUBLE;
-			case TSTRING : type = FITS::STRING;
+			case TINT : type = FITS::INT; break;
+			case TLONG : type = FITS::LONG; break;
+			case TFLOAT : type = FITS::FLOAT; break;
+			case TDOUBLE : type = FITS::DOUBLE; break;
+			case TSTRING : type = FITS::STRING; break;
 		}
 	}
 	const char * getKey() { return &key[0]; }
@@ -54,39 +54,39 @@ public:
 	int getValueAsInt() { return i; }
 	double getValueAsDouble() { return d; }
 
-	FITSKeyValue(std::string key_, std::string value_) : 
+	FITSKeyValue(const std::string &key_, const std::string &value_) : 
 		type(FITS::STRING), key(key_) {
 			// ugly?
 			strncpy(s, value_.c_str(), sizeof(s));
 			s[sizeof(s) - 1] = 0;
 		        value_ptr = static_cast<void *>(s);
 	};
-	FITSKeyValue(std::string key_, int value_) :
+	FITSKeyValue(const std::string &key_, int value_) :
 		type(FITS::INT), key(key_) {
 			i = value_;
 			value_ptr = &i;
 	};
-	FITSKeyValue(std::string key_, std::size_t value_) :
+	FITSKeyValue(const std::string &key_, std::size_t value_) :
 		type(FITS::LONG), key(key_) {
 			l = value_;
 		        value_ptr = &l;
 	};
-	FITSKeyValue(std::string key_, long int value_) :
+	FITSKeyValue(const std::string &key_, long int value_) :
 		type(FITS::LONG), key(key_) {
 			l = value_;	
 		        value_ptr = &l;
 	};
-	FITSKeyValue(std::string key_, float value_) :
+	FITSKeyValue(const std::string &key_, float value_) :
 		type(FITS::FLOAT), key(key_) {
 			f = value_;	
 		        value_ptr = &f;
 	};
-	FITSKeyValue(std::string key_, double value_) :
+	FITSKeyValue(const std::string &key_, double value_) :
 		type(FITS::DOUBLE), key(key_) {
 			d = value_;	
 		        value_ptr = &d;
 	};
-	FITSKeyValue(std::string key_) : key(key_) { };
+	explicit FITSKeyValue(const std::string &key_) : key(key_) { };
 };
 
 
@@ -99,7 +99,7 @@ private:
 	FITS::HDUType hduType = FITS::IMAGE; 
 	FITS::HDUType intToHDUType(int hduType_);
 public:
-	FITSFile(const std::string &filename_);
+	explicit FITSFile(const std::string &filename_);
 	~FITSFile();
 	
 	inline int getStatus() { return status; }
@@ -120,13 +120,13 @@ public:
 	void writeKeyValue(FITSKeyValue &kv, const char comment[]);
 	
 	FITSKeyValue readKeyValue(std::string key_, FITS::DataType type_);
-	inline std::string readKeyValueAsString(std::string key_) {
+	inline std::string readKeyValueAsString(const std::string &key_) {
 		return (readKeyValue(key_, FITS::STRING)).getValueAsString();
 	};
-	inline double readKeyValueAsDouble(std::string key_) {
+	inline double readKeyValueAsDouble(const std::string &key_) {
 		return (readKeyValue(key_, FITS::DOUBLE)).getValueAsDouble();
 	};
-	inline int readKeyValueAsInt(std::string key_) {
+	inline int readKeyValueAsInt(const std::string &key_) {
 		return (readKeyValue(key_, FITS::INT)).getValueAsInt();
 	};
 

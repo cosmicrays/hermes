@@ -62,7 +62,7 @@ namespace hermes {
 
 				// TODO: exception if file not found
 				std::ifstream file_to_read(filename.c_str());
-				for(int i = 0; i < num_of_header_lines; ++i)
+				for(int k = 0; k < num_of_header_lines; ++k)
 					file_to_read.ignore(max_num_of_char_in_a_line, '\n');
 				while(!file_to_read.eof()) {
 					double f_, e_;

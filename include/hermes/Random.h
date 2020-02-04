@@ -109,9 +109,9 @@ protected:
 //Methods
 public:
 	/// initialize with a simple uint32
-	Random( const uint32& oneSeed );
+	explicit Random( const uint32& oneSeed );
 	// initialize with an array
-	Random( uint32 *const bigSeed, uint32 const seedLength = N );
+	explicit Random( uint32 *const bigSeed, uint32 const seedLength = N );
 	/// auto-initialize with /dev/urandom or time() and clock()
 	/// Do NOT use for CRYPTOGRAPHY without securely hashing several returned
 	/// values together, otherwise the generator state can be learned after

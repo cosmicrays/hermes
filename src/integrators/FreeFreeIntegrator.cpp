@@ -59,7 +59,7 @@ QInverseLength FreeFreeIntegrator::absorptionCoefficient(
 	
 	return spectralEmissivity(pos_, freq_) *
 		c_squared / (8_pi*h_planck*pow<3>(freq_)) *
-		(exp(h_planck*freq_/(k_boltzmann*T)) - 1);
+		expm1(h_planck*freq_/(k_boltzmann*T));
 }
 
 

@@ -15,6 +15,9 @@ namespace hermes {
 inline double exp(const QNumber &num) {
     return std::exp(static_cast<double>(num));
 }
+inline double expm1(const QNumber &num) {
+    return std::expm1(static_cast<double>(num));
+}
 inline double log(const QNumber &num) {
     return std::log(static_cast<double>(num));
 }

@@ -48,7 +48,7 @@ public:
 	void setIntegrator(std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_);
 	void setOutput();
 	
-	void printPixels();
+	void printPixels() const;
 	void setMask(std::shared_ptr<SkymapMask> mask_);
 	std::vector<bool> getMask();
 	virtual void computePixel(
@@ -56,7 +56,7 @@ public:
 			std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_);
 	
 	void compute();
-	int getThreadsNumber();
+	int getThreadsNumber() const;
 	
 	/** output **/
 	void setOutputUnits(QPXL units_);
@@ -120,7 +120,7 @@ double SkymapTemplate<QPXL, QSTEP>::operator[](std::size_t i) const {
 }
 
 template <typename QPXL, typename QSTEP>
-void SkymapTemplate<QPXL, QSTEP>::printPixels() {
+void SkymapTemplate<QPXL, QSTEP>::printPixels() const {
 	for (auto i: fluxContainer)
 		std::cout << static_cast<double>(i) << ' ';
 }
@@ -175,7 +175,7 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
 }
 
 template <typename QPXL, typename QSTEP>
-int SkymapTemplate<QPXL, QSTEP>::getThreadsNumber() {
+int SkymapTemplate<QPXL, QSTEP>::getThreadsNumber() const {
 #if _OPENMP
        return omp_get_max_threads();
 #endif

@@ -69,7 +69,7 @@ public:
 class UniformMagneticField: public MagneticField {
 	Vector3QMField value;
 public:
-	UniformMagneticField(const Vector3QMField &value) :
+	explicit UniformMagneticField(const Vector3QMField &value) :
 			value(value) {
 	}
 	Vector3QMField getField(const Vector3QLength &position) const {

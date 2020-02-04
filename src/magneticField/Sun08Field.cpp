@@ -72,7 +72,7 @@ Vector3QMField Sun08Field::getRegularField(const Vector3QLength& pos_) const {
 
 	// Disk field
 	QMField D1(0);
-	int D2;
+	int D2 = 1;
 	
 	D1 = (rho > disk_R_c) ?
 		disk_B_0 * exp(-(rho - R_Sun)/disk_R_0 - fabs(pos_.z)/disk_z_0) :

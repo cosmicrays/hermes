@@ -8,10 +8,7 @@ WMAP07CRDensity::WMAP07CRDensity() : minE(1_GeV), maxE(1e4_GeV), steps(10) {
 	setParameters();
 }
 
-WMAP07CRDensity::WMAP07CRDensity(QEnergy minE_, QEnergy maxE_, int steps_) {
-	minE = minE_;
-	maxE = maxE_;
-	steps = steps_;
+WMAP07CRDensity::WMAP07CRDensity(QEnergy minE_, QEnergy maxE_, int steps_) : minE(minE_), maxE(maxE_), steps(steps_) {
 	makeEnergyRange();
 	setParameters();
 }

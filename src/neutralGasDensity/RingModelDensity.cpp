@@ -17,7 +17,7 @@ RingData::RingData() {
 	readDataFile(GasType::CO, "WCOrings_COGAL.fits.gz");
 }
 
-void RingData::readDataFile(GasType t, std::string filename) {
+void RingData::readDataFile(GasType t, const std::string &filename) {
 
 	ffile = std::make_unique<FITSFile>(
 			FITSFile(getDataPath("GasDensity/Remy18/" + filename))); 
@@ -68,7 +68,7 @@ QColumnDensity RingData::getHIColumnDensityInRing(
 QRingCOIntensity RingData::getCOIntensityInRing(
 		int ring, const QDirection& dir) const {
 	// the data is given in K km s^-2
-	if(ring == 10 && ring == 11)
+	if(ring == 10 || ring == 11)
 	       return QRingCOIntensity(0);	
 	return getRawValue(GasType::CO, ring, dir) * 1_K * 1_km / 1_s;
 }

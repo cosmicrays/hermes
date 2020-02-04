@@ -3,7 +3,4 @@
 
 namespace hermes {
 
-}
-
-
 } // namespace hermes

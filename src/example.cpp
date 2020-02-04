@@ -32,9 +32,9 @@ void exampleIC() {
     auto intIC = std::make_shared<InverseComptonIntegrator>(
                      InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
 
-    CacheStorageIC CIC;
-    auto cache = std::make_unique<CacheStorageIC>(std::move(CIC));
-    intIC->setCacheStorage(std::move(cache));
+    //CacheStorageIC CIC;
+    //auto cache = std::make_unique<CacheStorageIC>(std::move(CIC));
+    //intIC->setCacheStorage(std::move(cache));
 
     // skymap
     int nside = 32;
