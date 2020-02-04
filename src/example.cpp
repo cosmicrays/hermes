@@ -143,7 +143,13 @@ void exampleGeneric() {
 void playground() {
     //exampleGeneric();
     //examplePiZero();
-    exampleIC();
+    //exampleIC();
+   
+    auto pos = Vector3QLength(0.02_kpc, 0_kpc, -0.02_kpc);
+    auto gasNE2001 = std::make_shared<NE2001Simple>(NE2001Simple());
+    std::cerr << "ne1 = " << gasNE2001->getThickDiskDensity(pos) * 1_cm3 << std::endl;
+    std::cerr << "ne2 = " << gasNE2001->getThinDiskDensity(pos) * 1_cm3 << std::endl;
+    std::cerr << "n_GC = " << gasNE2001->getGalacticCentreDensity(pos) * 1_cm3 << std::endl;
 }
 
 } // namespace hermes

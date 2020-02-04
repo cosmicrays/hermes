@@ -25,7 +25,9 @@ void init_integrators(py::module &m) {
 
     py::class_<RMIntegrator, std::shared_ptr<RMIntegrator>>(m, "RMIntegrator")
 	      .def(py::init<std::shared_ptr<MagneticField>,
-			    std::shared_ptr<ChargedGasDensity> >());
+			    std::shared_ptr<ChargedGasDensity> >())
+              .def("getSunPosition", &RMIntegrator::getSunPosition)
+              .def("setSunPosition", &RMIntegrator::setSunPosition);
 }
 
 }

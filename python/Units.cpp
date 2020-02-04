@@ -1,29 +1,55 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/operators.h>
 
+#include <iostream>
 #include "hermes/Units.h"
 
 namespace py = pybind11;
 
 namespace hermes {
+
+template<typename Q>
+Q toQuantity(py::object pyquantity) {
+	py::object quantity = pyquantity.attr("decompose")();
+	double value = (quantity.attr("value")).cast<double>();
+	py::object unit = quantity.attr("unit");
+	py::list bases = unit.attr("bases");
+	py::list powers = unit.attr("powers");
+
+	/*
+	int index = 0;
+	for(auto item : bases) {
+		std::string u = (bases[index].attr("si").attr("to_string")()).cast<std::string>();
+		double power = (powers[index]).cast<double>();
+		std::cerr << u << "^" << power << std::endl;
+		++index;
+	}
+	*/
+
+	return static_cast<Q>(value);
+}
+
     
-    template<typename Q>
-    void declare_quantity(py::module &m, std::string const & typestr, std::string const & suffix) {
-    	py::class_<Q>(m, typestr.c_str())
-        	.def(py::init<const double>())
-		.def(py::self - py::self)
-		.def(py::self + py::self)
-		.def(py::self += py::self)
-		.def(py::self -= py::self)
-	        .def(float() * py::self)
-        	.def(py::self * float())
-		.def(py::self *= float())
-		.def("__repr__",
-			[suffix](const Q &q) {
-	            return std::to_string(static_cast<double>(q)) + suffix.c_str(); })
-		.def("__float__", [](const Q &q) { return static_cast<double>(q); });
-    }
-    
+template<typename Q>
+void declare_quantity(py::module &m, std::string const & typestr, std::string const & suffix) {
+    py::class_<Q>(m, typestr.c_str())
+        .def(py::init<const double>())
+	.def(py::self - py::self)
+	.def(py::self + py::self)
+	.def(py::self += py::self)
+	.def(py::self -= py::self)
+	.def(float() * py::self)
+        .def(py::self * float())
+	.def(py::self *= float())
+	.def("__repr__",
+		[suffix](const Q &q) {
+	         return std::to_string(static_cast<double>(q)) + suffix.c_str(); })
+	.def("__float__", [](const Q &q) { return static_cast<double>(q); });
+
+    // coversion functions from astropy.units
+    //m.def((std::string("to") + typestr).c_str(), template<> &toQuantity);
+}
+
 void init_units(py::module &m) {
     // |- basic
     declare_quantity<QNumber>(m, "QNumber", "_num");

@@ -63,6 +63,7 @@ void init_skymaps(py::module &m) {
 	       .def("getDescription", &RMSkymap::getDescription)
 	       .def("setIntegrator", [](RMSkymap &s, std::shared_ptr<RMIntegrator> i) { s.setIntegrator(i); })
 	       .def("compute", &RMSkymap::compute)
+	       .def("getNpix", &DMSkymap::getNpix)
 	       .def("save", &RMSkymap::save)
 	       .def_buffer([](RMSkymap &s) -> py::buffer_info {
 		        return py::buffer_info(

@@ -45,6 +45,7 @@
 
 #include "hermes/chargedGasDensity/ChargedGasDensity.h"
 #include "hermes/chargedGasDensity/HII_Cordes91.h"
+#include "hermes/chargedGasDensity/NE2001Simple.h"
 #include "hermes/chargedGasDensity/YMW16.h"
 
 #include "hermes/neutralGasDensity/RingModelDensity.h"

@@ -46,6 +46,12 @@ inline QAngle atan2(const QLength &lhs, const QLength &rhs) {
     return QAngle(std::atan2(static_cast<double>(lhs), static_cast<double>(rhs)));
 }
 
+template<typename Q>
+int stepFunction(const Q &quantity) {
+	if (quantity >= Q(0)) return 1;
+	return 0;
+}
+
 /** @}*/
 } // namespace hermes
 

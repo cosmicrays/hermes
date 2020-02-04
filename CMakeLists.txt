@@ -203,6 +203,7 @@ add_library(hermes SHARED
 	src/magneticField/PT11Field.cpp
 	src/magneticField/JF12Field.cpp
 	src/chargedGasDensity/HII_Cordes91.cpp
+	src/chargedGasDensity/NE2001Simple.cpp
 	src/chargedGasDensity/YMW16.cpp
 	src/neutralGasDensity/RingModelDensity.cpp
 	src/cosmicRayDensity/SimpleCRDensity.cpp

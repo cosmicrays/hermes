@@ -23,7 +23,8 @@ private:
 
 	QRMIntegral integralFunction(Vector3QLength pos) const;
 public:
-	RMIntegrator(const std::shared_ptr<MagneticField> mfield, const std::shared_ptr<ChargedGasDensity> gdensity);
+	RMIntegrator(const std::shared_ptr<MagneticField> mfield,
+		     const std::shared_ptr<ChargedGasDensity> gdensity);
 	~RMIntegrator();
 	QRotationMeasure integrateOverLOS(QDirection iterdir) const;
 };
