@@ -304,7 +304,7 @@ public:
 	 @param	Nz		Number of grid points in z-direction
 	 @param spacing	Spacing vector between grid points
 	*/
-	 Grid(Vector3d origin, size_t Nx, size_t Ny, size_t Nz, Vector3d spacing) {
+	Grid(Vector3d origin, size_t Nx, size_t Ny, size_t Nz, Vector3d spacing) {
 	 	setOrigin(origin);
 	 	setGridSize(Nx, Ny, Nz);
 	 	setSpacing(spacing);
@@ -381,6 +381,11 @@ public:
 	/** Inspector & Mutator */
 	T &get(size_t ix, size_t iy, size_t iz) {
 		return grid[ix * Ny * Nz + iy * Nz + iz];
+	}
+	
+	/** Inspector & Mutator */
+	T &get(size_t index) {
+		return grid[index];
 	}
 
 	/** Inspector */

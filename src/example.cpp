@@ -14,7 +14,7 @@ void exampleIC() {
                            getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
                            //	"/home/andy/Projects/category_science/hermes-data/tmp_data/run_B-C_D03,7_delta0,45_vA13.fits.gz",
                            particletypes));
-
+    
     // interaction
     auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 
@@ -25,29 +25,29 @@ void exampleIC() {
     */
 
     // photon field model
-    //auto photonField = std::make_shared<CMB>(CMB());
-    auto photonField = std::make_shared<ISRF>(ISRF());
+    auto photonField = std::make_shared<CMB>(CMB());
+    //auto photonField = std::make_shared<ISRF>(ISRF());
 
     // integrator
     auto intIC = std::make_shared<InverseComptonIntegrator>(
                      InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
 
-    //CacheStorageIC CIC;
-    //auto cache = std::make_unique<CacheStorageIC>(std::move(CIC));
-    //intIC->setCacheStorage(std::move(cache));
+    auto Egamma = 10_GeV;
 
     // skymap
-    int nside = 32;
     auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
                     QAngle(8_deg), QAngle(-8_deg), QAngle(-80_deg), QAngle(80_deg)));
-    auto skymaps = std::make_shared<GammaSkymap>(GammaSkymap(nside, 100_MeV));
+
+    int nside = 512;
+    auto skymaps = std::make_shared<GammaSkymap>(GammaSkymap(nside, Egamma));
     //auto skymaps = std::make_shared<GammaSkymapRange>(GammaSkymapRange(nside, 100_MeV, 300_GeV, 10));
     //skymaps->setMask(mask);
     skymaps->setIntegrator(intIC);
 
-    auto output = std::make_shared<FITSOutput>(FITSOutput("!example-ic.fits.gz"));
+    auto output = std::make_shared<FITSOutput>(FITSOutput("!example-ic-cmb.fits.gz"));
 
     std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+    intIC->initCacheTable(Egamma, 50, 50, 10);
     skymaps->compute();
     std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
     skymaps->save(output);
@@ -143,13 +143,15 @@ void exampleGeneric() {
 void playground() {
     //exampleGeneric();
     //examplePiZero();
-    //exampleIC();
-   
+    exampleIC();
+  	
+    /*	
     auto pos = Vector3QLength(0.02_kpc, 0_kpc, -0.02_kpc);
     auto gasNE2001 = std::make_shared<NE2001Simple>(NE2001Simple());
     std::cerr << "ne1 = " << gasNE2001->getThickDiskDensity(pos) * 1_cm3 << std::endl;
     std::cerr << "ne2 = " << gasNE2001->getThinDiskDensity(pos) * 1_cm3 << std::endl;
     std::cerr << "n_GC = " << gasNE2001->getGalacticCentreDensity(pos) * 1_cm3 << std::endl;
+    */
 }
 
 } // namespace hermes

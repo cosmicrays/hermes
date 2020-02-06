@@ -24,10 +24,20 @@ namespace hermes {
 		setEnergyScaleFactor(1.1); // 145 steps
     		setStartEnergy(1e10_Hz*h_planck);
     		setEndEnergy(1e16_Hz*h_planck);
+		buildEnergyRange();
 
 		loadFrequencyAxis();
 		loadISRF();
 	}
+    
+	void ISRF::buildEnergyRange() {
+    		const double scaling = getEnergyScaleFactor();
+		const QEnergy E_start = getStartEnergy();
+		const QEnergy E_end = getEndEnergy();
+	
+		for(QEnergy E = E_start; E < E_end; E = E * scaling)  
+    		energyRange.push_back(E);
+    	}
 
 	void ISRF::loadFrequencyAxis() {
 		double logwl = log10(0.01); // micron
@@ -81,9 +91,12 @@ namespace hermes {
 		return isrf[i];
 	}
     
-	QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos_, int iE_) const {
+	QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos, int iE) const {
+		QLength r = sqrt(pos.x*pos.x + pos.y*pos.y);
+		QLength z = pos.z;
+		QEnergy E = energyRange[iE];
 		// TODO: not implemented
-		return QEnergyDensity(0);
+		return getEnergyDensity(r, z, E);
 	}
 	
 	QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos, const QEnergy &E_photon) const {
@@ -95,7 +108,7 @@ namespace hermes {
 	QEnergyDensity ISRF::getEnergyDensity(const QLength &r, const QLength &z, const QEnergy &E_photon) const {
 		double r_ = static_cast<double>(r / 1_kpc);
 		double z_ = static_cast<double>(fabs(z) / 1_kpc);
-		double f_mu = static_cast<double>(h_planck * c_light / E_photon / (micro*metre));
+		double f_mu = static_cast<double>(h_planck * c_light / E_photon / (micrometre));
 		double logf_ = std::log10(f_mu);
 
 		if (r_ < r_id.front() || r_ > r_id.back())

@@ -200,11 +200,11 @@ void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<Output> output) const {
 	output->createTable(static_cast<int>(npix));
 	output->writeMetadata(nside, res, description);
 
-	float tempArray[npix];
+	std::vector<float> tempArray; // allocate on heap, because of nside >= 512
 	for (unsigned long i = 0; i < npix; ++i)
-		tempArray[i] = static_cast<float>(fluxContainer[i]);
+		tempArray.push_back(static_cast<float>(fluxContainer[i]));
 
-	output->writeColumn(npix, tempArray);
+	output->writeColumn(npix, tempArray.data());
 }
 
 template <typename QPXL, typename QSTEP>

@@ -21,6 +21,8 @@ private:
 	    20.0, 25.0, 30.0}; // in kpc (24)
 	std::vector<double> isrf;
 
+    	void buildEnergyRange();
+
 	double getISRF(const int& ir, const int& iz, const int& ifreq) const;
 
 	void loadFrequencyAxis();

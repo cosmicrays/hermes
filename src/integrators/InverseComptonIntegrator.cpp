@@ -7,16 +7,56 @@
 #include <stdexcept>
 #include <iostream>
 
+#if _OPENMP
+#include <omp.h>
+#define OMP_SCHEDULE static,100
+#endif
+
 namespace hermes {
 
 InverseComptonIntegrator::InverseComptonIntegrator(
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
 	const std::shared_ptr<PhotonField> phdensity_,
 	const std::shared_ptr<KleinNishina> crossSec_) : 
-	crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_) {
+	crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_), cacheStoragePresent(false) {
 }
 
 InverseComptonIntegrator::~InverseComptonIntegrator() { }
+
+void InverseComptonIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, int N_z) {
+	
+	if (cacheStoragePresent)
+		cacheStoragePresent = false;
+	
+	const QLength rBorder = 20_kpc;
+        const QLength zBorder = 5_kpc;
+	Vector3QLength spacing = Vector3QLength(
+			2*rBorder / N_x,
+			2*rBorder / N_y,
+			2*zBorder / N_z);
+
+	// init table
+	cacheTable = std::make_shared<ICCacheTable>(ICCacheTable(
+					Vector3QLength(-rBorder, -rBorder, -zBorder),
+					N_x, N_y, N_z, spacing));
+	
+	size_t grid_size = cacheTable->getGridSize(); 
+	for (size_t index = 0; index < grid_size; ++index) {
+		Vector3QLength pos = static_cast<Vector3QLength>(cacheTable->positionFromIndex(index));
+		cacheTable->get(index) = integrateOverEnergy(pos, Egamma);
+	}
+
+	// set flag
+	cacheStoragePresent = true;
+}
+
+bool InverseComptonIntegrator::isCacheTableEnabled() const {
+	return cacheStoragePresent;
+}
+
+QICOuterIntegral InverseComptonIntegrator::getIOEfromCache(Vector3QLength pos_, QEnergy Egamma_) const {
+		return cacheTable->interpolate(static_cast<Vector3d>(pos_));
+}
 
 QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 		QDirection direction) const {
@@ -29,13 +69,19 @@ QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 	QDifferentialFlux tolerance = 1e10; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
 	
 	auto integrand = [this, direction_, Egamma_](const QLength &dist) {
-		return this->integrateOverEnergy(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
+		return this->integrateOverEnergy(
+				getGalacticPosition(this->positionSun, dist, direction_),
+				Egamma_
+			); };
 
 	return simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
 			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction_), 500);
 }
 
 QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
+	if (cacheStoragePresent)
+		return getIOEfromCache(pos_, Egamma_);
+
 	if (crdensity->existsScaleFactor())
 		return integrateOverLogEnergy(pos_, Egamma_);
 	else

@@ -24,9 +24,10 @@ private:
 	std::shared_ptr<PhotonField> phdensity;
 	std::shared_ptr<KleinNishina> crossSec; 
 
+	typedef Grid<QICOuterIntegral> ICCacheTable;
+	std::shared_ptr<ICCacheTable> cacheTable;
 	bool cacheStoragePresent;
-	std::shared_ptr<CacheStorageIC> cache; 
-	QICOuterIntegral axialCacheForIoE(Vector3QLength pos, QEnergy Egamma) const;
+	QICOuterIntegral getIOEfromCache(Vector3QLength, QEnergy) const;
 
 	QICOuterIntegral integrateOverSumEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
@@ -39,7 +40,8 @@ public:
 		const std::shared_ptr<KleinNishina>); 
 	~InverseComptonIntegrator();
 
-	void setCacheStorage(std::unique_ptr<CacheStorageIC> cache);
+	void initCacheTable(QEnergy, int, int, int);
+	bool isCacheTableEnabled() const;
 
 	QDifferentialFlux integrateOverLOS(QDirection iterdir) const;
 	QDifferentialFlux integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
