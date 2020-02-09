@@ -33,7 +33,7 @@ QDiffCrossSection KleinNishina::getDiffCrossSection(
 		const QEnergy &E_photon,
 		const QEnergy &E_gamma) const {
 
-	static constexpr QLength r_e =
+	constexpr QLength r_e =
 		pow<2>(e_plus)/(4_pi*epsilon0*m_electron*pow<2>(c_light));
 	
 	QNumber x_in = E_photon / (m_electron*c_squared);

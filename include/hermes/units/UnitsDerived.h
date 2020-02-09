@@ -47,6 +47,11 @@ constexpr auto h_planck_bar 	= 6.62606957e-34 * joule * second / (2*pi);
 constexpr auto k_boltzmann 	= 1.3806488e-23 * joule / kelvin;
 constexpr auto mu0 		= (4*pi) * 1e-7 * newton / (ampere * ampere);
 constexpr auto epsilon0 	= 1.0 / mu0 / c_squared;
+constexpr QArea sigma_Thompson 	= (8.0*pi/3.0) * pow<2>(
+					pow<2>(e_plus) / 
+					(4*pi*epsilon0*m_electron*c_squared)
+				  );
+
 
 // Predefined time-derived units:
 constexpr QTime minute = 60. * second;

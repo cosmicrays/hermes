@@ -25,6 +25,12 @@ public:
 	};
 };
 
+TEST(Ksymap, defaultUnits) {
+        auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(4));
+
+		
+}
+
 TEST(Skymap, computePixel) {
 
 	int nside = 4;

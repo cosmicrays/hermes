@@ -29,11 +29,15 @@ namespace hermes {
 #define ConvertTo(_x, _y) (_x).convertTo(1.0_##_y)
 #define ToSIValue(_x) (_x).getValue()
 
+// Constants:
+// ---------------------	
+LITERAL(long double, _pi, pi)
+
 // Angular unit literals:
 // ----------------------
-LITERAL(long double, _pi, pi)
 BASELITERAL(QAngle, _rad)
 LITERAL(QAngle, _deg, degree)
+BASELITERAL(QSolidAngle, _sr)
 
 // Physical unit literals:
 // -----------------------
@@ -50,6 +54,7 @@ LITERAL(QLength, _pc, parsec)
 LITERAL(QLength, _kpc, kiloparsec)
 
 // literals for area units
+LITERAL(QArea, _m2, (metre*metre))
 LITERAL(QArea, _cm2, (centimetre*centimetre))
 LITERAL(QArea, _barn, barn)
 LITERAL(QArea, _mbarn, milli*barn)

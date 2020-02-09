@@ -18,7 +18,7 @@ namespace hermes {
  * @{
  */
 
-class InverseComptonIntegrator: public IntegratorTemplate<QDifferentialFlux, QEnergy> {
+class InverseComptonIntegrator: public IntegratorTemplate<QDifferentialIntensity, QEnergy> {
 private:
 	std::shared_ptr<CosmicRayDensity> crdensity;
 	std::shared_ptr<PhotonField> phdensity;
@@ -43,8 +43,8 @@ public:
 	void initCacheTable(QEnergy, int, int, int);
 	bool isCacheTableEnabled() const;
 
-	QDifferentialFlux integrateOverLOS(QDirection iterdir) const;
-	QDifferentialFlux integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
+	QDifferentialIntensity integrateOverLOS(QDirection iterdir) const;
+	QDifferentialIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
 	QICOuterIntegral integrateOverEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
 	QICInnerIntegral integrateOverPhotonEnergy(Vector3QLength pos,

@@ -17,16 +17,9 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 	QEnergy Egamma = 10_GeV;
 	QEnergy Eelectron = 1_TeV;
 
-	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
 	auto res = intIC->integrateOverPhotonEnergy(pos, Egamma, Eelectron);
-	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 	
-	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-
-	std::cerr << "res: " << res << std::endl;
-	std::cerr << "Photon: " << milliseconds.count() << " ms" << std::endl;
-	
-	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
+	EXPECT_NEAR(static_cast<double>(res), 5.36e-61, 2e-61);
 }
 
 TEST(InverseComptonIntegrator, integrateOverEnergy) {

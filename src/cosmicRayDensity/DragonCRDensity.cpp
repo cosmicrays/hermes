@@ -302,9 +302,9 @@ void Dragon3DCRDensity::readDensity3D() {
 
 			std::vector<float> rawData = ffile->readImageAsFloat(firstElement, nElements);
 			
-			std::size_t index, iE, ix, iy, iz; std::div_t dv;
+			std::size_t iE, ix, iy, iz; std::div_t dv;
 			for (auto it = rawData.begin(); it != rawData.end(); ++it ) {
-				index = it - rawData.begin();
+				std::size_t index = it - rawData.begin();
 
 				dv = std::div(index, dimE);
 				iE = dv.rem;

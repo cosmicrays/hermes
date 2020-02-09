@@ -16,15 +16,16 @@ PiZeroIntegrator::PiZeroIntegrator(
 
 PiZeroIntegrator::~PiZeroIntegrator() { }
 
-QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
+QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 		QDirection direction) const {
 	return integrateOverLOS(direction, 1_GeV);
 }
 
-QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
+QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
 
-	QDifferentialFlux tolerance = 1e9; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
+	/*
+	QDifferentialIntensity tolerance = 1e9; // / (1_GeV * 1_cm2 * 1_s * 1_sr);
 
 	std::vector<QColumnDensity> normIntegrals(
 			ngdensity->getRingNumber(GasType::HI), QColumnDensity(0.0));
@@ -41,8 +42,8 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 			simpsonIntegration<QColumnDensity, QPDensity>(integrand, 0, getMaxDistance(direction_), 150);
 	}
 
-	std::vector<QDifferentialFlux> losIntegrals(
-			ngdensity->getRingNumber(GasType::HI), QDifferentialFlux(0.0));
+	std::vector<QDifferentialIntensity> losIntegrals(
+			ngdensity->getRingNumber(GasType::HI), QDifferentialIntensity(0.0));
 	
 	for (const auto &ring : *ngdensity) {
 		auto losI_f = [ring, this](const Vector3QLength &pos, const QEnergy &Egamma_)
@@ -53,11 +54,11 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 	                return losI_f(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
 
 		losIntegrals[ring->getIndex()] =
-			simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(integrand, 0, getMaxDistance(direction_), 200);
+			simpsonIntegration<QDifferentialFlux, QPiZeroIntegral>(integrand, 0, getMaxDistance(direction_), 200) / (4_pi*1_sr);
 	}
 	
 	// normalize according to the ring density model	
-	QDifferentialFlux total_diff_flux(0.0);
+	QDifferentialIntensity total_diff_flux(0.0);
 	for(const auto &ring : *ngdensity) {
 		if(normIntegrals[ring->getIndex()] == QColumnDensity(0))
 			continue;
@@ -69,7 +70,7 @@ QDifferentialFlux PiZeroIntegrator::integrateOverLOS(
 			 losIntegrals[ring->getIndex()];
 	}
 	
-	return total_diff_flux;
+	return total_diff_flux;*/
 }
 
 QPDensity PiZeroIntegrator::densityProfile(const Vector3QLength &pos) const {
@@ -96,7 +97,7 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QE
 	for (auto itE = std::next(crdensity->begin()); itE != crdensity->end(); ++itE) {
 		deltaE = (*itE) - *std::prev(itE);
 		integral += crossSec->getDiffCrossSection(*itE, Egamma_) *
-                        	crdensity->getDensityPerEnergy(*itE, pos_) * deltaE * c_light / 4_pi;
+                        	crdensity->getDensityPerEnergy(*itE, pos_) * deltaE * c_light;
         }
 	
 	return integral;
@@ -109,7 +110,7 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverLogEnergy(Vector3QLength pos_, QE
 	// TODO: optimization - E_min = E_gamma + m_pi^2c^4/(4E_gamma) 
 	for (auto itE = crdensity->begin(); itE != crdensity->end(); ++itE) {
 		integral += crossSec->getDiffCrossSection(*itE, Egamma_) * 
-	                        crdensity->getDensityPerEnergy(*itE, pos_) * (*itE) * c_light / 4_pi;
+	                        crdensity->getDensityPerEnergy(*itE, pos_) * (*itE) * c_light;
         }
 
 	return integral * log(crdensity->getEnergyScaleFactor());

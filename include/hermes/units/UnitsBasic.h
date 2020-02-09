@@ -28,6 +28,7 @@ constexpr QTemperature	kelvin(1.0);
 constexpr QSubstance	mole(1.0);
 constexpr QLIntensity	candela(1.0);
 constexpr QAngle	radian(1.0);
+constexpr QSolidAngle	steradian(1.0);
 
 // SI prefixes for basic SI untis
 GENERATE_PREFIXED_UNITS(metre)

@@ -31,15 +31,26 @@ TEST(Interactions, cparamlib) {
 TEST(Interactions, KleinNishina) {
 
 	auto interaction = std::make_shared<KleinNishina>(KleinNishina());
+
+	// low-energy limit
+	QEnergy Egamma = 0.0001_eV;
+	EXPECT_NEAR(static_cast<double>(
+			interaction->getDiffCrossSection(m_electron*c_squared, Egamma, Egamma)),
+		    static_cast<double>(3*(9-4*log(4))/32. * sigma_Thompson / Egamma),
+		    1e-10);
 	
-	static constexpr QArea sigma_T = (8.0_pi/3.0) *
-		pow<2>(pow<2>(e_plus)/(4._pi*epsilon0*m_electron*pow<2>(c_light)));
+	// high-energy zero
+	QEnergy E_fast_electron = 1e10*m_electron*c_squared;
+	EXPECT_NEAR(static_cast<double>(
+			interaction->getDiffCrossSection(E_fast_electron, Egamma, 0.1*E_fast_electron)),
+		    0.0,
+		    1e-25);
 
 	QEnergy E_photon =  6.626e-4_eV;
 	//QEnergy E_gamma = 1e5_erg;
 	QEnergy E_electron = 1e5*m_electron*c_squared;
 
-	
+	/*	
     	std::ofstream emissivityfile( "emissivity.txt" );
 	for (auto E_gamma = 0.01_GeV; E_gamma < 100_GeV; E_gamma = E_gamma*1.1) {
         	emissivityfile << std::scientific << std::setprecision(3) << E_gamma / 1_GeV << "\t";
@@ -47,6 +58,7 @@ TEST(Interactions, KleinNishina) {
        		emissivityfile << std::endl;
     	}
     	emissivityfile.close();
+	*/
 }
 
 int main(int argc, char **argv) {

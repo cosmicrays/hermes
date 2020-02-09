@@ -22,10 +22,9 @@ TEST(DMIntegrator, convertToUnits) {
 	auto intDM = std::make_shared<DMIntegrator>(
 		DMIntegrator(gdensity));
 
-	//skymap->setIntegrator(intDM);
 	skymap->computePixel(0, intDM);
 	QDispersionMeasure pixel = skymap->getPixel(0);
-	skymap->convertToUnits(parsec/centimetre3);
+	skymap->convertToUnits(parsec/centimetre3, "parsec / cm^3");
 	QDispersionMeasure convertedPixel = skymap->getPixel(0);
 
 	EXPECT_EQ(static_cast<double>(pixel/parsec*centimetre3),

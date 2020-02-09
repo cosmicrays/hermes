@@ -12,6 +12,7 @@ namespace hermes {
 
 typedef double QNumber;
 typedef double QAngle;
+typedef double QSolidAngle;
 typedef double QLength;
 typedef double QTime;
 typedef double QEnergy;

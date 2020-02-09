@@ -58,15 +58,13 @@ QICOuterIntegral InverseComptonIntegrator::getIOEfromCache(Vector3QLength pos_, 
 		return cacheTable->interpolate(static_cast<Vector3d>(pos_));
 }
 
-QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
+QDifferentialIntensity InverseComptonIntegrator::integrateOverLOS(
 		QDirection direction) const {
 	return integrateOverLOS(direction, 1_GeV);
 }
 
-QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
+QDifferentialIntensity InverseComptonIntegrator::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
-	
-	QDifferentialFlux tolerance = 1e10; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
 	
 	auto integrand = [this, direction_, Egamma_](const QLength &dist) {
 		return this->integrateOverEnergy(
@@ -75,7 +73,7 @@ QDifferentialFlux InverseComptonIntegrator::integrateOverLOS(
 			); };
 
 	return simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
-			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction_), 500);
+			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 }
 
 QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
@@ -96,7 +94,7 @@ QICOuterIntegral InverseComptonIntegrator::integrateOverSumEnergy(Vector3QLength
 	for (auto itE = std::next(crdensity->begin()); itE != crdensity->end(); ++itE) {
 		deltaE = (*itE) - *std::prev(itE);
 		integral += integrateOverPhotonEnergy(pos_, Egamma_, (*itE)) *
-			crdensity->getDensityPerEnergy(*itE, pos_) * c_light / 4_pi * deltaE;
+			crdensity->getDensityPerEnergy(*itE, pos_) * c_light * deltaE;
         }
 	
 	return integral;
@@ -108,7 +106,7 @@ QICOuterIntegral InverseComptonIntegrator::integrateOverLogEnergy(Vector3QLength
 
 	for (auto itE = crdensity->begin(); itE != crdensity->end(); ++itE) {
 		integral += integrateOverPhotonEnergy(pos_, Egamma_, (*itE)) * 
-	                        crdensity->getDensityPerEnergy((*itE), pos_) * (*itE) * c_light / 4_pi;
+	                        crdensity->getDensityPerEnergy((*itE), pos_) * (*itE) * c_light;
         }
 
 	return integral * log(crdensity->getEnergyScaleFactor());
@@ -120,7 +118,7 @@ QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
 	QICInnerIntegral integral(0);
 	
 	for (auto itE = phdensity->begin(); itE != phdensity->end(); ++itE) {
-		integral += crossSec->getDiffCrossSection(Eelectron_, static_cast<double>(*itE), Egamma_) *
+		integral += crossSec->getDiffCrossSection(Eelectron_, (*itE), Egamma_) *
 				phdensity->getEnergyDensity(pos_, static_cast<int>(itE - phdensity->begin())) / (*itE);
 	}
 

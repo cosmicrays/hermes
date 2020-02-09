@@ -29,20 +29,20 @@ void InverseComptonIntegratorWithCache::setCacheStorage(std::unique_ptr<CacheSto
 
 InverseComptonIntegratorWithCache::~InverseComptonIntegratorWithCache() { }
 
-QDifferentialFlux InverseComptonIntegratorWithCache::integrateOverLOS(
+QDifferentialIntensity InverseComptonIntegratorWithCache::integrateOverLOS(
 		QDirection direction) const {
 	return integrateOverLOS(direction, 1_GeV);
 }
 
-QDifferentialFlux InverseComptonIntegratorWithCache::integrateOverLOS(
+QDifferentialIntensity InverseComptonIntegratorWithCache::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
 	
-	QDifferentialFlux tolerance = 1e10; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
+	QDifferentialIntensity tolerance = 1e10; // / (1_GeV * 1_cm2 * 1_s); // sr^-1 
 	
 	auto integrand = [this, direction_, Egamma_](const QLength &dist) {
 		return this->axialCacheForIoE(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
 
-	return simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
+	return simpsonIntegration<QDifferentialIntensity, QICOuterIntegral>(
 			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction_), 500);
 }
 

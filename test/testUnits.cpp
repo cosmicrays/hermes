@@ -73,9 +73,15 @@ TEST(UnitsDerived, Derived) {
 	EXPECT_EQ(P, 5 * newton / (metre*metre));
 }
 
-TEST(UnitsDerived, FineStructureConst) {
+TEST(UnitsDerived, PhysicalConstants) {
+	// FineStructureConst
 	QNumber alpha = mu0 / 4_pi * e_plus * e_plus * c_light / h_planck_bar;
 	EXPECT_NEAR(static_cast<double>(alpha), 1/137.035999, 0.0001);
+	
+	// Thomson scattering cross section
+	EXPECT_NEAR(static_cast<double>(sigma_Thompson),
+		    static_cast<double>(6.653e-29 / 1_m2),
+		    static_cast<double>(0.001e-29 / 1_m2));
 }
 
 

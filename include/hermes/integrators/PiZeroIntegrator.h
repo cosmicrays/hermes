@@ -16,7 +16,7 @@ namespace hermes {
  * @{
  */
 
-class PiZeroIntegrator: public IntegratorTemplate<QDifferentialFlux, QEnergy> {
+class PiZeroIntegrator: public IntegratorTemplate<QDifferentialIntensity, QEnergy> {
 private:
 	std::shared_ptr<CosmicRayDensity> crdensity;
 	std::shared_ptr<RingModelDensity> ngdensity;
@@ -37,8 +37,8 @@ public:
 	QPDensity densityProfile(const Vector3QLength &) const;
 	QRingX0Unit X0Function(const Vector3QLength &) const;
 
-	QDifferentialFlux integrateOverLOS(QDirection iterdir) const;
-	QDifferentialFlux integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
+	QDifferentialIntensity integrateOverLOS(QDirection iterdir) const;
+	QDifferentialIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
 	QPiZeroIntegral integrateOverEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
 };

@@ -38,8 +38,7 @@ void init_skymaps(py::module &m) {
     // buffer protocol: https://docs.python.org/3/c-api/buffer.html
     py::class_<DMSkymap, std::shared_ptr<DMSkymap>>(m, "DMSkymap", py::buffer_protocol())
 	       .def(py::init<const std::size_t>(), py::arg("nside"))
-	       .def("setOutputUnits", &DMSkymap::setOutputUnits)
-	       .def("convertToUnits", &DMSkymap::setOutputUnits)
+	       .def("convertToUnits", &DMSkymap::convertToUnits)
 	       .def("getDescription", &DMSkymap::getDescription)
 	       .def("getNpix", &DMSkymap::getNpix)
 	       .def("setIntegrator", [](DMSkymap &s, std::shared_ptr<DMIntegrator> i) { s.setIntegrator(i); })
@@ -47,7 +46,7 @@ void init_skymaps(py::module &m) {
 	       .def("save", &DMSkymap::save)
 	       .def_buffer([](DMSkymap &s) -> py::buffer_info {
 			// TODO: move default units to the C++ source
-			s.convertToUnits(parsec/centimetre3); // set default units to pc/cm3
+			s.convertToUnits(parsec/centimetre3, "parsec / cm^3"); // set default units to pc/cm3
 		        return py::buffer_info(
 			        s.data(),          /* Pointer to buffer */
 			        sizeof(QDispersionMeasure),   /* Size of one scalar */
