@@ -109,6 +109,10 @@ public:
 		return x * x + y * y + z * z;
 	}
 
+	T getRho() const {
+		return sqrt(x * x + y * y);
+	}
+
 	// return the azimuth angle
 	QAngle getPhi() const {
 		T eps = std::numeric_limits < T > ::min();

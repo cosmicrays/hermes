@@ -153,7 +153,7 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
         sighandler_t old_sigterm_handler = std::signal(SIGTERM,
                         g_cancel_signal_callback);
 
-#pragma omp parallel for schedule(OMP_SCHEDULE)
+#pragma omp parallel for default(none) shared(maskContainer, g_cancel_signal_flag, fluxContainer, progressbar)
 	for (std::size_t ipix = 0; ipix < getSize(); ++ipix) {
 		if (g_cancel_signal_flag != 0)
                         continue;

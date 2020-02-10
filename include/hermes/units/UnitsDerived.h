@@ -88,6 +88,7 @@ constexpr QArea barn = 1e-28 * square_metre;
 // Predefined volume units:
 constexpr QVolume metre3 = metre*metre*metre;
 constexpr QVolume centimetre3 = centimetre*centimetre*centimetre;
+constexpr QVolume kilometre3 = kilometre*kilometre*kilometre;
 
 // Predefined mixed units:
 constexpr QAcceleration G = 9.80665 *  metre / (second*second);

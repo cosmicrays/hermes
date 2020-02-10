@@ -146,12 +146,6 @@ add_subdirectory(libs/kiss)
 list(APPEND HERMES_EXTRA_LIBRARIES kiss)
 list(APPEND HERMES_EXTRA_INCLUDES libs/kiss/include)
 
-# ymw16 (provided)
-# YMW16 is a model for the distribution of free electrons
-add_subdirectory(libs/ymw16)
-list(APPEND HERMES_EXTRA_INCLUDES libs/ymw16)
-list(APPEND HERMES_EXTRA_LIBRARIES ymw16)
-
 # cparamlib (provided)
 # p-p cross-sections
 add_subdirectory(libs/cparamlib)
@@ -303,6 +297,10 @@ if(ENABLE_TESTING)
 	add_executable(testFITS test/testFITS.cpp)
 	target_link_libraries(testFITS hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testFITS testFITS)
+	
+	add_executable(testYMW16 test/testYMW16.cpp)
+	target_link_libraries(testYMW16 hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testYMW16 testYMW16)
 	
 	add_executable(testDMIntegrator test/testDMIntegrator.cpp)
 	target_link_libraries(testDMIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})

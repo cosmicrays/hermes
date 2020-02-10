@@ -10,7 +10,7 @@ class ChargedGasDensity {
 private:
 	QTemperature gasTemp;
 public:
-	ChargedGasDensity() { }
+	ChargedGasDensity() : gasTemp(1e4_K) { }
 	ChargedGasDensity(QTemperature T) : gasTemp(T) { }
 	virtual ~ChargedGasDensity() { }
 	virtual QPDensity getDensity(const Vector3QLength& pos) const = 0;

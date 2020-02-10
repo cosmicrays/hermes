@@ -24,10 +24,11 @@ TEST(DMIntegrator, convertToUnits) {
 
 	skymap->computePixel(0, intDM);
 	QDispersionMeasure pixel = skymap->getPixel(0);
-	skymap->convertToUnits(parsec/centimetre3, "parsec / cm^3");
+	skymap->convertToUnits(kilometre/metre3, "km / m^3");
 	QDispersionMeasure convertedPixel = skymap->getPixel(0);
 
-	EXPECT_EQ(static_cast<double>(pixel/parsec*centimetre3),
+	EXPECT_EQ(static_cast<double>(pixel * 
+				(parsec/centimetre3)/(kilometre/metre3)),
 		  static_cast<double>(convertedPixel));	
 }
 

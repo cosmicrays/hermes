@@ -165,5 +165,53 @@ QPDensity NE2001Simple::getGalacticCentreDensity(const Vector3QLength& pos) cons
 		return n_GC;
 	return QPDensity(0);
 }
+/*
+std::pair<std::vector<QLength>, std::vector<QLength>> NE2001Simple::csplineInterpolation(
+		const std::pair<std::vector<QLength>, std::vector<QLength>> xy, int n) const {
 
+	xout, yout
+
+	if (nn > nmax)
+		return; // too many points to spline
+
+	n = abs(nn);
+	if (nn < 0) {
+		y2[0] = 0.;
+		u[0] = 0.;
+		for (int i = 2; i <= n-1; ++i) {
+	            double sig = (x[i] - x[i-1]) / (x[i+1] - x[i-1]);
+        	    double p = sig * y2[i-2] + 2.;
+	            y2[i-1] = (sig - 1.) / p;
+        	    u[i-1] = (((y[i+1] - y[i]) / (x[i+1] - x[i]) -
+				(y[i] - y[i-1]) / (x[i] - x[i-1])) 
+				* 6. / (x[i+1] - x[i-1]) - sig * u[i-2])/p;
+		}
+	        double qn = 0.;
+		double un = 0.;
+        	y2[n-1] = (un - qn * u[n-2]) / (qn * y2[n-2] + 1.);
+        	for (int k = n-1; k >= 1; --k) {
+	            y2[k-1] = y2[k-1] * y2[k] + u[k-1];
+        	}
+	}
+	int klo = 1;
+	int khi = n;
+	while (khi-klo > 1) {
+		k = (khi + klo) / 2;
+		if (x[k] > *xout) {
+			khi = k;
+		} else {
+			kl0 = k;
+		}
+	}
+	double h = x[khi] - x[klo];
+	double a = (x[khi] - *xout) / h;
+	double b = (*xout - x[klo]) / h;
+
+	*yout = a * y[klo] + b * y[khi] + ((r__1 * (r__1 * r__1) - a) * y2[klo -
+            1] + (r__2 * (r__2 * r__2) - b) * y2[khi - 1]) * (r__3 * r__3) /
+            6.f;
+	
+	return 0;
+}
+*/
 } // namespace hermes
