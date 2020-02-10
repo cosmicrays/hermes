@@ -1,6 +1,8 @@
 #include "hermes/integrators/InverseComptonIntegrator.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/Common.h"
+#include "hermes/ProgressBar.h"
+#include "hermes/Signals.h"
 
 #include <memory>
 #include <functional>
@@ -34,20 +36,44 @@ void InverseComptonIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, 
 			2*rBorder / N_x,
 			2*rBorder / N_y,
 			2*zBorder / N_z);
-
+	
 	// init table
 	cacheTable = std::make_shared<ICCacheTable>(ICCacheTable(
 					Vector3QLength(-rBorder, -rBorder, -zBorder),
 					N_x, N_y, N_z, spacing));
 	
-	size_t grid_size = cacheTable->getGridSize(); 
+#if _OPENMP
+	std::cout << "hermes::Integrator::InitCacheTable: Number of Threads: " << omp_get_max_threads() << std::endl;
+#endif
+	
+	size_t grid_size = cacheTable->getGridSize();
+
+	ProgressBar progressbar(grid_size);
+	progressbar.start("Generate Cache Table");
+
+	g_cancel_signal_flag = 0;
+        sighandler_t old_sigint_handler = std::signal(SIGINT,
+                        g_cancel_signal_callback);
+        sighandler_t old_sigterm_handler = std::signal(SIGTERM,
+                        g_cancel_signal_callback);
+
+#pragma omp parallel for schedule(OMP_SCHEDULE)
 	for (size_t index = 0; index < grid_size; ++index) {
 		Vector3QLength pos = static_cast<Vector3QLength>(cacheTable->positionFromIndex(index));
 		cacheTable->get(index) = integrateOverEnergy(pos, Egamma);
+#pragma omp critical(progressbarUpdate)
+		progressbar.update();
 	}
 
 	// set flag
 	cacheStoragePresent = true;
+	
+	std::signal(SIGINT, old_sigint_handler);
+        std::signal(SIGTERM, old_sigterm_handler);
+        // Propagate signal to old handler.
+        if (g_cancel_signal_flag > 0)
+                raise(g_cancel_signal_flag);
+	
 }
 
 bool InverseComptonIntegrator::isCacheTableEnabled() const {

@@ -238,6 +238,9 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/Integrators.cpp
 		python/MagneticFields.cpp
 		python/ChargedGasDensity.cpp
+		python/CosmicRayDensity.cpp
+		python/PhotonField.cpp
+		python/Interactions.cpp
 		python/PyHermes.cpp
 	)
 

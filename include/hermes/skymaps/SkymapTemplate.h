@@ -216,6 +216,7 @@ void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<Output> output) const {
 			);
 
 	output->writeColumn(npix, tempArray.data());
+	output->writeKeyValueAsString("PIXUNITS", defaultUnitsString, "Physical units of the skymap pixels");
 }
 
 template <typename QPXL, typename QSTEP>

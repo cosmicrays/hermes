@@ -44,10 +44,10 @@ void exampleIC() {
     //skymaps->setMask(mask);
     skymaps->setIntegrator(intIC);
 
-    auto output = std::make_shared<FITSOutput>(FITSOutput("!example-ic-cmb.fits.gz"));
+    auto output = std::make_shared<FITSOutput>(FITSOutput("!example-ic-cmb-nside512.fits.gz"));
 
     std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-    intIC->initCacheTable(Egamma, 50, 50, 10);
+    intIC->initCacheTable(Egamma, 80, 80, 16);
     skymaps->compute();
     std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
     skymaps->save(output);

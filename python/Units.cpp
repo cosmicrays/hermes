@@ -84,8 +84,13 @@ void init_units(py::module &m) {
     m.attr("kiloparsec") = kiloparsec;
     
     // Volume
-    m.attr("metre3") = metre3;
-    m.attr("centimetre3") = centimetre3;
+    m.attr("metre3") = 1_m3;
+    m.attr("centimetre3") = 1_cm3;
+
+    // Energy
+    m.attr("eV") = 1_eV;
+    m.attr("GeV") = 1_GeV;
+    m.attr("TeV") = 1_TeV;
 }
 
 }

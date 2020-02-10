@@ -19,15 +19,23 @@ namespace hermes {
 void init_integrators(py::module &m) {
     
     py::class_<DMIntegrator, std::shared_ptr<DMIntegrator>>(m, "DMIntegrator")
-	      .def(py::init<std::shared_ptr<ChargedGasDensity> >())
+	      .def(py::init<const std::shared_ptr<ChargedGasDensity> >())
               .def("getSunPosition", &DMIntegrator::getSunPosition)
               .def("setSunPosition", &DMIntegrator::setSunPosition);
 
     py::class_<RMIntegrator, std::shared_ptr<RMIntegrator>>(m, "RMIntegrator")
-	      .def(py::init<std::shared_ptr<MagneticField>,
-			    std::shared_ptr<ChargedGasDensity> >())
+	      .def(py::init<const std::shared_ptr<MagneticField>,
+			    const std::shared_ptr<ChargedGasDensity> >())
               .def("getSunPosition", &RMIntegrator::getSunPosition)
               .def("setSunPosition", &RMIntegrator::setSunPosition);
+    
+    py::class_<InverseComptonIntegrator, std::shared_ptr<InverseComptonIntegrator>>(m, "InverseComptonIntegrator")
+	      .def(py::init<const std::shared_ptr<CosmicRayDensity>,
+                	    const std::shared_ptr<PhotonField>,
+                            const std::shared_ptr<KleinNishina>>())
+              .def("getSunPosition", &InverseComptonIntegrator::getSunPosition)
+              .def("setSunPosition", &InverseComptonIntegrator::setSunPosition)
+	      .def("initCacheTable", &InverseComptonIntegrator::initCacheTable);
 }
 
 }

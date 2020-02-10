@@ -1,5 +1,6 @@
 #ifdef HERMES_HAVE_CFITSIO
 
+#include "hermes/Common.h"
 #include "hermes/cosmicRayDensity/DragonCRDensity.h"
 
 #include <iostream>
@@ -12,6 +13,14 @@
 #include <algorithm>
 
 namespace hermes {
+
+Dragon2DCRDensity::Dragon2DCRDensity() :
+	CosmicRayDensity(true),
+	filename(getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz")) {
+	enablePID(Electron);
+	enablePID(Positron);
+	readFile();
+}	
 
 Dragon2DCRDensity::Dragon2DCRDensity(
 		const std::string& filename_, const PID& pid_)

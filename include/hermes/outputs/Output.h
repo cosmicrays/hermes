@@ -16,6 +16,9 @@ public:
 		const std::string &key,
 		double value,
 		const std::string &description) = 0;
+	virtual void writeKeyValueAsString(
+		const std::string &key, const std::string &value,
+		const std::string &description) = 0;
 	virtual void writeColumn(int, void *) = 0;
 }; 
 

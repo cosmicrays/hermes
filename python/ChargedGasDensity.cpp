@@ -8,16 +8,6 @@
 
 #include "hermes/neutralGasDensity/RingModelDensity.h"
 
-#include "hermes/cosmicRayDensity/CosmicRayDensity.h"
-#include "hermes/cosmicRayDensity/SimpleCRDensity.h"
-#include "hermes/cosmicRayDensity/Sun08CRDensity.h"
-#include "hermes/cosmicRayDensity/WMAP07CRDensity.h"
-#include "hermes/cosmicRayDensity/DragonCRDensity.h"
-
-#include "hermes/photonField/PhotonField.h"
-#include "hermes/photonField/CMB.h"
-#include "hermes/photonField/ISRF.h"
-
 namespace py = pybind11;
 
 namespace hermes {

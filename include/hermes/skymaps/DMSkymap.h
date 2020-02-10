@@ -5,7 +5,16 @@
 
 namespace hermes {
 
-typedef SkymapTemplate<QDispersionMeasure, QNumber> DMSkymap;
+class DMSkymap: public SkymapTemplate<QDispersionMeasure, QNumber> {
+private:
+public:
+        DMSkymap(std::size_t nside_) :
+                SkymapTemplate(nside_) {
+
+                initDefaultUnits(parsec/centimetre3, "parsec^-1 cm^3");
+        };
+};
+
 
 } // namespace hermes
 

@@ -45,8 +45,6 @@ void init_skymaps(py::module &m) {
 	       .def("compute", &DMSkymap::compute)
 	       .def("save", &DMSkymap::save)
 	       .def_buffer([](DMSkymap &s) -> py::buffer_info {
-			// TODO: move default units to the C++ source
-			s.convertToUnits(parsec/centimetre3, "parsec / cm^3"); // set default units to pc/cm3
 		        return py::buffer_info(
 			        s.data(),          /* Pointer to buffer */
 			        sizeof(QDispersionMeasure),   /* Size of one scalar */
@@ -88,6 +86,25 @@ void init_skymaps(py::module &m) {
             			1,
 				{s.getSize()},
 				{sizeof(QTemperature)}
+        		);
+    		});
+    
+    py::class_<GammaSkymap, std::shared_ptr<GammaSkymap>>(m, "GammaSkymap", py::buffer_protocol())
+	       .def(py::init<const std::size_t, const QEnergy>(), py::arg("nside"), py::arg("Egamma"))
+	       .def("convertToUnits", &GammaSkymap::convertToUnits)
+	       .def("getDescription", &GammaSkymap::getDescription)
+	       .def("getNpix", &GammaSkymap::getNpix)
+	       .def("setIntegrator", [](GammaSkymap &s, std::shared_ptr<InverseComptonIntegrator> i) { s.setIntegrator(i); })
+	       .def("compute", &GammaSkymap::compute)
+	       .def("save", &GammaSkymap::save)
+	       .def_buffer([](GammaSkymap &s) -> py::buffer_info {
+		        return py::buffer_info(
+			        s.data(),
+			        sizeof(QDifferentialIntensity),
+            			py::format_descriptor<double>::format(),
+            			1,
+				{s.getSize()},
+				{sizeof(QDifferentialIntensity)}
         		);
     		});
 
