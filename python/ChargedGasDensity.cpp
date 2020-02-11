@@ -25,7 +25,8 @@ void init_charged_gas_density(py::module &m) {
 	      .def("getDensity", &ChargedGasDensity::getDensity);
     py::class_<YMW16, std::shared_ptr<YMW16>, ChargedGasDensity>(m, "YMW16")
 	      .def(py::init<>())
-	      .def("getDensity", &ChargedGasDensity::getDensity);
+	      .def("getDensity",
+			[](const YMW16 &d, const Vector3QLength &v) -> double { return static_cast<double>(d.getDensity(v)); });
 }
 
 }

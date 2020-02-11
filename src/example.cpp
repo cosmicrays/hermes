@@ -38,16 +38,16 @@ void exampleIC() {
     auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
                     QAngle(8_deg), QAngle(-8_deg), QAngle(-80_deg), QAngle(80_deg)));
 
-    int nside = 512;
+    int nside = 256;
     auto skymaps = std::make_shared<GammaSkymap>(GammaSkymap(nside, Egamma));
     //auto skymaps = std::make_shared<GammaSkymapRange>(GammaSkymapRange(nside, 100_MeV, 300_GeV, 10));
     //skymaps->setMask(mask);
     skymaps->setIntegrator(intIC);
 
-    auto output = std::make_shared<FITSOutput>(FITSOutput("!example-ic-cmb-nside512.fits.gz"));
+    auto output = std::make_shared<FITSOutput>(FITSOutput("!example-ic-cmb-nside256.fits.gz"));
 
     std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-    intIC->initCacheTable(Egamma, 80, 80, 16);
+    intIC->initCacheTable(Egamma, 50, 50, 10);
     skymaps->compute();
     std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
     skymaps->save(output);
@@ -143,15 +143,18 @@ void exampleGeneric() {
 void playground() {
     //exampleGeneric();
     //examplePiZero();
-    exampleIC();
+    //exampleIC();
   	
-    /*	
-    auto pos = Vector3QLength(0.02_kpc, 0_kpc, -0.02_kpc);
-    auto gasNE2001 = std::make_shared<NE2001Simple>(NE2001Simple());
+    //auto pos = Vector3QLength(0.02_kpc, 0_kpc, -0.02_kpc);
+    auto pos = Vector3QLength(0.0_kpc, 0.0_kpc, 0.0_kpc);
+    //auto gasNE2001 = std::make_shared<NE2001Simple>(NE2001Simple());
+    auto gasYMW16 = std::make_shared<YMW16>(YMW16());
+    /*
     std::cerr << "ne1 = " << gasNE2001->getThickDiskDensity(pos) * 1_cm3 << std::endl;
     std::cerr << "ne2 = " << gasNE2001->getThinDiskDensity(pos) * 1_cm3 << std::endl;
     std::cerr << "n_GC = " << gasNE2001->getGalacticCentreDensity(pos) * 1_cm3 << std::endl;
     */
+    std::cerr << gasYMW16->getDensity(pos) << std::endl;
 }
 
 } // namespace hermes
