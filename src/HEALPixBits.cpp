@@ -3,7 +3,7 @@
 
 namespace hermes {
 
-inline long nside2npix(long nside) {
+long nside2npix(long nside) {
 	return 12*nside*nside;
 }
 
