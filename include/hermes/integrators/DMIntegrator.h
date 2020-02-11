@@ -18,9 +18,17 @@ class DMIntegrator: public IntegratorTemplate<QDispersionMeasure, QNumber> {
 private:
 	std::shared_ptr<ChargedGasDensity> gdensity;
 public:
+	typedef std::pair<std::vector<QLength>, std::vector<double>> tLOSProfile;
 	DMIntegrator(const std::shared_ptr<ChargedGasDensity> gdensity);
 	~DMIntegrator();
 	QDispersionMeasure integrateOverLOS(QDirection iterdir) const;
+	
+	/**
+		Get the line of sight profile (integrand of integrateOverLOS) of a direction
+		where N is equidistant number of steps from the Sun's position to the
+		galactic border
+	*/
+	tLOSProfile getLOSProfile(QDirection direction, int Nsteps) const;
 };
 
 /** @}*/
