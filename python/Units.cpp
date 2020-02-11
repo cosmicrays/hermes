@@ -76,6 +76,12 @@ void init_units(py::module &m) {
     declare_quantity<QECapacitance>(m, "QECapacitance", "_F");
     declare_quantity<QDispersionMeasure>(m, "QDispersionMeasure", "_m-2");
     declare_quantity<QRotationMeasure>(m, "QRotationMeasure", "_rad/m2");
+    // |- direction
+    py::class_<QDirection>(m, "QDirection")
+	    .def(py::init<const QAngle &, const QAngle &>());
+
+    // Angle
+    m.attr("radian") = radian;
 
     // Length
     m.attr("metre") = metre;

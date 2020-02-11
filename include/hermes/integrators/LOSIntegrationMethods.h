@@ -144,36 +144,6 @@ QPXL adaptiveSimpsonIntegration(std::function<INTTYPE(QLength)> f,
         return total;
 }
 
-template <typename QPXL, typename INTTYPE, typename QSTEP>
-QPXL saveIntegrationProfile(const QDirection &dir,
-		std::function<INTTYPE(Vector3QLength, QSTEP)> f, const QSTEP &step, int N = 200) {
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
-	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, dir);
-	QLength delta_d = maxDistance/N;
-
-	QPXL total(0);
-	QPXL tmp(0);
-	Vector3QLength pos(0.0);
-
-	std::ostringstream filename;
-	filename << "integral_profiles/integral-"
-		 << "b" << static_cast<double>(dir[0])
-		 << "-"
-		 << "l" << static_cast<double>(dir[1])
-		 << ".txt";
-
-	std::ofstream integraldump(filename.str());
-	for(QLength dist = 0; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, dir);
-		tmp = f(pos, step) * delta_d;
-		integraldump << dist << "\t" << tmp << "\n";
-	}
-	integraldump.close();
-
-	return total;
-}
-
 } // namespace hermes
 
 #endif // HERMES_LOSINTEGRATIONMETHODS_H
