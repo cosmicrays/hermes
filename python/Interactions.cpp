@@ -3,6 +3,7 @@
 
 #include "hermes/interactions/DifferentialCrossSection.h"
 #include "hermes/interactions/KleinNishina.h"
+#include "hermes/interactions/Kamae06.h"
 
 namespace py = pybind11;
 
@@ -16,6 +17,8 @@ void init_interactions(py::module &m) {
     py::class_<KleinNishina, std::shared_ptr<KleinNishina>, DifferentialCrossSection>(m, "KleinNishina")
 	      .def(py::init<>());
 	      //.def("getEnergyDensity", &CMB::getEnergyDensity);
+    py::class_<Kamae06, std::shared_ptr<Kamae06>, DifferentialCrossSection>(m, "Kamae06")
+	      .def(py::init<>());
 }
 
 }

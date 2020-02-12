@@ -95,6 +95,7 @@ void init_skymaps(py::module &m) {
 	       .def("getDescription", &GammaSkymap::getDescription)
 	       .def("getNpix", &GammaSkymap::getNpix)
 	       .def("setIntegrator", [](GammaSkymap &s, std::shared_ptr<InverseComptonIntegrator> i) { s.setIntegrator(i); })
+	       .def("setIntegrator", [](GammaSkymap &s, std::shared_ptr<PiZeroIntegrator> i) { s.setIntegrator(i); })
 	       .def("compute", &GammaSkymap::compute)
 	       .def("save", &GammaSkymap::save)
 	       .def_buffer([](GammaSkymap &s) -> py::buffer_info {

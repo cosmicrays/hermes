@@ -3,7 +3,10 @@
 
 namespace hermes {
 
-DMIntegrator::DMIntegrator(const std::shared_ptr<ChargedGasDensity> gdensity) : gdensity(gdensity) {	
+DMIntegrator::DMIntegrator(const std::shared_ptr<ChargedGasDensity> gdensity) :
+	DMIntegratorTemplate(),
+	gdensity(gdensity) {	
+
 }
 
 DMIntegrator::~DMIntegrator() { }
@@ -11,16 +14,17 @@ DMIntegrator::~DMIntegrator() { }
 QDispersionMeasure DMIntegrator::integrateOverLOS(QDirection direction) const {
 
 	auto integrand = [this, direction](const QLength &dist) {
-		return (this->gdensity)->getDensity(getGalacticPosition(this->positionSun, dist, direction)); };
+		return (this->gdensity)->getDensity(getGalacticPosition(this->getSunPosition(), dist, direction)); };
+	
+	return gslQAGIntegration<QDispersionMeasure, QPDensity>(
+			[this, integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 500);
 
-	return simpsonIntegration<QDispersionMeasure, QPDensity>(
-			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 1000);
 }
 
 DMIntegrator::tLOSProfile DMIntegrator::getLOSProfile(QDirection direction, int Nsteps) const {
 
 	auto integrand = [this, direction](const QLength &dist) {
-		return (this->gdensity)->getDensity(getGalacticPosition(this->positionSun, dist, direction)); };
+		return (this->gdensity)->getDensity(getGalacticPosition(this->getSunPosition(), dist, direction)); };
 
 	QLength start = 0_m;
 	QLength stop  = getMaxDistance(direction);

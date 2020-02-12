@@ -78,8 +78,11 @@ public:
 			const PID &pid_);
 	Dragon2DCRDensity(const std::string &filename_,
 			const std::vector<PID> &pids_);
-	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const;
-	QPDensityPerEnergy getDensityPerEnergy(int iE_, const Vector3QLength& pos_) const;
+	Dragon2DCRDensity(const std::vector<PID> &pids_);
+	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_,
+			const Vector3QLength& pos_) const;
+	QPDensityPerEnergy getDensityPerEnergy(int iE_,
+			const Vector3QLength& pos_) const;
 };
 
 class Dragon3DCRDensity: public CosmicRayDensity {

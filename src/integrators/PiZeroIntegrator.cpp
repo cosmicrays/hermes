@@ -1,9 +1,15 @@
 #include "hermes/integrators/PiZeroIntegrator.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
+#include "hermes/ProgressBar.h"
 #include "hermes/Common.h"
 
 #include <memory>
 #include <functional>
+
+#if _OPENMP
+#include <omp.h>
+#define OMP_SCHEDULE static,100
+#endif
 
 namespace hermes {
 
@@ -11,10 +17,56 @@ PiZeroIntegrator::PiZeroIntegrator(
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
 	const std::shared_ptr<RingModelDensity> ngdensity_,
 	const std::shared_ptr<DifferentialCrossSection> crossSec_) : 
-	crdensity(crdensity_), ngdensity(ngdensity_), crossSec(crossSec_) {
+	crdensity(crdensity_), ngdensity(ngdensity_), crossSec(crossSec_), cacheStoragePresent(false) {
 }
 
 PiZeroIntegrator::~PiZeroIntegrator() { }
+
+void PiZeroIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, int N_z) {
+	
+	if (cacheStoragePresent)
+		cacheStoragePresent = false;
+	
+	const QLength rBorder = 20_kpc;
+        const QLength zBorder = 5_kpc;
+	Vector3QLength spacing = Vector3QLength(
+			2*rBorder / N_x,
+			2*rBorder / N_y,
+			2*zBorder / N_z);
+	
+	// init table
+	cacheTable = std::make_shared<ICCacheTable>(ICCacheTable(
+					Vector3QLength(-rBorder, -rBorder, -zBorder),
+					N_x, N_y, N_z, spacing));
+	
+#if _OPENMP
+	std::cout << "hermes::Integrator::InitCacheTable: Number of Threads: " << omp_get_max_threads() << std::endl;
+#endif
+	
+	size_t grid_size = cacheTable->getGridSize();
+
+	ProgressBar progressbar(grid_size);
+	progressbar.start("Generate Cache Table");
+
+#pragma omp parallel for schedule(OMP_SCHEDULE)
+	for (size_t index = 0; index < grid_size; ++index) {
+		Vector3QLength pos = static_cast<Vector3QLength>(cacheTable->positionFromIndex(index));
+		cacheTable->get(index) = integrateOverEnergy(pos, Egamma);
+#pragma omp critical(progressbarUpdate)
+		progressbar.update();
+	}
+
+	cacheStoragePresent = true;
+}
+
+bool PiZeroIntegrator::isCacheTableEnabled() const {
+	return cacheStoragePresent;
+}
+
+QPiZeroIntegral PiZeroIntegrator::getIOEfromCache(Vector3QLength pos_, QEnergy Egamma_) const {
+		return cacheTable->interpolate(static_cast<Vector3d>(pos_));
+}
+
 
 QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 		QDirection direction) const {
@@ -23,9 +75,6 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 
 QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
-
-	/*
-	QDifferentialIntensity tolerance = 1e9; // / (1_GeV * 1_cm2 * 1_s * 1_sr);
 
 	std::vector<QColumnDensity> normIntegrals(
 			ngdensity->getRingNumber(GasType::HI), QColumnDensity(0.0));
@@ -39,7 +88,7 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 	                return normI_f(getGalacticPosition(this->positionSun, dist, direction_)); };
 
 		normIntegrals[ring->getIndex()] =
-			simpsonIntegration<QColumnDensity, QPDensity>(integrand, 0, getMaxDistance(direction_), 150);
+			gslQAGIntegration<QColumnDensity, QPDensity>(integrand, 0, getMaxDistance(direction_), 500);
 	}
 
 	std::vector<QDifferentialIntensity> losIntegrals(
@@ -54,7 +103,7 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 	                return losI_f(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
 
 		losIntegrals[ring->getIndex()] =
-			simpsonIntegration<QDifferentialFlux, QPiZeroIntegral>(integrand, 0, getMaxDistance(direction_), 200) / (4_pi*1_sr);
+			gslQAGIntegration<QDifferentialFlux, QICOuterIntegral>(integrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 	}
 	
 	// normalize according to the ring density model	
@@ -70,7 +119,7 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 			 losIntegrals[ring->getIndex()];
 	}
 	
-	return total_diff_flux;*/
+	return total_diff_flux;
 }
 
 QPDensity PiZeroIntegrator::densityProfile(const Vector3QLength &pos) const {
@@ -82,10 +131,13 @@ QRingX0Unit PiZeroIntegrator::X0Function(const Vector3QLength &pos) const {
 }
 
 QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
-		if (crdensity->existsScaleFactor())
-			return integrateOverLogEnergy(pos_, Egamma_);
-		else
-			return integrateOverSumEnergy(pos_, Egamma_);
+	if (cacheStoragePresent)
+		return getIOEfromCache(pos_, Egamma_);
+
+	if (crdensity->existsScaleFactor())
+		return integrateOverLogEnergy(pos_, Egamma_);
+	else
+		return integrateOverSumEnergy(pos_, Egamma_);
 }
 
 QPiZeroIntegral PiZeroIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QEnergy Egamma_) const {

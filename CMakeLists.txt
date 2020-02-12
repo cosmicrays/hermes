@@ -16,6 +16,8 @@ if (NOT CMAKE_BUILD_TYPE)
         set(CMAKE_BUILD_TYPE Release)
 endif(NOT CMAKE_BUILD_TYPE)
 message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 if(CMAKE_COMPILER_IS_GNUCXX AND NOT APPLE)
         set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--as-needed")
@@ -226,12 +228,14 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	
 	pybind11_add_module(pyhermes
 		python/Units.cpp
+		python/Common.cpp
 		python/Vectors.cpp
 		python/Outputs.cpp
 		python/Skymaps.cpp
 		python/Integrators.cpp
 		python/MagneticFields.cpp
 		python/ChargedGasDensity.cpp
+		python/NeutralGasDensity.cpp
 		python/CosmicRayDensity.cpp
 		python/PhotonField.cpp
 		python/Interactions.cpp
@@ -289,6 +293,10 @@ if(ENABLE_TESTING)
 	add_executable(testHEALPix test/testHEALPix.cpp)
         target_link_libraries(testHEALPix hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
         add_test(testHEALPix testHEALPix)
+	
+	add_executable(testIntegrationMethods test/testIntegrationMethods.cpp)
+	target_link_libraries(testIntegrationMethods hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testIntegrationMethods testIntegrationMethods)
 	
 	add_executable(testSkymap test/testSkymap.cpp)
 	target_link_libraries(testSkymap hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})

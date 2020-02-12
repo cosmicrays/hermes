@@ -51,33 +51,16 @@ public:
 
 };
 
-
-TEST(InverseComptonIntegrator, defaultUnits) {
-	/*auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
-	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
-	auto photonField = std::make_shared<CMB>(CMB()); 
-	auto intIC = std::make_shared<InverseComptonIntegrator>(
-		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
-	
-	Vector3QLength pos(0);
-	QEnergy Egamma = 10_GeV;
-	QEnergy Eelectron = 1_TeV;
-
-	
-	EXPECT_NEAR(static_cast<double>(res), 5.36e-61, 2e-61);*/
-}
-
-
 TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<CMB>(CMB()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
-	
-	Vector3QLength pos(0);
+
+        Vector3QLength pos(0);
 	QEnergy Egamma = 10_GeV;
-	QEnergy Eelectron = 1_TeV;
+        QEnergy Eelectron = 1_TeV;
 
 	auto res = intIC->integrateOverPhotonEnergy(pos, Egamma, Eelectron);
 	
@@ -109,6 +92,69 @@ TEST(InverseComptonIntegrator, integrateOverEnergy) {
 	
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
 }
+
+TEST(InverseComptonIntegrator, compareLOSIntegrations) {
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
+	auto photonField = std::make_shared<CMB>(CMB()); 
+	auto intIC = std::make_shared<InverseComptonIntegrator>(
+		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
+	
+	QDirection dir = {pi/2*1_rad, 0_rad};
+	QLength maxDist = intIC->getMaxDistance(dir);
+	QEnergy Egamma = 10_GeV;
+
+	auto integrand = [intIC, dir, Egamma](const QLength &dist) {
+		return intIC->integrateOverEnergy(
+				getGalacticPosition(intIC->getSunPosition(), dist, dir),
+				Egamma
+			); };
+	
+	auto result_QAG = gslQAGIntegration<QDifferentialFlux, QICOuterIntegral>(
+                        [maxDist, dir, integrand](QLength dist) {return integrand(dist);}, 0, maxDist, 300);
+	
+	auto result_SI  = simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
+                        [maxDist, dir, integrand](QLength dist) {return integrand(dist);}, 0, maxDist, 300);
+
+
+	EXPECT_NEAR(static_cast<double>(result_QAG),
+			static_cast<double>(result_SI),
+			1e-5);
+}
+/*
+TEST(InverseComptonIntegrator, integrateOverLOS) {
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
+	auto photonField = std::make_shared<CMB>(CMB()); 
+	auto intIC = std::make_shared<InverseComptonIntegrator>(
+		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
+	
+	QDirection dir = {pi/2*1_rad, 0_rad};
+	QLength maxDist = intIC->getMaxDistance(dir);
+	QEnergy Egamma = 10_GeV;
+
+	auto integrand = [intIC, dir, Egamma](const QLength &dist) {
+		return intIC->integrateOverEnergy(
+				getGalacticPosition(intIC->getSunPosition(), dist, dir),
+				Egamma
+			); };
+	
+	std::shared_ptr<gsl_integration_workspace> workspace_ptr;
+	workspace_ptr = static_cast<std::shared_ptr<gsl_integration_workspace>>(
+			gsl_integration_workspace_alloc(1000));
+
+	auto result_QAG = gslQAGIntegration<QDifferentialFlux, QICOuterIntegral>(
+                        [maxDist, dir, integrand](QLength dist) {return integrand(dist);}, 0, maxDist, 300, workspace_ptr);
+	
+	auto result_SI  = simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
+                        [maxDist, dir, integrand](QLength dist) {return integrand(dist);}, 0, maxDist, 300);
+
+
+	EXPECT_NEAR(static_cast<double>(result_QAG),
+			static_cast<double>(result_SI),
+			1e-5);
+}*/
+
 
 TEST(InverseComptonIntegrator, initCacheTable) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());

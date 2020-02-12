@@ -38,6 +38,7 @@ public:
 };
 
 TEST(PiZeroIntegrator, integrateOverEnergy) {
+/*
 	//auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	
@@ -70,6 +71,7 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 
 	// sqrt(3)*e_charge^3/(8*pi^2*epsilon_0*c*electron_mass)*0.655*1*microGauss*1/(m^3*J)*1_eV
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
+*/
 }
 
 TEST(PiZeroIntegrator, PerformanceTest) {
@@ -79,9 +81,6 @@ TEST(PiZeroIntegrator, PerformanceTest) {
                                 particletypes));
 	
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
-    	CacheStorageKamae KamaeCache;
-    	auto cacheKamae = std::make_unique<CacheStorageKamae>(std::move(KamaeCache));
-    	kamae->setCacheStorage(std::move(cacheKamae));
 	
 	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity());
 	auto in = std::make_shared<PiZeroIntegrator>(

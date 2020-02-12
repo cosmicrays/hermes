@@ -82,6 +82,7 @@ void init_units(py::module &m) {
 
     // Angle
     m.attr("radian") = radian;
+    m.attr("rad") = radian;
 
     // Length
     m.attr("metre") = metre;

@@ -37,6 +37,15 @@ void init_integrators(py::module &m) {
               .def("getSunPosition", &InverseComptonIntegrator::getSunPosition)
               .def("setSunPosition", &InverseComptonIntegrator::setSunPosition)
 	      .def("initCacheTable", &InverseComptonIntegrator::initCacheTable);
+    
+    py::class_<PiZeroIntegrator, std::shared_ptr<PiZeroIntegrator>>(m, "PiZeroIntegrator")
+	      .def(py::init<const std::shared_ptr<CosmicRayDensity>,
+                	    const std::shared_ptr<RingModelDensity>,
+                            const std::shared_ptr<DifferentialCrossSection>>())
+              .def("getSunPosition", &PiZeroIntegrator::getSunPosition)
+              .def("setSunPosition", &PiZeroIntegrator::setSunPosition)
+	      .def("initCacheTable", &PiZeroIntegrator::initCacheTable);
+
 }
 
 }

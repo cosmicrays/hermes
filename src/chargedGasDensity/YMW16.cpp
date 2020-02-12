@@ -771,15 +771,15 @@ double YMW16::ne_ymw16(const Vector3QLength &pos) const {
 					WLB = 0;
 				}
 			}
-			if(ne7 > ne0){     /* Loop I */
+			if (ne7 > ne0) {     /* Loop I */
 				WLI = 1;
-			}else{
+			} else {
 				WLI = 0;
 			}        
-			if(ne5 > ne0){     /* Gum Nebula */
-				WGN=1;
+			if (ne5 > ne0){     /* Gum Nebula */
+				WGN = 1;
 			}else{
-				WGN=0;
+				WGN = 0;
 			}
       
 			/* Galactic ne */

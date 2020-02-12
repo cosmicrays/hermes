@@ -12,7 +12,7 @@
 namespace hermes {
 
 /**
-	Returns the full path to a data file
+	Resolves a full path to data files
 */
 std::string getDataPath(std::string filename);
 

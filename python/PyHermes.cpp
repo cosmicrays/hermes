@@ -5,12 +5,14 @@ namespace py = pybind11;
 namespace hermes {
 
 void init_units(py::module &);
+void init_common(py::module &);
 void init_vectors(py::module &);
 void init_outputs(py::module &);
 void init_skymaps(py::module &);
 void init_integrators(py::module &);
 void init_magnetic_fields(py::module &);
 void init_charged_gas_density(py::module &);
+void init_neutral_gas_density(py::module &);
 void init_cosmic_ray_density(py::module &);
 void init_photon_field(py::module &);
 void init_interactions(py::module &);
@@ -18,10 +20,12 @@ void init_interactions(py::module &);
 PYBIND11_MODULE(pyhermes, m) {
     m.doc() = "HERMES python binding";
     init_units(m);
+    init_common(m);
     init_vectors(m);
     init_outputs(m);
     init_skymaps(m);
     init_charged_gas_density(m);
+    init_neutral_gas_density(m);
     init_cosmic_ray_density(m);
     init_photon_field(m);
     init_interactions(m);

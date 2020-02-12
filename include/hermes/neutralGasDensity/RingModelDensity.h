@@ -6,13 +6,12 @@
 #include "hermes/Units.h"
 #include "hermes/Grid.h"
 #include "hermes/FITSWrapper.h"
+#include "hermes/neutralGasDensity/NeutralGasDensity.h"
 
 #include <utility>
 #include <array>
 
 namespace hermes {
-
-enum GasType { HI = 0, CO = 1 };
 
 class RingData {
 private:
@@ -50,13 +49,12 @@ public:
 	QRingCOIntensity getCOIntensity(const QDirection& dir) const;
 };
 
-class RingModelDensity {
+class RingModelDensity : public NeutralGasDensity {
 private:
 	std::shared_ptr<RingData> dataPtr;
 	std::array<QLength, 12> boundaries = {0_kpc, 2_kpc, 3_kpc, 4_kpc, 5_kpc, 6_kpc,
 		7_kpc, 9_kpc, 12_kpc, 15_kpc, 18_kpc, 35_kpc};
 
-	QTemperature gasTemp;
 	typedef std::vector<std::shared_ptr<Ring> > tRingContainer;
 	mutable tRingContainer ringContainer;
 	
@@ -65,13 +63,6 @@ public:
 	RingModelDensity();
 	~RingModelDensity() { }
 	int getRingNumber(GasType t) const;
-
-	inline void setTemperature(QTemperature T) {
-		gasTemp = T;
-	}
-	inline QTemperature getTemperature() const {
-		return gasTemp;
-	}
 
 	/** iterator goodies */
 	std::shared_ptr<Ring> operator[](const std::size_t i) const;

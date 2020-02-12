@@ -51,12 +51,6 @@ void InverseComptonIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, 
 	ProgressBar progressbar(grid_size);
 	progressbar.start("Generate Cache Table");
 
-	g_cancel_signal_flag = 0;
-        sighandler_t old_sigint_handler = std::signal(SIGINT,
-                        g_cancel_signal_callback);
-        sighandler_t old_sigterm_handler = std::signal(SIGTERM,
-                        g_cancel_signal_callback);
-
 #pragma omp parallel for schedule(OMP_SCHEDULE)
 	for (size_t index = 0; index < grid_size; ++index) {
 		Vector3QLength pos = static_cast<Vector3QLength>(cacheTable->positionFromIndex(index));
@@ -65,15 +59,7 @@ void InverseComptonIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, 
 		progressbar.update();
 	}
 
-	// set flag
 	cacheStoragePresent = true;
-	
-	std::signal(SIGINT, old_sigint_handler);
-        std::signal(SIGTERM, old_sigterm_handler);
-        // Propagate signal to old handler.
-        if (g_cancel_signal_flag > 0)
-                raise(g_cancel_signal_flag);
-	
 }
 
 bool InverseComptonIntegrator::isCacheTableEnabled() const {
@@ -94,11 +80,11 @@ QDifferentialIntensity InverseComptonIntegrator::integrateOverLOS(
 	
 	auto integrand = [this, direction_, Egamma_](const QLength &dist) {
 		return this->integrateOverEnergy(
-				getGalacticPosition(this->positionSun, dist, direction_),
+				getGalacticPosition(getSunPosition(), dist, direction_),
 				Egamma_
 			); };
 
-	return simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
+	return gslQAGIntegration<QDifferentialFlux, QICOuterIntegral>(
 			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 }
 

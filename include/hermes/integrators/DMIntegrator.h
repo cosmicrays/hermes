@@ -14,13 +14,17 @@ namespace hermes {
  * @{
  */
 
-class DMIntegrator: public IntegratorTemplate<QDispersionMeasure, QNumber> {
+typedef IntegratorTemplate<QDispersionMeasure, QNumber> DMIntegratorTemplate;
+
+class DMIntegrator: public DMIntegratorTemplate {
 private:
 	std::shared_ptr<ChargedGasDensity> gdensity;
 public:
 	typedef std::pair<std::vector<QLength>, std::vector<double>> tLOSProfile;
+	
 	DMIntegrator(const std::shared_ptr<ChargedGasDensity> gdensity);
 	~DMIntegrator();
+	
 	QDispersionMeasure integrateOverLOS(QDirection iterdir) const;
 	
 	/**
