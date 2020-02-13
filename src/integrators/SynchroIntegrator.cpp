@@ -10,7 +10,7 @@ namespace hermes {
 SynchroIntegrator::SynchroIntegrator(
 	const std::shared_ptr<MagneticField> mfield_,
 	const std::shared_ptr<CosmicRayDensity> crdensity_) : 
-	mfield(mfield_), crdensity(crdensity_) {	
+	RadioIntegratorTemplate(), mfield(mfield_), crdensity(crdensity_) {	
 }
 
 SynchroIntegrator::~SynchroIntegrator() { }

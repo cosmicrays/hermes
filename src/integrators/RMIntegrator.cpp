@@ -4,7 +4,8 @@
 namespace hermes {
 
 RMIntegrator::RMIntegrator(const std::shared_ptr<MagneticField> mfield,
-			   const std::shared_ptr<ChargedGasDensity> gdensity) : mfield(mfield), gdensity(gdensity) {	
+			   const std::shared_ptr<ChargedGasDensity> gdensity) :
+	RMIntegratorTemplate(), mfield(mfield), gdensity(gdensity) {	
 }
 
 RMIntegrator::~RMIntegrator() { }

@@ -26,7 +26,7 @@ public:
 		std::size_t ipix,
 		std::shared_ptr<IntegratorTemplate<QDifferentialIntensity, QEnergy> > integrator_) {
 		iterdir = pix2ang_ring(getNside(), ipix);
-		fluxContainer[ipix] = integrator_->integrateOverLOS(iterdir, Egamma);
+		fluxContainer[ipix] = toSkymapDefaultUnits(integrator_->integrateOverLOS(iterdir, Egamma));
 	}
 };
 

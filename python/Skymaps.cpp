@@ -24,90 +24,62 @@ namespace py = pybind11;
 
 namespace hermes {
 
-template<typename QPXL, typename QSTEP>
-    void declare_skymap(py::module &m,  std::string const & classname) {
-	using Class = SkymapTemplate<QPXL, QSTEP>;
-	py::class_<Class, std::shared_ptr<Class>>(m, classname.c_str())
-	       .def(py::init<const std::size_t>())
-	       .def("setIntegrator", &Class::setIntegrator)
-	       .def("getNpix", &Class::getNpix);
+template<typename SKYMAP, typename QPXL, typename QSTEP>
+    void declare_default_skymap_methods(py::class_<SKYMAP> c) {
+	    using IntegratorClass = IntegratorTemplate<QPXL, QSTEP>;
+	    using ParentClass = SkymapTemplate<QPXL, QSTEP>;
+
+	    c.def("getDescription", &SKYMAP::getDescription);
+	    c.def("getNpix", &SKYMAP::getNpix);
+	    c.def("setMask", &SKYMAP::setMask);
+	    c.def("getMask", &SKYMAP::getMask);
+	    c.def("convertToUnits", &SKYMAP::convertToUnits);
+	    c.def("setIntegrator", [](SKYMAP &s, std::shared_ptr<IntegratorClass> i) { s.setIntegrator(i); });
+	    c.def("compute", &SKYMAP::compute);
+	    c.def("save", &SKYMAP::save);
+	    c.def_buffer([](SKYMAP &s) -> py::buffer_info {
+			    // buffer protocol: https://docs.python.org/3/c-api/buffer.html
+			    return py::buffer_info(
+					    s.data(),          /* Pointer to buffer */
+					    sizeof(QPXL),      /* Size of one scalar */
+					    py::format_descriptor<double>::format(), /* Python struct-style format descriptor */
+					    1,                 /* Number of dimensions */
+					    {s.getSize()},     /* Buffer dimensions */
+					    {sizeof(QPXL)}     /* Strides (in bytes) for each index */
+					    );
+			    });
     }
 
 
 void init_skymaps(py::module &m) {
-    // buffer protocol: https://docs.python.org/3/c-api/buffer.html
-    py::class_<DMSkymap, std::shared_ptr<DMSkymap>>(m, "DMSkymap", py::buffer_protocol())
-	       .def(py::init<const std::size_t>(), py::arg("nside"))
-	       .def("convertToUnits", &DMSkymap::convertToUnits)
-	       .def("getDescription", &DMSkymap::getDescription)
-	       .def("getNpix", &DMSkymap::getNpix)
-	       .def("setIntegrator", [](DMSkymap &s, std::shared_ptr<DMIntegrator> i) { s.setIntegrator(i); })
-	       .def("compute", &DMSkymap::compute)
-	       .def("save", &DMSkymap::save)
-	       .def_buffer([](DMSkymap &s) -> py::buffer_info {
-		        return py::buffer_info(
-			        s.data(),          /* Pointer to buffer */
-			        sizeof(QDispersionMeasure),   /* Size of one scalar */
-            			py::format_descriptor<double>::format(), /* Python struct-style format descriptor */
-            			1,                             /* Number of dimensions */
-				{s.getSize()},                 /* Buffer dimensions */
-				{sizeof(QDispersionMeasure)}             /* Strides (in bytes) for each index */
-        		);
-    		});
-    
-    py::class_<RMSkymap, std::shared_ptr<RMSkymap>>(m, "RMSkymap", py::buffer_protocol())
-	       .def(py::init<const std::size_t>(), py::arg("nside"))
-	       .def("getDescription", &RMSkymap::getDescription)
-	       .def("setIntegrator", [](RMSkymap &s, std::shared_ptr<RMIntegrator> i) { s.setIntegrator(i); })
-	       .def("compute", &RMSkymap::compute)
-	       .def("getNpix", &DMSkymap::getNpix)
-	       .def("save", &RMSkymap::save)
-	       .def_buffer([](RMSkymap &s) -> py::buffer_info {
-		        return py::buffer_info(
-			        s.data(),          /* Pointer to buffer */
-			        sizeof(QRotationMeasure),   /* Size of one scalar */
-            			py::format_descriptor<double>::format(), /* Python struct-style format descriptor */
-            			1,                             /* Number of dimensions */
-				{s.getSize()},                 /* Buffer dimensions */
-				{sizeof(QRotationMeasure)}             /* Strides (in bytes) for each index */
-        		);
-    		});
 
-    py::class_<RadioSkymap, std::shared_ptr<RadioSkymap>>(m, "RadioSkymap", py::buffer_protocol())
-	       .def(py::init<const std::size_t, const QFrequency>())
-	       .def("getDescription", &RadioSkymap::getDescription)
-	       .def("setIntegrator", &RadioSkymap::setIntegrator)
-	       .def("compute", &RadioSkymap::compute)
-	       .def_buffer([](RadioSkymap &s) -> py::buffer_info {
-		        return py::buffer_info(
-			        s.data(),
-			        sizeof(QTemperature),
-            			py::format_descriptor<double>::format(),
-            			1,
-				{s.getSize()},
-				{sizeof(QTemperature)}
-        		);
-    		});
-    
-    py::class_<GammaSkymap, std::shared_ptr<GammaSkymap>>(m, "GammaSkymap", py::buffer_protocol())
-	       .def(py::init<const std::size_t, const QEnergy>(), py::arg("nside"), py::arg("Egamma"))
-	       .def("convertToUnits", &GammaSkymap::convertToUnits)
-	       .def("getDescription", &GammaSkymap::getDescription)
-	       .def("getNpix", &GammaSkymap::getNpix)
-	       .def("setIntegrator", [](GammaSkymap &s, std::shared_ptr<InverseComptonIntegrator> i) { s.setIntegrator(i); })
-	       .def("setIntegrator", [](GammaSkymap &s, std::shared_ptr<PiZeroIntegrator> i) { s.setIntegrator(i); })
-	       .def("compute", &GammaSkymap::compute)
-	       .def("save", &GammaSkymap::save)
-	       .def_buffer([](GammaSkymap &s) -> py::buffer_info {
-		        return py::buffer_info(
-			        s.data(),
-			        sizeof(QDifferentialIntensity),
-            			py::format_descriptor<double>::format(),
-            			1,
-				{s.getSize()},
-				{sizeof(QDifferentialIntensity)}
-        		);
-    		});
+	// DMSkymap
+	py::class_<DMSkymap, std::shared_ptr<DMSkymap>> dmskymap(m, "DMSkymap", py::buffer_protocol());
+	dmskymap.def(py::init<const std::size_t>(), py::arg("nside")); // constructor
+	declare_default_skymap_methods<DMSkymap, QDispersionMeasure, QNumber>(dmskymap);
+
+	// RMSkymap
+	py::class_<RMSkymap, std::shared_ptr<RMSkymap>> rmskymap(m, "RMSkymap", py::buffer_protocol());
+	rmskymap.def(py::init<const std::size_t>(), py::arg("nside")); // constructor
+	declare_default_skymap_methods<RMSkymap, QRotationMeasure, QNumber>(rmskymap);
+
+	// RadioSkymap
+	py::class_<RadioSkymap, std::shared_ptr<RadioSkymap>> radioskymap(m, "RadioSkymap", py::buffer_protocol());
+	radioskymap.def(py::init<const std::size_t, const QFrequency &>(), py::arg("nside"), py::arg("frequency")); // constructor
+	declare_default_skymap_methods<RadioSkymap, QTemperature, QFrequency>(radioskymap);
+
+	//GammaSkymap
+	py::class_<GammaSkymap, std::shared_ptr<GammaSkymap>> gammaskymap(m, "GammaSkymap", py::buffer_protocol());
+	gammaskymap.def(py::init<const std::size_t, const QEnergy &>(), py::arg("nside"), py::arg("Egamma")); // constructor
+	declare_default_skymap_methods<GammaSkymap, QDifferentialIntensity, QEnergy>(gammaskymap);
+
+	// Skymap Masks
+	py::class_<SkymapMask, std::shared_ptr<SkymapMask>>(m, "SkymapMask");
+	// in galactic coordinates: b=(-90_deg, 90_deg), l=(-180_deg, 180_deg)
+	py::class_<RectangularWindow, std::shared_ptr<RectangularWindow>, SkymapMask>(m, "RectangularWindow")
+		.def(py::init<const QAngle &, const QAngle &, const QAngle &, const QAngle &>(),
+				py::arg("lat_top"), py::arg("lat_bottom"),
+				py::arg("long_left"), py::arg("long_right"));
 
 }
 

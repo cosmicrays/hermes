@@ -3,7 +3,7 @@
 
 #include "hermes/Units.h"
 #include "hermes/skymaps/DMSkymap.h"
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/chargedGasDensity/ChargedGasDensity.h"
 
 #include <memory>

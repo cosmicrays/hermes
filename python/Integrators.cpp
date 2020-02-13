@@ -1,7 +1,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/integrators/GenericIntegrator.h"
 #include "hermes/integrators/DMIntegrator.h"
@@ -12,39 +12,54 @@
 #include "hermes/integrators/PiZeroIntegrator.h"
 #include "hermes/integrators/InverseComptonIntegrator.h"
 
+#define PPCAT(A, B) A ## B
+#define NEW_INTEGRATOR(_obj, _name, _class, _qpxl, _qstep) \
+	using PPCAT(_class, ParentClass) = IntegratorTemplate<_qpxl, _qstep>; \
+	py::class_<PPCAT(_class, ParentClass), std::shared_ptr<PPCAT(_class, ParentClass)>>(m, (std::string(_name) + std::string("Parent")).c_str()) \
+		.def(py::init<>()); \
+	py::class_<_class, PPCAT(_class, ParentClass), std::shared_ptr<_class>> _obj(m, _name, py::buffer_protocol());
+
 namespace py = pybind11;
 
 namespace hermes {
 
-void init_integrators(py::module &m) {
-    
-    py::class_<DMIntegrator, std::shared_ptr<DMIntegrator>>(m, "DMIntegrator")
-	      .def(py::init<const std::shared_ptr<ChargedGasDensity> >())
-              .def("getSunPosition", &DMIntegrator::getSunPosition)
-              .def("setSunPosition", &DMIntegrator::setSunPosition)
-	      .def("getLOSProfile", &DMIntegrator::getLOSProfile);
+template<typename INTEGRATOR>
+void declare_default_integrator_methods(py::class_<INTEGRATOR> c) {
+	c.def("getSunPosition", &INTEGRATOR::getSunPosition);
+	c.def("setSunPosition", &INTEGRATOR::setSunPosition);
+}
 
-    py::class_<RMIntegrator, std::shared_ptr<RMIntegrator>>(m, "RMIntegrator")
-	      .def(py::init<const std::shared_ptr<MagneticField>,
-			    const std::shared_ptr<ChargedGasDensity> >())
-              .def("getSunPosition", &RMIntegrator::getSunPosition)
-              .def("setSunPosition", &RMIntegrator::setSunPosition);
+
+void init_integrators(py::module &m) {
+  
+	// DMIntegrator
+	NEW_INTEGRATOR(dmintegrator, "DMIntegrator", DMIntegrator, QDispersionMeasure, QNumber);
+	dmintegrator.def(py::init<const std::shared_ptr<ChargedGasDensity> >());
+	dmintegrator.def("getLOSProfile", &DMIntegrator::getLOSProfile);
+	declare_default_integrator_methods<DMIntegrator>(dmintegrator);
+	
+	// RMIntegrator
+	NEW_INTEGRATOR(rmintegrator, "RMIntegrator", RMIntegrator, QRotationMeasure, QNumber);
+	rmintegrator.def(py::init<const std::shared_ptr<MagneticField>,
+			    	  const std::shared_ptr<ChargedGasDensity> >());
+	declare_default_integrator_methods<RMIntegrator>(rmintegrator);
+
+	// InverseComptonIntegrator
+	NEW_INTEGRATOR(icintegrator, "InverseComptonIntegrator", InverseComptonIntegrator, QDifferentialIntensity, QEnergy);
+	icintegrator.def(py::init<const std::shared_ptr<CosmicRayDensity>,
+                	    	  const std::shared_ptr<PhotonField>,
+                            	  const std::shared_ptr<KleinNishina>>());
+	declare_default_integrator_methods<InverseComptonIntegrator>(icintegrator);
+	icintegrator.def("initCacheTable", &InverseComptonIntegrator::initCacheTable);
     
-    py::class_<InverseComptonIntegrator, std::shared_ptr<InverseComptonIntegrator>>(m, "InverseComptonIntegrator")
-	      .def(py::init<const std::shared_ptr<CosmicRayDensity>,
-                	    const std::shared_ptr<PhotonField>,
-                            const std::shared_ptr<KleinNishina>>())
-              .def("getSunPosition", &InverseComptonIntegrator::getSunPosition)
-              .def("setSunPosition", &InverseComptonIntegrator::setSunPosition)
-	      .def("initCacheTable", &InverseComptonIntegrator::initCacheTable);
-    
-    py::class_<PiZeroIntegrator, std::shared_ptr<PiZeroIntegrator>>(m, "PiZeroIntegrator")
-	      .def(py::init<const std::shared_ptr<CosmicRayDensity>,
-                	    const std::shared_ptr<RingModelDensity>,
-                            const std::shared_ptr<DifferentialCrossSection>>())
-              .def("getSunPosition", &PiZeroIntegrator::getSunPosition)
-              .def("setSunPosition", &PiZeroIntegrator::setSunPosition)
-	      .def("initCacheTable", &PiZeroIntegrator::initCacheTable);
+	// PiZeroIntegrator
+	py::class_<PiZeroIntegrator, InverseComptonIntegratorParentClass,
+		std::shared_ptr<PiZeroIntegrator>> pizerointegrator(m, "PiZeroIntegrator", py::buffer_protocol());
+	pizerointegrator.def(py::init<const std::shared_ptr<CosmicRayDensity>,
+                		      const std::shared_ptr<RingModelDensity>,
+                           	      const std::shared_ptr<DifferentialCrossSection>>());
+	declare_default_integrator_methods<PiZeroIntegrator>(pizerointegrator);
+	pizerointegrator.def("initCacheTable", &PiZeroIntegrator::initCacheTable);
 
 }
 

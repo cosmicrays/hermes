@@ -27,9 +27,12 @@ template <class QPXL, typename QSTEP>
 class IntegratorTemplate {
 protected:
 	Vector3QLength positionSun;
+	
+	bool cacheStoragePresent;
 public:
 	IntegratorTemplate() :
-		positionSun(Vector3QLength(8.5_kpc, 0, 0)) { };
+		positionSun(Vector3QLength(8.5_kpc, 0, 0)),
+       		cacheStoragePresent(false) { };
 	/**
  		Every child class should implement this method which represents an integral
 		of a targeted accumulated quantity `T` in a given direction `interdir`.
@@ -60,7 +63,17 @@ public:
 	inline QLength getMaxDistance(QDirection direction) const {
 		return distanceToGalBorder(positionSun, direction);
 	}
+	/**
+		Caching helpers
+	*/
+	virtual void initCacheTable(QEnergy, int, int, int) { };
+	virtual bool isCacheTableEnabled() const {
+		return cacheStoragePresent;
+	};
 };
+
+typedef IntegratorTemplate<QTemperature, QFrequency> RadioIntegratorTemplate;
+typedef IntegratorTemplate<QDifferentialIntensity, QEnergy> GammaIntegratorTemplate;
 
 /** @}*/
 } // namespace hermes

@@ -37,6 +37,7 @@ typedef double QPDensityPerEnergy;
 typedef double QAcceleration;
 typedef double QSpeed;
 typedef double QDifferentialFlux;
+typedef double QDifferentialIntensity;
 typedef double QEmissivity;
 typedef double QPDensity;
 typedef double QInverseLength;
@@ -53,9 +54,6 @@ typedef double QRingCOIntensity;
 typedef double QRingX0Unit;
 typedef double QICInnerIntegral;
 typedef double QICOuterIntegral;
-
-//inline fmod(double a, double b) { return std::fmod(a, b); }
-inline double fabs(double a) { return std::fabs(a); }
 
 template<int power>
 constexpr double pow(const QNumber& num) { return std::pow(static_cast<double>(num), power); }

@@ -71,6 +71,8 @@ LITERAL(QEnergy, _keV, kilo*electronvolt)
 LITERAL(QEnergy, _MeV, mega*electronvolt)
 LITERAL(QEnergy, _GeV, giga*electronvolt)
 LITERAL(QEnergy, _TeV, tera*electronvolt)
+LITERAL(QEnergy, _PeV, peta*electronvolt)
+LITERAL(QEnergy, _EeV, exa*electronvolt)
 
 // literals for speed units
 BASELITERAL(QSpeed, _mps)

@@ -2,7 +2,7 @@
 #define HERMES_FREEFREEINTEGRATOR_H
 
 #include "hermes/Units.h"
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/chargedGasDensity/ChargedGasDensity.h"
 
@@ -15,7 +15,7 @@ namespace hermes {
  * @{
  */
 
-class FreeFreeIntegrator: public IntegratorTemplate<QTemperature, QFrequency> {
+class FreeFreeIntegrator: public RadioIntegratorTemplate {
 private:
 	std::shared_ptr<ChargedGasDensity> gdensity;
 

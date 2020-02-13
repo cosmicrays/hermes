@@ -20,7 +20,7 @@ InverseComptonIntegrator::InverseComptonIntegrator(
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
 	const std::shared_ptr<PhotonField> phdensity_,
 	const std::shared_ptr<KleinNishina> crossSec_) : 
-	crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_), cacheStoragePresent(false) {
+	GammaIntegratorTemplate(), crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_) {
 }
 
 InverseComptonIntegrator::~InverseComptonIntegrator() { }
@@ -60,10 +60,6 @@ void InverseComptonIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, 
 	}
 
 	cacheStoragePresent = true;
-}
-
-bool InverseComptonIntegrator::isCacheTableEnabled() const {
-	return cacheStoragePresent;
 }
 
 QICOuterIntegral InverseComptonIntegrator::getIOEfromCache(Vector3QLength pos_, QEnergy Egamma_) const {

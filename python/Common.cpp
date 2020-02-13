@@ -2,6 +2,7 @@
 #include <pybind11/stl.h>
 
 #include "hermes/Common.h"
+#include "hermes/HEALPixBits.h"
 
 namespace py = pybind11;
 
@@ -11,6 +12,7 @@ void init_common(py::module &m) {
 
 
     m.def("getDataPath", &getDataPath);
+    m.attr("UNSEEN") = UNSEEN;
 
 }
 

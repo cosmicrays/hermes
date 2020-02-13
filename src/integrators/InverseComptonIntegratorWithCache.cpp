@@ -13,9 +13,8 @@ InverseComptonIntegratorWithCache::InverseComptonIntegratorWithCache(
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
 	const std::shared_ptr<PhotonField> phdensity_,
 	const std::shared_ptr<KleinNishina> crossSec_) : 
-	crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_) {
-	
-	cacheStoragePresent = false;
+	GammaIntegratorTemplate(), crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_) {
+
 }
 
 void InverseComptonIntegratorWithCache::setCacheStorage(std::unique_ptr<CacheStorageIC> cache_) {

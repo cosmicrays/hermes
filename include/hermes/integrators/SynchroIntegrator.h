@@ -2,7 +2,7 @@
 #define HERMES_SYNCHROINTEGRATOR_H
 
 #include "hermes/Units.h"
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
 
@@ -15,7 +15,7 @@ namespace hermes {
  * @{
  */
 
-class SynchroIntegrator: public IntegratorTemplate<QTemperature, QFrequency> {
+class SynchroIntegrator: public RadioIntegratorTemplate {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<CosmicRayDensity> crdensity;

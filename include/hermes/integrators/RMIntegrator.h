@@ -3,7 +3,7 @@
 
 #include "hermes/Units.h"
 #include "hermes/skymaps/RMSkymap.h"
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/magneticField/MagneticField.h"
 #include "hermes/chargedGasDensity/ChargedGasDensity.h"
 
@@ -15,6 +15,8 @@ namespace hermes {
  * \addtogroup Integrators
  * @{
  */
+
+typedef IntegratorTemplate<QRotationMeasure, QNumber> RMIntegratorTemplate;
 
 class RMIntegrator: public IntegratorTemplate<QRotationMeasure, QNumber> {
 private:

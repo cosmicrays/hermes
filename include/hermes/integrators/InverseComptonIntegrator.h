@@ -2,7 +2,7 @@
 #define HERMES_INVERSECOMPTONINTEGRATOR_H
 
 #include "hermes/Units.h"
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/neutralGasDensity/RingModelDensity.h"
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
 #include "hermes/interactions/KleinNishina.h"
@@ -18,7 +18,7 @@ namespace hermes {
  * @{
  */
 
-class InverseComptonIntegrator: public IntegratorTemplate<QDifferentialIntensity, QEnergy> {
+class InverseComptonIntegrator: public GammaIntegratorTemplate {
 private:
 	std::shared_ptr<CosmicRayDensity> crdensity;
 	std::shared_ptr<PhotonField> phdensity;
@@ -26,7 +26,6 @@ private:
 
 	typedef Grid<QICOuterIntegral> ICCacheTable;
 	std::shared_ptr<ICCacheTable> cacheTable;
-	bool cacheStoragePresent;
 	QICOuterIntegral getIOEfromCache(Vector3QLength, QEnergy) const;
 
 	QICOuterIntegral integrateOverSumEnergy(
@@ -40,15 +39,14 @@ public:
 		const std::shared_ptr<KleinNishina>); 
 	~InverseComptonIntegrator();
 
-	void initCacheTable(QEnergy, int, int, int);
-	bool isCacheTableEnabled() const;
-
 	QDifferentialIntensity integrateOverLOS(QDirection iterdir) const;
 	QDifferentialIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
 	QICOuterIntegral integrateOverEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
 	QICInnerIntegral integrateOverPhotonEnergy(Vector3QLength pos,
 		QEnergy Egamma, QEnergy Eelectron) const;
+
+	void initCacheTable(QEnergy, int, int, int);
 };
 
 /** @}*/

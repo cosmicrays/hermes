@@ -25,7 +25,7 @@
 #include "hermes/skymaps/RadioSkymap.h"
 #include "hermes/skymaps/RadioSkymapRange.h"
 
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/integrators/GenericIntegrator.h"
 #include "hermes/integrators/DMIntegrator.h"

@@ -1,7 +1,7 @@
 #ifndef HERMES_SYNCHROABSORPTIONINTEGRATOR_H
 #define HERMES_SYNCHROABSORPTIONINTEGRATOR_H
 
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
 

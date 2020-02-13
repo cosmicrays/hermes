@@ -2,7 +2,7 @@
 #define HERMES_GENERICINTEGRATOR_H
 
 #include "hermes/Units.h"
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
 #include "hermes/neutralGasDensity/RingModelDensity.h"

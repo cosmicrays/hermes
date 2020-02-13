@@ -4,17 +4,14 @@
 #include "hermes/Units.h"
 #include "hermes/ProgressBar.h"
 #include "hermes/Signals.h"
-#include "hermes/integrators/Integrator.h"
+#include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapMask.h"
 
-#if _OPENMP
-#include <omp.h>
-#define OMP_SCHEDULE static,100
-#endif
-
 #include <memory>
 #include <vector>
+#include <thread>
+#include <mutex>
 
 namespace hermes {
 
@@ -31,13 +28,18 @@ protected:
 	mutable std::string defaultUnitsString;
 	std::shared_ptr<SkymapMask> mask;
 	std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator;
+       
+	std::shared_ptr<ProgressBar> progressbar;
+	std::shared_ptr<std::mutex> progressbar_mutex;
 
 	void initDefaultUnits(QPXL units_, const std::string &defaultUnitsString);	
 	void initContainer();
 	void initMask();
+
+	QPXL toSkymapDefaultUnits(const QPXL pixel) const;
 public:
 	SkymapTemplate(
-		std::size_t nside = 32,
+		std::size_t nside = 64,
 		const std::shared_ptr<SkymapMask> mask_ =
 	       		std::make_shared<SkymapMask>(SkymapMask()));
 	~SkymapTemplate();
@@ -53,16 +55,21 @@ public:
 	void printPixels() const;
 	void setMask(std::shared_ptr<SkymapMask> mask_);
 	std::vector<bool> getMask();
-	QPXL toSkymapDefaultUnits(const QPXL pixel) const;
+	inline bool isMasked(std::size_t pixel) const;
+
 	virtual void computePixel(
 			std::size_t ipix,
 			std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_);
-	
+	void computePixelRange(
+		std::size_t start,
+		std::size_t end,
+		std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_);
 	void compute();
 	int getThreadsNumber() const;
 	
 	/** output **/
 	void convertToUnits(QPXL units_, const std::string &defaultUnitsString);
+	std::string getPixelUnitsAsString() const;
 	void save(std::shared_ptr<Output> output) const;
 
         /** iterator goodies */
@@ -137,46 +144,57 @@ void SkymapTemplate<QPXL, QSTEP>::computePixel(
 }
 
 template <typename QPXL, typename QSTEP>
+void SkymapTemplate<QPXL, QSTEP>::computePixelRange(
+		std::size_t start,
+		std::size_t end,
+		std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_) {
+	for (std::size_t ipix = start; ipix < end; ++ipix) {
+		if (!isMasked(ipix)) {
+			computePixel(ipix, integrator_);
+		} else {
+			fluxContainer[ipix] = UNSEEN;
+		}
+		std::lock_guard<std::mutex> guard(*progressbar_mutex);
+		progressbar->update();
+	}
+}
+
+template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::compute() {
-       	
 	std::cout << "hermes::Integrator: Number of Threads: " << getThreadsNumber() << std::endl;
 	
 	if(integrator == nullptr)
 		throw std::runtime_error("Provide an integrator with Skymap::setIntegrator()");
+
+	// Progressbar init	
+	progressbar = std::make_shared<ProgressBar>(ProgressBar(getSize()));
+	progressbar_mutex = std::make_shared<std::mutex>();
+	progressbar->start("Compute skymap");
 	
-	ProgressBar progressbar(getSize());
-	progressbar.start("Compute skymap");
+	int pixels_per_thread = getSize() / getThreadsNumber();
+	int reminder_pixels = getSize() % getThreadsNumber();
+	std::vector<std::pair<int,int>> job_chunks;
+	
+	// Initialize chunks of pixels:  chunk[i] = [ i, (i+1)*pixel_per_thread >
+	for (int i = 0; i < getThreadsNumber(); ++i) 
+		job_chunks.push_back(std::make_pair(i * pixels_per_thread, (i+1) * pixels_per_thread));
+	job_chunks[getThreadsNumber()-1].second += reminder_pixels;
 
-	g_cancel_signal_flag = 0;
-        sighandler_t old_sigint_handler = std::signal(SIGINT,
-                        g_cancel_signal_callback);
-        sighandler_t old_sigterm_handler = std::signal(SIGTERM,
-                        g_cancel_signal_callback);
-
-#pragma omp parallel for default(none) shared(maskContainer, g_cancel_signal_flag, fluxContainer, progressbar)
-	for (std::size_t ipix = 0; ipix < getSize(); ++ipix) {
-		if (g_cancel_signal_flag != 0)
-                        continue;
-		if (maskContainer[ipix] == true) {
-			computePixel(ipix, integrator);
-#pragma omp critical(progressbarUpdate)
-			progressbar.update();
-		}
+	std::vector<std::thread> threads;
+	for (auto &chunk : job_chunks) {
+		threads.push_back(
+			std::thread(&SkymapTemplate<QPXL, QSTEP>::computePixelRange, this, chunk.first, chunk.second, integrator)
+		);
 	}
 
-	std::signal(SIGINT, old_sigint_handler);
-        std::signal(SIGTERM, old_sigterm_handler);
-        // Propagate signal to old handler.
-        if (g_cancel_signal_flag > 0)
-                raise(g_cancel_signal_flag);
+	for (auto &t : threads) {
+        	t.join();
+	}
 }
 
 template <typename QPXL, typename QSTEP>
 int SkymapTemplate<QPXL, QSTEP>::getThreadsNumber() const {
-#if _OPENMP
-       return omp_get_max_threads();
-#endif
-       return 1;
+	return std::thread::hardware_concurrency();
 }
 
 template <typename QPXL, typename QSTEP>
@@ -195,11 +213,18 @@ void SkymapTemplate<QPXL, QSTEP>::convertToUnits(QPXL units_, const std::string 
 	if(units_ == defaultUnits)
 		return;
 
-	for (auto& i: fluxContainer)
-		i = i / (units_/defaultUnits);
+	for (auto& i: fluxContainer) {
+		if (static_cast<double>(i) != UNSEEN)
+			i = i / (units_/defaultUnits);
+	}
 	
 	defaultUnits = units_;
 	defaultUnitsString = unitsString_;
+}
+
+template <typename QPXL, typename QSTEP>
+std::string SkymapTemplate<QPXL, QSTEP>::getPixelUnitsAsString() const {
+	return defaultUnitsString;
 }
 
 template <typename QPXL, typename QSTEP>
@@ -228,6 +253,11 @@ void SkymapTemplate<QPXL, QSTEP>::setMask(std::shared_ptr<SkymapMask> mask_) {
 template <typename QPXL, typename QSTEP>
 std::vector<bool> SkymapTemplate<QPXL, QSTEP>::getMask() {
 	return maskContainer;
+}
+
+template <typename QPXL, typename QSTEP>
+inline bool SkymapTemplate<QPXL, QSTEP>::isMasked(std::size_t ipix) const {
+	return (maskContainer[ipix] == false);
 }
 
 template <typename QPXL, typename QSTEP>

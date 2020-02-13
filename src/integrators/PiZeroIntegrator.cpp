@@ -17,7 +17,7 @@ PiZeroIntegrator::PiZeroIntegrator(
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
 	const std::shared_ptr<RingModelDensity> ngdensity_,
 	const std::shared_ptr<DifferentialCrossSection> crossSec_) : 
-	crdensity(crdensity_), ngdensity(ngdensity_), crossSec(crossSec_), cacheStoragePresent(false) {
+	GammaIntegratorTemplate(), crdensity(crdensity_), ngdensity(ngdensity_), crossSec(crossSec_) {
 }
 
 PiZeroIntegrator::~PiZeroIntegrator() { }
@@ -57,10 +57,6 @@ void PiZeroIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, int N_z)
 	}
 
 	cacheStoragePresent = true;
-}
-
-bool PiZeroIntegrator::isCacheTableEnabled() const {
-	return cacheStoragePresent;
 }
 
 QPiZeroIntegral PiZeroIntegrator::getIOEfromCache(Vector3QLength pos_, QEnergy Egamma_) const {
@@ -103,7 +99,7 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 	                return losI_f(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
 
 		losIntegrals[ring->getIndex()] =
-			gslQAGIntegration<QDifferentialFlux, QICOuterIntegral>(integrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
+			simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(integrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 	}
 	
 	// normalize according to the ring density model	
