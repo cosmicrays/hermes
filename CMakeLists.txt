@@ -2,7 +2,6 @@ cmake_minimum_required (VERSION 3.1)
 project(hermes C CXX)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
-set(CMAKE_BUILD_TYPE Debug)
 
 set(HERMES_EXTRA_SOURCES)
 set(HERMES_EXTRA_INCLUDES)
@@ -14,6 +13,7 @@ cmake_policy(SET CMP0048 NEW)
 # Set default build-type to release to enable performance improvements
 if (NOT CMAKE_BUILD_TYPE)
         set(CMAKE_BUILD_TYPE Release)
+	#set(CMAKE_BUILD_TYPE Debug)
 endif(NOT CMAKE_BUILD_TYPE)
 message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
