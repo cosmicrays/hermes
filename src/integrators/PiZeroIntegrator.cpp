@@ -71,48 +71,45 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 
 QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 		QDirection direction_, QEnergy Egamma_) const {
-
-	std::vector<QColumnDensity> normIntegrals(
-			ngdensity->getRingNumber(GasType::HI), QColumnDensity(0.0));
 	
+	QDifferentialIntensity total_diff_flux(0.0);
+
+	// Sum over rings	
 	for (const auto &ring : *ngdensity) {
+
+		// Debug:
+		int ring_number = ring->getIndex();
+
+		// Normalization-part	
 		auto normI_f = [ring, this](const Vector3QLength &pos)
 			{ return (ring->isInside(pos)) ?
 				this->densityProfile(pos) : 0;};
 
-		auto integrand = [this, normI_f, direction_](const QLength &dist) {
+		auto normIntegrand = [this, normI_f, direction_](const QLength &dist) {
 	                return normI_f(getGalacticPosition(this->positionSun, dist, direction_)); };
 
-		normIntegrals[ring->getIndex()] =
-			gslQAGIntegration<QColumnDensity, QPDensity>(integrand, 0, getMaxDistance(direction_), 500);
-	}
+		QColumnDensity normIntegrals = 
+			gslQAGIntegration<QColumnDensity, QPDensity>(normIntegrand, 0, getMaxDistance(direction_), 500);
+		
+		// LOS is not crossing the current ring
+		if(normIntegrals == QColumnDensity(0))
+			continue;
 
-	std::vector<QDifferentialIntensity> losIntegrals(
-			ngdensity->getRingNumber(GasType::HI), QDifferentialIntensity(0.0));
-	
-	for (const auto &ring : *ngdensity) {
+		// Integral over emissivity
 		auto losI_f = [ring, this](const Vector3QLength &pos, const QEnergy &Egamma_)
 			{ return (ring->isInside(pos)) ?
-				this->densityProfile(pos)*this->integrateOverEnergy(pos, Egamma_) : 0;};
+				this->densityProfile(pos) * this->integrateOverEnergy(pos, Egamma_) : 0;};
+//				this->densityProfile(pos) * QPiZeroIntegral(1.0) : 0;};
 		
-		auto integrand = [this, losI_f, direction_, Egamma_](const QLength &dist) {
+		auto losIntegrand = [this, losI_f, direction_, Egamma_](const QLength &dist) {
 	                return losI_f(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
 
-		losIntegrals[ring->getIndex()] =
-			simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(integrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
-	}
+		QDifferentialIntensity losIntegrals = 
+			simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(losIntegrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 	
-	// normalize according to the ring density model	
-	QDifferentialIntensity total_diff_flux(0.0);
-	for(const auto &ring : *ngdensity) {
-		if(normIntegrals[ring->getIndex()] == QColumnDensity(0))
-			continue;
-		total_diff_flux +=
-			(ring->getHIColumnDensity(direction_) +
-			 2 * X0Function(Vector3QLength(0)) *
-			 ring->getCOIntensity(direction_)) /
-			 normIntegrals[ring->getIndex()] *
-			 losIntegrals[ring->getIndex()];
+		// Finally, normalize LOS integrals	
+		total_diff_flux += (ring->getHIColumnDensity(direction_) + 2 * X0Function(Vector3QLength(0)) *
+					 ring->getCOIntensity(direction_)) / normIntegrals * losIntegrals;
 	}
 	
 	return total_diff_flux;
