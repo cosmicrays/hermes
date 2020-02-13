@@ -33,6 +33,7 @@ template<typename SKYMAP, typename QPXL, typename QSTEP>
 	    c.def("getNpix", &SKYMAP::getNpix);
 	    c.def("setMask", &SKYMAP::setMask);
 	    c.def("getMask", &SKYMAP::getMask);
+	    c.def("getNside", &SKYMAP::getNside);
 	    c.def("convertToUnits", &SKYMAP::convertToUnits);
 	    c.def("setIntegrator", [](SKYMAP &s, std::shared_ptr<IntegratorClass> i) { s.setIntegrator(i); });
 	    c.def("compute", &SKYMAP::compute);
