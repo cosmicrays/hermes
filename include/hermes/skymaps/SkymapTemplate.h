@@ -154,7 +154,6 @@ void SkymapTemplate<QPXL, QSTEP>::computePixelRange(
 		} else {
 			fluxContainer[ipix] = UNSEEN;
 		}
-		std::lock_guard<std::mutex> guard(*progressbar_mutex);
 		progressbar->update();
 	}
 }
@@ -169,17 +168,10 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
 	// Progressbar init	
 	progressbar = std::make_shared<ProgressBar>(ProgressBar(getSize()));
 	progressbar_mutex = std::make_shared<std::mutex>();
+	progressbar->setMutex(progressbar_mutex);
 	progressbar->start("Compute skymap");
 	
-	int pixels_per_thread = getSize() / getThreadsNumber();
-	int reminder_pixels = getSize() % getThreadsNumber();
-	std::vector<std::pair<int,int>> job_chunks;
-	
-	// Initialize chunks of pixels:  chunk[i] = [ i, (i+1)*pixel_per_thread >
-	for (int i = 0; i < getThreadsNumber(); ++i) 
-		job_chunks.push_back(std::make_pair(i * pixels_per_thread, (i+1) * pixels_per_thread));
-	job_chunks[getThreadsNumber()-1].second += reminder_pixels;
-
+	auto job_chunks = getThreadChunks(getSize());
 	std::vector<std::thread> threads;
 	for (auto &chunk : job_chunks) {
 		threads.push_back(

@@ -2,20 +2,17 @@
 #define HERMES_CACHETOOLS_H
 
 #include "hermes/Units.h"
+#include "hermes/Common.h"
 
 #include <unordered_map>
 #include <map>
 #include <iostream>
 #include <chrono>
-#include <mutex>          // std::mutex
+#include <mutex>
 #include <functional>
 #include <tuple>
 #include <vector>
 #include <array>
-
-#if _OPENMP
-#include <omp.h>
-#endif
 
 namespace hermes {
 
@@ -134,14 +131,14 @@ class CacheStorageWith2Args {
 private:
 	using MutexType = std::mutex;
 	typedef std::pair<double, double> tPairKey;
-	//std::unordered_map<tPairKey, V, pair_hash, pair_equal> cachedValues;
-	std::array<std::map<tPairKey, V>, 8> cachedValues;
+	std::unordered_map<tPairKey, V, pair_hash, pair_equal> cachedValues;
+	//std::array<std::map<tPairKey, V>, 8> cachedValues;
 	std::function<V(Q1, Q2)> f;
 	mutable MutexType mtx;
 public:
 	CacheStorageWith2Args() {
 	};
-	~CacheStorageWith2Args() { cachedValues[omp_get_thread_num()].clear(); };
+	~CacheStorageWith2Args() { cachedValues.clear(); };
         CacheStorageWith2Args(CacheStorageWith2Args&& other) { // Move declaration
 		std::unique_lock<MutexType>(other.mtx);
 	}
@@ -154,7 +151,7 @@ public:
 	}
 
 	void cacheValue(const tPairKey &key, V value) {
-		cachedValues[omp_get_thread_num()][key] = value;
+		cachedValues[key] = value;
 	}
 
 	V getValue(Q1 q1, Q2 q2) {
@@ -162,14 +159,13 @@ public:
 		auto key = std::make_pair(
 				static_cast<double>(q1),
 				static_cast<double>(q2));
-		auto it = cachedValues[omp_get_thread_num()].find(key);
-		if (it == cachedValues[omp_get_thread_num()].end()) {
+		auto it = cachedValues.find(key);
+		if (it == cachedValues.end()) {
 			result = f(q1, q2);
-//			std::lock_guard<std::mutex> lock{mtx};
-//#pragma omp task
+			std::lock_guard<std::mutex> guard(mtx);
 			cacheValue(key, result);
 		}
-		return cachedValues[omp_get_thread_num()][key];
+		return cachedValues[key];
 	}
 
 	V operator[](const std::pair<double, double> &key) const {
@@ -185,13 +181,13 @@ private:
 	typedef std::array<double, 3> tTupleKey;
 	// map is much slower than unordered_map (!)
 	//std::array<std::unordered_map<tTupleKey, V, tuple_hash, tuple_equal>, 8> cachedValues;
-	std::array<std::unordered_map<tTupleKey, V, array_hash, array_equal>, 8> cachedValues;
+	std::unordered_map<tTupleKey, V, array_hash, array_equal> cachedValues;
 	std::function<V(Q1, Q2, Q3)> f;
 	mutable MutexType mtx;
 	
 public:
 	CacheStorageWith3Args() { };
-	~CacheStorageWith3Args() { cachedValues[omp_get_thread_num()].clear(); };
+	~CacheStorageWith3Args() { cachedValues.clear(); };
         CacheStorageWith3Args(CacheStorageWith3Args&& other) { // Move declaration
 		std::unique_lock<MutexType>(other.mtx);
 	}
@@ -204,7 +200,7 @@ public:
 	}
 
 	void cacheValue(const tTupleKey &key, V value) {
-		cachedValues[omp_get_thread_num()][key] = value;
+		cachedValues[key] = value;
 	}
 
 	V getValue(Q1 q1, Q2 q2, Q3 q3) {
@@ -216,19 +212,19 @@ public:
 		tTupleKey key = {{ static_cast<double>(q1),
 			     static_cast<double>(q2),
 			     static_cast<double>(q3) }};
-		auto it = cachedValues[omp_get_thread_num()].find(key);
-		if (it == cachedValues[omp_get_thread_num()].end()) {
+		auto it = cachedValues.find(key);
+		if (it == cachedValues.end()) {
 			result = f(q1, q2, q3);
 			cacheValue(key, result);
 		}
-		return cachedValues[omp_get_thread_num()][key];
+		return cachedValues[key];
 	}
 };
 
 class CacheStorageIC2 {
 private:
 	typedef std::array<int, 2> tArray2Key;
-	std::array<std::unordered_map<tArray2Key, QICOuterIntegral, array2_hash, array2_equal>, 8> cachedValues;
+	std::unordered_map<tArray2Key, QICOuterIntegral, array2_hash, array2_equal> cachedValues;
 	std::function<QICOuterIntegral(int, int, QEnergy)> f;
 	
 public:
@@ -237,18 +233,18 @@ public:
 	}
 
 	void cacheValue(const tArray2Key &key, QICOuterIntegral value) {
-		cachedValues[omp_get_thread_num()][key] = value;
+		cachedValues[key] = value;
 	}
 
 	QICOuterIntegral getValue(int q1, int q2, QEnergy q3) {
 		QICOuterIntegral result(0);
 		tArray2Key key = {{ q1, q2 }};
-		auto it = cachedValues[omp_get_thread_num()].find(key);
-		if (it == cachedValues[omp_get_thread_num()].end()) {
+		auto it = cachedValues.find(key);
+		if (it == cachedValues.end()) {
 			result = f(q1, q2, q3);
 			cacheValue(key, result);
 		}
-		return cachedValues[omp_get_thread_num()][key];
+		return cachedValues[key];
 	}
 };
 

@@ -1,15 +1,11 @@
 #include "hermes/integrators/PiZeroIntegrator.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
-#include "hermes/ProgressBar.h"
 #include "hermes/Common.h"
 
 #include <memory>
+#include <thread>
+#include <mutex>
 #include <functional>
-
-#if _OPENMP
-#include <omp.h>
-#define OMP_SCHEDULE static,100
-#endif
 
 namespace hermes {
 
@@ -17,17 +13,28 @@ PiZeroIntegrator::PiZeroIntegrator(
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
 	const std::shared_ptr<RingModelDensity> ngdensity_,
 	const std::shared_ptr<DifferentialCrossSection> crossSec_) : 
-	GammaIntegratorTemplate(), crdensity(crdensity_), ngdensity(ngdensity_), crossSec(crossSec_) {
+	GammaIntegratorTemplate(), crdensity(crdensity_),
+	ngdensity(ngdensity_), crossSec(crossSec_) {
 }
 
 PiZeroIntegrator::~PiZeroIntegrator() { }
+
+void PiZeroIntegrator::computeCacheInThread(std::size_t start, std::size_t end,
+		const QEnergy &Egamma, std::shared_ptr<ProgressBar> &p) {
+	for (std::size_t i = start; i < end; ++i) {
+		auto pos = static_cast<Vector3QLength>(
+				cacheTable->positionFromIndex(i));
+		cacheTable->get(i) = this->integrateOverEnergy(pos, Egamma);
+		p->update();
+	}
+}
 
 void PiZeroIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, int N_z) {
 	
 	if (cacheStoragePresent)
 		cacheStoragePresent = false;
 	
-	const QLength rBorder = 20_kpc;
+	const QLength rBorder = 30_kpc;
         const QLength zBorder = 5_kpc;
 	Vector3QLength spacing = Vector3QLength(
 			2*rBorder / N_x,
@@ -39,21 +46,26 @@ void PiZeroIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, int N_z)
 					Vector3QLength(-rBorder, -rBorder, -zBorder),
 					N_x, N_y, N_z, spacing));
 	
-#if _OPENMP
-	std::cout << "hermes::Integrator::InitCacheTable: Number of Threads: " << omp_get_max_threads() << std::endl;
-#endif
+	std::cout << "hermes::Integrator::InitCacheTable: Number of Threads: " << getThreadsNumber() << std::endl;
 	
 	size_t grid_size = cacheTable->getGridSize();
 
-	ProgressBar progressbar(grid_size);
-	progressbar.start("Generate Cache Table");
-
-#pragma omp parallel for schedule(OMP_SCHEDULE)
-	for (size_t index = 0; index < grid_size; ++index) {
-		Vector3QLength pos = static_cast<Vector3QLength>(cacheTable->positionFromIndex(index));
-		cacheTable->get(index) = integrateOverEnergy(pos, Egamma);
-#pragma omp critical(progressbarUpdate)
-		progressbar.update();
+	// Progressbar init	
+	auto progressbar = std::make_shared<ProgressBar>(ProgressBar(grid_size));
+	auto progressbar_mutex = std::make_shared<std::mutex>();
+	progressbar->setMutex(progressbar_mutex);
+	progressbar->start("Generate Cache Table");
+			
+	auto job_chunks = getThreadChunks(grid_size);
+	std::vector<std::thread> threads;
+	for (auto &c: job_chunks) {
+		threads.push_back(
+			std::thread(&PiZeroIntegrator::computeCacheInThread,
+				this, c.first, c.second, Egamma, std::ref(progressbar))
+		);
+	}
+	for (auto &t : threads) {
+        	t.join();
 	}
 
 	cacheStoragePresent = true;
@@ -78,20 +90,18 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 	for (const auto &ring : *ngdensity) {
 
 		// Debug:
-		int ring_number = ring->getIndex();
+		//int ring_number = ring->getIndex();
 
 		// Normalization-part	
 		auto normI_f = [ring, this](const Vector3QLength &pos)
 			{ return (ring->isInside(pos)) ?
 				this->densityProfile(pos) : 0;};
-
 		auto normIntegrand = [this, normI_f, direction_](const QLength &dist) {
 	                return normI_f(getGalacticPosition(this->positionSun, dist, direction_)); };
-
 		QColumnDensity normIntegrals = 
 			gslQAGIntegration<QColumnDensity, QPDensity>(normIntegrand, 0, getMaxDistance(direction_), 500);
 		
-		// LOS is not crossing the current ring
+		// LOS is not crossing the current ring at all
 		if(normIntegrals == QColumnDensity(0))
 			continue;
 
@@ -99,13 +109,11 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 		auto losI_f = [ring, this](const Vector3QLength &pos, const QEnergy &Egamma_)
 			{ return (ring->isInside(pos)) ?
 				this->densityProfile(pos) * this->integrateOverEnergy(pos, Egamma_) : 0;};
-//				this->densityProfile(pos) * QPiZeroIntegral(1.0) : 0;};
-		
 		auto losIntegrand = [this, losI_f, direction_, Egamma_](const QLength &dist) {
 	                return losI_f(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
-
 		QDifferentialIntensity losIntegrals = 
-			simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(losIntegrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
+			simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
+					losIntegrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 	
 		// Finally, normalize LOS integrals	
 		total_diff_flux += (ring->getHIColumnDensity(direction_) + 2 * X0Function(Vector3QLength(0)) *

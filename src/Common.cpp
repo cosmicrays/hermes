@@ -3,6 +3,7 @@
 #include "kiss/path.h"
 #include "kiss/logger.h"
 
+#include <thread>
 #include <cstdlib>
 
 namespace hermes {
@@ -95,5 +96,26 @@ QTemperature intensityToTemperature(QIntensity intensity_, QFrequency freq_) {
 	return intensity_*c_squared / (2*freq_*freq_*k_boltzmann);
 }
 
+int getThreadsNumber() {
+	return std::thread::hardware_concurrency();
+}
+
+std::size_t getThreadId() {
+	return std::hash<std::thread::id>()(std::this_thread::get_id());
+}
+
+std::vector<std::pair<int,int>> getThreadChunks(int queueSize) {
+	
+	int tasks_per_thread =  queueSize / getThreadsNumber();
+	int reminder_tasks = queueSize % getThreadsNumber();
+	
+	// Initialize chunks of pixels:  chunk[i] = [ i, (i+1)*pixel_per_thread >
+	std::vector<std::pair<int,int>> chunks;
+	for (int i = 0; i < getThreadsNumber(); ++i) 
+		chunks.push_back(std::make_pair(i * tasks_per_thread, (i+1) * tasks_per_thread));
+	chunks[getThreadsNumber()-1].second += reminder_tasks;
+
+	return chunks;
+}
 
 } // namespace hermes 

@@ -82,13 +82,14 @@ endif()
 # Dependencies
 # ----------------------------------------------------------------------------
 
+# C++ Threads
+find_package(Threads REQUIRED)
+list(APPEND HERMES_EXTRA_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
+
 # GSL required dependency
 find_package(GSL REQUIRED)
-if(GSL_FOUND)
-	list(APPEND HERMES_EXTRA_INCLUDES ${GSL_INCLUDE_DIRS})
-	list(APPEND HERMES_EXTRA_LIBRARIES ${GSL_LIBRARIES})
-endif(GSL_FOUND)
-
+list(APPEND HERMES_EXTRA_INCLUDES ${GSL_INCLUDE_DIRS})
+list(APPEND HERMES_EXTRA_LIBRARIES ${GSL_LIBRARIES})
 
 # googletest (provided, see https://code.google.com/p/googletest/wiki/FAQ
 #     Why is it not recommended use a pre-compiled copy of Google Test?)
@@ -100,17 +101,6 @@ if(ENABLE_TESTING)
                 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DGTEST_USE_OWN_TR1_TUPLE=1")
         endif(APPLE)
 endif(ENABLE_TESTING)
-
-# OpenMP (optional for shared memory multiprocessing)
-option(ENABLE_OPENMP "OpenMP for multithreading" ON)
-if(ENABLE_OPENMP)
-find_package(OpenMP)
-        if(OPENMP_FOUND)
-                set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-                set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-                set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
-        endif(OPENMP_FOUND)
-endif(ENABLE_OPENMP)
 
 # FFTW3F (optional for turbulent magnetic fields)
 find_package(FFTW3F)

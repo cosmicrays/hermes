@@ -8,10 +8,15 @@ namespace hermes {
 /// Initialize a ProgressBar with [steps] number of steps, updated at [updateSteps] intervalls
 ProgressBar::ProgressBar(unsigned long steps, unsigned long updateSteps) :
 		_steps(steps), _currentCount(0), _maxbarLength(10), _updateSteps(
-				updateSteps), _nextStep(1), _startTime(0) {
+				updateSteps), _nextStep(1), _startTime(0), mutexSet(false) {
 	if (_updateSteps > _steps)
 		_updateSteps = _steps;
 	arrow.append(">");
+}
+
+void ProgressBar::setMutex(std::shared_ptr<std::mutex> mutex) {
+	_mutex = mutex;
+	mutexSet = true;
 }
 
 void ProgressBar::start(const std::string &title) {
@@ -27,12 +32,22 @@ void ProgressBar::start(const std::string &title) {
 /// update the progressbar
 /// should be called steps times in a loop
 void ProgressBar::update() {
-	_currentCount++;
-	if (_currentCount == _nextStep || _currentCount == _steps
+	if(mutexSet) {
+		std::lock_guard<std::mutex> guard(*_mutex);
+		_currentCount++;
+		if (_currentCount == _nextStep || _currentCount == _steps
 			|| _currentCount == 1000) {
 				_nextStep += long(_steps / float(_updateSteps));
-			setPosition(_currentCount);
+				setPosition(_currentCount);
 			}
+	} else {
+		_currentCount++;
+		if (_currentCount == _nextStep || _currentCount == _steps
+			|| _currentCount == 1000) {
+				_nextStep += long(_steps / float(_updateSteps));
+				setPosition(_currentCount);
+			}
+	}
 }
 
 void ProgressBar::setPosition(unsigned long position) {

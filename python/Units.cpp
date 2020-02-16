@@ -87,6 +87,8 @@ void init_units(py::module &m) {
     m.attr("radian") = radian;
     m.attr("rad") = 1_rad;
     m.attr("deg") = 1_deg;
+    m.def("radian2degree", &radian2degree);
+    m.def("degree2radian", &degree2radian);
 
     // Length
     m.attr("metre") = metre;

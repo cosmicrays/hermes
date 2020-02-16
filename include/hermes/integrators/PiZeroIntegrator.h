@@ -2,6 +2,7 @@
 #define HERMES_PIZEROINTEGRATOR_H
 
 #include "hermes/Units.h"
+#include "hermes/ProgressBar.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/neutralGasDensity/NeutralGasDensity.h"
 #include "hermes/neutralGasDensity/RingModelDensity.h"
@@ -26,6 +27,8 @@ private:
 	typedef Grid<QPiZeroIntegral> ICCacheTable;
 	std::shared_ptr<ICCacheTable> cacheTable;
 	QPiZeroIntegral getIOEfromCache(Vector3QLength, QEnergy) const;
+	void computeCacheInThread(std::size_t start, std::size_t end,
+			const QEnergy &Egamma, std::shared_ptr<ProgressBar> &p);
 
 	QPiZeroIntegral integrateOverSumEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;

@@ -2,6 +2,7 @@
 #define HERMES_UNITSDERIVED_H
 
 #include "UnitsBasic.h"
+#include "UnitsFunctions.h"
 
 #include <array>
 
@@ -100,7 +101,7 @@ constexpr QPressure bar = 100000 * pascal;
 constexpr QPressure psi = pound*G / (inch*inch);
 
 // Predefined angle units:
-constexpr QAngle degree = static_cast<double>(2*pi / 360.0) * radian;
+constexpr QAngle degree = (pi / 180.0) * radian;
 
 // Direction quantity (l, b)
 typedef std::array<QAngle, 2> QDirection;

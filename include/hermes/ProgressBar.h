@@ -8,6 +8,8 @@
 
 #include <string>
 #include <ctime>
+#include <memory>
+#include <mutex>
 
 namespace hermes {
 
@@ -25,10 +27,15 @@ private:
         time_t _startTime;
         std::string stringTmpl;
         std::string arrow;
+	bool mutexSet;
+	std::shared_ptr<std::mutex> _mutex;
 
 public:
         /// Initialize a ProgressBar with [steps] number of steps, updated at [updateSteps] intervalls
         ProgressBar(unsigned long steps = 0, unsigned long updateSteps = 100);
+	/// Set mutex when used inside std::thread
+	void setMutex(std::shared_ptr<std::mutex> mutex);
+	/// Print a given title
         void start(const std::string &title);
 
         /// update the progressbar
