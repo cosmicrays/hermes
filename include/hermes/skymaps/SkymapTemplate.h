@@ -2,6 +2,7 @@
 #define HERMES_SKYMAPTEMP_H
 
 #include "hermes/Units.h"
+#include "hermes/Common.h"
 #include "hermes/ProgressBar.h"
 #include "hermes/Signals.h"
 #include "hermes/integrators/IntegratorTemplate.h"
@@ -65,7 +66,6 @@ public:
 		std::size_t end,
 		std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_);
 	void compute();
-	int getThreadsNumber() const;
 	
 	/** output **/
 	void convertToUnits(QPXL units_, const std::string &defaultUnitsString);
@@ -182,11 +182,6 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
 	for (auto &t : threads) {
         	t.join();
 	}
-}
-
-template <typename QPXL, typename QSTEP>
-int SkymapTemplate<QPXL, QSTEP>::getThreadsNumber() const {
-	return std::thread::hardware_concurrency();
 }
 
 template <typename QPXL, typename QSTEP>

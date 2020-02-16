@@ -1,10 +1,12 @@
-# HERMES
+# HERMES - High-Energy Radiative MESsangers
 
 ## About
 
-HERMES is a publicly available modular framework for computing sky maps of various galactic radiative processes including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The name is an acronym for "High-Energy Radiative MESsangers".
+![gamma sky map from pi0](https://github.com/adundovi/hermes/raw/master/doc/hermes-pizero-example.png)
 
-The code is written in C++ relying on features of the language's recent revisions (C++11, C++14). Once compiled, HERMES can optionally be used from Python thanks to [pybind11](https://github.com/pybind/pybind11). Some components of the code (such as magnetic field models, vector and grid classes) were adopted from [CRPropa 3](crpropa.desy.de/).
+**HERMES** is a publicly available computational framework for the line of sight integration which creates sky maps in the [HEALPix](https://healpix.jpl.nasa.gov/)-compatibile format of various galactic radiative processes including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The name is an acronym for "High-Energy Radiative MESsangers".
+
+The code is written in C++ relying on features of the language's recent revisions (C++11, C++14). Once compiled, HERMES can optionally be used from Python thanks to [pybind11](https://github.com/pybind/pybind11). Some components of the code (such as magnetic field models, vector and grid classes) were adopted from [CRPropa 3](crpropa.desy.de/), a code for cosmic ray propagation.
 
 ## Install
 
@@ -19,6 +21,8 @@ make -j
 Recommended installation in a python virtual environment:
 ```sh
 export HERMES_DIR=$HOME"/.virtualenvs/hermes"
+virtualenv -p python3 $HERMES_DIR
+source $HERMES_DIR/bin/activate
 cd $HERMES_DIR
 git clone https://github.com/adundovi/hermes.git
 cd CRPropa3

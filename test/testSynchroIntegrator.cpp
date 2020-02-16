@@ -134,7 +134,7 @@ TEST(SynchroIntegrator, PerformanceTest) {
         std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
         auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	float pxl_speed = milliseconds.count()/skymap->getNpix()*skymap->getThreadsNumber();
+	float pxl_speed = milliseconds.count()/skymap->getNpix()*getThreadsNumber();
 
         EXPECT_LE(pxl_speed, 40); // ms
 }

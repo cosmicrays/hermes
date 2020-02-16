@@ -53,7 +53,7 @@ void exampleIC() {
     skymaps->save(output);
 
     auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    float pxl_speed = milliseconds.count()/skymaps->getNpix()*skymaps->getThreadsNumber();
+    float pxl_speed = milliseconds.count()/skymaps->getNpix()*getThreadsNumber();
     std::cerr << "speed: " << pxl_speed << " ms/pxl" << std::endl;
 }
 
@@ -97,7 +97,7 @@ void examplePiZero() {
     skymaps->save(output);
        
     auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    float pxl_speed = milliseconds.count()/skymaps->getNpix()*skymaps->getThreadsNumber();
+    float pxl_speed = milliseconds.count()/skymaps->getNpix()*getThreadsNumber();
 
     std::cerr << "pxl spd: " << pxl_speed << " ms/pxl" << std::endl;
 }
