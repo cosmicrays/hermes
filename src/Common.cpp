@@ -91,7 +91,6 @@ QNumber getLorentzFactor(QMass m, QEnergy E) {
         return E / (m * c_squared);
 }
 
-
 QTemperature intensityToTemperature(QIntensity intensity_, QFrequency freq_) {
 	return intensity_*c_squared / (2*freq_*freq_*k_boltzmann);
 }

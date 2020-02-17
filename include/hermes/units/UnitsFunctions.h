@@ -56,6 +56,11 @@ constexpr QAngle degree2radian(const QAngle &a) {
 	return (pi / 180.0) * a;
 }
 
+template<int power>
+int pow(int i) {
+	return std::pow(i, power);
+}
+
 template<typename Q>
 int stepFunction(const Q &quantity) {
 	if (quantity >= Q(0)) return 1;

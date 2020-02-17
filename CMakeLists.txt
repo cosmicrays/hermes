@@ -149,7 +149,7 @@ list(APPEND HERMES_EXTRA_LIBRARIES cparamlib)
 # ----------------------------------------------------------------------------
 
 # Configuration of the Units system
-option(HERMES_UNIT_SYSTEM_OPTION "Physical units dimensionality checks in variables" OFF)
+option(HERMES_UNIT_SYSTEM_OPTION "Physical units dimensionality checks in variables" ON)
 if(HERMES_UNIT_SYSTEM_OPTION)
 	message("Units dimensionality check enabled.")
 	set(HERMES_UNIT_SYSTEM_DISABLE "" CACHE INTERNAL "A definition string that disable part of Units header")
@@ -199,6 +199,7 @@ add_library(hermes SHARED
 	src/photonField/ISRF.cpp
 	src/interactions/Kamae06.cpp
 	src/interactions/KleinNishina.cpp
+	src/interactions/BremsstrahlungSimple.cpp
 	src/outputs/FITSOutput.cpp
 	${HERMES_EXTRA_SOURCES}
 )

@@ -74,9 +74,11 @@ TEST(UnitsDerived, Derived) {
 }
 
 TEST(UnitsDerived, PhysicalConstants) {
+	// Classical electron raidus
+	EXPECT_NEAR(static_cast<double>(r_electron), 2.81794032e-15, 0.00001e-15);
+
 	// FineStructureConst
-	QNumber alpha = mu0 / 4_pi * e_plus * e_plus * c_light / h_planck_bar;
-	EXPECT_NEAR(static_cast<double>(alpha), 1/137.035999, 0.0001);
+	EXPECT_NEAR(static_cast<double>(alpha_fine), 1/137.035999, 0.00001);
 	
 	// Thomson scattering cross section
 	EXPECT_NEAR(static_cast<double>(sigma_Thompson),

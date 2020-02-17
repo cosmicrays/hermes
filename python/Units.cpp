@@ -79,6 +79,7 @@ void init_units(py::module &m) {
     declare_quantity<QECapacitance>(m, "QECapacitance", "F");
     declare_quantity<QDispersionMeasure>(m, "QDispersionMeasure", "m^-2");
     declare_quantity<QRotationMeasure>(m, "QRotationMeasure", "rad/m^2");
+    declare_quantity<QDiffCrossSection>(m, "QDiffCrossSection", "m^2/J");
     // |- direction
     py::class_<QDirection>(m, "QDirection")
 	    .def(py::init<const QAngle &, const QAngle &>());

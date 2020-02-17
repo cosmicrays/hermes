@@ -29,6 +29,9 @@ namespace hermes {
 #define ConvertTo(_x, _y) (_x).convertTo(1.0_##_y)
 #define ToSIValue(_x) (_x).getValue()
 
+// Number:
+BASELITERAL(QNumber, _num)
+
 // Constants:
 // ---------------------	
 LITERAL(long double, _pi, pi)

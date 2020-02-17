@@ -12,6 +12,8 @@
 
 #include <gsl/gsl_integration.h>
 
+#define GSL_LIMIT 1000
+
 namespace hermes {
 
 // dim(QPXL) = dim(INTTYPE) * dim(L)
@@ -80,9 +82,8 @@ QPXL gslQAGIntegration(std::function<INTTYPE(QLength)> f,
 	double result;
 	double error;
 	
-	gsl_integration_workspace * workspace_ptr = gsl_integration_workspace_alloc(1000);
+	gsl_integration_workspace * workspace_ptr = gsl_integration_workspace_alloc(GSL_LIMIT);
 	
-
 	gsl_function F = {
   		.function = [](double x, void * vf) -> double {
 		    auto& func = *static_cast<std::function<double(double)>*>(vf);
