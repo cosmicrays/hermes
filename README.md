@@ -8,6 +8,15 @@
 
 The code is written in C++ relying on features of the language's recent revisions (C++11, C++14). Once compiled, HERMES can optionally be used from Python thanks to [pybind11](https://github.com/pybind/pybind11) (Python 2.X is not supported). Some components of the code (such as galactic magnetic field models, vector and grid classes) were adopted from [CRPropa 3](https://crpropa.desy.de/), a code for cosmic ray propagation.
 
+HERMES provides the following integrators:
+- Dispersion measure
+- Rotation measure
+- Free-Free emission
+- Synchrotron emission (with absorption)
+- Pion decay gamma-ray emission
+- Inverse Compton
+- Bremsstrahlung
+
 ## Install
 
 Experienced users:
@@ -60,7 +69,6 @@ skymap.compute()
 output = FITSOutput("!pizero-dragon2d.fits.gz")
 skymap.save(output)
 ```
-
 
 ## Credits
 
