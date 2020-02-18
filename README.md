@@ -61,7 +61,7 @@ cosmicray_protons = Dragon2DCRDensity([Proton])
 pp_crosssection = Kamae06()
 
 integrator = PiZeroIntegrator(cosmicray_protons, neutral_gas, pp_crosssection)
-integrator.initCacheTable(Egamma, 100, 100, 20)
+integrator.setupCacheTable(100, 100, 20)
 
 skymap.setIntegrator(integrator)
 skymap.compute()
