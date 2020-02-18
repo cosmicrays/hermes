@@ -43,6 +43,24 @@ void init_integrators(py::module &m) {
 	rmintegrator.def(py::init<const std::shared_ptr<MagneticField>,
 			    	  const std::shared_ptr<ChargedGasDensity> >());
 	declare_default_integrator_methods<RMIntegrator>(rmintegrator);
+	
+	// FreeFreeIntegrator
+	NEW_INTEGRATOR(ffintegrator, "FreeFreeIntegrator", FreeFreeIntegrator, QTemperature, QFrequency);
+	ffintegrator.def(py::init<const std::shared_ptr<ChargedGasDensity> >());
+	declare_default_integrator_methods<FreeFreeIntegrator>(ffintegrator);
+
+	// SynchroIntegrator
+	NEW_INTEGRATOR(synchrointegrator, "SynchroIntegrator", SynchroIntegrator, QTemperature, QFrequency);
+	synchrointegrator.def(py::init<const std::shared_ptr<MagneticField>,
+			    	       const std::shared_ptr<CosmicRayDensity> >());
+	declare_default_integrator_methods<SynchroIntegrator>(synchrointegrator);
+
+	// SynchroAbsorption
+	NEW_INTEGRATOR(synchroabsintegrator, "SynchroAbsorptionIntegrator", SynchroAbsorptionIntegrator, QTemperature, QFrequency);
+	synchroabsintegrator.def(py::init<const std::shared_ptr<MagneticField>,
+			    	 	  const std::shared_ptr<CosmicRayDensity>,
+				 	  const std::shared_ptr<ChargedGasDensity> >());
+	declare_default_integrator_methods<SynchroAbsorptionIntegrator>(synchroabsintegrator);
 
 	// InverseComptonIntegrator
 	NEW_INTEGRATOR(icintegrator, "InverseComptonIntegrator", InverseComptonIntegrator, QDifferentialIntensity, QEnergy);
