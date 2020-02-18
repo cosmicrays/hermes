@@ -20,19 +20,36 @@ namespace hermes {
  @class IntegratorTemplate
  @brief Provides the integrator interface and implements methods shared across integrators.
  * \tparam QPXL A type of pixel which an integrator returns (for example, QTemperature, QIntensity)
- * \tparam QSTEP A physical quantity that describes a specific map (for example, QFrequency, QEnergy)
+ * \tparam QSTEP A physical quantity (a parameter) that describes a specific map (e.g., QFrequency, QEnergy)
  */
 
 template <class QPXL, typename QSTEP>
 class IntegratorTemplate {
 protected:
 	Vector3QLength positionSun;
-	
-	bool cacheStoragePresent;
+	QSTEP skymapParameter;
+	bool cacheEnabled;
+	bool cacheTableInitialized;
 public:
 	IntegratorTemplate() :
 		positionSun(Vector3QLength(8.5_kpc, 0, 0)),
-       		cacheStoragePresent(false) { };
+       		cacheEnabled(false), cacheTableInitialized(false) { };
+	/**
+		Setter for the skymap parameter
+		(requires for the cacheTable, if enabled, to be re-initialized)
+	*/
+	void setSkymapParameter(const QSTEP &p) {
+		if (skymapParameter != p) {
+			skymapParameter = p;
+			cacheTableInitialized = false;
+		}
+	}
+	/**
+		Getter for the skymap parameter
+	*/
+	QSTEP setSkymapParameter() const {
+		return skymapParameter;	
+	}
 	/**
  		Every child class should implement this method which represents an integral
 		of a targeted accumulated quantity `T` in a given direction `interdir`.
@@ -66,9 +83,13 @@ public:
 	/**
 		Caching helpers
 	*/
-	virtual void initCacheTable(QEnergy, int, int, int) { };
-	virtual bool isCacheTableEnabled() const {
-		return cacheStoragePresent;
+       	virtual void setupCacheTable(int N_x, int N_y, int N_z)	{ };
+	virtual void initCacheTable() { };
+	bool isCacheTableEnabled() const {
+		return cacheEnabled;
+	};
+	bool isCacheTableInitialized() const {
+		return cacheTableInitialized;
 	};
 };
 

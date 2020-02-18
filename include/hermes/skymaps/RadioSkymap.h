@@ -5,26 +5,32 @@
 
 namespace hermes {
 
+/**
+ * \addtogroup Skymaps
+ * @{
+ */
+
+/**
+ @class RadioSkymap
+ @brief A skymap container suitable for radio emissions; saves pixels in units of temperature (K), specified by frequency (Hz).
+ */
 class RadioSkymap: public SkymapTemplate<QTemperature, QFrequency> {
-private:
-	QFrequency freq;
 public:
-	RadioSkymap(std::size_t nside_, QFrequency freq_) : SkymapTemplate(nside_), freq(freq_) { };
+	RadioSkymap(std::size_t nside_, QFrequency freq_) : SkymapTemplate(nside_, freq_) { };
 
 	void setFrequency(QFrequency freq_) {
-		freq = freq_;
+		setSkymapParameter(freq_);
 	}
 	QFrequency getFrequency() const {
-		return freq;
+		return skymapParameter;
 	}
-	void computePixel(
-		std::size_t ipix,
-		std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency> > integrator_) {
+	void computePixel(std::size_t ipix,
+			  std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency> > integrator_) {
 		iterdir = pix2ang_ring(getNside(), ipix);
-		fluxContainer[ipix] = toSkymapDefaultUnits(integrator_->integrateOverLOS(iterdir, freq));
+		fluxContainer[ipix] = toSkymapDefaultUnits(integrator_->integrateOverLOS(iterdir, skymapParameter));
 	}
 };
 
+/** @}*/
 } // namespace hermes
-
 #endif // HERMES_RADIOSKYMAP_H

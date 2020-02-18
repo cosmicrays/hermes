@@ -4,7 +4,15 @@
 #include <hermes/skymaps/RadioSkymap.h>
 
 namespace hermes {
+/**
+ * \addtogroup Skymaps
+ * @{
+ */
 
+/**
+ @class RadioSkymapRange
+ @brief A range of RadioSkymap containers.
+ */
 class RadioSkymapRange {
 private:
 	typedef std::vector<RadioSkymap> tSkymapsContainer;
@@ -35,5 +43,5 @@ public:
 };
 
 } // namespace hermes
-
+/** @}*/
 #endif // HERMES_RADIOSKYMAPRANGE_H

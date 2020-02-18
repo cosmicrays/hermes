@@ -44,7 +44,7 @@ PROJECT_NUMBER         =
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "HERMES is a publicly available computational framework for calculating sky maps of various radiative processes in our Galaxy."
+PROJECT_BRIEF          = "A publicly available computational framework for the line of sight integration over galactic radiative processes which creates sky maps in the HEALPix-compatibile format."
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55

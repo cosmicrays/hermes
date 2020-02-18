@@ -15,9 +15,17 @@ SynchroIntegrator::SynchroIntegrator(
 
 SynchroIntegrator::~SynchroIntegrator() { }
 
+void SynchroIntegrator::setFrequency(const QFrequency &freq) {
+	setSkymapParameter(freq);
+}
+
+QFrequency SynchroIntegrator::getFrequency() const {
+	return skymapParameter;
+}
+
 QTemperature SynchroIntegrator::integrateOverLOS(
 		QDirection direction) const {
-	return integrateOverLOS(direction, 408_MHz);
+	return integrateOverLOS(direction, skymapParameter);
 }
 
 QTemperature SynchroIntegrator::integrateOverLOS(

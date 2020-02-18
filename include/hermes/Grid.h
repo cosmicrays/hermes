@@ -73,7 +73,6 @@ public:
 	 @param	origin	Position of the lower left front corner of the volume
 	 @param	Nx		Number of grid points in x-direction
 	 @param	Ny		Number of grid points in y-direction
-	 @param	Nz		Number of grid points in z-direction
 	 @param spacing	Spacing between grid points
 	 */
 	Grid2D(Vector3d origin, size_t Nx, size_t Ny, double spacing) {
@@ -87,7 +86,6 @@ public:
 	@param	origin	Position of the lower left front corner of the volume
 	 @param	Nx		Number of grid points in x-direction
 	 @param	Ny		Number of grid points in y-direction
-	 @param	Nz		Number of grid points in z-direction
 	 @param spacing	Spacing vector between grid points
 	*/
 	Grid2D(Vector3d origin, size_t Nx, size_t Ny, Vector3d spacing) {
@@ -247,10 +245,6 @@ public:
 };
 
 
-/**
- * \addtogroup Core
- * @{
- */
 /**
  @class Grid
  @brief Template class for fields on a periodic grid with trilinear interpolation

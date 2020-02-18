@@ -4,7 +4,15 @@
 #include <hermes/skymaps/GammaSkymap.h>
 
 namespace hermes {
+/**
+ * \addtogroup Skymaps
+ * @{
+ */
 
+/**
+ @class GammaSkymapRange
+ @brief A range of GammaSkymap containers.
+ */
 class GammaSkymapRange {
 private:
 	typedef std::vector<GammaSkymap> tSkymapsContainer;
@@ -34,6 +42,6 @@ public:
         const_iterator end() const;
 };
 
+/** @}*/
 } // namespace hermes
-
 #endif // HERMES_GAMMASKYMAPRANGE_H

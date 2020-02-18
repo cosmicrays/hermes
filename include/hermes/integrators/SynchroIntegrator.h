@@ -33,8 +33,12 @@ public:
 		const std::shared_ptr<CosmicRayDensity> crdensity);
 	~SynchroIntegrator();
 
+	void setFrequency(const QFrequency &freq);
+	QFrequency getFrequency() const;
+	
 	QTemperature integrateOverLOS(QDirection iterdir) const;
 	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;
+	
 	QEnergy singleElectronEmission(QFrequency freq, QEnergy E,
 		QMField B_perp) const;	
 	QEmissivity integrateOverEnergy(

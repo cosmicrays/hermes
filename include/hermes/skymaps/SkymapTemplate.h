@@ -15,6 +15,17 @@
 #include <mutex>
 
 namespace hermes {
+/**
+ * \addtogroup Skymaps
+ * @{
+ */
+
+/**
+ @class SkymapTemplate
+ @brief Provides a HEALPix-compatibile container template with undefined units of pixels; should be inherited in every process-specific skymap.
+ * \tparam QPXL A type of pixel which a skymap contains (for example, QTemperature, QRotationMeasure)
+ * \tparam QSTEP A physical quantity (parameter) that describes a particular map (if needed), e.g., QFrequency, QEnergy
+ */
 
 template <typename QPXL, typename QSTEP>
 class SkymapTemplate: public Skymap {
@@ -27,6 +38,8 @@ protected:
 	mutable std::vector<bool> maskContainer;
 	mutable tPixel defaultUnits;
 	mutable std::string defaultUnitsString;
+	QSTEP skymapParameter;
+
 	std::shared_ptr<SkymapMask> mask;
 	std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator;
        
@@ -39,11 +52,31 @@ protected:
 
 	QPXL toSkymapDefaultUnits(const QPXL pixel) const;
 public:
+	/**
+		Constructors
+	*/
+	SkymapTemplate(std::size_t nside = 64, const QSTEP &p = QSTEP(0));
 	SkymapTemplate(
-		std::size_t nside = 64,
-		const std::shared_ptr<SkymapMask> mask_ =
-	       		std::make_shared<SkymapMask>(SkymapMask()));
+		std::size_t nside,
+		const std::shared_ptr<SkymapMask> mask_);
+	SkymapTemplate(
+		std::size_t nside,
+		const QSTEP &p,
+		const std::shared_ptr<SkymapMask> mask_);
 	~SkymapTemplate();
+	
+	/**
+		Setter for the skymap parameter
+	*/
+	void setSkymapParameter(const QSTEP &p) {
+		skymapParameter = p;	
+	}
+	/**
+		Getter for the skymap parameter
+	*/
+	QSTEP setSkymapParameter() const {
+		return skymapParameter;	
+	}
 	
 	std::size_t getSize() const;
 	double operator[](std::size_t ipix) const;
@@ -92,13 +125,38 @@ void SkymapTemplate<QPXL, QSTEP>::initContainer() {
 
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::initMask() {
+	if(mask == nullptr)
+		mask = std::make_shared<SkymapMask>(SkymapMask());
 	maskContainer = mask->getMask(nside);
 }
 
 template <typename QPXL, typename QSTEP>
 SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
 		std::size_t nside_,
-		const std::shared_ptr<SkymapMask> mask_) : Skymap(nside_), mask(mask_), defaultUnits(QPXL(1)), defaultUnitsString("SI Base Units") {
+		const QSTEP &p) :
+			Skymap(nside_), skymapParameter(p),
+			defaultUnits(QPXL(1)), defaultUnitsString("SI Base Units") {
+	initContainer();
+	initMask();
+}
+
+template <typename QPXL, typename QSTEP>
+SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
+		std::size_t nside_,
+		const std::shared_ptr<SkymapMask> mask_) :
+			Skymap(nside_), skymapParameter(QSTEP(0)), mask(mask_),
+			defaultUnits(QPXL(1)), defaultUnitsString("SI Base Units") {
+	initContainer();
+	initMask();
+}
+
+template <typename QPXL, typename QSTEP>
+SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
+		std::size_t nside_,
+		const QSTEP &p,
+		const std::shared_ptr<SkymapMask> mask_) :
+			Skymap(nside_), skymapParameter(p), mask(mask_),
+			defaultUnits(QPXL(1)), defaultUnitsString("SI Base Units") {
 	initContainer();
 	initMask();
 }
@@ -165,6 +223,11 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
 	
 	if(integrator == nullptr)
 		throw std::runtime_error("Provide an integrator with Skymap::setIntegrator()");
+
+	if(integrator->isCacheTableEnabled()) {
+		integrator->setSkymapParameter(skymapParameter);
+		integrator->initCacheTable();
+	}
 
 	// Progressbar init	
 	progressbar = std::make_shared<ProgressBar>(ProgressBar(getSize()));
@@ -273,6 +336,7 @@ typename SkymapTemplate<QPXL, QSTEP>::const_iterator SkymapTemplate<QPXL, QSTEP>
         return fluxContainer.end();
 }
 
+/** @}*/
 } // namespace hermes
 
 #endif // HERMES_SKYMAPTEMP_H

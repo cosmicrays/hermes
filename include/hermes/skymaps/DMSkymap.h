@@ -5,6 +5,15 @@
 
 namespace hermes {
 
+/**
+ * \addtogroup Skymaps
+ * @{
+ */
+
+/**
+ @class DMSkymap
+ @brief A skymap container for dispersion measure (DM).
+ */
 class DMSkymap: public SkymapTemplate<QDispersionMeasure, QNumber> {
 private:
 public:
@@ -14,8 +23,6 @@ public:
                 initDefaultUnits(parsec/centimetre3, "parsec^-1 cm^3");
         };
 };
-
-
+/** @}*/
 } // namespace hermes
-
 #endif // HERMES_DMSKYMAP_H

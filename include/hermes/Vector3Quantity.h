@@ -345,5 +345,4 @@ inline Vector3QMField operator *(const Vector3<T> &q, const QMField &a) {
 
 /** @}*/
 } // namespace hermes
-
 #endif // HERMES_VECTOR3QUANTITY_H

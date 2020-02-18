@@ -41,16 +41,21 @@ public:
 		const std::shared_ptr<RingModelDensity>,
 		const std::shared_ptr<DifferentialCrossSection>); 
 	~PiZeroIntegrator();
+	
+	void setEnergy(const QEnergy &Egamma);
+	QEnergy getEnergy() const;
 
 	QPDensity densityProfile(const Vector3QLength &) const;
 	QRingX0Unit X0Function(const Vector3QLength &) const;
 	
 	QDifferentialIntensity integrateOverLOS(QDirection iterdir) const;
 	QDifferentialIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
+	
 	QPiZeroIntegral integrateOverEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
 
-	void initCacheTable(QEnergy, int, int, int);
+	void setupCacheTable(int, int, int);
+	void initCacheTable();
 };
 
 /** @}*/

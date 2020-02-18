@@ -11,7 +11,7 @@ namespace hermes {
  * @{
  */
 
-class SynchroAbsorptionIntegrator: public IntegratorTemplate<QTemperature, QFrequency> {
+class SynchroAbsorptionIntegrator: public RadioIntegratorTemplate {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<CosmicRayDensity> crdensity;
@@ -25,6 +25,9 @@ public:
 		const std::shared_ptr<CosmicRayDensity> crdensity,
 		const std::shared_ptr<ChargedGasDensity> gdensity);
 	~SynchroAbsorptionIntegrator();
+
+	void setFrequency(const QFrequency &freq);
+	QFrequency getFrequency() const;
 
 	QTemperature integrateOverLOS(QDirection iterdir_) const;
 	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;

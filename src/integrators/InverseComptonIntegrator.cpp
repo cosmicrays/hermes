@@ -31,10 +31,7 @@ void InverseComptonIntegrator::computeCacheInThread(std::size_t start, std::size
 	}
 }
 
-void InverseComptonIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, int N_z) {
-	
-	if (cacheStoragePresent)
-		cacheStoragePresent = false;
+void InverseComptonIntegrator::setupCacheTable(int N_x, int N_y, int N_z) {
 	
 	const QLength rBorder = 30_kpc;
         const QLength zBorder = 5_kpc;
@@ -43,13 +40,26 @@ void InverseComptonIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, 
 			2*rBorder / N_y,
 			2*zBorder / N_z);
 	
-	// init table
+	// setup table
 	cacheTable = std::make_shared<ICCacheTable>(ICCacheTable(
 					Vector3QLength(-rBorder, -rBorder, -zBorder),
 					N_x, N_y, N_z, spacing));
+	cacheEnabled = true;
+}
+
+void InverseComptonIntegrator::initCacheTable() {
+
+	if (!cacheEnabled) {
+		std::cout << "hermes::Integrator::initCacheTable: No cache table present: use setupCacheTable" << std::endl;
+		return;
+	}
+
+	if (cacheTableInitialized)
+		cacheTableInitialized = false;
+
+	std::cout << "hermes::Integrator::initCacheTable: Number of Threads: " << getThreadsNumber() << std::endl;
 	
-	std::cout << "hermes::Integrator::InitCacheTable: Number of Threads: " << getThreadsNumber() << std::endl;
-	
+	const QEnergy Egamma = skymapParameter;	
 	size_t grid_size = cacheTable->getGridSize();
 
 	// Progressbar init	
@@ -69,8 +79,8 @@ void InverseComptonIntegrator::initCacheTable(QEnergy Egamma, int N_x, int N_y, 
 	for (auto &t : threads) {
         	t.join();
 	}
-
-	cacheStoragePresent = true;
+	
+	cacheTableInitialized = true;
 }
 
 QICOuterIntegral InverseComptonIntegrator::getIOEfromCache(Vector3QLength pos_, QEnergy Egamma_) const {
@@ -96,7 +106,7 @@ QDifferentialIntensity InverseComptonIntegrator::integrateOverLOS(
 }
 
 QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
-	if (cacheStoragePresent)
+	if (cacheTableInitialized)
 		return getIOEfromCache(pos_, Egamma_);
 
 	if (crdensity->existsScaleFactor())

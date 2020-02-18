@@ -35,7 +35,6 @@ TEST(Skymap, computePixel) {
 	QDirection galacticNorth = {0, 0};
 	long int gnPixel = ang2pix_ring(nside, galacticNorth);
 
-	//skymap->setIntegrator(integrator);
 	skymap->computePixel(gcPixel, integrator);
 	skymap->computePixel(gnPixel, integrator);
 	

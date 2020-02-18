@@ -50,13 +50,15 @@ void init_integrators(py::module &m) {
 	declare_default_integrator_methods<FreeFreeIntegrator>(ffintegrator);
 
 	// SynchroIntegrator
-	NEW_INTEGRATOR(synchrointegrator, "SynchroIntegrator", SynchroIntegrator, QTemperature, QFrequency);
+	py::class_<SynchroIntegrator, FreeFreeIntegratorParentClass, std::shared_ptr<SynchroIntegrator>>
+		synchrointegrator(m, "SynchroIntegrator", py::buffer_protocol());
 	synchrointegrator.def(py::init<const std::shared_ptr<MagneticField>,
 			    	       const std::shared_ptr<CosmicRayDensity> >());
 	declare_default_integrator_methods<SynchroIntegrator>(synchrointegrator);
 
 	// SynchroAbsorption
-	NEW_INTEGRATOR(synchroabsintegrator, "SynchroAbsorptionIntegrator", SynchroAbsorptionIntegrator, QTemperature, QFrequency);
+	py::class_<SynchroAbsorptionIntegrator, FreeFreeIntegratorParentClass, std::shared_ptr<SynchroAbsorptionIntegrator>>
+		synchroabsintegrator(m, "SynchroAbsorptionIntegrator", py::buffer_protocol());
 	synchroabsintegrator.def(py::init<const std::shared_ptr<MagneticField>,
 			    	 	  const std::shared_ptr<CosmicRayDensity>,
 				 	  const std::shared_ptr<ChargedGasDensity> >());
@@ -68,7 +70,7 @@ void init_integrators(py::module &m) {
                 	    	  const std::shared_ptr<PhotonField>,
                             	  const std::shared_ptr<KleinNishina>>());
 	declare_default_integrator_methods<InverseComptonIntegrator>(icintegrator);
-	icintegrator.def("initCacheTable", &InverseComptonIntegrator::initCacheTable);
+	icintegrator.def("setupCacheTable", &InverseComptonIntegrator::setupCacheTable);
     
 	// PiZeroIntegrator
 	py::class_<PiZeroIntegrator, InverseComptonIntegratorParentClass,
@@ -77,7 +79,7 @@ void init_integrators(py::module &m) {
                 		      const std::shared_ptr<RingModelDensity>,
                            	      const std::shared_ptr<DifferentialCrossSection>>());
 	declare_default_integrator_methods<PiZeroIntegrator>(pizerointegrator);
-	pizerointegrator.def("initCacheTable", &PiZeroIntegrator::initCacheTable);
+	pizerointegrator.def("setupCacheTable", &PiZeroIntegrator::setupCacheTable);
 
 }
 

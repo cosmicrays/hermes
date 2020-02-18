@@ -23,6 +23,9 @@ public:
 	FreeFreeIntegrator(
 		const std::shared_ptr<ChargedGasDensity> gdensity);
 	~FreeFreeIntegrator();
+	
+	void setFrequency(const QFrequency &freq);
+	QFrequency getFrequency() const;
 
 	QTemperature integrateOverLOS(QDirection iterdir) const;
 	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;

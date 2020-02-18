@@ -41,6 +41,9 @@ public:
 		const std::shared_ptr<PhotonField>,
 		const std::shared_ptr<KleinNishina>); 
 	~InverseComptonIntegrator();
+	
+	void setEnergy(const QEnergy &Egamma);
+	QEnergy getEnergy() const;
 
 	QDifferentialIntensity integrateOverLOS(QDirection iterdir) const;
 	QDifferentialIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
@@ -49,7 +52,8 @@ public:
 	QICInnerIntegral integrateOverPhotonEnergy(Vector3QLength pos,
 		QEnergy Egamma, QEnergy Eelectron) const;
 
-	void initCacheTable(QEnergy, int, int, int);
+       	void setupCacheTable(int N_x, int N_y, int N_z);
+	void initCacheTable();
 };
 
 /** @}*/
