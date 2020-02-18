@@ -218,6 +218,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	add_subdirectory(libs/pybind11)
 	
 	pybind11_add_module(pyhermes
+		python/Quantity.cpp
 		python/Units.cpp
 		python/Common.cpp
 		python/Vectors.cpp

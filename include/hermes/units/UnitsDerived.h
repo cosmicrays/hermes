@@ -62,6 +62,9 @@ constexpr QTime day = 24. * hour;
 constexpr QTime week = 7. * day;
 constexpr QTime year = 365.25 * day;
 
+// Predefined frequency units
+GENERATE_PREFIXED_UNITS(hertz)
+
 // Predefined mass units:
 constexpr QMass tonne = 1000 * kilogram;
 constexpr QMass ounce = 0.028349523125 * kilogram;
@@ -89,6 +92,7 @@ constexpr QArea barn = 1e-28 * square_metre;
 
 // Predefined volume units:
 constexpr QVolume metre3 = metre*metre*metre;
+constexpr QVolume millimetre3 = millimetre*millimetre*millimetre;
 constexpr QVolume centimetre3 = centimetre*centimetre*centimetre;
 constexpr QVolume kilometre3 = kilometre*kilometre*kilometre;
 
