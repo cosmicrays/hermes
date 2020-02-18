@@ -21,7 +21,7 @@ QTemperature FreeFreeIntegrator::integrateOverLOS(
 		QDirection direction, QFrequency freq_) const {
 	
 	auto integrand = [this, direction, freq_](const QLength &dist) {
-		return this->spectralEmissivity(getGalacticPosition(this->positionSun, dist, direction), freq_); };
+		return this->spectralEmissivity(getGalacticPosition(getSunPosition(), dist, direction), freq_); };
 
 	QIntensity total_intensity = simpsonIntegration<QIntensity, QEmissivity>(
 			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 500);
@@ -30,14 +30,16 @@ QTemperature FreeFreeIntegrator::integrateOverLOS(
 }
 
 QNumber FreeFreeIntegrator::gauntFactor(QFrequency freq, QTemperature T, int Z) const {
+	// Gaunt factor in the radio approximation from Longair 2011, Eq. 6.48a
 
 	// optimisation of constants
 	constexpr double sqrtEuler = sqrt(eulerGamma);
 	constexpr auto K = (128*pow<2>(epsilon0)*pow<3>(k_boltzmann)) /
 			(m_electron*pow<4>(e_plus));
+	
+	auto logLambda = (log(K * T*T*T / ((freq*Z)*(freq*Z))) - sqrtEuler) / 2.;
 
-	return std::sqrt(3)/2_pi *
-		(log(K * T*T*T / ((freq*Z)*(freq*Z))) - sqrtEuler);
+	return std::sqrt(3)/pi * logLambda;
 }
 
 QEmissivity FreeFreeIntegrator::spectralEmissivity(

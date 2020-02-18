@@ -12,7 +12,12 @@ void init_common(py::module &m) {
 
 
     m.def("getDataPath", &getDataPath);
+    m.def("toGalCoord", &toGalCoord);
+    m.def("fromGalCoord", &fromGalCoord);
+    
     m.attr("UNSEEN") = UNSEEN;
+    m.def("ang2pix_ring", &ang2pix_ring);
+    m.def("pix2ang_ring", &pix2ang_ring);
 
 }
 

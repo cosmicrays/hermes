@@ -383,6 +383,8 @@ QUANTITY_TYPE(0, 0, 0, 0, 0, 0, 0, 0, 1, QSolidAngle);
 // ------------------------------------
 //             l  t  m  I  T  N  J  A
 QUANTITY_TYPE( 1,-2, 1, 0, 0, 0, 0, 0, 0, QForce);
+QUANTITY_TYPE( 1,-1, 1, 0, 0, 0, 0, 0, 0, QMomentum);
+QUANTITY_TYPE( 2,-1, 1, 0, 0, 0, 0, 0, 0, QAMomentum);
 QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, 0, QPressure);
 QUANTITY_TYPE( 2,-2, 1, 0, 0, 0, 0, 0, 0, QTorque);
 QUANTITY_TYPE( 2,-2, 1, 0, 0, 0, 0, 0, 0, QEnergy);

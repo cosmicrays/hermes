@@ -84,9 +84,10 @@ TEST(UnitsDerived, PhysicalConstants) {
 	EXPECT_NEAR(static_cast<double>(sigma_Thompson),
 		    static_cast<double>(6.653e-29 / 1_m2),
 		    static_cast<double>(0.001e-29 / 1_m2));
+	
+	// Rydberg unit of energy
+	EXPECT_NEAR(static_cast<double>(Ry), 2.17987236110e-18, 1e-24);
 }
-
-
 
 int main(int argc, char **argv) {
         ::testing::InitGoogleTest(&argc, argv);

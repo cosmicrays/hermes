@@ -27,6 +27,8 @@ typedef double QLIntensity;
 typedef double QArea;
 typedef double QVolume;
 typedef double QForce;
+typedef double QMomentum;
+typedef double QAMomentum;
 typedef double QPressure;
 typedef double QECharge;
 typedef double QPower;

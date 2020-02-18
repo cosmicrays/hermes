@@ -14,7 +14,7 @@ DMIntegrator::~DMIntegrator() { }
 QDispersionMeasure DMIntegrator::integrateOverLOS(QDirection direction) const {
 
 	auto integrand = [this, direction](const QLength &dist) {
-		return (this->gdensity)->getDensity(getGalacticPosition(this->getSunPosition(), dist, direction)); };
+		return gdensity->getDensity(getGalacticPosition(getSunPosition(), dist, direction)); };
 	
 	return gslQAGIntegration<QDispersionMeasure, QPDensity>(
 			[this, integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 500);
@@ -24,7 +24,7 @@ QDispersionMeasure DMIntegrator::integrateOverLOS(QDirection direction) const {
 DMIntegrator::tLOSProfile DMIntegrator::getLOSProfile(QDirection direction, int Nsteps) const {
 
 	auto integrand = [this, direction](const QLength &dist) {
-		return (this->gdensity)->getDensity(getGalacticPosition(this->getSunPosition(), dist, direction)); };
+		return gdensity->getDensity(getGalacticPosition(getSunPosition(), dist, direction)); };
 
 	QLength start = 0_m;
 	QLength stop  = getMaxDistance(direction);

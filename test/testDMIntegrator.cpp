@@ -34,13 +34,21 @@ TEST(DMIntegrator, convertToUnits) {
 
 TEST(DMIntegrator, integrateOverLOS) {
 
-	auto skymap = std::make_shared<DMSkymap>(DMSkymap(4));
+	auto skymap = std::make_shared<DMSkymap>(DMSkymap(16));
 	auto gdensity = std::make_shared<YMW16>(YMW16());
 	auto intDM = std::make_shared<DMIntegrator>(
 		DMIntegrator(gdensity));
 
 	skymap->setIntegrator(intDM);
 	skymap->compute();
+       /* 
+	QDirection thetaphi;
+
+        EXPECT_EQ(ang2pix_ring(nside, thetaphi), 24);
+
+        thetaphi[0] = 0.7; thetaphi[1] = 2*pi - 0.1;
+        EXPECT_EQ(ang2pix_ring(nside, thetaphi), 11);
+	*/
 
 	//EXPECT_NEAR(static_cast<double>(skymap->operator[](0)),
 	//	  11.548263939029292, 1e-3);	

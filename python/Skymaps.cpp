@@ -35,8 +35,13 @@ template<typename SKYMAP, typename QPXL, typename QSTEP>
 	    c.def("getMask", &SKYMAP::getMask);
 	    c.def("getNside", &SKYMAP::getNside);
 	    c.def("convertToUnits", &SKYMAP::convertToUnits);
+	    c.def("getPixelUnitsAsString", &SKYMAP::getPixelUnitsAsString);
+	    c.def("getUnits", &SKYMAP::getUnits);
 	    c.def("setIntegrator", [](SKYMAP &s, std::shared_ptr<IntegratorClass> i) { s.setIntegrator(i); });
 	    c.def("compute", &SKYMAP::compute);
+	    c.def("computePixel", &SKYMAP::computePixel);
+	    c.def("computePixelRange", &SKYMAP::computePixelRange);
+	    c.def("getPixel", &SKYMAP::getPixel);
 	    c.def("save", &SKYMAP::save);
 	    c.def_buffer([](SKYMAP &s) -> py::buffer_info {
 			    // buffer protocol: https://docs.python.org/3/c-api/buffer.html

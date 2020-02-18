@@ -27,23 +27,22 @@ QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
 	Gives a distance from an observer to the (spherical) galactic border
 	in the given direction (law of cosines)
 */
-QLength distanceToGalBorder(Vector3QLength positionSun, QDirection direction);
+QLength distanceToGalBorder(const Vector3QLength &positionSun, const QDirection &direction,
+		const QLength &galacticBorder = 30_kpc, const QLength &zBorder = 5_kpc);
 
 /**
 	Returns XYZ position in the (right-handed) galacto-centric
 	coordinate system by giving distance and direction from the observer
 */
-inline Vector3QLength getGalacticPosition(const Vector3QLength &posSun,
-		const QLength &dist, const QDirection &dir) {
-	Vector3QLength pos(0);
+Vector3QLength getGalacticPosition(const Vector3QLength &posSun,
+		const QLength &dist, const QDirection &dir);
 
-	// TODO: should be more general for any observer position
-	pos.setRThetaPhi(dist, dir[0], dir[1]);
-	pos.x = posSun.x - pos.x;
-	pos.y = -pos.y;
+/**
+	Conversion to/from Galactic coordinates from/to angles of spherical coordinate system (ISO)
+*/
+QDirection toGalCoord(const QDirection &);
+QDirection fromGalCoord(const QDirection &);
 
-	return pos;
-}
 /**
 	Test if two directions are close one another, within d
 

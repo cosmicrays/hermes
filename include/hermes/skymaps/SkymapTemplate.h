@@ -70,6 +70,7 @@ public:
 	/** output **/
 	void convertToUnits(QPXL units_, const std::string &defaultUnitsString);
 	std::string getPixelUnitsAsString() const;
+	std::string getUnits() const;
 	void save(std::shared_ptr<Output> output) const;
 
         /** iterator goodies */
@@ -212,6 +213,11 @@ void SkymapTemplate<QPXL, QSTEP>::convertToUnits(QPXL units_, const std::string 
 template <typename QPXL, typename QSTEP>
 std::string SkymapTemplate<QPXL, QSTEP>::getPixelUnitsAsString() const {
 	return defaultUnitsString;
+}
+
+template <typename QPXL, typename QSTEP>
+std::string SkymapTemplate<QPXL, QSTEP>::getUnits() const {
+	return getPixelUnitsAsString();
 }
 
 template <typename QPXL, typename QSTEP>
