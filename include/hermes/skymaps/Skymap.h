@@ -34,7 +34,7 @@ public:
         std::string getDescription() const;
         void setDescription(const std::string &description);
 
-	virtual double operator[](std::size_t i) const = 0;
+	virtual double getPixelAsDouble(std::size_t i) const = 0;
 	virtual void save(std::shared_ptr<Output> output) const = 0;
 };
 

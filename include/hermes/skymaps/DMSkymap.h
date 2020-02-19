@@ -20,7 +20,7 @@ public:
         DMSkymap(std::size_t nside_) :
                 SkymapTemplate(nside_) {
 
-                initDefaultUnits(parsec/centimetre3, "parsec^-1 cm^3");
+                initDefaultOutputUnits(parsec/centimetre3, "parsec^-1 cm^3");
         };
 };
 /** @}*/

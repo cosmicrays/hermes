@@ -1,8 +1,8 @@
 #include <pybind11/pybind11.h>
-#include <pybind11/operators.h>
 
 #include <iostream>
 #include <sstream>
+
 #include "hermes/Units.h"
 
 namespace py = pybind11;

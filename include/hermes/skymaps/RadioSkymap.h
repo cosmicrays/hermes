@@ -26,8 +26,9 @@ public:
 	}
 	void computePixel(std::size_t ipix,
 			  std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency> > integrator_) {
-		iterdir = pix2ang_ring(getNside(), ipix);
-		fluxContainer[ipix] = toSkymapDefaultUnits(integrator_->integrateOverLOS(iterdir, skymapParameter));
+		fluxContainer[ipix] = integrator_->integrateOverLOS(
+						pix2ang_ring(getNside(), ipix),
+						skymapParameter);
 	}
 };
 

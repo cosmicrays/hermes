@@ -48,12 +48,14 @@ TEST(DMIntegrator, integrateOverLOS) {
 	ipix = ang2pix_ring(nside, dir);
 	skymap->computePixel(ipix, intDM);
 	EXPECT_NEAR(static_cast<double>(skymap->getPixel(ipix)),
-			3200, 200);
+		    static_cast<double>(3200*parsec/centimetre3),
+		    static_cast<double>(200*parsec/centimetre3));
 	dir = fromGalCoord(QDirection({0_deg, 170_deg}));
 	ipix = ang2pix_ring(nside, dir);
 	skymap->computePixel(ipix, intDM);
 	EXPECT_NEAR(static_cast<double>(skymap->getPixel(ipix)),
-			250, 50);
+		    static_cast<double>(250*parsec/centimetre3),
+		    static_cast<double>(50*parsec/centimetre3));
 }
 
 int main(int argc, char **argv) {

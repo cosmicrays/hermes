@@ -51,7 +51,7 @@ TEST(RMIntegrator, Orientation) {
 	skymap->setIntegrator(integrator);
 	skymap->compute();
 	
-	for (long ipix = 0; ipix < skymap->getSize(); ++ipix) {
+	for (long ipix = 0; ipix < skymap->size(); ++ipix) {
 		pixel = skymap->getPixel(ipix);
 		direction = pix2ang_ring(4, ipix);
 		

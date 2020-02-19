@@ -174,7 +174,6 @@ add_library(hermes SHARED
 	src/skymaps/SkymapMask.cpp
 	src/skymaps/GammaSkymapRange.cpp
 	src/skymaps/RadioSkymapRange.cpp
-	src/integrators/GenericIntegrator.cpp
 	src/integrators/DMIntegrator.cpp
 	src/integrators/RMIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
@@ -346,12 +345,6 @@ if(ENABLE_TESTING)
 	target_link_libraries(testInverseComptonIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testInverseComptonIntegrator testInverseComptonIntegrator)
 endif(ENABLE_TESTING)
-
-# ----------------------------------------------------------------------------
-# Playground
-# ----------------------------------------------------------------------------
-add_executable(example src/example.cpp)
-target_link_libraries(example ${PROJECT_NAME} ${HERMES_EXTRA_LIBRARIES})
 
 # ----------------------------------------------------------------------------
 # Install

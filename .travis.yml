@@ -1,0 +1,58 @@
+language: cpp
+addons:
+    apt:
+      packages:
+        - gcc-9
+        - g++-9
+        - libfftw3-dev
+        - libcfitsio3-dev
+        - libmuparser-dev
+        - python3-setuptools
+        - python3-dev
+        - cmake
+      sources: &sources
+        - ubuntu-toolchain-r-test
+cache:
+  directories:
+    - $HOME/hermes_cache
+matrix:
+  include:
+    - os : linux
+      dist: xenial
+      compiler: gcc
+      env:
+        - COMPILER_NAME=gcc CXX=g++-9 CC=gcc-9
+        - PYTHON_EXECUTABLE=/usr/bin/python3
+    - os : osx
+      compiler: gcc
+      env:
+        - CXX_COMPILER='clang++'
+        - C_COMPILER='clang++'
+        - PYTHON_EXECUTABLE=/usr/bin/python3
+        - HERMES_DATA_PATH=$TRAVIS_BUILD_DIR/build/data/
+
+before_install:
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      HOMEBREW_NO_AUTO_UPDATE=1 brew install swig;
+      HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
+      HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc || true;
+      HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
+    fi;
+
+before_script:
+  - mkdir build
+  - cd build
+  - |
+    DATAFILE=$HOME/hermes_cache/hermes-data.tar.gz
+    if [ -f $DATAFILE ]; then
+      echo "Using data file from cache!"
+      cp $DATAFILE .
+    fi
+  - cmake .. -DENABLE_PYTHON=True -DPYTHON_EXECUTABLE=$PYTHON_EXECUTABLE -DENABLE_TESTING=On
+  - cp hermes-data.tar.gz $HOME/hermes_cache
+script:
+  - make
+  - make test
+after_failure:
+  - cat Testing/Temporary/LastTest.log

@@ -4,7 +4,6 @@
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapMask.h"
 #include "hermes/skymaps/SkymapTemplate.h"
-#include "hermes/skymaps/GenericSkymap.h"
 #include "hermes/skymaps/DMSkymap.h"
 #include "hermes/skymaps/RMSkymap.h"
 #include "hermes/skymaps/GammaSkymap.h"
@@ -43,6 +42,9 @@ template<typename SKYMAP, typename QPXL, typename QSTEP>
 	    c.def("computePixelRange", &SKYMAP::computePixelRange);
 	    c.def("getPixel", &SKYMAP::getPixel);
 	    c.def("save", &SKYMAP::save);
+	    c.def("__getitem__", [](const SKYMAP &s, std::size_t i) -> QPXL {
+            		if (i >= s.size()) throw py::index_error();
+            			return s[i]; });
 	    c.def_buffer([](SKYMAP &s) -> py::buffer_info {
 			    // buffer protocol: https://docs.python.org/3/c-api/buffer.html
 			    return py::buffer_info(
@@ -50,7 +52,7 @@ template<typename SKYMAP, typename QPXL, typename QSTEP>
 				    sizeof(QPXL),      /* Size of one scalar */
 				    py::format_descriptor<double>::format(), /* Python struct-style format descriptor */
 				    1,                 /* Number of dimensions */
-				    {s.getSize()},     /* Buffer dimensions */
+				    {s.size()},     /* Buffer dimensions */
 				    {sizeof(QPXL)}     /* Strides (in bytes) for each index */
 				);
 			});

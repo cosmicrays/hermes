@@ -31,22 +31,23 @@ template <typename QPXL, typename QSTEP>
 class SkymapTemplate: public Skymap {
 protected:
 	typedef QPXL tPixel;
-	QDirection iterdir;
 	
 	typedef std::vector<tPixel> tFluxContainer;
 	mutable tFluxContainer fluxContainer;
 	mutable std::vector<bool> maskContainer;
-	mutable tPixel defaultUnits;
-	mutable std::string defaultUnitsString;
-	QSTEP skymapParameter;
 
+	mutable tPixel defaultOutputUnits;
+	mutable std::string defaultOutputUnitsString;
+	
+	QSTEP skymapParameter;
+	
 	std::shared_ptr<SkymapMask> mask;
 	std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator;
        
 	std::shared_ptr<ProgressBar> progressbar;
 	std::shared_ptr<std::mutex> progressbar_mutex;
 
-	void initDefaultUnits(QPXL units_, const std::string &defaultUnitsString);	
+	void initDefaultOutputUnits(QPXL units, const std::string &unitsString);	
 	void initContainer();
 	void initMask();
 
@@ -78,9 +79,10 @@ public:
 		return skymapParameter;	
 	}
 	
-	std::size_t getSize() const;
-	double operator[](std::size_t ipix) const;
+	std::size_t size() const;
 	QPXL getPixel(std::size_t ipix) const;
+	double getPixelAsDouble(std::size_t i) const;
+	QPXL operator[](std::size_t ipix) const;
 	QPXL* data() { return fluxContainer.data(); }
 
 	void setIntegrator(std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_);
@@ -117,12 +119,48 @@ public:
 
 /* Definitions */
 
+/* Constructors */
+template <typename QPXL, typename QSTEP>
+SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
+		std::size_t nside_,
+		const QSTEP &p) :
+			Skymap(nside_), skymapParameter(p),
+			defaultOutputUnits(QPXL(1)), defaultOutputUnitsString("SI Base Units") {
+	initContainer();
+	initMask();
+}
+template <typename QPXL, typename QSTEP>
+SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
+		std::size_t nside_,
+		const std::shared_ptr<SkymapMask> mask_) :
+			Skymap(nside_), skymapParameter(QSTEP(0)), mask(mask_),
+			defaultOutputUnits(QPXL(1)), defaultOutputUnitsString("SI Base Units") {
+	initContainer();
+	initMask();
+}
+template <typename QPXL, typename QSTEP>
+SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
+		std::size_t nside_,
+		const QSTEP &p,
+		const std::shared_ptr<SkymapMask> mask_) :
+			Skymap(nside_), skymapParameter(p), mask(mask_),
+			defaultOutputUnits(QPXL(1)), defaultOutputUnitsString("SI Base Units") {
+	initContainer();
+	initMask();
+}
+
+/* Destructor */
+template <typename QPXL, typename QSTEP>
+SkymapTemplate<QPXL, QSTEP>::~SkymapTemplate() {
+	fluxContainer.clear();
+}
+
+/* Initializers */
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::initContainer() {
 	fluxContainer.reserve(npix);
 	fluxContainer.insert(fluxContainer.begin(), npix, UNSEEN);
 }
-
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::initMask() {
 	if(mask == nullptr)
@@ -130,44 +168,9 @@ void SkymapTemplate<QPXL, QSTEP>::initMask() {
 	maskContainer = mask->getMask(nside);
 }
 
+/* Getters */
 template <typename QPXL, typename QSTEP>
-SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
-		std::size_t nside_,
-		const QSTEP &p) :
-			Skymap(nside_), skymapParameter(p),
-			defaultUnits(QPXL(1)), defaultUnitsString("SI Base Units") {
-	initContainer();
-	initMask();
-}
-
-template <typename QPXL, typename QSTEP>
-SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
-		std::size_t nside_,
-		const std::shared_ptr<SkymapMask> mask_) :
-			Skymap(nside_), skymapParameter(QSTEP(0)), mask(mask_),
-			defaultUnits(QPXL(1)), defaultUnitsString("SI Base Units") {
-	initContainer();
-	initMask();
-}
-
-template <typename QPXL, typename QSTEP>
-SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
-		std::size_t nside_,
-		const QSTEP &p,
-		const std::shared_ptr<SkymapMask> mask_) :
-			Skymap(nside_), skymapParameter(p), mask(mask_),
-			defaultUnits(QPXL(1)), defaultUnitsString("SI Base Units") {
-	initContainer();
-	initMask();
-}
-
-template <typename QPXL, typename QSTEP>
-SkymapTemplate<QPXL, QSTEP>::~SkymapTemplate() {
-	fluxContainer.clear();
-}
-
-template <typename QPXL, typename QSTEP>
-std::size_t SkymapTemplate<QPXL, QSTEP>::getSize() const {
+std::size_t SkymapTemplate<QPXL, QSTEP>::size() const {
 	return fluxContainer.size();
 }
 
@@ -177,8 +180,13 @@ QPXL SkymapTemplate<QPXL, QSTEP>::getPixel(std::size_t i) const {
 }
 
 template <typename QPXL, typename QSTEP>
-double SkymapTemplate<QPXL, QSTEP>::operator[](std::size_t i) const {
+double SkymapTemplate<QPXL, QSTEP>::getPixelAsDouble(std::size_t i) const {
         return static_cast<double>(fluxContainer[i]);
+}
+
+template <typename QPXL, typename QSTEP>
+QPXL SkymapTemplate<QPXL, QSTEP>::operator[](std::size_t i) const {
+        return fluxContainer[i];
 }
 
 template <typename QPXL, typename QSTEP>
@@ -197,9 +205,10 @@ template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::computePixel(
 		std::size_t ipix,
 		std::shared_ptr<IntegratorTemplate<QPXL, QSTEP> > integrator_) {
-		iterdir = pix2ang_ring(getNside(), ipix);
-		fluxContainer[ipix] = toSkymapDefaultUnits(
-			integrator_->integrateOverLOS(iterdir));
+
+	fluxContainer[ipix] = integrator_->integrateOverLOS(
+					pix2ang_ring(getNside(), ipix)
+				);
 }
 
 template <typename QPXL, typename QSTEP>
@@ -224,58 +233,58 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
 	if(integrator == nullptr)
 		throw std::runtime_error("Provide an integrator with Skymap::setIntegrator()");
 
+	// Generate cache tables in integrator for a given skymap parameter
 	if(integrator->isCacheTableEnabled()) {
 		integrator->setSkymapParameter(skymapParameter);
 		integrator->initCacheTable();
 	}
 
 	// Progressbar init	
-	progressbar = std::make_shared<ProgressBar>(ProgressBar(getSize()));
+	progressbar = std::make_shared<ProgressBar>(ProgressBar(size()));
 	progressbar_mutex = std::make_shared<std::mutex>();
 	progressbar->setMutex(progressbar_mutex);
 	progressbar->start("Compute skymap");
 	
-	auto job_chunks = getThreadChunks(getSize());
+	auto job_chunks = getThreadChunks(size());
 	std::vector<std::thread> threads;
 	for (auto &chunk : job_chunks) {
 		threads.push_back(
 			std::thread(&SkymapTemplate<QPXL, QSTEP>::computePixelRange, this, chunk.first, chunk.second, integrator)
 		);
 	}
-
 	for (auto &t : threads) {
         	t.join();
 	}
 }
 
 template <typename QPXL, typename QSTEP>
-void SkymapTemplate<QPXL, QSTEP>::initDefaultUnits(QPXL units_, const std::string &unitsString_) {
-	defaultUnits = units_;
-	defaultUnitsString = unitsString_;
+void SkymapTemplate<QPXL, QSTEP>::initDefaultOutputUnits(QPXL units_, const std::string &unitsString_) {
+	defaultOutputUnits = units_;
+	defaultOutputUnitsString = unitsString_;
 }
 
 template <typename QPXL, typename QSTEP>
 QPXL SkymapTemplate<QPXL, QSTEP>::toSkymapDefaultUnits(const QPXL pixel) const {
-	return pixel / static_cast<double>(defaultUnits);
+	return pixel / static_cast<double>(defaultOutputUnits);
 }
 
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::convertToUnits(QPXL units_, const std::string &unitsString_) {
-	if(units_ == defaultUnits)
+	if(units_ == defaultOutputUnits)
 		return;
 
 	for (auto& i: fluxContainer) {
 		if (static_cast<double>(i) != UNSEEN)
-			i = i / (units_/defaultUnits);
+			i = i / (units_/defaultOutputUnits);
 	}
 	
-	defaultUnits = units_;
-	defaultUnitsString = unitsString_;
+	defaultOutputUnits = units_;
+	defaultOutputUnitsString = unitsString_;
 }
 
 template <typename QPXL, typename QSTEP>
 std::string SkymapTemplate<QPXL, QSTEP>::getPixelUnitsAsString() const {
-	return defaultUnitsString;
+	return defaultOutputUnitsString;
 }
 
 template <typename QPXL, typename QSTEP>
@@ -293,11 +302,11 @@ void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<Output> output) const {
 	std::vector<float> tempArray; // allocate on heap, because of nside >= 512
 	for (auto i: fluxContainer)
 		tempArray.push_back(
-				static_cast<float>(i)
+				static_cast<float>(toSkymapDefaultUnits(i))
 			);
 
 	output->writeColumn(npix, tempArray.data());
-	output->writeKeyValueAsString("PIXUNITS", defaultUnitsString, "Physical units of the skymap pixels");
+	output->writeKeyValueAsString("PIXUNITS", defaultOutputUnitsString, "Physical units of the skymap pixels");
 }
 
 template <typename QPXL, typename QSTEP>
