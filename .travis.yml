@@ -4,6 +4,8 @@ addons:
       packages:
         - gcc-9
         - g++-9
+        - gcc-6
+        - g++-6
         - libgsl-dev
         - libfftw3-dev
         - libcfitsio3-dev
@@ -24,6 +26,12 @@ matrix:
       env:
         - COMPILER_NAME=gcc CXX=g++-9 CC=gcc-9
         - PYTHON_EXECUTABLE=/usr/bin/python3
+    - os : linux
+      dist: xenial
+      compiler: gcc
+      env:
+        - COMPILER_NAME=gcc CXX=g++-6 CC=gcc-6
+        - PYTHON_EXECUTABLE=/usr/bin/python3
     - os : osx
       compiler: gcc
       env:
@@ -38,6 +46,7 @@ before_install:
       HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
       HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
       HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc;
+      HOMEBREW_NO_AUTO_UPDATE=1 brew install jq;
       HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
       HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python;
     fi;
