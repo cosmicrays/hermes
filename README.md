@@ -1,5 +1,7 @@
 # HERMES - High-Energy Radiative MESsangers
 
+[![Build Status](https://travis-ci.org/cosmicrays/hermes.svg?branch=master)](https://travis-ci.org/cosmicrays/hermes)
+
 ## About
 
 ![gamma sky map from pi0](https://github.com/adundovi/hermes/raw/master/doc/hermes-pizero-example.png)
