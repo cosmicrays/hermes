@@ -87,7 +87,7 @@ void init_units(py::module &m) {
 	// Energy
 	PY_LONG_PREFIXED_UNITS("electronvolt", electronvolt);
 	PY_SHORT_PREFIXED_UNITS("eV", electronvolt);
-	u.attr("joul") = 1_J;
+	u.attr("joule") = 1_J;
 	u.attr("erg") = 1_erg;
 	
 	// Temperature

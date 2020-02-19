@@ -46,14 +46,14 @@ template<typename SKYMAP, typename QPXL, typename QSTEP>
 	    c.def_buffer([](SKYMAP &s) -> py::buffer_info {
 			    // buffer protocol: https://docs.python.org/3/c-api/buffer.html
 			    return py::buffer_info(
-					    s.data(),          /* Pointer to buffer */
-					    sizeof(QPXL),      /* Size of one scalar */
-					    py::format_descriptor<double>::format(), /* Python struct-style format descriptor */
-					    1,                 /* Number of dimensions */
-					    {s.getSize()},     /* Buffer dimensions */
-					    {sizeof(QPXL)}     /* Strides (in bytes) for each index */
-					    );
-			    });
+				    s.data(),          /* Pointer to buffer */
+				    sizeof(QPXL),      /* Size of one scalar */
+				    py::format_descriptor<double>::format(), /* Python struct-style format descriptor */
+				    1,                 /* Number of dimensions */
+				    {s.getSize()},     /* Buffer dimensions */
+				    {sizeof(QPXL)}     /* Strides (in bytes) for each index */
+				);
+			});
     }
 
 

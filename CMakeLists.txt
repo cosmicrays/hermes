@@ -93,7 +93,7 @@ list(APPEND HERMES_EXTRA_LIBRARIES ${GSL_LIBRARIES})
 
 # googletest (provided, see https://code.google.com/p/googletest/wiki/FAQ
 #     Why is it not recommended use a pre-compiled copy of Google Test?)
-option(ENABLE_TESTING "Build tests and enable test target" ON)
+option(ENABLE_TESTING "Build tests and enable test target" OFF)
 if(ENABLE_TESTING)
         include_directories(libs/gtest/googletest/include)
         add_subdirectory(libs/gtest/googletest)
