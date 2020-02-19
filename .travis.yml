@@ -27,9 +27,8 @@ matrix:
     - os : osx
       compiler: gcc
       env:
-        - CXX_COMPILER='clang++'
-        - C_COMPILER='clang++'
-        - PYTHON_EXECUTABLE=/usr/bin/python3
+        - CXX_COMPILER='g++'
+        - C_COMPILER='gcc'
         - HERMES_DATA_PATH=$TRAVIS_BUILD_DIR/build/data/
 
 before_install:
@@ -44,6 +43,12 @@ before_install:
     fi;
 
 before_script:
+
+  - |
+    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+          PYTHON_BREW_PATH=$(brew --cellar asciidoctor)/$(brew info --json asciidoctor | jq -r '.[0].installed[0].version');
+          echo $PYTHON_BREW_PATH
+    fi;
   - mkdir build
   - cd build
   - |
@@ -52,7 +57,16 @@ before_script:
       echo "Using data file from cache!"
       cp $DATAFILE .
     fi
-  - cmake .. -DENABLE_PYTHON=True -DPYTHON_EXECUTABLE=$PYTHON_EXECUTABLE -DENABLE_TESTING=On
+  - |
+          if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+                cmake .. -DENABLE_PYTHON=True -DPYTHON_EXECUTABLE=$PYTHON_EXECUTABLE \
+                -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
+                -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
+                -DPYTHON_INCLUDE_PATH=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/include \
+                -DENABLE_TESTING=On
+          else
+                cmake .. -DENABLE_PYTHON=True -DPYTHON_EXECUTABLE=$PYTHON_EXECUTABLE -DENABLE_TESTING=On
+          fi;
   - cp hermes-data.tar.gz $HOME/hermes_cache
 script:
   - make
