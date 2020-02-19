@@ -4,6 +4,7 @@ addons:
       packages:
         - gcc-9
         - g++-9
+        - libgsl-dev
         - libfftw3-dev
         - libcfitsio3-dev
         - libmuparser-dev
@@ -35,6 +36,7 @@ before_install:
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       HOMEBREW_NO_AUTO_UPDATE=1 brew install swig;
+      HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
       HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
       HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc || true;
       HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
