@@ -37,7 +37,7 @@ before_install:
       HOMEBREW_NO_AUTO_UPDATE=1 brew install python3;
       HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
       HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
-      HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc || true;
+      HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc;
       HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
       HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python;
     fi;
@@ -46,8 +46,8 @@ before_script:
 
   - |
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-          PYTHON_BREW_PATH=$(brew --cellar asciidoctor)/$(brew info --json asciidoctor | jq -r '.[0].installed[0].version');
-          echo $PYTHON_BREW_PATH
+          GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
+          PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
     fi;
   - mkdir build
   - cd build
@@ -59,7 +59,9 @@ before_script:
     fi
   - |
           if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-                cmake .. -DENABLE_PYTHON=True -DPYTHON_EXECUTABLE=$PYTHON_EXECUTABLE \
+                CC=$GCC_BREW_PATH/bin/gcc \
+                CXX=$GCC_BREW_PATH/bin/g++ \
+                cmake .. -DENABLE_PYTHON=True \
                 -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
                 -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
                 -DPYTHON_INCLUDE_PATH=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/include \
