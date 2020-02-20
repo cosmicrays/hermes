@@ -88,21 +88,19 @@ void YMW16::initParameters() {
 			P_Wid_arm_3,
 			P_Wid_arm_4,
 	};
-	
-	t3 = (Spiral){
-		.Ads = 0,
-		.Bds = 0,
-		.B2s = P_B2s,
-		.Ka  = P_Ka,
-		.Aa = P_Aa,
-		.ncn = P_ncn,
-		.wcn = P_wcn,
-		.thetacn = P_thetacn,
-		.nsg = P_nsg,
-		.wsg = P_wsg,
-		.thetasg = P_thetasg,
-	};
-	
+
+	t3.Ads = 0;
+	t3.Bds = 0;
+	t3.B2s = P_B2s;
+	t3.Ka  = P_Ka;
+	t3.Aa = P_Aa;
+	t3.ncn = P_ncn;
+	t3.wcn = P_wcn;
+	t3.thetacn = P_thetacn;
+	t3.nsg = P_nsg;
+	t3.wsg = P_wsg;
+	t3.thetasg = P_thetasg;
+
 	for(int i = 0; i < 5; ++i) {
 		t3.narm[i] = Ele_arm[i];
 		t3.warm[i] = Wid_arm[i];
