@@ -302,7 +302,8 @@ void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<Output> output) const {
 	std::vector<float> tempArray; // allocate on heap, because of nside >= 512
 	for (auto i: fluxContainer)
 		tempArray.push_back(
-				static_cast<float>(toSkymapDefaultUnits(i))
+				//static_cast<float>(toSkymapDefaultUnits(i))
+				static_cast<float>(i)
 			);
 
 	output->writeColumn(npix, tempArray.data());

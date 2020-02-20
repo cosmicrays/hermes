@@ -45,6 +45,9 @@ template<typename SKYMAP, typename QPXL, typename QSTEP>
 	    c.def("__getitem__", [](const SKYMAP &s, std::size_t i) -> QPXL {
             		if (i >= s.size()) throw py::index_error();
             			return s[i]; });
+	    c.def("__len__", &SKYMAP::size);
+	    c.def("__iter__", [](const SKYMAP &s) { return py::make_iterator(s.begin(), s.end()); },
+                         py::keep_alive<0, 1>() /* Essential: keep object alive while iterator exists */);
 	    c.def_buffer([](SKYMAP &s) -> py::buffer_info {
 			    // buffer protocol: https://docs.python.org/3/c-api/buffer.html
 			    return py::buffer_info(
@@ -88,6 +91,8 @@ void init_skymaps(py::module &m) {
 		.def(py::init<const QAngle &, const QAngle &, const QAngle &, const QAngle &>(),
 				py::arg("lat_top"), py::arg("lat_bottom"),
 				py::arg("long_left"), py::arg("long_right"));
+	py::class_<CircularWindow, std::shared_ptr<CircularWindow>, SkymapMask>(m, "CircularWindow")
+		.def(py::init<const QDirection &, const QAngle &>(), py::arg("centre"), py::arg("aperature"));
 
 }
 

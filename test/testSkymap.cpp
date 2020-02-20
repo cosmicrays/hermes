@@ -62,6 +62,19 @@ TEST(SkymapMask, RectangularWindow) {
 	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);	
 }
 
+TEST(SkymapMask, CircularWindow) {
+	int nside = 12;
+	
+	auto dir1 = QDirection({60_deg, 120_deg});
+	auto dir2 = QDirection({-30_deg, 0_deg});
+
+	auto mask = std::make_shared<CircularWindow>(CircularWindow(
+			QDirection{-20_deg, 0_deg}, 15_deg));
+
+	EXPECT_FALSE(mask->isAllowed(dir1));
+	EXPECT_TRUE(mask->isAllowed(dir2));
+}
+
 int main(int argc, char **argv) {
         ::testing::InitGoogleTest(&argc, argv);
         return RUN_ALL_TESTS();

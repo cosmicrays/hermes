@@ -41,7 +41,7 @@ void declare_quantity(py::module &m, std::string const & typestr, std::string co
 			streamBuffer << std::scientific << static_cast<double>(q);
 	         return streamBuffer.str() + " " + suffix.c_str(); })
 	.def("__float__", [](const Q &q) { return static_cast<double>(q); })
-	.def("toApy",
+	.def("toAstroPy",
 		[apyu, suffix](const Q &q) {
 			if (apyu.enabled)
 				return apyu.q(static_cast<double>(q), suffix);

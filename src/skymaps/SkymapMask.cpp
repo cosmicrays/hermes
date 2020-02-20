@@ -1,6 +1,5 @@
 #include "hermes/skymaps/SkymapMask.h"
-
-#include <iostream>
+#include "hermes/Vector3.h"
 
 namespace hermes {
 
@@ -14,6 +13,12 @@ std::string SkymapMask::getDescription() const {
 
 void SkymapMask::setDescription(const std::string &description_) {
         description = description_;
+}
+
+QAngle SkymapMask::normalizeAngle(QAngle angle) const {
+	while (angle < -180_deg) angle += 360_deg;
+	while (angle >  180_deg) angle -= 360_deg;
+	return angle;
 }
 
 std::vector<bool> SkymapMask::getMask(std::size_t nside) {
@@ -30,6 +35,7 @@ std::vector<bool> SkymapMask::getMask(std::size_t nside) {
 	return maskContainer;
 }
 
+/* RectangularWindows class */
 RectangularWindow::RectangularWindow(const QAngle &b_top_, const QAngle &b_bottom_,
 			const QAngle &l_left_, const QAngle &l_right_) {
       	theta_open  = 90_deg - b_top_;
@@ -41,14 +47,8 @@ RectangularWindow::RectangularWindow(const QAngle &b_top_, const QAngle &b_botto
 	phi_close = normalizeAngle(phi_close);
 }
 
-QAngle RectangularWindow::normalizeAngle(QAngle angle) {
-	while (angle < -180_deg) angle += 360_deg;
-	while (angle >  180_deg) angle -= 360_deg;
-	return angle;
-}
-
 bool RectangularWindow::isAngleBetween(
-		const QAngle &testAngle, QAngle first, QAngle last) {
+		const QAngle &testAngle, QAngle first, QAngle last) const {
 	first -= testAngle;
 	last  -= testAngle;
 	first = normalizeAngle(first);
@@ -58,14 +58,27 @@ bool RectangularWindow::isAngleBetween(
 	return fabs(first - last) < 180_deg;
 }
 
-
-
-bool RectangularWindow::isAllowed(const QDirection &dir_) {
+bool RectangularWindow::isAllowed(const QDirection &dir_) const {
 	if (isAngleBetween(dir_[0], theta_open, theta_close))
 		if(isAngleBetween(dir_[1], phi_open, phi_close))
 			return true;
 	return false;
 }	
 
+/* CircularWindows class */
+CircularWindow::CircularWindow(const QDirection &centre_, const QAngle &aperature_) :
+		centre(centre_), aperature(aperature_) {
+	centre[0] = normalizeAngle(centre[0]);
+	centre[1] = normalizeAngle(centre[1]);
+}
+
+bool CircularWindow::isAllowed(const QDirection &dir) const {
+	Vector3d v1, v2;
+	v1.setRThetaPhi(1, dir[0], dir[1]);
+	v2.setRThetaPhi(1, centre[0], centre[1]);
+	if (v1.getAngleTo(v2) <= aperature)
+			return true;
+	return false;
+}
 
 } // namespace hermes
