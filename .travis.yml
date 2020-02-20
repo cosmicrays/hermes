@@ -70,6 +70,8 @@ before_script:
           if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
                 CC=$GCC_BREW_PATH/bin/gcc \
                 CXX=$GCC_BREW_PATH/bin/g++ \
+                CMAKE_C_COMPILER=$GCC_BREW_PATH/bin/gcc \
+                CMAKE_CXX_COMPILER=$GCC_BREW_PATH/bin/g++ \
                 cmake .. -DENABLE_PYTHON=True \
                 -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
                 -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \

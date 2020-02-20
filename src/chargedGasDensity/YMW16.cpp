@@ -89,7 +89,7 @@ void YMW16::initParameters() {
 			P_Wid_arm_4,
 	};
 	
-	t3 = {
+	t3 = (Spiral){
 		.Ads = 0,
 		.Bds = 0,
 		.B2s = P_B2s,
@@ -102,6 +102,7 @@ void YMW16::initParameters() {
 		.wsg = P_wsg,
 		.thetasg = P_thetasg,
 	};
+	
 	for(int i = 0; i < 5; ++i) {
 		t3.narm[i] = Ele_arm[i];
 		t3.warm[i] = Wid_arm[i];

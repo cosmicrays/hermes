@@ -194,7 +194,6 @@ private:
 		double nsg;
 		double wsg;
 		double thetasg;
-
 	} t3;
 
 	struct GC
