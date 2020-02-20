@@ -185,9 +185,7 @@ TEST(InverseComptonIntegrator, initCacheTable) {
 
 TEST(InverseComptonIntegrator, PerformanceTest) {
 	std::vector<PID> particletypes = {Electron, Positron};
-	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(
-				getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz"),
-				particletypes)); 
+	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(particletypes)); 
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<CMB>(CMB()); 
