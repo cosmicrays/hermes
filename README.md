@@ -5,7 +5,7 @@
 
 ## About
 
-![gamma sky map from pi0](https://github.com/adundovi/hermes/raw/master/doc/hermes-pizero-example.png)
+![gamma sky map from pi0](https://github.com/cosmicrays/hermes/raw/master/doc/hermes-pizero-example.png)
 
 **HERMES** is a publicly available computational framework for the line of sight integration which creates sky maps in the [HEALPix](https://healpix.jpl.nasa.gov/)-compatibile format of various galactic radiative processes including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The name is an acronym for "High-Energy Radiative MESsangers".
 
@@ -38,7 +38,7 @@ source $HERMES_DIR/bin/activate
 ```
 Once the environment is activated, clone the repository and build it with cmake:
 ```sh
-git clone https://github.com/adundovi/hermes.git
+git clone https://github.com/cosmicrays/hermes.git
 cd hermes
 mkdir build
 cd build
