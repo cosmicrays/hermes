@@ -2,6 +2,7 @@
 #define HERMES_SKYMAPMASK_H
 
 #include "hermes/HEALPixBits.h"
+#include "hermes/Vector3.h"
 
 #include <memory>
 #include <vector>
@@ -54,6 +55,7 @@ public:
 class CircularWindow: public SkymapMask {
 private:
 	QDirection centre;
+	Vector3d v_centre;
 	QAngle aperature;
 public:
 	CircularWindow(const QDirection &centre, const QAngle &aperature);

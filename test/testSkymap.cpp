@@ -71,8 +71,8 @@ TEST(SkymapMask, CircularWindow) {
 	auto mask = std::make_shared<CircularWindow>(CircularWindow(
 			QDirection{-20_deg, 0_deg}, 15_deg));
 
-	EXPECT_FALSE(mask->isAllowed(dir1));
-	EXPECT_TRUE(mask->isAllowed(dir2));
+	EXPECT_FALSE(mask->isAllowed(fromGalCoord(dir1)));
+	EXPECT_TRUE(mask->isAllowed(fromGalCoord(dir2)));
 }
 
 int main(int argc, char **argv) {

@@ -1,5 +1,5 @@
 #include "hermes/skymaps/SkymapMask.h"
-#include "hermes/Vector3.h"
+#include "hermes/Common.h"
 
 namespace hermes {
 
@@ -35,7 +35,7 @@ std::vector<bool> SkymapMask::getMask(std::size_t nside) {
 	return maskContainer;
 }
 
-/* CircularWindows class */
+/* InvertWindows class */
 InvertMask::InvertMask(const std::shared_ptr<SkymapMask> mask_) : mask(mask_) { 
 }
 
@@ -92,15 +92,14 @@ bool RectangularWindow::isAllowed(const QDirection &dir_) const {
 /* CircularWindows class */
 CircularWindow::CircularWindow(const QDirection &centre_, const QAngle &aperature_) :
 		centre(centre_), aperature(aperature_) {
-	centre[0] = normalizeAngle(centre[0]);
-	centre[1] = normalizeAngle(centre[1]);
+	centre = fromGalCoord(centre);
+	v_centre.setRThetaPhi(1, centre[0], centre[1]);
 }
 
 bool CircularWindow::isAllowed(const QDirection &dir) const {
-	Vector3d v1, v2;
-	v1.setRThetaPhi(1, dir[0], dir[1]);
-	v2.setRThetaPhi(1, centre[0], centre[1]);
-	if (v1.getAngleTo(v2) <= aperature)
+	Vector3d v;
+	v.setRThetaPhi(1, dir[0], dir[1]);
+	if (v.getAngleTo(v_centre) <= aperature)
 			return true;
 	return false;
 }

@@ -16,7 +16,7 @@ namespace hermes {
 
 Dragon2DCRDensity::Dragon2DCRDensity() :
 	CosmicRayDensity(true),
-	filename(getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz")) {
+	filename(getDataPath("CosmicRays/Fornieri20/run2d_gamma_D03,7_delta0,45_vA13.fits.gz")) {
 	readFile();
 }	
 
@@ -29,7 +29,7 @@ Dragon2DCRDensity::Dragon2DCRDensity(
 
 Dragon2DCRDensity::Dragon2DCRDensity(const std::vector<PID> &pids_) :
 	CosmicRayDensity(true),
-	filename(getDataPath("CosmicRays/Gaggero17/run_2D.fits.gz")) {
+	filename(getDataPath("CosmicRays/Fornieri20/run2d_gamma_D03,7_delta0,45_vA13.fits.gz")) {
 	for(auto const& p: pids_)
 		enablePID(p);
 	readFile();
