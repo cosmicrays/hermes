@@ -35,6 +35,30 @@ std::vector<bool> SkymapMask::getMask(std::size_t nside) {
 	return maskContainer;
 }
 
+/* CircularWindows class */
+InvertMask::InvertMask(const std::shared_ptr<SkymapMask> mask_) : mask(mask_) { 
+}
+
+bool InvertMask::isAllowed(const QDirection &dir) const {
+	return !mask->isAllowed(dir);
+}
+
+/* MaskList class */
+MaskList::MaskList() { }
+
+void MaskList::addMask(const std::shared_ptr<SkymapMask> mask_) {
+	list.push_back(mask_);
+}
+
+bool MaskList::isAllowed(const QDirection &dir) const {
+	for(auto &m: list) {
+		if (!m->isAllowed(dir))
+			return false;	
+	}
+	return true;
+}
+
+
 /* RectangularWindows class */
 RectangularWindow::RectangularWindow(const QAngle &b_top_, const QAngle &b_bottom_,
 			const QAngle &l_left_, const QAngle &l_right_) {

@@ -22,6 +22,24 @@ public:
         void setDescription(const std::string &description);
 };
 
+class InvertMask: public SkymapMask {
+private:
+	std::shared_ptr<SkymapMask> mask;
+public:
+	InvertMask(const std::shared_ptr<SkymapMask> mask);
+	bool isAllowed(const QDirection &dir) const;
+};
+
+class MaskList: public SkymapMask {
+private:
+	std::vector<std::shared_ptr<SkymapMask>> list;
+public:
+	MaskList();
+	void addMask(const std::shared_ptr<SkymapMask> mask);
+	bool isAllowed(const QDirection &dir) const;
+};
+
+
 class RectangularWindow: public SkymapMask {
 private:
 	QAngle theta_open, theta_close, phi_open, phi_close;

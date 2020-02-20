@@ -86,6 +86,11 @@ void init_skymaps(py::module &m) {
 
 	// Skymap Masks
 	py::class_<SkymapMask, std::shared_ptr<SkymapMask>>(m, "SkymapMask");
+	py::class_<InvertMask, std::shared_ptr<InvertMask>, SkymapMask>(m, "InvertMask")
+		.def(py::init<const std::shared_ptr<SkymapMask>>(), py::arg("mask"));
+	py::class_<MaskList, std::shared_ptr<MaskList>, SkymapMask>(m, "MaskList")
+		.def(py::init<>())
+		.def("addMask", &MaskList::addMask);
 	// in galactic coordinates: b=(-90_deg, 90_deg), l=(-180_deg, 180_deg)
 	py::class_<RectangularWindow, std::shared_ptr<RectangularWindow>, SkymapMask>(m, "RectangularWindow")
 		.def(py::init<const QAngle &, const QAngle &, const QAngle &, const QAngle &>(),
