@@ -84,12 +84,14 @@ void init_quantity(py::module &m) {
 	declare_quantity<QEPotential>(m, "QEPotential", "V", apyu);
 	declare_quantity<QEResistance>(m, "QEResistance", "Ohm", apyu);
 	declare_quantity<QEnergy>(m, "QEnergy", "J", apyu);
+	declare_quantity<QEnergyDensity>(m, "QEnergyDensity", "J m^-3", apyu);
 	declare_quantity<QEnergyOverTemperature>(m, "QEnergyOverTemperature", "J K^-1", apyu);
 	declare_quantity<QForce>(m, "QForce", "N", apyu);
 	declare_quantity<QFrequency>(m, "QFrequency", "Hz", apyu);
 	declare_quantity<QMField>(m, "QMField", "T", apyu);
+	declare_quantity<QPDensityPerEnergy>(m, "QPDensityPerEnergy", "m^-3 J^-1", apyu);
 	declare_quantity<QPower>(m, "QPower", "W", apyu);
-	declare_quantity<QPressure>(m, "QPressure", "Pa", apyu);
+	//declare_quantity<QPressure>(m, "QPressure", "Pa", apyu);
 	declare_quantity<QRotationMeasure>(m, "QRotationMeasure", "rad m^-2", apyu);
 	declare_quantity<QSpeed>(m, "QSpeed", "m s^-1", apyu);
 	declare_quantity<QVolume>(m, "QVolume", "m^3", apyu);

@@ -2,6 +2,7 @@
 #include <pybind11/stl.h>
 
 #include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/DummyCrossSection.h"
 #include "hermes/interactions/KleinNishina.h"
 #include "hermes/interactions/BremsstrahlungSimple.h"
 #include "hermes/interactions/Kamae06.h"
@@ -14,6 +15,8 @@ void init_interactions(py::module &m) {
 
     // charged gas density models
     py::class_<DifferentialCrossSection, std::shared_ptr<DifferentialCrossSection>>(m, "DifferentialCrossSection");
+    py::class_<DummyCrossSection, std::shared_ptr<DummyCrossSection>, DifferentialCrossSection>(m, "DummyCrossSection")
+	      .def(py::init<const QDifferentialCrossSection &>(), py::arg("constant"));
     py::class_<KleinNishina, std::shared_ptr<KleinNishina>, DifferentialCrossSection>(m, "KleinNishina")
 	      .def(py::init<>())
 	      .def("getDiffCrossSection",

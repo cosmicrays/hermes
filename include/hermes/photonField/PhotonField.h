@@ -48,6 +48,10 @@ public:
 	double getEnergyScaleFactor() const {
 		return energyScaleFactor;
 	}
+	
+	tEnergyRange getEnergyAxis() const {
+		return energyRange;
+	}
         
 	iterator begin() {
 		return energyRange.begin();	

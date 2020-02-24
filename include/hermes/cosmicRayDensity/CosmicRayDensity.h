@@ -26,11 +26,15 @@ public:
 				[E_](const auto &a) {return a == E_;});
 		return std::distance(begin(), it);
 	}
-	bool existsScaleFactor() {
+	bool existsScaleFactor() const {
 		return scaleFactorFlag;
 	}
-	double getEnergyScaleFactor() {
+	double getEnergyScaleFactor() const {
 		return energyScaleFactor;
+	}
+
+	tEnergyRange getEnergyAxis() const {
+		return energyRange;
 	}
 
         iterator begin() {

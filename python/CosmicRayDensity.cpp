@@ -23,7 +23,8 @@ void init_cosmic_ray_density(py::module &m) {
 
     // charged gas density models
     py::class_<CosmicRayDensity, std::shared_ptr<CosmicRayDensity>>(m, "CosmicRayDensity")
-	      .def("getDensityPerEnergy", &CosmicRayDensity::getDensityPerEnergy);
+	      .def("getDensityPerEnergy", &CosmicRayDensity::getDensityPerEnergy)
+	      .def("getEnergyAxis", &CosmicRayDensity::getEnergyAxis);
     py::class_<SimpleCRDensity, std::shared_ptr<SimpleCRDensity>, CosmicRayDensity>(m, "SimpleCRDensity")
 	      .def(py::init<>())
 	      .def("getDensityPerEnergy", &SimpleCRDensity::getDensityPerEnergy);
@@ -36,8 +37,10 @@ void init_cosmic_ray_density(py::module &m) {
     py::class_<Dragon2DCRDensity, std::shared_ptr<Dragon2DCRDensity>, CosmicRayDensity>(m, "Dragon2DCRDensity")
 	      .def(py::init<>())
 	      .def(py::init<const std::vector<PID>>())
-	      .def(py::init<const std::string, const std::vector<PID>>());
-	      //.def("getDensityPerEnergy", &Dragon2DCRDensity::getDensityPerEnergy);
+	      .def(py::init<const std::string, const std::vector<PID>>())
+	      .def("getDensityPerEnergy", (QPDensityPerEnergy (Dragon2DCRDensity::*)
+			      (const QEnergy &, const Vector3QLength &) const)
+			      &Dragon2DCRDensity::getDensityPerEnergy);
 	      
 }
 

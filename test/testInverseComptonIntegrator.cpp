@@ -6,23 +6,10 @@
 
 namespace hermes {
 
-class DummyCrossSection : public DifferentialCrossSection {
-public:
-	DummyCrossSection() { };
-	QDifferentialCrossSection getDiffCrossSection(
-			const QEnergy &E_photon,
-			const QEnergy &E_gamma) const { return QDifferentialCrossSection(0); };
-
-	QDifferentialCrossSection getDiffCrossSection(
-			const QEnergy &E_electron,
-			const QEnergy &E_photon,
-			const QEnergy &E_gamma) const { return QDifferentialCrossSection(1); };
-};
-
-/* Analytical integral over CMB with constant CS */
+/* Analytical integral over CMB with constant cross-section */
 TEST(InverseComptonIntegrator, integrateOverPhotonEnergyCMB) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
-	auto dummyCS = std::make_shared<DummyCrossSection>(DummyCrossSection());
+	auto dummyCS = std::make_shared<DummyCrossSection>(DummyCrossSection(1));
 	auto photonField = std::make_shared<CMB>(CMB());
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, dummyCS));
@@ -41,6 +28,7 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergyCMB) {
 			static_cast<double>(analytical_res * 1_cm3), 3);
 }
 
+/* Integral over photon field energy with Klein-Nishina */
 TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
@@ -49,12 +37,18 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
 
         Vector3QLength pos(0);
-	QEnergy Egamma = 10_GeV;
-        QEnergy Eelectron = 1_TeV;
+	QEnergy Egamma = 1_GeV;
+        QEnergy Eelectron = 1e14_eV;
+	
+	QTemperature T_CMB = 2.725_K;
+	QDifferentialCrossSection sigma(1e-34);
+	auto analytical_res = sigma * 16_pi * pow<3>(k_boltzmann * T_CMB/(c_light * h_planck)) 
+			 * 1.20206; // Zeta_f(3) = 1.20206
 
 	auto res = intIC->integrateOverPhotonEnergy(pos, Egamma, Eelectron);
 	
-//	EXPECT_NEAR(static_cast<double>(res), 5.36e-61, 2e-61);
+	EXPECT_NEAR(static_cast<double>(res),
+			static_cast<double>(analytical_res), 1e-34);
 }
 
 TEST(InverseComptonIntegrator, integrateOverEnergy) {
