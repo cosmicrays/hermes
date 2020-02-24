@@ -27,6 +27,12 @@ void init_cosmic_ray_density(py::module &m) {
     py::class_<SimpleCRDensity, std::shared_ptr<SimpleCRDensity>, CosmicRayDensity>(m, "SimpleCRDensity")
 	      .def(py::init<>())
 	      .def("getDensityPerEnergy", &SimpleCRDensity::getDensityPerEnergy);
+    py::class_<Sun08CRDensity, std::shared_ptr<Sun08CRDensity>, CosmicRayDensity>(m, "Sun08CRDensity")
+	      .def(py::init<>())
+	      .def("getDensityPerEnergy", &Sun08CRDensity::getDensityPerEnergy);
+    py::class_<WMAP07CRDensity, std::shared_ptr<WMAP07CRDensity>, CosmicRayDensity>(m, "WMAP07CRDensity")
+	      .def(py::init<>())
+	      .def("getDensityPerEnergy", &WMAP07CRDensity::getDensityPerEnergy);
     py::class_<Dragon2DCRDensity, std::shared_ptr<Dragon2DCRDensity>, CosmicRayDensity>(m, "Dragon2DCRDensity")
 	      .def(py::init<>())
 	      .def(py::init<const std::vector<PID>>())

@@ -5,10 +5,10 @@ namespace hermes {
 
 KleinNishina::KleinNishina() { }
 
-QDiffCrossSection KleinNishina::getDiffCrossSection(
+QDifferentialCrossSection KleinNishina::getDiffCrossSection(
                 const QEnergy &E_proton,
                 const QEnergy &E_gamma) const {
-	return QDiffCrossSection(0);
+	return QDifferentialCrossSection(0);
 }
 
 void KleinNishina::setCacheStorage(std::unique_ptr<CacheStorageKN> cache_) {
@@ -19,7 +19,7 @@ void KleinNishina::setCacheStorage(std::unique_ptr<CacheStorageKN> cache_) {
 	cache->setFunction(f);
 };
 
-QDiffCrossSection KleinNishina::getDiffCrossSectionFromCache(
+QDifferentialCrossSection KleinNishina::getDiffCrossSectionFromCache(
 		const QEnergy &E_electron,
 		const QEnergy &E_photon,
 		const QEnergy &E_gamma) const {
@@ -28,7 +28,7 @@ QDiffCrossSection KleinNishina::getDiffCrossSectionFromCache(
 	return getDiffCrossSection(E_electron, E_photon, E_gamma);
 }
 
-QDiffCrossSection KleinNishina::getDiffCrossSection(
+QDifferentialCrossSection KleinNishina::getDiffCrossSection(
 		const QEnergy &E_electron,
 		const QEnergy &E_photon,
 		const QEnergy &E_gamma) const {
@@ -40,7 +40,7 @@ QDiffCrossSection KleinNishina::getDiffCrossSection(
 	QNumber q = (x_out / x_in) / (4*eLSquared) * (QNumber(1) + 4*x_in*electronLorentz);
 
 	if (q < 1.0/(4*eLSquared) || q > QNumber(1))
-		return QDiffCrossSection(0);
+		return QDifferentialCrossSection(0);
 
 	return 2_pi*pow<2>(r_electron)/(E_photon*eLSquared) * 
 		(2*q*log(q) + (QNumber(1)+2*q)*(QNumber(1)-q) +

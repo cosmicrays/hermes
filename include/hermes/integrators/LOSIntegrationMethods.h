@@ -32,6 +32,20 @@ QPXL sumIntegration(std::function<INTTYPE(QLength)> f,
 
 // dim(QPXL) = dim(INTTYPE) * dim(L)
 template <typename QPXL, typename INTTYPE>
+QPXL trapesoidIntegration(std::function<INTTYPE(QLength)> f,
+		QLength start, QLength stop, int N = 100) {
+	
+	QLength delta_d = (stop-start)/N;
+
+	QPXL total(0);
+	for(QLength dist = start; dist <= stop - delta_d; dist += delta_d) {
+		total += (f(dist) + f(dist+delta_d))/2. * delta_d;
+	}
+	return total;
+}
+
+// dim(QPXL) = dim(INTTYPE) * dim(L)
+template <typename QPXL, typename INTTYPE>
 QPXL simpsonIntegration(std::function<INTTYPE(QLength)> f,
 		QLength start, QLength stop, int N = 100) {
 	

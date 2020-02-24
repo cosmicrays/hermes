@@ -28,6 +28,10 @@ public:
 
 	void setIntegrator(std::shared_ptr<IntegratorTemplate<QDifferentialIntensity, QEnergy> > integrator_);
 	void setMask(std::shared_ptr<SkymapMask> mask_);
+	
+	std::size_t size() const;
+	GammaSkymap operator[](std::size_t ipix) const;
+
 	void compute();
        
 	/** output **/

@@ -249,8 +249,8 @@ public:
 };
 
 typedef CacheStorageWith3Args<int,int,QEnergy,QICOuterIntegral> CacheStorageIC;
-typedef CacheStorageWith2Args<QEnergy,QEnergy,QDiffCrossSection> CacheStorageKamae;
-typedef CacheStorageWith3Args<QEnergy,QEnergy,QEnergy,QDiffCrossSection> CacheStorageKN;
+typedef CacheStorageWith2Args<QEnergy,QEnergy,QDifferentialCrossSection> CacheStorageKamae;
+typedef CacheStorageWith3Args<QEnergy,QEnergy,QEnergy,QDifferentialCrossSection> CacheStorageKN;
 
 } // namespace hermes
 

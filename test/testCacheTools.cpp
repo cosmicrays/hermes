@@ -25,7 +25,7 @@ TEST(CacheTools, KleinNishina) {
 	auto f_kn = std::make_shared<KleinNishina>(KleinNishina());
 	f_kn->setCacheStorage(std::move(cache));
 
-	QDiffCrossSection integral(0);
+	QDifferentialCrossSection integral(0);
 	QEnergy E_electron = 100_TeV;
 	QEnergy E_photon = 6.626e-4_eV;
 	QEnergy E_gamma = 1_TeV;
@@ -52,7 +52,7 @@ TEST(CacheTools, Kamae06) {
 	auto f_kn = std::make_shared<Kamae06>(Kamae06());
 	f_kn->setCacheStorage(std::move(cache));
 
-	QDiffCrossSection integral(0);
+	QDifferentialCrossSection integral(0);
 	QEnergy E_proton = 100_TeV;
 	QEnergy E_gamma = 1_TeV;
    	

@@ -18,16 +18,16 @@ public:
 	void setCacheStorage(
 		std::unique_ptr<CacheStorageKN> cache);
 	// not used
-	QDiffCrossSection getDiffCrossSection(
+	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_photon,
 			const QEnergy &E_gamma) const;
 
-	QDiffCrossSection getDiffCrossSection(
+	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_electron,
 			const QEnergy &E_photon,
 			const QEnergy &E_gamma) const;
 
-	QDiffCrossSection getDiffCrossSectionFromCache(
+	QDifferentialCrossSection getDiffCrossSectionFromCache(
 		const QEnergy &E_electron,
 		const QEnergy &E_photon,
 		const QEnergy &E_gamma) const;

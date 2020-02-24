@@ -9,9 +9,13 @@ class DifferentialCrossSection {
 public:
 	DifferentialCrossSection() { }
 	~DifferentialCrossSection() { }
-	virtual QDiffCrossSection getDiffCrossSection(
+	virtual QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_proton,
 			const QEnergy &E_gamma) const = 0;
+        virtual QDifferentialCrossSection getDiffCrossSection(
+                        const QEnergy &E_electron,
+                        const QEnergy &E_photon,
+                        const QEnergy &E_gamma) const = 0;
 };
 
 } // namespace hermes

@@ -51,7 +51,6 @@ void declare_quantity(py::module &m, std::string const & typestr, std::string co
 void init_quantity(py::module &m) {
 
 	AstroPy apyu;	
-
 	try {
 		py::object astropyunits = py::module::import("astropy.units");
 		apyu.q = astropyunits.attr("Quantity");
@@ -72,16 +71,20 @@ void init_quantity(py::module &m) {
 	declare_quantity<QLIntensity>(m, "QLIntensity", "cd", apyu);
 	declare_quantity<QAngle>(m, "QAngle", "rad", apyu);
 	declare_quantity<QSolidAngle>(m, "QSolidAngle", "sr", apyu);
+
 	// |- derived
-	declare_quantity<QAMomentum>(m, "QAMomentum", "kg m^2 s^-1", apyu);
+	declare_quantity<QAngularMomentum>(m, "QAngularMomentum", "kg m^2 s^-1", apyu);
 	declare_quantity<QArea>(m, "QArea", "m^2", apyu);
-	declare_quantity<QDiffCrossSection>(m, "QDiffCrossSection", "m^2 J^-1", apyu);
+	declare_quantity<QDifferentialCrossSection>(m, "QDiffCrossSection", "m^2 J^-1", apyu);
+	declare_quantity<QDifferentialFlux>(m, "QDifferentialFlux", "J^-1 m^-2 s^-1", apyu);
+	declare_quantity<QDifferentialIntensity>(m, "QDifferentialIntensity", "J^-1 m^-2 s^-1 sr^-1", apyu);
 	declare_quantity<QDispersionMeasure>(m, "QDispersionMeasure", "m^-2", apyu);
 	declare_quantity<QECapacitance>(m, "QECapacitance", "F", apyu);
 	declare_quantity<QECharge>(m, "QECharge", "C", apyu);
 	declare_quantity<QEPotential>(m, "QEPotential", "V", apyu);
 	declare_quantity<QEResistance>(m, "QEResistance", "Ohm", apyu);
 	declare_quantity<QEnergy>(m, "QEnergy", "J", apyu);
+	declare_quantity<QEnergyOverTemperature>(m, "QEnergyOverTemperature", "J K^-1", apyu);
 	declare_quantity<QForce>(m, "QForce", "N", apyu);
 	declare_quantity<QFrequency>(m, "QFrequency", "Hz", apyu);
 	declare_quantity<QMField>(m, "QMField", "T", apyu);
@@ -90,6 +93,7 @@ void init_quantity(py::module &m) {
 	declare_quantity<QRotationMeasure>(m, "QRotationMeasure", "rad m^-2", apyu);
 	declare_quantity<QSpeed>(m, "QSpeed", "m s^-1", apyu);
 	declare_quantity<QVolume>(m, "QVolume", "m^3", apyu);
+
 	// |- direction
 	py::class_<QDirection>(m, "QDirection")
 		.def(py::init<const QAngle &, const QAngle &>());

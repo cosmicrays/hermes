@@ -14,7 +14,7 @@ private:
 	const QEnergy E_start = getStartEnergy();
 	const QEnergy E_end = getEndEnergy();
 	
-	for(QEnergy E = E_start; E < E_end; E = E * scaling)  
+	for(auto E = E_start; E < E_end; E = E * scaling)  
     		energyRange.push_back(E);
     }
 
@@ -25,9 +25,9 @@ private:
 
 public:
     CMB() {
-	setEnergyScaleFactor(1.1);
-    	setStartEnergy(1e10_Hz*h_planck);
-    	setEndEnergy(1e12_Hz*h_planck);
+	setEnergyScaleFactor(1.01);
+    	setStartEnergy(1.0e9_Hz*h_planck);
+    	setEndEnergy(1.0e12_Hz*h_planck);
 	buildEnergyRange();
     	precomputeValues();
     }
@@ -35,12 +35,18 @@ public:
     QEnergyDensity getEnergyDensity(
 		    const Vector3QLength &pos,
 		    const QEnergy &E_photon) const {
-
+	const QTemperature T_CMB(2.725);
         QFrequency nu = E_photon / h_planck;
-	QTemperature T_CMB = 2.725_K;
-    	return (8_pi*h_planck * pow<4>(nu)) /
+    
+    	return getPlanckSpectralEnergyDensity(nu, T_CMB) * nu;
+    }
+
+    QSpectralEnergyDensity getPlanckSpectralEnergyDensity(
+		    const QFrequency &nu, const QTemperature &T) const {
+
+    	return (8.0_pi * h_planck * pow<3>(nu)) /
 		pow<3>(c_light) /
-		(exp(h_planck*nu / (k_boltzmann * T_CMB)) - 1.);
+		(exp(h_planck*nu / (k_boltzmann * T)) - 1.);
     }
 
     QEnergyDensity getEnergyDensity(

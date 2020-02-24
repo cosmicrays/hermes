@@ -41,10 +41,13 @@ template<typename SKYMAP, typename QPXL, typename QSTEP>
 	    c.def("computePixel", &SKYMAP::computePixel);
 	    c.def("computePixelRange", &SKYMAP::computePixelRange);
 	    c.def("getPixel", &SKYMAP::getPixel);
+	    c.def("getMean", &SKYMAP::getMean);
 	    c.def("save", &SKYMAP::save);
 	    c.def("__getitem__", [](const SKYMAP &s, std::size_t i) -> QPXL {
             		if (i >= s.size()) throw py::index_error();
             			return s[i]; });
+	    c.def("size", &SKYMAP::size);
+	    c.def("getUnmaskedPixelCount", &SKYMAP::getUnmaskedPixelCount);
 	    c.def("__len__", &SKYMAP::size);
 	    c.def("__iter__", [](const SKYMAP &s) { return py::make_iterator(s.begin(), s.end()); },
                          py::keep_alive<0, 1>() /* Essential: keep object alive while iterator exists */);
@@ -77,12 +80,30 @@ void init_skymaps(py::module &m) {
 	// RadioSkymap
 	py::class_<RadioSkymap, std::shared_ptr<RadioSkymap>> radioskymap(m, "RadioSkymap", py::buffer_protocol());
 	radioskymap.def(py::init<const std::size_t, const QFrequency &>(), py::arg("nside"), py::arg("frequency")); // constructor
+	radioskymap.def("getFrequency", &RadioSkymap::getFrequency);
 	declare_default_skymap_methods<RadioSkymap, QTemperature, QFrequency>(radioskymap);
 
-	//GammaSkymap
+	// GammaSkymap
 	py::class_<GammaSkymap, std::shared_ptr<GammaSkymap>> gammaskymap(m, "GammaSkymap", py::buffer_protocol());
 	gammaskymap.def(py::init<const std::size_t, const QEnergy &>(), py::arg("nside"), py::arg("Egamma")); // constructor
+	gammaskymap.def("getEnergy", &GammaSkymap::getEnergy);
 	declare_default_skymap_methods<GammaSkymap, QDifferentialIntensity, QEnergy>(gammaskymap);
+
+	// GammaSkymapRange
+	py::class_<GammaSkymapRange, std::shared_ptr<GammaSkymapRange>>(m, "GammaSkymapRange")
+		.def(py::init<std::size_t, const QEnergy &, const QEnergy &, int>(),
+			py::arg("nside"), py::arg("Emin"), py::arg("Emax"), py::arg("E_steps"))
+	    	.def("setIntegrator", [](GammaSkymapRange &s,
+					std::shared_ptr<IntegratorTemplate<QDifferentialIntensity, QEnergy>> i) { s.setIntegrator(i); })
+	    	.def("setMask", &GammaSkymapRange::setMask)
+	    	.def("compute", &GammaSkymapRange::compute)
+	    	.def("save", &GammaSkymapRange::save)
+	    	.def("__getitem__", [](const GammaSkymapRange &s, std::size_t i) -> GammaSkymap {
+            		if (i >= s.size()) throw py::index_error();
+            			return s[i]; })
+	    	.def("__len__", &GammaSkymapRange::size)
+	    	.def("__iter__", [](const GammaSkymapRange &s) { return py::make_iterator(s.begin(), s.end()); },
+                         py::keep_alive<0, 1>() /* Essential: keep object alive while iterator exists */);
 
 	// Skymap Masks
 	py::class_<SkymapMask, std::shared_ptr<SkymapMask>>(m, "SkymapMask");
@@ -93,9 +114,8 @@ void init_skymaps(py::module &m) {
 		.def("addMask", &MaskList::addMask);
 	// in galactic coordinates: b=(-90_deg, 90_deg), l=(-180_deg, 180_deg)
 	py::class_<RectangularWindow, std::shared_ptr<RectangularWindow>, SkymapMask>(m, "RectangularWindow")
-		.def(py::init<const QAngle &, const QAngle &, const QAngle &, const QAngle &>(),
-				py::arg("lat_top"), py::arg("lat_bottom"),
-				py::arg("long_left"), py::arg("long_right"));
+		.def(py::init<const QDirection &, const QDirection &>(),
+				py::arg("bl_topleft"), py::arg("bl_bottomright"));
 	py::class_<CircularWindow, std::shared_ptr<CircularWindow>, SkymapMask>(m, "CircularWindow")
 		.def(py::init<const QDirection &, const QAngle &>(), py::arg("centre"), py::arg("aperature"));
 

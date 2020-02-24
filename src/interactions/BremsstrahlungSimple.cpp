@@ -22,10 +22,10 @@ namespace hermes {
 
 BremsstrahlungSimple::BremsstrahlungSimple() { }
 
-QDiffCrossSection BremsstrahlungSimple::getDiffCrossSection(
+QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSection(
                 const QEnergy &E_proton,
                 const QEnergy &E_gamma) const {
-	return QDiffCrossSection(0);
+	return QDifferentialCrossSection(0);
 }
 
 QNumber BremsstrahlungSimple::ElwertFactor(const QNumber &beta_i, const QNumber &beta_f, int Z) const {
@@ -146,7 +146,7 @@ QArea BremsstrahlungSimple::dsdk_HighEnergy(const QNumber &gamma_i, const QNumbe
         return pow<2>(r_electron) * alpha_fine / k * factor;
 }
 
-QDiffCrossSection BremsstrahlungSimple::getDiffCrossSection(
+QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSection(
 		const QEnergy &E_electron,
 		const QEnergy &E_photon,
 		const QEnergy &E_gamma) const {

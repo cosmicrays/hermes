@@ -6,50 +6,40 @@
 
 namespace hermes {
 
-class DummyPhotonField : public PhotonField {
-private:
-    std::vector<QEnergyDensity> density;
-
-    void buildEnergyRange() {
-    	const double scaling = getEnergyScaleFactor();
-	const QEnergy E_start = getStartEnergy();
-	const QEnergy E_end = getEndEnergy();
-	
-	for(QEnergy E = E_start; E < E_end; E = E * scaling)  
-    		energyRange.push_back(E);
-    }
-
-    void precomputeValues() {
-	for (auto itE = begin(); itE != end(); ++itE)
-		density.push_back(getEnergyDensity(Vector3QLength(0), (*itE)));
-    }
-
+class DummyCrossSection : public DifferentialCrossSection {
 public:
-    DummyPhotonField() {
-	setEnergyScaleFactor(1.1);
-    	setStartEnergy(1e10_Hz*h_planck);
-    	setEndEnergy(1e12_Hz*h_planck);
-	buildEnergyRange();
-    	precomputeValues();
-    }
+	DummyCrossSection() { };
+	QDifferentialCrossSection getDiffCrossSection(
+			const QEnergy &E_photon,
+			const QEnergy &E_gamma) const { return QDifferentialCrossSection(0); };
 
-    QEnergyDensity getEnergyDensity(
-		    const Vector3QLength &pos,
-		    const QEnergy &E_photon) const {
-
-        QFrequency nu = E_photon / h_planck;
-	QTemperature T_CMB = 2.725_K;
-    	return (8_pi*h_planck * pow<4>(nu)) /
-		pow<3>(c_light) /
-		(exp(h_planck*nu / (k_boltzmann * T_CMB)) - 1.);
-    }
-
-    QEnergyDensity getEnergyDensity(
-		    const Vector3QLength& pos_, int iE_) const {
-   	return density[iE_];
-    }
-
+	QDifferentialCrossSection getDiffCrossSection(
+			const QEnergy &E_electron,
+			const QEnergy &E_photon,
+			const QEnergy &E_gamma) const { return QDifferentialCrossSection(1); };
 };
+
+/* Analytical integral over CMB with constant CS */
+TEST(InverseComptonIntegrator, integrateOverPhotonEnergyCMB) {
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto dummyCS = std::make_shared<DummyCrossSection>(DummyCrossSection());
+	auto photonField = std::make_shared<CMB>(CMB());
+	auto intIC = std::make_shared<InverseComptonIntegrator>(
+		InverseComptonIntegrator(simpleModel, photonField, dummyCS));
+
+        Vector3QLength pos(0);
+	QEnergy Egamma = 10_GeV;
+        QEnergy Eelectron = 1_TeV;
+
+	auto res = intIC->integrateOverPhotonEnergy(pos, Egamma, Eelectron);
+	
+	QTemperature T_CMB = 2.725_K;
+	QPDensity analytical_res = 16_pi * pow<3>(k_boltzmann * T_CMB/(c_light * h_planck)) 
+			 * 1.20206; // Zeta_f(3) = 1.20206
+	// 410 photons/cm3
+	EXPECT_NEAR(static_cast<double>(res * 1_cm3),
+			static_cast<double>(analytical_res * 1_cm3), 3);
+}
 
 TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());

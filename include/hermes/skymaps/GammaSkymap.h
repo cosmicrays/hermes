@@ -30,8 +30,8 @@ public:
 	void computePixel(std::size_t ipix,
 			  std::shared_ptr<IntegratorTemplate<QDifferentialIntensity, QEnergy> > integrator_) {
 		fluxContainer[ipix] = integrator_->integrateOverLOS(
-				pix2ang_ring(getNside(), ipix),
-				skymapParameter);
+							pix2ang_ring(getNside(), ipix),
+							skymapParameter);
 	}
 };
 

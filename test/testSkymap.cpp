@@ -45,21 +45,22 @@ TEST(Skymap, computePixel) {
 TEST(SkymapMask, RectangularWindow) {
 	int nside = 12;
 	auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
-			QAngle(40_deg), QAngle(-40_deg), QAngle(50_deg), QAngle(90_deg)));
+			QDirection({40_deg, 10_deg}), QDirection({-30_deg, 90_deg})));
 	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(
 					nside, mask));
 	auto integrator = std::make_shared<DummyIntegrator>(DummyIntegrator());
 	
-	QDirection dir_1 = {0, 0};
-	long int pixel_1 = ang2pix_ring(nside, dir_1);
-	QDirection dir_2 = {90_deg, 60_deg};
-	long int pixel_2 = ang2pix_ring(nside, dir_2);
-
 	skymap->setIntegrator(integrator);
 	skymap->compute();
+	
+	QDirection dir_1 = {0_deg, 15_deg};
+	long int pixel_1 = ang2pix_ring(nside, fromGalCoord(dir_1));
+	QDirection dir_2 = {80_deg, 120_deg};
+	long int pixel_2 = ang2pix_ring(nside, fromGalCoord(dir_2));
 
-	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_1)), UNSEEN);	
-	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);	
+
+	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_1)), UNSEEN);	
+	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);	
 }
 
 TEST(SkymapMask, CircularWindow) {

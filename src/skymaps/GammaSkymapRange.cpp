@@ -41,6 +41,14 @@ void GammaSkymapRange::setMask(std::shared_ptr<SkymapMask> mask_) {
 	}
 }
 
+std::size_t GammaSkymapRange::size() const {
+	return skymaps.size();
+}
+
+GammaSkymap GammaSkymapRange::operator[](std::size_t i) const {
+        return skymaps[i];
+}
+
 void GammaSkymapRange::compute() {
 	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
        		std::cerr << "hermes::SkymapRange: "

@@ -43,12 +43,14 @@ public:
 
 class RectangularWindow: public SkymapMask {
 private:
-	QAngle theta_open, theta_close, phi_open, phi_close;
+	QDirection topleft, bottomright;
 	bool isAngleBetween(const QAngle &testAngle, QAngle first, QAngle last) const;
 public:
-	// in galactic coordinates: b=(-90_deg, 90_deg), l=(-180_deg, 180_deg)
-	RectangularWindow(const QAngle &b_top_, const QAngle &b_bottom_,
-			const QAngle &l_left_, const QAngle &l_right_);
+	// in galactic coordinates: b=(-90_deg, 90_deg), l=(-180_deg, 180_deg),
+	// top - bottom = lattitude
+	// left - right = longitude
+	RectangularWindow(const QDirection &topleft,
+			  const QDirection &bottomright);
 	bool isAllowed(const QDirection &dir_) const;
 };
 

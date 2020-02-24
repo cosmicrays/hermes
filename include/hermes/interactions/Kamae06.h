@@ -35,10 +35,17 @@ public:
 	void setCacheStorage(
 		std::unique_ptr<CacheStorageKamae> cache);
 	
-	QDiffCrossSection getDiffCrossSection(
+	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_proton, const QEnergy &E_gamma) const;
-	QDiffCrossSection getDiffCrossSectionDirectly(
+	QDifferentialCrossSection getDiffCrossSectionDirectly(
 			const QEnergy &E_proton, const QEnergy &E_gamma) const;
+        
+	// Not used
+	QDifferentialCrossSection getDiffCrossSection(
+                        const QEnergy &E_proton,
+                        const QEnergy &E_photon,
+                        const QEnergy &E_gamma) const {
+		return QDifferentialCrossSection(0); }
 };
 
 } // namespace hermes

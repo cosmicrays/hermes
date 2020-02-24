@@ -18,7 +18,7 @@ TEST(Interactions, cparamlib) {
 
 	QEnergy E_p = 512000_GeV;
 	QEnergy E_gamma = 100_GeV;
-	QDiffCrossSection dsigma_dE = interaction->getDiffCrossSectionDirectly(E_p, E_gamma);
+	QDifferentialCrossSection dsigma_dE = interaction->getDiffCrossSectionDirectly(E_p, E_gamma);
 	
 	QArea r = dsigma_dE * E_gamma;
 

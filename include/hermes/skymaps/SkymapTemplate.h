@@ -51,7 +51,7 @@ protected:
 	void initContainer();
 	void initMask();
 
-	QPXL toSkymapDefaultUnits(const QPXL pixel) const;
+	QNumber toSkymapDefaultUnits(const QPXL pixel) const;
 public:
 	/**
 		Constructors
@@ -80,8 +80,10 @@ public:
 	}
 	
 	std::size_t size() const;
+	std::size_t getUnmaskedPixelCount() const;
 	QPXL getPixel(std::size_t ipix) const;
 	double getPixelAsDouble(std::size_t i) const;
+	QPXL getMean() const;
 	QPXL operator[](std::size_t ipix) const;
 	QPXL* data() { return fluxContainer.data(); }
 
@@ -175,6 +177,14 @@ std::size_t SkymapTemplate<QPXL, QSTEP>::size() const {
 }
 
 template <typename QPXL, typename QSTEP>
+std::size_t SkymapTemplate<QPXL, QSTEP>::getUnmaskedPixelCount() const {
+	std::size_t s = 0;
+	for (const auto i : maskContainer) 
+		if (i) s++;
+	return s;
+}
+
+template <typename QPXL, typename QSTEP>
 QPXL SkymapTemplate<QPXL, QSTEP>::getPixel(std::size_t i) const {
         return fluxContainer[i];
 }
@@ -182,6 +192,19 @@ QPXL SkymapTemplate<QPXL, QSTEP>::getPixel(std::size_t i) const {
 template <typename QPXL, typename QSTEP>
 double SkymapTemplate<QPXL, QSTEP>::getPixelAsDouble(std::size_t i) const {
         return static_cast<double>(fluxContainer[i]);
+}
+
+template <typename QPXL, typename QSTEP>
+QPXL SkymapTemplate<QPXL, QSTEP>::getMean() const {
+	QPXL accum(0);
+	std::size_t count = 0;
+	for (const auto &pxl: fluxContainer) {
+		if (pxl == QPXL(UNSEEN))
+			continue;
+		accum += pxl;
+		count++;
+	}
+        return accum / count;
 }
 
 template <typename QPXL, typename QSTEP>
@@ -220,7 +243,7 @@ void SkymapTemplate<QPXL, QSTEP>::computePixelRange(
 		if (!isMasked(ipix)) {
 			computePixel(ipix, integrator_);
 		} else {
-			fluxContainer[ipix] = UNSEEN;
+			fluxContainer[ipix] = QPXL(UNSEEN);
 		}
 		progressbar->update();
 	}
@@ -264,8 +287,8 @@ void SkymapTemplate<QPXL, QSTEP>::initDefaultOutputUnits(QPXL units_, const std:
 }
 
 template <typename QPXL, typename QSTEP>
-QPXL SkymapTemplate<QPXL, QSTEP>::toSkymapDefaultUnits(const QPXL pixel) const {
-	return pixel / static_cast<double>(defaultOutputUnits);
+QNumber SkymapTemplate<QPXL, QSTEP>::toSkymapDefaultUnits(const QPXL pixel) const {
+	return pixel / defaultOutputUnits;
 }
 
 template <typename QPXL, typename QSTEP>
@@ -302,8 +325,7 @@ void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<Output> output) const {
 	std::vector<float> tempArray; // allocate on heap, because of nside >= 512
 	for (auto i: fluxContainer)
 		tempArray.push_back(
-				//static_cast<float>(toSkymapDefaultUnits(i))
-				static_cast<float>(i)
+				static_cast<float>(toSkymapDefaultUnits(i))
 			);
 
 	output->writeColumn(npix, tempArray.data());

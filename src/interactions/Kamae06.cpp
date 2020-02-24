@@ -14,7 +14,7 @@ void Kamae06::setCacheStorage(std::unique_ptr<CacheStorageKamae> cache_) {
 	cache->setFunction(f);
 };
 
-QDiffCrossSection Kamae06::getDiffCrossSection(
+QDifferentialCrossSection Kamae06::getDiffCrossSection(
 		const QEnergy &E_proton,
 		const QEnergy &E_gamma) const {
 	if (cacheStoragePresent)
@@ -22,7 +22,7 @@ QDiffCrossSection Kamae06::getDiffCrossSection(
 	return getDiffCrossSectionDirectly(E_proton, E_gamma);
 }
 
-QDiffCrossSection Kamae06::getDiffCrossSectionDirectly(
+QDifferentialCrossSection Kamae06::getDiffCrossSectionDirectly(
 		const QEnergy &E_proton,
 		const QEnergy &E_gamma) const {
 
@@ -43,7 +43,7 @@ QDiffCrossSection Kamae06::getDiffCrossSectionDirectly(
 		    std::min(T_proton_GeV, 1e5),
 		    &params);
 
-	return QDiffCrossSection(
+	return QDifferentialCrossSection(
 		dsigma_dlogTp / E_gamma_GeV * (1_mbarn / 1_GeV));
 }
 

@@ -15,7 +15,7 @@ namespace hermes {
 InverseComptonIntegrator::InverseComptonIntegrator(
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
 	const std::shared_ptr<PhotonField> phdensity_,
-	const std::shared_ptr<KleinNishina> crossSec_) : 
+	const std::shared_ptr<DifferentialCrossSection> crossSec_) : 
 	GammaIntegratorTemplate(), crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_) {
 }
 
@@ -110,9 +110,9 @@ QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength po
 		return getIOEfromCache(pos_, Egamma_);
 
 	if (crdensity->existsScaleFactor())
-		return integrateOverLogEnergy(pos_, Egamma_);
+		return 4_pi * integrateOverLogEnergy(pos_, Egamma_);
 	else
-		return integrateOverSumEnergy(pos_, Egamma_);
+		return 4_pi * integrateOverSumEnergy(pos_, Egamma_);
 }
 
 QICOuterIntegral InverseComptonIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
@@ -146,12 +146,19 @@ QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
 	
 	QICInnerIntegral integral(0);
 	
-	for (auto itE = phdensity->begin(); itE != phdensity->end(); ++itE) {
-		integral += crossSec->getDiffCrossSection(Eelectron_, (*itE), Egamma_) *
-				phdensity->getEnergyDensity(pos_, static_cast<int>(itE - phdensity->begin())) / (*itE);
-	}
+	auto integrand = [this, pos_, Egamma_, Eelectron_](const CosmicRayDensity::iterator itE, const QEnergy &deltaE) {
+		return crossSec->getDiffCrossSection(Eelectron_, (*itE), Egamma_) *
+			phdensity->getEnergyDensity(pos_, static_cast<int>(itE - phdensity->begin())) / pow<2>(*itE);
+		};
 
-	return integral * log(phdensity->getEnergyScaleFactor());
+	for (auto itE = std::next(phdensity->begin()); itE != phdensity->end(); ++itE) {
+		auto itE_prev = std::prev(itE);
+		QEnergy deltaE = (*itE) - (*itE_prev);
+		QNumber xlog = log((*itE)/(*itE_prev));
+		integral += (*itE) * integrand(itE, deltaE) * xlog;
+	}
+	
+	return integral;
 }
 
 } // namespace hermes 

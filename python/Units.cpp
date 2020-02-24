@@ -74,7 +74,7 @@ void init_units(py::module &m) {
 	u.attr("day")    = day;
 	u.attr("week")   = week;
 	PY_LONG_PREFIXED_UNITS("year", year);
-	PY_SHORT_PREFIXED_UNITS("y", year);
+	PY_SHORT_PREFIXED_UNITS("yr", year);
 
 	// Frequency
 	PY_LONG_PREFIXED_UNITS("hertz", hertz);
@@ -110,7 +110,7 @@ void init_units(py::module &m) {
 	u.attr("m_neutron")	= m_neutron;
 	u.attr("m_electron")	= m_electron;
 	u.attr("h_planck")	= h_planck;
-	//u.attr("k_boltzmann")	= k_boltzmann;
+	u.attr("k_boltzmann")	= k_boltzmann;
 	//u.attr("mu0")		= mu0;
 	//u.attr("epsilon0")	= epsilon0;
 }

@@ -20,6 +20,14 @@ TEST(IntegrationMethods, sumIntegration) {
 	EXPECT_NEAR(static_cast<double>(result), integral_result, 1e-3);
 }
 
+TEST(IntegrationMethods, trapesoidIntegration) {
+
+        auto result = trapesoidIntegration<QLength, double>(
+                        [](QLength dist) {return integrand(dist);}, 1_m, 1000_m, 20000);
+
+	EXPECT_NEAR(static_cast<double>(result), integral_result, 1e-4);
+}
+
 TEST(IntegrationMethods, simpsonIntegration) {
 
         auto result = simpsonIntegration<QLength, double>(

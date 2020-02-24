@@ -60,31 +60,32 @@ bool MaskList::isAllowed(const QDirection &dir) const {
 
 
 /* RectangularWindows class */
-RectangularWindow::RectangularWindow(const QAngle &b_top_, const QAngle &b_bottom_,
-			const QAngle &l_left_, const QAngle &l_right_) {
-      	theta_open  = 90_deg - b_top_;
-      	theta_close = 90_deg - b_bottom_;
-	phi_open = l_left_;
-	phi_close = l_right_;
-	
-	phi_open = normalizeAngle(phi_open);
-	phi_close = normalizeAngle(phi_close);
+RectangularWindow::RectangularWindow(const QDirection &topleft_, const QDirection &bottomright_) {
+	topleft = fromGalCoord(topleft_);
+	bottomright = fromGalCoord(bottomright_);
 }
 
 bool RectangularWindow::isAngleBetween(
 		const QAngle &testAngle, QAngle first, QAngle last) const {
-	first -= testAngle;
+/*	first -= testAngle;
 	last  -= testAngle;
 	first = normalizeAngle(first);
 	last  = normalizeAngle(last);
 	if (static_cast<double>(first) * static_cast<double>(last) >= 0)
 		return false;
-	return fabs(first - last) < 180_deg;
+	return fabs(first - last) < 180_deg;*/
+//	std::cerr << "topleft " << topleft[0] << ", " << topleft[1] << std::endl;
+//	std::cerr << "bottomright " << bottomright[0] << ", " << bottomright[1] << std::endl;
+
+
+	if (testAngle > first && testAngle < last)
+		return true;
+	return false;
 }
 
 bool RectangularWindow::isAllowed(const QDirection &dir_) const {
-	if (isAngleBetween(dir_[0], theta_open, theta_close))
-		if(isAngleBetween(dir_[1], phi_open, phi_close))
+	if (isAngleBetween(dir_[0], topleft[0], bottomright[0]))
+		if(isAngleBetween(dir_[1], topleft[1], bottomright[1]))
 			return true;
 	return false;
 }	

@@ -14,11 +14,11 @@ public:
 	BremsstrahlungSimple();
 	
 	// not used
-	QDiffCrossSection getDiffCrossSection(
+	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_photon,
 			const QEnergy &E_gamma) const;
 
-	QDiffCrossSection getDiffCrossSection(
+	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_electron,
 			const QEnergy &E_photon,
 			const QEnergy &E_gamma) const;

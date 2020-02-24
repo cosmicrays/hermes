@@ -68,7 +68,7 @@ void init_integrators(py::module &m) {
 	NEW_INTEGRATOR(icintegrator, "InverseComptonIntegrator", InverseComptonIntegrator, QDifferentialIntensity, QEnergy);
 	icintegrator.def(py::init<const std::shared_ptr<CosmicRayDensity>,
                 	    	  const std::shared_ptr<PhotonField>,
-                            	  const std::shared_ptr<KleinNishina>>());
+                            	  const std::shared_ptr<DifferentialCrossSection>>());
 	declare_default_integrator_methods<InverseComptonIntegrator>(icintegrator);
 	icintegrator.def("setupCacheTable", &InverseComptonIntegrator::setupCacheTable);
     

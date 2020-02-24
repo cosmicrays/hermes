@@ -35,23 +35,24 @@ constexpr QECapacitance farad(1.0);
  - IAU 2012 Resolution B2, IAU 2015 Resolution B2
         https://www.iau.org/administration/resolutions/
 */
-constexpr QECharge	e_plus		= 1.602176487e-19 * coulomb;
-constexpr QSpeed	c_light		= 2.99792458e8 * metre / second;
-constexpr auto		c_squared 	= c_light * c_light;
-constexpr QMass		amu 		= 1.660538921e-27 * kilogram;
-constexpr QMass		m_proton 	= 1.67262158e-27 * kilogram;
-constexpr QMass		m_neutron 	= 1.67492735e-27 * kilogram;
-constexpr QMass		m_electron 	= 9.10938291e-31 * kilogram;
-constexpr QAMomentum	h_planck 	= 6.62606957e-34 * joule * second;
-constexpr QAMomentum	h_planck_bar 	= 6.62606957e-34 * joule * second / (2*pi);
-constexpr auto		k_boltzmann 	= 1.3806488e-23 * joule / kelvin;
-constexpr auto		mu0 		= (4*pi) * 1e-7 * newton / (ampere * ampere);
-constexpr auto		epsilon0 	= 1.0 / mu0 / c_squared;
+constexpr QECharge		e_plus		= 1.602176487e-19 * coulomb;
+constexpr QSpeed		c_light		= 2.99792458e8 * metre / second;
+constexpr auto			c_squared 	= c_light * c_light;
+constexpr QMass			amu 		= 1.660538921e-27 * kilogram;
+constexpr QMass			m_proton 	= 1.67262158e-27 * kilogram;
+constexpr QMass			m_neutron 	= 1.67492735e-27 * kilogram;
+constexpr QMass			m_electron 	= 9.10938291e-31 * kilogram;
+constexpr QAngularMomentum	h_planck 	= 6.62606957e-34 * joule * second;
+constexpr QAngularMomentum	h_planck_bar 	= 6.62606957e-34 * joule * second / (2*pi);
+constexpr auto			k_boltzmann 	= 1.3806488e-23 * joule / kelvin;
+constexpr auto			mu0 		= (4*pi) * 1e-7 * newton / (ampere * ampere);
+constexpr auto			epsilon0 	= 1.0 / mu0 / c_squared;
 
-constexpr QLength	r_electron	= 1.0/(4*pi*epsilon0) * pow<2>(e_plus) / (m_electron*c_squared);
-constexpr QArea		sigma_Thompson 	= (8.0*pi/3.0) * pow<2>(r_electron); 
+constexpr QLength	r_electron	= 1.0 / (4*pi*epsilon0) * pow<2>(e_plus) / (m_electron*c_squared);
+constexpr QArea		sigma_Thompson 	= 8.0*pi /3.0 * pow<2>(r_electron); 
 constexpr QNumber	alpha_fine	= mu0 / (4.0*pi) * pow<2>(e_plus) * c_light / h_planck_bar; // Fine structure const.
-constexpr auto		Rydberg_const	= m_electron * pow<4>(e_plus) / (8*pow<2>(epsilon0)*pow<3>(h_planck)*c_light);
+constexpr auto		Rydberg_const	= m_electron * pow<4>(e_plus) /
+							(8 * pow<2>(epsilon0) * pow<3>(h_planck) * c_light);
 constexpr QEnergy	Ry		= h_planck * c_light * Rydberg_const;
 
 
