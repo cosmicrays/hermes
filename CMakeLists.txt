@@ -144,6 +144,45 @@ add_subdirectory(libs/cparamlib)
 list(APPEND HERMES_EXTRA_INCLUDES libs/cparamlib)
 list(APPEND HERMES_EXTRA_LIBRARIES cparamlib)
 
+OPTION(ENABLE_COVERAGE "Add code for coverage analysis." OFF)
+if(ENABLE_COVERAGE)
+        find_program(LCOV_PATH lcov)
+        find_program(GENHTML_PATH genhtml)
+        if(LCOV_PATH AND GENHTML_PATH)
+                message("Enabling coverage report via $make coverage")
+                set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+                list(APPEND CRPROPA_EXTRA_LIBRARIES "-lgcov")
+                list(APPEND CRPROPA_EXTRA_LIBRARIES "-fprofile-arcs")
+
+                if(ENABLE_TESTING)
+                        SET(COVERAGE_LIBS "-coverage -lgcov")
+                        add_custom_target(coverage_clean
+                                COMMAND ${LCOV_PATH} --directory . --zerocounters
+                        )
+                add_custom_target(coverage
+
+                                # generate coverage data
+                                COMMAND ${LCOV_PATH} --directory . --capture --output-file coverage.info VERBATIM
+
+                                # clean external libs
+                                COMMAND ${LCOV_PATH} --remove coverage.info "/usr/include/*" "/usr/lib/*" "*/libs/*" "*/libs/eigen3/*" "*/test/*" "*/build/*" -o coverage.info.cleaned VERBATIM
+
+                                # Generate html output
+                                COMMAND ${GENHTML_PATH} -o coverageReport coverage.info.cleaned VERBATIM
+                                COMMAND echo "Generated coverage report in coverageReport/index.html"
+                                )
+                endif(ENABLE_TESTING)
+
+        else(LCOV_PATH AND GENHTML_PATH)
+                if(NOT LCOV_PATH)
+                        message(WARNING "lcov not found, coverage report generation  not possible!")
+                endif(NOT LCOV_PATH)
+                if(NOT GENHTML_PATH)
+                        message(WARNING "genhtml not found, coverage report generation not possible!")
+                endif(NOT GENHTML_PATH)
+        endif(LCOV_PATH AND GENHTML_PATH)
+endif(ENABLE_COVERAGE)
+
 # ----------------------------------------------------------------------------
 # Library and Binary
 # ----------------------------------------------------------------------------

@@ -155,7 +155,7 @@ TEST(InverseComptonIntegrator, initCacheTable) {
 	auto res2_withoutcache = intIC->integrateOverEnergy(pos2, Egamma);
 
 	EXPECT_FALSE(intIC->isCacheTableEnabled());
-	intIC->setupCacheTable(20, 20, 5);
+	intIC->setupCacheTable(10, 10, 2);
 	EXPECT_TRUE(intIC->isCacheTableEnabled());
 	
 	auto res1_withcache = intIC->integrateOverEnergy(pos1, Egamma);
@@ -179,7 +179,7 @@ TEST(InverseComptonIntegrator, PerformanceTest) {
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, Egamma));
 	skymap->setIntegrator(in);
 	
-	in->setupCacheTable(20, 20, 5);
+	in->setupCacheTable(10, 10, 2);
 
         std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
 	skymap->compute();
@@ -190,7 +190,7 @@ TEST(InverseComptonIntegrator, PerformanceTest) {
 	
 	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
 	
-	EXPECT_LE(pxl_speed, 350); // ms
+	EXPECT_LE(pxl_speed, 1000); // ms
 }
 
 int main(int argc, char **argv) {

@@ -83,7 +83,7 @@ TEST(RMIntegrator, PerformanceTest) {
         auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 	float pxl_speed = milliseconds.count()/skymap->getNpix()*getThreadsNumber();
 
-        EXPECT_LE(pxl_speed, 15); // ms
+        EXPECT_LE(pxl_speed, 45); // ms
 }
 
 int main(int argc, char **argv) {

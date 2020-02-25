@@ -1,73 +1,78 @@
+---
 language: cpp
 addons:
     apt:
-      packages:
-        - gcc-9
-        - g++-9
-        - gcc-6
-        - g++-6
-        - libgsl-dev
-        - libfftw3-dev
-        - libcfitsio3-dev
-        - libmuparser-dev
-        - python3-setuptools
-        - python3-dev
-        - cmake
-      sources: &sources
-        - ubuntu-toolchain-r-test
+        packages:
+            - gcc-9
+            - g++-9
+            - gcc-6
+            - g++-6
+            - libgsl-dev
+            - libfftw3-dev
+            - libcfitsio3-dev
+            - libmuparser-dev
+            - python3-setuptools
+            - python3-dev
+            - cmake
+        sources: &sources
+            - ubuntu-toolchain-r-test
 cache:
-  directories:
-    - $HOME/hermes_cache
+    directories:
+        - $HOME/hermes_cache
 matrix:
-  include:
-    - os : linux
-      dist: xenial
-      compiler: gcc
-      env:
-        - COMPILER_NAME=gcc CXX=g++-9 CC=gcc-9
-        - PYTHON_EXECUTABLE=/usr/bin/python3
-    - os : linux
-      dist: xenial
-      compiler: gcc
-      env:
-        - COMPILER_NAME=gcc CXX=g++-6 CC=gcc-6
-        - PYTHON_EXECUTABLE=/usr/bin/python3
-    - os : osx
-      compiler: gcc
-      env:
-        - CXX_COMPILER='g++'
-        - C_COMPILER='gcc'
-        - HERMES_DATA_PATH=$TRAVIS_BUILD_DIR/build/data/
+    include:
+        - os: linux
+          dist: xenial
+          compiler: gcc
+          env:
+              - COMPILER_NAME=gcc CXX=g++-9 CC=gcc-9
+              - PYTHON_EXECUTABLE=/usr/bin/python3
+              - COVERALLS=true
+        - os: linux
+          dist: xenial
+          compiler: gcc
+          env:
+              - COMPILER_NAME=gcc CXX=g++-6 CC=gcc-6
+              - PYTHON_EXECUTABLE=/usr/bin/python3
+        - os: osx
+          compiler: gcc
+          env:
+              - CXX_COMPILER='g++'
+              - C_COMPILER='gcc'
+              - HERMES_DATA_PATH=$TRAVIS_BUILD_DIR/build/data/
 
 before_install:
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      HOMEBREW_NO_AUTO_UPDATE=1 brew install python3;
-      HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
-      HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
-      HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc;
-      HOMEBREW_NO_AUTO_UPDATE=1 brew install jq;
-      HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
-      HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python;
-    fi;
+    - |
+      if [ $COVERALLS ]; then
+        pip install --user cpp-coveralls
+      fi;
+    - |
+      if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+        HOMEBREW_NO_AUTO_UPDATE=1 brew install python3;
+        HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
+        HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
+        HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc;
+        HOMEBREW_NO_AUTO_UPDATE=1 brew install jq;
+        HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
+        HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python;
+      fi;
 
 before_script:
-
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-          GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
-          PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
-    fi;
-  - mkdir build
-  - cd build
-  - |
-    DATAFILE=$HOME/hermes_cache/hermes-data.tar.gz
-    if [ -f $DATAFILE ]; then
-      echo "Using data file from cache!"
-      cp $DATAFILE .
-    fi
-  - |
-          if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+    - |
+      if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+         GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
+         PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
+      fi;
+    - mkdir build
+    - cd build
+    - |
+      DATAFILE=$HOME/hermes_cache/hermes-data.tar.gz
+      if [ -f $DATAFILE ]; then
+        echo "Using data file from cache!"
+        cp $DATAFILE .
+      fi
+    - |
+      if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
                 CC=$GCC_BREW_PATH/bin/gcc-9 \
                 CXX=$GCC_BREW_PATH/bin/g++-9 \
                 CMAKE_C_COMPILER=$GCC_BREW_PATH/bin/gcc-9 \
@@ -77,12 +82,16 @@ before_script:
                 -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
                 -DPYTHON_INCLUDE_PATH=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/include \
                 -DENABLE_TESTING=On
-          else
+       elif [ $COVERALLS ]; then
+                cmake .. -DENABLE_PYTHON=True -DPYTHON_EXECUTABLE=$PYTHON_EXECUTABLE -DENABLE_TESTING=On -DCMAKE_BUILD_TYPE:STRING=Debug -DENABLE_COVERAGE=TRUE
+       else
                 cmake .. -DENABLE_PYTHON=True -DPYTHON_EXECUTABLE=$PYTHON_EXECUTABLE -DENABLE_TESTING=On
-          fi;
-  - cp hermes-data.tar.gz $HOME/hermes_cache
+       fi;
+    - cp hermes-data.tar.gz $HOME/hermes_cache
 script:
-  - make
-  - make test
+    - make
+    - make test
 after_failure:
-  - cat Testing/Temporary/LastTest.log
+    - cat Testing/Temporary/LastTest.log
+after_success:
+    - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
