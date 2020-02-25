@@ -45,7 +45,7 @@ matrix:
 before_install:
     - |
       if [ $COVERALLS ]; then
-        pip3 install --user cpp-coveralls
+        pip install --user cpp-coveralls
       fi;
     - |
       if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
