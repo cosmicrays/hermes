@@ -27,6 +27,7 @@ template<typename INTEGRATOR>
 void declare_default_integrator_methods(py::class_<INTEGRATOR> c) {
 	c.def("getSunPosition", &INTEGRATOR::getSunPosition);
 	c.def("setSunPosition", &INTEGRATOR::setSunPosition);
+	c.def("setupCacheTable", &INTEGRATOR::setupCacheTable);
 }
 
 
@@ -70,8 +71,9 @@ void init_integrators(py::module &m) {
                 	    	  const std::shared_ptr<PhotonField>,
                             	  const std::shared_ptr<DifferentialCrossSection>>());
 	declare_default_integrator_methods<InverseComptonIntegrator>(icintegrator);
-	icintegrator.def("setupCacheTable", &InverseComptonIntegrator::setupCacheTable);
-    
+	icintegrator.def("integrateOverEnergy", &InverseComptonIntegrator::integrateOverEnergy);
+	icintegrator.def("integrateOverPhotonEnergy", &InverseComptonIntegrator::integrateOverPhotonEnergy);
+
 	// PiZeroIntegrator
 	py::class_<PiZeroIntegrator, InverseComptonIntegratorParentClass,
 		std::shared_ptr<PiZeroIntegrator>> pizerointegrator(m, "PiZeroIntegrator", py::buffer_protocol());
@@ -79,7 +81,6 @@ void init_integrators(py::module &m) {
                 		      const std::shared_ptr<RingModelDensity>,
                            	      const std::shared_ptr<DifferentialCrossSection>>());
 	declare_default_integrator_methods<PiZeroIntegrator>(pizerointegrator);
-	pizerointegrator.def("setupCacheTable", &PiZeroIntegrator::setupCacheTable);
 
 }
 

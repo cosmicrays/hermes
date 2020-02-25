@@ -51,12 +51,13 @@ make install
 
 ```python
 from pyhermes import *
+from pyhermes.units import TeV, deg
 
 nside = 512
 Egamma = 0.1*TeV
 
 skymap = GammaSkymap(nside=nside, Egamma=Egamma)
-mask = RectangularWindow(-5*deg, 5*deg, 40*deg, 90*deg);
+mask = RectangularWindow([5*deg, 40*deg], [-5*deg, 90*deg]);
 skymap.setMask(mask)
 
 neutral_gas = RingModelDensity()

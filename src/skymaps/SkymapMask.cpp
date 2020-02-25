@@ -74,10 +74,9 @@ bool RectangularWindow::isAngleBetween(
 	if (static_cast<double>(first) * static_cast<double>(last) >= 0)
 		return false;
 	return fabs(first - last) < 180_deg;*/
-//	std::cerr << "topleft " << topleft[0] << ", " << topleft[1] << std::endl;
-//	std::cerr << "bottomright " << bottomright[0] << ", " << bottomright[1] << std::endl;
-
-
+	
+	if (first == last)
+		return true;
 	if (testAngle > first && testAngle < last)
 		return true;
 	return false;

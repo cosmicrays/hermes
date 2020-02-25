@@ -95,10 +95,14 @@ void init_quantity(py::module &m) {
 	declare_quantity<QRotationMeasure>(m, "QRotationMeasure", "rad m^-2", apyu);
 	declare_quantity<QSpeed>(m, "QSpeed", "m s^-1", apyu);
 	declare_quantity<QVolume>(m, "QVolume", "m^3", apyu);
-
+	
 	// |- direction
 	py::class_<QDirection>(m, "QDirection")
 		.def(py::init<const QAngle &, const QAngle &>());
+
+	// |- unnamed
+	declare_quantity<QICOuterIntegral>(m, "QICOuterIntegral", "m^-5 kg^-1 s", apyu);
+	declare_quantity<QICInnerIntegral>(m, "QICInnerIntegral", "m^-3 kg^-1 s^2", apyu);
 }
 
 }
