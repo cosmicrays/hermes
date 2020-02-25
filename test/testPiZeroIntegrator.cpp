@@ -93,7 +93,7 @@ TEST(PiZeroIntegrator, PerformanceTest) {
 
 	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
 
-        EXPECT_LE(pxl_speed, 130); // ms
+        EXPECT_LE(pxl_speed, 250); // ms
 }
 
 int main(int argc, char **argv) {
