@@ -64,16 +64,33 @@ TEST(SkymapMask, RectangularWindow) {
 }
 
 TEST(SkymapMask, CircularWindow) {
-	int nside = 12;
+	auto mask = std::make_shared<CircularWindow>(CircularWindow(
+			QDirection{-20_deg, 0_deg}, 15_deg));
 	
 	auto dir1 = QDirection({60_deg, 120_deg});
 	auto dir2 = QDirection({-30_deg, 0_deg});
 
-	auto mask = std::make_shared<CircularWindow>(CircularWindow(
-			QDirection{-20_deg, 0_deg}, 15_deg));
+	EXPECT_FALSE(mask->isAllowed(fromGalCoord(dir1)));
+	EXPECT_TRUE(mask->isAllowed(fromGalCoord(dir2)));
+}
+
+TEST(SkymapMask, CombinationOfMasks) {
+	auto mask = std::make_shared<MaskList>(MaskList());
+	auto mask_circle = std::make_shared<CircularWindow>(CircularWindow(
+			QDirection{0_deg, 30_deg}, 10_deg));
+	auto mask_window = std::make_shared<RectangularWindow>(RectangularWindow(
+			QDirection({20_deg, 20_deg}), QDirection({-20_deg, 50_deg})));
+	auto invert_circle = std::make_shared<InvertMask>(InvertMask(mask_circle));
+	mask->addMask(invert_circle);
+	mask->addMask(mask_window);
+	
+	auto dir1 = QDirection({0_deg, 30_deg});
+	auto dir2 = QDirection({19_deg, 30_deg});
+	auto dir3 = QDirection({35_deg, 0_deg});
 
 	EXPECT_FALSE(mask->isAllowed(fromGalCoord(dir1)));
 	EXPECT_TRUE(mask->isAllowed(fromGalCoord(dir2)));
+	EXPECT_FALSE(mask->isAllowed(fromGalCoord(dir3)));
 }
 
 int main(int argc, char **argv) {

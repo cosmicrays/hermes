@@ -1,6 +1,8 @@
 #include "hermes/skymaps/SkymapMask.h"
 #include "hermes/Common.h"
 
+#include <algorithm>
+
 namespace hermes {
 
 SkymapMask::SkymapMask() {
@@ -51,11 +53,12 @@ void MaskList::addMask(const std::shared_ptr<SkymapMask> mask_) {
 }
 
 bool MaskList::isAllowed(const QDirection &dir) const {
-	for(auto &m: list) {
-		if (!m->isAllowed(dir))
-			return false;	
+	// TODO: replace with std::none_of
+	if (std::all_of(list.cbegin(), list.cend(),
+		[dir](const std::shared_ptr<SkymapMask> &m) { return m->isAllowed(dir); })) {
+			return true;
 	}
-	return true;
+	return false;
 }
 
 
