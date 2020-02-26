@@ -59,7 +59,7 @@ output = FITSOutput("!pizero-dragon2d.fits.gz")
 skymap.save(output)
 ```
 
-More examples can be found in [the examples repository](github.com/cosmicrays/hermes-examples). Doxygen documentation generated from the source code is available [here](https://heat.gssi.it/hermes/doc/).
+More examples can be found in [the examples repository](https://github.com/cosmicrays/hermes-examples). Doxygen documentation generated from the source code is available [here](https://heat.gssi.it/hermes/doc/).
 
 ## Credits
 
