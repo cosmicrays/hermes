@@ -49,13 +49,13 @@ before_install:
       fi;
     - |
       if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-        HOMEBREW_NO_AUTO_UPDATE=1 brew install python3;
-        HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
-        HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
-        HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc;
-        HOMEBREW_NO_AUTO_UPDATE=1 brew install jq;
-        HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
-        HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install python3;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install jq;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python;
       fi;
 
 before_script:
@@ -97,5 +97,6 @@ after_failure:
 after_success:
     - |
       if [ $COVERALLS ]; then
-                coveralls --root . --include ../src --include ../include --exclude ".*CMakeFiles.*" --exclude ../libs --exclude ../test --gcov-options '\-lp'
+                cd ..
+                coveralls --root . --include src --include include --build-root build --exclude ".*CMakeFiles.*" --exclude libs --exclude test --gcov-options '\-lp'
       fi;
