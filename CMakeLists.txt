@@ -111,15 +111,6 @@ if(FFTW3F_FOUND)
         list(APPEND HERMES_SWIG_DEFINES -DHERMES_HAVE_FFTW3F)
 endif(FFTW3F_FOUND)
 
-# CFITSIO (optional for FITS output format)
-option(ENABLE_CFITSIO "CFITSIO for FITS output" OFF)
-if(ENABLE_CFITSIO)
-	add_subdirectory(libs/cfitsio)
-        list(APPEND HERMES_EXTRA_INCLUDES libs/cfitsio)
-        list(APPEND HERMES_EXTRA_LIBRARIES cfitsio)
-	add_definitions(-DHERMES_HAVE_CFITSIO)
-endif(ENABLE_CFITSIO)
-	
 option(ENABLE_SYS_CFITSIO "System CFITSIO for FITS output" ON)
 if(ENABLE_SYS_CFITSIO)
 	#set(CFITSIO_EXE_LINKER_FLAGS "-static")
@@ -293,7 +284,6 @@ if(DOXYGEN_FOUND)
 )
 endif(DOXYGEN_FOUND)
 
-
 # ----------------------------------------------------------------------------
 # Testing
 # ----------------------------------------------------------------------------
@@ -393,7 +383,6 @@ install(TARGETS hermes DESTINATION lib)
 install(DIRECTORY include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 install(DIRECTORY ${CMAKE_BINARY_DIR}/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 install(DIRECTORY ${CMAKE_BINARY_DIR}/data/ DESTINATION share/hermes/data PATTERN ".git" EXCLUDE)
-install(DIRECTORY libs/ymw16/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
 install(DIRECTORY libs/cparamlib/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
 install(DIRECTORY libs/kiss/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
 

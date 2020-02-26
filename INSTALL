@@ -1,8 +1,0 @@
-# INSTALL
-
-    export HERMES_INSTALL_DIR=$HOME/.local
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_INSTALL_PREFIX=$HERMES_INSTALL_DIR
-    make
-    make install

@@ -22,7 +22,7 @@ HERMES provides the following integrators:
 
 ## Install
 
-Experienced users:
+Quick procedure for those who know their way around:
 ```sh
 mkdir build
 cd build
@@ -30,22 +30,7 @@ cmake ..
 make -j
 ```
 
-Installation with [python virtualenv](https://virtualenv.pypa.io) is recommended:
-```sh
-export HERMES_DIR=$HOME"/.virtualenvs/hermes"
-virtualenv -p python3 $HERMES_DIR
-source $HERMES_DIR/bin/activate
-```
-Once the environment is activated, clone the repository and build it with cmake:
-```sh
-git clone https://github.com/cosmicrays/hermes.git
-cd hermes
-mkdir build
-cd build
-CMAKE_PREFIX_PATH=$HERMES_DIR cmake -DCMAKE_INSTALL_PREFIX=$HERMES_DIR ..
-make -j
-make install
-```
+For detailed installation guides and requirements see [INSTALL](INSTALL.md).
 
 ## Usage
 
@@ -73,6 +58,8 @@ skymap.compute()
 output = FITSOutput("!pizero-dragon2d.fits.gz")
 skymap.save(output)
 ```
+
+More examples can be found in [the examples repository](github.com/cosmicrays/hermes-examples). Doxygen documentation generated from the source code is available [here](https://heat.gssi.it/hermes/doc/).
 
 ## Credits
 
