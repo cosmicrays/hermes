@@ -11,7 +11,7 @@ private:
 	QLength	  H1, A1, H2, A2, R2;
 public:
 	HII_Cordes91();
-	QPDensity getDensity(const Vector3QLength& pos) const;
+	QPDensity getDensity(const Vector3QLength& pos) const override;
 };
 
 } // namespace hermes

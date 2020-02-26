@@ -4,6 +4,8 @@
 #include "hermes/Units.h"
 #include "hermes/Grid.h"
 
+#include <cassert>
+
 namespace hermes {
 
 class PID {

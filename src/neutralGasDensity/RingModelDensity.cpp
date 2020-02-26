@@ -101,9 +101,9 @@ QRingCOIntensity Ring::getCOIntensity(
 	return dataPtr->getCOIntensityInRing(index, dir_);
 }
 
-RingModelDensity::RingModelDensity() {
-	dataPtr = std::make_shared<RingData>(RingData());
-	fillRingContainer();	
+RingModelDensity::RingModelDensity() :
+	dataPtr(std::make_shared<RingData>(RingData())) {
+	fillRingContainer();
 }
 
 void RingModelDensity::fillRingContainer() {

@@ -48,7 +48,7 @@ public:
 	void setExtends(const Vector3QLength &origin);
 	bool isReflective();
 	void setReflective(bool reflective);
-	Vector3QMField getField(const Vector3QLength &position) const;
+	Vector3QMField getField(const Vector3QLength &position) const override;
 };
 
 /**
@@ -59,7 +59,7 @@ class MagneticFieldList: public MagneticField {
 	std::vector<std::shared_ptr<MagneticField> > fields;
 public:
 	void addField(std::shared_ptr<MagneticField> field);
-	Vector3QMField getField(const Vector3QLength &position) const;
+	Vector3QMField getField(const Vector3QLength &position) const override;
 };
 
 /**
@@ -72,7 +72,7 @@ public:
 	explicit UniformMagneticField(const Vector3QMField &value) :
 			value(value) {
 	}
-	Vector3QMField getField(const Vector3QLength &position) const {
+	Vector3QMField getField(const Vector3QLength &position) const override {
 		return value;
 	}
 };

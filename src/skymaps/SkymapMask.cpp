@@ -5,9 +5,7 @@
 
 namespace hermes {
 
-SkymapMask::SkymapMask() {
-	description = "SkymapMask";
-}
+SkymapMask::SkymapMask() : description("SkymapMask") { }
 
 std::string SkymapMask::getDescription() const {
         return description;
@@ -63,9 +61,9 @@ bool MaskList::isAllowed(const QDirection &dir) const {
 
 
 /* RectangularWindows class */
-RectangularWindow::RectangularWindow(const QDirection &topleft_, const QDirection &bottomright_) {
-	topleft = fromGalCoord(topleft_);
-	bottomright = fromGalCoord(bottomright_);
+RectangularWindow::RectangularWindow(const QDirection &topleft_, const QDirection &bottomright_) :
+	topleft(fromGalCoord(topleft_)),
+	bottomright(fromGalCoord(bottomright_)) {
 }
 
 bool RectangularWindow::isAngleBetween(

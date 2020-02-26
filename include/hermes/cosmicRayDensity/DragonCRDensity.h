@@ -6,7 +6,6 @@
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
 #include "hermes/FITSWrapper.h"
 
-#include <cassert>
 #include <memory>
 #include <map>
 #include <set>
