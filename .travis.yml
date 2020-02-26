@@ -97,8 +97,5 @@ after_failure:
 after_success:
     - |
       if [ $COVERALLS ]; then
-                cd ..
-                coveralls --gcov /usr/bin/gcov-9 --root $HOME/cosmicrays/hermes \ 
-                --include src --include include --build-root $HOME/cosmicrays/hermes/build \
-                --exclude ".*CMakeFiles.*" --exclude libs --exclude test --gcov-options '\-lp'
+                coveralls --gcov /usr/bin/gcov-9 --gcov-options '\-lp' --root $HOME/cosmicrays/hermes --build-root $HOME/cosmicrays/hermes/build --include src --include include --exclude ".*CMakeFiles.*" --exclude libs --exclude test
       fi;
