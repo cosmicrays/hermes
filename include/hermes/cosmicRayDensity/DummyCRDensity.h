@@ -1,22 +1,22 @@
-#ifndef HERMES_SIMPLECRDENSITY_H
-#define HERMES_SIMPLECRDENSITY_H
+#ifndef HERMES_DUMMYCRDENSITY_H
+#define HERMES_DUMMYCRDENSITY_H
 
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
 
 namespace hermes {
 
-class SimpleCRDensity: public CosmicRayDensity {
+class DummyCRDensity: public CosmicRayDensity {
 private:
 	QEnergy minE, maxE;
 	int steps;
 	void makeEnergyRange();
 public:
-	SimpleCRDensity();
-	SimpleCRDensity(QEnergy minE, QEnergy maxE, int steps);
+	DummyCRDensity();
+	DummyCRDensity(QEnergy minE, QEnergy maxE, int steps);
 	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_,
 			const Vector3QLength& pos_) const override;
 };
 
 } // namespace hermes
 
-#endif // HERMES_SIMPLECRDENSITY_H
+#endif // HERMES_DUMMYCRDENSITY_H

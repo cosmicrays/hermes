@@ -9,7 +9,6 @@
 
 namespace hermes {
 
-
 class FITSOutput: public Output {
 private:
 	std::string filename;

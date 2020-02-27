@@ -20,13 +20,27 @@ namespace hermes {
 	}
 
 	ISRF::ISRF() {
-
-		setEnergyScaleFactor(1.1); // 145 steps
-    		setStartEnergy(1e10_Hz*h_planck);
-    		setEndEnergy(1e16_Hz*h_planck);
-		buildEnergyRange();
-
 		loadFrequencyAxis();
+		
+		auto logWavelenghtToFrequency = [](double lambda){
+			return c_light / (std::pow(10, lambda) * micrometre); };
+    		setStartEnergy(
+			logWavelenghtToFrequency(logwavelenghts.back()) * h_planck);
+    		setEndEnergy(
+			logWavelenghtToFrequency(logwavelenghts.front()) * h_planck);
+		
+		// Spares steps
+		setEnergyScaleFactor(1.1); // 145 steps
+
+		// Alternative (slow), all available energy steps	
+		/*
+		double scaling = std::pow(static_cast<double>(
+					getEndEnergy()/getStartEnergy()),
+				1.0/logwavelenghts.size()); // ~1.01
+		setEnergyScaleFactor(scaling); // 1211 steps
+		*/
+		
+		buildEnergyRange();
 		loadISRF();
 	}
     

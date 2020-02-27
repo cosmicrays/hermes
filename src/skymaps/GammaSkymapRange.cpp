@@ -67,13 +67,17 @@ void GammaSkymapRange::save(std::shared_ptr<Output> output) const {
 
 		output->createTable(npix);
 		output->writeMetadata(it->getNside(), it->getRes(), it->getDescription());
+		output->writeKeyValueAsString("PIXUNITS", it->getOutputUnitsAsString(),
+				"Physical units of the skymap pixels");
 		output->writeKeyValueAsDouble(std::string("ENERGY"),
 			static_cast<double>(it->getEnergy()),
 			std::string("The skymap energy in J."));
 
 		float tempArray[npix];
 		for (unsigned long i = 0; i < npix; ++i)
-			tempArray[i] = static_cast<float>(it->operator[](i));
+			tempArray[i] = static_cast<float>(
+						it->toSkymapDefaultUnits(it->getPixel(i))
+					);
 
 		output->writeColumn(npix, tempArray);
 	}

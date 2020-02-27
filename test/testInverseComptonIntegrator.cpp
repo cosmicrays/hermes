@@ -14,18 +14,17 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergyCMB) {
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, dummyCS));
 
-        Vector3QLength pos(0);
 	QEnergy Egamma = 10_GeV;
         QEnergy Eelectron = 1_TeV;
 
-	auto res = intIC->integrateOverPhotonEnergy(pos, Egamma, Eelectron);
+	auto res = intIC->integrateOverPhotonEnergy(Vector3QLength(0), Egamma, Eelectron);
 	
 	QTemperature T_CMB = 2.725_K;
 	QPDensity analytical_res = 16_pi * pow<3>(k_boltzmann * T_CMB/(c_light * h_planck)) 
 			 * 1.20206; // Zeta_f(3) = 1.20206
 	// 410 photons/cm3
 	EXPECT_NEAR(static_cast<double>(res * 1_cm3),
-			static_cast<double>(analytical_res * 1_cm3), 3);
+			static_cast<double>(analytical_res * 1_cm3), 1);
 }
 
 /* Integral over photon field energy with Klein-Nishina */
@@ -36,47 +35,36 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
 
-        Vector3QLength pos(0);
-	QEnergy Egamma = 1_GeV;
-        QEnergy Eelectron = 1e14_eV;
+	QEnergy Egamma = 0.1_GeV;
+        QEnergy Eelectron = 0.2_TeV;
 	
 	QTemperature T_CMB = 2.725_K;
-	QDifferentialCrossSection sigma(1e-34);
-	auto analytical_res = sigma * 16_pi * pow<3>(k_boltzmann * T_CMB/(c_light * h_planck)) 
-			 * 1.20206; // Zeta_f(3) = 1.20206 / 
-
-	auto res = intIC->integrateOverPhotonEnergy(pos, Egamma, Eelectron);
+	QDifferentialCrossSection sigma(1e-17); // in m^2/J (a bit overestimate from K-N)
+	auto analytical_res = sigma * 410 * 1e6; // from the previous test
+	auto res = intIC->integrateOverPhotonEnergy(Vector3QLength(0), Egamma, Eelectron);
 	
-//	EXPECT_NEAR(static_cast<double>(res),
-//			static_cast<double>(analytical_res), 1e-34);
+	EXPECT_LE(static_cast<double>(res),
+			static_cast<double>(analytical_res));
+	EXPECT_GE(static_cast<double>(res),
+			static_cast<double>(0.1*analytical_res));
 }
 
+/* Take the result from above and insert it into an integral with the constant (dummy) CR flux */
 TEST(InverseComptonIntegrator, integrateOverEnergy) {
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto simpleModel = std::make_shared<DummyCRDensity>(DummyCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<CMB>(CMB()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
 	
-	Vector3QLength pos;
-	pos.setX(30_pc);
-	pos.setY(100_pc);
-	pos.setZ(20_pc);
-	QEnergy Egamma = 10_GeV;
+	QEnergy Egamma = 0.1_GeV;
+	auto emissivity = intIC->integrateOverEnergy(Vector3QLength(0), Egamma);
 
-	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-	auto res = intIC->integrateOverEnergy(pos, Egamma);
-	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
-	
-	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-
-	std::cerr << "res: " << res << std::endl;
-	std::cerr << "Electron: " << milliseconds.count() << " ms" << std::endl;
-	std::cerr << pos << std::endl;
-	
-	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
+	// 5e-16 is calculated independently by integrating the integrateOverPhotonEnergy(E_el)
+	EXPECT_NEAR(static_cast<double>(emissivity), static_cast<double>(5e-16*c_light), 1e-7);
 }
 
+/* Check consistency of different integration methods */
 TEST(InverseComptonIntegrator, compareLOSIntegrations) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
@@ -105,6 +93,7 @@ TEST(InverseComptonIntegrator, compareLOSIntegrations) {
 			static_cast<double>(result_SI),
 			1e-5);
 }
+
 /*
 TEST(InverseComptonIntegrator, integrateOverLOS) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
@@ -139,7 +128,6 @@ TEST(InverseComptonIntegrator, integrateOverLOS) {
 			1e-5);
 }*/
 
-
 TEST(InverseComptonIntegrator, initCacheTable) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
@@ -172,7 +160,7 @@ TEST(InverseComptonIntegrator, PerformanceTest) {
 	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(particletypes)); 
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
-	auto photonField = std::make_shared<CMB>(CMB()); 
+	auto photonField = std::make_shared<ISRF>(ISRF()); 
 	auto in = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
 	auto Egamma = 1_GeV;

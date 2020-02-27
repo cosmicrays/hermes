@@ -28,8 +28,9 @@ TEST(UnitsBasic, LengthOperations) {
 }
 
 TEST(UnitsBasic, Literals) {
-	QVolume V(3_cm3);
-	EXPECT_DOUBLE_EQ(static_cast<double>(V),
+	EXPECT_DOUBLE_EQ(static_cast<double>(1_num),
+			static_cast<double>(QNumber(1)));
+	EXPECT_DOUBLE_EQ(static_cast<double>(3_cm3),
 			static_cast<double>(
 				3*0.01*metre * centi*metre * centimetre));
 }

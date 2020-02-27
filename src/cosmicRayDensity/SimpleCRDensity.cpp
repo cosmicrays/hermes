@@ -2,7 +2,7 @@
 
 namespace hermes {
 
-SimpleCRDensity::SimpleCRDensity() : minE(1_GeV), maxE(1e4_GeV), steps(10) {
+SimpleCRDensity::SimpleCRDensity() : minE(1_GeV), maxE(10_TeV), steps(20) {
 	makeEnergyRange();
 }
 

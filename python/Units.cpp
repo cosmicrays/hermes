@@ -82,7 +82,9 @@ void init_units(py::module &m) {
 
 	// Volume
 	u.attr("metre3") = 1_m3;
+	u.attr("m3") = 1_m3;
 	u.attr("centimetre3") = 1_cm3;
+	u.attr("cm3") = 1_cm3;
 
 	// Energy
 	PY_LONG_PREFIXED_UNITS("electronvolt", electronvolt);

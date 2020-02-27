@@ -33,19 +33,22 @@ QDifferentialCrossSection KleinNishina::getDiffCrossSection(
 		const QEnergy &E_photon,
 		const QEnergy &E_gamma) const {
 
-	QNumber x_in = E_photon / (m_electron*c_squared);
-	QNumber x_out = E_gamma / (m_electron*c_squared);
-	QNumber electronLorentz = getLorentzFactor(m_electron, E_electron);
-	QNumber eLSquared = electronLorentz*electronLorentz;
-	QNumber q = (x_out / x_in) / (4*eLSquared) * (QNumber(1) + 4*x_in*electronLorentz);
+	constexpr QEnergy mc2_el = m_electron*c_squared;
+	
+	QNumber gamma_el = E_electron / mc2_el; // Lorentz_electron
+	QNumber gamma_el_2 = gamma_el * gamma_el;
+	QNumber p = 4 * E_photon * E_electron / (mc2_el * mc2_el);
+	QNumber q = (E_gamma / E_photon) / (4*gamma_el_2) / (1_num - E_gamma/E_electron);
 
-	if (q < 1.0/(4*eLSquared) || q > QNumber(1))
+	if (q < 1.0/(4*gamma_el_2) || q > 1_num)
 		return QDifferentialCrossSection(0);
-
-	return 2_pi*pow<2>(r_electron)/(E_photon*eLSquared) * 
-		(2*q*log(q) + (QNumber(1)+2*q)*(QNumber(1)-q) +
-		(QNumber(1)-q)/2.0 * pow<2>(4*x_in*electronLorentz*q) / 
-			(QNumber(1)+4*x_in*electronLorentz*q));
+	
+	// gamma_el >> 1 for the approximation to work, i.e., a relativistic electron
+	// see (eq. 2.48) in Blumenthal et. al., 1970
+	return 3./4. * sigma_Thompson / (gamma_el_2 * E_photon) * (
+			2*q * log(q) + (1_num + 2*q)*(1_num - q) +
+			0.5 * (p*q)*(p*q)*(1_num-q) / (1_num + p*q)
+		);
 }
 
 } // namespace hermes 

@@ -221,6 +221,7 @@ add_library(hermes SHARED
 	src/chargedGasDensity/NE2001Simple.cpp
 	src/chargedGasDensity/YMW16.cpp
 	src/neutralGasDensity/RingModelDensity.cpp
+	src/cosmicRayDensity/DummyCRDensity.cpp
 	src/cosmicRayDensity/SimpleCRDensity.cpp
 	src/cosmicRayDensity/WMAP07CRDensity.cpp
 	src/cosmicRayDensity/Sun08CRDensity.cpp

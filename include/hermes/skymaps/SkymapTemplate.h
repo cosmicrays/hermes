@@ -50,8 +50,6 @@ protected:
 	void initDefaultOutputUnits(QPXL units, const std::string &unitsString);	
 	void initContainer();
 	void initMask();
-
-	QNumber toSkymapDefaultUnits(const QPXL pixel) const;
 public:
 	/**
 		Constructors
@@ -92,7 +90,7 @@ public:
 	
 	void printPixels() const;
 	void setMask(std::shared_ptr<SkymapMask> mask_);
-	std::vector<bool> getMask();
+	std::vector<bool> getMask() const;
 	inline bool isMasked(std::size_t pixel) const;
 
 	virtual void computePixel(
@@ -106,7 +104,9 @@ public:
 	
 	/** output **/
 	void convertToUnits(QPXL units_, const std::string &defaultUnitsString);
-	std::string getPixelUnitsAsString() const;
+	QNumber toSkymapDefaultUnits(const QPXL pixel) const;
+	QPXL getOutputUnits() const;
+	std::string getOutputUnitsAsString() const;
 	std::string getUnits() const;
 	void save(std::shared_ptr<Output> output) const;
 
@@ -306,13 +306,18 @@ void SkymapTemplate<QPXL, QSTEP>::convertToUnits(QPXL units_, const std::string 
 }
 
 template <typename QPXL, typename QSTEP>
-std::string SkymapTemplate<QPXL, QSTEP>::getPixelUnitsAsString() const {
+QPXL SkymapTemplate<QPXL, QSTEP>::getOutputUnits() const {
+	return defaultOutputUnits;
+}
+
+template <typename QPXL, typename QSTEP>
+std::string SkymapTemplate<QPXL, QSTEP>::getOutputUnitsAsString() const {
 	return defaultOutputUnitsString;
 }
 
 template <typename QPXL, typename QSTEP>
 std::string SkymapTemplate<QPXL, QSTEP>::getUnits() const {
-	return getPixelUnitsAsString();
+	return getOutputUnitsAsString();
 }
 
 template <typename QPXL, typename QSTEP>
@@ -321,6 +326,8 @@ void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<Output> output) const {
 	output->initOutput();
 	output->createTable(static_cast<int>(npix));
 	output->writeMetadata(nside, res, description);
+	output->writeKeyValueAsString("PIXUNITS", getOutputUnitsAsString(),
+			"Physical units of the skymap pixels");
 
 	std::vector<float> tempArray; // allocate on heap, because of nside >= 512
 	for (auto i: fluxContainer)
@@ -329,7 +336,6 @@ void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<Output> output) const {
 			);
 
 	output->writeColumn(npix, tempArray.data());
-	output->writeKeyValueAsString("PIXUNITS", defaultOutputUnitsString, "Physical units of the skymap pixels");
 }
 
 template <typename QPXL, typename QSTEP>
@@ -339,7 +345,7 @@ void SkymapTemplate<QPXL, QSTEP>::setMask(std::shared_ptr<SkymapMask> mask_) {
 }
 
 template <typename QPXL, typename QSTEP>
-std::vector<bool> SkymapTemplate<QPXL, QSTEP>::getMask() {
+std::vector<bool> SkymapTemplate<QPXL, QSTEP>::getMask() const {
 	return maskContainer;
 }
 

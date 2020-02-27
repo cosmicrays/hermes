@@ -50,6 +50,7 @@
 #include "hermes/neutralGasDensity/RingModelDensity.h"
 
 #include "hermes/cosmicRayDensity/CosmicRayDensity.h"
+#include "hermes/cosmicRayDensity/DummyCRDensity.h"
 #include "hermes/cosmicRayDensity/SimpleCRDensity.h"
 #include "hermes/cosmicRayDensity/Sun08CRDensity.h"
 #include "hermes/cosmicRayDensity/WMAP07CRDensity.h"

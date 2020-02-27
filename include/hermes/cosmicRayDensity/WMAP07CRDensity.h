@@ -18,7 +18,7 @@ private:
 public:
 	WMAP07CRDensity();
 	WMAP07CRDensity(QEnergy minE_, QEnergy maxE_, int steps_);
-	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const;
+	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const override;
 };
 
 } // namespace hermes
