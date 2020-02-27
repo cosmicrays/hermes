@@ -117,7 +117,18 @@ QTemperature intensityToTemperature(QIntensity intensity_, QFrequency freq_) {
 }
 
 int getThreadsNumber() {
-	return std::thread::hardware_concurrency();
+	int max_threads = std::thread::hardware_concurrency();
+
+	const char *env_num_threads = getenv("HERMES_NUM_THREADS");
+        if (env_num_threads) {
+		int i = std::atoi(env_num_threads);
+		if (i < 1) // just in case, since atoi throws no exceptions
+			return max_threads;
+		if (i < max_threads)
+			return i;
+	}
+	return max_threads;
+
 }
 
 std::size_t getThreadId() {

@@ -131,7 +131,7 @@ TEST(InverseComptonIntegrator, integrateOverLOS) {
 TEST(InverseComptonIntegrator, initCacheTable) {
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
-	auto photonField = std::make_shared<CMB>(CMB()); 
+	auto photonField = std::make_shared<ISRF>(ISRF()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
 	
