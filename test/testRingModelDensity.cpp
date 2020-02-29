@@ -9,13 +9,14 @@ class RingModel : public ::testing::Test {
 protected:
   //void SetUp() override {}
   // void TearDown() override {}
-  RingModelDensity ringModel = RingModelDensity();
+  RingModelDensity ringModel_HI = RingModelDensity(RingType::HI);
+  RingModelDensity ringModel_CO = RingModelDensity(RingType::CO);
 };
 
 TEST_F(RingModel, RingBoundaries) {
 	std::vector<std::pair<QLength, QLength> > result;
 
-	for (auto ring : ringModel) {
+	for (auto ring : ringModel_HI) {
 		result.push_back(ring->getBoundaries());
         }
 
@@ -33,8 +34,8 @@ TEST_F(RingModel, RingBoundaries) {
 TEST_F(RingModel, isInside) {
 	Vector3QLength pos(3.5_kpc, 0_kpc, 1_kpc);
 
-	EXPECT_TRUE(ringModel[2]->isInside(pos));
-	EXPECT_FALSE(ringModel[3]->isInside(pos));
+	EXPECT_TRUE(ringModel_HI[2]->isInside(pos));
+	EXPECT_FALSE(ringModel_HI[3]->isInside(pos));
 }
 
 TEST_F(RingModel, RingValues) {
@@ -43,10 +44,11 @@ TEST_F(RingModel, RingValues) {
 	QColumnDensity col_HI(0);
 	QColumnDensity col_H2(0);
 
-	for (auto ring : ringModel) {
+	for (auto ring : ringModel_HI) 
 		col_HI += ring->getHIColumnDensity(dir);
+		
+	for (auto ring : ringModel_CO)
 		col_H2 += X0*ring->getCOIntensity(dir);
-        }
 
 	EXPECT_NEAR(static_cast<double>(col_HI),
 		2e26, 5e25);

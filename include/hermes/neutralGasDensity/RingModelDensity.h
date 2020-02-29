@@ -13,25 +13,29 @@
 
 namespace hermes {
 
+enum class RingType { HI, CO };
+
 class RingData {
 private:
         std::unique_ptr<FITSFile> ffile;
-	
-	std::array<int, 2> n_lon, n_lat, n_rings;
-	std::array<double, 2> min_lon, min_lat;
-	std::array<double, 2> delta_lon, delta_lat;
-	std::array<std::vector<float>, 2> dataVector;
 
-	void readDataFile(GasType t, const std::string &filename);
-	double getRawValue(GasType t, int ring, const QDirection& dir) const;
+	const RingType type;	
+	int n_lon, n_lat, n_rings;
+	double min_lon, min_lat;
+	double delta_lon, delta_lat;
+	std::vector<float> dataVector;
+
+	void readDataFile(const std::string &filename);
+	double getRawValue(int ring, const QDirection& dir) const;
 public:
-	RingData();
+	RingData(RingType gas);
 	QColumnDensity getHIColumnDensityInRing(
 			int ring, const QDirection& dir) const;
 	QRingCOIntensity getCOIntensityInRing(
 			int ring, const QDirection& dir) const;
 
-	int getRingNumber(GasType t) const;
+	RingType getRingType() const;
+	int getRingNumber() const;
 };
 
 class Ring {
@@ -60,9 +64,10 @@ private:
 	
 	void fillRingContainer();
 public:
-	RingModelDensity();
+	RingModelDensity(RingType gas);
 	~RingModelDensity() { }
-	int getRingNumber(GasType t) const;
+	RingType getRingType() const;
+	int getRingNumber() const;
 
 	/** iterator goodies */
 	std::shared_ptr<Ring> operator[](const std::size_t i) const;

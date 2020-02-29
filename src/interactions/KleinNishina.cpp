@@ -43,11 +43,11 @@ QDifferentialCrossSection KleinNishina::getDiffCrossSection(
 	if (q < 1.0/(4*gamma_el_2) || q > 1_num)
 		return QDifferentialCrossSection(0);
 	
-	// gamma_el >> 1 for the approximation to work, i.e., a relativistic electron
-	// see (eq. 2.48) in Blumenthal et. al., 1970
-	return 3./4. * sigma_Thompson / (gamma_el_2 * E_photon) * (
-			2*q * log(q) + (1_num + 2*q)*(1_num - q) +
-			0.5 * (p*q)*(p*q)*(1_num-q) / (1_num + p*q)
+	// gamma_el >> 1 is requred for the approximation to work,
+	// i.e., a relativistic electron, see (eq. 2.48) in Blumenthal et. al., 1970
+	return 3./4. * sigma_Thompson / (E_photon * gamma_el_2) * (
+			2 * q * log(q) + (1_num + 2*q) * (1_num - q) +
+			0.5 * (p*q)*(p*q) * (1_num-q) / (1_num + p*q)
 		);
 }
 

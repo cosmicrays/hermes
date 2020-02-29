@@ -125,9 +125,14 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 			simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
 					losIntegrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 	
-		// Finally, normalize LOS integrals	
-		total_diff_flux += (ring->getHIColumnDensity(direction_) + 2 * X0Function(Vector3QLength(0)) *
+		// Finally, normalize LOS integrals, separatelly for HI and CO
+		if (ngdensity->getRingType() == RingType::HI) {	
+			total_diff_flux += (ring->getHIColumnDensity(direction_)) / normIntegrals * losIntegrals;
+		}
+		if (ngdensity->getRingType() == RingType::CO) {
+			total_diff_flux += (2 * X0Function(Vector3QLength(0)) *
 					 ring->getCOIntensity(direction_)) / normIntegrals * losIntegrals;
+		}
 	}
 	
 	return total_diff_flux;

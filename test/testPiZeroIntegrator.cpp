@@ -78,7 +78,7 @@ TEST(PiZeroIntegrator, PerformanceTest) {
 	
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
 	
-	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity());
+	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::HI));
 	auto in = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, kamae));
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, 1_GeV));

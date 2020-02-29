@@ -12,57 +12,64 @@
 
 namespace hermes {
 
-RingData::RingData() {
-	readDataFile(GasType::HI, "NHrings_Ts300K.fits.gz");
-	readDataFile(GasType::CO, "WCOrings_COGAL.fits.gz");
+RingData::RingData(RingType gas) : type(gas) {
+	if (gas == RingType::HI) {
+		readDataFile("NHrings_Ts300K.fits.gz");
+	}
+	if (gas == RingType::CO) {
+		readDataFile("WCOrings_COGAL.fits.gz");
+	}
 }
 
-void RingData::readDataFile(GasType t, const std::string &filename) {
+void RingData::readDataFile(const std::string &filename) {
 
 	ffile = std::make_unique<FITSFile>(
 			FITSFile(getDataPath("GasDensity/Remy18/" + filename))); 
 	ffile->openFile(FITS::READ);
 
-	n_lon[t] = ffile->readKeyValueAsInt("NAXIS1");
-	n_lat[t] = ffile->readKeyValueAsInt("NAXIS2");
-	n_rings[t] = ffile->readKeyValueAsInt("NAXIS3");
+	n_lon = ffile->readKeyValueAsInt("NAXIS1");
+	n_lat = ffile->readKeyValueAsInt("NAXIS2");
+	n_rings = ffile->readKeyValueAsInt("NAXIS3");
 	
-	min_lon[t] = ffile->readKeyValueAsDouble("CRVAL1");
-	delta_lon[t] = ffile->readKeyValueAsDouble("CDELT1");
-	min_lat[t] = ffile->readKeyValueAsDouble("CRVAL2");
-	delta_lat[t] = ffile->readKeyValueAsDouble("CDELT2");
+	min_lon = ffile->readKeyValueAsDouble("CRVAL1");
+	delta_lon = ffile->readKeyValueAsDouble("CDELT1");
+	min_lat = ffile->readKeyValueAsDouble("CRVAL2");
+	delta_lat = ffile->readKeyValueAsDouble("CDELT2");
 	
-	std::cerr << "Number of rings: " << n_rings[t] << std::endl;
+	std::cerr << "Number of rings: " << n_rings << std::endl;
 
 	int firstElement = 1;
-	int nElements = n_lon[t]*n_lat[t]*n_rings[t];
-	dataVector[t] = ffile->readImageAsFloat(firstElement, nElements);
+	int nElements = n_lon*n_lat*n_rings;
+	dataVector = ffile->readImageAsFloat(firstElement, nElements);
 }
 
-int RingData::getRingNumber(GasType t) const {
-	return n_rings[t];
+RingType RingData::getRingType() const {
+	return type;
 }
 
-double RingData::getRawValue(
-		GasType t, int ring, const QDirection& dir) const {
+int RingData::getRingNumber() const {
+	return n_rings;
+}
+
+double RingData::getRawValue(int ring, const QDirection& dir) const {
 
 	QAngle lat = dir[0];
     	QAngle lon = dir[1] + 180_deg; // becaue the galactic centre of
 				       // the ring model is in the middle of the map
 
-	int pxl_lat = static_cast<int>(round(lat / 180_deg * n_lat[t]));
-	int pxl_lon = static_cast<int>(round(lon / 360_deg * n_lon[t]));
+	int pxl_lat = static_cast<int>(round(lat / 180_deg * n_lat));
+	int pxl_lon = static_cast<int>(round(lon / 360_deg * n_lon));
 
 	// NAXIS1 x NAXIS2 x NAXIS3 => lon x lat x ring
-	return dataVector[t][
-		(ring * n_lat[t] + pxl_lat) * n_lon[t] + pxl_lon
+	return dataVector[
+		(ring * n_lat + pxl_lat) * n_lon + pxl_lon
 	];
 }
 
 QColumnDensity RingData::getHIColumnDensityInRing(
 		int ring, const QDirection& dir) const {
 	// the data is given in cm^-2
-	return getRawValue(GasType::HI, ring, dir) / 1_cm2;
+	return getRawValue(ring, dir) / 1_cm2;
 }
 
 QRingCOIntensity RingData::getCOIntensityInRing(
@@ -70,7 +77,7 @@ QRingCOIntensity RingData::getCOIntensityInRing(
 	// the data is given in K km s^-2
 	if(ring == 10 || ring == 11)
 	       return QRingCOIntensity(0);	
-	return getRawValue(GasType::CO, ring, dir) * 1_K * 1_km / 1_s;
+	return getRawValue(ring, dir) * 1_K * 1_km / 1_s;
 }
 
 Ring::Ring(std::size_t index_, std::shared_ptr<RingData> dataPtr_,
@@ -101,20 +108,24 @@ QRingCOIntensity Ring::getCOIntensity(
 	return dataPtr->getCOIntensityInRing(index, dir_);
 }
 
-RingModelDensity::RingModelDensity() :
-	dataPtr(std::make_shared<RingData>(RingData())) {
+RingModelDensity::RingModelDensity(RingType gas) :
+	dataPtr(std::make_shared<RingData>(RingData(gas))) {
 	fillRingContainer();
 }
 
+RingType RingModelDensity::getRingType() const {
+	return dataPtr->getRingType();
+}
+
 void RingModelDensity::fillRingContainer() {
-	for(std::size_t i = 0; i < dataPtr->getRingNumber(GasType::HI); ++i) {
+	for(std::size_t i = 0; i < dataPtr->getRingNumber(); ++i) {
 		ringContainer.push_back(
 			std::make_shared<Ring>(Ring(i, dataPtr, boundaries[i], boundaries[i+1])));
 	}
 }
 
-int RingModelDensity::getRingNumber(GasType t) const {
-	return dataPtr->getRingNumber(t);
+int RingModelDensity::getRingNumber() const {
+	return dataPtr->getRingNumber();
 }
 
 std::shared_ptr<Ring> RingModelDensity::operator[](const std::size_t i) const {
