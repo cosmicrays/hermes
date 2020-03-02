@@ -37,8 +37,7 @@ public:
 	}
 };
 
-TEST(PiZeroIntegrator, integrateOverEnergy) {
-/*
+TEST(PiZeroIntegrator, PiZeroLOS) {
 	//auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
 	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
 	
@@ -47,7 +46,7 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	// interaction
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
 	// HI model
-	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity());
+	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::HI));
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, kamae));
@@ -63,13 +62,52 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	QDirection dir = {90_deg,1_deg};
 	//std::cerr << intPiZero->integrateOverEnergy(pos, 1_GeV) << std::endl;
 	//std::cerr << intPiZero->integrateOverEnergy(pos, 100_MeV) << std::endl;
-	std::cerr << intPiZero->integrateOverLOS(dir, 1000_MeV) << std::endl;
-	//skymap->compute();
+	//std::cerr << intPiZero->integrateOverLOS(dir, 1000_MeV) << std::endl;
+	skymap->compute();
 	//skymap->save(output);
 
 	// sqrt(3)*e_charge^3/(8*pi^2*epsilon_0*c*electron_mass)*0.655*1*microGauss*1/(m^3*J)*1_eV
 	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
-*/
+}
+
+TEST(PiZeroIntegrator, BremsstrahlungLOS) {
+	//auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	
+	std::vector<PID> particletypes = {Electron, Positron};
+	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(particletypes)); 
+	// interaction
+	auto bremsstrahlung = std::make_shared<BremsstrahlungSimple>(BremsstrahlungSimple());
+	// HI model
+	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::HI));
+	// integrator
+	auto intPiZero = std::make_shared<PiZeroIntegrator>(
+		PiZeroIntegrator(dragonModel, ringModel, bremsstrahlung));
+
+	// skymap
+	int nside = 4;
+	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(nside, 1_GeV));
+	skymap->setIntegrator(intPiZero);
+
+	//auto output = std::make_shared<FITSOutput>(FITSOutput("!test-pion.fits.gz"));
+	
+	auto pos = Vector3QLength(8.5_kpc, 0, 0);
+	QDirection dir = {90_deg,1_deg};
+	//std::cerr << intPiZero->integrateOverEnergy(pos, 1_GeV) << std::endl;
+	//std::cerr << intPiZero->integrateOverEnergy(pos, 100_MeV) << std::endl;
+	//std::cerr << intPiZero->integrateOverLOS(dir, 1000_MeV) << std::endl;
+        std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+	skymap->compute();
+        std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
+
+        auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+	float pxl_speed = milliseconds.count()/skymap->getNpix()*getThreadsNumber();
+
+	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+	//skymap->save(output);
+
+	// sqrt(3)*e_charge^3/(8*pi^2*epsilon_0*c*electron_mass)*0.655*1*microGauss*1/(m^3*J)*1_eV
+	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
 }
 
 TEST(PiZeroIntegrator, PerformanceTest) {
@@ -78,7 +116,7 @@ TEST(PiZeroIntegrator, PerformanceTest) {
 	
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
 	
-	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::HI));
+	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::CO));
 	auto in = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, kamae));
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, 1_GeV));

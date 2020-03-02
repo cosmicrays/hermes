@@ -11,23 +11,6 @@ QDifferentialCrossSection KleinNishina::getDiffCrossSection(
 	return QDifferentialCrossSection(0);
 }
 
-void KleinNishina::setCacheStorage(std::unique_ptr<CacheStorageKN> cache_) {
-	cache = std::move(cache_);	
-	cacheStoragePresent = true;
-	auto f = [this](QEnergy E_electron, QEnergy E_photon, QEnergy E_gamma) {
-			return this->getDiffCrossSection(E_electron, E_photon, E_gamma); };
-	cache->setFunction(f);
-};
-
-QDifferentialCrossSection KleinNishina::getDiffCrossSectionFromCache(
-		const QEnergy &E_electron,
-		const QEnergy &E_photon,
-		const QEnergy &E_gamma) const {
-	if (cacheStoragePresent)
-		return cache->getValue(E_electron, E_photon, E_gamma);
-	return getDiffCrossSection(E_electron, E_photon, E_gamma);
-}
-
 QDifferentialCrossSection KleinNishina::getDiffCrossSection(
 		const QEnergy &E_electron,
 		const QEnergy &E_photon,

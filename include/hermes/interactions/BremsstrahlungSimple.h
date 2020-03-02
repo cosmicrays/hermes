@@ -2,6 +2,7 @@
 #define HERMES_BREMSSTRAHLUNGSIMPLE_H
 
 #include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/CacheTools.h"
 
 #include <memory>
 
@@ -9,11 +10,18 @@ namespace hermes {
 
 class BremsstrahlungSimple: public DifferentialCrossSection {
 private:
-
+	bool cachingEnabled;
+        std::unique_ptr<CacheStorageCrossSection> cache;
 public:
 	BremsstrahlungSimple();
 	
+	void enableCaching();
+	void disableCaching();
+	
 	QDifferentialCrossSection getDiffCrossSection(
+			const QEnergy &E_photon,
+			const QEnergy &E_gamma) const;
+	QDifferentialCrossSection getDiffCrossSectionDirectly(
 			const QEnergy &E_photon,
 			const QEnergy &E_gamma) const;
 

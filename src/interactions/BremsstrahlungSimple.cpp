@@ -14,7 +14,7 @@
 #define pow3(A) ((A)*(A)*(A))
 #define pow4(A) ((A)*(A)*(A)*(A))
 
-#define LIMIT 10000
+#define LIMIT 1000
 #define EPSINT 1e-5
 #define KEYINT 3
 
@@ -36,7 +36,29 @@ public:
 	}
 };
 
-BremsstrahlungSimple::BremsstrahlungSimple() { }
+BremsstrahlungSimple::BremsstrahlungSimple() :
+	cachingEnabled(true), cache(std::make_unique<CacheStorageCrossSection>()) {
+	
+	auto f = [this](QEnergy E_proton, QEnergy E_gamma) {
+			return this->getDiffCrossSectionDirectly(E_proton, E_gamma); };
+	cache->setFunction(f);
+}
+
+void BremsstrahlungSimple::enableCaching() {
+	cachingEnabled = true;
+};
+
+void BremsstrahlungSimple::disableCaching() {
+	cachingEnabled = false;
+};
+
+QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSection(
+		const QEnergy &E_proton,
+		const QEnergy &E_gamma) const {
+	if (cachingEnabled)
+		return cache->getValue(E_proton, E_gamma);
+	return getDiffCrossSectionDirectly(E_proton, E_gamma);
+}
 
 QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSection(
 			const QEnergy &E_electron,
@@ -167,7 +189,7 @@ QArea BremsstrahlungSimple::dsdk_HighEnergy(const QNumber &gamma_i, const QNumbe
         return pow<2>(r_electron) * alpha_fine / k * factor;
 }
 
-QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSection(
+QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSectionDirectly(
 		const QEnergy &E_electron,
 		const QEnergy &E_gamma) const {
 

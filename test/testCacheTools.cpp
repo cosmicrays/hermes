@@ -20,19 +20,18 @@ TEST(CacheTools, getValue) {
 	std::cerr << cache->getValue(a, b) << std::endl;
 }
 
-TEST(CacheTools, KleinNishina) {
-	auto cache = std::make_unique<CacheStorageKN>(CacheStorageKN());
-	auto f_kn = std::make_shared<KleinNishina>(KleinNishina());
-	f_kn->setCacheStorage(std::move(cache));
+TEST(CacheTools, Kamae06) {
+	auto cache = std::make_unique<CacheStorageCrossSection>(CacheStorageCrossSection());
+	auto f_kn = std::make_shared<Kamae06>(Kamae06());
+	f_kn->setCachingStorage(std::move(cache));
 
 	QDifferentialCrossSection integral(0);
-	QEnergy E_electron = 100_TeV;
-	QEnergy E_photon = 6.626e-4_eV;
-	QEnergy E_gamma = 1_TeV;
+	QEnergy E_proton = 10_GeV;
+	QEnergy E_gamma = 1_GeV;
    	
 	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
         for (std::size_t i = 0; i < 1000000; ++i) {
-		integral += f_kn->getDiffCrossSectionFromCache(E_electron, E_photon*(i%2), E_gamma);
+		integral += f_kn->getDiffCrossSection(E_proton*(i%100), E_gamma);
 	}
 	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -40,33 +39,33 @@ TEST(CacheTools, KleinNishina) {
 
 	start = std::chrono::system_clock::now();
         for (std::size_t i = 0; i < 1000000; ++i) {
-		integral += f_kn->getDiffCrossSection(E_electron, E_photon*(i%2), E_gamma);
+		integral += f_kn->getDiffCrossSectionDirectly(E_proton*(i%100), E_gamma);
 	}
     	stop = std::chrono::system_clock::now();
 	milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 	std::cerr << "direct: " << milliseconds.count() << " ms" << std::endl;
 }
 
-TEST(CacheTools, Kamae06) {
-	auto cache = std::make_unique<CacheStorageKamae>(CacheStorageKamae());
-	auto f_kn = std::make_shared<Kamae06>(Kamae06());
-	f_kn->setCacheStorage(std::move(cache));
+TEST(CacheTools, BremsstrahlungSimple) {
+//	auto cache = std::make_unique<CacheStorageCrossSection>(CacheStorageCrossSection());
+	auto f_kn = std::make_shared<BremsstrahlungSimple>(BremsstrahlungSimple());
+//	f_kn->setCachingStorage(std::move(cache));
 
 	QDifferentialCrossSection integral(0);
-	QEnergy E_proton = 100_TeV;
-	QEnergy E_gamma = 1_TeV;
+	QEnergy E_proton = 10_GeV;
+	QEnergy E_gamma = 1_GeV;
    	
 	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-        for (std::size_t i = 0; i < 1000000; ++i) {
-		integral += f_kn->getDiffCrossSection(E_proton*(i%2), E_gamma);
+        for (std::size_t i = 0; i < 100000; ++i) {
+		integral += f_kn->getDiffCrossSection(E_proton*(i%100), E_gamma);
 	}
 	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 	std::cerr << "cache: " << milliseconds.count() << " ms" << std::endl;
 
 	start = std::chrono::system_clock::now();
-        for (std::size_t i = 0; i < 1000000; ++i) {
-		integral += f_kn->getDiffCrossSectionDirectly(E_proton*(i%2), E_gamma);
+        for (std::size_t i = 0; i < 100000; ++i) {
+		integral += f_kn->getDiffCrossSectionDirectly(E_proton*(i%100), E_gamma);
 	}
     	stop = std::chrono::system_clock::now();
 	milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
