@@ -140,8 +140,6 @@ void Dragon2DCRDensity::readDensity2D() {
 	int hdu_type = 0;
 	int firstElement = 1;
     
-	int Z = 0, A = 0;
-	
 	auto vecSize = dimr * dimz;
 	long nElements = energyRange.size() * vecSize;
 	constexpr double fluxToDensity = static_cast<double>(4_pi/(c_light*1_GeV));
@@ -158,8 +156,8 @@ void Dragon2DCRDensity::readDensity2D() {
 
 	  	hduActual = ffile->getCurrentHDUNumber();	
       
-		Z = ffile->readKeyValueAsInt("Z_");
-		A = ffile->readKeyValueAsInt("A");
+		int Z = ffile->readKeyValueAsInt("Z_");
+		int A = ffile->readKeyValueAsInt("A");
      
       		if (isPIDEnabled(PID(Z,A))) {
 	
@@ -290,8 +288,6 @@ void Dragon3DCRDensity::readDensity3D() {
 	int hdu_type = 0;
 	int firstElement = 1;
     
-	int Z = 0, A = 0;
-	
 	auto vecSize = dimx * dimy * dimz;
 	long nElements = energyRange.size() * vecSize;
 	constexpr double fluxToDensity = static_cast<double>(4_pi/(c_light*1_GeV));
@@ -308,8 +304,8 @@ void Dragon3DCRDensity::readDensity3D() {
 
 	  	hduActual = ffile->getCurrentHDUNumber();	
       
-		Z = ffile->readKeyValueAsInt("Z_");
-		A = ffile->readKeyValueAsInt("A");
+		int Z = ffile->readKeyValueAsInt("Z_");
+		int A = ffile->readKeyValueAsInt("A");
       
       		if (isPIDEnabled(PID(Z,A))) {
 	

@@ -110,9 +110,9 @@ QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength po
 		return getIOEfromCache(pos_, Egamma_);
 
 	if (crdensity->existsScaleFactor())
-		return 4_pi * integrateOverLogEnergy(pos_, Egamma_);
+		return integrateOverLogEnergy(pos_, Egamma_);
 	else
-		return 4_pi * integrateOverSumEnergy(pos_, Egamma_);
+		return integrateOverSumEnergy(pos_, Egamma_);
 }
 
 QICOuterIntegral InverseComptonIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
