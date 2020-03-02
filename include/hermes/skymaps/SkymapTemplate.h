@@ -242,10 +242,10 @@ void SkymapTemplate<QPXL, QSTEP>::computePixelRange(
 	for (std::size_t ipix = start; ipix < end; ++ipix) {
 		if (!isMasked(ipix)) {
 			computePixel(ipix, integrator_);
+			progressbar->update();
 		} else {
 			fluxContainer[ipix] = QPXL(UNSEEN);
 		}
-		progressbar->update();
 	}
 }
 
@@ -263,7 +263,7 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
 	}
 
 	// Progressbar init	
-	progressbar = std::make_shared<ProgressBar>(ProgressBar(size()));
+	progressbar = std::make_shared<ProgressBar>(ProgressBar(getUnmaskedPixelCount()));
 	progressbar_mutex = std::make_shared<std::mutex>();
 	progressbar->setMutex(progressbar_mutex);
 	progressbar->start("Compute skymap");
