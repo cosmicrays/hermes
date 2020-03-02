@@ -68,6 +68,10 @@ void init_units(py::module &m) {
 	PY_LONG_PREFIXED_UNITS("parsec", parsec);
 	PY_SHORT_PREFIXED_UNITS("pc", parsec);
 
+	// Area
+	PY_LONG_PREFIXED_UNITS("barn", barn);
+	PY_SHORT_PREFIXED_UNITS("barn", barn);
+
 	// Time
 	u.attr("minute") = minute;
 	u.attr("hour")   = hour;
