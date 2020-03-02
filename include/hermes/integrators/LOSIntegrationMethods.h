@@ -96,8 +96,6 @@ QPXL gslQAGIntegration(std::function<INTTYPE(QLength)> f,
 	double result;
 	double error;
 	
-	gsl_integration_workspace * workspace_ptr = gsl_integration_workspace_alloc(GSL_LIMIT);
-	
 	gsl_function F = {
   		.function = [](double x, void * vf) -> double {
 		    auto& func = *static_cast<std::function<double(double)>*>(vf);
@@ -106,8 +104,8 @@ QPXL gslQAGIntegration(std::function<INTTYPE(QLength)> f,
 	  	.params = &f
 	};
 	
+	gsl_integration_workspace * workspace_ptr = gsl_integration_workspace_alloc(GSL_LIMIT);
 	gsl_integration_qag(&F, a, b, abs_error, rel_error, N, key, workspace_ptr, &result, &error);
-	
 	gsl_integration_workspace_free(workspace_ptr);
 
 	return QPXL(result);

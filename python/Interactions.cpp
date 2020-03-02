@@ -25,10 +25,13 @@ void init_interactions(py::module &m) {
     py::class_<BremsstrahlungSimple, std::shared_ptr<BremsstrahlungSimple>, DifferentialCrossSection>(m, "BremsstrahlungSimple")
 	      .def(py::init<>())
 	      .def("getDiffCrossSection",
-		   (QDifferentialCrossSection (BremsstrahlungSimple::*)(const QEnergy &, const QEnergy &, const QEnergy &) const)
+		   (QDifferentialCrossSection (BremsstrahlungSimple::*)(const QEnergy &, const QEnergy &) const)
 		   &BremsstrahlungSimple::getDiffCrossSection);
     py::class_<Kamae06, std::shared_ptr<Kamae06>, DifferentialCrossSection>(m, "Kamae06")
-	      .def(py::init<>());
+	      .def(py::init<>())
+	      .def("getDiffCrossSection",
+		   (QDifferentialCrossSection (Kamae06::*)(const QEnergy &, const QEnergy &) const)
+		   &Kamae06::getDiffCrossSection);
 }
 
 }

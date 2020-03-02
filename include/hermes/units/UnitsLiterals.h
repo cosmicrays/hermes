@@ -60,7 +60,7 @@ LITERAL(QLength, _kpc, kiloparsec)
 LITERAL(QArea, _m2, (metre*metre))
 LITERAL(QArea, _cm2, (centimetre*centimetre))
 LITERAL(QArea, _barn, barn)
-LITERAL(QArea, _mbarn, milli*barn)
+LITERAL(QArea, _mbarn, millibarn)
 
 // literals for volume units
 LITERAL(QVolume, _cm3, (centimetre3))

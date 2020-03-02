@@ -90,6 +90,7 @@ GENERATE_PREFIXED_UNITS(parsec)
 // Predefined area units:
 constexpr QArea hectare = 1e4 * square_metre;
 constexpr QArea barn = 1e-28 * square_metre;
+GENERATE_PREFIXED_UNITS(barn)
 
 // Predefined volume units:
 constexpr QVolume metre3 = metre*metre*metre;
