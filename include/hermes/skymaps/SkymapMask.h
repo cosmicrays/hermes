@@ -28,7 +28,7 @@ private:
 	std::shared_ptr<SkymapMask> mask;
 public:
 	InvertMask(const std::shared_ptr<SkymapMask> mask);
-	bool isAllowed(const QDirection &dir) const;
+	bool isAllowed(const QDirection &dir) const override;
 };
 
 class MaskList: public SkymapMask {
@@ -37,7 +37,7 @@ private:
 public:
 	MaskList();
 	void addMask(const std::shared_ptr<SkymapMask> mask);
-	bool isAllowed(const QDirection &dir) const;
+	bool isAllowed(const QDirection &dir) const override;
 };
 
 
@@ -51,7 +51,7 @@ public:
 	// left - right = longitude
 	RectangularWindow(const QDirection &topleft,
 			  const QDirection &bottomright);
-	bool isAllowed(const QDirection &dir_) const;
+	bool isAllowed(const QDirection &dir_) const override;
 };
 
 class CircularWindow: public SkymapMask {
@@ -61,7 +61,7 @@ private:
 	QAngle aperature;
 public:
 	CircularWindow(const QDirection &centre, const QAngle &aperature);
-	bool isAllowed(const QDirection &dir) const;
+	bool isAllowed(const QDirection &dir) const override;
 };
 
 } // namespace hermes

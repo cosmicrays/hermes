@@ -116,7 +116,7 @@ public:
 	Vector3QMField getTurbulentField(const Vector3QLength& pos) const;
 
 	// All set field components
-	Vector3QMField getField(const Vector3QLength& pos) const;
+	Vector3QMField getField(const Vector3QLength& pos) const override;
 };
 
 } // namespace hermes

@@ -61,7 +61,7 @@ public:
 	Vector3QMField getTurbulentField(const Vector3QLength& pos) const;
 
 	// Get the total field
-	Vector3QMField getField(const Vector3QLength& pos) const;
+	Vector3QMField getField(const Vector3QLength& pos) const override;
 
 };
 

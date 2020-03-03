@@ -54,11 +54,10 @@ QPXL simpsonIntegration(std::function<INTTYPE(QLength)> f,
 
         QLength h = (b - a)/N;
         INTTYPE XI0 = f(a) + f(b);
-        QLength X = 0;
 	INTTYPE XI1 = 0, XI2 = 0;
 
         for (int i = 1; i < N; ++i) {
-                X = a + i*h;
+                QLength X = a + i*h;
                 if (i % 2 == 0)
                         XI2 = XI2 + f(X);
                 else

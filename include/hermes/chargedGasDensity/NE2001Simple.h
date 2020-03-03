@@ -16,7 +16,7 @@ private:
 	double h(const QNumber &x) const;
 public:
 	NE2001Simple();
-	QPDensity getDensity(const Vector3QLength& pos) const;
+	QPDensity getDensity(const Vector3QLength& pos) const override;
 	QPDensity getThickDiskDensity(const Vector3QLength& pos) const;
 	QPDensity getThinDiskDensity(const Vector3QLength& pos) const;
 	QPDensity getSpiralArmsDensity(const Vector3QLength& pos) const;

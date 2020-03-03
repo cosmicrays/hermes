@@ -67,7 +67,7 @@ public:
 	RingModelDensity(RingType gas);
 	~RingModelDensity() { }
 	RingType getRingType() const;
-	int getRingNumber() const;
+	int getRingNumber() const override;
 
 	/** iterator goodies */
 	std::shared_ptr<Ring> operator[](const std::size_t i) const;

@@ -38,7 +38,7 @@ public:
 	void disableCaching();
 	
 	QDifferentialCrossSection getDiffCrossSection(
-			const QEnergy &E_proton, const QEnergy &E_gamma) const;
+			const QEnergy &E_proton, const QEnergy &E_gamma) const override;
 	QDifferentialCrossSection getDiffCrossSectionDirectly(
 			const QEnergy &E_proton, const QEnergy &E_gamma) const;
         
@@ -46,7 +46,7 @@ public:
 	QDifferentialCrossSection getDiffCrossSection(
                         const QEnergy &E_proton,
                         const QEnergy &E_photon,
-                        const QEnergy &E_gamma) const {
+                        const QEnergy &E_gamma) const override {
 		return QDifferentialCrossSection(0); }
 };
 

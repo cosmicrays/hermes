@@ -260,7 +260,7 @@ private:
 public:
 	YMW16();
 	YMW16(const QTemperature &t);
-	QPDensity getDensity(const Vector3QLength& pos) const;
+	QPDensity getDensity(const Vector3QLength& pos) const override;
 
 	double ne_ymw16(const Vector3QLength &pos) const;
 	double thick(double xx, double yy, double zz, double *gd, double rr) const;

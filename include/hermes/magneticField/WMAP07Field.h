@@ -25,7 +25,7 @@ private:
 
 public:
 	WMAP07Field();
-	Vector3QMField getField(const Vector3QLength& pos) const;
+	Vector3QMField getField(const Vector3QLength& pos) const override;
 };
 
 } // namespace hermes

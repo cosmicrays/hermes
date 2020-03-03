@@ -351,7 +351,7 @@ double YMW16::spiral(double xx,  double yy,  double zz,  double gd, double rr, i
 				}
 			}
 			if(gd == 0 || std::fabs(zz) > (mc*HH)) { 
-				m_3++;
+				(*m_3)++;
 				return 0;
 			}
 			sech2 = std::pow((2/(std::exp((rr-t3.B2s)/t3.Aa)+std::exp(-(rr-t3.B2s)/t3.Aa))), 2);
@@ -397,8 +397,9 @@ double YMW16::gum(double xx, double yy, double zz, int *m_5) const {
 	rp=std::sqrt((zp)*(zp)+(xyp)*(xyp));
 	Dmin=std::fabs((RR-rp)*sin(theta+alpha));
 
-	if(Dmin>(mc*t5.Wgn)){
-		if(RR > 500) m_5++;
+	if(Dmin > (mc*t5.Wgn)) {
+		if(RR > 500)
+			(*m_5)++;
 		return 0;
 	}
 	return (t5.ngn)*exp(-Dmin*Dmin/((t5.Wgn)*(t5.Wgn)));
@@ -438,7 +439,7 @@ double YMW16::localbubble(double xx, double yy, double zz, double gl,double gb, 
 	}
 	if((UU-Rlb)>(mc*t6.wlb2)||std::fabs(zz)>(mc*t6.hlb2)) nelb2=0;
 	if(nelb1==0&&nelb2==0){
-		*m_6++;
+		(*m_6)++;
 		return 0;
 	}else{
 		glb2=1;
@@ -472,7 +473,7 @@ double YMW16::nps(double xx, double yy, double zz, int *WLI, int *m_7) const {
 	theta = std::acos(((xx-x_c)*(std::cos(theta_LI))+(zz-z_c)*(std::sin(theta_LI)))/rr)*RAD;
 	*WLI=1;
 	if(std::fabs(rr-t7.RLI)>(mc*t7.WLI)||std::fabs(theta)>(mc*t7.detthetaLI))
-	{ if(rr>500) *m_7++;
+	{ if(rr>500) (*m_7)++;
 		return 0;
 	}
 	else gLI=1;

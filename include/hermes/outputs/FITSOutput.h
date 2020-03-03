@@ -15,17 +15,17 @@ private:
 	std::unique_ptr<FITSFile> ffile;
 public:
 	FITSOutput(const std::string &filename);
-	void initOutput();
-	void createTable(int nrows);
+	void initOutput() override;
+	void createTable(int nrows) override;
 	void writeMetadata(int nside, double res,
-		const std::string &description);
+		const std::string &description) override;
 	void writeKeyValueAsDouble(
 		const std::string &key, double value,
-		const std::string &description);
+		const std::string &description) override;
 	void writeKeyValueAsString(
 		const std::string &key, const std::string &value,
-		const std::string &description);
-	void writeColumn(int nElements, void *array);
+		const std::string &description) override;
+	void writeColumn(int nElements, void *array) override;
 };
 
 } // namespace hermes

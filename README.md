@@ -40,6 +40,7 @@ from pyhermes.units import TeV, deg
 
 nside = 512
 Egamma = 0.1*TeV
+sun_pos = Vector3QLength(8.0*kpc, 0*pc, 0*pc)
 
 skymap = GammaSkymap(nside=nside, Egamma=Egamma)
 mask = RectangularWindow([5*deg, 40*deg], [-5*deg, 90*deg]);
@@ -50,6 +51,7 @@ cosmicray_protons = Dragon2DCRDensity([Proton])
 pp_crosssection = Kamae06()
 
 integrator = PiZeroIntegrator(cosmicray_protons, neutral_gas, pp_crosssection)
+integrator.setSunPosition(sun_pos)
 integrator.setupCacheTable(100, 100, 20)
 
 skymap.setIntegrator(integrator)

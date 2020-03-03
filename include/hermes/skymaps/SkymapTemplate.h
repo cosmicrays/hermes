@@ -178,10 +178,7 @@ std::size_t SkymapTemplate<QPXL, QSTEP>::size() const {
 
 template <typename QPXL, typename QSTEP>
 std::size_t SkymapTemplate<QPXL, QSTEP>::getUnmaskedPixelCount() const {
-	std::size_t s = 0;
-	for (const auto i : maskContainer) 
-		if (i) s++;
-	return s;
+	return std::count(maskContainer.begin(), maskContainer.end(), true);
 }
 
 template <typename QPXL, typename QSTEP>

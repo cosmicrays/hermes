@@ -20,7 +20,7 @@ public:
 	
 	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_photon,
-			const QEnergy &E_gamma) const;
+			const QEnergy &E_gamma) const override;
 	QDifferentialCrossSection getDiffCrossSectionDirectly(
 			const QEnergy &E_photon,
 			const QEnergy &E_gamma) const;
@@ -29,7 +29,7 @@ public:
 	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_electron,
 			const QEnergy &E_photon,
-			const QEnergy &E_gamma) const;
+			const QEnergy &E_gamma) const override;
 	
 	QNumber ElwertFactor(const QNumber &beta_i, const QNumber &beta_f, int Z) const;
 	QNumber xiFunc(const QNumber &T_electron_i, const QNumber &k, int Z, int N) const;
