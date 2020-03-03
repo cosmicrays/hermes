@@ -25,15 +25,15 @@ private:
 	std::shared_ptr<PhotonField> phdensity;
 	std::shared_ptr<DifferentialCrossSection> crossSec; 
 
-	typedef Grid<QICOuterIntegral> ICCacheTable;
+	typedef Grid<QGREmissivity> ICCacheTable;
 	std::shared_ptr<ICCacheTable> cacheTable;
-	QICOuterIntegral getIOEfromCache(Vector3QLength, QEnergy) const;
+	QGREmissivity getIOEfromCache(Vector3QLength, QEnergy) const;
 	void computeCacheInThread(std::size_t start, std::size_t end,
 			const QEnergy &Egamma, std::shared_ptr<ProgressBar> &p);
 
-	QICOuterIntegral integrateOverSumEnergy(
+	QGREmissivity integrateOverSumEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
-	QICOuterIntegral integrateOverLogEnergy(
+	QGREmissivity integrateOverLogEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
 public:
 	InverseComptonIntegrator(
@@ -47,7 +47,7 @@ public:
 
 	QDifferentialIntensity integrateOverLOS(QDirection iterdir) const;
 	QDifferentialIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
-	QICOuterIntegral integrateOverEnergy(
+	QGREmissivity integrateOverEnergy(
 		Vector3QLength pos, QEnergy Egamma) const;
 	QICInnerIntegral integrateOverPhotonEnergy(Vector3QLength pos,
 		QEnergy Egamma, QEnergy Eelectron) const;

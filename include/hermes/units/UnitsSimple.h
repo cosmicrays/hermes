@@ -55,7 +55,7 @@ typedef double QPiZeroIntegral;
 typedef double QRingCOIntensity;
 typedef double QRingX0Unit;
 typedef double QICInnerIntegral;
-typedef double QICOuterIntegral;
+typedef double QGREmissivity;
 
 template<int power>
 constexpr double pow(const QNumber& num) { return std::pow(static_cast<double>(num), power); }

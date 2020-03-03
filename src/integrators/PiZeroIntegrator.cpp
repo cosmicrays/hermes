@@ -122,7 +122,7 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 		auto losIntegrand = [this, losI_f, direction_, Egamma_](const QLength &dist) {
 	                return losI_f(getGalacticPosition(this->positionSun, dist, direction_), Egamma_); };
 		QDifferentialIntensity losIntegrals = 
-			simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
+			simpsonIntegration<QDifferentialFlux, QGREmissivity>(
 					losIntegrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 	
 		// Finally, normalize LOS integrals, separatelly for HI and CO

@@ -57,11 +57,12 @@ TEST(InverseComptonIntegrator, integrateOverEnergy) {
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
 		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
 	
-	QEnergy Egamma = 0.1_GeV;
+	QEnergy Egamma = 1.0_GeV;
 	auto emissivity = intIC->integrateOverEnergy(Vector3QLength(0), Egamma);
+	// sigma_KN = ~230 mbarn for Ephoton(T_CMB) and Egamma = 1 TeV
 
 	// 5e-16 is calculated independently by integrating the integrateOverPhotonEnergy(E_el)
-	EXPECT_NEAR(static_cast<double>(emissivity), static_cast<double>(5e-16*c_light), 1e-7);
+	EXPECT_NEAR(static_cast<double>(emissivity), static_cast<double>(5e-16*c_light/4_pi), 1e-7);
 }
 
 /* Check consistency of different integration methods */
@@ -82,10 +83,10 @@ TEST(InverseComptonIntegrator, compareLOSIntegrations) {
 				Egamma
 			); };
 	
-	auto result_QAG = gslQAGIntegration<QDifferentialFlux, QICOuterIntegral>(
+	auto result_QAG = gslQAGIntegration<QDifferentialFlux, QGREmissivity>(
                         [maxDist, dir, integrand](QLength dist) {return integrand(dist);}, 0, maxDist, 300);
 	
-	auto result_SI  = simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
+	auto result_SI  = simpsonIntegration<QDifferentialFlux, QGREmissivity>(
                         [maxDist, dir, integrand](QLength dist) {return integrand(dist);}, 0, maxDist, 300);
 
 
@@ -116,10 +117,10 @@ TEST(InverseComptonIntegrator, integrateOverLOS) {
 	workspace_ptr = static_cast<std::shared_ptr<gsl_integration_workspace>>(
 			gsl_integration_workspace_alloc(1000));
 
-	auto result_QAG = gslQAGIntegration<QDifferentialFlux, QICOuterIntegral>(
+	auto result_QAG = gslQAGIntegration<QDifferentialFlux, QGREmissivity>(
                         [maxDist, dir, integrand](QLength dist) {return integrand(dist);}, 0, maxDist, 300, workspace_ptr);
 	
-	auto result_SI  = simpsonIntegration<QDifferentialFlux, QICOuterIntegral>(
+	auto result_SI  = simpsonIntegration<QDifferentialFlux, QGREmissivity>(
                         [maxDist, dir, integrand](QLength dist) {return integrand(dist);}, 0, maxDist, 300);
 
 

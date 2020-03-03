@@ -30,7 +30,8 @@ namespace hermes {
 			logWavelenghtToFrequency(logwavelenghts.front()) * h_planck);
 		
 		// Spares steps
-		setEnergyScaleFactor(1.1); // 145 steps
+		//setEnergyScaleFactor(1.1); // 145 steps
+		setEnergyScaleFactor(1.05);
 
 		// Alternative (slow), all available energy steps	
 		/*

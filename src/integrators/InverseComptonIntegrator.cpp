@@ -83,7 +83,7 @@ void InverseComptonIntegrator::initCacheTable() {
 	cacheTableInitialized = true;
 }
 
-QICOuterIntegral InverseComptonIntegrator::getIOEfromCache(Vector3QLength pos_, QEnergy Egamma_) const {
+QGREmissivity InverseComptonIntegrator::getIOEfromCache(Vector3QLength pos_, QEnergy Egamma_) const {
 		return cacheTable->interpolate(static_cast<Vector3d>(pos_));
 }
 
@@ -101,11 +101,11 @@ QDifferentialIntensity InverseComptonIntegrator::integrateOverLOS(
 				Egamma_
 			); };
 
-	return gslQAGIntegration<QDifferentialFlux, QICOuterIntegral>(
+	return gslQAGIntegration<QDifferentialFlux, QGREmissivity>(
 			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 }
 
-QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
+QGREmissivity InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
 	if (cacheTableInitialized)
 		return getIOEfromCache(pos_, Egamma_);
 
@@ -115,9 +115,9 @@ QICOuterIntegral InverseComptonIntegrator::integrateOverEnergy(Vector3QLength po
 		return integrateOverSumEnergy(pos_, Egamma_);
 }
 
-QICOuterIntegral InverseComptonIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
+QGREmissivity InverseComptonIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
 
-	QICOuterIntegral integral(0);
+	QGREmissivity integral(0);
 	QEnergy deltaE;
 
 	for (auto itE = std::next(crdensity->begin()); itE != crdensity->end(); ++itE) {
@@ -129,9 +129,9 @@ QICOuterIntegral InverseComptonIntegrator::integrateOverSumEnergy(Vector3QLength
 	return integral;
 }
 
-QICOuterIntegral InverseComptonIntegrator::integrateOverLogEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
+QGREmissivity InverseComptonIntegrator::integrateOverLogEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
 
-	QICOuterIntegral integral(0);
+	QGREmissivity integral(0);
 
 	for (auto itE = crdensity->begin(); itE != crdensity->end(); ++itE) {
 		integral += integrateOverPhotonEnergy(pos_, Egamma_, (*itE)) * 

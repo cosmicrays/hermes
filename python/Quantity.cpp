@@ -101,7 +101,7 @@ void init_quantity(py::module &m) {
 		.def(py::init<const QAngle &, const QAngle &>());
 
 	// |- unnamed
-	declare_quantity<QICOuterIntegral>(m, "QICOuterIntegral", "m^-5 kg^-1 s", apyu);
+	declare_quantity<QGREmissivity>(m, "QGREmissivity", "m^-5 kg^-1 s", apyu);
 	declare_quantity<QICInnerIntegral>(m, "QICInnerIntegral", "m^-3 kg^-1 s^2", apyu);
 }
 

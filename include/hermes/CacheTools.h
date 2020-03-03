@@ -224,20 +224,20 @@ public:
 class CacheStorageIC2 {
 private:
 	typedef std::array<int, 2> tArray2Key;
-	std::unordered_map<tArray2Key, QICOuterIntegral, array2_hash, array2_equal> cachedValues;
-	std::function<QICOuterIntegral(int, int, QEnergy)> f;
+	std::unordered_map<tArray2Key, QGREmissivity, array2_hash, array2_equal> cachedValues;
+	std::function<QGREmissivity(int, int, QEnergy)> f;
 	
 public:
-	void setFunction(std::function<QICOuterIntegral(int, int, QEnergy)> f_) {
+	void setFunction(std::function<QGREmissivity(int, int, QEnergy)> f_) {
 		f = f_;
 	}
 
-	void cacheValue(const tArray2Key &key, QICOuterIntegral value) {
+	void cacheValue(const tArray2Key &key, QGREmissivity value) {
 		cachedValues[key] = value;
 	}
 
-	QICOuterIntegral getValue(int q1, int q2, QEnergy q3) {
-		QICOuterIntegral result(0);
+	QGREmissivity getValue(int q1, int q2, QEnergy q3) {
+		QGREmissivity result(0);
 		tArray2Key key = {{ q1, q2 }};
 		auto it = cachedValues.find(key);
 		if (it == cachedValues.end()) {
@@ -248,7 +248,7 @@ public:
 	}
 };
 
-typedef CacheStorageWith3Args<int,int,QEnergy,QICOuterIntegral> CacheStorageIC;
+typedef CacheStorageWith3Args<int,int,QEnergy,QGREmissivity> CacheStorageIC;
 typedef CacheStorageWith2Args<QEnergy,QEnergy,QDifferentialCrossSection> CacheStorageCrossSection;
 typedef CacheStorageWith3Args<QEnergy,QEnergy,QEnergy,QDifferentialCrossSection> CacheStorageCrossSection3Args;
 
