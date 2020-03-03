@@ -1,8 +1,9 @@
 # HERMES - High-Energy Radiative MESsangers
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/36b17ce072d6430aad28e457a5fa76d3)](https://app.codacy.com/gh/cosmicrays/hermes?utm_source=github.com&utm_medium=referral&utm_content=cosmicrays/hermes&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/cosmicrays/hermes.svg?branch=master)](https://travis-ci.org/cosmicrays/hermes)
 [![Coverage Status](https://coveralls.io/repos/github/cosmicrays/hermes/badge.svg?branch=master)](https://coveralls.io/github/cosmicrays/hermes?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/36b17ce072d6430aad28e457a5fa76d3)](https://app.codacy.com/gh/cosmicrays/hermes?utm_source=github.com&utm_medium=referral&utm_content=cosmicrays/hermes&utm_campaign=Badge_Grade_Dashboard)
+![GitHub](https://img.shields.io/github/license/cosmicrays/hermes)
 
 ## About
 
