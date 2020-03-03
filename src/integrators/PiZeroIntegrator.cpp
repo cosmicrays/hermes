@@ -98,9 +98,9 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 
 	// Sum over rings	
 	for (const auto &ring : *ngdensity) {
-
-		// Debug:
-		//int ring_number = ring->getIndex();
+		// TODO: this could be better
+		if (!ngdensity->isRingEnabled(ring->getIndex()))
+			continue;
 
 		// Normalization-part	
 		auto normI_f = [ring, this](const Vector3QLength &pos)
@@ -112,7 +112,7 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 			gslQAGIntegration<QColumnDensity, QPDensity>(normIntegrand, 0, getMaxDistance(direction_), 500);
 		
 		// LOS is not crossing the current ring at all
-		if(normIntegrals == QColumnDensity(0))
+		if (normIntegrals == QColumnDensity(0))
 			continue;
 
 		// Integral over emissivity

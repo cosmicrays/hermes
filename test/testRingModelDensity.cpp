@@ -2,15 +2,16 @@
 
 #include "hermes.h"
 #include <array>
+#include <algorithm>
 
 namespace hermes {
 
 class RingModel : public ::testing::Test {
 protected:
-  //void SetUp() override {}
-  // void TearDown() override {}
-  RingModelDensity ringModel_HI = RingModelDensity(RingType::HI);
-  RingModelDensity ringModel_CO = RingModelDensity(RingType::CO);
+	//void SetUp() override { }
+	//void TearDown() override {}
+ 
+	RingModelDensity ringModel_HI = RingModelDensity(RingType::HI);
 };
 
 TEST_F(RingModel, RingBoundaries) {
@@ -31,6 +32,26 @@ TEST_F(RingModel, RingBoundaries) {
 			static_cast<double>(b[11]));	
 }
 
+TEST_F(RingModel, RingSelection) {
+	auto list = ringModel_HI.getEnabledRings();
+	
+	EXPECT_TRUE(std::all_of(list.begin(), list.end(), [](bool i){ return i;}));
+	
+	ringModel_HI.setEnabledRings({false, true, false, true, false, true,
+			false, true, true, true, true, false});
+	list = ringModel_HI.getEnabledRings();
+	EXPECT_FALSE(std::all_of(list.begin(), list.end(), [](bool i){ return i;}));
+	
+	ringModel_HI.enableRingNo(2);
+	list = ringModel_HI.getEnabledRings();
+	EXPECT_TRUE(list[2]);
+	
+	ringModel_HI.disableRingNo(2);
+	EXPECT_FALSE(ringModel_HI.isRingEnabled(2));
+
+	EXPECT_THROW(ringModel_HI.disableRingNo(99), std::runtime_error);
+}
+
 TEST_F(RingModel, isInside) {
 	Vector3QLength pos(3.5_kpc, 0_kpc, 1_kpc);
 
@@ -39,6 +60,8 @@ TEST_F(RingModel, isInside) {
 }
 
 TEST_F(RingModel, RingValues) {
+  	RingModelDensity ringModel_CO = RingModelDensity(RingType::CO);
+
 	QDirection dir = {90_deg,5_deg};
 	auto X0 = 1.8e20 / 1_cm2 / 1_K / 1_km * 1_s;
 	QColumnDensity col_HI(0);

@@ -110,7 +110,36 @@ QRingCOIntensity Ring::getCOIntensity(
 
 RingModelDensity::RingModelDensity(RingType gas) :
 	dataPtr(std::make_shared<RingData>(RingData(gas))) {
+       	std::fill(enabledRings.begin(), enabledRings.end(), true); // enable all by default
 	fillRingContainer();
+}
+
+std::array<bool, 12> RingModelDensity::getEnabledRings() const {
+	return enabledRings;
+}
+
+void RingModelDensity::disableRingNo(int i) {
+	if (i >= enabledRings.size())
+		throw std::runtime_error("Provided number is bigger than the total number of rings. Aborted.");
+
+	enabledRings[i] = false;
+}
+
+void RingModelDensity::enableRingNo(int i) {
+	if (i >= enabledRings.size())
+		throw std::runtime_error("Provided number is bigger than the total number of rings. Aborted.");
+
+	enabledRings[i] = true;
+}
+
+void RingModelDensity::setEnabledRings(std::array<bool, 12> list) {
+	enabledRings = list;
+}
+
+bool RingModelDensity::isRingEnabled(int i) const {
+	if (i >= enabledRings.size())
+		return false;
+	return enabledRings[i];
 }
 
 RingType RingModelDensity::getRingType() const {

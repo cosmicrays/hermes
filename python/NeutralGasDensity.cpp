@@ -17,7 +17,14 @@ void init_neutral_gas_density(py::module &m) {
     // neutral gas density models
     py::class_<NeutralGasDensity, std::shared_ptr<NeutralGasDensity>>(m, "NeutralGasDensity");
     py::class_<RingModelDensity, std::shared_ptr<RingModelDensity>, NeutralGasDensity>(m, "RingModelDensity")
-	      .def(py::init<RingType>(), py::arg("ring_type"));
+	      .def(py::init<RingType>(), py::arg("ring_type"))
+	      .def("getEnabledRings", &RingModelDensity::getEnabledRings)
+	      .def("setEnabledRings", &RingModelDensity::setEnabledRings)
+	      .def("disableRingNo", &RingModelDensity::disableRingNo)
+	      .def("enableRingNo", &RingModelDensity::enableRingNo)
+	      .def("isRingEnabled", &RingModelDensity::isRingEnabled)
+	      .def("getRingType", &RingModelDensity::getRingType)
+	      .def("getRingNumber", &RingModelDensity::getRingNumber);
 }
 
 }

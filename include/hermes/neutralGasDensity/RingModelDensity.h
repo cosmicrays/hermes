@@ -61,11 +61,19 @@ private:
 
 	typedef std::vector<std::shared_ptr<Ring> > tRingContainer;
 	mutable tRingContainer ringContainer;
+	mutable std::array<bool, 12> enabledRings;
 	
 	void fillRingContainer();
 public:
 	RingModelDensity(RingType gas);
 	~RingModelDensity() { }
+
+	std::array<bool, 12> getEnabledRings() const;
+	void setEnabledRings(std::array<bool, 12> list);
+	void disableRingNo(int i);
+	void enableRingNo(int i);
+	bool isRingEnabled(int i) const;
+
 	RingType getRingType() const;
 	int getRingNumber() const override;
 
