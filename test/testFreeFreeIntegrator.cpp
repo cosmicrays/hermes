@@ -96,6 +96,21 @@ TEST(FreeFreeIntegrator, integrateSkymap) {
 */
 }
 
+TEST(FreeFreeIntegrator, RadioSkymapRange) {
+
+	auto gdensity = std::make_shared<TestChargedGasDensity>(
+		TestChargedGasDensity());
+	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(
+		FreeFreeIntegrator(gdensity));
+
+	auto skymap_range = std::make_shared<RadioSkymapRange>(RadioSkymapRange(4, 1_MHz, 100_GHz, 10));
+	skymap_range->setIntegrator(intFreeFree);
+	skymap_range->compute();
+
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!FreeFreeIntegrator-RadioSkymapRange-output.fits.gz"));
+	skymap_range->save(output);
+}
+
 TEST(FreeFreeIntegrator, absorptionCoefficient) {
 	auto gdensity = std::make_shared<TestChargedGasDensity>(
 		TestChargedGasDensity());

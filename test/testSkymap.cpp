@@ -25,6 +25,18 @@ public:
 	};
 };
 
+TEST(Skymap, resNsideNpixelsConvert) {
+	int nside = 8;
+        auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
+	skymap->getDescription();
+
+	EXPECT_EQ(skymap->getRes(), 3);
+
+	skymap->setRes(4);
+	EXPECT_EQ(skymap->getNside(), 16);
+	EXPECT_EQ(skymap->getNpix(), 3072);
+}
+
 TEST(Skymap, computePixel) {
 
 	int nside = 4;
@@ -46,6 +58,8 @@ TEST(SkymapMask, RectangularWindow) {
 	int nside = 12;
 	auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
 			QDirection({40_deg, 10_deg}), QDirection({-30_deg, 90_deg})));
+	mask->getDescription();
+
 	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(
 					nside, mask));
 	auto integrator = std::make_shared<DummyIntegrator>(DummyIntegrator());

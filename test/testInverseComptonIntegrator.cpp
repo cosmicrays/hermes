@@ -156,6 +156,24 @@ TEST(InverseComptonIntegrator, initCacheTable) {
 			static_cast<double>(res2_withcache), 10);
 }
 
+TEST(InverseComptonIntegrator, GammaSkymapRange) {
+	auto gammaskymap_range = std::make_shared<GammaSkymapRange>(GammaSkymapRange(4, 1_GeV, 100_TeV, 10));
+
+	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
+	auto photonField = std::make_shared<CMB>(CMB());
+
+	auto in = std::make_shared<InverseComptonIntegrator>(
+                InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
+	in->setupCacheTable(10, 10, 2);
+
+	gammaskymap_range->setIntegrator(in);
+	gammaskymap_range->compute();
+	
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!InverseComptonIntegrator-GammaSkymapRange-output.fits.gz"));
+	gammaskymap_range->save(output);
+}	
+
 TEST(InverseComptonIntegrator, PerformanceTest) {
 	std::vector<PID> particletypes = {Electron, Positron};
 	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(particletypes)); 
