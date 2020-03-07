@@ -10,10 +10,6 @@
 #define mc_units	(m_electron*c_light)
 #define mc2_units 	(m_electron*c_squared)
 
-#define pow2(A) ((A)*(A))
-#define pow3(A) ((A)*(A)*(A))
-#define pow4(A) ((A)*(A)*(A)*(A))
-
 #define LIMIT 1000
 #define EPSINT 1e-5
 #define KEYINT 3
@@ -84,13 +80,13 @@ QNumber BremsstrahlungSimple::Phi_u(const QNumber &gamma_i, const QNumber &gamma
 
 
 inline double BremsstrahlungSimple::R_1(double q, double Z) const {
-	double F_1 = 1. / pow2(1. + pow2(q) / pow2(2. * static_cast<double>(alpha_fine) * Z));
+	double F_1 = 1. / pow<2>(1. + pow<2>(q) / pow<2>(2. * static_cast<double>(alpha_fine) * Z));
 	return 1 - F_1;
 }
 
 inline double BremsstrahlungSimple::R_2(double q, double Z) const {
-	double F_2 = 1. / pow2(1. + pow2(q) / pow2(2. * static_cast<double>(alpha_fine) * (Z - 5. / 16.)));
-	return 2. * (1. - F_2) - (1. - pow2(F_2)) / Z;
+	double F_2 = 1. / pow<2>(1. + pow<2>(q) / pow<2>(2. * static_cast<double>(alpha_fine) * (Z - 5. / 16.)));
+	return 2. * (1. - F_2) - (1. - pow<2>(F_2)) / Z;
 }
 
 QNumber BremsstrahlungSimple::I_Phi_1(const QNumber &delta_, int Z, int N) const {
@@ -98,7 +94,7 @@ QNumber BremsstrahlungSimple::I_Phi_1(const QNumber &delta_, int Z, int N) const
 	double delta = static_cast<double>(delta_);
 
 	auto R_N = [this, delta, Z, N](double q){
-		return ((N == 1) ? R_1(q, Z) : R_2(q, Z)) / pow3(q) * pow2(q - delta); };
+		return ((N == 1) ? R_1(q, Z) : R_2(q, Z)) / pow<3>(q) * pow<2>(q - delta); };
 
 	gsl_function_pp<decltype(R_N)> Fp(R_N);
 	gsl_function *F = static_cast<gsl_function*>(&Fp);
@@ -115,9 +111,9 @@ QNumber BremsstrahlungSimple::I_Phi_2(const QNumber &delta_, int Z, int N) const
 	double delta = static_cast<double>(delta_);
 
 	auto R_N = [this, delta, Z, N](double q){
-		return ((N == 1) ? R_1(q, Z) : R_2(q, Z)) / pow4(q) *
-			(pow3(q) - 6. * pow2(delta) * q * std::log(q / delta) + 
-			 3. * pow2(delta) * q - 4. * pow3(delta)); };
+		return ((N == 1) ? R_1(q, Z) : R_2(q, Z)) / pow<4>(q) *
+			(pow<3>(q) - 6. * pow<2>(delta) * q * std::log(q / delta) + 
+			 3. * pow<2>(delta) * q - 4. * pow<3>(delta)); };
 
 	gsl_function_pp<decltype(R_N)> Fp(R_N);
 	gsl_function *F = static_cast<gsl_function*>(&Fp);
@@ -177,14 +173,14 @@ QArea BremsstrahlungSimple::dsdk_HighEnergy(const QNumber &gamma_i, const QNumbe
        	
        	QNumber phi_1, phi_2;	
 	if (N == 0) {
-		phi_1 = pow2(Z) * Phi_u(gamma_i, gamma_f, k);
-	        phi_2 = pow2(Z) * Phi_u(gamma_i, gamma_f, k);
+		phi_1 = pow<2>(Z) * Phi_u(gamma_i, gamma_f, k);
+	        phi_2 = pow<2>(Z) * Phi_u(gamma_i, gamma_f, k);
 	} else {
 		phi_1 = Phi_1(gamma_i, gamma_f, k, delta, Z, N);
 	        phi_2 = Phi_2(gamma_i, gamma_f, k, delta, Z, N);
 	}
 	
-	QNumber factor = (1_num + pow2(gamma_f / gamma_i)) * phi_1 -
+	QNumber factor = (1_num + pow<2>(gamma_f / gamma_i)) * phi_1 -
 		2. / 3. * gamma_f / gamma_i * phi_2;
         return pow<2>(r_electron) * alpha_fine / k * factor;
 }

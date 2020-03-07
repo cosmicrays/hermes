@@ -60,9 +60,12 @@ constexpr QAngle fmod(const QAngle &a, QNumber b) {
 	return QAngle(std::fmod(static_cast<double>(a), static_cast<double>(b)));
 }
 
-template<int power>
-int pow(int i) {
-	return std::pow(i, power);
+template<int exponent>
+constexpr double pow(double num) {
+    return exponent > 1 ? num * pow<(exponent-1)*(exponent > 1)>(num) 
+                 : exponent < 0 ? 1.0/pow<(-exponent)*(exponent < 0)>(num) 
+                         : exponent == 1 ? num 
+                                  : 1.0;
 }
 
 template<typename Q>

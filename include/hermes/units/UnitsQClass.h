@@ -316,20 +316,20 @@ constexpr double sqrt(double num) {
 }
 
 // pow() 
-template<int power, typename l, typename t, typename m, typename I, typename T,
+template<int exponent, typename l, typename t, typename m, typename I, typename T,
 	 typename N, typename J, typename A, typename SA>
-constexpr Quantity<std::ratio_multiply<l, std::ratio<power>>, std::ratio_multiply<t, std::ratio<power>>,
-                   std::ratio_multiply<m, std::ratio<power>>, std::ratio_multiply<I, std::ratio<power>>,
-                   std::ratio_multiply<T, std::ratio<power>>, std::ratio_multiply<N, std::ratio<power>>,
-                   std::ratio_multiply<J, std::ratio<power>>, std::ratio_multiply<A, std::ratio<power>>,
-		   std::ratio_multiply<SA, std::ratio<power>>>
+constexpr Quantity<std::ratio_multiply<l, std::ratio<exponent>>, std::ratio_multiply<t, std::ratio<exponent>>,
+                   std::ratio_multiply<m, std::ratio<exponent>>, std::ratio_multiply<I, std::ratio<exponent>>,
+                   std::ratio_multiply<T, std::ratio<exponent>>, std::ratio_multiply<N, std::ratio<exponent>>,
+                   std::ratio_multiply<J, std::ratio<exponent>>, std::ratio_multiply<A, std::ratio<exponent>>,
+		   std::ratio_multiply<SA, std::ratio<exponent>>>
  pow(const Quantity<l, t, m, I, T, N, J, A, SA>& num) {
-    return Quantity<std::ratio_multiply<l, std::ratio<power>>, std::ratio_multiply<t, std::ratio<power>>, 
-                    std::ratio_multiply<m, std::ratio<power>>, std::ratio_multiply<I, std::ratio<power>>,
-                    std::ratio_multiply<T, std::ratio<power>>, std::ratio_multiply<N, std::ratio<power>>, 
-                    std::ratio_multiply<J, std::ratio<power>>, std::ratio_multiply<A, std::ratio<power>>,
-		    std::ratio_multiply<SA, std::ratio<power>>> 
-                    (std::pow(static_cast<double>(num), power));
+    return Quantity<std::ratio_multiply<l, std::ratio<exponent>>, std::ratio_multiply<t, std::ratio<exponent>>, 
+                    std::ratio_multiply<m, std::ratio<exponent>>, std::ratio_multiply<I, std::ratio<exponent>>,
+                    std::ratio_multiply<T, std::ratio<exponent>>, std::ratio_multiply<N, std::ratio<exponent>>, 
+                    std::ratio_multiply<J, std::ratio<exponent>>, std::ratio_multiply<A, std::ratio<exponent>>,
+		    std::ratio_multiply<SA, std::ratio<exponent>>> 
+                    (std::pow(static_cast<double>(num), exponent));
 }
 
 // squared()
