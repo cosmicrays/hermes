@@ -56,6 +56,9 @@ TEST(DMIntegrator, integrateOverLOS) {
 	EXPECT_NEAR(static_cast<double>(skymap->getPixel(ipix)),
 		    static_cast<double>(250*parsec/centimetre3),
 		    static_cast<double>(50*parsec/centimetre3));
+	
+	auto output = std::make_shared<FITSOutput>(FITSOutput("!testDMIntegrator-integrateOverLOS-output.fits.gz"));
+	skymap->save(output);
 }
 
 int main(int argc, char **argv) {
