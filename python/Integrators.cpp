@@ -80,6 +80,9 @@ void init_integrators(py::module &m) {
 	pizerointegrator.def(py::init<const std::shared_ptr<CosmicRayDensity>,
                 		      const std::shared_ptr<RingModelDensity>,
                            	      const std::shared_ptr<DifferentialCrossSection>>());
+	pizerointegrator.def(py::init<const std::vector<std::shared_ptr<CosmicRayDensity>>,
+                		      const std::shared_ptr<RingModelDensity>,
+                           	      const std::shared_ptr<DifferentialCrossSection>>());
 	declare_default_integrator_methods<PiZeroIntegrator>(pizerointegrator);
 
 }

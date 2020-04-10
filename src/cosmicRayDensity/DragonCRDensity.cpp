@@ -12,11 +12,13 @@
 #include <vector>
 #include <algorithm>
 
+#define DEFAULT_CR_FILE "CosmicRays/Fornieri20/run2d_gamma_D03,7_delta0,45_vA13.fits.gz"
+
 namespace hermes {
 
 Dragon2DCRDensity::Dragon2DCRDensity() :
 	CosmicRayDensity(true),
-	filename(getDataPath("CosmicRays/Fornieri20/run2d_gamma_D03,7_delta0,45_vA13.fits.gz")) {
+	filename(getDataPath(DEFAULT_CR_FILE)) {
 	readFile();
 }	
 
@@ -27,9 +29,16 @@ Dragon2DCRDensity::Dragon2DCRDensity(
 	readFile();
 }
 
+Dragon2DCRDensity::Dragon2DCRDensity(const PID& pid_) :
+	CosmicRayDensity(true),
+	filename(getDataPath(DEFAULT_CR_FILE)) {
+	enablePID(pid_);
+	readFile();
+}
+
 Dragon2DCRDensity::Dragon2DCRDensity(const std::vector<PID> &pids_) :
 	CosmicRayDensity(true),
-	filename(getDataPath("CosmicRays/Fornieri20/run2d_gamma_D03,7_delta0,45_vA13.fits.gz")) {
+	filename(getDataPath(DEFAULT_CR_FILE)) {
 	for(auto const& p: pids_)
 		enablePID(p);
 	readFile();
@@ -44,15 +53,19 @@ Dragon2DCRDensity::Dragon2DCRDensity(
 }
 
 void Dragon2DCRDensity::enablePID(const PID &pid_) {
-	listOfPIDs.insert(pid_.getID());
+	setOfPIDs.insert(pid_);
 }
 	
 void Dragon2DCRDensity::disablePID(const PID &pid_) {
-	listOfPIDs.erase(listOfPIDs.find(pid_.getID()));
+	setOfPIDs.erase(setOfPIDs.find(pid_));
 }
 
 bool Dragon2DCRDensity::isPIDEnabled(const PID &pid_) const {
-	return (listOfPIDs.count(pid_.getID()) > 0);
+	return (setOfPIDs.count(pid_) > 0);
+}
+
+PID Dragon2DCRDensity::getPID() const {
+	return *setOfPIDs.begin();
 }
 
 void Dragon2DCRDensity::readFile() {
@@ -195,15 +208,15 @@ Dragon3DCRDensity::Dragon3DCRDensity(
 }
 
 void Dragon3DCRDensity::enablePID(const PID &pid_) {
-	listOfPIDs.insert(pid_.getID());
+	setOfPIDs.insert(pid_.getID());
 }
 	
 void Dragon3DCRDensity::disablePID(const PID &pid_) {
-	listOfPIDs.erase(listOfPIDs.find(pid_.getID()));
+	setOfPIDs.erase(setOfPIDs.find(pid_.getID()));
 }
 
 bool Dragon3DCRDensity::isPIDEnabled(const PID &pid_) const {
-	return (listOfPIDs.count(pid_.getID()) > 0);
+	return (setOfPIDs.count(pid_.getID()) > 0);
 }
 
 void Dragon3DCRDensity::readFile() {

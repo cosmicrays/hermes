@@ -38,6 +38,7 @@ void init_cosmic_ray_density(py::module &m) {
 	      .def(py::init<>());
     py::class_<Dragon2DCRDensity, std::shared_ptr<Dragon2DCRDensity>, CosmicRayDensity>(m, "Dragon2DCRDensity")
 	      .def(py::init<>())
+	      .def(py::init<const PID>())
 	      .def(py::init<const std::vector<PID>>())
 	      .def(py::init<const std::string, const std::vector<PID>>())
 	      .def("getDensityPerEnergy", (QPDensityPerEnergy (Dragon2DCRDensity::*)

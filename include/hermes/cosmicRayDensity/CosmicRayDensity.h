@@ -37,6 +37,18 @@ public:
 	int massNr() const {
 		return A;
 	}
+
+	bool operator< (const PID &p2) const {
+		return id < p2.getID();
+	}
+	
+	bool operator> (const PID &p2) const {
+		return id > p2.getID();
+	}
+	
+	bool operator== (const PID &p2) const {
+		return id == p2.getID();
+	}
 };
 
 static const PID Electron(-1, 0);
@@ -73,6 +85,10 @@ public:
 
 	tEnergyRange getEnergyAxis() const {
 		return energyRange;
+	}
+
+	PID getPID() const {
+		return Proton;
 	}
 
         iterator begin() {

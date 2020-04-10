@@ -13,7 +13,15 @@ PiZeroIntegrator::PiZeroIntegrator(
 	const std::shared_ptr<CosmicRayDensity> crdensity_,
 	const std::shared_ptr<RingModelDensity> ngdensity_,
 	const std::shared_ptr<DifferentialCrossSection> crossSec_) : 
-	GammaIntegratorTemplate(), crdensity(crdensity_),
+	GammaIntegratorTemplate(), crList(std::vector<std::shared_ptr<CosmicRayDensity>> {crdensity_}),
+	ngdensity(ngdensity_), crossSec(crossSec_) {
+}
+
+PiZeroIntegrator::PiZeroIntegrator(
+	const std::vector<std::shared_ptr<CosmicRayDensity>> crList_,
+	const std::shared_ptr<RingModelDensity> ngdensity_,
+	const std::shared_ptr<DifferentialCrossSection> crossSec_) : 
+	GammaIntegratorTemplate(), crList(crList_),
 	ngdensity(ngdensity_), crossSec(crossSec_) {
 }
 
@@ -150,13 +158,19 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_, QEner
 	if (cacheTableInitialized)
 		return getIOEfromCache(pos_, Egamma_);
 
-	if (crdensity->existsScaleFactor())
-		return integrateOverLogEnergy(pos_, Egamma_);
-	else
-		return integrateOverSumEnergy(pos_, Egamma_);
+	QPiZeroIntegral total = 0;
+	
+	for(const auto &crdensity: crList) {
+		auto pid = crdensity->getPID();
+		if (crdensity->existsScaleFactor())
+			total += integrateOverLogEnergy(crdensity, pos_, Egamma_);
+		else
+			total += integrateOverSumEnergy(crdensity, pos_, Egamma_);
+	}
+	return total;
 }
 
-QPiZeroIntegral PiZeroIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
+QPiZeroIntegral PiZeroIntegrator::integrateOverSumEnergy(const std::shared_ptr<CosmicRayDensity> crdensity, Vector3QLength pos_, QEnergy Egamma_) const {
 
 	QPiZeroIntegral integral(0);
 	QEnergy deltaE;
@@ -173,7 +187,7 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverSumEnergy(Vector3QLength pos_, QE
 	return integral;
 }
 
-QPiZeroIntegral PiZeroIntegrator::integrateOverLogEnergy(Vector3QLength pos_, QEnergy Egamma_) const {
+QPiZeroIntegral PiZeroIntegrator::integrateOverLogEnergy(const std::shared_ptr<CosmicRayDensity> crdensity, Vector3QLength pos_, QEnergy Egamma_) const {
 
 	QPiZeroIntegral integral(0);
 
