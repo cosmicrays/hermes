@@ -32,9 +32,9 @@ private:
 			const QEnergy &Egamma, std::shared_ptr<ProgressBar> &p);
 
 	QPiZeroIntegral integrateOverSumEnergy(
-		const std::shared_ptr<CosmicRayDensity> crdensity, Vector3QLength pos, QEnergy Egamma) const;
+		const std::shared_ptr<CosmicRayDensity> crDensity, Vector3QLength pos, QEnergy Egamma) const;
 	QPiZeroIntegral integrateOverLogEnergy(
-		const std::shared_ptr<CosmicRayDensity> crdensity, Vector3QLength pos, QEnergy Egamma) const;
+		const std::shared_ptr<CosmicRayDensity> crDensity, Vector3QLength pos, QEnergy Egamma) const;
 
 public:
 	PiZeroIntegrator(

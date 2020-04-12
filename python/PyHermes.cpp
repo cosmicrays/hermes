@@ -7,6 +7,7 @@ namespace hermes {
 void init_quantity(py::module &);
 void init_units(py::module &);
 void init_common(py::module &);
+void init_particleid(py::module &);
 void init_vectors(py::module &);
 void init_outputs(py::module &);
 void init_skymaps(py::module &);
@@ -23,6 +24,7 @@ PYBIND11_MODULE(pyhermes, m) {
 	init_quantity(m);
 	init_units(m);
 	init_common(m);
+	init_particleid(m);
 	init_vectors(m);
 	init_outputs(m);
 	init_skymaps(m);

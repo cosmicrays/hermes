@@ -157,6 +157,10 @@ int RingModelDensity::getRingNumber() const {
 	return dataPtr->getRingNumber();
 }
 
+std::vector<std::pair<PID,double>> RingModelDensity::getAbundanceFractions() const {
+	return abundanceFractions;
+}
+
 std::shared_ptr<Ring> RingModelDensity::operator[](const std::size_t i) const {
         return ringContainer[i];
 }

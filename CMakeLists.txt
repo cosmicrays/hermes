@@ -227,6 +227,7 @@ add_library(hermes SHARED
 	src/cosmicRayDensity/Sun08CRDensity.cpp
 	src/cosmicRayDensity/DragonCRDensity.cpp
 	src/photonField/ISRF.cpp
+	src/interactions/DifferentialCrossSection.cpp
 	src/interactions/Kamae06.cpp
 	src/interactions/KleinNishina.cpp
 	src/interactions/BremsstrahlungSimple.cpp
@@ -251,6 +252,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/Quantity.cpp
 		python/Units.cpp
 		python/Common.cpp
+		python/ParticleID.cpp
 		python/Vectors.cpp
 		python/Outputs.cpp
 		python/Skymaps.cpp

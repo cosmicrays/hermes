@@ -10,6 +10,7 @@
 #include "hermes/HEALPixBits.h"
 #include "hermes/FITSWrapper.h"
 #include "hermes/ProgressBar.h"
+#include "hermes/ParticleID.h"
 #include "hermes/Common.h"
 #include "hermes/CacheTools.h"
 #include "hermes/Signals.h"

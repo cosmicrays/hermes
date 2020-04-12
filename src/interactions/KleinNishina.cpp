@@ -6,12 +6,6 @@ namespace hermes {
 KleinNishina::KleinNishina() { }
 
 QDifferentialCrossSection KleinNishina::getDiffCrossSection(
-                const QEnergy &E_proton,
-                const QEnergy &E_gamma) const {
-	return QDifferentialCrossSection(0);
-}
-
-QDifferentialCrossSection KleinNishina::getDiffCrossSection(
 		const QEnergy &E_electron,
 		const QEnergy &E_photon,
 		const QEnergy &E_gamma) const {

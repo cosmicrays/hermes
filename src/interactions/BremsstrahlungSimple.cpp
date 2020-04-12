@@ -56,13 +56,6 @@ QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSection(
 	return getDiffCrossSectionDirectly(E_proton, E_gamma);
 }
 
-QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSection(
-			const QEnergy &E_electron,
-			const QEnergy &E_photon,
-			const QEnergy &E_gamma) const {
-	return QDifferentialCrossSection(0);
-}
-
 QNumber BremsstrahlungSimple::ElwertFactor(const QNumber &beta_i, const QNumber &beta_f, int Z) const {
 	return beta_i * (1. - exp(-2.0_pi * Z * alpha_fine / beta_i)) / 
 		beta_f * (1. - exp(-2.0_pi * Z * alpha_fine / beta_f));

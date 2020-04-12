@@ -25,12 +25,6 @@ public:
 			const QEnergy &E_photon,
 			const QEnergy &E_gamma) const;
 
-	// not used
-	QDifferentialCrossSection getDiffCrossSection(
-			const QEnergy &E_electron,
-			const QEnergy &E_photon,
-			const QEnergy &E_gamma) const override;
-	
 	QNumber ElwertFactor(const QNumber &beta_i, const QNumber &beta_f, int Z) const;
 	QNumber xiFunc(const QNumber &T_electron_i, const QNumber &k, int Z, int N) const;
 	QNumber Phi_u(const QNumber &gamma_i, const QNumber &gamma_f, const QNumber &k) const;
