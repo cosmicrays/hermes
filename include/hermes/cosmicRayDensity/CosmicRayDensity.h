@@ -5,6 +5,7 @@
 #include "hermes/ParticleID.h"
 #include "hermes/Grid.h"
 
+#include <algorithm>
 #include <cassert>
 
 namespace hermes {
@@ -44,6 +45,18 @@ public:
 		return Proton;
 	}
 
+	iterator beginAfterEnergy(const QEnergy &E_) {
+		return std::upper_bound(
+				energyRange.begin(),
+				energyRange.end(),
+				E_);
+	}
+	const_iterator beginAfterEnergy(const QEnergy &E_) const {
+		return std::upper_bound(
+				energyRange.begin(),
+				energyRange.end(),
+				E_);
+	}
         iterator begin() {
 		return energyRange.begin();	
 	}

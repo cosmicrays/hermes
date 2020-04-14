@@ -6,6 +6,9 @@
 #include <thread>
 #include <mutex>
 #include <functional>
+#include <iterator>
+#include <algorithm>
+#include <numeric>
 
 namespace hermes {
 
@@ -158,59 +161,40 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_, QEner
 	if (cacheTableInitialized)
 		return getIOEfromCache(pos_, Egamma_);
 
-	QPiZeroIntegral total = 0;
+	QPiZeroIntegral total(0);
 
-	for(const auto &neutralGas: ngdensity->getAbundanceFractions()) {
-		auto pid_target = neutralGas.first;
-		auto f_target = neutralGas.second;
-		for(const auto &crDensity: crList) {
-			auto pid_projectile = crDensity->getPID();
-			auto sigmaProjectileTarget = crossSec->getSigma(pid_projectile, pid_target);
-			if (crDensity->existsScaleFactor())
-				total += f_target * sigmaProjectileTarget *
-						integrateOverLogEnergy(crDensity, pos_, Egamma_);
-			else
-				total += f_target * sigmaProjectileTarget *
-						integrateOverSumEnergy(crDensity, pos_, Egamma_);
+	// TODO: micro-optimization - E_min = E_gamma + m_pi^2c^4/(4E_gamma) 
+	std::vector<QDifferentialCrossSection> diffCrossSectionVector;
+	std::transform(crList[0]->beginAfterEnergy(Egamma_), crList[0]->end(),
+		std::back_inserter(diffCrossSectionVector),
+		[this, Egamma_](const QEnergy &E) -> QDifferentialCrossSection
+			{ return crossSec->getDiffCrossSection(E, Egamma_); });
+	
+	for(const auto &crDensity: crList) {
+		auto pid_projectile = crDensity->getPID();
+		
+		std::vector<QPDensity> cosmicRayVector;
+		std::transform(crDensity->beginAfterEnergy(Egamma_), crDensity->end(),
+			std::back_inserter(cosmicRayVector),
+				[crDensity, pos_](const QEnergy &E) -> QPDensity
+					{ return crDensity->getDensityPerEnergy(E, pos_) * E; });
+			
+		std::vector<QPiZeroIntegral> integral;
+		std::transform( cosmicRayVector.begin(), cosmicRayVector.end(),
+	                diffCrossSectionVector.begin(), std::back_inserter(integral),
+                		[](const QPDensity &a, const QDifferentialCrossSection &b)
+					{ return a * b * c_light; });
+		// log-integration
+		auto integralOverEnergy = std::log(crDensity->getEnergyScaleFactor()) *
+				std::accumulate(integral.begin(), integral.end(), QPiZeroIntegral(0));
+			
+		for(const auto &neutralGas: ngdensity->getAbundanceFractions()) {
+			auto pid_target = neutralGas.first;
+			auto f_target = neutralGas.second;
+			total += f_target * crossSec->getSigma(pid_projectile, pid_target) * integralOverEnergy;
 		}
 	}
 	return total;
-}
-
-QPiZeroIntegral PiZeroIntegrator::integrateOverSumEnergy(
-	const std::shared_ptr<CosmicRayDensity> crDensity,
-	Vector3QLength pos_, QEnergy Egamma_) const {
-
-	QPiZeroIntegral integral(0);
-	QEnergy deltaE;
-
-	// TODO: optimization - E_min = E_gamma + m_pi^2c^4/(4E_gamma) 
-	for (auto itE = std::next(crDensity->begin()); itE != crDensity->end(); ++itE) {
-		if (*itE < Egamma_) // integral goes from E_gamma
-			continue;
-		deltaE = (*itE) - *std::prev(itE);
-		integral += crossSec->getDiffCrossSection(*itE, Egamma_) *
-                        	crDensity->getDensityPerEnergy(*itE, pos_) * deltaE * c_light;
-        }
-	
-	return integral;
-}
-
-QPiZeroIntegral PiZeroIntegrator::integrateOverLogEnergy(
-	const std::shared_ptr<CosmicRayDensity> crDensity,
-	Vector3QLength pos_, QEnergy Egamma_) const {
-
-	QPiZeroIntegral integral(0);
-
-	// TODO: optimization - E_min = E_gamma + m_pi^2c^4/(4E_gamma) 
-	for (auto itE = crDensity->begin(); itE != crDensity->end(); ++itE) {
-		if (*itE < Egamma_) // integral goes from E_gamma
-			continue;
-		integral += crossSec->getDiffCrossSection(*itE, Egamma_) * 
-	                        crDensity->getDensityPerEnergy(*itE, pos_) * (*itE) * c_light;
-        }
-
-	return integral * log(crDensity->getEnergyScaleFactor());
 }
 
 } // namespace hermes 

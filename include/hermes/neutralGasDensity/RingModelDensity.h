@@ -100,4 +100,5 @@ public:
 } // namespace hermes
 
 #endif // HERMES_RINGMODELDENSITY_H
+
 #endif // HERMES_HAVE_CFITSIO

@@ -2,22 +2,26 @@
 
 namespace hermes {
 
-SimpleCRDensity::SimpleCRDensity() : minE(1_GeV), maxE(10_TeV), steps(20) {
+SimpleCRDensity::SimpleCRDensity() :
+		CosmicRayDensity(true), minE(1_GeV),
+		maxE(10_TeV), steps(20) {
 	makeEnergyRange();
 }
 
-SimpleCRDensity::SimpleCRDensity(QEnergy minE_, QEnergy maxE_, int steps_) : minE(minE_), maxE(maxE_), steps(steps_) {
+SimpleCRDensity::SimpleCRDensity(QEnergy minE_, QEnergy maxE_, int steps_) :
+		CosmicRayDensity(true),
+		minE(minE_), maxE(maxE_), steps(steps_) {
 	makeEnergyRange();
 }
 
 void SimpleCRDensity::makeEnergyRange() {
 	QEnergy energy = minE;
-	float energyRatio =
+	energyScaleFactor =
 		exp(1./static_cast<double>(steps-1) * log(maxE/minE));
 
 	for (int i = 0; i < steps; ++i) {
 		energyRange.push_back(energy);
-		energy = energy * energyRatio;
+		energy = energy * energyScaleFactor;
 	}
 }
 

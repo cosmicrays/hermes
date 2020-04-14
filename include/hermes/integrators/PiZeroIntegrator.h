@@ -30,12 +30,6 @@ private:
 	QPiZeroIntegral getIOEfromCache(Vector3QLength, QEnergy) const;
 	void computeCacheInThread(std::size_t start, std::size_t end,
 			const QEnergy &Egamma, std::shared_ptr<ProgressBar> &p);
-
-	QPiZeroIntegral integrateOverSumEnergy(
-		const std::shared_ptr<CosmicRayDensity> crDensity, Vector3QLength pos, QEnergy Egamma) const;
-	QPiZeroIntegral integrateOverLogEnergy(
-		const std::shared_ptr<CosmicRayDensity> crDensity, Vector3QLength pos, QEnergy Egamma) const;
-
 public:
 	PiZeroIntegrator(
 		const std::shared_ptr<CosmicRayDensity>,
