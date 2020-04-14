@@ -6,7 +6,7 @@
 
 namespace hermes {
 
-class TestCRDensity: public CosmicRayDensity {
+class TestCRDensity: public cosmicrays::CosmicRayDensity {
 private:
 	QEnergy E_c;
 	QFrequency freq;
@@ -38,7 +38,7 @@ public:
 };
 
 TEST(PiZeroIntegrator, integrateOverEnergy) {
-	auto cr_proton = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto cr_proton = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	
 	// interaction
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
@@ -56,9 +56,9 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 }
 
 TEST(PiZeroIntegrator, ChannelsRatio) {
-	auto cr_proton = std::make_shared<SimpleCRDensity>(SimpleCRDensity(Proton));
-	auto cr_helium = std::make_shared<SimpleCRDensity>(SimpleCRDensity(Helium));
-	std::vector<std::shared_ptr<CosmicRayDensity>> cr_all = {cr_proton, cr_helium};
+	auto cr_proton = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity(Proton));
+	auto cr_helium = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity(Helium));
+	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> cr_all = {cr_proton, cr_helium};
 	
 	// interaction
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
@@ -80,8 +80,8 @@ TEST(PiZeroIntegrator, ChannelsRatio) {
 
 TEST(PiZeroIntegrator, PiZeroLOS) {
 	//auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
-	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(Proton)); 
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
+	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(Proton)); 
 	// interaction
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
 	// HI model
@@ -111,10 +111,10 @@ TEST(PiZeroIntegrator, PiZeroLOS) {
 
 TEST(PiZeroIntegrator, BremsstrahlungLOS) {
 	//auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	
 	std::vector<PID> particletypes = {Electron, Positron};
-	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(particletypes)); 
+	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes)); 
 	// interaction
 	auto bremsstrahlung = std::make_shared<BremsstrahlungSimple>(BremsstrahlungSimple());
 	// HI model
@@ -151,7 +151,7 @@ TEST(PiZeroIntegrator, BremsstrahlungLOS) {
 
 TEST(PiZeroIntegrator, PerformanceTest) {
 	std::vector<PID> particletypes = {Proton};
-        auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(particletypes));
+        auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes));
 	
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
 	

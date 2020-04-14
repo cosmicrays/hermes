@@ -221,11 +221,11 @@ add_library(hermes SHARED
 	src/chargedGasDensity/NE2001Simple.cpp
 	src/chargedGasDensity/YMW16.cpp
 	src/neutralGasDensity/RingModelDensity.cpp
-	src/cosmicRayDensity/DummyCRDensity.cpp
-	src/cosmicRayDensity/SimpleCRDensity.cpp
-	src/cosmicRayDensity/WMAP07CRDensity.cpp
-	src/cosmicRayDensity/Sun08CRDensity.cpp
-	src/cosmicRayDensity/DragonCRDensity.cpp
+	src/cosmicrays/DummyCRDensity.cpp
+	src/cosmicrays/SimpleCRDensity.cpp
+	src/cosmicrays/WMAP07CRDensity.cpp
+	src/cosmicrays/Sun08CRDensity.cpp
+	src/cosmicrays/DragonCRDensity.cpp
 	src/photonField/ISRF.cpp
 	src/interactions/DifferentialCrossSection.cpp
 	src/interactions/Kamae06.cpp
@@ -260,7 +260,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/MagneticFields.cpp
 		python/ChargedGasDensity.cpp
 		python/NeutralGasDensity.cpp
-		python/CosmicRayDensity.cpp
+		python/cosmicrays.cpp
 		python/PhotonField.cpp
 		python/Interactions.cpp
 		python/PyHermes.cpp

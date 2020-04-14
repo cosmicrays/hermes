@@ -8,7 +8,7 @@ namespace hermes {
 
 /* Analytical integral over CMB with constant cross-section */
 TEST(InverseComptonIntegrator, integrateOverPhotonEnergyCMB) {
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	auto dummyCS = std::make_shared<DummyCrossSection>(DummyCrossSection(1));
 	auto photonField = std::make_shared<CMB>(CMB());
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
@@ -29,7 +29,7 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergyCMB) {
 
 /* Integral over photon field energy with Klein-Nishina */
 TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<CMB>(CMB()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
@@ -51,7 +51,7 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 
 /* Take the result from above and insert it into an integral with the constant (dummy) CR flux */
 TEST(InverseComptonIntegrator, integrateOverEnergy) {
-	auto dummyModel = std::make_shared<DummyCRDensity>(DummyCRDensity(Electron));
+	auto dummyModel = std::make_shared<cosmicrays::DummyCRDensity>(cosmicrays::DummyCRDensity(Electron));
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<CMB>(CMB()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
@@ -71,7 +71,7 @@ TEST(InverseComptonIntegrator, integrateOverEnergy) {
 
 /* Check consistency of different integration methods */
 TEST(InverseComptonIntegrator, compareLOSIntegrations) {
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<CMB>(CMB()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
@@ -134,7 +134,7 @@ TEST(InverseComptonIntegrator, integrateOverLOS) {
 }*/
 
 TEST(InverseComptonIntegrator, initCacheTable) {
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<ISRF>(ISRF()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
@@ -163,7 +163,7 @@ TEST(InverseComptonIntegrator, initCacheTable) {
 TEST(InverseComptonIntegrator, GammaSkymapRange) {
 	auto gammaskymap_range = std::make_shared<GammaSkymapRange>(GammaSkymapRange(4, 1_GeV, 100_TeV, 10));
 
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<CMB>(CMB());
 
@@ -180,8 +180,8 @@ TEST(InverseComptonIntegrator, GammaSkymapRange) {
 
 TEST(InverseComptonIntegrator, PerformanceTest) {
 	std::vector<PID> particletypes = {Electron, Positron};
-	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(particletypes)); 
-	auto simpleModel = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
+	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes)); 
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<ISRF>(ISRF()); 
 	auto in = std::make_shared<InverseComptonIntegrator>(

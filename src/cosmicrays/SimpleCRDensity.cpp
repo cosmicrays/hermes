@@ -1,6 +1,6 @@
-#include "hermes/cosmicRayDensity/SimpleCRDensity.h"
+#include "hermes/cosmicrays/SimpleCRDensity.h"
 
-namespace hermes {
+namespace hermes { namespace cosmicrays {
 
 SimpleCRDensity::SimpleCRDensity(const PID &pid_) :
 		CosmicRayDensity(pid_), minE(1_GeV),
@@ -37,4 +37,5 @@ QPDensityPerEnergy SimpleCRDensity::getDensityPerEnergy(const QEnergy& E_, const
 	return profile * spectrum;
 }
 
+} // namespace cosmicrays
 } // namespace hermes

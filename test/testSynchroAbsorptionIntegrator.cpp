@@ -13,7 +13,7 @@ public:
 	}
 };
 
-class TestCRDensity: public CosmicRayDensity {
+class TestCRDensity: public cosmicrays::CosmicRayDensity {
 private:
 	QEnergy E_c;
 public:

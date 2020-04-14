@@ -6,7 +6,7 @@
 
 namespace hermes {
 
-class TestCRDensity: public CosmicRayDensity {
+class TestCRDensity: public cosmicrays::CosmicRayDensity {
 private:
 	QEnergy E_c;
 	QFrequency freq;
@@ -122,7 +122,7 @@ TEST(SynchroIntegrator, integrateOverLOS) {
 TEST(SynchroIntegrator, PerformanceTest) {
         auto mfield = std::make_shared<JF12Field>(JF12Field());
 	std::vector<PID> particletypes = {Electron, Positron};
-	auto dragonModel = std::make_shared<Dragon2DCRDensity>(Dragon2DCRDensity(particletypes)); 
+	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes)); 
 	auto in = std::make_shared<SynchroIntegrator>(SynchroIntegrator(mfield, dragonModel));
 	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(4, 1_GHz));
 	skymap->setIntegrator(in);

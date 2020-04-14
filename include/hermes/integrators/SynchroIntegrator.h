@@ -4,7 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/magneticField/MagneticField.h"
-#include "hermes/cosmicRayDensity/CosmicRayDensity.h"
+#include "hermes/cosmicrays/CosmicRayDensity.h"
 
 #include <memory>
 #include <array>
@@ -18,7 +18,7 @@ namespace hermes {
 class SynchroIntegrator: public RadioIntegratorTemplate {
 private:
 	std::shared_ptr<MagneticField> mfield;
-	std::shared_ptr<CosmicRayDensity> crdensity;
+	std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity;
 	const QSynchroConstant const_synchro =
 		std::sqrt(3)*pow<3>(e_plus)/(8*pi*pi*epsilon0*c_light*m_electron);
 
@@ -30,7 +30,7 @@ private:
 public:
 	SynchroIntegrator(
 		const std::shared_ptr<MagneticField> mfield,
-		const std::shared_ptr<CosmicRayDensity> crdensity);
+		const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity);
 	~SynchroIntegrator();
 
 	void setFrequency(const QFrequency &freq);

@@ -1,7 +1,7 @@
-#include "hermes/cosmicRayDensity/Sun08CRDensity.h"
+#include "hermes/cosmicrays/Sun08CRDensity.h"
 #include "hermes/Common.h"
 
-namespace hermes {
+namespace hermes { namespace cosmicrays {
 
 Sun08CRDensity::Sun08CRDensity() : minE(1_GeV), maxE(1e4_GeV), steps(10) {
 	makeEnergyRange();
@@ -47,4 +47,5 @@ QPDensityPerEnergy Sun08CRDensity::getDensityPerEnergy(const QEnergy& E_, const 
 	return C_0 * profile * std::pow(static_cast<double>(getLorentzFactor(m_electron, E_)), -spectralIndex) / (m_electron*c_squared);
 }
 
+} // namespace cosmicrays
 } // namespace hermes

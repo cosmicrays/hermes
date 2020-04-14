@@ -13,7 +13,7 @@
 namespace hermes {
 
 InverseComptonIntegrator::InverseComptonIntegrator(
-	const std::shared_ptr<CosmicRayDensity> crdensity_,
+	const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity_,
 	const std::shared_ptr<PhotonField> phdensity_,
 	const std::shared_ptr<DifferentialCrossSection> crossSec_) : 
 	GammaIntegratorTemplate(), crdensity(crdensity_), phdensity(phdensity_), crossSec(crossSec_) {
@@ -146,7 +146,7 @@ QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
 	
 	QICInnerIntegral integral(0);
 	
-	auto integrand = [this, pos_, Egamma_, Eelectron_](const CosmicRayDensity::iterator itE, const QEnergy &deltaE) {
+	auto integrand = [this, pos_, Egamma_, Eelectron_](const cosmicrays::CosmicRayDensity::iterator itE, const QEnergy &deltaE) {
 		return crossSec->getDiffCrossSection(Eelectron_, (*itE), Egamma_) *
 			phdensity->getEnergyDensity(pos_, static_cast<int>(itE - phdensity->begin())) / pow<2>(*itE);
 		};

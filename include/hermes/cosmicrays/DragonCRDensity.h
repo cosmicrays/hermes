@@ -3,14 +3,14 @@
 #ifndef HERMES_DRAGONCRDENSITY_H
 #define HERMES_DRAGONCRDENSITY_H
 
-#include "hermes/cosmicRayDensity/CosmicRayDensity.h"
+#include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/FITSWrapper.h"
 
 #include <memory>
 #include <map>
 #include <set>
 
-namespace hermes {
+namespace hermes { namespace cosmicrays {
 
 class Dragon2DCRDensity: public CosmicRayDensity {
 private:
@@ -75,7 +75,7 @@ public:
 	QPDensityPerEnergy getDensityPerEnergy(int iE_, const Vector3QLength& pos_) const;
 };
 
-
+} // namespace cosmicrays
 } // namespace hermes
 
 #endif // HERMES_DRAGONCRDENSITY_H

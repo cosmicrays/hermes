@@ -1,9 +1,9 @@
 #ifndef HERMES_DUMMYCRDENSITY_H
 #define HERMES_DUMMYCRDENSITY_H
 
-#include "hermes/cosmicRayDensity/CosmicRayDensity.h"
+#include "hermes/cosmicrays/CosmicRayDensity.h"
 
-namespace hermes {
+namespace hermes { namespace cosmicrays {
 
 class DummyCRDensity: public CosmicRayDensity {
 private:
@@ -18,6 +18,7 @@ public:
 			const Vector3QLength& pos_) const override;
 };
 
+} // namespace cosmicrays
 } // namespace hermes
 
 #endif // HERMES_DUMMYCRDENSITY_H

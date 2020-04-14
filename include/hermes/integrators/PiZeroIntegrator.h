@@ -6,7 +6,7 @@
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/neutralGasDensity/NeutralGasDensity.h"
 #include "hermes/neutralGasDensity/RingModelDensity.h"
-#include "hermes/cosmicRayDensity/CosmicRayDensity.h"
+#include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/interactions/DifferentialCrossSection.h"
 
 #include <memory>
@@ -21,7 +21,7 @@ namespace hermes {
 
 class PiZeroIntegrator: public GammaIntegratorTemplate {
 private:
-	std::vector<std::shared_ptr<CosmicRayDensity>> crList;
+	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList;
 	std::shared_ptr<RingModelDensity> ngdensity;
 	std::shared_ptr<DifferentialCrossSection> crossSec; 
 	
@@ -32,11 +32,11 @@ private:
 			const QEnergy &Egamma, std::shared_ptr<ProgressBar> &p);
 public:
 	PiZeroIntegrator(
-		const std::shared_ptr<CosmicRayDensity>,
+		const std::shared_ptr<cosmicrays::CosmicRayDensity>,
 		const std::shared_ptr<RingModelDensity>,
 		const std::shared_ptr<DifferentialCrossSection>); 
 	PiZeroIntegrator(
-		const std::vector<std::shared_ptr<CosmicRayDensity>>,
+		const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>,
 		const std::shared_ptr<RingModelDensity>,
 		const std::shared_ptr<DifferentialCrossSection>); 
 	~PiZeroIntegrator();

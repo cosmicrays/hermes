@@ -5,7 +5,7 @@
 #include "hermes/ProgressBar.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/neutralGasDensity/RingModelDensity.h"
-#include "hermes/cosmicRayDensity/CosmicRayDensity.h"
+#include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/interactions/DifferentialCrossSection.h"
 #include "hermes/photonField/PhotonField.h"
 #include "hermes/CacheTools.h"
@@ -21,7 +21,7 @@ namespace hermes {
 
 class InverseComptonIntegrator: public GammaIntegratorTemplate {
 private:
-	std::shared_ptr<CosmicRayDensity> crdensity;
+	std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity;
 	std::shared_ptr<PhotonField> phdensity;
 	std::shared_ptr<DifferentialCrossSection> crossSec; 
 
@@ -37,7 +37,7 @@ private:
 		Vector3QLength pos, QEnergy Egamma) const;
 public:
 	InverseComptonIntegrator(
-		const std::shared_ptr<CosmicRayDensity>,
+		const std::shared_ptr<cosmicrays::CosmicRayDensity>,
 		const std::shared_ptr<PhotonField>,
 		const std::shared_ptr<DifferentialCrossSection>); 
 	~InverseComptonIntegrator();

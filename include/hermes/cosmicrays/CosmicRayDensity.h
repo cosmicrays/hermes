@@ -9,7 +9,7 @@
 #include <cassert>
 #include <set>
 
-namespace hermes {
+namespace hermes { namespace cosmicrays {
 
 class CosmicRayDensity {
 protected:
@@ -95,6 +95,7 @@ public:
 	}
 };
 
+} // namespace cosmicrays
 } // namespace hermes
 
 #endif // HERMES_COSMICRAYDENSITY_H

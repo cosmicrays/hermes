@@ -1,9 +1,9 @@
 #ifndef HERMES_WMAP07CRDENSITY_H
 #define HERMES_WMAP07CRDENSITY_H
 
-#include "hermes/cosmicRayDensity/CosmicRayDensity.h"
+#include "hermes/cosmicrays/CosmicRayDensity.h"
 
-namespace hermes {
+namespace hermes { namespace cosmicrays {
 
 class WMAP07CRDensity: public CosmicRayDensity {
 private:
@@ -21,6 +21,7 @@ public:
 	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const override;
 };
 
+} // namespace cosmicrays
 } // namespace hermes
 
 #endif // HERMES_WMAP07CRDENSITY_H

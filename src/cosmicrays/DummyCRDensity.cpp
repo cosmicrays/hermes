@@ -1,6 +1,6 @@
-#include "hermes/cosmicRayDensity/DummyCRDensity.h"
+#include "hermes/cosmicrays/DummyCRDensity.h"
 
-namespace hermes {
+namespace hermes { namespace cosmicrays {
 
 DummyCRDensity::DummyCRDensity() :
 	CosmicRayDensity(Proton), minE(1_GeV), maxE(10_TeV), steps(20) {
@@ -32,4 +32,5 @@ QPDensityPerEnergy DummyCRDensity::getDensityPerEnergy(const QEnergy& E_, const 
 	return QPDensityPerEnergy(1);
 }
 
+} // namespace cosmicrays
 } // namespace hermes

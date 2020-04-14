@@ -1,7 +1,7 @@
 #ifdef HERMES_HAVE_CFITSIO
 
 #include "hermes/Common.h"
-#include "hermes/cosmicRayDensity/DragonCRDensity.h"
+#include "hermes/cosmicrays/DragonCRDensity.h"
 
 #include <iostream>
 #include <cassert>
@@ -14,7 +14,7 @@
 
 #define DEFAULT_CR_FILE "CosmicRays/Fornieri20/run2d_gamma_D03,7_delta0,45_vA13.fits.gz"
 
-namespace hermes {
+namespace hermes { namespace cosmicrays {
 
 Dragon2DCRDensity::Dragon2DCRDensity(
 		const std::string& filename_, const PID& pid_)
@@ -306,6 +306,7 @@ void Dragon3DCRDensity::readDensity3D() {
     }
 }
 
+} // namespace cosmicrays
 } // namespace hermes
 
 #endif // HERMES_HAVE_CFITSIO
