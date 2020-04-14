@@ -7,7 +7,7 @@ namespace hermes {
 
 TEST(YMW16, compareValues) {
 
-	auto gdensity = std::make_shared<YMW16>(YMW16());
+	auto gdensity = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
 
 	// Values obtained from the original model
 	// https://www.atnf.csiro.au/research/pulsar/ymw16/index.php

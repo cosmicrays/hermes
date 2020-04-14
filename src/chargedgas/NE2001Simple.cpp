@@ -1,8 +1,8 @@
-#include "hermes/chargedGasDensity/NE2001Simple.h"
+#include "hermes/chargedgas/NE2001Simple.h"
 
 #include <iostream>
 
-namespace hermes {
+namespace hermes { namespace chargedgas {
 
 NE2001Simple::NE2001Simple() {
 	setTemperature(1e4_K);
@@ -214,4 +214,6 @@ std::pair<std::vector<QLength>, std::vector<QLength>> NE2001Simple::csplineInter
 	return 0;
 }
 */
+
+} // namespace chargedgas
 } // namespace hermes

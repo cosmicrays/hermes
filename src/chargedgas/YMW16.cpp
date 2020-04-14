@@ -1,4 +1,4 @@
-#include "hermes/chargedGasDensity/YMW16.h"
+#include "hermes/chargedgas/YMW16.h"
 
 /*Copyright (C) 2016, 2017  J. M. Yao, R. N. Manchester, N. Wang.
 
@@ -29,7 +29,7 @@ Modifed and optimized for C++ and multithreading execution
 by Andrej Dundovic (andrej.dundovic@gssi.it, 2020)
 */
 
-namespace hermes {
+namespace hermes { namespace chargedgas {
 
 YMW16::YMW16() : ChargedGasDensity(1e4_K) {
 	initParameters();
@@ -805,4 +805,5 @@ double YMW16::ne_ymw16(const Vector3QLength &pos) const {
 	return ne;
 }
 
+} // namespace chargedgas
 } // namespace hermes

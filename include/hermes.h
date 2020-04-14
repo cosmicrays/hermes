@@ -42,10 +42,10 @@
 #include "hermes/magneticField/PT11Field.h"
 #include "hermes/magneticField/JF12Field.h"
 
-#include "hermes/chargedGasDensity/ChargedGasDensity.h"
-#include "hermes/chargedGasDensity/HII_Cordes91.h"
-#include "hermes/chargedGasDensity/NE2001Simple.h"
-#include "hermes/chargedGasDensity/YMW16.h"
+#include "hermes/chargedgas/ChargedGasDensity.h"
+#include "hermes/chargedgas/HII_Cordes91.h"
+#include "hermes/chargedgas/NE2001Simple.h"
+#include "hermes/chargedgas/YMW16.h"
 
 #include "hermes/neutralGasDensity/NeutralGasDensity.h"
 #include "hermes/neutralGasDensity/RingModelDensity.h"

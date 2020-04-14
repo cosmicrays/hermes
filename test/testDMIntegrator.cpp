@@ -6,9 +6,9 @@
 
 namespace hermes {
 
-class TestChargedGasDensity: public ChargedGasDensity {
+class TestChargedGasDensity: public chargedgas::ChargedGasDensity {
 public:
-        TestChargedGasDensity() : ChargedGasDensity(1e4_K) { }
+        TestChargedGasDensity() : chargedgas::ChargedGasDensity(1e4_K) { }
         QPDensity getDensity(const Vector3QLength &pos) const {
 		return 1.0 / 1_cm3; 
 	}
@@ -36,7 +36,7 @@ TEST(DMIntegrator, integrateOverLOS) {
 
 	int nside = 32;
 	auto skymap = std::make_shared<DMSkymap>(DMSkymap(nside));
-	auto gdensity = std::make_shared<YMW16>(YMW16());
+	auto gdensity = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
 	auto intDM = std::make_shared<DMIntegrator>(
 		DMIntegrator(gdensity));
 	skymap->setIntegrator(intDM);

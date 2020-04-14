@@ -1,9 +1,9 @@
 #ifndef HERMES_HIICORDES91_H
 #define HERMES_HIICORDES91_H
 
-#include "hermes/chargedGasDensity/ChargedGasDensity.h"
+#include "hermes/chargedgas/ChargedGasDensity.h"
 
-namespace hermes {
+namespace hermes { namespace chargedgas {
 
 class HII_Cordes91: public ChargedGasDensity {
 private:
@@ -14,6 +14,7 @@ public:
 	QPDensity getDensity(const Vector3QLength& pos) const override;
 };
 
+} // namespace chargedgas
 } // namespace hermes
 
 #endif // HERMES_HIICORDES91_H

@@ -4,7 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/magneticField/MagneticField.h"
-#include "hermes/chargedGasDensity/ChargedGasDensity.h"
+#include "hermes/chargedgas/ChargedGasDensity.h"
 
 #include <memory>
 #include <array>
@@ -17,11 +17,11 @@ namespace hermes {
 
 class FreeFreeIntegrator: public RadioIntegratorTemplate {
 private:
-	std::shared_ptr<ChargedGasDensity> gdensity;
+	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
 
 public:
 	FreeFreeIntegrator(
-		const std::shared_ptr<ChargedGasDensity> gdensity);
+		const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
 	~FreeFreeIntegrator();
 	
 	void setFrequency(const QFrequency &freq);

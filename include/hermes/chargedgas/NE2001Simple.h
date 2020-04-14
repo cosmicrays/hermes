@@ -1,9 +1,9 @@
 #ifndef HERMES_NE2001SIMPLE_H
 #define HERMES_NE2001SIMPLE_H
 
-#include "hermes/chargedGasDensity/ChargedGasDensity.h"
+#include "hermes/chargedgas/ChargedGasDensity.h"
 
-namespace hermes {
+namespace hermes { namespace chargedgas {
 
 class NE2001Simple: public ChargedGasDensity {
 private:
@@ -23,6 +23,7 @@ public:
 	QPDensity getGalacticCentreDensity(const Vector3QLength& pos) const;
 };
 
+} // namespace chargedgas
 } // namespace hermes
 
 #endif // HERMES_NE2001SIMPLE_H

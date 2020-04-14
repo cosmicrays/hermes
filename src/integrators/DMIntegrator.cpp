@@ -3,7 +3,7 @@
 
 namespace hermes {
 
-DMIntegrator::DMIntegrator(const std::shared_ptr<ChargedGasDensity> gdensity) :
+DMIntegrator::DMIntegrator(const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity) :
 	DMIntegratorTemplate(),
 	gdensity(gdensity) {	
 

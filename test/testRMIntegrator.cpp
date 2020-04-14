@@ -26,7 +26,7 @@ public:
         }
 };
 
-class TestChargedGasDensity: public ChargedGasDensity {
+class TestChargedGasDensity: public chargedgas::ChargedGasDensity {
 public:
         TestChargedGasDensity() { }
         QPDensity getDensity(const Vector3QLength &pos) const {
@@ -71,7 +71,7 @@ TEST(RMIntegrator, Orientation) {
 
 TEST(RMIntegrator, PerformanceTest) {
 	auto magfield = std::make_shared<JF12Field>(JF12Field());
-	auto gasdenisty = std::make_shared<YMW16>(YMW16());
+	auto gasdenisty = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
 	auto in = std::make_shared<RMIntegrator>(RMIntegrator(magfield, gasdenisty));
 	auto skymap = std::make_shared<RMSkymap>(RMSkymap(4));
 	skymap->setIntegrator(in);

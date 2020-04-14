@@ -15,7 +15,7 @@ class SynchroAbsorptionIntegrator: public RadioIntegratorTemplate {
 private:
 	std::shared_ptr<MagneticField> mfield;
 	std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity;
-	std::shared_ptr<ChargedGasDensity> gdensity;
+	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
 	std::shared_ptr<SynchroIntegrator> intSynchro;
 	std::shared_ptr<FreeFreeIntegrator> intFreeFree;
 
@@ -23,7 +23,7 @@ public:
 	SynchroAbsorptionIntegrator(
 		const std::shared_ptr<MagneticField> mfield,
 		const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity,
-		const std::shared_ptr<ChargedGasDensity> gdensity);
+		const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
 	~SynchroAbsorptionIntegrator();
 
 	void setFrequency(const QFrequency &freq);

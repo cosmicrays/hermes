@@ -217,9 +217,9 @@ add_library(hermes SHARED
 	src/magneticField/Sun08Field.cpp
 	src/magneticField/PT11Field.cpp
 	src/magneticField/JF12Field.cpp
-	src/chargedGasDensity/HII_Cordes91.cpp
-	src/chargedGasDensity/NE2001Simple.cpp
-	src/chargedGasDensity/YMW16.cpp
+	src/chargedgas/HII_Cordes91.cpp
+	src/chargedgas/NE2001Simple.cpp
+	src/chargedgas/YMW16.cpp
 	src/neutralGasDensity/RingModelDensity.cpp
 	src/cosmicrays/DummyCRDensity.cpp
 	src/cosmicrays/SimpleCRDensity.cpp
@@ -258,7 +258,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/Skymaps.cpp
 		python/Integrators.cpp
 		python/MagneticFields.cpp
-		python/ChargedGasDensity.cpp
+		python/chargedgas.cpp
 		python/NeutralGasDensity.cpp
 		python/cosmicrays.cpp
 		python/PhotonField.cpp

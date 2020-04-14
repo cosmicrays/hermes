@@ -3,7 +3,6 @@
 
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
-#include "hermes/integrators/GenericIntegrator.h"
 #include "hermes/integrators/DMIntegrator.h"
 #include "hermes/integrators/RMIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
@@ -35,19 +34,19 @@ void init_integrators(py::module &m) {
   
 	// DMIntegrator
 	NEW_INTEGRATOR(dmintegrator, "DMIntegrator", DMIntegrator, QDispersionMeasure, QNumber);
-	dmintegrator.def(py::init<const std::shared_ptr<ChargedGasDensity> >());
+	dmintegrator.def(py::init<const std::shared_ptr<chargedgas::ChargedGasDensity> >());
 	dmintegrator.def("getLOSProfile", &DMIntegrator::getLOSProfile);
 	declare_default_integrator_methods<DMIntegrator>(dmintegrator);
 	
 	// RMIntegrator
 	NEW_INTEGRATOR(rmintegrator, "RMIntegrator", RMIntegrator, QRotationMeasure, QNumber);
 	rmintegrator.def(py::init<const std::shared_ptr<MagneticField>,
-			    	  const std::shared_ptr<ChargedGasDensity> >());
+			    	  const std::shared_ptr<chargedgas::ChargedGasDensity> >());
 	declare_default_integrator_methods<RMIntegrator>(rmintegrator);
 	
 	// FreeFreeIntegrator
 	NEW_INTEGRATOR(ffintegrator, "FreeFreeIntegrator", FreeFreeIntegrator, QTemperature, QFrequency);
-	ffintegrator.def(py::init<const std::shared_ptr<ChargedGasDensity> >());
+	ffintegrator.def(py::init<const std::shared_ptr<chargedgas::ChargedGasDensity> >());
 	declare_default_integrator_methods<FreeFreeIntegrator>(ffintegrator);
 
 	// SynchroIntegrator
@@ -62,7 +61,7 @@ void init_integrators(py::module &m) {
 		synchroabsintegrator(m, "SynchroAbsorptionIntegrator", py::buffer_protocol());
 	synchroabsintegrator.def(py::init<const std::shared_ptr<MagneticField>,
 			    	 	  const std::shared_ptr<cosmicrays::CosmicRayDensity>,
-				 	  const std::shared_ptr<ChargedGasDensity> >());
+				 	  const std::shared_ptr<chargedgas::ChargedGasDensity> >());
 	declare_default_integrator_methods<SynchroAbsorptionIntegrator>(synchroabsintegrator);
 
 	// InverseComptonIntegrator

@@ -1,7 +1,7 @@
 #ifndef HERMES_YMW16_H
 #define HERMES_YMW16_H
 
-#include "hermes/chargedGasDensity/ChargedGasDensity.h"
+#include "hermes/chargedgas/ChargedGasDensity.h"
 
 /*Copyright (C) 2016, 2017  J. M. Yao, R. N. Manchester, N. Wang.
 
@@ -33,7 +33,7 @@ by Andrej Dundovic (andrej.dundovic@gssi.it, 2020)
 */
 
 
-namespace hermes {
+namespace hermes { namespace chargedgas {
 
 // Thick disk
 #define P_Ad 2500
@@ -277,6 +277,7 @@ public:
 
 };
 
+} // namespace chargedgas
 } // namespace hermes
 
 #endif // HERMES_YMW16_H

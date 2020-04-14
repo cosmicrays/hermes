@@ -4,7 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/skymaps/DMSkymap.h"
 #include "hermes/integrators/IntegratorTemplate.h"
-#include "hermes/chargedGasDensity/ChargedGasDensity.h"
+#include "hermes/chargedgas/ChargedGasDensity.h"
 
 #include <memory>
 
@@ -18,11 +18,11 @@ typedef IntegratorTemplate<QDispersionMeasure, QNumber> DMIntegratorTemplate;
 
 class DMIntegrator: public DMIntegratorTemplate {
 private:
-	std::shared_ptr<ChargedGasDensity> gdensity;
+	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
 public:
 	typedef std::pair<std::vector<QLength>, std::vector<double>> tLOSProfile;
 	
-	DMIntegrator(const std::shared_ptr<ChargedGasDensity> gdensity);
+	DMIntegrator(const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
 	~DMIntegrator();
 	
 	QDispersionMeasure integrateOverLOS(QDirection iterdir) const;

@@ -5,9 +5,9 @@
 
 namespace hermes {
 
-class TestChargedGasDensity: public ChargedGasDensity {
+class TestChargedGasDensity: public chargedgas::ChargedGasDensity {
 public:
-        TestChargedGasDensity() : ChargedGasDensity(1e4_K) { }
+        TestChargedGasDensity() : chargedgas::ChargedGasDensity(1e4_K) { }
         QPDensity getDensity(const Vector3QLength &pos) const {
 		return 1.0 / 1_cm3; 
 	}

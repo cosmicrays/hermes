@@ -6,9 +6,9 @@
 
 namespace hermes {
 
-class TestChargedGasDensity: public ChargedGasDensity {
+class TestChargedGasDensity: public chargedgas::ChargedGasDensity {
 public:
-        TestChargedGasDensity() : ChargedGasDensity(1e4_K) { }
+        TestChargedGasDensity() : chargedgas::ChargedGasDensity(1e4_K) { }
         QPDensity getDensity(const Vector3QLength &pos) const {
 		return 1.0 / 1_cm3; 
 	}
@@ -129,7 +129,7 @@ TEST(FreeFreeIntegrator, absorptionCoefficient) {
 }
 
 TEST(FreeFreeIntegrator, PerformanceTest) {
-        auto gasdenisty = std::make_shared<YMW16>(YMW16());
+        auto gasdenisty = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
         auto in = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gasdenisty));
 	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(4, 100_MHz));
 	skymap->setIntegrator(in);
