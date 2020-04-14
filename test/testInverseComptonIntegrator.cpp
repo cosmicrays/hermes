@@ -51,18 +51,22 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
 
 /* Take the result from above and insert it into an integral with the constant (dummy) CR flux */
 TEST(InverseComptonIntegrator, integrateOverEnergy) {
-	auto simpleModel = std::make_shared<DummyCRDensity>(DummyCRDensity());
+	auto dummyModel = std::make_shared<DummyCRDensity>(DummyCRDensity(Electron));
 	auto kleinnishina = std::make_shared<KleinNishina>(KleinNishina());
 	auto photonField = std::make_shared<CMB>(CMB()); 
 	auto intIC = std::make_shared<InverseComptonIntegrator>(
-		InverseComptonIntegrator(simpleModel, photonField, kleinnishina));
+		InverseComptonIntegrator(dummyModel, photonField, kleinnishina));
+
+	dummyModel->setScaleFactor(false);
+	EXPECT_FALSE(dummyModel->existsScaleFactor());
 	
 	QEnergy Egamma = 1.0_GeV;
 	auto emissivity = intIC->integrateOverEnergy(Vector3QLength(0), Egamma);
 	// sigma_KN = ~230 mbarn for Ephoton(T_CMB) and Egamma = 1 TeV
 
 	// 5e-16 is calculated independently by integrating the integrateOverPhotonEnergy(E_el)
-	EXPECT_NEAR(static_cast<double>(emissivity), static_cast<double>(5e-16*c_light/4_pi), 1e-7);
+	EXPECT_NEAR(static_cast<double>(emissivity),
+			static_cast<double>(5e-16*c_light/4_pi), 1e-7);
 }
 
 /* Check consistency of different integration methods */

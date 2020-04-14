@@ -2,14 +2,14 @@
 
 namespace hermes {
 
-SimpleCRDensity::SimpleCRDensity() :
-		CosmicRayDensity(true), minE(1_GeV),
+SimpleCRDensity::SimpleCRDensity(const PID &pid_) :
+		CosmicRayDensity(pid_), minE(1_GeV),
 		maxE(10_TeV), steps(20) {
 	makeEnergyRange();
 }
 
-SimpleCRDensity::SimpleCRDensity(QEnergy minE_, QEnergy maxE_, int steps_) :
-		CosmicRayDensity(true),
+SimpleCRDensity::SimpleCRDensity(const PID &pid_, QEnergy minE_, QEnergy maxE_, int steps_) :
+		CosmicRayDensity(pid_),
 		minE(minE_), maxE(maxE_), steps(steps_) {
 	makeEnergyRange();
 }

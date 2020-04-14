@@ -56,34 +56,26 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 }
 
 TEST(PiZeroIntegrator, ChannelsRatio) {
-	auto cr_proton = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
-	auto cr_helium = std::make_shared<SimpleCRDensity>(SimpleCRDensity());
-	std::vector<std::shared_ptr<CosmicRayDensity>> crList = {cr_proton, cr_helium};
+	auto cr_proton = std::make_shared<SimpleCRDensity>(SimpleCRDensity(Proton));
+	auto cr_helium = std::make_shared<SimpleCRDensity>(SimpleCRDensity(Helium));
+	std::vector<std::shared_ptr<CosmicRayDensity>> cr_all = {cr_proton, cr_helium};
 	
 	// interaction
 	auto kamae = std::make_shared<Kamae06>(Kamae06());
 	// HI model
 	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::HI));
-	// integrator
-	auto intPiZero = std::make_shared<PiZeroIntegrator>(PiZeroIntegrator(crList, ringModel, kamae));
+	// integrators
+	auto intPiZero_proton = std::make_shared<PiZeroIntegrator>(PiZeroIntegrator(cr_proton, ringModel, kamae));
+	auto intPiZero_total  = std::make_shared<PiZeroIntegrator>(PiZeroIntegrator(cr_all, ringModel, kamae));
 
-	// skymap
-	int nside = 4;
-	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(nside, 1_GeV));
-	skymap->setIntegrator(intPiZero);
+	Vector3QLength pos(8.5_kpc, 0, 0);
+	QEnergy Egamma = 10_GeV;
+	auto res_proton = intPiZero_proton->integrateOverEnergy(pos, Egamma);
+	auto res_total  = intPiZero_total->integrateOverEnergy(pos, Egamma);
 
-	//auto output = std::make_shared<FITSOutput>(FITSOutput("!test-pion.fits.gz"));
-	
-	auto pos = Vector3QLength(8.5_kpc, 0, 0);
-	QDirection dir = {90_deg,1_deg};
-	//std::cerr << intPiZero->integrateOverEnergy(pos, 1_GeV) << std::endl;
-	//std::cerr << intPiZero->integrateOverEnergy(pos, 100_MeV) << std::endl;
-	//std::cerr << intPiZero->integrateOverLOS(dir, 1000_MeV) << std::endl;
-	skymap->compute();
-	//skymap->save(output);
-
-	// sqrt(3)*e_charge^3/(8*pi^2*epsilon_0*c*electron_mass)*0.655*1*microGauss*1/(m^3*J)*1_eV
-	//EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
+	double f_He = 0.1;
+	double ratio = ((1.0 + f_He*3.81)+(3.68 + f_He*14.2)) / (1.0 + f_He*3.81);
+	EXPECT_NEAR(static_cast<double>(res_proton) * ratio, static_cast<double>(res_total), 1e-22);
 }
 
 TEST(PiZeroIntegrator, PiZeroLOS) {

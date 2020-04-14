@@ -11,8 +11,8 @@ private:
 	int steps;
 	void makeEnergyRange();
 public:
-	SimpleCRDensity();
-	SimpleCRDensity(QEnergy minE, QEnergy maxE, int steps);
+	SimpleCRDensity(const PID &pid = Proton);
+	SimpleCRDensity(const PID &pid, QEnergy minE, QEnergy maxE, int steps);
 	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_,
 			const Vector3QLength& pos_) const override;
 };

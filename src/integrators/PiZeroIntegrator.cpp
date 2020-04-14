@@ -172,7 +172,7 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_, QEner
 	
 	for(const auto &crDensity: crList) {
 		auto pid_projectile = crDensity->getPID();
-		
+	
 		std::vector<QPDensity> cosmicRayVector;
 		std::transform(crDensity->beginAfterEnergy(Egamma_), crDensity->end(),
 			std::back_inserter(cosmicRayVector),
@@ -187,7 +187,7 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_, QEner
 		// log-integration
 		auto integralOverEnergy = std::log(crDensity->getEnergyScaleFactor()) *
 				std::accumulate(integral.begin(), integral.end(), QPiZeroIntegral(0));
-			
+		
 		for(const auto &neutralGas: ngdensity->getAbundanceFractions()) {
 			auto pid_target = neutralGas.first;
 			auto f_target = neutralGas.second;

@@ -24,31 +24,24 @@ private:
 	std::size_t calcArrayIndex2D(
 		std::size_t iE, std::size_t ir, std::size_t iz);
 
-	void enablePID(const PID &pid_);
-	void disablePID(const PID &pid_);
-	bool isPIDEnabled(const PID &pid_) const;
-  
 	QLength rmin, rmax, zmin, zmax;
 	int dimE;
 	int dimz, dimr;
 	std::vector<std::unique_ptr<ScalarGrid2DQPDensityPerEnergy> > grid;
-	std::set<PID> setOfPIDs;
 	
 	//TODO: implement as std::unordered_map
 	std::map<QEnergy, std::size_t> energyIndex;
 public:
-	Dragon2DCRDensity();
+	Dragon2DCRDensity(const PID& pid);
+	Dragon2DCRDensity(const std::vector<PID> &pids);
 	Dragon2DCRDensity(const std::string &filename,
 			const PID &pid_);
 	Dragon2DCRDensity(const std::string &filename,
 			const std::vector<PID> &pids);
-	Dragon2DCRDensity(const PID& pid);
-	Dragon2DCRDensity(const std::vector<PID> &pids);
 	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_,
 			const Vector3QLength& pos_) const override;
 	QPDensityPerEnergy getDensityPerEnergy(int iE_,
 			const Vector3QLength& pos_) const;
-	PID getPID() const;
 };
 
 class Dragon3DCRDensity: public CosmicRayDensity {
@@ -63,16 +56,11 @@ private:
 	std::size_t calcArrayIndex2D(
 		std::size_t iE, std::size_t ir, std::size_t iz);
 
-	void enablePID(const PID &pid_);
-	void disablePID(const PID &pid_);
-	bool isPIDEnabled(const PID &pid_) const;
-  
 	QLength rmin, rmax, zmin, zmax;
 	QLength xmin, xmax, ymin, ymax;
 	int dimE;
 	int dimx, dimy, dimz, dimr;
 	std::vector<std::unique_ptr<ScalarGridQPDensityPerEnergy> > grid;
-	std::set<int> setOfPIDs;
 	
 	//TODO: implement as std::unordered_map
 	std::map<QEnergy, std::size_t> energyIndex;

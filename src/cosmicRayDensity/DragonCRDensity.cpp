@@ -16,56 +16,29 @@
 
 namespace hermes {
 
-Dragon2DCRDensity::Dragon2DCRDensity() :
-	CosmicRayDensity(true),
-	filename(getDataPath(DEFAULT_CR_FILE)) {
-	readFile();
-}	
-
 Dragon2DCRDensity::Dragon2DCRDensity(
 		const std::string& filename_, const PID& pid_)
-    : CosmicRayDensity(true), filename(filename_) {
-	enablePID(pid_);
+    : CosmicRayDensity(pid_), filename(filename_) {
 	readFile();
 }
 
 Dragon2DCRDensity::Dragon2DCRDensity(const PID& pid_) :
-	CosmicRayDensity(true),
+	CosmicRayDensity(pid_),
 	filename(getDataPath(DEFAULT_CR_FILE)) {
-	enablePID(pid_);
 	readFile();
 }
 
 Dragon2DCRDensity::Dragon2DCRDensity(const std::vector<PID> &pids_) :
-	CosmicRayDensity(true),
+	CosmicRayDensity(pids_),
 	filename(getDataPath(DEFAULT_CR_FILE)) {
-	for(auto const& p: pids_)
-		enablePID(p);
 	readFile();
 }	
 
 Dragon2DCRDensity::Dragon2DCRDensity(
-		const std::string& filename_, const std::vector<PID> &pids_)
-    : CosmicRayDensity(true), filename(filename_) {
-	for(auto const& p: pids_)
-		enablePID(p);
+		const std::string& filename_, const std::vector<PID> &pids_) :
+	CosmicRayDensity(pids_),
+	filename(filename_) {
 	readFile();
-}
-
-void Dragon2DCRDensity::enablePID(const PID &pid_) {
-	setOfPIDs.insert(pid_);
-}
-	
-void Dragon2DCRDensity::disablePID(const PID &pid_) {
-	setOfPIDs.erase(setOfPIDs.find(pid_));
-}
-
-bool Dragon2DCRDensity::isPIDEnabled(const PID &pid_) const {
-	return (setOfPIDs.count(pid_) > 0);
-}
-
-PID Dragon2DCRDensity::getPID() const {
-	return *setOfPIDs.begin();
 }
 
 void Dragon2DCRDensity::readFile() {
@@ -194,29 +167,14 @@ void Dragon2DCRDensity::readDensity2D() {
 
 Dragon3DCRDensity::Dragon3DCRDensity(
 		const std::string& filename_, const PID& pid_)
-    : CosmicRayDensity(true), filename(filename_) {
-	enablePID(pid_);
+    : CosmicRayDensity(pid_), filename(filename_) {
 	readFile();
 }
 
 Dragon3DCRDensity::Dragon3DCRDensity(
 		const std::string& filename_, const std::vector<PID> &pids_)
-    : CosmicRayDensity(true), filename(filename_) {
-	for(auto const& p: pids_)
-		enablePID(p);
+    : CosmicRayDensity(pids_), filename(filename_) {
 	readFile();
-}
-
-void Dragon3DCRDensity::enablePID(const PID &pid_) {
-	setOfPIDs.insert(pid_.getID());
-}
-	
-void Dragon3DCRDensity::disablePID(const PID &pid_) {
-	setOfPIDs.erase(setOfPIDs.find(pid_.getID()));
-}
-
-bool Dragon3DCRDensity::isPIDEnabled(const PID &pid_) const {
-	return (setOfPIDs.count(pid_.getID()) > 0);
 }
 
 void Dragon3DCRDensity::readFile() {

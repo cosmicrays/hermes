@@ -7,6 +7,7 @@
 
 #include <algorithm>
 #include <cassert>
+#include <set>
 
 namespace hermes {
 
@@ -16,11 +17,31 @@ protected:
 	mutable tEnergyRange energyRange;
 	bool scaleFactorFlag;
 	double energyScaleFactor;
+	std::set<PID> setOfPIDs;
+	
+	void enablePID(const PID &pid_) {
+		setOfPIDs.insert(pid_);
+	}
+	void disablePID(const PID &pid_) {
+		setOfPIDs.erase(setOfPIDs.find(pid_));
+	}
+	bool isPIDEnabled(const PID &pid_) const {
+		 return (setOfPIDs.count(pid_) > 0);
+	}
+  
 public:
         typedef tEnergyRange::iterator iterator;
         typedef tEnergyRange::const_iterator const_iterator;
 
-	CosmicRayDensity(bool scaleFactorFlag_ = false) : scaleFactorFlag(scaleFactorFlag_) { }
+	CosmicRayDensity(const PID &pid = Proton) :
+		scaleFactorFlag(true),
+		setOfPIDs(std::set<PID> {pid}) { }
+
+	CosmicRayDensity(const std::vector<PID> &pids_) :
+		scaleFactorFlag(true) {
+		for(auto const& p: pids_)
+			enablePID(p);
+	}
         virtual ~CosmicRayDensity() { }
 
         virtual QPDensityPerEnergy getDensityPerEnergy(
@@ -33,6 +54,9 @@ public:
 	bool existsScaleFactor() const {
 		return scaleFactorFlag;
 	}
+	void setScaleFactor(bool b) {
+		scaleFactorFlag = b;
+	}
 	double getEnergyScaleFactor() const {
 		return energyScaleFactor;
 	}
@@ -40,9 +64,9 @@ public:
 	tEnergyRange getEnergyAxis() const {
 		return energyRange;
 	}
-
+	
 	PID getPID() const {
-		return Proton;
+		return *setOfPIDs.begin();
 	}
 
 	iterator beginAfterEnergy(const QEnergy &E_) {
