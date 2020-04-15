@@ -39,7 +39,7 @@ For detailed installation guides and requirements see [INSTALL](INSTALL.md).
 
 ```python
 from pyhermes import *
-from pyhermes.units import TeV, deg
+from pyhermes.units import TeV, deg, kpc, pc
 
 nside = 512
 Egamma = 0.1*TeV
@@ -49,9 +49,9 @@ skymap = GammaSkymap(nside=nside, Egamma=Egamma)
 mask = RectangularWindow([5*deg, 40*deg], [-5*deg, 90*deg]);
 skymap.setMask(mask)
 
-neutral_gas = RingModelDensity()
-cosmicray_protons = Dragon2DCRDensity([Proton])
-pp_crosssection = Kamae06()
+neutral_gas = neutralgas.RingModel(neutralgas.RingType.HI)
+cosmicray_protons = cosmicrays.Dragon2D(Proton)
+pp_crosssection = interactions.Kamae06()
 
 integrator = PiZeroIntegrator(cosmicray_protons, neutral_gas, pp_crosssection)
 integrator.setSunPosition(sun_pos)
@@ -60,7 +60,7 @@ integrator.setupCacheTable(100, 100, 20)
 skymap.setIntegrator(integrator)
 skymap.compute()
 
-output = FITSOutput("!pizero-dragon2d.fits.gz")
+output = outputs.FITSOutput("!pizero-dragon2d.fits.gz")
 skymap.save(output)
 ```
 
