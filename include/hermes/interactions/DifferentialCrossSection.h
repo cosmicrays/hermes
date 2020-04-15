@@ -6,6 +6,8 @@
 
 namespace hermes { namespace interactions {
 
+using namespace units;
+
 class DifferentialCrossSection {
 public:
 	DifferentialCrossSection();

@@ -250,7 +250,6 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	
 	pybind11_add_module(pyhermes
 		python/Quantity.cpp
-		python/Units.cpp
 		python/Common.cpp
 		python/ParticleID.cpp
 		python/Vectors.cpp
@@ -263,6 +262,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/neutralgas.cpp
 		python/outputs.cpp
 		python/photonfields.cpp
+		python/units.cpp
 		python/PyHermes.cpp
 	)
 

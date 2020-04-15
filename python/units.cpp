@@ -48,9 +48,9 @@
 
 namespace py = pybind11;
 
-namespace hermes {
+namespace hermes { namespace units {
 
-void init_units(py::module &m) {
+void init(py::module &m) {
 
 	py::module subm = m.def_submodule("units");
 	subm.doc() = "units package";
@@ -121,4 +121,5 @@ void init_units(py::module &m) {
 	//subm.attr("epsilon0")	= epsilon0;
 }
 
-}
+} // namespace units
+} // namespace hermes

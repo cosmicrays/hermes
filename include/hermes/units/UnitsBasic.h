@@ -13,7 +13,7 @@
 
 #include "UnitsSIPrefixes.h"
 
-namespace hermes {
+namespace hermes { namespace units {
 /**
  * \addtogroup Units
  * @{
@@ -51,6 +51,7 @@ constexpr double pi = M_PI;
 constexpr double eulerGamma = M_E;
 
 /** @}*/
+} // namespace units
 } // namespace hermes
 
 #endif // HERMES_UNITSBASIC_H

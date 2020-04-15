@@ -8,6 +8,8 @@
 namespace py = pybind11;
 
 namespace hermes {
+
+using namespace units;
 	
 struct AstroPy {
 	py::object q;

@@ -6,7 +6,7 @@
 #include "UnitsBasic.h"
 #include "UnitsSIPrefixes.h"
 
-namespace hermes {
+namespace hermes { namespace units {
 /**
  * \addtogroup Units
  * @{
@@ -75,6 +75,7 @@ int stepFunction(const Q &quantity) {
 }
 
 /** @}*/
+} // namespace units
 } // namespace hermes
 
 #endif // HERMES_UNITSFUNCTIONS_H

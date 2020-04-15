@@ -6,7 +6,7 @@
 
 #include <array>
 
-namespace hermes {
+namespace hermes { namespace units {
 /**
  * \addtogroup Units
  * @{
@@ -114,6 +114,7 @@ constexpr QAngle degree = (pi / 180.0) * radian;
 typedef std::array<QAngle, 2> QDirection;
 
 /** @}*/
+} // namespace units
 } // namespace hermes
 
 #endif // HERMES_UNITSDERIVED_H

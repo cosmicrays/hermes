@@ -8,7 +8,7 @@
 
 #include "UnitsSIPrefixes.h"
 
-namespace hermes {
+namespace hermes { namespace units {
 
 typedef double QNumber;
 typedef double QAngle;
@@ -61,7 +61,7 @@ template<int power>
 constexpr double pow(const QNumber& num) { return std::pow(static_cast<double>(num), power); }
 constexpr double squared(const QNumber& num) { return num*num; }
 
-
-} // hermes namespace
+} // namespace units
+} // namespace hermes
 
 #endif // HERMES_UNITSSIMPLE_H

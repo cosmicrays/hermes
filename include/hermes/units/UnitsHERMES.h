@@ -3,7 +3,7 @@
 
 #include "UnitsDerived.h"
 
-namespace hermes {
+namespace hermes { namespace units {
 
 // HERMES specific types
 // ------------------------------------
@@ -16,6 +16,7 @@ QUANTITY_TYPE(-3, 1, 0, 0,-1, 0, 0, 0, 0, QRingX0Unit);
 QUANTITY_TYPE(-3, 2,-1, 0, 0, 0, 0, 0, 0, QICInnerIntegral);
 QUANTITY_TYPE(-5, 1,-1, 0, 0, 0, 0, 0, 0, QGREmissivity);
 
+} // namespace units
 } // namespace hermes
 
 #endif // HERMES_UNITSHERMES_H

@@ -8,7 +8,7 @@
 #include <cmath>
 #include <ostream>
 
-namespace hermes {
+namespace hermes { namespace units {
 /**
  * \addtogroup Units
  * @{
@@ -421,6 +421,7 @@ QUANTITY_TYPE(-5, 2,-1, 0, 0, 0, 0, 0, 0, QPDensityPerEnergy);
 QUANTITY_TYPE( 2,-2, 1, 0,-1, 0, 0, 0, 0, QEnergyOverTemperature); // e.g., Boltzmann c.
 
 /** @}*/
+} // namespace units
 } // namespace hermes
 
 #endif // HERMES_UNITSBASIC_H

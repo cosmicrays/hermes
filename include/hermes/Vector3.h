@@ -10,6 +10,8 @@
 
 namespace hermes {
 
+using namespace units;
+
 /**
  * \addtogroup Core
  * @{

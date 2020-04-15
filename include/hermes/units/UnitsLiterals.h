@@ -7,7 +7,7 @@
 #include "UnitsSimple.h"
 #endif
 
-namespace hermes {
+namespace hermes { namespace units {
 /**
  * \addtogroup Units
  * @{
@@ -129,6 +129,7 @@ LITERAL(QPressure, _bar, bar)
 LITERAL(QPressure, _psi, psi)
 
 /** @}*/
+} // namespace units
 } // namespace hermes
 
 #endif // HERMES_UNITSLITERALS_H

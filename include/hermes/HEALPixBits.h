@@ -6,6 +6,8 @@
 
 namespace hermes {
 
+using namespace units;
+
 static const double UNSEEN = -1.6375e30;
 
 std::size_t log2(std::size_t x);

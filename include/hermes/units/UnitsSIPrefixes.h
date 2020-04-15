@@ -1,7 +1,7 @@
 #ifndef HERMES_UNITSSIPREFIXES_H
 #define HERMES_UNITSSIPREFIXES_H
 
-namespace hermes {
+namespace hermes { namespace units {
 
 // SI prefixes
 constexpr double yocto = 1e-24;
@@ -46,6 +46,7 @@ constexpr double yotta = 1e24;
 	constexpr auto zetta##_UNIT = zetta * _UNIT; \
 	constexpr auto yotta##_UNIT = yotta * _UNIT;
 
+} // namespace units
 } // namespace hermes
 
 #endif // HERMES_UNITSSIPREFIXES_H
