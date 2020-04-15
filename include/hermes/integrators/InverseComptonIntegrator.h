@@ -4,10 +4,10 @@
 #include "hermes/Units.h"
 #include "hermes/ProgressBar.h"
 #include "hermes/integrators/IntegratorTemplate.h"
-#include "hermes/neutralGasDensity/RingModelDensity.h"
+#include "hermes/neutralgas/RingModelDensity.h"
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/interactions/DifferentialCrossSection.h"
-#include "hermes/photonField/PhotonField.h"
+#include "hermes/photonfields/PhotonField.h"
 #include "hermes/CacheTools.h"
 
 #include <memory>
@@ -22,8 +22,8 @@ namespace hermes {
 class InverseComptonIntegrator: public GammaIntegratorTemplate {
 private:
 	std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity;
-	std::shared_ptr<PhotonField> phdensity;
-	std::shared_ptr<DifferentialCrossSection> crossSec; 
+	std::shared_ptr<photonfields::PhotonField> phdensity;
+	std::shared_ptr<interactions::DifferentialCrossSection> crossSec; 
 
 	typedef Grid<QGREmissivity> ICCacheTable;
 	std::shared_ptr<ICCacheTable> cacheTable;
@@ -38,8 +38,8 @@ private:
 public:
 	InverseComptonIntegrator(
 		const std::shared_ptr<cosmicrays::CosmicRayDensity>,
-		const std::shared_ptr<PhotonField>,
-		const std::shared_ptr<DifferentialCrossSection>); 
+		const std::shared_ptr<photonfields::PhotonField>,
+		const std::shared_ptr<interactions::DifferentialCrossSection>); 
 	~InverseComptonIntegrator();
 	
 	void setEnergy(const QEnergy &Egamma);

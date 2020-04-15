@@ -1,4 +1,4 @@
-#include "hermes/photonField/ISRF.h"
+#include "hermes/photonfields/ISRF.h"
 #include "hermes/Common.h"
 
 #include <iostream>
@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <iterator>
 
-namespace hermes {
+namespace hermes { namespace photonfields {
 
 	std::string str(const int& n) {
 		std::stringstream ss;
@@ -171,4 +171,5 @@ namespace hermes {
 		return c * 1_eV / 1_cm3;
 	}
 
+} // namespace photonfields
 } // namespace hermes

@@ -1,7 +1,7 @@
-#include "hermes/magneticField/WMAP07Field.h"
+#include "hermes/magneticfields/WMAP07Field.h"
 #include "hermes/Units.h"
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 WMAP07Field::WMAP07Field() {
 	// parameters from Waelkens et al. 2009 (Hammurabi)
@@ -36,4 +36,5 @@ Vector3QMField WMAP07Field::getField(const Vector3QLength& pos_) const {
 	return B;
 }
 
+} // namespace magneticfields
 } // namespace hermes

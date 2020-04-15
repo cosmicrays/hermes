@@ -4,7 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/Grid.h"
 
-namespace hermes {
+namespace hermes { namespace neutralgas {
 
 class NeutralGasDensity {
 private:
@@ -24,6 +24,7 @@ public:
 	
 };
 
+} // namespace neutralgas
 } // namespace hermes
 
 #endif // HERMES_NEUTRALGASDENSITY_H

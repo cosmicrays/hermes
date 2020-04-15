@@ -1,7 +1,7 @@
-#include "hermes/magneticField/Sun08Field.h"
+#include "hermes/magneticfields/Sun08Field.h"
 #include "hermes/Units.h"
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 Sun08Field::Sun08Field() {
 	// regular field parameters
@@ -120,4 +120,5 @@ Vector3QMField Sun08Field::getField(const Vector3QLength& pos_) const {
 	return b;
 }
 
+} // namespace magneticfields
 } // namespace hermes

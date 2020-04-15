@@ -10,7 +10,7 @@
 #include "muParser.h"
 #endif
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 /**
  * \addtogroup MagneticFields
  * @{
@@ -78,6 +78,7 @@ public:
 };
 
 /** @} */
+} // namespace magneticfields
 } // namespace hermes
 
 #endif // HERMES_MAGNETICFIELD_H

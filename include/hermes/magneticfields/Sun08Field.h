@@ -1,11 +1,11 @@
 #ifndef HERMES_SUN08FIELD_H
 #define HERMES_SUN08FIELD_H
 
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 #include "hermes/Grid.h"
 #include "hermes/GridTools.h"
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 /**
  @class Sun08Field
@@ -65,6 +65,7 @@ public:
 
 };
 
+} // namespace magneticfields
 } // namespace hermes
 
 #endif // HERMES_SUN08FIELD_H

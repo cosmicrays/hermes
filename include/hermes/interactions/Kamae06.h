@@ -24,7 +24,7 @@ extern "C" {
 	#include "cparamlib.h"
 }
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
 class Kamae06: public DifferentialCrossSection {
 private:
@@ -43,6 +43,7 @@ public:
 			const QEnergy &E_proton, const QEnergy &E_gamma) const;
 };
 
+} // namespace interactions
 } // namespace hermes
 
 #endif // HERMES_KAMAE06_H

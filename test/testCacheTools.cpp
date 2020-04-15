@@ -22,7 +22,7 @@ TEST(CacheTools, getValue) {
 
 TEST(CacheTools, Kamae06) {
 	auto cache = std::make_unique<CacheStorageCrossSection>(CacheStorageCrossSection());
-	auto f_kn = std::make_shared<Kamae06>(Kamae06());
+	auto f_kn = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	f_kn->setCachingStorage(std::move(cache));
 
 	QDifferentialCrossSection integral(0);
@@ -48,7 +48,7 @@ TEST(CacheTools, Kamae06) {
 
 TEST(CacheTools, BremsstrahlungSimple) {
 //	auto cache = std::make_unique<CacheStorageCrossSection>(CacheStorageCrossSection());
-	auto f_kn = std::make_shared<BremsstrahlungSimple>(BremsstrahlungSimple());
+	auto f_kn = std::make_shared<interactions::BremsstrahlungSimple>(interactions::BremsstrahlungSimple());
 //	f_kn->setCachingStorage(std::move(cache));
 
 	QDifferentialCrossSection integral(0);

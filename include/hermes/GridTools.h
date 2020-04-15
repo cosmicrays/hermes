@@ -2,7 +2,7 @@
 #define HERMES_GRIDTOOLS_H
 
 #include "hermes/Grid.h"
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 #include <string>
 
 /**
@@ -60,10 +60,10 @@ double turbulentCorrelationLength(double lMin, double lMax,
 		double alpha = (-11./3.));
 
 /** Fill vector grid from provided magnetic field */
-void fromMagneticField(std::unique_ptr<VectorGrid> grid, std::unique_ptr<MagneticField> field);
+void fromMagneticField(std::unique_ptr<VectorGrid> grid, std::unique_ptr<magneticfields::MagneticField> field);
 
 /** Fill scalar grid from provided magnetic field */
-void fromMagneticFieldStrength(std::unique_ptr<ScalarGrid> grid, std::unique_ptr<MagneticField> field);
+void fromMagneticFieldStrength(std::unique_ptr<ScalarGrid> grid, std::unique_ptr<magneticfields::MagneticField> field);
 
 /** Load a VectorGrid from a binary file with single precision */
 void loadGrid(std::unique_ptr<VectorGrid> grid, std::string filename,

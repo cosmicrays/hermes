@@ -2,12 +2,13 @@
 #define HERMES_JF12FIELD_H
 
 #include "hermes/Units.h"
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 #include "hermes/Grid.h"
 #include "hermes/GridTools.h"
 #include <memory>
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
+
 
 /**
  @class JF12Field
@@ -119,6 +120,7 @@ public:
 	Vector3QMField getField(const Vector3QLength& pos) const override;
 };
 
+} // namespace magneticfields
 } // namespace hermes
 
 #endif // HERMES_JF12FIELD_H

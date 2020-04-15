@@ -41,9 +41,9 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	auto cr_proton = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	
 	// interaction
-	auto kamae = std::make_shared<Kamae06>(Kamae06());
+	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	// HI model
-	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::HI));
+	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::HI));
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(PiZeroIntegrator(cr_proton, ringModel, kamae));
 
@@ -61,9 +61,9 @@ TEST(PiZeroIntegrator, ChannelsRatio) {
 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> cr_all = {cr_proton, cr_helium};
 	
 	// interaction
-	auto kamae = std::make_shared<Kamae06>(Kamae06());
+	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	// HI model
-	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::HI));
+	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::HI));
 	// integrators
 	auto intPiZero_proton = std::make_shared<PiZeroIntegrator>(PiZeroIntegrator(cr_proton, ringModel, kamae));
 	auto intPiZero_total  = std::make_shared<PiZeroIntegrator>(PiZeroIntegrator(cr_all, ringModel, kamae));
@@ -83,9 +83,9 @@ TEST(PiZeroIntegrator, PiZeroLOS) {
 	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(Proton)); 
 	// interaction
-	auto kamae = std::make_shared<Kamae06>(Kamae06());
+	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	// HI model
-	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::HI));
+	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::HI));
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, kamae));
@@ -116,9 +116,9 @@ TEST(PiZeroIntegrator, BremsstrahlungLOS) {
 	std::vector<PID> particletypes = {Electron, Positron};
 	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes)); 
 	// interaction
-	auto bremsstrahlung = std::make_shared<BremsstrahlungSimple>(BremsstrahlungSimple());
+	auto bremsstrahlung = std::make_shared<interactions::BremsstrahlungSimple>(interactions::BremsstrahlungSimple());
 	// HI model
-	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::HI));
+	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::HI));
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, bremsstrahlung));
@@ -153,9 +153,9 @@ TEST(PiZeroIntegrator, PerformanceTest) {
 	std::vector<PID> particletypes = {Proton};
         auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes));
 	
-	auto kamae = std::make_shared<Kamae06>(Kamae06());
+	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	
-	auto ringModel = std::make_shared<RingModelDensity>(RingModelDensity(RingType::CO));
+	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::CO));
 	auto in = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, kamae));
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, 1_GeV));

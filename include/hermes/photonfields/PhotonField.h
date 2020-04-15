@@ -4,7 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/Grid.h"
 
-namespace hermes {
+namespace hermes { namespace photonfields {
 
 class PhotonField {
 protected:
@@ -67,6 +67,7 @@ public:
 	}
 };
 
+} // namespace photonfields
 } // namespace hermes
 
 #endif // HERMES_PHOTONFIELD_H

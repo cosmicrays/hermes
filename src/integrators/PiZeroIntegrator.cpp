@@ -14,16 +14,16 @@ namespace hermes {
 
 PiZeroIntegrator::PiZeroIntegrator(
 	const std::shared_ptr<cosmicrays::CosmicRayDensity> crDensity_,
-	const std::shared_ptr<RingModelDensity> ngdensity_,
-	const std::shared_ptr<DifferentialCrossSection> crossSec_) : 
+	const std::shared_ptr<neutralgas::RingModelDensity> ngdensity_,
+	const std::shared_ptr<interactions::DifferentialCrossSection> crossSec_) : 
 	GammaIntegratorTemplate(), crList(std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> {crDensity_}),
 	ngdensity(ngdensity_), crossSec(crossSec_) {
 }
 
 PiZeroIntegrator::PiZeroIntegrator(
 	const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList_,
-	const std::shared_ptr<RingModelDensity> ngdensity_,
-	const std::shared_ptr<DifferentialCrossSection> crossSec_) : 
+	const std::shared_ptr<neutralgas::RingModelDensity> ngdensity_,
+	const std::shared_ptr<interactions::DifferentialCrossSection> crossSec_) : 
 	GammaIntegratorTemplate(), crList(crList_),
 	ngdensity(ngdensity_), crossSec(crossSec_) {
 }
@@ -137,10 +137,10 @@ QDifferentialIntensity PiZeroIntegrator::integrateOverLOS(
 					losIntegrand, 0, getMaxDistance(direction_), 500) / (4_pi*1_sr);
 	
 		// Finally, normalize LOS integrals, separatelly for HI and CO
-		if (ngdensity->getRingType() == RingType::HI) {	
+		if (ngdensity->getRingType() == neutralgas::RingType::HI) {	
 			total_diff_flux += (ring->getHIColumnDensity(direction_)) / normIntegrals * losIntegrals;
 		}
-		if (ngdensity->getRingType() == RingType::CO) {
+		if (ngdensity->getRingType() == neutralgas::RingType::CO) {
 			total_diff_flux += (2 * X0Function(Vector3QLength(0)) *
 					 ring->getCOIntensity(direction_)) / normIntegrals * losIntegrals;
 		}

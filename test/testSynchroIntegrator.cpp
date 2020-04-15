@@ -45,7 +45,7 @@ TEST(SynchroIntegrator, totalEnergyLoss) {
  	 */
 
 	auto B = Vector3QMField(0, 0, 1_muG);
-        auto mfield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
+        auto mfield = std::make_shared<magneticfields::UniformMagneticField>(magneticfields::UniformMagneticField(B));
 	auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
 	auto electronEnergy = crdensity->getElectronEnergy();
 	
@@ -82,7 +82,7 @@ TEST(SynchroIntegrator, integrateOverEnergy) {
 	
 	auto B = Vector3QMField(0, 0, 1_muG);
 	auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
-        auto mfield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
+        auto mfield = std::make_shared<magneticfields::UniformMagneticField>(magneticfields::UniformMagneticField(B));
 
 	auto integrator = std::make_shared<SynchroIntegrator>(SynchroIntegrator(mfield, crdensity));
 
@@ -101,7 +101,7 @@ TEST(SynchroIntegrator, integrateOverLOS) {
 			* m_electron * c_squared;
 			
 	auto B = Vector3QMField(0, 0, 1_muG);
-        auto mfield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
+        auto mfield = std::make_shared<magneticfields::UniformMagneticField>(magneticfields::UniformMagneticField(B));
 	auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(freq));
 	
 	auto intSynchro = std::make_shared<SynchroIntegrator>(
@@ -120,7 +120,7 @@ TEST(SynchroIntegrator, integrateOverLOS) {
 }
 
 TEST(SynchroIntegrator, PerformanceTest) {
-        auto mfield = std::make_shared<JF12Field>(JF12Field());
+        auto mfield = std::make_shared<magneticfields::JF12Field>(magneticfields::JF12Field());
 	std::vector<PID> particletypes = {Electron, Positron};
 	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes)); 
 	auto in = std::make_shared<SynchroIntegrator>(SynchroIntegrator(mfield, dragonModel));

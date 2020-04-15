@@ -1,6 +1,6 @@
 #include "hermes/GridTools.h"
 #include "hermes/Random.h"
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 
 #include <fstream>
 #include <sstream>
@@ -268,7 +268,7 @@ void initTurbulence(std::shared_ptr<VectorGrid> grid, double Brms, double lMin, 
 }
 #endif // HERMES_HAVE_FFTW3F
 
-void fromMagneticField(std::shared_ptr<VectorGrid> grid, std::shared_ptr<MagneticField> field) {
+void fromMagneticField(std::shared_ptr<VectorGrid> grid, std::shared_ptr<magneticfields::MagneticField> field) {
 	Vector3d origin = grid->getOrigin();
 	Vector3d spacing = grid->getSpacing();
 	size_t Nx = grid->getNx();
@@ -283,7 +283,7 @@ void fromMagneticField(std::shared_ptr<VectorGrid> grid, std::shared_ptr<Magneti
 	}
 }
 
-void fromMagneticFieldStrength(std::shared_ptr<ScalarGrid> grid, std::shared_ptr<MagneticField> field) {
+void fromMagneticFieldStrength(std::shared_ptr<ScalarGrid> grid, std::shared_ptr<magneticfields::MagneticField> field) {
 	Vector3d origin = grid->getOrigin();
 	Vector3d spacing = grid->getSpacing();
 	size_t Nx = grid->getNx();

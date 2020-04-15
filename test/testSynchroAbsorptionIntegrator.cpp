@@ -38,7 +38,7 @@ public:
 
 TEST(SynchroAbsorptionIntegrator, integrateOverLOS) {
 	auto B = Vector3QMField(0, 0, 1_muG);
-        auto mfield = std::make_shared<UniformMagneticField>(UniformMagneticField(B));
+        auto mfield = std::make_shared<magneticfields::UniformMagneticField>(magneticfields::UniformMagneticField(B));
 	auto gdensity = std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
 	auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity());
 	

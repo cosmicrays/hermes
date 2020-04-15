@@ -1,10 +1,10 @@
 #ifndef CRPROPA_MAGNETICFIELDGRID_H
 #define CRPROPA_MAGNETICFIELDGRID_H
 
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 #include "hermes/Grid.h"
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 /**
  * \addtogroup MagneticFields
  * @{
@@ -48,6 +48,7 @@ public:
 	Vector3d getField(const Vector3d &position) const;
 };
 /** @} */
+} // namespace magneticfields
 } // namespace hermes
 
 #endif // CRPROPA_MAGNETICFIELDGRID_H

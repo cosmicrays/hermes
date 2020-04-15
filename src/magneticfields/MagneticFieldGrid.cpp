@@ -1,6 +1,6 @@
-#include "hermes/magneticField/MagneticFieldGrid.h"
+#include "hermes/magneticfields/MagneticFieldGrid.h"
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 MagneticFieldGrid::MagneticFieldGrid(std::shared_ptr<VectorGrid> grid) {
 	setGrid(grid);
@@ -54,4 +54,5 @@ Vector3d ModulatedMagneticFieldGrid::getField(const Vector3d &pos) const {
 	return b * m;
 }
 
+} // namespace magneticfields
 } // namespace hermes

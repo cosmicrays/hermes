@@ -1,9 +1,9 @@
 #ifndef HERMES_CMB_H
 #define HERMES_CMB_H
 
-#include "hermes/photonField/PhotonField.h"
+#include "hermes/photonfields/PhotonField.h"
 
-namespace hermes {
+namespace hermes { namespace photonfields {
 
 class CMB : public PhotonField {
 private:
@@ -56,6 +56,7 @@ public:
 
 };
 
+} // namespace photonfields
 } // namespace hermes
 
 #endif // HERMES_CMB_H

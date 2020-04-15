@@ -4,7 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/skymaps/RMSkymap.h"
 #include "hermes/integrators/IntegratorTemplate.h"
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 #include "hermes/chargedgas/ChargedGasDensity.h"
 
 #include <memory>
@@ -20,12 +20,12 @@ typedef IntegratorTemplate<QRotationMeasure, QNumber> RMIntegratorTemplate;
 
 class RMIntegrator: public IntegratorTemplate<QRotationMeasure, QNumber> {
 private:
-	std::shared_ptr<MagneticField> mfield;
+	std::shared_ptr<magneticfields::MagneticField> mfield;
 	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
 
 	QRMIntegral integralFunction(Vector3QLength pos) const;
 public:
-	RMIntegrator(const std::shared_ptr<MagneticField> mfield,
+	RMIntegrator(const std::shared_ptr<magneticfields::MagneticField> mfield,
 		     const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
 	~RMIntegrator();
 	QRotationMeasure integrateOverLOS(QDirection iterdir) const;

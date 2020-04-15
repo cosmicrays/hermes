@@ -5,7 +5,7 @@
 
 #include <memory>
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
 class KleinNishina: public DifferentialCrossSection {
 public:
@@ -17,6 +17,7 @@ public:
 			const QEnergy &E_gamma) const override;
 };
 
+} // namespace interactions
 } // namespace hermes
 
 #endif // HERMES_KLEINNISHINA_H

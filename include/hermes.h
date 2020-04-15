@@ -35,20 +35,20 @@
 #include "hermes/integrators/PiZeroIntegrator.h"
 #include "hermes/integrators/InverseComptonIntegrator.h"
 
-#include "hermes/magneticField/MagneticField.h"
-#include "hermes/magneticField/MagneticFieldGrid.h"
-#include "hermes/magneticField/WMAP07Field.h"
-#include "hermes/magneticField/Sun08Field.h"
-#include "hermes/magneticField/PT11Field.h"
-#include "hermes/magneticField/JF12Field.h"
+#include "hermes/magneticfields/MagneticField.h"
+#include "hermes/magneticfields/MagneticFieldGrid.h"
+#include "hermes/magneticfields/WMAP07Field.h"
+#include "hermes/magneticfields/Sun08Field.h"
+#include "hermes/magneticfields/PT11Field.h"
+#include "hermes/magneticfields/JF12Field.h"
 
 #include "hermes/chargedgas/ChargedGasDensity.h"
 #include "hermes/chargedgas/HII_Cordes91.h"
 #include "hermes/chargedgas/NE2001Simple.h"
 #include "hermes/chargedgas/YMW16.h"
 
-#include "hermes/neutralGasDensity/NeutralGasDensity.h"
-#include "hermes/neutralGasDensity/RingModelDensity.h"
+#include "hermes/neutralgas/NeutralGasDensity.h"
+#include "hermes/neutralgas/RingModelDensity.h"
 
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/cosmicrays/DummyCRDensity.h"
@@ -57,9 +57,9 @@
 #include "hermes/cosmicrays/WMAP07CRDensity.h"
 #include "hermes/cosmicrays/DragonCRDensity.h"
 
-#include "hermes/photonField/PhotonField.h"
-#include "hermes/photonField/CMB.h"
-#include "hermes/photonField/ISRF.h"
+#include "hermes/photonfields/PhotonField.h"
+#include "hermes/photonfields/CMB.h"
+#include "hermes/photonfields/ISRF.h"
 
 #include "hermes/interactions/DifferentialCrossSection.h"
 #include "hermes/interactions/DummyCrossSection.h"

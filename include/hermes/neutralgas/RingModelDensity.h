@@ -7,12 +7,12 @@
 #include "hermes/Grid.h"
 #include "hermes/FITSWrapper.h"
 #include "hermes/ParticleID.h"
-#include "hermes/neutralGasDensity/NeutralGasDensity.h"
+#include "hermes/neutralgas/NeutralGasDensity.h"
 
 #include <utility>
 #include <array>
 
-namespace hermes {
+namespace hermes { namespace neutralgas {
 
 enum class RingType { HI, CO };
 
@@ -97,8 +97,8 @@ public:
         const_iterator end() const;
 };
 
+} // namespace neutralgas
 } // namespace hermes
 
 #endif // HERMES_RINGMODELDENSITY_H
-
 #endif // HERMES_HAVE_CFITSIO

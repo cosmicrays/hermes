@@ -40,7 +40,7 @@ void init_integrators(py::module &m) {
 	
 	// RMIntegrator
 	NEW_INTEGRATOR(rmintegrator, "RMIntegrator", RMIntegrator, QRotationMeasure, QNumber);
-	rmintegrator.def(py::init<const std::shared_ptr<MagneticField>,
+	rmintegrator.def(py::init<const std::shared_ptr<magneticfields::MagneticField>,
 			    	  const std::shared_ptr<chargedgas::ChargedGasDensity> >());
 	declare_default_integrator_methods<RMIntegrator>(rmintegrator);
 	
@@ -52,14 +52,14 @@ void init_integrators(py::module &m) {
 	// SynchroIntegrator
 	py::class_<SynchroIntegrator, FreeFreeIntegratorParentClass, std::shared_ptr<SynchroIntegrator>>
 		synchrointegrator(m, "SynchroIntegrator", py::buffer_protocol());
-	synchrointegrator.def(py::init<const std::shared_ptr<MagneticField>,
+	synchrointegrator.def(py::init<const std::shared_ptr<magneticfields::MagneticField>,
 			    	       const std::shared_ptr<cosmicrays::CosmicRayDensity> >());
 	declare_default_integrator_methods<SynchroIntegrator>(synchrointegrator);
 
 	// SynchroAbsorption
 	py::class_<SynchroAbsorptionIntegrator, FreeFreeIntegratorParentClass, std::shared_ptr<SynchroAbsorptionIntegrator>>
 		synchroabsintegrator(m, "SynchroAbsorptionIntegrator", py::buffer_protocol());
-	synchroabsintegrator.def(py::init<const std::shared_ptr<MagneticField>,
+	synchroabsintegrator.def(py::init<const std::shared_ptr<magneticfields::MagneticField>,
 			    	 	  const std::shared_ptr<cosmicrays::CosmicRayDensity>,
 				 	  const std::shared_ptr<chargedgas::ChargedGasDensity> >());
 	declare_default_integrator_methods<SynchroAbsorptionIntegrator>(synchroabsintegrator);
@@ -67,8 +67,8 @@ void init_integrators(py::module &m) {
 	// InverseComptonIntegrator
 	NEW_INTEGRATOR(icintegrator, "InverseComptonIntegrator", InverseComptonIntegrator, QDifferentialIntensity, QEnergy);
 	icintegrator.def(py::init<const std::shared_ptr<cosmicrays::CosmicRayDensity>,
-                	    	  const std::shared_ptr<PhotonField>,
-                            	  const std::shared_ptr<DifferentialCrossSection>>());
+                	    	  const std::shared_ptr<photonfields::PhotonField>,
+                            	  const std::shared_ptr<interactions::DifferentialCrossSection>>());
 	declare_default_integrator_methods<InverseComptonIntegrator>(icintegrator);
 	icintegrator.def("integrateOverEnergy", &InverseComptonIntegrator::integrateOverEnergy);
 	icintegrator.def("integrateOverPhotonEnergy", &InverseComptonIntegrator::integrateOverPhotonEnergy);
@@ -77,13 +77,13 @@ void init_integrators(py::module &m) {
 	py::class_<PiZeroIntegrator, InverseComptonIntegratorParentClass,
 		std::shared_ptr<PiZeroIntegrator>> pizerointegrator(m, "PiZeroIntegrator", py::buffer_protocol());
 	pizerointegrator.def(py::init<const std::shared_ptr<cosmicrays::CosmicRayDensity>,
-                		      const std::shared_ptr<RingModelDensity>,
-                           	      const std::shared_ptr<DifferentialCrossSection>>());
+                		      const std::shared_ptr<neutralgas::RingModelDensity>,
+                           	      const std::shared_ptr<interactions::DifferentialCrossSection>>());
 	pizerointegrator.def(py::init<const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>,
-                		      const std::shared_ptr<RingModelDensity>,
-                           	      const std::shared_ptr<DifferentialCrossSection>>());
+                		      const std::shared_ptr<neutralgas::RingModelDensity>,
+                           	      const std::shared_ptr<interactions::DifferentialCrossSection>>());
 	declare_default_integrator_methods<PiZeroIntegrator>(pizerointegrator);
 
 }
 
-}
+} // namespace hermes

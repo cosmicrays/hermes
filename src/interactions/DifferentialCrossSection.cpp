@@ -1,6 +1,6 @@
 #include "hermes/interactions/DifferentialCrossSection.h"
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
 DifferentialCrossSection::DifferentialCrossSection() {
 }
@@ -35,4 +35,5 @@ QNumber DifferentialCrossSection::getSigma(
 	return 0.0_num;
 }
 
+} // namespace interactions
 } // namespace hermes 

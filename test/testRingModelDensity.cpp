@@ -11,7 +11,7 @@ protected:
 	//void SetUp() override { }
 	//void TearDown() override {}
  
-	RingModelDensity ringModel_HI = RingModelDensity(RingType::HI);
+	neutralgas::RingModelDensity ringModel_HI = neutralgas::RingModelDensity(neutralgas::RingType::HI);
 };
 
 TEST_F(RingModel, RingBoundaries) {
@@ -60,7 +60,7 @@ TEST_F(RingModel, isInside) {
 }
 
 TEST_F(RingModel, RingValues) {
-  	RingModelDensity ringModel_CO = RingModelDensity(RingType::CO);
+  	neutralgas::RingModelDensity ringModel_CO = neutralgas::RingModelDensity(neutralgas::RingType::CO);
 
 	QDirection dir = {90_deg,5_deg};
 	auto X0 = 1.8e20 / 1_cm2 / 1_K / 1_km * 1_s;

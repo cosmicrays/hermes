@@ -1,6 +1,6 @@
 #ifdef HERMES_HAVE_CFITSIO
 
-#include "hermes/neutralGasDensity/RingModelDensity.h"
+#include "hermes/neutralgas/RingModelDensity.h"
 #include "hermes/Common.h"
 
 #include <iostream>
@@ -10,7 +10,7 @@
 #include <array>
 #include <algorithm>
 
-namespace hermes {
+namespace hermes { namespace neutralgas {
 
 RingData::RingData(RingType gas) : type(gas) {
 	if (gas == RingType::HI) {
@@ -181,6 +181,7 @@ RingModelDensity::const_iterator RingModelDensity::end() const {
         return ringContainer.end();
 }
 
+} // namespace neutralgas
 } // namespace hermes
 
 #endif // HERMES_HAVE_CFITSIO

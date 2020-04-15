@@ -1,9 +1,9 @@
-#include "hermes/magneticField/PT11Field.h"
+#include "hermes/magneticfields/PT11Field.h"
 #include "hermes/Units.h"
 
 #include <algorithm>
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 PT11Field::PT11Field() : useASS(true), useBSS(false), useHalo(true) {
 	// disk parameters
@@ -132,4 +132,5 @@ Vector3QMField PT11Field::getField(const Vector3QLength& pos_) const {
 	return Vector3QMField(b);
 }
 
+} // namespace magneticfields
 } // namespace hermes

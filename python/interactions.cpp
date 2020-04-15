@@ -9,29 +9,33 @@
 
 namespace py = pybind11;
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
-void init_interactions(py::module &m) {
+void init(py::module &m) {
+    
+    py::module subm = m.def_submodule("interactions");
+    subm.doc() = "interactions package";
 
     // charged gas density models
-    py::class_<DifferentialCrossSection, std::shared_ptr<DifferentialCrossSection>>(m, "DifferentialCrossSection");
-    py::class_<DummyCrossSection, std::shared_ptr<DummyCrossSection>, DifferentialCrossSection>(m, "DummyCrossSection")
+    py::class_<DifferentialCrossSection, std::shared_ptr<DifferentialCrossSection>>(subm, "DifferentialCrossSection");
+    py::class_<DummyCrossSection, std::shared_ptr<DummyCrossSection>, DifferentialCrossSection>(subm, "DummyCrossSection")
 	      .def(py::init<const QDifferentialCrossSection &>(), py::arg("constant"));
-    py::class_<KleinNishina, std::shared_ptr<KleinNishina>, DifferentialCrossSection>(m, "KleinNishina")
+    py::class_<KleinNishina, std::shared_ptr<KleinNishina>, DifferentialCrossSection>(subm, "KleinNishina")
 	      .def(py::init<>())
 	      .def("getDiffCrossSection",
 		   (QDifferentialCrossSection (KleinNishina::*)(const QEnergy &, const QEnergy &, const QEnergy &) const)
 		   &KleinNishina::getDiffCrossSection);
-    py::class_<BremsstrahlungSimple, std::shared_ptr<BremsstrahlungSimple>, DifferentialCrossSection>(m, "BremsstrahlungSimple")
+    py::class_<BremsstrahlungSimple, std::shared_ptr<BremsstrahlungSimple>, DifferentialCrossSection>(subm, "BremsstrahlungSimple")
 	      .def(py::init<>())
 	      .def("getDiffCrossSection",
 		   (QDifferentialCrossSection (BremsstrahlungSimple::*)(const QEnergy &, const QEnergy &) const)
 		   &BremsstrahlungSimple::getDiffCrossSection);
-    py::class_<Kamae06, std::shared_ptr<Kamae06>, DifferentialCrossSection>(m, "Kamae06")
+    py::class_<Kamae06, std::shared_ptr<Kamae06>, DifferentialCrossSection>(subm, "Kamae06")
 	      .def(py::init<>())
 	      .def("getDiffCrossSection",
 		   (QDifferentialCrossSection (Kamae06::*)(const QEnergy &, const QEnergy &) const)
 		   &Kamae06::getDiffCrossSection);
 }
 
-}
+} // namespace interactions
+} // namespace hermes

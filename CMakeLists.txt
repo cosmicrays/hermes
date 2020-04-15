@@ -211,22 +211,22 @@ add_library(hermes SHARED
 	src/integrators/SynchroAbsorptionIntegrator.cpp
 	src/integrators/PiZeroIntegrator.cpp
 	src/integrators/InverseComptonIntegrator.cpp
-	src/magneticField/MagneticField.cpp
-	src/magneticField/MagneticFieldGrid.cpp
-	src/magneticField/WMAP07Field.cpp
-	src/magneticField/Sun08Field.cpp
-	src/magneticField/PT11Field.cpp
-	src/magneticField/JF12Field.cpp
+	src/magneticfields/MagneticField.cpp
+	src/magneticfields/MagneticFieldGrid.cpp
+	src/magneticfields/WMAP07Field.cpp
+	src/magneticfields/Sun08Field.cpp
+	src/magneticfields/PT11Field.cpp
+	src/magneticfields/JF12Field.cpp
 	src/chargedgas/HII_Cordes91.cpp
 	src/chargedgas/NE2001Simple.cpp
 	src/chargedgas/YMW16.cpp
-	src/neutralGasDensity/RingModelDensity.cpp
+	src/neutralgas/RingModelDensity.cpp
 	src/cosmicrays/DummyCRDensity.cpp
 	src/cosmicrays/SimpleCRDensity.cpp
 	src/cosmicrays/WMAP07CRDensity.cpp
 	src/cosmicrays/Sun08CRDensity.cpp
 	src/cosmicrays/DragonCRDensity.cpp
-	src/photonField/ISRF.cpp
+	src/photonfields/ISRF.cpp
 	src/interactions/DifferentialCrossSection.cpp
 	src/interactions/Kamae06.cpp
 	src/interactions/KleinNishina.cpp
@@ -256,13 +256,13 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/Vectors.cpp
 		python/Outputs.cpp
 		python/Skymaps.cpp
-		python/Integrators.cpp
-		python/MagneticFields.cpp
 		python/chargedgas.cpp
-		python/NeutralGasDensity.cpp
 		python/cosmicrays.cpp
-		python/PhotonField.cpp
-		python/Interactions.cpp
+		python/integrators.cpp
+		python/interactions.cpp
+		python/magneticfields.cpp
+		python/neutralgas.cpp
+		python/photonfields.cpp
 		python/PyHermes.cpp
 	)
 

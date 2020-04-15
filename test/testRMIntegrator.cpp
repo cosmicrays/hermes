@@ -6,7 +6,7 @@
 
 namespace hermes {
 
-class TestMagneticField: public MagneticField {
+class TestMagneticField: public magneticfields::MagneticField {
         Vector3QMField value;
 public:
         TestMagneticField() { }
@@ -70,7 +70,7 @@ TEST(RMIntegrator, Orientation) {
 }
 
 TEST(RMIntegrator, PerformanceTest) {
-	auto magfield = std::make_shared<JF12Field>(JF12Field());
+	auto magfield = std::make_shared<magneticfields::JF12Field>(magneticfields::JF12Field());
 	auto gasdenisty = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
 	auto in = std::make_shared<RMIntegrator>(RMIntegrator(magfield, gasdenisty));
 	auto skymap = std::make_shared<RMSkymap>(RMSkymap(4));

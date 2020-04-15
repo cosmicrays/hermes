@@ -1,6 +1,6 @@
 #include "hermes/interactions/Kamae06.h"
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
 Kamae06::Kamae06() :
 	cachingEnabled(false) {
@@ -55,4 +55,5 @@ QDifferentialCrossSection Kamae06::getDiffCrossSectionDirectly(
 		dsigma_dlogTp / E_gamma_GeV * (1_mbarn / 1_GeV));
 }
 
+} // namespace interactions
 } // namespace hermes 

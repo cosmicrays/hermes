@@ -1,9 +1,9 @@
 #ifndef HERMES_WMAP07FIELD_H
 #define HERMES_WMAP07FIELD_H
 
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 /**
  @class WMAP07Field
@@ -28,6 +28,7 @@ public:
 	Vector3QMField getField(const Vector3QLength& pos) const override;
 };
 
+} // namespace magneticfields
 } // namespace hermes
 
 #endif // HERMES_WMAP07FIELD_H

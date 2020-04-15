@@ -1,9 +1,9 @@
 #ifndef HERMES_PSHIRKOVFIELD_H
 #define HERMES_PSHIRKOVFIELD_H
 
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 /**
  @class PshirkovField
@@ -58,6 +58,7 @@ public:
 	Vector3QMField getField(const Vector3QLength& pos) const override;
 };
 
+} // namespace magneticfields
 } // namespace hermes
 
 #endif // HERMES_PSHIRKOVFIELD_H

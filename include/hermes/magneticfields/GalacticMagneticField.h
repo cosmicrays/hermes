@@ -1,10 +1,10 @@
 #ifndef HERMES_GALACTICMAGNETICFIELD_H
 #define HERMES_GALACTICMAGNETICFIELD_H
 
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 #include <cmath>
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 /**
  @class TorroidalHaloField
@@ -91,6 +91,7 @@ public:
 	}
 };
 
-}// namespace hermes
+} // namespace magneticfields
+} // namespace hermes
 
 #endif // HERMES_GALACTICMAGNETICFIELD_H

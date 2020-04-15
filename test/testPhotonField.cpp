@@ -7,7 +7,7 @@ namespace hermes {
 
 TEST(CMB, getEnergyDensity) {
 
-	auto field = std::make_shared<CMB>(CMB());
+	auto field = std::make_shared<photonfields::CMB>(photonfields::CMB());
 /*	
     	std::ofstream spectrumfile("isrf.txt");
     	for (QFrequency f = 1e10_Hz; f < 1e16_Hz; f = f*1.01) {
@@ -22,7 +22,7 @@ TEST(CMB, getEnergyDensity) {
 }
 
 TEST(CMB, ISRF) {
-    	auto photonField = std::make_shared<ISRF>(ISRF());
+    	auto photonField = std::make_shared<photonfields::ISRF>(photonfields::ISRF());
 	
 	for (auto itE = photonField->begin(); itE != photonField->end(); ++itE) {
 		//integral += crossSec->getDiffCrossSection(Eelectron_, static_cast<double>(*itE), Egamma_) *

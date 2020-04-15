@@ -3,7 +3,7 @@
 
 #include "hermes/Units.h"
 #include "hermes/integrators/IntegratorTemplate.h"
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 #include "hermes/chargedgas/ChargedGasDensity.h"
 
 #include <memory>

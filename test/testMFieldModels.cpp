@@ -5,7 +5,7 @@
 namespace hermes {
 
 TEST(Sun08, disk) {
-	auto Sun08 = std::make_shared<Sun08Field>(Sun08Field());
+	auto Sun08 = std::make_shared<magneticfields::Sun08Field>(magneticfields::Sun08Field());
 	Sun08->setUseHalo(false);
 
 	Vector3QMField B1 = Sun08->getField(Vector3QLength(0,2_kpc,0));

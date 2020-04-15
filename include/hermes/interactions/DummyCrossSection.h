@@ -6,7 +6,7 @@
 
 #include <memory>
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
 class DummyCrossSection: public DifferentialCrossSection {
 private:
@@ -28,6 +28,7 @@ public:
 	};
 };
 
+} // namespace interactions
 } // namespace hermes
 
 #endif // HERMES_DUMMYCROSSSECTION_H

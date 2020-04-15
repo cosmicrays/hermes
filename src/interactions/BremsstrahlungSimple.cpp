@@ -14,7 +14,7 @@
 #define EPSINT 1e-5
 #define KEYINT 3
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
 /* Template wrapper to expose lambda with capture to gsl_function
  * according to https://stackoverflow.com/a/18413206/6819103 */
@@ -215,4 +215,5 @@ QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSectionDirectly(
 	return dsdk_HighEnergy(gamma_i, gamma_f, k, Z, N) / E_gamma;
 }
 
+} // namespace interactions
 } // namespace hermes 

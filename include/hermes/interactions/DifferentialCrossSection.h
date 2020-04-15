@@ -4,7 +4,7 @@
 #include "hermes/Units.h"
 #include "hermes/ParticleID.h"
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
 class DifferentialCrossSection {
 public:
@@ -22,6 +22,7 @@ public:
 			const PID &target) const;
 };
 
+} // namespace interactions
 } // namespace hermes
 
 #endif // HERMES_DIFFERENTIALCROSSSECTION_H

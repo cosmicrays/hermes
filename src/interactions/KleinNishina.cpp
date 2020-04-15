@@ -1,7 +1,7 @@
 #include "hermes/interactions/KleinNishina.h"
 #include "hermes/Common.h"
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
 KleinNishina::KleinNishina() { }
 
@@ -28,4 +28,5 @@ QDifferentialCrossSection KleinNishina::getDiffCrossSection(
 		);
 }
 
+} // namespace interactions
 } // namespace hermes 

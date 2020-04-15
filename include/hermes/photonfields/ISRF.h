@@ -1,11 +1,11 @@
 #ifndef HERMES_ISRF_H
 #define HERMES_ISRF_H
 
-#include "hermes/photonField/PhotonField.h"
+#include "hermes/photonfields/PhotonField.h"
 
 #include <array>
 
-namespace hermes {
+namespace hermes { namespace photonfields {
 
 class ISRF : public PhotonField {
 private:
@@ -40,6 +40,7 @@ public:
     
 };
 
+} // namespace photonfields
 } // namespace hermes
 
 #endif // HERMES_ISRF_H

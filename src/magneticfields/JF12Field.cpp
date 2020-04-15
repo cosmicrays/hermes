@@ -1,10 +1,10 @@
-#include "hermes/magneticField/JF12Field.h"
+#include "hermes/magneticfields/JF12Field.h"
 #include "hermes/GridTools.h"
 #include "hermes/Random.h"
 
 #include <iostream>
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 QNumber logisticFunction(QLength x, QLength x0, QLength w) {
 	return 1. / (1. + exp(-2. * (fabs(x) - x0) / w));
@@ -297,4 +297,5 @@ Vector3QMField JF12Field::getField(const Vector3QLength& pos_) const {
 	return b;
 }
 
+} // namespace magneticfields
 } // namespace hermes

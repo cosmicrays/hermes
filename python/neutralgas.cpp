@@ -1,22 +1,25 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
-#include "hermes/neutralGasDensity/NeutralGasDensity.h"
-#include "hermes/neutralGasDensity/RingModelDensity.h"
+#include "hermes/neutralgas/NeutralGasDensity.h"
+#include "hermes/neutralgas/RingModelDensity.h"
 
 namespace py = pybind11;
 
-namespace hermes {
+namespace hermes { namespace neutralgas {
 
-void init_neutral_gas_density(py::module &m) {
+void init(py::module &m) {
+    
+    py::module subm = m.def_submodule("neutralgas");
+    subm.doc() = "neutral gas package";
 
-    py::enum_<RingType>(m, "RingType", py::arithmetic())
+    py::enum_<RingType>(subm, "RingType", py::arithmetic())
 	    .value("HI", RingType::HI)
 	    .value("CO", RingType::CO);
 
     // neutral gas density models
-    py::class_<NeutralGasDensity, std::shared_ptr<NeutralGasDensity>>(m, "NeutralGasDensity");
-    py::class_<RingModelDensity, std::shared_ptr<RingModelDensity>, NeutralGasDensity>(m, "RingModelDensity")
+    py::class_<NeutralGasDensity, std::shared_ptr<NeutralGasDensity>>(subm, "NeutralGasDensity");
+    py::class_<RingModelDensity, std::shared_ptr<RingModelDensity>, NeutralGasDensity>(subm, "RingModelDensity")
 	      .def(py::init<RingType>(), py::arg("ring_type"))
 	      .def("getEnabledRings", &RingModelDensity::getEnabledRings)
 	      .def("setEnabledRings", &RingModelDensity::setEnabledRings)
@@ -27,4 +30,5 @@ void init_neutral_gas_density(py::module &m) {
 	      .def("getRingNumber", &RingModelDensity::getRingNumber);
 }
 
-}
+} // namespace neutralgas
+} // namespace hermes

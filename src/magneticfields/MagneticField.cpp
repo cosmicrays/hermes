@@ -1,6 +1,6 @@
-#include "hermes/magneticField/MagneticField.h"
+#include "hermes/magneticfields/MagneticField.h"
 
-namespace hermes {
+namespace hermes { namespace magneticfields {
 
 PeriodicMagneticField::PeriodicMagneticField(std::shared_ptr<MagneticField> field,
 		const Vector3QLength &extends) :
@@ -68,4 +68,5 @@ Vector3QMField MagneticFieldList::getField(const Vector3QLength &position) const
 	return b;
 }
 
+} // namespace magneticfields
 } // namespace hermes

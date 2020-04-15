@@ -6,7 +6,7 @@
 
 #include <memory>
 
-namespace hermes {
+namespace hermes { namespace interactions {
 
 class BremsstrahlungSimple: public DifferentialCrossSection {
 private:
@@ -45,6 +45,7 @@ public:
 			const QNumber &k, int Z, int N) const;
 };
 
+} // namespace interactions
 } // namespace hermes
 
 #endif // HERMES_BREMSSTRAHLUNGSIMPLE_H
