@@ -1,6 +1,6 @@
 #ifdef HERMES_HAVE_CFITSIO
 
-#include "hermes/neutralgas/RingModelDensity.h"
+#include "hermes/neutralgas/RingModel.h"
 #include "hermes/Common.h"
 
 #include <iostream>
@@ -108,76 +108,76 @@ QRingCOIntensity Ring::getCOIntensity(
 	return dataPtr->getCOIntensityInRing(index, dir_);
 }
 
-RingModelDensity::RingModelDensity(RingType gas) :
+RingModel::RingModel(RingType gas) :
 	dataPtr(std::make_shared<RingData>(RingData(gas))) {
        	std::fill(enabledRings.begin(), enabledRings.end(), true); // enable all by default
 	fillRingContainer();
 }
 
-std::array<bool, 12> RingModelDensity::getEnabledRings() const {
+std::array<bool, 12> RingModel::getEnabledRings() const {
 	return enabledRings;
 }
 
-void RingModelDensity::disableRingNo(int i) {
+void RingModel::disableRingNo(int i) {
 	if (i >= enabledRings.size())
 		throw std::runtime_error("Provided number is bigger than the total number of rings. Aborted.");
 
 	enabledRings[i] = false;
 }
 
-void RingModelDensity::enableRingNo(int i) {
+void RingModel::enableRingNo(int i) {
 	if (i >= enabledRings.size())
 		throw std::runtime_error("Provided number is bigger than the total number of rings. Aborted.");
 
 	enabledRings[i] = true;
 }
 
-void RingModelDensity::setEnabledRings(std::array<bool, 12> list) {
+void RingModel::setEnabledRings(std::array<bool, 12> list) {
 	enabledRings = list;
 }
 
-bool RingModelDensity::isRingEnabled(int i) const {
+bool RingModel::isRingEnabled(int i) const {
 	if (i >= enabledRings.size())
 		return false;
 	return enabledRings[i];
 }
 
-RingType RingModelDensity::getRingType() const {
+RingType RingModel::getRingType() const {
 	return dataPtr->getRingType();
 }
 
-void RingModelDensity::fillRingContainer() {
+void RingModel::fillRingContainer() {
 	for(std::size_t i = 0; i < dataPtr->getRingNumber(); ++i) {
 		ringContainer.push_back(
 			std::make_shared<Ring>(Ring(i, dataPtr, boundaries[i], boundaries[i+1])));
 	}
 }
 
-int RingModelDensity::getRingNumber() const {
+int RingModel::getRingNumber() const {
 	return dataPtr->getRingNumber();
 }
 
-std::vector<std::pair<PID,double>> RingModelDensity::getAbundanceFractions() const {
+std::vector<std::pair<PID,double>> RingModel::getAbundanceFractions() const {
 	return abundanceFractions;
 }
 
-std::shared_ptr<Ring> RingModelDensity::operator[](const std::size_t i) const {
+std::shared_ptr<Ring> RingModel::operator[](const std::size_t i) const {
         return ringContainer[i];
 }
 
-RingModelDensity::iterator RingModelDensity::begin() {
+RingModel::iterator RingModel::begin() {
         return ringContainer.begin();
 }
 
-RingModelDensity::const_iterator RingModelDensity::begin() const {
+RingModel::const_iterator RingModel::begin() const {
         return ringContainer.begin();
 }
 
-RingModelDensity::iterator RingModelDensity::end() {
+RingModel::iterator RingModel::end() {
         return ringContainer.end();
 }
 
-RingModelDensity::const_iterator RingModelDensity::end() const {
+RingModel::const_iterator RingModel::end() const {
         return ringContainer.end();
 }
 

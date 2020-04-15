@@ -1,7 +1,7 @@
 #ifdef HERMES_HAVE_CFITSIO
 
-#ifndef HERMES_RINGMODELDENSITY_H
-#define HERMES_RINGMODELDENSITY_H
+#ifndef HERMES_RINGMODEL_H
+#define HERMES_RINGMODEL_H
 
 #include "hermes/Units.h"
 #include "hermes/Grid.h"
@@ -54,7 +54,7 @@ public:
 	QRingCOIntensity getCOIntensity(const QDirection& dir) const;
 };
 
-class RingModelDensity : public NeutralGasDensity {
+class RingModel : public NeutralGasDensity {
 private:
 	std::shared_ptr<RingData> dataPtr;
 	std::array<QLength, 12> boundaries = {
@@ -74,8 +74,8 @@ private:
 	
 	void fillRingContainer();
 public:
-	RingModelDensity(RingType gas);
-	~RingModelDensity() { }
+	RingModel(RingType gas);
+	~RingModel() { }
 
 	std::array<bool, 12> getEnabledRings() const;
 	void setEnabledRings(std::array<bool, 12> list);

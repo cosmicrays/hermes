@@ -6,7 +6,7 @@
 #include "hermes/chargedgas/NE2001Simple.h"
 #include "hermes/chargedgas/YMW16.h"
 
-#include "hermes/neutralgas/RingModelDensity.h"
+#include "hermes/neutralgas/RingModel.h"
 
 namespace py = pybind11;
 

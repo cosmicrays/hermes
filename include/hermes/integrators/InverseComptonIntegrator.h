@@ -4,7 +4,6 @@
 #include "hermes/Units.h"
 #include "hermes/ProgressBar.h"
 #include "hermes/integrators/IntegratorTemplate.h"
-#include "hermes/neutralgas/RingModelDensity.h"
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/interactions/DifferentialCrossSection.h"
 #include "hermes/photonfields/PhotonField.h"

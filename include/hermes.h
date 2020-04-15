@@ -48,7 +48,7 @@
 #include "hermes/chargedgas/YMW16.h"
 
 #include "hermes/neutralgas/NeutralGasDensity.h"
-#include "hermes/neutralgas/RingModelDensity.h"
+#include "hermes/neutralgas/RingModel.h"
 
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/cosmicrays/DummyCRDensity.h"

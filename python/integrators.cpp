@@ -77,10 +77,10 @@ void init_integrators(py::module &m) {
 	py::class_<PiZeroIntegrator, InverseComptonIntegratorParentClass,
 		std::shared_ptr<PiZeroIntegrator>> pizerointegrator(m, "PiZeroIntegrator", py::buffer_protocol());
 	pizerointegrator.def(py::init<const std::shared_ptr<cosmicrays::CosmicRayDensity>,
-                		      const std::shared_ptr<neutralgas::RingModelDensity>,
+                		      const std::shared_ptr<neutralgas::RingModel>,
                            	      const std::shared_ptr<interactions::DifferentialCrossSection>>());
 	pizerointegrator.def(py::init<const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>,
-                		      const std::shared_ptr<neutralgas::RingModelDensity>,
+                		      const std::shared_ptr<neutralgas::RingModel>,
                            	      const std::shared_ptr<interactions::DifferentialCrossSection>>());
 	declare_default_integrator_methods<PiZeroIntegrator>(pizerointegrator);
 

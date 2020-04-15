@@ -14,7 +14,7 @@ namespace hermes {
 
 PiZeroIntegrator::PiZeroIntegrator(
 	const std::shared_ptr<cosmicrays::CosmicRayDensity> crDensity_,
-	const std::shared_ptr<neutralgas::RingModelDensity> ngdensity_,
+	const std::shared_ptr<neutralgas::RingModel> ngdensity_,
 	const std::shared_ptr<interactions::DifferentialCrossSection> crossSec_) : 
 	GammaIntegratorTemplate(), crList(std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> {crDensity_}),
 	ngdensity(ngdensity_), crossSec(crossSec_) {
@@ -22,7 +22,7 @@ PiZeroIntegrator::PiZeroIntegrator(
 
 PiZeroIntegrator::PiZeroIntegrator(
 	const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList_,
-	const std::shared_ptr<neutralgas::RingModelDensity> ngdensity_,
+	const std::shared_ptr<neutralgas::RingModel> ngdensity_,
 	const std::shared_ptr<interactions::DifferentialCrossSection> crossSec_) : 
 	GammaIntegratorTemplate(), crList(crList_),
 	ngdensity(ngdensity_), crossSec(crossSec_) {

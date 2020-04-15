@@ -220,7 +220,7 @@ add_library(hermes SHARED
 	src/chargedgas/HII_Cordes91.cpp
 	src/chargedgas/NE2001Simple.cpp
 	src/chargedgas/YMW16.cpp
-	src/neutralgas/RingModelDensity.cpp
+	src/neutralgas/RingModel.cpp
 	src/cosmicrays/DummyCRDensity.cpp
 	src/cosmicrays/SimpleCRDensity.cpp
 	src/cosmicrays/WMAP07CRDensity.cpp
@@ -362,9 +362,9 @@ if(ENABLE_TESTING)
 	target_link_libraries(testInteractions hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testInteractions testInteractions)
 
-	add_executable(testRingModelDensity test/testRingModelDensity.cpp)
-	target_link_libraries(testRingModelDensity hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
-	add_test(testRingModelDensity testRingModelDensity)
+	add_executable(testRingModel test/testRingModel.cpp)
+	target_link_libraries(testRingModel hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testRingModel testRingModel)
 
 	add_executable(testPiZeroIntegrator test/testPiZeroIntegrator.cpp)
 	target_link_libraries(testPiZeroIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})

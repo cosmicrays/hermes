@@ -2,7 +2,7 @@
 #include <pybind11/stl.h>
 
 #include "hermes/neutralgas/NeutralGasDensity.h"
-#include "hermes/neutralgas/RingModelDensity.h"
+#include "hermes/neutralgas/RingModel.h"
 
 namespace py = pybind11;
 
@@ -19,15 +19,15 @@ void init(py::module &m) {
 
     // neutral gas density models
     py::class_<NeutralGasDensity, std::shared_ptr<NeutralGasDensity>>(subm, "NeutralGasDensity");
-    py::class_<RingModelDensity, std::shared_ptr<RingModelDensity>, NeutralGasDensity>(subm, "RingModelDensity")
+    py::class_<RingModel, std::shared_ptr<RingModel>, NeutralGasDensity>(subm, "RingModel")
 	      .def(py::init<RingType>(), py::arg("ring_type"))
-	      .def("getEnabledRings", &RingModelDensity::getEnabledRings)
-	      .def("setEnabledRings", &RingModelDensity::setEnabledRings)
-	      .def("disableRingNo", &RingModelDensity::disableRingNo)
-	      .def("enableRingNo", &RingModelDensity::enableRingNo)
-	      .def("isRingEnabled", &RingModelDensity::isRingEnabled)
-	      .def("getRingType", &RingModelDensity::getRingType)
-	      .def("getRingNumber", &RingModelDensity::getRingNumber);
+	      .def("getEnabledRings", &RingModel::getEnabledRings)
+	      .def("setEnabledRings", &RingModel::setEnabledRings)
+	      .def("disableRingNo", &RingModel::disableRingNo)
+	      .def("enableRingNo", &RingModel::enableRingNo)
+	      .def("isRingEnabled", &RingModel::isRingEnabled)
+	      .def("getRingType", &RingModel::getRingType)
+	      .def("getRingNumber", &RingModel::getRingNumber);
 }
 
 } // namespace neutralgas

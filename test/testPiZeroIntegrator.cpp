@@ -43,7 +43,7 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	// interaction
 	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	// HI model
-	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::HI));
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::RingModel(neutralgas::RingType::HI));
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(PiZeroIntegrator(cr_proton, ringModel, kamae));
 
@@ -63,7 +63,7 @@ TEST(PiZeroIntegrator, ChannelsRatio) {
 	// interaction
 	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	// HI model
-	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::HI));
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::RingModel(neutralgas::RingType::HI));
 	// integrators
 	auto intPiZero_proton = std::make_shared<PiZeroIntegrator>(PiZeroIntegrator(cr_proton, ringModel, kamae));
 	auto intPiZero_total  = std::make_shared<PiZeroIntegrator>(PiZeroIntegrator(cr_all, ringModel, kamae));
@@ -85,7 +85,7 @@ TEST(PiZeroIntegrator, PiZeroLOS) {
 	// interaction
 	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	// HI model
-	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::HI));
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::RingModel(neutralgas::RingType::HI));
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, kamae));
@@ -118,7 +118,7 @@ TEST(PiZeroIntegrator, BremsstrahlungLOS) {
 	// interaction
 	auto bremsstrahlung = std::make_shared<interactions::BremsstrahlungSimple>(interactions::BremsstrahlungSimple());
 	// HI model
-	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::HI));
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::RingModel(neutralgas::RingType::HI));
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, bremsstrahlung));
@@ -155,7 +155,7 @@ TEST(PiZeroIntegrator, PerformanceTest) {
 	
 	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	
-	auto ringModel = std::make_shared<neutralgas::RingModelDensity>(neutralgas::RingModelDensity(neutralgas::RingType::CO));
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::RingModel(neutralgas::RingType::CO));
 	auto in = std::make_shared<PiZeroIntegrator>(
 		PiZeroIntegrator(dragonModel, ringModel, kamae));
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, 1_GeV));
