@@ -7,7 +7,7 @@
 #include "hermes/FITSWrapper.h"
 #include <memory>
 
-namespace hermes {
+namespace hermes { namespace outputs {
 
 class FITSOutput: public Output {
 private:
@@ -28,6 +28,7 @@ public:
 	void writeColumn(int nElements, void *array) override;
 };
 
+} // namespace outputs
 } // namespace hermes
 
 #endif // HERMES_FITSOUTPUT_H

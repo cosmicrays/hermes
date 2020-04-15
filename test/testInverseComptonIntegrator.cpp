@@ -174,7 +174,7 @@ TEST(InverseComptonIntegrator, GammaSkymapRange) {
 	gammaskymap_range->setIntegrator(in);
 	gammaskymap_range->compute();
 	
-	auto output = std::make_shared<FITSOutput>(FITSOutput("!InverseComptonIntegrator-GammaSkymapRange-output.fits.gz"));
+	auto output = std::make_shared<outputs::FITSOutput>(outputs::FITSOutput("!InverseComptonIntegrator-GammaSkymapRange-output.fits.gz"));
 	gammaskymap_range->save(output);
 }	
 

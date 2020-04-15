@@ -58,7 +58,7 @@ void GammaSkymapRange::compute() {
 	}
 }
 
-void GammaSkymapRange::save(std::shared_ptr<Output> output) const {
+void GammaSkymapRange::save(std::shared_ptr<outputs::Output> output) const {
 	
 	output->initOutput();
 	

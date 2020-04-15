@@ -254,7 +254,6 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/Common.cpp
 		python/ParticleID.cpp
 		python/Vectors.cpp
-		python/Outputs.cpp
 		python/Skymaps.cpp
 		python/chargedgas.cpp
 		python/cosmicrays.cpp
@@ -262,6 +261,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/interactions.cpp
 		python/magneticfields.cpp
 		python/neutralgas.cpp
+		python/outputs.cpp
 		python/photonfields.cpp
 		python/PyHermes.cpp
 	)

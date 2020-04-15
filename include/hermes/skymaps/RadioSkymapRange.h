@@ -33,7 +33,7 @@ public:
 	void compute();
        
 	/** output **/
-	void save(std::shared_ptr<Output> output) const;
+	void save(std::shared_ptr<outputs::Output> output) const;
  
 	/** iterator goodies */
         typedef typename tSkymapsContainer::iterator iterator;

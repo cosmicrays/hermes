@@ -108,7 +108,7 @@ public:
 	QPXL getOutputUnits() const;
 	std::string getOutputUnitsAsString() const;
 	std::string getUnits() const;
-	void save(std::shared_ptr<Output> output) const;
+	void save(std::shared_ptr<outputs::Output> output) const;
 
         /** iterator goodies */
         typedef typename tFluxContainer::iterator iterator;
@@ -318,7 +318,7 @@ std::string SkymapTemplate<QPXL, QSTEP>::getUnits() const {
 }
 
 template <typename QPXL, typename QSTEP>
-void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<Output> output) const {
+void SkymapTemplate<QPXL, QSTEP>::save(std::shared_ptr<outputs::Output> output) const {
 	
 	output->initOutput();
 	output->createTable(static_cast<int>(npix));

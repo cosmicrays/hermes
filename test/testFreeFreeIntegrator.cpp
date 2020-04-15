@@ -107,7 +107,7 @@ TEST(FreeFreeIntegrator, RadioSkymapRange) {
 	skymap_range->setIntegrator(intFreeFree);
 	skymap_range->compute();
 
-	auto output = std::make_shared<FITSOutput>(FITSOutput("!FreeFreeIntegrator-RadioSkymapRange-output.fits.gz"));
+	auto output = std::make_shared<outputs::FITSOutput>(outputs::FITSOutput("!FreeFreeIntegrator-RadioSkymapRange-output.fits.gz"));
 	skymap_range->save(output);
 }
 

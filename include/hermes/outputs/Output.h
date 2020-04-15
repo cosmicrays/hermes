@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace hermes {
+namespace hermes { namespace outputs {
 
 class Output {
 public:
@@ -22,6 +22,7 @@ public:
 	virtual void writeColumn(int, void *) = 0;
 }; 
 
+} // namespace outputs
 } // namespace hermes
 
 #endif // HERMES_OUTPUT_H

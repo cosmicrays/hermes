@@ -35,7 +35,7 @@ public:
         void setDescription(const std::string &description);
 
 	virtual double getPixelAsDouble(std::size_t i) const = 0;
-	virtual void save(std::shared_ptr<Output> output) const = 0;
+	virtual void save(std::shared_ptr<outputs::Output> output) const = 0;
 };
 
 } // namespace hermes

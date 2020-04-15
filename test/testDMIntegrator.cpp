@@ -57,7 +57,7 @@ TEST(DMIntegrator, integrateOverLOS) {
 		    static_cast<double>(250*parsec/centimetre3),
 		    static_cast<double>(50*parsec/centimetre3));
 	
-	auto output = std::make_shared<FITSOutput>(FITSOutput("!testDMIntegrator-integrateOverLOS-output.fits.gz"));
+	auto output = std::make_shared<outputs::FITSOutput>(outputs::FITSOutput("!testDMIntegrator-integrateOverLOS-output.fits.gz"));
 	skymap->save(output);
 }
 

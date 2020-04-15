@@ -5,8 +5,7 @@
 #include <iostream>
 #include <string>
 
-namespace hermes {
-
+namespace hermes { namespace outputs {
 
 FITSOutput::FITSOutput(
 		const std::string &filename) : Output(), filename(filename) {
@@ -74,6 +73,7 @@ void FITSOutput::writeColumn(int nElements, void *array) {
 	ffile->writeColumn(FITS::FLOAT, 1, 1, 1, nElements, array);
 }
 
+} // namespace outputs
 } // namespace hermes
 
 #endif // HERMES_HAVE_CFITSIO

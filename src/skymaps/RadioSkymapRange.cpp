@@ -50,7 +50,7 @@ void RadioSkymapRange::compute() {
 	}
 }
 
-void RadioSkymapRange::save(std::shared_ptr<Output> output) const {
+void RadioSkymapRange::save(std::shared_ptr<outputs::Output> output) const {
 	
 	output->initOutput();
 	
