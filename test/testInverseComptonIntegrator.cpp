@@ -180,7 +180,7 @@ TEST(InverseComptonIntegrator, GammaSkymapRange) {
 
 TEST(InverseComptonIntegrator, PerformanceTest) {
 	std::vector<PID> particletypes = {Electron, Positron};
-	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes)); 
+	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(cosmicrays::Dragon2D(particletypes)); 
 	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	auto kleinnishina = std::make_shared<interactions::KleinNishina>(interactions::KleinNishina());
 	auto photonField = std::make_shared<photonfields::ISRF>(photonfields::ISRF()); 

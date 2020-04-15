@@ -55,7 +55,8 @@
 #include "hermes/cosmicrays/SimpleCRDensity.h"
 #include "hermes/cosmicrays/Sun08CRDensity.h"
 #include "hermes/cosmicrays/WMAP07CRDensity.h"
-#include "hermes/cosmicrays/DragonCRDensity.h"
+#include "hermes/cosmicrays/Dragon2D.h"
+#include "hermes/cosmicrays/Dragon3D.h"
 
 #include "hermes/photonfields/PhotonField.h"
 #include "hermes/photonfields/CMB.h"

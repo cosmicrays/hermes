@@ -81,7 +81,7 @@ TEST(PiZeroIntegrator, ChannelsRatio) {
 TEST(PiZeroIntegrator, PiZeroLOS) {
 	//auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
 	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
-	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(Proton)); 
+	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(cosmicrays::Dragon2D(Proton)); 
 	// interaction
 	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	// HI model
@@ -114,7 +114,7 @@ TEST(PiZeroIntegrator, BremsstrahlungLOS) {
 	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	
 	std::vector<PID> particletypes = {Electron, Positron};
-	auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes)); 
+	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(cosmicrays::Dragon2D(particletypes)); 
 	// interaction
 	auto bremsstrahlung = std::make_shared<interactions::BremsstrahlungSimple>(interactions::BremsstrahlungSimple());
 	// HI model
@@ -151,7 +151,7 @@ TEST(PiZeroIntegrator, BremsstrahlungLOS) {
 
 TEST(PiZeroIntegrator, PerformanceTest) {
 	std::vector<PID> particletypes = {Proton};
-        auto dragonModel = std::make_shared<cosmicrays::Dragon2DCRDensity>(cosmicrays::Dragon2DCRDensity(particletypes));
+        auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(cosmicrays::Dragon2D(particletypes));
 	
 	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
 	

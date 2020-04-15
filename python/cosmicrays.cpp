@@ -6,7 +6,8 @@
 #include "hermes/cosmicrays/SimpleCRDensity.h"
 #include "hermes/cosmicrays/Sun08CRDensity.h"
 #include "hermes/cosmicrays/WMAP07CRDensity.h"
-#include "hermes/cosmicrays/DragonCRDensity.h"
+#include "hermes/cosmicrays/Dragon2D.h"
+#include "hermes/cosmicrays/Dragon3D.h"
 
 namespace py = pybind11;
 
@@ -33,13 +34,13 @@ void init(py::module &m) {
 	      .def(py::init<>());
     py::class_<WMAP07CRDensity, std::shared_ptr<WMAP07CRDensity>, CosmicRayDensity>(subm, "WMAP07CRDensity")
 	      .def(py::init<>());
-    py::class_<Dragon2DCRDensity, std::shared_ptr<Dragon2DCRDensity>, CosmicRayDensity>(subm, "Dragon2DCRDensity")
+    py::class_<Dragon2D, std::shared_ptr<Dragon2D>, CosmicRayDensity>(subm, "Dragon2D")
 	      .def(py::init<const PID &>())
 	      .def(py::init<const std::vector<PID> &>())
 	      .def(py::init<const std::string, const std::vector<PID> &>())
-	      .def("getDensityPerEnergy", (QPDensityPerEnergy (Dragon2DCRDensity::*)
+	      .def("getDensityPerEnergy", (QPDensityPerEnergy (Dragon2D::*)
 			      (const QEnergy &, const Vector3QLength &) const)
-			      &Dragon2DCRDensity::getDensityPerEnergy);
+			      &Dragon2D::getDensityPerEnergy);
 	      
 }
 

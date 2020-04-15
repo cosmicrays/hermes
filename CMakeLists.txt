@@ -225,7 +225,8 @@ add_library(hermes SHARED
 	src/cosmicrays/SimpleCRDensity.cpp
 	src/cosmicrays/WMAP07CRDensity.cpp
 	src/cosmicrays/Sun08CRDensity.cpp
-	src/cosmicrays/DragonCRDensity.cpp
+	src/cosmicrays/Dragon2D.cpp
+	src/cosmicrays/Dragon3D.cpp
 	src/photonfields/ISRF.cpp
 	src/interactions/DifferentialCrossSection.cpp
 	src/interactions/Kamae06.cpp
