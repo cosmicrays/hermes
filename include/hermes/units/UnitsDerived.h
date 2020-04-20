@@ -32,6 +32,8 @@ constexpr QECapacitance farad(1.0);
  Based on:
  - CODATA recommended values of the fundamental physical constants: 2006
         doi:10.1103/RevModPhys.80.633
+ - Review of Particle Physics.
+	M. Tanabashi et al. (Particle Data Group), Phys. Rev. D 98, 030001 (2018) and 2019 update.
  - IAU 2012 Resolution B2, IAU 2015 Resolution B2
         https://www.iau.org/administration/resolutions/
 */
@@ -104,8 +106,13 @@ constexpr QForce poundforce = pound*G;
 constexpr QForce kilopond = kilogram*G;
 constexpr auto gauss = 1e-4 * tesla;
 constexpr auto electronvolt = e_plus * volt;
+GENERATE_PREFIXED_UNITS(electronvolt)
+
 constexpr QPressure bar = 100000 * pascal;
 constexpr QPressure psi = pound*G / (inch*inch);
+
+// Other elementary particles
+constexpr QMass		m_pi0 = 134.9770 * megaelectronvolt / c_squared;
 
 // Predefined angle units:
 constexpr QAngle degree = (pi / 180.0) * radian;

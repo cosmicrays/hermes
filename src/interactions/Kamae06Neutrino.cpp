@@ -2,24 +2,15 @@
 
 namespace hermes { namespace interactions {
 
-Kamae06Neutrino::Kamae06Neutrino() :
-	cachingEnabled(false) {
+Kamae06Neutrino::Kamae06Neutrino() : DifferentialCrossSection(false) {
 }
 
 void Kamae06Neutrino::setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache_) {
 	cache = std::move(cache_);	
-	cachingEnabled = true;
+	enableCaching();
 	auto f = [this](QEnergy E_proton, QEnergy E_nu) {
 			return this->getDiffCrossSectionDirectly(E_proton, E_nu); };
 	cache->setFunction(f);
-};
-
-void Kamae06Neutrino::enableCaching() {
-	cachingEnabled = true;
-};
-
-void Kamae06Neutrino::disableCaching() {
-	cachingEnabled = false;
 };
 
 QDifferentialCrossSection Kamae06Neutrino::getDiffCrossSection(

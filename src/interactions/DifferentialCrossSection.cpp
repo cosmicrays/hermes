@@ -2,11 +2,20 @@
 
 namespace hermes { namespace interactions {
 
-DifferentialCrossSection::DifferentialCrossSection() {
+DifferentialCrossSection::DifferentialCrossSection(bool cachingEnabled_) :
+	cachingEnabled(cachingEnabled_) {
 }
 
 DifferentialCrossSection::~DifferentialCrossSection() {
 }
+
+void DifferentialCrossSection::enableCaching() {
+	cachingEnabled = true;
+};
+
+void DifferentialCrossSection::disableCaching() {
+	cachingEnabled = false;
+};
 
 QDifferentialCrossSection DifferentialCrossSection::getDiffCrossSection(
 		const QEnergy &E_proton,

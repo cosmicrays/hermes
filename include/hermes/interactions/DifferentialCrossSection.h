@@ -9,9 +9,15 @@ namespace hermes { namespace interactions {
 using namespace units;
 
 class DifferentialCrossSection {
+protected:
+	bool cachingEnabled;
 public:
-	DifferentialCrossSection();
+	DifferentialCrossSection(bool cachingEnabled = false);
 	~DifferentialCrossSection();
+	
+	void enableCaching();
+	void disableCaching();
+	
 	virtual QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_proton,
 			const QEnergy &E_gamma) const;

@@ -28,14 +28,11 @@ namespace hermes { namespace interactions {
 
 class Kamae06Gamma: public DifferentialCrossSection {
 private:
-	bool cachingEnabled;
         std::unique_ptr<CacheStorageCrossSection> cache;
 public:
 	Kamae06Gamma();
 	void setCachingStorage(
 		std::unique_ptr<CacheStorageCrossSection> cache);
-	void enableCaching();
-	void disableCaching();
 	
 	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_proton, const QEnergy &E_gamma) const override;

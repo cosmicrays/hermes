@@ -66,6 +66,8 @@
 #include "hermes/interactions/DummyCrossSection.h"
 #include "hermes/interactions/Kamae06Gamma.h"
 #include "hermes/interactions/Kamae06Neutrino.h"
+#include "hermes/interactions/KelnerAharonianGamma.h"
+#include "hermes/interactions/KelnerAharonianNeutrino.h"
 #include "hermes/interactions/KleinNishina.h"
 #include "hermes/interactions/BremsstrahlungSimple.h"
 

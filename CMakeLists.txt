@@ -95,8 +95,8 @@ list(APPEND HERMES_EXTRA_LIBRARIES ${GSL_LIBRARIES})
 #     Why is it not recommended use a pre-compiled copy of Google Test?)
 option(ENABLE_TESTING "Build tests and enable test target" OFF)
 if(ENABLE_TESTING)
-        include_directories(libs/gtest/googletest/include)
-        add_subdirectory(libs/gtest/googletest)
+        include_directories(lib/gtest/googletest/include)
+        add_subdirectory(lib/gtest/googletest)
         if(APPLE)
                 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DGTEST_USE_OWN_TR1_TUPLE=1")
         endif(APPLE)
@@ -125,14 +125,14 @@ if(ENABLE_SYS_CFITSIO)
 endif(ENABLE_SYS_CFITSIO)
 
 # kiss (provided)
-add_subdirectory(libs/kiss)
+add_subdirectory(lib/kiss)
 list(APPEND HERMES_EXTRA_LIBRARIES kiss)
-list(APPEND HERMES_EXTRA_INCLUDES libs/kiss/include)
+list(APPEND HERMES_EXTRA_INCLUDES lib/kiss/include)
 
 # cparamlib (provided)
 # p-p cross-sections
-add_subdirectory(libs/cparamlib)
-list(APPEND HERMES_EXTRA_INCLUDES libs/cparamlib)
+add_subdirectory(lib/cparamlib)
+list(APPEND HERMES_EXTRA_INCLUDES lib/cparamlib)
 list(APPEND HERMES_EXTRA_LIBRARIES cparamlib)
 
 OPTION(ENABLE_COVERAGE "Add code for coverage analysis." OFF)
@@ -155,8 +155,8 @@ if(ENABLE_COVERAGE)
                                 # generate coverage data
                                 COMMAND ${LCOV_PATH} --directory . --capture --output-file coverage.info VERBATIM
 
-                                # clean external libs
-                                COMMAND ${LCOV_PATH} --remove coverage.info "/usr/include/*" "/usr/lib/*" "*/libs/*" "*/libs/eigen3/*" "*/test/*" "*/build/*" -o coverage.info.cleaned VERBATIM
+                                # clean external lib
+                                COMMAND ${LCOV_PATH} --remove coverage.info "/usr/include/*" "/usr/lib/*" "*/lib/*" "*/lib/eigen3/*" "*/test/*" "*/build/*" -o coverage.info.cleaned VERBATIM
 
                                 # Generate html output
                                 COMMAND ${GENHTML_PATH} -o coverageReport coverage.info.cleaned VERBATIM
@@ -193,47 +193,49 @@ file(GLOB_RECURSE HERMES_INCLUDES RELATIVE ${CMAKE_SOURCE_DIR} include/*.h)
 include_directories(include ${HERMES_EXTRA_INCLUDES})
 
 add_library(hermes SHARED
-	src/Random.cpp
 	src/Common.cpp
-	src/HEALPixBits.cpp
 	src/FITSWrapper.cpp
-	src/ProgressBar.cpp
 	src/GridTools.cpp
+	src/HEALPixBits.cpp
+	src/ProgressBar.cpp
+	src/Random.cpp
 	src/Signals.cpp
-	src/skymaps/Skymap.cpp
-	src/skymaps/SkymapMask.cpp
-	src/skymaps/GammaSkymapRange.cpp
-	src/skymaps/RadioSkymapRange.cpp
-	src/integrators/DMIntegrator.cpp
-	src/integrators/RMIntegrator.cpp
-	src/integrators/SynchroIntegrator.cpp
-	src/integrators/FreeFreeIntegrator.cpp
-	src/integrators/SynchroAbsorptionIntegrator.cpp
-	src/integrators/PiZeroIntegrator.cpp
-	src/integrators/InverseComptonIntegrator.cpp
-	src/magneticfields/MagneticField.cpp
-	src/magneticfields/MagneticFieldGrid.cpp
-	src/magneticfields/WMAP07Field.cpp
-	src/magneticfields/Sun08Field.cpp
-	src/magneticfields/PT11Field.cpp
-	src/magneticfields/JF12Field.cpp
 	src/chargedgas/HII_Cordes91.cpp
 	src/chargedgas/NE2001Simple.cpp
 	src/chargedgas/YMW16.cpp
-	src/neutralgas/RingModel.cpp
-	src/cosmicrays/DummyCRDensity.cpp
-	src/cosmicrays/SimpleCRDensity.cpp
-	src/cosmicrays/WMAP07CRDensity.cpp
-	src/cosmicrays/Sun08CRDensity.cpp
 	src/cosmicrays/Dragon2D.cpp
 	src/cosmicrays/Dragon3D.cpp
-	src/photonfields/ISRF.cpp
+	src/cosmicrays/DummyCRDensity.cpp
+	src/cosmicrays/SimpleCRDensity.cpp
+	src/cosmicrays/Sun08CRDensity.cpp
+	src/cosmicrays/WMAP07CRDensity.cpp
+	src/integrators/DMIntegrator.cpp
+	src/integrators/FreeFreeIntegrator.cpp
+	src/integrators/InverseComptonIntegrator.cpp
+	src/integrators/PiZeroIntegrator.cpp
+	src/integrators/RMIntegrator.cpp
+	src/integrators/SynchroAbsorptionIntegrator.cpp
+	src/integrators/SynchroIntegrator.cpp
+	src/interactions/BremsstrahlungSimple.cpp
 	src/interactions/DifferentialCrossSection.cpp
 	src/interactions/Kamae06Gamma.cpp
 	src/interactions/Kamae06Neutrino.cpp
+	src/interactions/KelnerAharonianGamma.cpp
+	src/interactions/KelnerAharonianNeutrino.cpp
 	src/interactions/KleinNishina.cpp
-	src/interactions/BremsstrahlungSimple.cpp
+	src/magneticfields/JF12Field.cpp
+	src/magneticfields/MagneticField.cpp
+	src/magneticfields/MagneticFieldGrid.cpp
+	src/magneticfields/PT11Field.cpp
+	src/magneticfields/Sun08Field.cpp
+	src/magneticfields/WMAP07Field.cpp
+	src/neutralgas/RingModel.cpp
 	src/outputs/FITSOutput.cpp
+	src/photonfields/ISRF.cpp
+	src/skymaps/GammaSkymapRange.cpp
+	src/skymaps/RadioSkymapRange.cpp
+	src/skymaps/Skymap.cpp
+	src/skymaps/SkymapMask.cpp
 	${HERMES_EXTRA_SOURCES}
 )
 target_link_libraries(hermes ${HERMES_EXTRA_LIBRARIES})
@@ -248,14 +250,15 @@ find_package(PythonLibs)
 if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	include_directories(${PYTHON_INCLUDE_DIRS})
 	include(cmake/FindPython.cmake)
-	add_subdirectory(libs/pybind11)
+	add_subdirectory(lib/pybind11)
 	
 	pybind11_add_module(pyhermes
-		python/Quantity.cpp
 		python/Common.cpp
 		python/ParticleID.cpp
-		python/Vectors.cpp
+		python/PyHermes.cpp
+		python/Quantity.cpp
 		python/Skymaps.cpp
+		python/Vectors.cpp
 		python/chargedgas.cpp
 		python/cosmicrays.cpp
 		python/integrators.cpp
@@ -265,7 +268,6 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/outputs.cpp
 		python/photonfields.cpp
 		python/units.cpp
-		python/PyHermes.cpp
 	)
 
 	set_target_properties(pyhermes PROPERTIES
@@ -388,6 +390,6 @@ install(TARGETS hermes DESTINATION lib)
 install(DIRECTORY include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 install(DIRECTORY ${CMAKE_BINARY_DIR}/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 install(DIRECTORY ${CMAKE_BINARY_DIR}/data/ DESTINATION share/hermes/data PATTERN ".git" EXCLUDE)
-install(DIRECTORY libs/cparamlib/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
-install(DIRECTORY libs/kiss/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
+install(DIRECTORY lib/cparamlib/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
+install(DIRECTORY lib/kiss/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
 
