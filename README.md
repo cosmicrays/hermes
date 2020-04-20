@@ -51,7 +51,7 @@ skymap.setMask(mask)
 
 neutral_gas = neutralgas.RingModel(neutralgas.RingType.HI)
 cosmicray_protons = cosmicrays.Dragon2D(Proton)
-pp_crosssection = interactions.Kamae06()
+pp_crosssection = interactions.Kamae06Gamma()
 
 integrator = PiZeroIntegrator(cosmicray_protons, neutral_gas, pp_crosssection)
 integrator.setSunPosition(sun_pos)
