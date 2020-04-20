@@ -65,6 +65,7 @@
 #include "hermes/interactions/DifferentialCrossSection.h"
 #include "hermes/interactions/DummyCrossSection.h"
 #include "hermes/interactions/Kamae06Gamma.h"
+#include "hermes/interactions/Kamae06Neutrino.h"
 #include "hermes/interactions/KleinNishina.h"
 #include "hermes/interactions/BremsstrahlungSimple.h"
 

@@ -230,6 +230,7 @@ add_library(hermes SHARED
 	src/photonfields/ISRF.cpp
 	src/interactions/DifferentialCrossSection.cpp
 	src/interactions/Kamae06Gamma.cpp
+	src/interactions/Kamae06Neutrino.cpp
 	src/interactions/KleinNishina.cpp
 	src/interactions/BremsstrahlungSimple.cpp
 	src/outputs/FITSOutput.cpp

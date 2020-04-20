@@ -1,5 +1,5 @@
-#ifndef HERMES_KAMAE06GAMMA_H
-#define HERMES_KAMAE06GAMMA_H
+#ifndef HERMES_KAMAE06NEUTRINO_H
+#define HERMES_KAMAE06NEUTRINO_H
 
 /*
 https://github.com/niklask/cparamlib
@@ -26,24 +26,24 @@ extern "C" {
 
 namespace hermes { namespace interactions {
 
-class Kamae06Gamma: public DifferentialCrossSection {
+class Kamae06Neutrino: public DifferentialCrossSection {
 private:
 	bool cachingEnabled;
         std::unique_ptr<CacheStorageCrossSection> cache;
 public:
-	Kamae06Gamma();
+	Kamae06Neutrino();
 	void setCachingStorage(
 		std::unique_ptr<CacheStorageCrossSection> cache);
 	void enableCaching();
 	void disableCaching();
 	
 	QDifferentialCrossSection getDiffCrossSection(
-			const QEnergy &E_proton, const QEnergy &E_gamma) const override;
+			const QEnergy &E_proton, const QEnergy &E_nu) const override;
 	QDifferentialCrossSection getDiffCrossSectionDirectly(
-			const QEnergy &E_proton, const QEnergy &E_gamma) const;
+			const QEnergy &E_proton, const QEnergy &E_nu) const;
 };
 
 } // namespace interactions
 } // namespace hermes
 
-#endif // HERMES_KAMAE06GAMMA_H
+#endif // HERMES_KAMAE06NEUTRINO_H
