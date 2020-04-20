@@ -5,7 +5,7 @@
 #include "hermes/interactions/DummyCrossSection.h"
 #include "hermes/interactions/KleinNishina.h"
 #include "hermes/interactions/BremsstrahlungSimple.h"
-#include "hermes/interactions/Kamae06.h"
+#include "hermes/interactions/Kamae06Gamma.h"
 
 namespace py = pybind11;
 
@@ -30,11 +30,11 @@ void init(py::module &m) {
 	      .def("getDiffCrossSection",
 		   (QDifferentialCrossSection (BremsstrahlungSimple::*)(const QEnergy &, const QEnergy &) const)
 		   &BremsstrahlungSimple::getDiffCrossSection);
-    py::class_<Kamae06, std::shared_ptr<Kamae06>, DifferentialCrossSection>(subm, "Kamae06")
+    py::class_<Kamae06Gamma, std::shared_ptr<Kamae06Gamma>, DifferentialCrossSection>(subm, "Kamae06Gamma")
 	      .def(py::init<>())
 	      .def("getDiffCrossSection",
-		   (QDifferentialCrossSection (Kamae06::*)(const QEnergy &, const QEnergy &) const)
-		   &Kamae06::getDiffCrossSection);
+		   (QDifferentialCrossSection (Kamae06Gamma::*)(const QEnergy &, const QEnergy &) const)
+		   &Kamae06Gamma::getDiffCrossSection);
 }
 
 } // namespace interactions

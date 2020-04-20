@@ -41,7 +41,7 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	auto cr_proton = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	
 	// interaction
-	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
+	auto kamae = std::make_shared<interactions::Kamae06Gamma>(interactions::Kamae06Gamma());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::RingModel(neutralgas::RingType::HI));
 	// integrator
@@ -61,7 +61,7 @@ TEST(PiZeroIntegrator, ChannelsRatio) {
 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> cr_all = {cr_proton, cr_helium};
 	
 	// interaction
-	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
+	auto kamae = std::make_shared<interactions::Kamae06Gamma>(interactions::Kamae06Gamma());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::RingModel(neutralgas::RingType::HI));
 	// integrators
@@ -83,7 +83,7 @@ TEST(PiZeroIntegrator, PiZeroLOS) {
 	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(cosmicrays::SimpleCRDensity());
 	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(cosmicrays::Dragon2D(Proton)); 
 	// interaction
-	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
+	auto kamae = std::make_shared<interactions::Kamae06Gamma>(interactions::Kamae06Gamma());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::RingModel(neutralgas::RingType::HI));
 	// integrator
@@ -153,7 +153,7 @@ TEST(PiZeroIntegrator, PerformanceTest) {
 	std::vector<PID> particletypes = {Proton};
         auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(cosmicrays::Dragon2D(particletypes));
 	
-	auto kamae = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
+	auto kamae = std::make_shared<interactions::Kamae06Gamma>(interactions::Kamae06Gamma());
 	
 	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::RingModel(neutralgas::RingType::CO));
 	auto in = std::make_shared<PiZeroIntegrator>(

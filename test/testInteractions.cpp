@@ -14,7 +14,7 @@ namespace hermes {
 */
 TEST(Interactions, cparamlib) {
 
-	auto interaction = std::make_shared<interactions::Kamae06>(interactions::Kamae06());
+	auto interaction = std::make_shared<interactions::Kamae06Gamma>(interactions::Kamae06Gamma());
 
 	QEnergy E_p = 512000_GeV;
 	QEnergy E_gamma = 100_GeV;

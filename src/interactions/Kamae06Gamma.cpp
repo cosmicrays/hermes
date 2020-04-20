@@ -1,12 +1,12 @@
-#include "hermes/interactions/Kamae06.h"
+#include "hermes/interactions/Kamae06Gamma.h"
 
 namespace hermes { namespace interactions {
 
-Kamae06::Kamae06() :
+Kamae06Gamma::Kamae06Gamma() :
 	cachingEnabled(false) {
 }
 
-void Kamae06::setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache_) {
+void Kamae06Gamma::setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache_) {
 	cache = std::move(cache_);	
 	cachingEnabled = true;
 	auto f = [this](QEnergy E_proton, QEnergy E_gamma) {
@@ -14,15 +14,15 @@ void Kamae06::setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache_
 	cache->setFunction(f);
 };
 
-void Kamae06::enableCaching() {
+void Kamae06Gamma::enableCaching() {
 	cachingEnabled = true;
 };
 
-void Kamae06::disableCaching() {
+void Kamae06Gamma::disableCaching() {
 	cachingEnabled = false;
 };
 
-QDifferentialCrossSection Kamae06::getDiffCrossSection(
+QDifferentialCrossSection Kamae06Gamma::getDiffCrossSection(
 		const QEnergy &E_proton,
 		const QEnergy &E_gamma) const {
 	if (cachingEnabled)
@@ -30,7 +30,7 @@ QDifferentialCrossSection Kamae06::getDiffCrossSection(
 	return getDiffCrossSectionDirectly(E_proton, E_gamma);
 }
 
-QDifferentialCrossSection Kamae06::getDiffCrossSectionDirectly(
+QDifferentialCrossSection Kamae06Gamma::getDiffCrossSectionDirectly(
 		const QEnergy &E_proton,
 		const QEnergy &E_gamma) const {
 

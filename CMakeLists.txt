@@ -229,7 +229,7 @@ add_library(hermes SHARED
 	src/cosmicrays/Dragon3D.cpp
 	src/photonfields/ISRF.cpp
 	src/interactions/DifferentialCrossSection.cpp
-	src/interactions/Kamae06.cpp
+	src/interactions/Kamae06Gamma.cpp
 	src/interactions/KleinNishina.cpp
 	src/interactions/BremsstrahlungSimple.cpp
 	src/outputs/FITSOutput.cpp
