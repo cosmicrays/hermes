@@ -1,8 +1,8 @@
-#ifndef HERMES_DMINTEGRATOR_H
-#define HERMES_DMINTEGRATOR_H
+#ifndef HERMES_DISPERSIONMEASUREINTEGRATOR_H
+#define HERMES_DISPERSIONMEASUREINTEGRATOR_H
 
 #include "hermes/Units.h"
-#include "hermes/skymaps/DMSkymap.h"
+#include "hermes/skymaps/DispersionMeasureSkymap.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/chargedgas/ChargedGasDensity.h"
 
@@ -14,16 +14,16 @@ namespace hermes {
  * @{
  */
 
-typedef IntegratorTemplate<QDispersionMeasure, QNumber> DMIntegratorTemplate;
+typedef IntegratorTemplate<QDispersionMeasure, QNumber> DispersionMeasureIntegratorTemplate;
 
-class DMIntegrator: public DMIntegratorTemplate {
+class DispersionMeasureIntegrator: public DispersionMeasureIntegratorTemplate {
 private:
 	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
 public:
 	typedef std::pair<std::vector<QLength>, std::vector<double>> tLOSProfile;
 	
-	DMIntegrator(const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
-	~DMIntegrator();
+	DispersionMeasureIntegrator(const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
+	~DispersionMeasureIntegrator();
 	
 	QDispersionMeasure integrateOverLOS(QDirection iterdir) const;
 	
@@ -38,4 +38,4 @@ public:
 /** @}*/
 } // namespace hermes
 
-#endif // HERMES_DMINTEGRATOR_H
+#endif // HERMES_DISPERSIONMEASUREINTEGRATOR_H

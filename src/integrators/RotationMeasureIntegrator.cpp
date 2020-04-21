@@ -1,16 +1,16 @@
-#include "hermes/integrators/RMIntegrator.h"
+#include "hermes/integrators/RotationMeasureIntegrator.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
 
 namespace hermes {
 
-RMIntegrator::RMIntegrator(const std::shared_ptr<magneticfields::MagneticField> mfield,
+RotationMeasureIntegrator::RotationMeasureIntegrator(const std::shared_ptr<magneticfields::MagneticField> mfield,
 			   const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity) :
-	RMIntegratorTemplate(), mfield(mfield), gdensity(gdensity) {	
+	RotationMeasureIntegratorTemplate(), mfield(mfield), gdensity(gdensity) {	
 }
 
-RMIntegrator::~RMIntegrator() { }
+RotationMeasureIntegrator::~RotationMeasureIntegrator() { }
 
-QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) const {
+QRotationMeasure RotationMeasureIntegrator::integrateOverLOS(QDirection direction) const {
 	auto integrand = [this, direction](const QLength &dist) {
 		return this->integralFunction(getGalacticPosition(getSunPosition(), dist, direction)); };
 
@@ -18,7 +18,7 @@ QRotationMeasure RMIntegrator::integrateOverLOS(QDirection direction) const {
 			[integrand](QLength dist) {return integrand(dist);}, 0, getMaxDistance(direction), 500);
 }
 
-QRMIntegral RMIntegrator::integralFunction(Vector3QLength pos) const {
+QRMIntegral RotationMeasureIntegrator::integralFunction(Vector3QLength pos) const {
 	constexpr auto const_a0 = pow<3>(e_plus)/(8*pi*pi*epsilon0*squared(m_electron)*pow<3>(c_light));
 	
 	Vector3QMField B = mfield->getField(pos);

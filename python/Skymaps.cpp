@@ -4,15 +4,15 @@
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapMask.h"
 #include "hermes/skymaps/SkymapTemplate.h"
-#include "hermes/skymaps/DMSkymap.h"
-#include "hermes/skymaps/RMSkymap.h"
+#include "hermes/skymaps/DispersionMeasureSkymap.h"
+#include "hermes/skymaps/RotationMeasureSkymap.h"
 #include "hermes/skymaps/GammaSkymap.h"
 #include "hermes/skymaps/GammaSkymapRange.h"
 #include "hermes/skymaps/RadioSkymap.h"
 #include "hermes/skymaps/RadioSkymapRange.h"
 
-#include "hermes/integrators/DMIntegrator.h"
-#include "hermes/integrators/RMIntegrator.h"
+#include "hermes/integrators/DispersionMeasureIntegrator.h"
+#include "hermes/integrators/RotationMeasureIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
@@ -68,15 +68,15 @@ template<typename SKYMAP, typename QPXL, typename QSTEP>
 
 void init_skymaps(py::module &m) {
 
-	// DMSkymap
-	py::class_<DMSkymap, std::shared_ptr<DMSkymap>> dmskymap(m, "DMSkymap", py::buffer_protocol());
+	// DispersionMeasureSkymap
+	py::class_<DispersionMeasureSkymap, std::shared_ptr<DispersionMeasureSkymap>> dmskymap(m, "DispersionMeasureSkymap", py::buffer_protocol());
 	dmskymap.def(py::init<const std::size_t>(), py::arg("nside")); // constructor
-	declare_default_skymap_methods<DMSkymap, QDispersionMeasure, QNumber>(dmskymap);
+	declare_default_skymap_methods<DispersionMeasureSkymap, QDispersionMeasure, QNumber>(dmskymap);
 
-	// RMSkymap
-	py::class_<RMSkymap, std::shared_ptr<RMSkymap>> rmskymap(m, "RMSkymap", py::buffer_protocol());
+	// RotationMeasureSkymap
+	py::class_<RotationMeasureSkymap, std::shared_ptr<RotationMeasureSkymap>> rmskymap(m, "RotationMeasureSkymap", py::buffer_protocol());
 	rmskymap.def(py::init<const std::size_t>(), py::arg("nside")); // constructor
-	declare_default_skymap_methods<RMSkymap, QRotationMeasure, QNumber>(rmskymap);
+	declare_default_skymap_methods<RotationMeasureSkymap, QRotationMeasure, QNumber>(rmskymap);
 
 	// RadioSkymap
 	py::class_<RadioSkymap, std::shared_ptr<RadioSkymap>> radioskymap(m, "RadioSkymap", py::buffer_protocol());

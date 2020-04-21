@@ -14,13 +14,13 @@ public:
 	}
 };
 
-TEST(DMIntegrator, convertToUnits) {
+TEST(DispersionMeasureIntegrator, convertToUnits) {
 
-	auto skymap = std::make_shared<DMSkymap>(DMSkymap(4));
+	auto skymap = std::make_shared<DispersionMeasureSkymap>(DispersionMeasureSkymap(4));
 	auto gdensity = std::make_shared<TestChargedGasDensity>(
 		TestChargedGasDensity());
-	auto intDM = std::make_shared<DMIntegrator>(
-		DMIntegrator(gdensity));
+	auto intDM = std::make_shared<DispersionMeasureIntegrator>(
+		DispersionMeasureIntegrator(gdensity));
 
 	skymap->computePixel(0, intDM);
 	QDispersionMeasure pixel = skymap->getPixel(0);
@@ -32,13 +32,13 @@ TEST(DMIntegrator, convertToUnits) {
 		  static_cast<double>(convertedPixel));	
 }
 
-TEST(DMIntegrator, integrateOverLOS) {
+TEST(DispersionMeasureIntegrator, integrateOverLOS) {
 
 	int nside = 32;
-	auto skymap = std::make_shared<DMSkymap>(DMSkymap(nside));
+	auto skymap = std::make_shared<DispersionMeasureSkymap>(DispersionMeasureSkymap(nside));
 	auto gdensity = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
-	auto intDM = std::make_shared<DMIntegrator>(
-		DMIntegrator(gdensity));
+	auto intDM = std::make_shared<DispersionMeasureIntegrator>(
+		DispersionMeasureIntegrator(gdensity));
 	skymap->setIntegrator(intDM);
 	QDirection dir;
 	int ipix;
@@ -57,7 +57,7 @@ TEST(DMIntegrator, integrateOverLOS) {
 		    static_cast<double>(250*parsec/centimetre3),
 		    static_cast<double>(50*parsec/centimetre3));
 	
-	auto output = std::make_shared<outputs::FITSOutput>(outputs::FITSOutput("!testDMIntegrator-integrateOverLOS-output.fits.gz"));
+	auto output = std::make_shared<outputs::FITSOutput>(outputs::FITSOutput("!testDispersionMeasureIntegrator-integrateOverLOS-output.fits.gz"));
 	skymap->save(output);
 }
 

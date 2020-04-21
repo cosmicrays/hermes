@@ -209,11 +209,11 @@ add_library(hermes SHARED
 	src/cosmicrays/SimpleCRDensity.cpp
 	src/cosmicrays/Sun08CRDensity.cpp
 	src/cosmicrays/WMAP07CRDensity.cpp
-	src/integrators/DMIntegrator.cpp
+	src/integrators/DispersionMeasureIntegrator.cpp
 	src/integrators/FreeFreeIntegrator.cpp
 	src/integrators/InverseComptonIntegrator.cpp
 	src/integrators/PiZeroIntegrator.cpp
-	src/integrators/RMIntegrator.cpp
+	src/integrators/RotationMeasureIntegrator.cpp
 	src/integrators/SynchroAbsorptionIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
 	src/interactions/BremsstrahlungSimple.cpp
@@ -337,13 +337,13 @@ if(ENABLE_TESTING)
 	target_link_libraries(testYMW16 hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testYMW16 testYMW16)
 	
-	add_executable(testDMIntegrator test/testDMIntegrator.cpp)
-	target_link_libraries(testDMIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
-	add_test(testDMIntegrator testDMIntegrator)
+	add_executable(testDispersionMeasureIntegrator test/testDispersionMeasureIntegrator.cpp)
+	target_link_libraries(testDispersionMeasureIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testDispersionMeasureIntegrator testDispersionMeasureIntegrator)
 
-	add_executable(testRMIntegrator test/testRMIntegrator.cpp)
-	target_link_libraries(testRMIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
-	add_test(testRMIntegrator testRMIntegrator)
+	add_executable(testRotationMeasureIntegrator test/testRotationMeasureIntegrator.cpp)
+	target_link_libraries(testRotationMeasureIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testRotationMeasureIntegrator testRotationMeasureIntegrator)
 	
 	add_executable(testSynchroIntegrator test/testSynchroIntegrator.cpp)
 	target_link_libraries(testSynchroIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})

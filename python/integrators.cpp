@@ -3,8 +3,8 @@
 
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
-#include "hermes/integrators/DMIntegrator.h"
-#include "hermes/integrators/RMIntegrator.h"
+#include "hermes/integrators/DispersionMeasureIntegrator.h"
+#include "hermes/integrators/RotationMeasureIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
@@ -32,17 +32,17 @@ void declare_default_integrator_methods(py::class_<INTEGRATOR> c) {
 
 void init_integrators(py::module &m) {
   
-	// DMIntegrator
-	NEW_INTEGRATOR(dmintegrator, "DMIntegrator", DMIntegrator, QDispersionMeasure, QNumber);
+	// DispersionMeasureIntegrator
+	NEW_INTEGRATOR(dmintegrator, "DispersionMeasureIntegrator", DispersionMeasureIntegrator, QDispersionMeasure, QNumber);
 	dmintegrator.def(py::init<const std::shared_ptr<chargedgas::ChargedGasDensity> >());
-	dmintegrator.def("getLOSProfile", &DMIntegrator::getLOSProfile);
-	declare_default_integrator_methods<DMIntegrator>(dmintegrator);
+	dmintegrator.def("getLOSProfile", &DispersionMeasureIntegrator::getLOSProfile);
+	declare_default_integrator_methods<DispersionMeasureIntegrator>(dmintegrator);
 	
-	// RMIntegrator
-	NEW_INTEGRATOR(rmintegrator, "RMIntegrator", RMIntegrator, QRotationMeasure, QNumber);
+	// RotationMeasureIntegrator
+	NEW_INTEGRATOR(rmintegrator, "RotationMeasureIntegrator", RotationMeasureIntegrator, QRotationMeasure, QNumber);
 	rmintegrator.def(py::init<const std::shared_ptr<magneticfields::MagneticField>,
 			    	  const std::shared_ptr<chargedgas::ChargedGasDensity> >());
-	declare_default_integrator_methods<RMIntegrator>(rmintegrator);
+	declare_default_integrator_methods<RotationMeasureIntegrator>(rmintegrator);
 	
 	// FreeFreeIntegrator
 	NEW_INTEGRATOR(ffintegrator, "FreeFreeIntegrator", FreeFreeIntegrator, QTemperature, QFrequency);

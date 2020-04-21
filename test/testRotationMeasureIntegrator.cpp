@@ -40,12 +40,12 @@ TEST(Integrator, MagneticField) {
 	EXPECT_EQ((magfield.getField(pos)).getX(), 1_T);
 }
 
-TEST(RMIntegrator, Orientation) {
+TEST(RotationMeasureIntegrator, Orientation) {
 	QRotationMeasure pixel;
 	auto magfield = std::make_shared<TestMagneticField>(TestMagneticField());
 	auto gasdenisty = std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
-	auto integrator = std::make_shared<RMIntegrator>(RMIntegrator(magfield, gasdenisty));
-	auto skymap = std::make_shared<RMSkymap>(RMSkymap(4));
+	auto integrator = std::make_shared<RotationMeasureIntegrator>(RotationMeasureIntegrator(magfield, gasdenisty));
+	auto skymap = std::make_shared<RotationMeasureSkymap>(RotationMeasureSkymap(4));
 	QDirection direction;
 
 	skymap->setIntegrator(integrator);
@@ -69,11 +69,11 @@ TEST(RMIntegrator, Orientation) {
 	}
 }
 
-TEST(RMIntegrator, PerformanceTest) {
+TEST(RotationMeasureIntegrator, PerformanceTest) {
 	auto magfield = std::make_shared<magneticfields::JF12Field>(magneticfields::JF12Field());
 	auto gasdenisty = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
-	auto in = std::make_shared<RMIntegrator>(RMIntegrator(magfield, gasdenisty));
-	auto skymap = std::make_shared<RMSkymap>(RMSkymap(4));
+	auto in = std::make_shared<RotationMeasureIntegrator>(RotationMeasureIntegrator(magfield, gasdenisty));
+	auto skymap = std::make_shared<RotationMeasureSkymap>(RotationMeasureSkymap(4));
 	skymap->setIntegrator(in);
 
         std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();

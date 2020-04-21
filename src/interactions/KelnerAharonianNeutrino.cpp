@@ -11,6 +11,9 @@ QDifferentialCrossSection KelnerAharonianNeutrino::getDiffCrossSection(
 		const QEnergy &E_proton,
 		const QEnergy &E_nu) const {
 
+	if (E_nu > E_proton)
+		return QDifferentialCrossSection(0);
+
 	const double L = std::log(static_cast<double>(E_proton / 1_TeV)); // defined in pag. 9
 
 	const double B_e = 1.0 / (69.5 + 2.65 * L + 0.3 * L * L); // Eq. 63
@@ -27,9 +30,6 @@ QDifferentialCrossSection KelnerAharonianNeutrino::getDiffCrossSection(
 		F_e /= x * (1.0 + 0.3 / std::pow(x, beta_e)); // Eq. 62
 	}
 
-	if (std::isnan(F_e))
-		throw std::runtime_error("F_e is NAN!");
-
 	if (y < 1) {
 		double B_prime = 1.75 + 0.204 * L + 0.010 * L * L; // Eq. 67
 		double beta_prime = 1. / (1.67 + 0.111 * L + 0.0038 * L * L); // Eq. 68
@@ -41,9 +41,6 @@ QDifferentialCrossSection KelnerAharonianNeutrino::getDiffCrossSection(
 		F_numu = B_prime * std::log(y) / y * std::pow((1. - y2beta) / (1. + k_prime * y2beta * (1. - y2beta)), 4);
 		F_numu *= 1. / std::log(y) - F_1 - F_2; // Eq. 66
 	}
-
-	if (std::isnan(F_numu))
-		throw std::runtime_error("F_numu is NAN!");
 
 	return KelnerAharonianGamma::sigmaInelastic(E_proton) * (F_numu + 2. * F_e) / E_proton;
 }

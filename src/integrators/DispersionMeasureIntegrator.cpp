@@ -1,17 +1,17 @@
-#include "hermes/integrators/DMIntegrator.h"
+#include "hermes/integrators/DispersionMeasureIntegrator.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
 
 namespace hermes {
 
-DMIntegrator::DMIntegrator(const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity) :
-	DMIntegratorTemplate(),
+DispersionMeasureIntegrator::DispersionMeasureIntegrator(const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity) :
+	DispersionMeasureIntegratorTemplate(),
 	gdensity(gdensity) {	
 
 }
 
-DMIntegrator::~DMIntegrator() { }
+DispersionMeasureIntegrator::~DispersionMeasureIntegrator() { }
 
-QDispersionMeasure DMIntegrator::integrateOverLOS(QDirection direction) const {
+QDispersionMeasure DispersionMeasureIntegrator::integrateOverLOS(QDirection direction) const {
 
 	auto integrand = [this, direction](const QLength &dist) {
 		return gdensity->getDensity(getGalacticPosition(getSunPosition(), dist, direction)); };
@@ -21,7 +21,7 @@ QDispersionMeasure DMIntegrator::integrateOverLOS(QDirection direction) const {
 
 }
 
-DMIntegrator::tLOSProfile DMIntegrator::getLOSProfile(QDirection direction, int Nsteps) const {
+DispersionMeasureIntegrator::tLOSProfile DispersionMeasureIntegrator::getLOSProfile(QDirection direction, int Nsteps) const {
 
 	auto integrand = [this, direction](const QLength &dist) {
 		return gdensity->getDensity(getGalacticPosition(getSunPosition(), dist, direction)); };
