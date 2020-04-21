@@ -7,17 +7,6 @@ namespace hermes { namespace interactions {
 KelnerAharonianNeutrino::KelnerAharonianNeutrino() : DifferentialCrossSection() {
 }
 
-QArea KelnerAharonianNeutrino::sigmaInelastic(const QEnergy &Tp) const {
-	constexpr QEnergy Tp_th = (2.0 * m_pi0 + (m_pi0 * m_pi0) / (2.0 * m_proton)) * c_squared;
-	double LX = std::log(static_cast<double>(Tp / Tp_th));
-	double Threshold = std::max(0., 1. - std::pow(static_cast<double>(Tp_th / Tp), 1.9));
-	if (Tp > Tp_th)
-		return QArea(
-			(30.7 - 0.96 * LX + 0.18 * pow<2>(LX))
-				* std::pow(Threshold, 3.0));
-	return QArea(0);
-}
-
 QDifferentialCrossSection KelnerAharonianNeutrino::getDiffCrossSection(
 		const QEnergy &E_proton,
 		const QEnergy &E_nu) const {
@@ -56,7 +45,7 @@ QDifferentialCrossSection KelnerAharonianNeutrino::getDiffCrossSection(
 	if (std::isnan(F_numu))
 		throw std::runtime_error("F_numu is NAN!");
 
-	return sigmaInelastic(E_proton) * (F_numu + 2. * F_e) / E_proton;
+	return KelnerAharonianGamma::sigmaInelastic(E_proton) * (F_numu + 2. * F_e) / E_proton;
 }
 
 } // namespace interactions

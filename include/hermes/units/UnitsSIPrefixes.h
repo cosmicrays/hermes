@@ -46,6 +46,28 @@ constexpr double yotta = 1e24;
 	constexpr auto zetta##_UNIT = zetta * _UNIT; \
 	constexpr auto yotta##_UNIT = yotta * _UNIT;
 
+// SI prefixes - short
+#define GENERATE_SHORT_PREFIXED_UNITS(_UNIT, _SHORTUNIT) \
+	constexpr auto y##_SHORTUNIT  = yocto * _UNIT; \
+	constexpr auto z##_SHORTUNIT  = zepto * _UNIT; \
+	constexpr auto a##_SHORTUNIT  = atto  * _UNIT; \
+	constexpr auto f##_SHORTUNIT  = femto * _UNIT; \
+	constexpr auto p##_SHORTUNIT  = pico  * _UNIT; \
+	constexpr auto n##_SHORTUNIT  = nano  * _UNIT; \
+	constexpr auto mu##_SHORTUNIT = micro * _UNIT; \
+	constexpr auto m##_SHORTUNIT  = milli * _UNIT; \
+	constexpr auto c##_SHORTUNIT  = centi * _UNIT; \
+	constexpr auto d##_SHORTUNIT  = deci  * _UNIT; \
+	constexpr auto h##_SHORTUNIT  = hecto * _UNIT; \
+	constexpr auto k##_SHORTUNIT  = kilo  * _UNIT; \
+	constexpr auto M##_SHORTUNIT  = mega  * _UNIT; \
+	constexpr auto G##_SHORTUNIT  = giga  * _UNIT; \
+	constexpr auto T##_SHORTUNIT  = tera  * _UNIT; \
+	constexpr auto P##_SHORTUNIT  = peta  * _UNIT; \
+	constexpr auto E##_SHORTUNIT  = exa   * _UNIT; \
+	constexpr auto Z##_SHORTUNIT  = zetta * _UNIT; \
+	constexpr auto Y##_SHORTUNIT  = yotta * _UNIT;
+
 } // namespace units
 } // namespace hermes
 

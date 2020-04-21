@@ -1,6 +1,6 @@
 # Installation Instructions
 
-**HERMES** can be installed on GNU/Linux and macOS (OS X), while other operating systems have not been tested, and are generally not supported.
+**HERMES** can be installed on GNU/Linux and macOS (OS X), while other operating systems have not been tested and are generally not supported.
 
 ## Dependencies and requirements
 
@@ -14,7 +14,7 @@ Optional:
 - **Python** (Python 3.x) is needed for the Python interface (**recommended**)
 - **CFITSIO** is highly recommended since it enables reading DRAGON CR files and saving results in FITS files (**recommended**)
 - **FFTW3F** provides turbulent components for galactic magnetic field models
-- **Doxygen** is for generating documentation from the source code
+- **Doxygen** generates documentation from the source code
 - **LCOV** is used with `gcov` (GCC) to generate the code coverage reports
 
 Provided with the source:

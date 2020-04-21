@@ -7,6 +7,7 @@ Model from Phys.Rev.D74:034018,2006; Erratum-ibid.D79:039901,2009
 */
 
 #include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/KelnerAharonianGamma.h"
 
 #include <memory>
 
@@ -17,7 +18,6 @@ public:
 	KelnerAharonianNeutrino();
 	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_proton, const QEnergy &E_nu) const override;
-	QArea sigmaInelastic(const QEnergy &Tp) const;
 };
 
 } // namespace interactions

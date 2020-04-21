@@ -111,7 +111,7 @@ void init(py::module &m) {
 	// Constants
 	subm.attr("e_plus")	= e_plus;
 	subm.attr("c_light")	= c_light;
-	subm.attr("amu")		= amu;
+	subm.attr("amu")	= amu;
 	subm.attr("m_proton")	= m_proton;
 	subm.attr("m_neutron")	= m_neutron;
 	subm.attr("m_electron")	= m_electron;

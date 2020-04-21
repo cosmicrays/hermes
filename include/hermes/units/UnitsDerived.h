@@ -67,6 +67,7 @@ constexpr QTime year = 365.25 * day;
 
 // Predefined frequency units
 GENERATE_PREFIXED_UNITS(hertz)
+GENERATE_SHORT_PREFIXED_UNITS(hertz, Hz)
 
 // Predefined mass units:
 constexpr QMass tonne = 1000 * kilogram;
@@ -88,11 +89,13 @@ constexpr QLength astronomical_unit = 149597870700.0 * metre;
 constexpr QLength lightyear = year * c_light;
 constexpr QLength parsec = 648000.0 / (1*pi) * astronomical_unit;
 GENERATE_PREFIXED_UNITS(parsec)
+GENERATE_SHORT_PREFIXED_UNITS(parsec, pc)
 
 // Predefined area units:
 constexpr QArea hectare = 1e4 * square_metre;
 constexpr QArea barn = 1e-28 * square_metre;
 GENERATE_PREFIXED_UNITS(barn)
+GENERATE_SHORT_PREFIXED_UNITS(barn, barn)
 
 // Predefined volume units:
 constexpr QVolume metre3 = metre*metre*metre;
@@ -107,12 +110,13 @@ constexpr QForce kilopond = kilogram*G;
 constexpr auto gauss = 1e-4 * tesla;
 constexpr auto electronvolt = e_plus * volt;
 GENERATE_PREFIXED_UNITS(electronvolt)
+GENERATE_SHORT_PREFIXED_UNITS(electronvolt, eV)
 
 constexpr QPressure bar = 100000 * pascal;
 constexpr QPressure psi = pound*G / (inch*inch);
 
 // Other elementary particles
-constexpr QMass		m_pi0 = 134.9770 * megaelectronvolt / c_squared;
+constexpr QMass		m_pi0 = 134.9770 * MeV / c_squared;
 
 // Predefined angle units:
 constexpr QAngle degree = (pi / 180.0) * radian;

@@ -17,7 +17,10 @@ public:
 	KelnerAharonianGamma();
 	QDifferentialCrossSection getDiffCrossSection(
 			const QEnergy &E_proton, const QEnergy &E_gamma) const override;
-	QArea sigmaInelastic(const QEnergy &Tp) const;
+
+	// Parametrization based on
+	// Phys.Rev. D90 (2014) 12, 123014 (astro-ph/1406.7369)
+	static QArea sigmaInelastic(const QEnergy &Tp);
 };
 
 } // namespace interactions

@@ -43,11 +43,13 @@ void init(py::module &m) {
 		   &Kamae06Neutrino::getDiffCrossSection);
     py::class_<KelnerAharonianGamma, std::shared_ptr<KelnerAharonianGamma>, DifferentialCrossSection>(subm, "KelnerAharonianGamma")
 	      .def(py::init<>())
+	      .def_static("sigmaInelastic", &KelnerAharonianGamma::sigmaInelastic)
 	      .def("getDiffCrossSection",
 		   (QDifferentialCrossSection (KelnerAharonianGamma::*)(const QEnergy &, const QEnergy &) const)
 		   &KelnerAharonianGamma::getDiffCrossSection);
     py::class_<KelnerAharonianNeutrino, std::shared_ptr<KelnerAharonianNeutrino>, DifferentialCrossSection>(subm, "KelnerAharonianNeutrino")
 	      .def(py::init<>())
+	      .def_static("sigmaInelastic", &KelnerAharonianGamma::sigmaInelastic)
 	      .def("getDiffCrossSection",
 		   (QDifferentialCrossSection (KelnerAharonianNeutrino::*)(const QEnergy &, const QEnergy &) const)
 		   &KelnerAharonianNeutrino::getDiffCrossSection);
