@@ -11,17 +11,15 @@
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 
+// clang-format off
 #define PPCAT(A, B) A##B
-#define NEW_INTEGRATOR(_obj, _name, _class, _qpxl, _qstep)                     \
-	using PPCAT(_class, ParentClass) = IntegratorTemplate<_qpxl, _qstep>;  \
-	py::class_<PPCAT(_class, ParentClass),                                 \
-		   std::shared_ptr<PPCAT(_class, ParentClass)>>(               \
-	    m, (std::string(_name) + std::string("Parent")).c_str())           \
-	    .def(py::init<>());                                                \
-	py::class_<_class, PPCAT(_class, ParentClass),                         \
-		   std::shared_ptr<_class>>                                    \
-	    _obj(m, _name,                                                     \
-		 py::buffer_protocol()); // NOLINT(bugprone-macro-parentheses)
+#define NEW_INTEGRATOR(_o, _n, _c, _qpxl, _qstep)                              		\
+	using PPCAT(_c, ParentClass) = IntegratorTemplate<_qpxl, _qstep>;      		\
+	py::class_<PPCAT(_c, ParentClass), std::shared_ptr<PPCAT(_c, ParentClass)>>(    \
+	    m, (std::string(_n) + std::string("Parent")).c_str())              		\
+	    .def(py::init<>());                                                		\
+	py::class_<_c, PPCAT(_c, ParentClass), std::shared_ptr<_c>> _o(m, _n, py::buffer_protocol()); // NOLINT(bugprone-macro-parentheses)
+// clang-format on
 
 namespace py = pybind11;
 

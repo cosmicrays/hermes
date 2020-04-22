@@ -147,7 +147,9 @@ void init_skymaps(py::module &m) {
                 1>() /* Essential: keep object alive while iterator exists */);
 
 	// Skymap Masks
-	py::class_<SkymapMask, std::shared_ptr<SkymapMask>>( // NOLINT(bugprone-unused-raii)
+	// NOLINTNEXTLINE(bugprone-unused-raii)
+	py::class_<SkymapMask,
+		   std::shared_ptr<SkymapMask>>(
 	    m, "SkymapMask");
 	py::class_<InvertMask, std::shared_ptr<InvertMask>, SkymapMask>(
 	    m, "InvertMask")

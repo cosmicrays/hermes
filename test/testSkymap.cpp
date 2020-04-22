@@ -5,8 +5,9 @@
 namespace hermes {
 
 typedef SkymapTemplate<QNumber, QFrequency> SimpleSkymap;
+typedef IntegratorTemplate<QNumber, QFrequency> SimpleIntegrator;
 
-class DummyIntegrator : public IntegratorTemplate<QNumber, QFrequency> {
+class DummyIntegrator : public SimpleIntegrator {
       public:
 	DummyIntegrator(){};
 	~DummyIntegrator(){};
@@ -53,9 +54,9 @@ TEST(Skymap, computePixel) {
 }
 
 TEST(SkymapMask, RectangularWindow) {
-	int nside = 12;
+	int nside = 32;
 	auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
-	    QDirection({40_deg, 10_deg}), QDirection({-30_deg, 90_deg})));
+	    QDirection({40_deg, 30_deg}), QDirection({-30_deg, 60_deg})));
 	mask->getDescription();
 
 	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside, mask));
@@ -64,7 +65,7 @@ TEST(SkymapMask, RectangularWindow) {
 	skymap->setIntegrator(integrator);
 	skymap->compute();
 
-	QDirection dir_1 = {0_deg, 20_deg};
+	QDirection dir_1 = {0_deg, 40_deg};
 	long int pixel_1 = ang2pix_ring(nside, fromGalCoord(dir_1));
 	QDirection dir_2 = {80_deg, 120_deg};
 	long int pixel_2 = ang2pix_ring(nside, fromGalCoord(dir_2));
