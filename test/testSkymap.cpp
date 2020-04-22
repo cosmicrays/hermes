@@ -6,20 +6,18 @@ namespace hermes {
 
 typedef SkymapTemplate<QNumber, QFrequency> SimpleSkymap;
 
-class DummyIntegrator: public IntegratorTemplate<QNumber, QFrequency> {
-public:
-        DummyIntegrator() {
-	};
-        ~DummyIntegrator() {
-	};
-        QNumber integrateOverLOS(QDirection direction) const {
-	
+class DummyIntegrator : public IntegratorTemplate<QNumber, QFrequency> {
+      public:
+	DummyIntegrator(){};
+	~DummyIntegrator(){};
+	QNumber integrateOverLOS(QDirection direction) const {
+
 		QDirection galacticCentre = {90_deg, 0};
 		QDirection galacticNorth = {0, 0};
 
-		if(isWithinAngle(direction, galacticCentre, 20_deg))
+		if (isWithinAngle(direction, galacticCentre, 20_deg))
 			return QNumber(1);
-		if(isWithinAngle(direction, galacticNorth, 30_deg))
+		if (isWithinAngle(direction, galacticNorth, 30_deg))
 			return QNumber(-1);
 		return QNumber(0);
 	};
@@ -27,7 +25,7 @@ public:
 
 TEST(Skymap, resNsideNpixelsConvert) {
 	int nside = 8;
-        auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
+	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
 	skymap->getDescription();
 
 	EXPECT_EQ(skymap->getRes(), 3);
@@ -40,7 +38,7 @@ TEST(Skymap, resNsideNpixelsConvert) {
 TEST(Skymap, computePixel) {
 
 	int nside = 4;
-        auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
+	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
 	auto integrator = std::make_shared<DummyIntegrator>(DummyIntegrator());
 	QDirection galacticCentre = {90_deg, 0};
 	long int gcPixel = ang2pix_ring(nside, galacticCentre);
@@ -49,7 +47,7 @@ TEST(Skymap, computePixel) {
 
 	skymap->computePixel(gcPixel, integrator);
 	skymap->computePixel(gnPixel, integrator);
-	
+
 	EXPECT_EQ(static_cast<double>(skymap->getPixel(gcPixel)), 1);
 	EXPECT_EQ(static_cast<double>(skymap->getPixel(gnPixel)), -1);
 }
@@ -57,30 +55,28 @@ TEST(Skymap, computePixel) {
 TEST(SkymapMask, RectangularWindow) {
 	int nside = 12;
 	auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
-			QDirection({40_deg, 10_deg}), QDirection({-30_deg, 90_deg})));
+	    QDirection({40_deg, 10_deg}), QDirection({-30_deg, 90_deg})));
 	mask->getDescription();
 
-	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(
-					nside, mask));
+	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside, mask));
 	auto integrator = std::make_shared<DummyIntegrator>(DummyIntegrator());
-	
+
 	skymap->setIntegrator(integrator);
 	skymap->compute();
-	
+
 	QDirection dir_1 = {0_deg, 20_deg};
 	long int pixel_1 = ang2pix_ring(nside, fromGalCoord(dir_1));
 	QDirection dir_2 = {80_deg, 120_deg};
 	long int pixel_2 = ang2pix_ring(nside, fromGalCoord(dir_2));
 
-
-	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_1)), UNSEEN);	
-	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);	
+	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_1)), UNSEEN);
+	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);
 }
 
 TEST(SkymapMask, CircularWindow) {
-	auto mask = std::make_shared<CircularWindow>(CircularWindow(
-			QDirection{-20_deg, 0_deg}, 15_deg));
-	
+	auto mask = std::make_shared<CircularWindow>(
+	    CircularWindow(QDirection{-20_deg, 0_deg}, 15_deg));
+
 	auto dir1 = QDirection({60_deg, 120_deg});
 	auto dir2 = QDirection({-30_deg, 0_deg});
 
@@ -90,14 +86,16 @@ TEST(SkymapMask, CircularWindow) {
 
 TEST(SkymapMask, CombinationOfMasks) {
 	auto mask = std::make_shared<MaskList>(MaskList());
-	auto mask_circle = std::make_shared<CircularWindow>(CircularWindow(
-			QDirection{0_deg, 30_deg}, 10_deg));
-	auto mask_window = std::make_shared<RectangularWindow>(RectangularWindow(
-			QDirection({20_deg, 20_deg}), QDirection({-20_deg, 50_deg})));
-	auto invert_circle = std::make_shared<InvertMask>(InvertMask(mask_circle));
+	auto mask_circle = std::make_shared<CircularWindow>(
+	    CircularWindow(QDirection{0_deg, 30_deg}, 10_deg));
+	auto mask_window =
+	    std::make_shared<RectangularWindow>(RectangularWindow(
+		QDirection({20_deg, 20_deg}), QDirection({-20_deg, 50_deg})));
+	auto invert_circle =
+	    std::make_shared<InvertMask>(InvertMask(mask_circle));
 	mask->addMask(invert_circle);
 	mask->addMask(mask_window);
-	
+
 	auto dir1 = QDirection({0_deg, 30_deg});
 	auto dir2 = QDirection({19_deg, 30_deg});
 	auto dir3 = QDirection({35_deg, 0_deg});
@@ -108,9 +106,8 @@ TEST(SkymapMask, CombinationOfMasks) {
 }
 
 int main(int argc, char **argv) {
-        ::testing::InitGoogleTest(&argc, argv);
-        return RUN_ALL_TESTS();
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 }
 
 } // namespace hermes
-

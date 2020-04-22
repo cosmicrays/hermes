@@ -1,5 +1,5 @@
-#include "hermes/Vector3.h"
 #include "hermes/Units.h"
+#include "hermes/Vector3.h"
 #include "gtest/gtest.h"
 
 namespace hermes {
@@ -120,13 +120,13 @@ TEST(Vector3, rotation) {
 
 	// rotation by zero degrees
 	v = Vector3d(1, 0, 0);
-	w = v.getRotated(Vector3d(0,1,0), 0);
+	w = v.getRotated(Vector3d(0, 1, 0), 0);
 
 	EXPECT_NEAR(w.x, 1, 1e-9);
 	EXPECT_NEAR(w.y, 0, 1e-9);
 	EXPECT_NEAR(w.z, 0, 1e-9);
 
-	// rotation around zero axis 
+	// rotation around zero axis
 	v = Vector3d(1, 0, 0);
 	Vector3d a = v.cross(v);
 	w = v.getRotated(a, 0);
@@ -134,10 +134,6 @@ TEST(Vector3, rotation) {
 	EXPECT_NEAR(w.x, 1, 1e-9);
 	EXPECT_NEAR(w.y, 0, 1e-9);
 	EXPECT_NEAR(w.z, 0, 1e-9);
-
-
-
-
 }
 
 TEST(Vector3, parallelPerpendicular) {

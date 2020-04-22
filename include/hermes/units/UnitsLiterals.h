@@ -7,23 +7,28 @@
 #include "UnitsSimple.h"
 #endif
 
-namespace hermes { namespace units {
+namespace hermes {
+namespace units {
 /**
  * \addtogroup Units
  * @{
  */
 
-#define BASELITERAL(_QUANTITY, _STRING) \
-	constexpr _QUANTITY operator"" _STRING(long double x) { \
-		return _QUANTITY(x); } \
-	constexpr _QUANTITY operator"" _STRING(unsigned long long int x) { \
-		return _QUANTITY(static_cast<double>(x)); }
+#define BASELITERAL(_QUANTITY, _STRING)                                        \
+	constexpr _QUANTITY operator"" _STRING(long double x) {                \
+		return _QUANTITY(x);                                           \
+	}                                                                      \
+	constexpr _QUANTITY operator"" _STRING(unsigned long long int x) {     \
+		return _QUANTITY(static_cast<double>(x));                      \
+	}
 
-#define LITERAL(_QUANTITY, _STRING, _UNIT) \
-	constexpr _QUANTITY operator"" _STRING(long double x) { \
-		return x*_UNIT; } \
-	constexpr _QUANTITY operator"" _STRING(unsigned long long int x) { \
-		return static_cast<double>(x)*_UNIT; }
+#define LITERAL(_QUANTITY, _STRING, _UNIT)                                     \
+	constexpr _QUANTITY operator"" _STRING(long double x) {                \
+		return x * _UNIT;                                              \
+	}                                                                      \
+	constexpr _QUANTITY operator"" _STRING(unsigned long long int x) {     \
+		return static_cast<double>(x) * _UNIT;                         \
+	}
 
 // Conversion macro, which utilizes the string literals
 #define ConvertTo(_x, _y) (_x).convertTo(1.0_##_y)
@@ -33,7 +38,7 @@ namespace hermes { namespace units {
 BASELITERAL(QNumber, _num)
 
 // Constants:
-// ---------------------	
+// ---------------------
 LITERAL(long double, _pi, pi)
 
 // Angular unit literals:
@@ -57,8 +62,8 @@ LITERAL(QLength, _pc, parsec)
 LITERAL(QLength, _kpc, kiloparsec)
 
 // literals for area units
-LITERAL(QArea, _m2, (metre*metre))
-LITERAL(QArea, _cm2, (centimetre*centimetre))
+LITERAL(QArea, _m2, (metre * metre))
+LITERAL(QArea, _cm2, (centimetre * centimetre))
 LITERAL(QArea, _barn, barn)
 LITERAL(QArea, _mbarn, millibarn)
 
@@ -79,29 +84,29 @@ LITERAL(QEnergy, _EeV, exaelectronvolt)
 
 // literals for speed units
 BASELITERAL(QSpeed, _mps)
-LITERAL(QSpeed, _miph, mile/hour)
-LITERAL(QSpeed, _kmph, kilo*metre/hour)
+LITERAL(QSpeed, _miph, mile / hour)
+LITERAL(QSpeed, _kmph, kilo *metre / hour)
 
 // literal for frequency units
 BASELITERAL(QFrequency, _Hz)
-LITERAL(QFrequency, _kHz, kilo*hertz)
-LITERAL(QFrequency, _MHz, mega*hertz)
-LITERAL(QFrequency, _GHz, giga*hertz)
-LITERAL(QFrequency, _THz, tera*hertz)
+LITERAL(QFrequency, _kHz, kilo *hertz)
+LITERAL(QFrequency, _MHz, mega *hertz)
+LITERAL(QFrequency, _GHz, giga *hertz)
+LITERAL(QFrequency, _THz, tera *hertz)
 
 // literals for magnetic field strength units
 BASELITERAL(QMField, _T)
-LITERAL(QMField, _nG, nano*gauss)
-LITERAL(QMField, _muG, micro*gauss)
+LITERAL(QMField, _nG, nano *gauss)
+LITERAL(QMField, _muG, micro *gauss)
 
 // literals for temperature units
 BASELITERAL(QTemperature, _K)
-LITERAL(QTemperature, _muK, micro*kelvin)
+LITERAL(QTemperature, _muK, micro *kelvin)
 
 // literals for time units
 BASELITERAL(QTime, _s)
-LITERAL(QTime, _ns, nano*second)
-LITERAL(QTime, _ms, micro*second)
+LITERAL(QTime, _ns, nano *second)
+LITERAL(QTime, _ms, micro *second)
 LITERAL(QTime, _min, minute)
 LITERAL(QTime, _h, hour)
 LITERAL(QTime, _day, day)

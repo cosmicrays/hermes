@@ -3,10 +3,11 @@
 
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 
-namespace hermes { namespace cosmicrays {
+namespace hermes {
+namespace cosmicrays {
 
-class WMAP07CRDensity: public CosmicRayDensity {
-private:
+class WMAP07CRDensity : public CosmicRayDensity {
+      private:
 	QEnergy minE, maxE;
 	int spectralIndex;
 	QEnergy E_0, E_cutoff;
@@ -15,10 +16,13 @@ private:
 	int steps;
 	void makeEnergyRange();
 	void setParameters();
-public:
+
+      public:
 	WMAP07CRDensity();
 	WMAP07CRDensity(QEnergy minE_, QEnergy maxE_, int steps_);
-	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_, const Vector3QLength& pos_) const override;
+	QPDensityPerEnergy
+	getDensityPerEnergy(const QEnergy &E_,
+			    const Vector3QLength &pos_) const override;
 };
 
 } // namespace cosmicrays

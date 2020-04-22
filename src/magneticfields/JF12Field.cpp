@@ -4,7 +4,8 @@
 
 #include <iostream>
 
-namespace hermes { namespace magneticfields {
+namespace hermes {
+namespace magneticfields {
 
 QNumber logisticFunction(QLength x, QLength x0, QLength w) {
 	return 1. / (1. + exp(-2. * (fabs(x) - x0) / w));
@@ -83,8 +84,8 @@ JF12Field::JF12Field() {
 void JF12Field::randomStriated(int seed) {
 	useStriated = true;
 	int N = 100;
-	striatedGrid = std::make_shared<ScalarGrid>(ScalarGrid(
-				Vector3d(0.), N, static_cast<double>(0.1_kpc)));
+	striatedGrid = std::make_shared<ScalarGrid>(
+	    ScalarGrid(Vector3d(0.), N, static_cast<double>(0.1_kpc)));
 
 	Random random;
 	if (seed != 0)
@@ -94,16 +95,22 @@ void JF12Field::randomStriated(int seed) {
 		for (int iy = 0; iy < N; iy++)
 			for (int iz = 0; iz < N; iz++) {
 				float &f = striatedGrid->get(ix, iy, iz);
-				f = std::round(static_cast<float>(random.rand())) * 2 - 1;
+				f = std::round(
+					static_cast<float>(random.rand())) *
+					2 -
+				    1;
 			}
 }
 
 #ifdef HERMES_HAVE_FFTW3F
 void JF12Field::randomTurbulent(int seed) {
 	useTurbulent = true;
-	// turbulent field with Kolmogorov spectrum, B_rms = 1 and Lc = 60 parsec
-	turbulentGrid = std::make_shared<VectorGrid>(VectorGrid(Vector3d(0.), 256, static_cast<double>(4_pc)));
-	initTurbulence(turbulentGrid, 1, static_cast<double>(8_pc), static_cast<double>(272_pc), -11./3., seed);
+	// turbulent field with Kolmogorov spectrum, B_rms = 1 and Lc = 60
+	// parsec
+	turbulentGrid = std::make_shared<VectorGrid>(
+	    VectorGrid(Vector3d(0.), 256, static_cast<double>(4_pc)));
+	initTurbulence(turbulentGrid, 1, static_cast<double>(8_pc),
+		       static_cast<double>(272_pc), -11. / 3., seed);
 }
 #endif
 
@@ -125,13 +132,12 @@ std::shared_ptr<VectorGrid> JF12Field::getTurbulentGrid() {
 	return turbulentGrid;
 }
 
-void JF12Field::setUseRegular(bool use) {
-	useRegular = use;
-}
+void JF12Field::setUseRegular(bool use) { useRegular = use; }
 
 void JF12Field::setUseStriated(bool use) {
 	if ((use) and (striatedGrid)) {
-		std::cout << "JF12Field: No striated field set: ignored" << std::endl;
+		std::cout << "JF12Field: No striated field set: ignored"
+			  << std::endl;
 		return;
 	}
 	useStriated = use;
@@ -139,25 +145,20 @@ void JF12Field::setUseStriated(bool use) {
 
 void JF12Field::setUseTurbulent(bool use) {
 	if ((use) and (turbulentGrid)) {
-		std::cout << "JF12Field: No turbulent field set: ignored" << std::endl;
+		std::cout << "JF12Field: No turbulent field set: ignored"
+			  << std::endl;
 		return;
 	}
 	useTurbulent = use;
 }
 
-bool JF12Field::isUsingRegular() const {
-	return useRegular;
-}
+bool JF12Field::isUsingRegular() const { return useRegular; }
 
-bool JF12Field::isUsingStriated() const {
-	return useStriated;
-}
+bool JF12Field::isUsingStriated() const { return useStriated; }
 
-bool JF12Field::isUsingTurbulent() const {
-	return useTurbulent;
-}
+bool JF12Field::isUsingTurbulent() const { return useTurbulent; }
 
-Vector3QMField JF12Field::getRegularField(const Vector3QLength& pos) const {
+Vector3QMField JF12Field::getRegularField(const Vector3QLength &pos) const {
 	Vector3d b(0.);
 
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y); // in-plane radius
@@ -176,34 +177,46 @@ Vector3QMField JF12Field::getRegularField(const Vector3QLength& pos) const {
 		double bMag;
 		if (r < 5_kpc) {
 			// molecular ring
-			bMag = static_cast<double>(bRing * (5_kpc / r) * (QNumber(1) - lfDisk));
+			bMag = static_cast<double>(bRing * (5_kpc / r) *
+						   (QNumber(1) - lfDisk));
 			b.x += -bMag * static_cast<double>(sinPhi);
 			b.y += bMag * static_cast<double>(cosPhi);
 
 		} else {
 			// spiral region
-			QLength r_negx = r * exp((-(phi - QAngle(pi)) / tan90MinusPitch)/1_rad);
+			QLength r_negx =
+			    r * exp((-(phi - QAngle(pi)) / tan90MinusPitch) /
+				    1_rad);
 			if (r_negx > rArms[7])
-				r_negx = r * exp((-(phi + QAngle(pi)) / tan90MinusPitch)/1_rad);
+				r_negx = r * exp((-(phi + QAngle(pi)) /
+						  tan90MinusPitch) /
+						 1_rad);
 			if (r_negx > rArms[7])
-				r_negx = r * exp((-(phi + QAngle(3*pi)) / tan90MinusPitch)/1_rad);
+				r_negx = r * exp((-(phi + QAngle(3 * pi)) /
+						  tan90MinusPitch) /
+						 1_rad);
 
 			for (int i = 7; i >= 0; i--)
 				if (r_negx < rArms[i])
 					bMag = static_cast<double>(bDisk[i]);
 
-			bMag *= static_cast<double>((5_kpc / r) * (QNumber(1) - lfDisk));
-			b.x += bMag * static_cast<double>(sinPitch * cosPhi - cosPitch * sinPhi);
-			b.y += bMag * static_cast<double>(sinPitch * sinPhi + cosPitch * cosPhi);
+			bMag *= static_cast<double>((5_kpc / r) *
+						    (QNumber(1) - lfDisk));
+			b.x += bMag * static_cast<double>(sinPitch * cosPhi -
+							  cosPitch * sinPhi);
+			b.y += bMag * static_cast<double>(sinPitch * sinPhi +
+							  cosPitch * cosPhi);
 		}
 	}
 
 	// toroidal halo field
 	double bMagH = static_cast<double>(exp(-fabs(pos.z) / z0) * lfDisk);
 	if (pos.z >= 0_m)
-		bMagH *= static_cast<double>(bNorth * (QNumber(1) - logisticFunction(r, rNorth, wHalo)));
+		bMagH *= static_cast<double>(
+		    bNorth * (QNumber(1) - logisticFunction(r, rNorth, wHalo)));
 	else
-		bMagH *= static_cast<double>(bSouth * (QNumber(1) - logisticFunction(r, rSouth, wHalo)));
+		bMagH *= static_cast<double>(
+		    bSouth * (QNumber(1) - logisticFunction(r, rSouth, wHalo)));
 	b.x += -bMagH * static_cast<double>(sinPhi);
 	b.y += bMagH * static_cast<double>(cosPhi);
 
@@ -215,7 +228,8 @@ Vector3QMField JF12Field::getRegularField(const Vector3QLength& pos) const {
 	if (r < rc) {
 		// varying elevation region
 		rp = r * rXc / rc;
-		bMagX = static_cast<double>(bX * exp(-1 * rp / rX) * pow<2>(rXc / rc));
+		bMagX = static_cast<double>(bX * exp(-1 * rp / rX) *
+					    pow<2>(rXc / rc));
 		QAngle thetaX = atan2(fabs(pos.z), (r - rp));
 		if (pos.z == 0_m)
 			thetaX = pi / 2.;
@@ -236,17 +250,17 @@ Vector3QMField JF12Field::getRegularField(const Vector3QLength& pos) const {
 	return Vector3QMField(b);
 }
 
-Vector3QMField JF12Field::getStriatedField(const Vector3QLength& pos) const {
-	return (getRegularField(pos)
-			* (1. + sqrtbeta * striatedGrid->closestValue(pos)));
+Vector3QMField JF12Field::getStriatedField(const Vector3QLength &pos) const {
+	return (getRegularField(pos) *
+		(1. + sqrtbeta * striatedGrid->closestValue(pos)));
 }
 
-QMField JF12Field::getTurbulentStrength(const Vector3QLength& pos) const {
+QMField JF12Field::getTurbulentStrength(const Vector3QLength &pos) const {
 	if (pos.getR() > 20_kpc)
 		return QMField(0);
 
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y); // in-plane radius
-	QAngle phi = pos.getPhi(); // azimuth
+	QAngle phi = pos.getPhi();			 // azimuth
 
 	// disk
 	QMField bDisk = 0;
@@ -254,11 +268,14 @@ QMField JF12Field::getTurbulentStrength(const Vector3QLength& pos) const {
 		bDisk = bDiskTurb5;
 	} else {
 		// spiral region
-		QLength r_negx = r * exp(-(phi - QAngle(pi)) / tan90MinusPitch / 1_rad);
+		QLength r_negx =
+		    r * exp(-(phi - QAngle(pi)) / tan90MinusPitch / 1_rad);
 		if (r_negx > rArms[7])
-			r_negx = r * exp(-(phi + QAngle(pi)) / tan90MinusPitch / 1_rad);
+			r_negx = r * exp(-(phi + QAngle(pi)) / tan90MinusPitch /
+					 1_rad);
 		if (r_negx > rArms[7])
-			r_negx = r * exp(-(phi + QAngle(3*pi)) / tan90MinusPitch / 1_rad);
+			r_negx = r * exp(-(phi + QAngle(3 * pi)) /
+					 tan90MinusPitch / 1_rad);
 
 		for (int i = 7; i >= 0; i--)
 			if (r_negx < rArms[i])
@@ -269,24 +286,24 @@ QMField JF12Field::getTurbulentStrength(const Vector3QLength& pos) const {
 	bDisk = bDisk * exp(-0.5 * pow<2>(pos.z / zDiskTurb));
 
 	// halo
-	QMField bHalo = bHaloTurb * exp(-r / rHaloTurb)
-			* exp(-0.5 * pow<2>(pos.z / zHaloTurb));
+	QMField bHalo = bHaloTurb * exp(-r / rHaloTurb) *
+			exp(-0.5 * pow<2>(pos.z / zHaloTurb));
 
 	// modulate turbulent field
 	return sqrt(pow<2>(bDisk) + pow<2>(bHalo));
 }
 
-Vector3QMField JF12Field::getTurbulentField(const Vector3QLength& pos) const {
+Vector3QMField JF12Field::getTurbulentField(const Vector3QLength &pos) const {
 	return (turbulentGrid->interpolate(pos) * getTurbulentStrength(pos));
 }
 
-Vector3QMField JF12Field::getField(const Vector3QLength& pos_) const {
+Vector3QMField JF12Field::getField(const Vector3QLength &pos_) const {
 	// the JF12 model uses right-handed Cartesian and
 	// cylindrical coordinate system
 	Vector3QMField b(0.);
 	Vector3QLength pos = pos_;
 	pos.setX(-pos_.getX());
-	//pos.setY(-pos_.getY());
+	// pos.setY(-pos_.getY());
 
 	if (useTurbulent)
 		b += getTurbulentField(pos);

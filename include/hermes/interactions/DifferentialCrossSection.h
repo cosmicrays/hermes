@@ -1,33 +1,33 @@
 #ifndef HERMES_DIFFERENTIALCROSSSECTION_H
 #define HERMES_DIFFERENTIALCROSSSECTION_H
 
-#include "hermes/Units.h"
 #include "hermes/ParticleID.h"
+#include "hermes/Units.h"
 
-namespace hermes { namespace interactions {
+namespace hermes {
+namespace interactions {
 
 using namespace units;
 
 class DifferentialCrossSection {
-protected:
+      protected:
 	bool cachingEnabled;
-public:
+
+      public:
 	DifferentialCrossSection(bool cachingEnabled = false);
 	~DifferentialCrossSection();
-	
+
 	void enableCaching();
 	void disableCaching();
-	
-	virtual QDifferentialCrossSection getDiffCrossSection(
-			const QEnergy &E_proton,
-			const QEnergy &E_gamma) const;
-        virtual QDifferentialCrossSection getDiffCrossSection(
-                        const QEnergy &E_electron,
-                        const QEnergy &E_photon,
-                        const QEnergy &E_gamma) const;
-	virtual QNumber getSigma(
-			const PID &projectile,
-			const PID &target) const;
+
+	virtual QDifferentialCrossSection
+	getDiffCrossSection(const QEnergy &E_proton,
+			    const QEnergy &E_gamma) const;
+	virtual QDifferentialCrossSection
+	getDiffCrossSection(const QEnergy &E_electron, const QEnergy &E_photon,
+			    const QEnergy &E_gamma) const;
+	virtual QNumber getSigma(const PID &projectile,
+				 const PID &target) const;
 };
 
 } // namespace interactions

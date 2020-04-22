@@ -11,13 +11,15 @@ Model from Phys.Rev.D74:034018,2006; Erratum-ibid.D79:039901,2009
 
 #include <memory>
 
-namespace hermes { namespace interactions {
+namespace hermes {
+namespace interactions {
 
-class KelnerAharonianNeutrino: public DifferentialCrossSection {
-public:
+class KelnerAharonianNeutrino : public DifferentialCrossSection {
+      public:
 	KelnerAharonianNeutrino();
-	QDifferentialCrossSection getDiffCrossSection(
-			const QEnergy &E_proton, const QEnergy &E_nu) const override;
+	QDifferentialCrossSection
+	getDiffCrossSection(const QEnergy &E_proton,
+			    const QEnergy &E_nu) const override;
 };
 
 } // namespace interactions

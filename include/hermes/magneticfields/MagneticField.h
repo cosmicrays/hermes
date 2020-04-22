@@ -1,16 +1,17 @@
 #ifndef HERMES_MAGNETICFIELD_H
 #define HERMES_MAGNETICFIELD_H
 
+#include "hermes/Units.h"
 #include "hermes/Vector3.h"
 #include "hermes/Vector3Quantity.h"
-#include "hermes/Units.h"
 #include <memory>
 
 #ifdef HERMES_HAVE_MUPARSER
 #include "muParser.h"
 #endif
 
-namespace hermes { namespace magneticfields {
+namespace hermes {
+namespace magneticfields {
 /**
  * \addtogroup MagneticFields
  * @{
@@ -21,9 +22,8 @@ namespace hermes { namespace magneticfields {
  @brief Abstract base class for magnetic fields.
  */
 class MagneticField {
-public:
-	virtual ~MagneticField() {
-	}
+      public:
+	virtual ~MagneticField() {}
 	virtual Vector3QMField getField(const Vector3QLength &position) const {
 		return Vector3QMField(0_muG);
 	};
@@ -33,15 +33,17 @@ public:
  @class PeriodicMagneticField
  @brief Magnetic field decorator implementing periodic fields.
  */
-class PeriodicMagneticField: public MagneticField {
+class PeriodicMagneticField : public MagneticField {
 	std::shared_ptr<MagneticField> field;
 	Vector3QLength origin, extends;
 	bool reflective;
-public:
+
+      public:
 	PeriodicMagneticField(std::shared_ptr<MagneticField> field,
-			const Vector3QLength &extends);
-	PeriodicMagneticField(std::shared_ptr<MagneticField> field, const Vector3QLength &extends,
-			const Vector3QLength &origin, bool reflective);
+			      const Vector3QLength &extends);
+	PeriodicMagneticField(std::shared_ptr<MagneticField> field,
+			      const Vector3QLength &extends,
+			      const Vector3QLength &origin, bool reflective);
 	Vector3QLength &getOrigin();
 	void setOrigin(const Vector3QLength &origin);
 	Vector3QLength &getExtends();
@@ -55,9 +57,10 @@ public:
  @class MagneticFieldList
  @brief Magnetic field decorator implementing a superposition of fields.
  */
-class MagneticFieldList: public MagneticField {
-	std::vector<std::shared_ptr<MagneticField> > fields;
-public:
+class MagneticFieldList : public MagneticField {
+	std::vector<std::shared_ptr<MagneticField>> fields;
+
+      public:
 	void addField(std::shared_ptr<MagneticField> field);
 	Vector3QMField getField(const Vector3QLength &position) const override;
 };
@@ -66,12 +69,12 @@ public:
  @class UniformMagneticField
  @brief Magnetic field with one B-field vector.
  */
-class UniformMagneticField: public MagneticField {
+class UniformMagneticField : public MagneticField {
 	Vector3QMField value;
-public:
-	explicit UniformMagneticField(const Vector3QMField &value) :
-			value(value) {
-	}
+
+      public:
+	explicit UniformMagneticField(const Vector3QMField &value)
+	    : value(value) {}
 	Vector3QMField getField(const Vector3QLength &position) const override {
 		return value;
 	}

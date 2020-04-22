@@ -17,28 +17,31 @@ namespace hermes {
 std::string getDataPath(std::string filename);
 
 /**
-	Gives a distance from the galactic centre (GC) by providing the distance 
+	Gives a distance from the galactic centre (GC) by providing the distance
 	from the Sun and the direction (theta,phi)
 */
 QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
-				Vector3QLength vecGCSun);
+		       Vector3QLength vecGCSun);
 
 /**
 	Gives a distance from an observer to the (spherical) galactic border
 	in the given direction (law of cosines)
 */
-QLength distanceToGalBorder(const Vector3QLength &positionSun, const QDirection &direction,
-		const QLength &galacticBorder = 30_kpc, const QLength &zBorder = 5_kpc);
+QLength distanceToGalBorder(const Vector3QLength &positionSun,
+			    const QDirection &direction,
+			    const QLength &galacticBorder = 30_kpc,
+			    const QLength &zBorder = 5_kpc);
 
 /**
 	Returns XYZ position in the (right-handed) galacto-centric
 	coordinate system by giving distance and direction from the observer
 */
 Vector3QLength getGalacticPosition(const Vector3QLength &posSun,
-		const QLength &dist, const QDirection &dir);
+				   const QLength &dist, const QDirection &dir);
 
 /**
-	Conversion to/from Galactic coordinates from/to angles of spherical coordinate system (ISO)
+	Conversion to/from Galactic coordinates from/to angles of spherical
+   coordinate system (ISO)
 */
 QDirection toGalCoord(const QDirection &);
 QDirection fromGalCoord(const QDirection &);
@@ -50,12 +53,12 @@ QDirection fromGalCoord(const QDirection &);
 bool isWithinAngle(QDirection a, QDirection b, QAngle d);
 
 /**
- 	Calculate the Lorentz factor (gamma) from a particle mass and energy
+	Calculate the Lorentz factor (gamma) from a particle mass and energy
 */
 QNumber getLorentzFactor(QMass m, QEnergy E);
 
 /**
- 	Intensity to temperature coversion
+	Intensity to temperature coversion
 */
 QTemperature intensityToTemperature(QIntensity intensity, QFrequency freq);
 
@@ -73,7 +76,8 @@ size_t getThreadId();
 	For a given number of tasks, split them over available system threads;
 	returns a vector of [start, stop> pairs
 */
-std::vector<std::pair<unsigned int,unsigned int>> getThreadChunks(unsigned int queueSize);
+std::vector<std::pair<unsigned int, unsigned int>>
+getThreadChunks(unsigned int queueSize);
 
 } // namespace hermes
 

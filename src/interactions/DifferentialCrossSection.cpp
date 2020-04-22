@@ -1,38 +1,32 @@
 #include "hermes/interactions/DifferentialCrossSection.h"
 
-namespace hermes { namespace interactions {
+namespace hermes {
+namespace interactions {
 
-DifferentialCrossSection::DifferentialCrossSection(bool cachingEnabled_) :
-	cachingEnabled(cachingEnabled_) {
-}
+DifferentialCrossSection::DifferentialCrossSection(bool cachingEnabled_)
+    : cachingEnabled(cachingEnabled_) {}
 
-DifferentialCrossSection::~DifferentialCrossSection() {
-}
+DifferentialCrossSection::~DifferentialCrossSection() {}
 
-void DifferentialCrossSection::enableCaching() {
-	cachingEnabled = true;
-};
+void DifferentialCrossSection::enableCaching() { cachingEnabled = true; };
 
-void DifferentialCrossSection::disableCaching() {
-	cachingEnabled = false;
-};
+void DifferentialCrossSection::disableCaching() { cachingEnabled = false; };
 
-QDifferentialCrossSection DifferentialCrossSection::getDiffCrossSection(
-		const QEnergy &E_proton,
-		const QEnergy &E_gamma) const {
+QDifferentialCrossSection
+DifferentialCrossSection::getDiffCrossSection(const QEnergy &E_proton,
+					      const QEnergy &E_gamma) const {
 	return 0;
 }
 
-QDifferentialCrossSection DifferentialCrossSection::getDiffCrossSection(
-		const QEnergy &E_electron,
-                const QEnergy &E_photon,
-                const QEnergy &E_gamma) const {
+QDifferentialCrossSection
+DifferentialCrossSection::getDiffCrossSection(const QEnergy &E_electron,
+					      const QEnergy &E_photon,
+					      const QEnergy &E_gamma) const {
 	return 0;
 }
 
-QNumber DifferentialCrossSection::getSigma(
-		const PID &projectile,
-		const PID &target) const {
+QNumber DifferentialCrossSection::getSigma(const PID &projectile,
+					   const PID &target) const {
 	if (projectile == Proton && target == Proton)
 		return 1.0_num;
 	if (projectile == Proton && target == Helium)
@@ -45,4 +39,4 @@ QNumber DifferentialCrossSection::getSigma(
 }
 
 } // namespace interactions
-} // namespace hermes 
+} // namespace hermes

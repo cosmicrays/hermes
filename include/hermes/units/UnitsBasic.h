@@ -1,9 +1,9 @@
 #ifndef HERMES_UNITSBASIC_H
 #define HERMES_UNITSBASIC_H
 
-#include <ratio>
 #include <cmath>
 #include <ostream>
+#include <ratio>
 
 #ifndef HERMES_UNITSDISABLE
 #include "UnitsQClass.h"
@@ -13,22 +13,23 @@
 
 #include "UnitsSIPrefixes.h"
 
-namespace hermes { namespace units {
+namespace hermes {
+namespace units {
 /**
  * \addtogroup Units
  * @{
  */
 
 // Predefined basic SI units
-constexpr QLength	metre(1.0);
-constexpr QTime		second(1.0);
-constexpr QMass		gram(0.001);
-constexpr QECurrent	ampere(1.0);
-constexpr QTemperature	kelvin(1.0);
-constexpr QSubstance	mole(1.0);
-constexpr QLIntensity	candela(1.0);
-constexpr QAngle	radian(1.0);
-constexpr QSolidAngle	steradian(1.0);
+constexpr QLength metre(1.0);
+constexpr QTime second(1.0);
+constexpr QMass gram(0.001);
+constexpr QECurrent ampere(1.0);
+constexpr QTemperature kelvin(1.0);
+constexpr QSubstance mole(1.0);
+constexpr QLIntensity candela(1.0);
+constexpr QAngle radian(1.0);
+constexpr QSolidAngle steradian(1.0);
 
 // SI prefixes for basic SI untis
 GENERATE_PREFIXED_UNITS(metre)

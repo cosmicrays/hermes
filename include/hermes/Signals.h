@@ -1,8 +1,8 @@
 #ifndef HERMES_SIGNALS_H
 #define HERMES_SIGNALS_H
 
-#include <iostream>
 #include <csignal>
+#include <iostream>
 #ifndef sighandler_t
 typedef void (*sighandler_t)(int);
 #endif

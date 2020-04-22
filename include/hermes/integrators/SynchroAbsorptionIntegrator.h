@@ -1,9 +1,9 @@
 #ifndef HERMES_SYNCHROABSORPTIONINTEGRATOR_H
 #define HERMES_SYNCHROABSORPTIONINTEGRATOR_H
 
+#include "hermes/integrators/FreeFreeIntegrator.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/integrators/SynchroIntegrator.h"
-#include "hermes/integrators/FreeFreeIntegrator.h"
 
 namespace hermes {
 /**
@@ -11,26 +11,27 @@ namespace hermes {
  * @{
  */
 
-class SynchroAbsorptionIntegrator: public RadioIntegratorTemplate {
-private:
+class SynchroAbsorptionIntegrator : public RadioIntegratorTemplate {
+      private:
 	std::shared_ptr<magneticfields::MagneticField> mfield;
 	std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity;
 	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
 	std::shared_ptr<SynchroIntegrator> intSynchro;
 	std::shared_ptr<FreeFreeIntegrator> intFreeFree;
 
-public:
+      public:
 	SynchroAbsorptionIntegrator(
-		const std::shared_ptr<magneticfields::MagneticField> mfield,
-		const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity,
-		const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
+	    const std::shared_ptr<magneticfields::MagneticField> mfield,
+	    const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity,
+	    const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
 	~SynchroAbsorptionIntegrator();
 
 	void setFrequency(const QFrequency &freq);
 	QFrequency getFrequency() const;
 
 	QTemperature integrateOverLOS(QDirection iterdir_) const;
-	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;
+	QTemperature integrateOverLOS(QDirection iterdir,
+				      QFrequency freq) const;
 };
 
 /** @}*/

@@ -1,10 +1,11 @@
 #ifndef CRPROPA_MAGNETICFIELDGRID_H
 #define CRPROPA_MAGNETICFIELDGRID_H
 
-#include "hermes/magneticfields/MagneticField.h"
 #include "hermes/Grid.h"
+#include "hermes/magneticfields/MagneticField.h"
 
-namespace hermes { namespace magneticfields {
+namespace hermes {
+namespace magneticfields {
 /**
  * \addtogroup MagneticFields
  * @{
@@ -12,13 +13,15 @@ namespace hermes { namespace magneticfields {
 
 /**
  @class MagneticFieldGrid
- @brief Magnetic field on a periodic (or reflective), cartesian grid with trilinear interpolation.
+ @brief Magnetic field on a periodic (or reflective), cartesian grid with
+ trilinear interpolation.
 
  This class wraps a VectorGrid to serve as a MagneticField.
  */
-class MagneticFieldGrid: public MagneticField {
+class MagneticFieldGrid : public MagneticField {
 	std::shared_ptr<VectorGrid> grid;
-public:
+
+      public:
 	MagneticFieldGrid(std::shared_ptr<VectorGrid> grid);
 	void setGrid(std::shared_ptr<VectorGrid> grid);
 	std::shared_ptr<VectorGrid> getGrid();
@@ -31,15 +34,17 @@ public:
 
  This class wraps a VectorGrid to serve as a MagneticField.
  The field is modulated on-the-fly with a ScalarGrid.
- The VectorGrid and ScalarGrid do not need to share the same origin, spacing or size.
+ The VectorGrid and ScalarGrid do not need to share the same origin, spacing or
+ size.
  */
-class ModulatedMagneticFieldGrid: public MagneticField {
+class ModulatedMagneticFieldGrid : public MagneticField {
 	std::shared_ptr<VectorGrid> grid;
 	std::shared_ptr<ScalarGrid> modGrid;
-public:
-	ModulatedMagneticFieldGrid() {
-	}
-	ModulatedMagneticFieldGrid(std::shared_ptr<VectorGrid> grid, std::shared_ptr<ScalarGrid> modGrid);
+
+      public:
+	ModulatedMagneticFieldGrid() {}
+	ModulatedMagneticFieldGrid(std::shared_ptr<VectorGrid> grid,
+				   std::shared_ptr<ScalarGrid> modGrid);
 	void setGrid(std::shared_ptr<VectorGrid> grid);
 	void setModulationGrid(std::shared_ptr<ScalarGrid> modGrid);
 	std::shared_ptr<VectorGrid> getGrid();

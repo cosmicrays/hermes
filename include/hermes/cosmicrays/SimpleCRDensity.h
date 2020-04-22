@@ -3,18 +3,21 @@
 
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 
-namespace hermes { namespace cosmicrays {
+namespace hermes {
+namespace cosmicrays {
 
-class SimpleCRDensity: public CosmicRayDensity {
-private:
+class SimpleCRDensity : public CosmicRayDensity {
+      private:
 	QEnergy minE, maxE;
 	int steps;
 	void makeEnergyRange();
-public:
+
+      public:
 	SimpleCRDensity(const PID &pid = Proton);
 	SimpleCRDensity(const PID &pid, QEnergy minE, QEnergy maxE, int steps);
-	QPDensityPerEnergy getDensityPerEnergy(const QEnergy& E_,
-			const Vector3QLength& pos_) const override;
+	QPDensityPerEnergy
+	getDensityPerEnergy(const QEnergy &E_,
+			    const Vector3QLength &pos_) const override;
 };
 
 } // namespace cosmicrays

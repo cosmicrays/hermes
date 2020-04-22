@@ -1,23 +1,25 @@
 #ifndef HERMES_SUN08FIELD_H
 #define HERMES_SUN08FIELD_H
 
-#include "hermes/magneticfields/MagneticField.h"
 #include "hermes/Grid.h"
 #include "hermes/GridTools.h"
+#include "hermes/magneticfields/MagneticField.h"
 
-namespace hermes { namespace magneticfields {
+namespace hermes {
+namespace magneticfields {
 
 /**
  @class Sun08Field
- @brief 
+ @brief
 
- Implemented the galactic magnetic field model used in 3-year WMAP analyses. 
+ Implemented the galactic magnetic field model used in 3-year WMAP analyses.
 
- See: L. Page et al 2007 ApJS 170 335, https://iopscience.iop.org/article/10.1086/513699
+ See: L. Page et al 2007 ApJS 170 335,
+ https://iopscience.iop.org/article/10.1086/513699
  */
 
-class Sun08Field: public MagneticField {
-private:
+class Sun08Field : public MagneticField {
+      private:
 	bool useTurbulent;
 	bool useHalo;
 	std::shared_ptr<VectorGrid> turbulentGrid;
@@ -33,14 +35,14 @@ private:
 	QAngle pitch;
 	QMField B_turbulent;
 
-public:
+      public:
 	Sun08Field();
 
 #ifdef HERMES_HAVE_FFTW3F
 	// Create a random realization for the turbulent field
 	void randomTurbulent(int seed = 0);
 #endif
-	
+
 	/**
 	 * Set a turbulent grid and activate the turbulent field component
 	 * @param grid	vector grid containing a random field of Brms = 1
@@ -55,14 +57,13 @@ public:
 	bool isUsingHalo() const;
 
 	// Regular field component
-	Vector3QMField getRegularField(const Vector3QLength& pos) const;
+	Vector3QMField getRegularField(const Vector3QLength &pos) const;
 
 	// Turbulent field component
-	Vector3QMField getTurbulentField(const Vector3QLength& pos) const;
+	Vector3QMField getTurbulentField(const Vector3QLength &pos) const;
 
 	// Get the total field
-	Vector3QMField getField(const Vector3QLength& pos) const override;
-
+	Vector3QMField getField(const Vector3QLength &pos) const override;
 };
 
 } // namespace magneticfields

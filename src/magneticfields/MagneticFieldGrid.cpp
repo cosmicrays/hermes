@@ -1,6 +1,7 @@
 #include "hermes/magneticfields/MagneticFieldGrid.h"
 
-namespace hermes { namespace magneticfields {
+namespace hermes {
+namespace magneticfields {
 
 MagneticFieldGrid::MagneticFieldGrid(std::shared_ptr<VectorGrid> grid) {
 	setGrid(grid);
@@ -10,16 +11,14 @@ void MagneticFieldGrid::setGrid(std::shared_ptr<VectorGrid> grid) {
 	this->grid = grid;
 }
 
-std::shared_ptr<VectorGrid> MagneticFieldGrid::getGrid() {
-	return grid;
-}
+std::shared_ptr<VectorGrid> MagneticFieldGrid::getGrid() { return grid; }
 
 Vector3d MagneticFieldGrid::getField(const Vector3d &pos) const {
 	return grid->interpolate(pos);
 }
 
-ModulatedMagneticFieldGrid::ModulatedMagneticFieldGrid(std::shared_ptr<VectorGrid> grid,
-		std::shared_ptr<ScalarGrid> modGrid) {
+ModulatedMagneticFieldGrid::ModulatedMagneticFieldGrid(
+    std::shared_ptr<VectorGrid> grid, std::shared_ptr<ScalarGrid> modGrid) {
 	grid->setReflective(false);
 	modGrid->setReflective(true);
 	setGrid(grid);
@@ -34,7 +33,8 @@ std::shared_ptr<VectorGrid> ModulatedMagneticFieldGrid::getGrid() {
 	return grid;
 }
 
-void ModulatedMagneticFieldGrid::setModulationGrid(std::shared_ptr<ScalarGrid> g) {
+void ModulatedMagneticFieldGrid::setModulationGrid(
+    std::shared_ptr<ScalarGrid> g) {
 	modGrid = g;
 }
 
@@ -43,7 +43,7 @@ std::shared_ptr<ScalarGrid> ModulatedMagneticFieldGrid::getModulationGrid() {
 }
 
 void ModulatedMagneticFieldGrid::setReflective(bool gridReflective,
-		bool modGridReflective) {
+					       bool modGridReflective) {
 	grid->setReflective(gridReflective);
 	modGrid->setReflective(modGridReflective);
 }

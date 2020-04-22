@@ -2,12 +2,12 @@
 #define HERMES_SYNCHROINTEGRATOR_H
 
 #include "hermes/Units.h"
+#include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/magneticfields/MagneticField.h"
-#include "hermes/cosmicrays/CosmicRayDensity.h"
 
-#include <memory>
 #include <array>
+#include <memory>
 
 namespace hermes {
 /**
@@ -15,34 +15,36 @@ namespace hermes {
  * @{
  */
 
-class SynchroIntegrator: public RadioIntegratorTemplate {
-private:
+class SynchroIntegrator : public RadioIntegratorTemplate {
+      private:
 	std::shared_ptr<magneticfields::MagneticField> mfield;
 	std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity;
 	const QSynchroConstant const_synchro =
-		std::sqrt(3)*pow<3>(e_plus)/(8*pi*pi*epsilon0*c_light*m_electron);
+	    std::sqrt(3) * pow<3>(e_plus) /
+	    (8 * pi * pi * epsilon0 * c_light * m_electron);
 
-	QEmissivity integrateOverSumEnergy(
-		Vector3QLength pos, QFrequency freq) const;
-	QEmissivity integrateOverLogEnergy(
-		Vector3QLength pos, QFrequency freq) const;
+	QEmissivity integrateOverSumEnergy(Vector3QLength pos,
+					   QFrequency freq) const;
+	QEmissivity integrateOverLogEnergy(Vector3QLength pos,
+					   QFrequency freq) const;
 
-public:
+      public:
 	SynchroIntegrator(
-		const std::shared_ptr<magneticfields::MagneticField> mfield,
-		const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity);
+	    const std::shared_ptr<magneticfields::MagneticField> mfield,
+	    const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity);
 	~SynchroIntegrator();
 
 	void setFrequency(const QFrequency &freq);
 	QFrequency getFrequency() const;
-	
+
 	QTemperature integrateOverLOS(QDirection iterdir) const;
-	QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;
-	
+	QTemperature integrateOverLOS(QDirection iterdir,
+				      QFrequency freq) const;
+
 	QEnergy singleElectronEmission(QFrequency freq, QEnergy E,
-		QMField B_perp) const;	
-	QEmissivity integrateOverEnergy(
-		Vector3QLength pos, QFrequency freq) const;
+				       QMField B_perp) const;
+	QEmissivity integrateOverEnergy(Vector3QLength pos,
+					QFrequency freq) const;
 };
 
 /** @}*/

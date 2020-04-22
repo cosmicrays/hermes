@@ -10,13 +10,15 @@ Model from Phys.Rev.D74:034018,2006; Erratum-ibid.D79:039901,2009
 
 #include <memory>
 
-namespace hermes { namespace interactions {
+namespace hermes {
+namespace interactions {
 
-class KelnerAharonianGamma: public DifferentialCrossSection {
-public:
+class KelnerAharonianGamma : public DifferentialCrossSection {
+      public:
 	KelnerAharonianGamma();
-	QDifferentialCrossSection getDiffCrossSection(
-			const QEnergy &E_proton, const QEnergy &E_gamma) const override;
+	QDifferentialCrossSection
+	getDiffCrossSection(const QEnergy &E_proton,
+			    const QEnergy &E_gamma) const override;
 
 	// Parametrization based on
 	// Phys.Rev. D90 (2014) 12, 123014 (astro-ph/1406.7369)

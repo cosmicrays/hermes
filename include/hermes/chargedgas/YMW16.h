@@ -19,7 +19,7 @@ option) any later version.
 YMW16 is distributed in the hope that it will be useful, but WITHOUT
 ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License,
-available at http://www.gnu.org/licenses/, for more details. 
+available at http://www.gnu.org/licenses/, for more details.
 
 Please report any issues or bugs at
 https://bitbucket.org/psrsoft/ymw16/issues/new/ or directly to the
@@ -32,19 +32,19 @@ Modifed and optimized for C++ and multithreading execution
 by Andrej Dundovic (andrej.dundovic@gssi.it, 2020)
 */
 
-
-namespace hermes { namespace chargedgas {
+namespace hermes {
+namespace chargedgas {
 
 // Thick disk
 #define P_Ad 2500
-#define P_Bd 15000 
+#define P_Bd 15000
 #define P_n1 0.01132
 #define P_H1 1673
 
 // Thin disk
 
 #define P_A2 1200
-#define P_B2 4000  
+#define P_B2 4000
 #define P_n2 0.404
 #define P_K2 1.54
 
@@ -77,7 +77,7 @@ namespace hermes { namespace chargedgas {
 
 // Galactic center
 #define P_ngc 6.2
-#define P_Agc 160 
+#define P_Agc 160
 #define P_Hgc 35
 
 // Gum nebula
@@ -94,7 +94,7 @@ namespace hermes { namespace chargedgas {
 #define P_hlb1 112.9
 #define P_thetalb1 195.4
 #define P_nlb2 2.33
-#define P_detlb2 14.7 
+#define P_detlb2 14.7
 #define P_wlb2 15.6
 #define P_hlb2 43.6
 #define P_thetalb2 278.2
@@ -102,10 +102,10 @@ namespace hermes { namespace chargedgas {
 // Loop I
 #define P_nLI 1.907
 #define P_RLI 80
-#define P_WLI 15 
+#define P_WLI 15
 #define P_detthetaLI 30
 #define P_thetaLI 40
- 
+
 // Fermi Bubble
 #define P_J_FB 1
 
@@ -119,31 +119,31 @@ namespace hermes { namespace chargedgas {
 #define P_nsmc 0.045
 
 // Spiral arms
-#define sp_1_1	3.3500e+03
-#define sp_1_2	7.7000e-01
-#define sp_1_3	2.0200e-01
-#define sp_1_4	9.8000e-01
-#define sp_1_5	1.9800e-01
-#define sp_2_1	3.7070e+03
-#define sp_2_2	2.0930e+00
-#define sp_2_3	1.7300e-01
-#define sp_2_4	9.8500e-01
-#define sp_2_5	1.7090e-01
-#define sp_3_1	3.5600e+03
-#define sp_3_2	3.8100e+00
-#define sp_3_3	1.8300e-01
-#define sp_3_4	9.8360e-01
-#define sp_3_5	1.8020e-01
-#define sp_4_1	3.6700e+03
-#define sp_4_2	5.7600e+00
-#define sp_4_3	1.8600e-01
-#define sp_4_4	9.8300e-01
-#define sp_4_5	1.8290e-01
-#define sp_5_1	8.2100e+03
-#define sp_5_2	9.6000e-01
-#define sp_5_3	4.8300e-02
-#define sp_5_4	9.9880e-01
-#define sp_5_5	4.8300e-02	
+#define sp_1_1 3.3500e+03
+#define sp_1_2 7.7000e-01
+#define sp_1_3 2.0200e-01
+#define sp_1_4 9.8000e-01
+#define sp_1_5 1.9800e-01
+#define sp_2_1 3.7070e+03
+#define sp_2_2 2.0930e+00
+#define sp_2_3 1.7300e-01
+#define sp_2_4 9.8500e-01
+#define sp_2_5 1.7090e-01
+#define sp_3_1 3.5600e+03
+#define sp_3_2 3.8100e+00
+#define sp_3_3 1.8300e-01
+#define sp_3_4 9.8360e-01
+#define sp_3_5 1.8020e-01
+#define sp_4_1 3.6700e+03
+#define sp_4_2 5.7600e+00
+#define sp_4_3 1.8600e-01
+#define sp_4_4 9.8300e-01
+#define sp_4_5 1.8290e-01
+#define sp_5_1 8.2100e+03
+#define sp_5_2 9.6000e-01
+#define sp_5_3 4.8300e-02
+#define sp_5_4 9.9880e-01
+#define sp_5_5 4.8300e-02
 
 // Local bubble
 #define Rlb 110
@@ -152,13 +152,13 @@ namespace hermes { namespace chargedgas {
 #define RAD 57.295779
 #define N0 0.013
 #define mc 6
-#define MAX(a,b) ( ((a)>(b)) ? (a):(b) )
-#define MIN(a,b) ( ((a)>(b)) ? (b):(a) )
+#define MAX(a, b) (((a) > (b)) ? (a) : (b))
+#define MIN(a, b) (((a) > (b)) ? (b) : (a))
 
-class YMW16: public ChargedGasDensity {
-private:
+class YMW16 : public ChargedGasDensity {
+      private:
 	QPDensity fne1, fne2;
-	QLength	  H1, A1, H2, A2, R2;
+	QLength H1, A1, H2, A2, R2;
 
 	struct Warp_Sun {
 		double Gamma_w;
@@ -167,20 +167,19 @@ private:
 
 	struct Thick {
 		double Ad;
-		double Bd; 
-		double n1; 
+		double Bd;
+		double n1;
 		double H1;
 	} t1;
 
 	struct Thin {
 		double A2;
-		double B2; 
+		double B2;
 		double n2;
 		double K2;
 	} t2;
 
-	struct Spiral
-	{
+	struct Spiral {
 		double Ads;
 		double Bds;
 		double B2s;
@@ -196,23 +195,20 @@ private:
 		double thetasg;
 	} t3;
 
-	struct GC
-	{
+	struct GC {
 		double ngc;
 		double Agc;
 		double Hgc;
 	} t4;
 
-	struct Gum
-	{
+	struct Gum {
 		double Kgn;
 		double ngn;
 		double Wgn;
 		double Agn;
 	} t5;
 
-	struct LB
-	{
+	struct LB {
 		double J_LB;
 		double nlb1;
 		double detlb1;
@@ -226,8 +222,7 @@ private:
 		double thetalb2;
 	} t6;
 
-	struct LI
-	{
+	struct LI {
 		double nLI;
 		double RLI;
 		double WLI;
@@ -235,46 +230,45 @@ private:
 		double thetaLI;
 	} t7;
 
-	struct FB
-	{
+	struct FB {
 		double J_FB;
 	} t8;
 
-	struct LMC
-	{
+	struct LMC {
 		double nlmc;
 	} t9;
 
-	struct Dora
-	{
+	struct Dora {
 		double n30D;
 	} t10;
 
-	struct SMC
-	{
+	struct SMC {
 		double nsmc;
 	} t11;
 
 	void initParameters();
 
-public:
+      public:
 	YMW16();
 	YMW16(const QTemperature &t);
-	QPDensity getDensity(const Vector3QLength& pos) const override;
+	QPDensity getDensity(const Vector3QLength &pos) const override;
 
 	double ne_ymw16(const Vector3QLength &pos) const;
-	double thick(double xx, double yy, double zz, double *gd, double rr) const;
-	double thin(double xx, double yy, double zz, double gd, double rr) const;
+	double thick(double xx, double yy, double zz, double *gd,
+		     double rr) const;
+	double thin(double xx, double yy, double zz, double gd,
+		    double rr) const;
 	double galcen(double xx, double yy, double zz) const;
-	double spiral(double xx,  double yy,  double zz,  double gd,  double rr, int *ww, int *m_3) const;
+	double spiral(double xx, double yy, double zz, double gd, double rr,
+		      int *ww, int *m_3) const;
 	double gum(double xx, double yy, double zz, int *m_5) const;
-	double localbubble(double xx, double yy, double zz, double gl,double gb, double *WW, int *m_6) const;
+	double localbubble(double xx, double yy, double zz, double gl,
+			   double gb, double *WW, int *m_6) const;
 	double nps(double xx, double yy, double zz, int *WLI, int *m_7) const;
 	double fermibubble(double xx, double yy, double zz) const;
 	double lmc(double l, double b, double d, int *w_lmc) const;
 	double dora(double l, double b, double d) const;
 	double smc(double xx, double yy, double zz, int *w_smc) const;
-
 };
 
 } // namespace chargedgas

@@ -5,21 +5,19 @@
 
 namespace hermes {
 
-RadioSkymapRange::RadioSkymapRange(
-		std::size_t nside_, QFrequency minFreq_,
-		QFrequency maxFreq_, int freqSteps_) :
-		nside(nside_), minFreq(minFreq_),
-		maxFreq(maxFreq_), freqSteps(freqSteps_) {
+RadioSkymapRange::RadioSkymapRange(std::size_t nside_, QFrequency minFreq_,
+				   QFrequency maxFreq_, int freqSteps_)
+    : nside(nside_), minFreq(minFreq_), maxFreq(maxFreq_),
+      freqSteps(freqSteps_) {
 	initFrequencyRange();
 }
 
-RadioSkymapRange::~RadioSkymapRange() {
-}
+RadioSkymapRange::~RadioSkymapRange() {}
 
 void RadioSkymapRange::initFrequencyRange() {
-	
-	double scaleFactor = std::pow(static_cast<double>(maxFreq/minFreq),
-					1.0/(freqSteps-1));
+
+	double scaleFactor = std::pow(static_cast<double>(maxFreq / minFreq),
+				      1.0 / (freqSteps - 1));
 
 	QFrequency f;
 	for (int i = 0; i < freqSteps; ++i) {
@@ -29,39 +27,43 @@ void RadioSkymapRange::initFrequencyRange() {
 	}
 }
 
-void RadioSkymapRange::setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency> > integrator_) {
-	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
+void RadioSkymapRange::setIntegrator(
+    std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>> integrator_) {
+	for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		it->setIntegrator(integrator_);
 	}
 }
 
 void RadioSkymapRange::setMask(std::shared_ptr<SkymapMask> mask_) {
-	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
+	for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		it->setMask(mask_);
 	}
 }
 
 void RadioSkymapRange::compute() {
-	for(iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
-       		std::cout << "hermes::SkymapRange: "
-			  << it - skymaps.begin() + 1 << "/" << skymaps.size()
-			  << ", Frequency = " << it->getFrequency() << " Hz" << std::endl;
+	for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
+		std::cout << "hermes::SkymapRange: " << it - skymaps.begin() + 1
+			  << "/" << skymaps.size()
+			  << ", Frequency = " << it->getFrequency() << " Hz"
+			  << std::endl;
 		it->compute();
 	}
 }
 
 void RadioSkymapRange::save(std::shared_ptr<outputs::Output> output) const {
-	
+
 	output->initOutput();
-	
-	for(const_iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
+
+	for (const_iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		int npix = static_cast<int>((it)->getNpix());
 
 		output->createTable(npix);
-		output->writeMetadata(it->getNside(), it->getRes(), it->getDescription());
-		output->writeKeyValueAsDouble(std::string("FREQ"),
-			static_cast<double>(it->getFrequency()),
-			std::string("The skymap radio frequency in Hz."));
+		output->writeMetadata(it->getNside(), it->getRes(),
+				      it->getDescription());
+		output->writeKeyValueAsDouble(
+		    std::string("FREQ"),
+		    static_cast<double>(it->getFrequency()),
+		    std::string("The skymap radio frequency in Hz."));
 
 		float tempArray[npix];
 		for (unsigned long i = 0; i < npix; ++i)
@@ -71,20 +73,16 @@ void RadioSkymapRange::save(std::shared_ptr<outputs::Output> output) const {
 	}
 }
 
-RadioSkymapRange::iterator RadioSkymapRange::begin() {
-        return skymaps.begin();
-}
+RadioSkymapRange::iterator RadioSkymapRange::begin() { return skymaps.begin(); }
 
 RadioSkymapRange::const_iterator RadioSkymapRange::begin() const {
-        return skymaps.begin();
+	return skymaps.begin();
 }
 
-RadioSkymapRange::iterator RadioSkymapRange::end() {
-        return skymaps.end();
-}
+RadioSkymapRange::iterator RadioSkymapRange::end() { return skymaps.end(); }
 
 RadioSkymapRange::const_iterator RadioSkymapRange::end() const {
-        return skymaps.end();
+	return skymaps.end();
 }
 
 } // namespace hermes

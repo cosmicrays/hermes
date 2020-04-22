@@ -1,14 +1,14 @@
 #ifndef HERMES_JF12FIELD_H
 #define HERMES_JF12FIELD_H
 
-#include "hermes/Units.h"
-#include "hermes/magneticfields/MagneticField.h"
 #include "hermes/Grid.h"
 #include "hermes/GridTools.h"
+#include "hermes/Units.h"
+#include "hermes/magneticfields/MagneticField.h"
 #include <memory>
 
-namespace hermes { namespace magneticfields {
-
+namespace hermes {
+namespace magneticfields {
 
 /**
  @class JF12Field
@@ -28,49 +28,51 @@ namespace hermes { namespace magneticfields {
  Galactic center at the origin, the x-axis pointing in the direction of
  the Sun, and the z-axis pointing towards Galactic north.
  */
-class JF12Field: public MagneticField {
-private:
+class JF12Field : public MagneticField {
+      private:
 	bool useRegular;
 	bool useStriated;
 	bool useTurbulent;
 
 	// disk spiral arms
-	QLength rArms[8];       // radii where each arm crosses the negative x-axis
-	QAngle pitch;          // pitch angle
+	QLength rArms[8]; // radii where each arm crosses the negative x-axis
+	QAngle pitch;	  // pitch angle
 	double sinPitch, cosPitch, tan90MinusPitch;
 
-	// Regular field ----------------------------------------------------------
-	// disk
-	QMField bDisk[8];       // field strengths of arms at r=5 kpc
-	QMField bRing;          // ring field strength 3<r<5 kpc
-	QLength hDisk, wDisk;   // disk/halo transistion and width
+	// Regular field
+	// ---------------------------------------------------------- disk
+	QMField bDisk[8];     // field strengths of arms at r=5 kpc
+	QMField bRing;	      // ring field strength 3<r<5 kpc
+	QLength hDisk, wDisk; // disk/halo transistion and width
 	// toroidal halo
 	QMField bNorth, bSouth; // northern, southern halo field strength
 	QLength rNorth, rSouth; // northern, southern transistion radius
-	QLength wHalo, z0;      // transistion width and vertical scale height
+	QLength wHalo, z0;	// transistion width and vertical scale height
 	// poloidal halo
-	QMField bX;             // field strength at origin
-	QAngle thetaX0;        // constant elevation angle at r > rXc, z = 0
+	QMField bX;	// field strength at origin
+	QAngle thetaX0; // constant elevation angle at r > rXc, z = 0
 	double sinThetaX0, cosThetaX0, tanThetaX0;
-	QLength rXc;            // radius of varying elevation angle region
-	QLength rX;             // exponential scale height
+	QLength rXc; // radius of varying elevation angle region
+	QLength rX;  // exponential scale height
 
-	// Striated field ---------------------------------------------------------
-	double sqrtbeta;       // relative strength of striated field
+	// Striated field
+	// ---------------------------------------------------------
+	double sqrtbeta; // relative strength of striated field
 	std::shared_ptr<ScalarGrid> striatedGrid;
 
-	// Turbulent field --------------------------------------------------------
+	// Turbulent field
+	// --------------------------------------------------------
 	std::shared_ptr<VectorGrid> turbulentGrid;
 	// disk
 	QMField bDiskTurb[8]; // field strengths in arms at r=5 kpc
 	QMField bDiskTurb5;   // field strength at r<5kpc
-	QLength zDiskTurb;	 // Gaussian scale height of disk
+	QLength zDiskTurb;    // Gaussian scale height of disk
 	// halo
 	QMField bHaloTurb; // halo field strength
 	QLength rHaloTurb; // exponential scale length
 	QLength zHaloTurb; // Gaussian scale height
 
-public:
+      public:
 	JF12Field();
 
 	// Create and set a random realization for the striated field
@@ -83,7 +85,8 @@ public:
 
 	/**
 	 * Set a striated grid and activate the striated field component
-	 * @param grid	scalar grid containing random +1/-1 values, 100 parsec grid spacing
+	 * @param grid	scalar grid containing random +1/-1 values, 100 parsec
+	 * grid spacing
 	 */
 	void setStriatedGrid(std::shared_ptr<ScalarGrid> grid);
 
@@ -105,19 +108,19 @@ public:
 	bool isUsingTurbulent() const;
 
 	// Regular field component
-	Vector3QMField getRegularField(const Vector3QLength& pos) const;
+	Vector3QMField getRegularField(const Vector3QLength &pos) const;
 
 	// Regular and striated field component
-	Vector3QMField getStriatedField(const Vector3QLength& pos) const;
+	Vector3QMField getStriatedField(const Vector3QLength &pos) const;
 
 	// Brms of the turbulent field
-	QMField getTurbulentStrength(const Vector3QLength& pos) const;
+	QMField getTurbulentStrength(const Vector3QLength &pos) const;
 
 	// Turbulent field component
-	Vector3QMField getTurbulentField(const Vector3QLength& pos) const;
+	Vector3QMField getTurbulentField(const Vector3QLength &pos) const;
 
 	// All set field components
-	Vector3QMField getField(const Vector3QLength& pos) const override;
+	Vector3QMField getField(const Vector3QLength &pos) const override;
 };
 
 } // namespace magneticfields

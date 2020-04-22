@@ -9,7 +9,7 @@ TEST(HEALPix, consistency) {
 	long nside = 128;
 	long npix = nside2npix(nside);
 
-	for(long ipix = 0; ipix < npix; ++ipix) {
+	for (long ipix = 0; ipix < npix; ++ipix) {
 		thetaphi = pix2ang_ring(nside, ipix);
 		EXPECT_EQ(ang2pix_ring(nside, thetaphi), ipix);
 	}
@@ -19,10 +19,11 @@ TEST(HEALPix, galacticCentre) {
 	long nside = 2;
 
 	// see fig. 3 in The HEALPix Primer
-	QDirection thetaphi = {pi/2, pi + 0.01};
+	QDirection thetaphi = {pi / 2, pi + 0.01};
 	EXPECT_EQ(ang2pix_ring(nside, thetaphi), 24);
-	
-	thetaphi[0] = 0.7; thetaphi[1] = 2*pi - 0.1;
+
+	thetaphi[0] = 0.7;
+	thetaphi[1] = 2 * pi - 0.1;
 	EXPECT_EQ(ang2pix_ring(nside, thetaphi), 11);
 }
 
@@ -39,9 +40,8 @@ TEST(HEALPix, pix2ang_ring) {
 }
 
 int main(int argc, char **argv) {
-        ::testing::InitGoogleTest(&argc, argv);
-        return RUN_ALL_TESTS();
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 }
 
 } // namespace hermes
-
