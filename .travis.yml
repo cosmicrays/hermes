@@ -48,6 +48,12 @@ matrix:
               - CXX_COMPILER='g++'
               - C_COMPILER='gcc'
               - HERMES_DATA_PATH=$TRAVIS_BUILD_DIR/build/data/
+        - os: osx
+          compiler: clang
+          env:
+              - CXX_COMPILER='clang++'
+              - C_COMPILER='clang'
+              - HERMES_DATA_PATH=$TRAVIS_BUILD_DIR/build/data/
 
 before_install:
     - |
@@ -80,11 +86,17 @@ before_script:
         cp $DATAFILE .
       fi;
     - |
-      if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      if [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$TRAVIS_COMPILER" == "gcc" ]]; then
                 CC=$GCC_BREW_PATH/bin/gcc-9 \
                 CXX=$GCC_BREW_PATH/bin/g++-9 \
                 CMAKE_C_COMPILER=$GCC_BREW_PATH/bin/gcc-9 \
                 CMAKE_CXX_COMPILER=$GCC_BREW_PATH/bin/g++-9 \
+                cmake .. -DENABLE_PYTHON=True \
+                -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
+                -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
+                -DPYTHON_INCLUDE_PATH=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/include \
+                -DENABLE_TESTING=On
+       elif [[ "$TRAVIS_OS_NAME" == "osx" ]] && [[ "$TRAVIS_COMPILER" == "clang" ]]; then
                 cmake .. -DENABLE_PYTHON=True \
                 -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
                 -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
