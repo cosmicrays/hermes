@@ -1,17 +1,17 @@
 #ifdef HERMES_HAVE_CFITSIO
 
-#include "hermes/outputs/FITSOutput.h"
+#include "hermes/outputs/HEALPix.h"
 
 #include <iostream>
 #include <string>
 
 namespace hermes { namespace outputs {
 
-FITSOutput::FITSOutput(
+HEALPix::HEALPix(
 		const std::string &filename) : Output(), filename(filename) {
 }
 
-void FITSOutput::initOutput() {
+void HEALPix::initOutput() {
 	ffile = std::make_unique<FITSFile>(FITSFile(filename));
 	
 	ffile->createFile();
@@ -24,7 +24,7 @@ void FITSOutput::initOutput() {
 	ffile->writeImage(FITS::FLOAT, 1, 1, nullArray);
 }
 
-void FITSOutput::createTable(int nrows) {
+void HEALPix::createTable(int nrows) {
 	
 	int naxis  = 1;
 	long int naxes[naxis] = {nrows};
@@ -40,7 +40,7 @@ void FITSOutput::createTable(int nrows) {
 	ffile->writeDate();
 }
 
-void FITSOutput::writeMetadata(int nside, double res, const std::string &description) {
+void HEALPix::writeMetadata(int nside, double res, const std::string &description) {
 	auto str_type = FITSKeyValue("PIXTYPE", "HEALPIX");
 	ffile->writeKeyValue(str_type, "HEALPIX Pixelisation");
 	auto ext_str = FITSKeyValue("EXTNAME", "xtension");
@@ -59,17 +59,17 @@ void FITSOutput::writeMetadata(int nside, double res, const std::string &descrip
 	ffile->writeKeyValue(process, NULL);
 }
 
-void FITSOutput::writeKeyValueAsDouble(const std::string &key, double value, const std::string &description) {
+void HEALPix::writeKeyValueAsDouble(const std::string &key, double value, const std::string &description) {
 	auto keyvalue = FITSKeyValue(key.c_str(), value);
 	ffile->writeKeyValue(keyvalue, description.c_str());
 }
 
-void FITSOutput::writeKeyValueAsString(const std::string &key, const std::string &value, const std::string &description) {
+void HEALPix::writeKeyValueAsString(const std::string &key, const std::string &value, const std::string &description) {
 	auto keyvalue = FITSKeyValue(key.c_str(), value.c_str());
 	ffile->writeKeyValue(keyvalue, description.c_str());
 }
 
-void FITSOutput::writeColumn(int nElements, void *array) {
+void HEALPix::writeColumn(int nElements, void *array) {
 	ffile->writeColumn(FITS::FLOAT, 1, 1, 1, nElements, array);
 }
 

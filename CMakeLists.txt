@@ -230,7 +230,7 @@ add_library(hermes SHARED
 	src/magneticfields/Sun08Field.cpp
 	src/magneticfields/WMAP07Field.cpp
 	src/neutralgas/RingModel.cpp
-	src/outputs/FITSOutput.cpp
+	src/outputs/HEALPix.cpp
 	src/photonfields/ISRF.cpp
 	src/skymaps/GammaSkymapRange.cpp
 	src/skymaps/RadioSkymapRange.cpp

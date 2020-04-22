@@ -72,6 +72,6 @@
 #include "hermes/interactions/BremsstrahlungSimple.h"
 
 #include "hermes/outputs/Output.h"
-#include "hermes/outputs/FITSOutput.h"
+#include "hermes/outputs/HEALPix.h"
 
 #endif // HERMES_H

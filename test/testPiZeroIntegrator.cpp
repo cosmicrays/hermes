@@ -95,7 +95,7 @@ TEST(PiZeroIntegrator, PiZeroLOS) {
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(nside, 1_GeV));
 	skymap->setIntegrator(intPiZero);
 
-	//auto output = std::make_shared<FITSOutput>(FITSOutput("!test-pion.fits.gz"));
+	//auto output = std::make_shared<HEALPix>(HEALPix("!test-pion.fits.gz"));
 	
 	auto pos = Vector3QLength(8.5_kpc, 0, 0);
 	QDirection dir = {90_deg,1_deg};
@@ -128,7 +128,7 @@ TEST(PiZeroIntegrator, BremsstrahlungLOS) {
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(nside, 1_GeV));
 	skymap->setIntegrator(intPiZero);
 
-	//auto output = std::make_shared<FITSOutput>(FITSOutput("!test-pion.fits.gz"));
+	//auto output = std::make_shared<HEALPix>(HEALPix("!test-pion.fits.gz"));
 	
 	auto pos = Vector3QLength(8.5_kpc, 0, 0);
 	QDirection dir = {90_deg,1_deg};

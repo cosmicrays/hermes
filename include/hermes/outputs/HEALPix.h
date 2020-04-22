@@ -1,7 +1,7 @@
 #ifdef HERMES_HAVE_CFITSIO
 
-#ifndef HERMES_FITSOUTPUT_H
-#define HERMES_FITSOUTPUT_H
+#ifndef HERMES_HEALPIX_H
+#define HERMES_HEALPIX_H
 
 #include "hermes/outputs/Output.h"
 #include "hermes/FITSWrapper.h"
@@ -9,12 +9,16 @@
 
 namespace hermes { namespace outputs {
 
-class FITSOutput: public Output {
+/* Based on Hivon et al. 2019:
+ * "FITS file format specifications for HEALPix products"
+ * URL: https://healpix.sourceforge.io/data/examples/healpix_fits_specs.pdf
+ */
+class HEALPix: public Output {
 private:
 	std::string filename;
 	std::unique_ptr<FITSFile> ffile;
 public:
-	FITSOutput(const std::string &filename);
+	HEALPix(const std::string &filename);
 	void initOutput() override;
 	void createTable(int nrows) override;
 	void writeMetadata(int nside, double res,
@@ -31,6 +35,6 @@ public:
 } // namespace outputs
 } // namespace hermes
 
-#endif // HERMES_FITSOUTPUT_H
+#endif // HERMES_HEALPIX_H
 
 #endif // HERMES_HAVE_CFITSIO

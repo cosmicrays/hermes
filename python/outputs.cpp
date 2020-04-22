@@ -2,7 +2,7 @@
 #include <pybind11/operators.h>
 
 #include "hermes/outputs/Output.h"
-#include "hermes/outputs/FITSOutput.h"
+#include "hermes/outputs/HEALPix.h"
 
 namespace py = pybind11;
 
@@ -15,7 +15,7 @@ void init(py::module &m) {
 
     // Outputs
     py::class_<Output, std::shared_ptr<Output>>(subm, "Output");
-    py::class_<FITSOutput, std::shared_ptr<FITSOutput>, Output>(subm, "FITSOutput")
+    py::class_<HEALPix, std::shared_ptr<HEALPix>, Output>(subm, "HEALPix")
 	      .def(py::init<std::string>());
 }
 
