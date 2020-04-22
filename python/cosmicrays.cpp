@@ -48,9 +48,9 @@ void init(py::module &m) {
 	    .def(py::init<const std::vector<PID> &>())
 	    .def(py::init<const std::string, const std::vector<PID> &>())
 	    .def("getDensityPerEnergy",
-		 (QPDensityPerEnergy(Dragon2D::*)(
-		     const QEnergy &, const Vector3QLength &) const) &
-		     Dragon2D::getDensityPerEnergy);
+		 static_cast<QPDensityPerEnergy(Dragon2D::*)(
+		     const QEnergy &, const Vector3QLength &) const>(&
+		     Dragon2D::getDensityPerEnergy));
 }
 
 } // namespace cosmicrays

@@ -113,7 +113,7 @@ PiZeroIntegrator::integrateOverLOS(QDirection direction_,
 
 	// Sum over rings
 	for (const auto &ring : *ngdensity) {
-		// TODO: this could be better
+		// TODO(adundovi): this could be better
 		if (!ngdensity->isRingEnabled(ring->getIndex()))
 			continue;
 
@@ -185,7 +185,7 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_,
 
 	QPiZeroIntegral total(0);
 
-	// TODO: micro-optimization - E_min = E_gamma + m_pi^2c^4/(4E_gamma)
+	// TODO(adundovi): micro-optimization - E_min = E_gamma + m_pi^2c^4/(4E_gamma)
 	std::vector<QDifferentialCrossSection> diffCrossSectionVector;
 	std::transform(
 	    crList[0]->beginAfterEnergy(Egamma_), crList[0]->end(),

@@ -22,7 +22,7 @@ QAngle SkymapMask::normalizeAngle(QAngle angle) const {
 }
 
 std::vector<bool> SkymapMask::getMask(std::size_t nside) {
-	// TODO: fix not to calculate the mask for every skymap in a skymap
+	// TODO(adundovi): fix not to calculate the mask for every skymap in a skymap
 	// range
 	long npix = nside2npix(nside);
 	std::vector<bool> maskContainer(npix, false);
@@ -51,7 +51,7 @@ void MaskList::addMask(const std::shared_ptr<SkymapMask> mask_) {
 }
 
 bool MaskList::isAllowed(const QDirection &dir) const {
-	// TODO: replace with std::none_of
+	// TODO(adundovi): replace with std::none_of
 	if (std::all_of(list.cbegin(), list.cend(),
 			[dir](const std::shared_ptr<SkymapMask> &m) {
 				return m->isAllowed(dir);
@@ -85,9 +85,10 @@ bool RectangularWindow::isAngleBetween(const QAngle &testAngle, QAngle first,
 }
 
 bool RectangularWindow::isAllowed(const QDirection &dir_) const {
-	if (isAngleBetween(dir_[0], topleft[0], bottomright[0]))
+	if (isAngleBetween(dir_[0], topleft[0], bottomright[0])) {
 		if (isAngleBetween(dir_[1], topleft[1], bottomright[1]))
 			return true;
+	}
 	return false;
 }
 

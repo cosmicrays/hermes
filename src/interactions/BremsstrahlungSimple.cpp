@@ -233,16 +233,18 @@ QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSectionDirectly(
 	QNumber beta_i = sqrt(1_num - 1. / (gamma_i * gamma_i));
 	QNumber beta_f = sqrt(1_num - 1. / (gamma_f * gamma_f));
 
-	if (T_electron_i < 0.07_MeV / mc2_units)
+	if (T_electron_i < 0.07_MeV / mc2_units) {
 		return ElwertFactor(beta_i, beta_f, Z) *
 		       dsdk_LowEnergy(p_i, p_f, k, Z) / E_gamma;
+	}
 
-	if (T_electron_i < 2.0_MeV / mc2_units)
+	if (T_electron_i < 2.0_MeV / mc2_units) {
 		return ElwertFactor(beta_i, beta_f, Z) *
 		       xiFunc(T_electron_i, k, Z, N) *
 		       dsdk_IntermediateEnergy(gamma_i, gamma_f, p_i, p_f, k,
 					       Z) /
 		       E_gamma;
+	}
 
 	return dsdk_HighEnergy(gamma_i, gamma_f, k, Z, N) / E_gamma;
 }

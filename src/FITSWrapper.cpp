@@ -41,11 +41,12 @@ void FITSFile::openFile(FITS::IOMode ioMode) {
 void FITSFile::closeFile() {
 	if (fits_close_file(fptr, &status))
 		fits_report_error(stderr, status);
-	if (status != 0)
+	if (status != 0) {
 		std::cerr
 		    << "CFITSIO error: Status code non-zero when closing file. "
 		       "Potentially corrupted file."
 		    << std::endl;
+	}
 	fptr = nullptr;
 }
 
@@ -73,9 +74,10 @@ int FITSFile::getCurrentHDUNumber() {
 	int hduActual;
 	if (fits_get_hdu_num(fptr, &hduActual))
 		fits_report_error(stderr, status);
-	if (status != 0)
+	if (status != 0) {
 		throw std::runtime_error(
 		    "Cannot retrieve the selected HDU number.");
+	}
 	return hduActual;
 }
 
@@ -96,9 +98,10 @@ FITS::HDUType FITSFile::getHDUType() {
 	int readHDUType;
 	if (fits_get_hdu_type(fptr, &readHDUType, &status))
 		fits_report_error(stderr, status);
-	if (status != 0)
+	if (status != 0) {
 		throw std::runtime_error(
 		    "Cannot retrieve the type of the selected HDU.");
+	}
 	return intToHDUType(hduType);
 }
 
@@ -106,9 +109,10 @@ int FITSFile::getNumOfKeywords() {
 	int keyexist, morekeys = 0;
 	if (fits_get_hdrspace(fptr, &keyexist, &morekeys, &status))
 		fits_report_error(stderr, status);
-	if (status != 0)
+	if (status != 0) {
 		throw std::runtime_error(
 		    "Cannot access the number of keyword in this header.");
+	}
 	return keyexist;
 }
 
@@ -121,9 +125,10 @@ std::vector<std::string> FITSFile::getHeaderRecords() {
 			fits_report_error(stderr, status);
 		records.push_back(static_cast<std::string>(readRecord));
 	}
-	if (status != 0)
+	if (status != 0) {
 		throw std::runtime_error(
 		    "Cannot read header records from this header.");
+	}
 
 	return records;
 }
@@ -147,7 +152,7 @@ FITSKeyValue FITSFile::readKeyValue(std::string key_, FITS::DataType type_) {
 	FITSKeyValue kv = FITSKeyValue(key_);
 	kv.setType(type_);
 
-	// TODO: rewrite
+	// TODO(adundovi): rewrite
 	switch (kv.getType()) {
 	case FITS::STRING:
 		fits_read_key(fptr, kv.getType(), kv.getKey(), kv.s, NULL,

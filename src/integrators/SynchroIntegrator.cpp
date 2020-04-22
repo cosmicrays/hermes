@@ -44,7 +44,7 @@ QTemperature SynchroIntegrator::integrateOverLOS(QDirection direction,
 QEnergy SynchroIntegrator::singleElectronEmission(QFrequency freq_, QEnergy E_,
 						  QMField B_perp_) const {
 
-	// TODO: non-relativistic factor (c/v) (see Longair eq. 8.55)
+	// TODO(adundovi): non-relativistic factor (c/v) (see Longair eq. 8.55)
 	QFrequency freq_giro = e_plus * B_perp_ / m_electron;
 	QFrequency freq_c = 3. / 2. * pow<2>(getLorentzFactor(m_electron, E_)) *
 			    freq_giro / 2_pi;
@@ -62,10 +62,11 @@ QEnergy SynchroIntegrator::singleElectronEmission(QFrequency freq_, QEnergy E_,
 
 QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_,
 						   QFrequency freq_) const {
-	if (crdensity->existsScaleFactor())
+	if (crdensity->existsScaleFactor()) {
 		return integrateOverLogEnergy(pos_, freq_);
-	else
+	} else {
 		return integrateOverSumEnergy(pos_, freq_);
+	}
 }
 
 QEmissivity SynchroIntegrator::integrateOverSumEnergy(Vector3QLength pos_,

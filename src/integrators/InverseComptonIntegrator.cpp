@@ -118,10 +118,11 @@ InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_,
 	if (cacheTableInitialized)
 		return getIOEfromCache(pos_, Egamma_);
 
-	if (crdensity->existsScaleFactor())
+	if (crdensity->existsScaleFactor()) {
 		return integrateOverLogEnergy(pos_, Egamma_);
-	else
+	} else {
 		return integrateOverSumEnergy(pos_, Egamma_);
+	}
 }
 
 QGREmissivity

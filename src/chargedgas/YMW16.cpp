@@ -403,7 +403,7 @@ double YMW16::spiral(double xx, double yy, double zz, double gd, double rr,
 								   t3.warm[i])),
 						     2);
 					if (rr > 6000 &&
-					    theta * RAD > t3.thetacn)
+					    theta * RAD > t3.thetacn) {
 						ga = (1 -
 						      (t3.nsg) *
 							  (std::exp(
@@ -422,6 +422,7 @@ double YMW16::spiral(double xx, double yy, double zz, double gd, double rr,
 								  smin /
 								  t3.warm[i])),
 							 2);
+					}
 
 				} else {
 					ga = std::pow(
@@ -486,12 +487,13 @@ double YMW16::gum(double xx, double yy, double zz, int *m_5) const {
 		       ((t5.Agn) * (t5.Agn) * (t5.Kgn) * (t5.Kgn)) /
 			   (std::tan(theta) * std::tan(theta)));
 	xyp = zp / std::tan(theta);
-	if ((t5.Agn - std::fabs(xyp)) < 1e-15)
+	if ((t5.Agn - std::fabs(xyp)) < 1e-15) {
 		alpha = pi / 2;
-	else
+	} else {
 		alpha = -std::atan(
 		    (-(t5.Agn) * (t5.Kgn) * xyp) /
 		    ((t5.Agn) * std::sqrt((t5.Agn) * (t5.Agn) - xyp * xyp)));
+	}
 	RR = std::sqrt((xx - xc) * (xx - xc) + (yy - yc) * (yy - yc) +
 		       (zz - zc) * (zz - zc));
 	rp = std::sqrt((zp) * (zp) + (xyp) * (xyp));
@@ -541,10 +543,11 @@ double YMW16::localbubble(double xx, double yy, double zz, double gl, double gb,
 		    2 / (std::exp(-zz / t6.hlb1) + std::exp(zz / t6.hlb1)), 2);
 		VVV = MIN(std::fabs(gl + 360 - t6.thetalb1),
 			  std::fabs(t6.thetalb1 - gl));
-		if (VVV > (mc * t6.detlb1))
+		if (VVV > (mc * t6.detlb1)) {
 			glb1 = 0;
-		else
+		} else {
 			glb1 = 1;
+		}
 		nelb1 = glb1 *
 			std::pow(2 / (std::exp(-VVV / t6.detlb1) +
 				      std::exp(VVV / t6.detlb1)),
@@ -564,10 +567,11 @@ double YMW16::localbubble(double xx, double yy, double zz, double gl, double gb,
 		    2 / (std::exp(-zz / t6.hlb2) + std::exp(zz / t6.hlb2)), 2);
 		WWW = MIN(std::fabs(gl + 360 - t6.thetalb2),
 			  std::fabs(t6.thetalb2 - gl));
-		if (WWW > (mc * t6.detlb2))
+		if (WWW > (mc * t6.detlb2)) {
 			glb2 = 0;
-		else
+		} else {
 			glb2 = 1;
+		}
 		nelb2 = glb2 *
 			std::pow(2 / (std::exp(-WWW / t6.detlb2) +
 				      std::exp(WWW / t6.detlb2)),
@@ -633,10 +637,11 @@ double YMW16::fermibubble(double xx, double yy, double zz) const {
 	    (std::pow(zz - fbnz, 2) / (na * na));
 	S = (std::pow(xx, 2) / (sb * sb)) + (std::pow(yy, 2) / (sb * sb)) +
 	    (std::pow(zz - fbsz, 2) / (sa * sa));
-	if (N < 1 || S < 1)
+	if (N < 1 || S < 1) {
 		return 1;
-	else
+	} else {
 		return 0;
+	}
 }
 
 double YMW16::lmc(double l, double b, double d, int *w_lmc) const {

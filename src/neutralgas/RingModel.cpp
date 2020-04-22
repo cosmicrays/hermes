@@ -109,19 +109,21 @@ RingModel::RingModel(RingType gas)
 std::array<bool, 12> RingModel::getEnabledRings() const { return enabledRings; }
 
 void RingModel::disableRingNo(int i) {
-	if (i >= enabledRings.size())
+	if (i >= enabledRings.size()) {
 		throw std::runtime_error(
 		    "Provided number is bigger than the total "
 		    "number of rings. Aborted.");
+	}
 
 	enabledRings[i] = false;
 }
 
 void RingModel::enableRingNo(int i) {
-	if (i >= enabledRings.size())
+	if (i >= enabledRings.size()) {
 		throw std::runtime_error(
 		    "Provided number is bigger than the total "
 		    "number of rings. Aborted.");
+	}
 
 	enabledRings[i] = true;
 }

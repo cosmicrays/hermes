@@ -49,7 +49,7 @@ TEST(FITS, setGetKey) {
 	ffile->writeImage(FITS::FLOAT, 1, 1, nullArray);
 
 	const int tfields = 1;
-	int nrows = (int)(20);
+	int nrows = (20);
 	char *ttype[] = {(char *)("TFLOAT")};
 	char *tform[] = {(char *)("1E")};
 	char *tunit[] = {(char *)("nothing")};

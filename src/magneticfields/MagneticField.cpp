@@ -37,13 +37,13 @@ PeriodicMagneticField::getField(const Vector3QLength &position) const {
 	Vector3QLength p = position - origin - n * extends;
 
 	if (reflective) {
-		long mx = (long)std::fabs(n.x) % 2;
+		long mx = static_cast<long>(std::fabs(n.x)) % 2;
 		if (mx == 1)
 			p.x = extends.x - p.x;
-		long my = (long)std::fabs(n.y) % 2;
+		long my = static_cast<long>(std::fabs(n.y)) % 2;
 		if (my == 1)
 			p.y = extends.y - p.y;
-		long mz = (long)std::fabs(n.z) % 2;
+		long mz = static_cast<long>(std::fabs(n.z)) % 2;
 		if (mz == 1)
 			p.z = extends.z - p.z;
 	}

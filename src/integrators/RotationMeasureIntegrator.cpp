@@ -31,7 +31,7 @@ RotationMeasureIntegrator::integralFunction(Vector3QLength pos) const {
 	Vector3QMField B = mfield->getField(pos);
 	if (B.getR() == 0_muG)
 		return 0;
-	// TODO: optimise
+	// TODO(adundovi): optimise
 	QMField B_parallel =
 	    B.getR() * cos((B.getValue()).getAngleTo(pos.getValue()));
 

@@ -91,8 +91,8 @@ void JF12Field::randomStriated(int seed) {
 	if (seed != 0)
 		random.seed(seed);
 
-	for (int ix = 0; ix < N; ix++)
-		for (int iy = 0; iy < N; iy++)
+	for (int ix = 0; ix < N; ix++) {
+		for (int iy = 0; iy < N; iy++) {
 			for (int iz = 0; iz < N; iz++) {
 				float &f = striatedGrid->get(ix, iy, iz);
 				f = std::round(
@@ -100,6 +100,8 @@ void JF12Field::randomStriated(int seed) {
 					2 -
 				    1;
 			}
+		}
+	}
 }
 
 #ifdef HERMES_HAVE_FFTW3F
@@ -187,18 +189,21 @@ Vector3QMField JF12Field::getRegularField(const Vector3QLength &pos) const {
 			QLength r_negx =
 			    r * exp((-(phi - QAngle(pi)) / tan90MinusPitch) /
 				    1_rad);
-			if (r_negx > rArms[7])
+			if (r_negx > rArms[7]) {
 				r_negx = r * exp((-(phi + QAngle(pi)) /
 						  tan90MinusPitch) /
 						 1_rad);
-			if (r_negx > rArms[7])
+			}
+			if (r_negx > rArms[7]) {
 				r_negx = r * exp((-(phi + QAngle(3 * pi)) /
 						  tan90MinusPitch) /
 						 1_rad);
+			}
 
-			for (int i = 7; i >= 0; i--)
+			for (int i = 7; i >= 0; i--) {
 				if (r_negx < rArms[i])
 					bMag = static_cast<double>(bDisk[i]);
+			}
 
 			bMag *= static_cast<double>((5_kpc / r) *
 						    (QNumber(1) - lfDisk));
@@ -211,12 +216,13 @@ Vector3QMField JF12Field::getRegularField(const Vector3QLength &pos) const {
 
 	// toroidal halo field
 	double bMagH = static_cast<double>(exp(-fabs(pos.z) / z0) * lfDisk);
-	if (pos.z >= 0_m)
+	if (pos.z >= 0_m) {
 		bMagH *= static_cast<double>(
 		    bNorth * (QNumber(1) - logisticFunction(r, rNorth, wHalo)));
-	else
+	} else {
 		bMagH *= static_cast<double>(
 		    bSouth * (QNumber(1) - logisticFunction(r, rSouth, wHalo)));
+	}
 	b.x += -bMagH * static_cast<double>(sinPhi);
 	b.y += bMagH * static_cast<double>(cosPhi);
 
@@ -270,16 +276,19 @@ QMField JF12Field::getTurbulentStrength(const Vector3QLength &pos) const {
 		// spiral region
 		QLength r_negx =
 		    r * exp(-(phi - QAngle(pi)) / tan90MinusPitch / 1_rad);
-		if (r_negx > rArms[7])
+		if (r_negx > rArms[7]) {
 			r_negx = r * exp(-(phi + QAngle(pi)) / tan90MinusPitch /
 					 1_rad);
-		if (r_negx > rArms[7])
+		}
+		if (r_negx > rArms[7]) {
 			r_negx = r * exp(-(phi + QAngle(3 * pi)) /
 					 tan90MinusPitch / 1_rad);
+		}
 
-		for (int i = 7; i >= 0; i--)
+		for (int i = 7; i >= 0; i--) {
 			if (r_negx < rArms[i])
 				bDisk = bDiskTurb[i];
+		}
 
 		bDisk = bDisk * (5_kpc) / r;
 	}
@@ -307,10 +316,11 @@ Vector3QMField JF12Field::getField(const Vector3QLength &pos_) const {
 
 	if (useTurbulent)
 		b += getTurbulentField(pos);
-	if (useStriated)
+	if (useStriated) {
 		b += getStriatedField(pos);
-	else if (useRegular)
+	} else if (useRegular) {
 		b += getRegularField(pos);
+	}
 	return b;
 }
 

@@ -94,7 +94,7 @@ Vector3QLength getGalacticPosition(const Vector3QLength &posSun,
 				   const QLength &dist, const QDirection &dir) {
 	Vector3QLength pos(0);
 
-	// TODO: should be more general for any observer position
+	// TODO(adundovi): should be more general for any observer position
 	pos.setRThetaPhi(dist, dir[0], dir[1]);
 	pos.x = posSun.x - pos.x;
 	pos.y = -pos.y;
@@ -142,12 +142,12 @@ getThreadChunks(unsigned int queueSize) {
 	unsigned int tasks_per_thread = queueSize / getThreadsNumber();
 	unsigned int reminder_tasks = queueSize % getThreadsNumber();
 
-	// Initialize chunks of pixels:  chunk[i] = [ i, (i+1)*pixel_per_thread
-	// >
+	// Init chunks of pixels:  chunk[i] = [ i, (i+1)*pixel_per_thread >
 	std::vector<std::pair<unsigned int, unsigned int>> chunks;
-	for (unsigned int i = 0; i < getThreadsNumber(); ++i)
+	for (unsigned int i = 0; i < getThreadsNumber(); ++i) {
 		chunks.push_back(std::make_pair(i * tasks_per_thread,
 						(i + 1) * tasks_per_thread));
+	}
 	chunks[getThreadsNumber() - 1].second += reminder_tasks;
 
 	return chunks;

@@ -31,10 +31,11 @@ class TestCRDensity : public cosmicrays::CosmicRayDensity {
 	QPDensityPerEnergy
 	getDensityPerEnergy(const QEnergy &E_,
 			    const Vector3QLength &pos_) const {
-		if (E_ == E_c)
+		if (E_ == E_c) {
 			return 1.0 / (1_m3 * 1_J);
-		else
+		} else {
 			return 0;
+		}
 	}
 };
 

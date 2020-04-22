@@ -148,9 +148,7 @@ void init_skymaps(py::module &m) {
 
 	// Skymap Masks
 	// NOLINTNEXTLINE(bugprone-unused-raii)
-	py::class_<SkymapMask,
-		   std::shared_ptr<SkymapMask>>(
-	    m, "SkymapMask");
+	py::class_<SkymapMask, std::shared_ptr<SkymapMask>>(m, "SkymapMask");
 	py::class_<InvertMask, std::shared_ptr<InvertMask>, SkymapMask>(
 	    m, "InvertMask")
 	    .def(py::init<const std::shared_ptr<SkymapMask>>(),

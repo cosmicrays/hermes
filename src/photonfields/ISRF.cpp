@@ -87,11 +87,12 @@ void ISRF::loadISRF() {
 			     << str(static_cast<int>(j * 10)) << ".dat";
 			std::string filename = getDataPath(name.str());
 
-			// TODO: exception if file not found
+			// TODO(adundovi): exception if file not found
 			std::ifstream file_to_read(filename.c_str());
-			for (std::size_t k = 0; k < num_of_header_lines; ++k)
+			for (std::size_t k = 0; k < num_of_header_lines; ++k) {
 				file_to_read.ignore(max_num_of_char_in_a_line,
 						    '\n');
+			}
 			while (!file_to_read.eof()) {
 				double f_, e_;
 				file_to_read >> f_ >> e_;
@@ -116,7 +117,7 @@ QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos,
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y);
 	QLength z = pos.z;
 	QEnergy E = energyRange[iE];
-	// TODO: not implemented
+	// TODO(adundovi): not implemented
 	return getEnergyDensity(r, z, E);
 }
 

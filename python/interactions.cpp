@@ -35,47 +35,47 @@ void init(py::module &m) {
 		   DifferentialCrossSection>(subm, "KleinNishina")
 	    .def(py::init<>())
 	    .def("getDiffCrossSection",
-		 (QDifferentialCrossSection(KleinNishina::*)(
-		     const QEnergy &, const QEnergy &, const QEnergy &) const) &
-		     KleinNishina::getDiffCrossSection);
+		 static_cast<QDifferentialCrossSection(KleinNishina::*)(
+		     const QEnergy &, const QEnergy &, const QEnergy &) const>(&
+		     KleinNishina::getDiffCrossSection));
 	py::class_<Kamae06Gamma, std::shared_ptr<Kamae06Gamma>,
 		   DifferentialCrossSection>(subm, "Kamae06Gamma")
 	    .def(py::init<>())
 	    .def("getDiffCrossSection",
-		 (QDifferentialCrossSection(Kamae06Gamma::*)(
-		     const QEnergy &, const QEnergy &) const) &
-		     Kamae06Gamma::getDiffCrossSection);
+		 static_cast<QDifferentialCrossSection(Kamae06Gamma::*)(
+		     const QEnergy &, const QEnergy &) const>(&
+		     Kamae06Gamma::getDiffCrossSection));
 	py::class_<Kamae06Neutrino, std::shared_ptr<Kamae06Neutrino>,
 		   DifferentialCrossSection>(subm, "Kamae06Neutrino")
 	    .def(py::init<>())
 	    .def("getDiffCrossSection",
-		 (QDifferentialCrossSection(Kamae06Neutrino::*)(
-		     const QEnergy &, const QEnergy &) const) &
-		     Kamae06Neutrino::getDiffCrossSection);
+		 static_cast<QDifferentialCrossSection(Kamae06Neutrino::*)(
+		     const QEnergy &, const QEnergy &) const>(&
+		     Kamae06Neutrino::getDiffCrossSection));
 	py::class_<KelnerAharonianGamma, std::shared_ptr<KelnerAharonianGamma>,
 		   DifferentialCrossSection>(subm, "KelnerAharonianGamma")
 	    .def(py::init<>())
 	    .def_static("sigmaInelastic", &KelnerAharonianGamma::sigmaInelastic)
 	    .def("getDiffCrossSection",
-		 (QDifferentialCrossSection(KelnerAharonianGamma::*)(
-		     const QEnergy &, const QEnergy &) const) &
-		     KelnerAharonianGamma::getDiffCrossSection);
+		 static_cast<QDifferentialCrossSection(KelnerAharonianGamma::*)(
+		     const QEnergy &, const QEnergy &) const>(&
+		     KelnerAharonianGamma::getDiffCrossSection));
 	py::class_<KelnerAharonianNeutrino,
 		   std::shared_ptr<KelnerAharonianNeutrino>,
 		   DifferentialCrossSection>(subm, "KelnerAharonianNeutrino")
 	    .def(py::init<>())
 	    .def_static("sigmaInelastic", &KelnerAharonianGamma::sigmaInelastic)
 	    .def("getDiffCrossSection",
-		 (QDifferentialCrossSection(KelnerAharonianNeutrino::*)(
-		     const QEnergy &, const QEnergy &) const) &
-		     KelnerAharonianNeutrino::getDiffCrossSection);
+		 static_cast<QDifferentialCrossSection(KelnerAharonianNeutrino::*)(
+		     const QEnergy &, const QEnergy &) const>(&
+		     KelnerAharonianNeutrino::getDiffCrossSection));
 	py::class_<BremsstrahlungSimple, std::shared_ptr<BremsstrahlungSimple>,
 		   DifferentialCrossSection>(subm, "BremsstrahlungSimple")
 	    .def(py::init<>())
 	    .def("getDiffCrossSection",
-		 (QDifferentialCrossSection(BremsstrahlungSimple::*)(
-		     const QEnergy &, const QEnergy &) const) &
-		     BremsstrahlungSimple::getDiffCrossSection);
+		 static_cast<QDifferentialCrossSection(BremsstrahlungSimple::*)(
+		     const QEnergy &, const QEnergy &) const>(&
+		     BremsstrahlungSimple::getDiffCrossSection));
 }
 
 } // namespace interactions

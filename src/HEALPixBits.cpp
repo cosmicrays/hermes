@@ -59,9 +59,9 @@ QDirection pix2ang_ring(unsigned int nside, unsigned int ipix) {
 		const double hip = ipix1 / 2.;
 		const unsigned int fihip = std::floor(hip);
 		const unsigned int iring =
-		    (unsigned)std::floor(std::sqrt(hip - std::sqrt(fihip))) +
+		    static_cast<unsigned>(std::floor(std::sqrt(hip - std::sqrt(fihip)))) +
 		    1; // ! counted from North pole
-		const unsigned int iphi = ipix1 - 2 * iring * ((int)iring - 1);
+		const unsigned int iphi = ipix1 - 2 * iring * (static_cast<int>(iring) - 1);
 
 		thetaphi[0] = std::acos(1. - iring * iring / fact2);
 		thetaphi[1] = (1. * iphi - 0.5) * pi / (2. * iring);
@@ -72,17 +72,17 @@ QDirection pix2ang_ring(unsigned int nside, unsigned int ipix) {
 	// ! Equatorial region
 	if (ipix1 <= nl2 * (5 * nside + 1)) {
 		const unsigned ip = ipix1 - ncap - 1;
-		const unsigned int iring = (unsigned)std::floor(ip / nl4) +
+		const unsigned int iring = static_cast<unsigned>(std::floor(ip / nl4)) +
 					   nside; // ! counted from North pole
-		const unsigned int iphi = (unsigned)std::fmod(ip, nl4) + 1;
+		const unsigned int iphi = static_cast<unsigned>(std::fmod(ip, nl4)) + 1;
 
 		const double fodd =
 		    0.5 *
 		    (1 +
-		     std::fmod((double)(iring + nside),
+		     std::fmod(static_cast<double>(iring + nside),
 			       2)); //  ! 1 if iring+nside is odd, 1/2 otherwise
 
-		thetaphi[0] = std::acos(((int)nl2 - (int)iring) / fact1);
+		thetaphi[0] = std::acos((static_cast<int>(nl2) - static_cast<int>(iring)) / fact1);
 		thetaphi[1] = (1. * iphi - fodd) * pi / (2. * nside);
 
 		return thetaphi;
@@ -94,13 +94,13 @@ QDirection pix2ang_ring(unsigned int nside, unsigned int ipix) {
 		const double hip = ip / 2.;
 		const unsigned int fihip = std::floor(hip);
 		const unsigned int iring =
-		    (int)std::floor(std::sqrt(hip - std::sqrt(fihip))) +
+		    static_cast<int>(std::floor(std::sqrt(hip - std::sqrt(fihip)))) +
 		    1; //     ! counted from South pole
 		const unsigned iphi =
-		    (int)(4. * iring + 1 -
-			  ((int)ip - 2. * (int)iring * ((int)iring - 1)));
+		    static_cast<int>(4. * iring + 1 -
+			  (static_cast<int>(ip) - 2. * static_cast<int>(iring) * (static_cast<int>(iring) - 1)));
 
-		thetaphi[0] = std::acos(-1. + (int)iring * iring / fact2);
+		thetaphi[0] = std::acos(-1. + static_cast<int>(iring) * iring / fact2);
 		thetaphi[1] = (1. * iphi - 0.5) * pi / (2. * iring);
 
 		return thetaphi;
@@ -157,7 +157,7 @@ unsigned int loc2pix(unsigned int nside, double z, double phi, double sth,
 
 		const long ir =
 		    jp + jm + 1; // ring number counted from the closest pole
-		const long ip = std::floor((double)ir * tt); // in {0,4*ir-1}
+		const long ip = std::floor(static_cast<double>(ir) * tt); // in {0,4*ir-1}
 
 		return (z > 0) ? 2 * ir * (ir - 1) + ip
 			       : nside2npix(nside) - 2 * ir * (ir + 1) + ip;

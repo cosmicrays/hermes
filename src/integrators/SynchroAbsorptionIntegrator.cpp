@@ -47,7 +47,7 @@ SynchroAbsorptionIntegrator::integrateOverLOS(QDirection direction_,
 		opticalDepthLOS.push_back(opticalDepth);
 	}
 
-	// TODO: implement sophisticated adaptive integration method :-)
+	// TODO(adundovi): implement sophisticated adaptive integration method :-)
 	auto opticalDepthIter = opticalDepthLOS.begin();
 	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
 		pos = getGalacticPosition(positionSun, dist, direction_);

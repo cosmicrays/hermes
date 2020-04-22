@@ -152,8 +152,13 @@ if(CMAKE_VERSION VERSION_GREATER 3.6)
       message(WARNING "CMake_RUN_CLANG_TIDY is ON but clang-tidy is not found!")
       set(CMAKE_CXX_CLANG_TIDY "" CACHE STRING "" FORCE)
     else()
-      set(CLANG_TIDY_CHECKS "-*,clang-diagnostic-*,clang-analyzer-*,bugprone-*")
-      set(CMAKE_CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND};-checks=${CLANG_TIDY_CHECKS};-header-filter='${CMAKE_SOURCE_DIR}/src/*'")
+      set(CLANG_TIDY_CHECKS "-*,clang-diagnostic-*,clang-analyzer-*,bugprone-*,google-readability-*")
+#      set(CLANG_TIDY_CHECKS "-*,google-readability-braces-around-statements")
+      set(CMAKE_CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND};-checks=${CLANG_TIDY_CHECKS};-config=\
+{\"CheckOptions\":[\
+ {\"key\": \"readability-braces-around-statements.ShortStatementLines\", \"value\": 2},\
+ {\"key\": \"google-readability-braces-around-statements.ShortStatementLines\", \"value\": 2}\
+]};-header-filter='${CMAKE_SOURCE_DIR}/src/*'")
     endif()
   
     # Create a preprocessor definition that depends on .clang-tidy content so
@@ -216,10 +221,10 @@ endif(ENABLE_COVERAGE)
 option(HERMES_UNIT_SYSTEM_OPTION "Physical units dimensionality checks in variables" ON)
 if(HERMES_UNIT_SYSTEM_OPTION)
 	message("Units dimensionality check enabled.")
-	set(HERMES_UNIT_SYSTEM_DISABLE "" CACHE INTERNAL "A definition string that disable part of Units header")
+	set(HERMES_UNIT_SYSTEM_DISABLE "" CACHE INTERNAL "A definition string that disables part of Units header")
 else(HERMES_UNIT_SYSTEM_OPTION)
 	message("Units dimensionality check disabled.")
-	set(HERMES_UNIT_SYSTEM_DISABLE "#define HERMES_UNITSDISABLE" CACHE INTERNAL "A definition string that disable part of Units header")
+	set(HERMES_UNIT_SYSTEM_DISABLE "#define HERMES_UNITSDISABLE" CACHE INTERNAL "A definition string that disables part of Units header")
 endif(HERMES_UNIT_SYSTEM_OPTION)
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/include/hermes/Units.h.in" "${CMAKE_CURRENT_BINARY_DIR}/include/hermes/Units.h" @ONLY)
 include_directories("${CMAKE_CURRENT_BINARY_DIR}/include")

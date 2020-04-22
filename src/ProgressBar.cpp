@@ -56,7 +56,7 @@ void ProgressBar::setPosition(unsigned long position) {
 	if (position < _steps) {
 		if (arrow.size() <= (_maxbarLength) * (position) / (_steps))
 			arrow.insert(0, "=");
-		float tElapsed = currentTime - _startTime;
+		time_t tElapsed = currentTime - _startTime;
 		float tToGo = (_steps - position) * tElapsed / position;
 		std::printf(stringTmpl.c_str(), arrow.c_str(), percentage,
 			    "Finish in", int(tToGo / 3600),
@@ -78,7 +78,7 @@ void ProgressBar::setPosition(unsigned long position) {
 void ProgressBar::setError() {
 	time_t currentTime = time(NULL);
 	_currentCount++;
-	float tElapsed = currentTime - _startTime;
+	time_t tElapsed = currentTime - _startTime;
 	std::string s = " - Finished at ";
 	s.append(ctime(&currentTime));
 	char fs[255];

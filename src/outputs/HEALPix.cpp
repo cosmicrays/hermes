@@ -26,9 +26,9 @@ void HEALPix::initOutput() {
 void HEALPix::createTable(int nrows) {
 
 	const int tfields = 1;
-	char *ttype[] = {(char *)"TFLOAT"};
-	char *tform[] = {(char *)("1E")};
-	char *tunit[] = {(char *)("nothing")};
+	char *ttype[] = {const_cast<char *>("TFLOAT")};
+	char *tform[] = {const_cast<char *>("1E")};
+	char *tunit[] = {const_cast<char *>("nothing")};
 	const char extname[] = "xtension";
 
 	ffile->createTable(FITS::BINARY, nrows, tfields, ttype, tform, tunit,
