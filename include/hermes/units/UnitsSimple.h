@@ -59,7 +59,7 @@ typedef double QICInnerIntegral;
 typedef double QGREmissivity;
 
 template <int power> constexpr double pow(const QNumber &num) {
-	return std::pow(static_cast<double>(num), power);
+    return std::pow(static_cast<double>(num), power);
 }
 constexpr double squared(const QNumber &num) { return num * num; }
 

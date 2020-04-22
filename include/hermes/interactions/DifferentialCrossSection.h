@@ -10,24 +10,22 @@ namespace interactions {
 using namespace units;
 
 class DifferentialCrossSection {
-      protected:
-	bool cachingEnabled;
+  protected:
+    bool cachingEnabled;
 
-      public:
-	DifferentialCrossSection(bool cachingEnabled = false);
-	~DifferentialCrossSection();
+  public:
+    DifferentialCrossSection(bool cachingEnabled = false);
+    ~DifferentialCrossSection();
 
-	void enableCaching();
-	void disableCaching();
+    void enableCaching();
+    void disableCaching();
 
-	virtual QDifferentialCrossSection
-	getDiffCrossSection(const QEnergy &E_proton,
-			    const QEnergy &E_gamma) const;
-	virtual QDifferentialCrossSection
-	getDiffCrossSection(const QEnergy &E_electron, const QEnergy &E_photon,
-			    const QEnergy &E_gamma) const;
-	virtual QNumber getSigma(const PID &projectile,
-				 const PID &target) const;
+    virtual QDifferentialCrossSection
+    getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_gamma) const;
+    virtual QDifferentialCrossSection
+    getDiffCrossSection(const QEnergy &E_electron, const QEnergy &E_photon,
+			const QEnergy &E_gamma) const;
+    virtual QNumber getSigma(const PID &projectile, const PID &target) const;
 };
 
 } // namespace interactions

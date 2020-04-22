@@ -16,23 +16,23 @@ namespace hermes {
  gamma-ray energy (J).
  */
 class GammaSkymap : public SkymapTemplate<QDifferentialIntensity, QEnergy> {
-      public:
-	GammaSkymap(std::size_t nside_, QEnergy Egamma_)
-	    : SkymapTemplate(nside_, Egamma_) {
-		initDefaultOutputUnits(1 / (1_GeV * 1_m2 * 1_s * 1_sr),
-				       "GeV^-1 m^-2 s^-1 sr^-1");
-	};
+  public:
+    GammaSkymap(std::size_t nside_, QEnergy Egamma_)
+	: SkymapTemplate(nside_, Egamma_) {
+	initDefaultOutputUnits(1 / (1_GeV * 1_m2 * 1_s * 1_sr),
+			       "GeV^-1 m^-2 s^-1 sr^-1");
+    };
 
-	void setEnergy(QEnergy Egamma_) { setSkymapParameter(Egamma_); }
-	QEnergy getEnergy() const { return skymapParameter; }
+    void setEnergy(QEnergy Egamma_) { setSkymapParameter(Egamma_); }
+    QEnergy getEnergy() const { return skymapParameter; }
 
-	void computePixel(
-	    std::size_t ipix,
-	    std::shared_ptr<IntegratorTemplate<QDifferentialIntensity, QEnergy>>
-		integrator_) {
-		fluxContainer[ipix] = integrator_->integrateOverLOS(
-		    pix2ang_ring(getNside(), ipix), skymapParameter);
-	}
+    void computePixel(
+	std::size_t ipix,
+	std::shared_ptr<IntegratorTemplate<QDifferentialIntensity, QEnergy>>
+	    integrator_) {
+	fluxContainer[ipix] = integrator_->integrateOverLOS(
+	    pix2ang_ring(getNside(), ipix), skymapParameter);
+    }
 };
 
 /** @}*/

@@ -11,13 +11,13 @@ namespace outputs {
 
 void init(py::module &m) {
 
-	py::module subm = m.def_submodule("outputs");
-	subm.doc() = "outputs package";
+    py::module subm = m.def_submodule("outputs");
+    subm.doc() = "outputs package";
 
-	// NOLINTNEXTLINE(bugprone-unused-raii)
-	py::class_<Output, std::shared_ptr<Output>>(subm, "Output");
-	py::class_<HEALPix, std::shared_ptr<HEALPix>, Output>(subm, "HEALPix")
-	    .def(py::init<std::string>());
+    // NOLINTNEXTLINE(bugprone-unused-raii)
+    py::class_<Output, std::shared_ptr<Output>>(subm, "Output");
+    py::class_<HEALPix, std::shared_ptr<HEALPix>, Output>(subm, "HEALPix")
+	.def(py::init<std::string>());
 }
 
 } // namespace outputs

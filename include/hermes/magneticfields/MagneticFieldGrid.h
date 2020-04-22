@@ -19,13 +19,13 @@ namespace magneticfields {
  This class wraps a VectorGrid to serve as a MagneticField.
  */
 class MagneticFieldGrid : public MagneticField {
-	std::shared_ptr<VectorGrid> grid;
+    std::shared_ptr<VectorGrid> grid;
 
-      public:
-	MagneticFieldGrid(std::shared_ptr<VectorGrid> grid);
-	void setGrid(std::shared_ptr<VectorGrid> grid);
-	std::shared_ptr<VectorGrid> getGrid();
-	Vector3d getField(const Vector3d &position) const;
+  public:
+    MagneticFieldGrid(std::shared_ptr<VectorGrid> grid);
+    void setGrid(std::shared_ptr<VectorGrid> grid);
+    std::shared_ptr<VectorGrid> getGrid();
+    Vector3d getField(const Vector3d &position) const;
 };
 
 /**
@@ -38,19 +38,19 @@ class MagneticFieldGrid : public MagneticField {
  size.
  */
 class ModulatedMagneticFieldGrid : public MagneticField {
-	std::shared_ptr<VectorGrid> grid;
-	std::shared_ptr<ScalarGrid> modGrid;
+    std::shared_ptr<VectorGrid> grid;
+    std::shared_ptr<ScalarGrid> modGrid;
 
-      public:
-	ModulatedMagneticFieldGrid() {}
-	ModulatedMagneticFieldGrid(std::shared_ptr<VectorGrid> grid,
-				   std::shared_ptr<ScalarGrid> modGrid);
-	void setGrid(std::shared_ptr<VectorGrid> grid);
-	void setModulationGrid(std::shared_ptr<ScalarGrid> modGrid);
-	std::shared_ptr<VectorGrid> getGrid();
-	std::shared_ptr<ScalarGrid> getModulationGrid();
-	void setReflective(bool gridReflective, bool modGridReflective);
-	Vector3d getField(const Vector3d &position) const;
+  public:
+    ModulatedMagneticFieldGrid() {}
+    ModulatedMagneticFieldGrid(std::shared_ptr<VectorGrid> grid,
+			       std::shared_ptr<ScalarGrid> modGrid);
+    void setGrid(std::shared_ptr<VectorGrid> grid);
+    void setModulationGrid(std::shared_ptr<ScalarGrid> modGrid);
+    std::shared_ptr<VectorGrid> getGrid();
+    std::shared_ptr<ScalarGrid> getModulationGrid();
+    void setReflective(bool gridReflective, bool modGridReflective);
+    Vector3d getField(const Vector3d &position) const;
 };
 /** @} */
 } // namespace magneticfields

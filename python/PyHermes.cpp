@@ -37,25 +37,25 @@ void init(py::module &);
 }
 
 PYBIND11_MODULE(pyhermes, m) {
-	m.doc() = "HERMES python binding";
+    m.doc() = "HERMES python binding";
 
-	// main namespace
-	init_common(m);
-	init_integrators(m);
-	init_particleid(m);
-	init_quantity(m);
-	init_skymaps(m);
-	init_vectors(m);
+    // main namespace
+    init_common(m);
+    init_integrators(m);
+    init_particleid(m);
+    init_quantity(m);
+    init_skymaps(m);
+    init_vectors(m);
 
-	// submodules
-	chargedgas::init(m);
-	cosmicrays::init(m);
-	interactions::init(m);
-	magneticfields::init(m);
-	neutralgas::init(m);
-	outputs::init(m);
-	photonfields::init(m);
-	units::init(m);
+    // submodules
+    chargedgas::init(m);
+    cosmicrays::init(m);
+    interactions::init(m);
+    magneticfields::init(m);
+    neutralgas::init(m);
+    outputs::init(m);
+    photonfields::init(m);
+    units::init(m);
 }
 
 } // namespace hermes

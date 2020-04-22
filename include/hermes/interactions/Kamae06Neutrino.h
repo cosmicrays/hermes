@@ -29,19 +29,19 @@ namespace hermes {
 namespace interactions {
 
 class Kamae06Neutrino : public DifferentialCrossSection {
-      private:
-	std::unique_ptr<CacheStorageCrossSection> cache;
+  private:
+    std::unique_ptr<CacheStorageCrossSection> cache;
 
-      public:
-	Kamae06Neutrino();
-	void setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache);
+  public:
+    Kamae06Neutrino();
+    void setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache);
 
-	QDifferentialCrossSection
-	getDiffCrossSection(const QEnergy &E_proton,
-			    const QEnergy &E_nu) const override;
-	QDifferentialCrossSection
-	getDiffCrossSectionDirectly(const QEnergy &E_proton,
-				    const QEnergy &E_nu) const;
+    QDifferentialCrossSection
+    getDiffCrossSection(const QEnergy &E_proton,
+			const QEnergy &E_nu) const override;
+    QDifferentialCrossSection
+    getDiffCrossSectionDirectly(const QEnergy &E_proton,
+				const QEnergy &E_nu) const;
 };
 
 } // namespace interactions

@@ -16,21 +16,21 @@ namespace hermes {
 
 /** Lower and upper neighbor in a periodically continued unit grid */
 inline void periodicClamp(double x, int n, int &lo, int &hi) {
-	lo = ((int(floor(x)) % n) + n) % n;
-	hi = (lo + 1) % n;
+    lo = ((int(floor(x)) % n) + n) % n;
+    hi = (lo + 1) % n;
 }
 
 /** Lower and upper neighbor in a reflectively repeated unit grid */
 inline void reflectiveClamp(double x, int n, int &lo, int &hi) {
-	while ((x < 0) or (x > n))
-		x = 2 * n * (x > n) - x;
-	lo = floor(x);
-	hi = lo + (lo < n - 1);
+    while ((x < 0) or (x > n))
+	x = 2 * n * (x > n) - x;
+    lo = floor(x);
+    hi = lo + (lo < n - 1);
 }
 
 /** Symmetrical round */
 inline double round(double r) {
-	return (r > 0.0) ? floor(r + 0.5) : ceil(r - 0.5);
+    return (r > 0.0) ? floor(r + 0.5) : ceil(r - 0.5);
 }
 
 /**
@@ -48,178 +48,175 @@ inline double round(double r) {
  sample positions are at 1/2 * size/N, 3/2 * size/N ... (2N-1)/2 * size/N.
  */
 template <typename T> class Grid2D {
-	std::vector<T> grid;
-	size_t Nx, Ny;	 /**< Number of grid points */
-	Vector3d origin; /**< Origin of the volume that is represented by the
+    std::vector<T> grid;
+    size_t Nx, Ny;	 /**< Number of grid points */
+    Vector3d origin;	 /**< Origin of the volume that is represented by the
 			    grid. */
-	Vector3d gridOrigin; /**< Grid origin */
-	Vector3d spacing;    /**< Distance between grid points, determines the
-				extension of the grid */
-	bool reflective; /**< If set to true, the grid is repeated reflectively
+    Vector3d gridOrigin; /**< Grid origin */
+    Vector3d spacing;	 /**< Distance between grid points, determines the
+			    extension of the grid */
+    bool reflective;	 /**< If set to true, the grid is repeated reflectively
 			    instead of periodically */
 
-      public:
-	/** Constructor for cubic grid
-	 @param	origin	Position of the lower left front corner of the volume
-	 @param	N		Number of grid points in one direction
-	 @param spacing	Spacing between grid points
-	 */
-	Grid2D(Vector3d origin, size_t N, double spacing) {
-		setOrigin(origin);
-		setGridSize(N, N);
-		setSpacing(Vector3d(spacing));
-		setReflective(false);
+  public:
+    /** Constructor for cubic grid
+     @param	origin	Position of the lower left front corner of the volume
+     @param	N		Number of grid points in one direction
+     @param spacing	Spacing between grid points
+     */
+    Grid2D(Vector3d origin, size_t N, double spacing) {
+	setOrigin(origin);
+	setGridSize(N, N);
+	setSpacing(Vector3d(spacing));
+	setReflective(false);
+    }
+
+    /** Constructor for non-cubic grid
+     @param	origin	Position of the lower left front corner of the volume
+     @param	Nx		Number of grid points in x-direction
+     @param	Ny		Number of grid points in y-direction
+     @param spacing	Spacing between grid points
+     */
+    Grid2D(Vector3d origin, size_t Nx, size_t Ny, double spacing) {
+	setOrigin(origin);
+	setGridSize(Nx, Ny);
+	setSpacing(Vector3d(spacing));
+	setReflective(false);
+    }
+
+    /** Constructor for non-cubic grid with spacing vector
+    @param	origin	Position of the lower left front corner of the volume
+     @param	Nx		Number of grid points in x-direction
+     @param	Ny		Number of grid points in y-direction
+     @param spacing	Spacing vector between grid points
+    */
+    Grid2D(Vector3d origin, size_t Nx, size_t Ny, Vector3d spacing) {
+	setOrigin(origin);
+	setGridSize(Nx, Ny);
+	setSpacing(spacing);
+	setReflective(false);
+    }
+
+    void setOrigin(Vector3d origin) {
+	this->origin = origin;
+	this->gridOrigin = origin + spacing / 2;
+    }
+
+    /** Resize grid, also enlarges the volume as the spacing stays constant
+     */
+    void setGridSize(size_t Nx, size_t Ny) {
+	this->Nx = Nx;
+	this->Ny = Ny;
+	grid.resize(Nx * Ny);
+	setOrigin(origin);
+    }
+
+    size_t getGridSize() const { return grid.size(); }
+
+    void setSpacing(Vector3d spacing) {
+	this->spacing = spacing;
+	setOrigin(origin);
+    }
+
+    Vector3d getSpacing() const { return spacing; }
+
+    void setReflective(bool b) { reflective = b; }
+
+    void setVector(const std::vector<float> &v) {
+	std::transform(v.begin(), v.end(), grid.begin(),
+		       [](const float i) { return static_cast<T>(i); });
+    }
+
+    void addVector(std::unique_ptr<std::vector<T>> v2) {
+	std::transform(v2->begin(), v2->end(), grid.begin(), grid.begin(),
+		       [](T el1, T el2) { return (el1 + el2); });
+    }
+
+    void pushValue(T value) { grid.push_back(value); }
+
+    Vector3d getOrigin() const { return origin; }
+    size_t getNx() const { return Nx; }
+
+    size_t getNy() const { return Ny; }
+
+    bool isReflective() const { return reflective; }
+
+    /** Inspector & Mutator */
+    T &get(size_t ix, size_t iy) { return grid[ix * Ny + iy]; }
+
+    /** Inspector */
+    const T &get(size_t ix, size_t iy) const { return grid[ix * Ny + iy]; }
+
+    T getValue(size_t ix, size_t iy) { return grid[ix * Ny + iy]; }
+
+    void setValue(size_t ix, size_t iy, T value) { grid[ix * Ny + iy] = value; }
+
+    void addValue(size_t ix, size_t iy, T value) {
+	grid[ix * Ny + iy] += value;
+    }
+
+    /** Return a reference to the grid values */
+    std::vector<T> &getGrid() { return grid; }
+
+    /** Position of the grid point of a given index */
+    Vector3d positionFromIndex(int index) const {
+	int ix = index / Ny;
+	int iy = index % Ny;
+	return Vector3d(ix, iy, 0) * spacing + gridOrigin;
+    }
+
+    /** Value of a grid point that is closest to a given position */
+    T closestValue(const Vector3d &position) const {
+	Vector3d r = (position - gridOrigin) / spacing;
+	int ix = round(r.x);
+	int iy = round(r.y);
+	if (reflective) {
+	    while ((ix < 0) or (ix > Nx))
+		ix = 2 * Nx * (ix > Nx) - ix;
+	    while ((iy < 0) or (iy > Ny))
+		iy = 2 * Ny * (iy > Ny) - iy;
+	} else {
+	    ix = ((ix % Nx) + Nx) % Nx;
+	    iy = ((iy % Ny) + Ny) % Ny;
+	}
+	return get(ix, iy);
+    }
+
+    /** Interpolate the grid at a given position */
+    T interpolate(const Vector3d &position) const {
+	// position on a unit grid
+	Vector3d r = (position - gridOrigin) / spacing;
+
+	// indices of lower and upper neighbors
+	int ix, iX, iy, iY;
+	if (reflective) {
+	    reflectiveClamp(r.x, Nx, ix, iX);
+	    reflectiveClamp(r.y, Ny, iy, iY);
+	} else {
+	    periodicClamp(r.x, Nx, ix, iX);
+	    periodicClamp(r.y, Ny, iy, iY);
 	}
 
-	/** Constructor for non-cubic grid
-	 @param	origin	Position of the lower left front corner of the volume
-	 @param	Nx		Number of grid points in x-direction
-	 @param	Ny		Number of grid points in y-direction
-	 @param spacing	Spacing between grid points
-	 */
-	Grid2D(Vector3d origin, size_t Nx, size_t Ny, double spacing) {
-		setOrigin(origin);
-		setGridSize(Nx, Ny);
-		setSpacing(Vector3d(spacing));
-		setReflective(false);
-	}
+	// linear fraction to lower and upper neighbors
+	double fx = r.x - floor(r.x);
+	double fX = 1 - fx;
+	double fy = r.y - floor(r.y);
+	double fY = 1 - fy;
 
-	/** Constructor for non-cubic grid with spacing vector
-	@param	origin	Position of the lower left front corner of the volume
-	 @param	Nx		Number of grid points in x-direction
-	 @param	Ny		Number of grid points in y-direction
-	 @param spacing	Spacing vector between grid points
-	*/
-	Grid2D(Vector3d origin, size_t Nx, size_t Ny, Vector3d spacing) {
-		setOrigin(origin);
-		setGridSize(Nx, Ny);
-		setSpacing(spacing);
-		setReflective(false);
-	}
+	// bilinear interpolation (see
+	// https://en.wikipedia.org/wiki/Bilinear_interpolation#Unit_square)
+	T b(0.);
+	//   f(0,0) (1 - x) (1 - y) +
+	b += get(ix, iy) * fX * fY;
+	//   f(1,0) x (1 - y) +
+	b += get(iX, iy) * fx * fY;
+	//   f(0,1) (1 - x) y +
+	b += get(ix, iY) * fX * fy;
+	//   f(1,1) x y +
+	b += get(iX, iY) * fx * fy;
 
-	void setOrigin(Vector3d origin) {
-		this->origin = origin;
-		this->gridOrigin = origin + spacing / 2;
-	}
-
-	/** Resize grid, also enlarges the volume as the spacing stays constant
-	 */
-	void setGridSize(size_t Nx, size_t Ny) {
-		this->Nx = Nx;
-		this->Ny = Ny;
-		grid.resize(Nx * Ny);
-		setOrigin(origin);
-	}
-
-	size_t getGridSize() const { return grid.size(); }
-
-	void setSpacing(Vector3d spacing) {
-		this->spacing = spacing;
-		setOrigin(origin);
-	}
-
-	Vector3d getSpacing() const { return spacing; }
-
-	void setReflective(bool b) { reflective = b; }
-
-	void setVector(const std::vector<float> &v) {
-		std::transform(v.begin(), v.end(), grid.begin(),
-			       [](const float i) { return static_cast<T>(i); });
-	}
-
-	void addVector(std::unique_ptr<std::vector<T>> v2) {
-		std::transform(v2->begin(), v2->end(), grid.begin(),
-			       grid.begin(),
-			       [](T el1, T el2) { return (el1 + el2); });
-	}
-
-	void pushValue(T value) { grid.push_back(value); }
-
-	Vector3d getOrigin() const { return origin; }
-	size_t getNx() const { return Nx; }
-
-	size_t getNy() const { return Ny; }
-
-	bool isReflective() const { return reflective; }
-
-	/** Inspector & Mutator */
-	T &get(size_t ix, size_t iy) { return grid[ix * Ny + iy]; }
-
-	/** Inspector */
-	const T &get(size_t ix, size_t iy) const { return grid[ix * Ny + iy]; }
-
-	T getValue(size_t ix, size_t iy) { return grid[ix * Ny + iy]; }
-
-	void setValue(size_t ix, size_t iy, T value) {
-		grid[ix * Ny + iy] = value;
-	}
-
-	void addValue(size_t ix, size_t iy, T value) {
-		grid[ix * Ny + iy] += value;
-	}
-
-	/** Return a reference to the grid values */
-	std::vector<T> &getGrid() { return grid; }
-
-	/** Position of the grid point of a given index */
-	Vector3d positionFromIndex(int index) const {
-		int ix = index / Ny;
-		int iy = index % Ny;
-		return Vector3d(ix, iy, 0) * spacing + gridOrigin;
-	}
-
-	/** Value of a grid point that is closest to a given position */
-	T closestValue(const Vector3d &position) const {
-		Vector3d r = (position - gridOrigin) / spacing;
-		int ix = round(r.x);
-		int iy = round(r.y);
-		if (reflective) {
-			while ((ix < 0) or (ix > Nx))
-				ix = 2 * Nx * (ix > Nx) - ix;
-			while ((iy < 0) or (iy > Ny))
-				iy = 2 * Ny * (iy > Ny) - iy;
-		} else {
-			ix = ((ix % Nx) + Nx) % Nx;
-			iy = ((iy % Ny) + Ny) % Ny;
-		}
-		return get(ix, iy);
-	}
-
-	/** Interpolate the grid at a given position */
-	T interpolate(const Vector3d &position) const {
-		// position on a unit grid
-		Vector3d r = (position - gridOrigin) / spacing;
-
-		// indices of lower and upper neighbors
-		int ix, iX, iy, iY;
-		if (reflective) {
-			reflectiveClamp(r.x, Nx, ix, iX);
-			reflectiveClamp(r.y, Ny, iy, iY);
-		} else {
-			periodicClamp(r.x, Nx, ix, iX);
-			periodicClamp(r.y, Ny, iy, iY);
-		}
-
-		// linear fraction to lower and upper neighbors
-		double fx = r.x - floor(r.x);
-		double fX = 1 - fx;
-		double fy = r.y - floor(r.y);
-		double fY = 1 - fy;
-
-		// bilinear interpolation (see
-		// https://en.wikipedia.org/wiki/Bilinear_interpolation#Unit_square)
-		T b(0.);
-		//   f(0,0) (1 - x) (1 - y) +
-		b += get(ix, iy) * fX * fY;
-		//   f(1,0) x (1 - y) +
-		b += get(iX, iy) * fx * fY;
-		//   f(0,1) (1 - x) y +
-		b += get(ix, iY) * fX * fy;
-		//   f(1,1) x y +
-		b += get(iX, iY) * fx * fy;
-
-		return b;
-	}
+	return b;
+    }
 };
 
 /**
@@ -233,210 +230,208 @@ template <typename T> class Grid2D {
  sample positions are at 1/2 * size/N, 3/2 * size/N ... (2N-1)/2 * size/N.
  */
 template <typename T> class Grid {
-	std::vector<T> grid;
-	size_t Nx, Ny, Nz; /**< Number of grid points */
-	Vector3d origin;   /**< Origin of the volume that is represented by the
-			      grid. */
-	Vector3d gridOrigin; /**< Grid origin */
-	Vector3d spacing;    /**< Distance between grid points, determines the
-				extension of the grid */
-	bool reflective; /**< If set to true, the grid is repeated reflectively
+    std::vector<T> grid;
+    size_t Nx, Ny, Nz;	 /**< Number of grid points */
+    Vector3d origin;	 /**< Origin of the volume that is represented by the
+			    grid. */
+    Vector3d gridOrigin; /**< Grid origin */
+    Vector3d spacing;	 /**< Distance between grid points, determines the
+			    extension of the grid */
+    bool reflective;	 /**< If set to true, the grid is repeated reflectively
 			    instead of periodically */
 
-      public:
-	/** Constructor for cubic grid
-	 @param	origin	Position of the lower left front corner of the volume
-	 @param	N		Number of grid points in one direction
-	 @param spacing	Spacing between grid points
-	 */
-	Grid(Vector3d origin, size_t N, double spacing) {
-		setOrigin(origin);
-		setGridSize(N, N, N);
-		setSpacing(Vector3d(spacing));
-		setReflective(false);
+  public:
+    /** Constructor for cubic grid
+     @param	origin	Position of the lower left front corner of the volume
+     @param	N		Number of grid points in one direction
+     @param spacing	Spacing between grid points
+     */
+    Grid(Vector3d origin, size_t N, double spacing) {
+	setOrigin(origin);
+	setGridSize(N, N, N);
+	setSpacing(Vector3d(spacing));
+	setReflective(false);
+    }
+
+    /** Constructor for non-cubic grid
+     @param	origin	Position of the lower left front corner of the volume
+     @param	Nx		Number of grid points in x-direction
+     @param	Ny		Number of grid points in y-direction
+     @param	Nz		Number of grid points in z-direction
+     @param spacing	Spacing between grid points
+     */
+    Grid(Vector3d origin, size_t Nx, size_t Ny, size_t Nz, double spacing) {
+	setOrigin(origin);
+	setGridSize(Nx, Ny, Nz);
+	setSpacing(Vector3d(spacing));
+	setReflective(false);
+    }
+
+    /** Constructor for non-cubic grid with spacing vector
+    @param	origin	Position of the lower left front corner of the volume
+     @param	Nx		Number of grid points in x-direction
+     @param	Ny		Number of grid points in y-direction
+     @param	Nz		Number of grid points in z-direction
+     @param spacing	Spacing vector between grid points
+    */
+    Grid(Vector3d origin, size_t Nx, size_t Ny, size_t Nz, Vector3d spacing) {
+	setOrigin(origin);
+	setGridSize(Nx, Ny, Nz);
+	setSpacing(spacing);
+	setReflective(false);
+    }
+
+    void setOrigin(Vector3d origin) {
+	this->origin = origin;
+	this->gridOrigin = origin + spacing / 2;
+    }
+
+    /** Resize grid, also enlarges the volume as the spacing stays constant
+     */
+    void setGridSize(size_t Nx, size_t Ny, size_t Nz) {
+	this->Nx = Nx;
+	this->Ny = Ny;
+	this->Nz = Nz;
+	grid.resize(Nx * Ny * Nz);
+	setOrigin(origin);
+    }
+
+    size_t getGridSize() const { return grid.size(); }
+
+    void setSpacing(Vector3d spacing) {
+	this->spacing = spacing;
+	setOrigin(origin);
+    }
+
+    Vector3d getSpacing() const { return spacing; }
+
+    void setReflective(bool b) { reflective = b; }
+
+    void setVector(const std::vector<float> &v) {
+	std::transform(v.begin(), v.end(), grid.begin(),
+		       [](const float i) { return static_cast<T>(i); });
+    }
+
+    void addVector(std::unique_ptr<std::vector<T>> v2) {
+	std::transform(v2->begin(), v2->end(), grid.begin(), grid.begin(),
+		       [](T el1, T el2) { return (el1 + el2); });
+    }
+
+    void pushValue(T value) { grid.push_back(value); }
+
+    Vector3d getOrigin() const { return origin; }
+    size_t getNx() const { return Nx; }
+
+    size_t getNy() const { return Ny; }
+
+    size_t getNz() const { return Nz; }
+
+    bool isReflective() const { return reflective; }
+
+    /** Inspector & Mutator */
+    T &get(size_t ix, size_t iy, size_t iz) {
+	return grid[ix * Ny * Nz + iy * Nz + iz];
+    }
+
+    /** Inspector & Mutator */
+    T &get(size_t index) { return grid[index]; }
+
+    /** Inspector */
+    const T &get(size_t ix, size_t iy, size_t iz) const {
+	return grid[ix * Ny * Nz + iy * Nz + iz];
+    }
+
+    T getValue(size_t ix, size_t iy, size_t iz) {
+	return grid[ix * Ny * Nz + iy * Nz + iz];
+    }
+
+    void setValue(size_t ix, size_t iy, size_t iz, T value) {
+	grid[ix * Ny * Nz + iy * Nz + iz] = value;
+    }
+
+    void addValue(size_t ix, size_t iy, size_t iz, T value) {
+	grid[ix * Ny * Nz + iy * Nz + iz] += value;
+    }
+
+    /** Return a reference to the grid values */
+    std::vector<T> &getGrid() { return grid; }
+
+    /** Position of the grid point of a given index */
+    Vector3d positionFromIndex(int index) const {
+	int ix = index / (Ny * Nz);
+	int iy = (index / Nz) % Ny;
+	int iz = index % Nz;
+	return Vector3d(ix, iy, iz) * spacing + gridOrigin;
+    }
+
+    /** Value of a grid point that is closest to a given position */
+    T closestValue(const Vector3d &position) const {
+	Vector3d r = (position - gridOrigin) / spacing;
+	int ix = round(r.x);
+	int iy = round(r.y);
+	int iz = round(r.z);
+	if (reflective) {
+	    while ((ix < 0) or (ix > Nx))
+		ix = 2 * Nx * (ix > Nx) - ix;
+	    while ((iy < 0) or (iy > Ny))
+		iy = 2 * Ny * (iy > Ny) - iy;
+	    while ((iz < 0) or (iz > Nz))
+		iz = 2 * Nz * (iz > Nz) - iz;
+	} else {
+	    ix = ((ix % Nx) + Nx) % Nx;
+	    iy = ((iy % Ny) + Ny) % Ny;
+	    iz = ((iz % Nz) + Nz) % Nz;
+	}
+	return get(ix, iy, iz);
+    }
+
+    /** Interpolate the grid at a given position */
+    T interpolate(const Vector3d &position) const {
+	// position on a unit grid
+	Vector3d r = (position - gridOrigin) / spacing;
+
+	// indices of lower and upper neighbors
+	int ix, iX, iy, iY, iz, iZ;
+	if (reflective) {
+	    reflectiveClamp(r.x, Nx, ix, iX);
+	    reflectiveClamp(r.y, Ny, iy, iY);
+	    reflectiveClamp(r.z, Nz, iz, iZ);
+	} else {
+	    periodicClamp(r.x, Nx, ix, iX);
+	    periodicClamp(r.y, Ny, iy, iY);
+	    periodicClamp(r.z, Nz, iz, iZ);
 	}
 
-	/** Constructor for non-cubic grid
-	 @param	origin	Position of the lower left front corner of the volume
-	 @param	Nx		Number of grid points in x-direction
-	 @param	Ny		Number of grid points in y-direction
-	 @param	Nz		Number of grid points in z-direction
-	 @param spacing	Spacing between grid points
-	 */
-	Grid(Vector3d origin, size_t Nx, size_t Ny, size_t Nz, double spacing) {
-		setOrigin(origin);
-		setGridSize(Nx, Ny, Nz);
-		setSpacing(Vector3d(spacing));
-		setReflective(false);
-	}
+	// linear fraction to lower and upper neighbors
+	double fx = r.x - floor(r.x);
+	double fX = 1 - fx;
+	double fy = r.y - floor(r.y);
+	double fY = 1 - fy;
+	double fz = r.z - floor(r.z);
+	double fZ = 1 - fz;
 
-	/** Constructor for non-cubic grid with spacing vector
-	@param	origin	Position of the lower left front corner of the volume
-	 @param	Nx		Number of grid points in x-direction
-	 @param	Ny		Number of grid points in y-direction
-	 @param	Nz		Number of grid points in z-direction
-	 @param spacing	Spacing vector between grid points
-	*/
-	Grid(Vector3d origin, size_t Nx, size_t Ny, size_t Nz,
-	     Vector3d spacing) {
-		setOrigin(origin);
-		setGridSize(Nx, Ny, Nz);
-		setSpacing(spacing);
-		setReflective(false);
-	}
+	// trilinear interpolation (see
+	// http://paulbourke.net/miscellaneous/interpolation)
+	T b(0.);
+	// V000 (1 - x) (1 - y) (1 - z) +
+	b += get(ix, iy, iz) * fX * fY * fZ;
+	// V100 x (1 - y) (1 - z) +
+	b += get(iX, iy, iz) * fx * fY * fZ;
+	// V010 (1 - x) y (1 - z) +
+	b += get(ix, iY, iz) * fX * fy * fZ;
+	// V001 (1 - x) (1 - y) z +
+	b += get(ix, iy, iZ) * fX * fY * fz;
+	// V101 x (1 - y) z +
+	b += get(iX, iy, iZ) * fx * fY * fz;
+	// V011 (1 - x) y z +
+	b += get(ix, iY, iZ) * fX * fy * fz;
+	// V110 x y (1 - z) +
+	b += get(iX, iY, iz) * fx * fy * fZ;
+	// V111 x y z
+	b += get(iX, iY, iZ) * fx * fy * fz;
 
-	void setOrigin(Vector3d origin) {
-		this->origin = origin;
-		this->gridOrigin = origin + spacing / 2;
-	}
-
-	/** Resize grid, also enlarges the volume as the spacing stays constant
-	 */
-	void setGridSize(size_t Nx, size_t Ny, size_t Nz) {
-		this->Nx = Nx;
-		this->Ny = Ny;
-		this->Nz = Nz;
-		grid.resize(Nx * Ny * Nz);
-		setOrigin(origin);
-	}
-
-	size_t getGridSize() const { return grid.size(); }
-
-	void setSpacing(Vector3d spacing) {
-		this->spacing = spacing;
-		setOrigin(origin);
-	}
-
-	Vector3d getSpacing() const { return spacing; }
-
-	void setReflective(bool b) { reflective = b; }
-
-	void setVector(const std::vector<float> &v) {
-		std::transform(v.begin(), v.end(), grid.begin(),
-			       [](const float i) { return static_cast<T>(i); });
-	}
-
-	void addVector(std::unique_ptr<std::vector<T>> v2) {
-		std::transform(v2->begin(), v2->end(), grid.begin(),
-			       grid.begin(),
-			       [](T el1, T el2) { return (el1 + el2); });
-	}
-
-	void pushValue(T value) { grid.push_back(value); }
-
-	Vector3d getOrigin() const { return origin; }
-	size_t getNx() const { return Nx; }
-
-	size_t getNy() const { return Ny; }
-
-	size_t getNz() const { return Nz; }
-
-	bool isReflective() const { return reflective; }
-
-	/** Inspector & Mutator */
-	T &get(size_t ix, size_t iy, size_t iz) {
-		return grid[ix * Ny * Nz + iy * Nz + iz];
-	}
-
-	/** Inspector & Mutator */
-	T &get(size_t index) { return grid[index]; }
-
-	/** Inspector */
-	const T &get(size_t ix, size_t iy, size_t iz) const {
-		return grid[ix * Ny * Nz + iy * Nz + iz];
-	}
-
-	T getValue(size_t ix, size_t iy, size_t iz) {
-		return grid[ix * Ny * Nz + iy * Nz + iz];
-	}
-
-	void setValue(size_t ix, size_t iy, size_t iz, T value) {
-		grid[ix * Ny * Nz + iy * Nz + iz] = value;
-	}
-
-	void addValue(size_t ix, size_t iy, size_t iz, T value) {
-		grid[ix * Ny * Nz + iy * Nz + iz] += value;
-	}
-
-	/** Return a reference to the grid values */
-	std::vector<T> &getGrid() { return grid; }
-
-	/** Position of the grid point of a given index */
-	Vector3d positionFromIndex(int index) const {
-		int ix = index / (Ny * Nz);
-		int iy = (index / Nz) % Ny;
-		int iz = index % Nz;
-		return Vector3d(ix, iy, iz) * spacing + gridOrigin;
-	}
-
-	/** Value of a grid point that is closest to a given position */
-	T closestValue(const Vector3d &position) const {
-		Vector3d r = (position - gridOrigin) / spacing;
-		int ix = round(r.x);
-		int iy = round(r.y);
-		int iz = round(r.z);
-		if (reflective) {
-			while ((ix < 0) or (ix > Nx))
-				ix = 2 * Nx * (ix > Nx) - ix;
-			while ((iy < 0) or (iy > Ny))
-				iy = 2 * Ny * (iy > Ny) - iy;
-			while ((iz < 0) or (iz > Nz))
-				iz = 2 * Nz * (iz > Nz) - iz;
-		} else {
-			ix = ((ix % Nx) + Nx) % Nx;
-			iy = ((iy % Ny) + Ny) % Ny;
-			iz = ((iz % Nz) + Nz) % Nz;
-		}
-		return get(ix, iy, iz);
-	}
-
-	/** Interpolate the grid at a given position */
-	T interpolate(const Vector3d &position) const {
-		// position on a unit grid
-		Vector3d r = (position - gridOrigin) / spacing;
-
-		// indices of lower and upper neighbors
-		int ix, iX, iy, iY, iz, iZ;
-		if (reflective) {
-			reflectiveClamp(r.x, Nx, ix, iX);
-			reflectiveClamp(r.y, Ny, iy, iY);
-			reflectiveClamp(r.z, Nz, iz, iZ);
-		} else {
-			periodicClamp(r.x, Nx, ix, iX);
-			periodicClamp(r.y, Ny, iy, iY);
-			periodicClamp(r.z, Nz, iz, iZ);
-		}
-
-		// linear fraction to lower and upper neighbors
-		double fx = r.x - floor(r.x);
-		double fX = 1 - fx;
-		double fy = r.y - floor(r.y);
-		double fY = 1 - fy;
-		double fz = r.z - floor(r.z);
-		double fZ = 1 - fz;
-
-		// trilinear interpolation (see
-		// http://paulbourke.net/miscellaneous/interpolation)
-		T b(0.);
-		// V000 (1 - x) (1 - y) (1 - z) +
-		b += get(ix, iy, iz) * fX * fY * fZ;
-		// V100 x (1 - y) (1 - z) +
-		b += get(iX, iy, iz) * fx * fY * fZ;
-		// V010 (1 - x) y (1 - z) +
-		b += get(ix, iY, iz) * fX * fy * fZ;
-		// V001 (1 - x) (1 - y) z +
-		b += get(ix, iy, iZ) * fX * fY * fz;
-		// V101 x (1 - y) z +
-		b += get(iX, iy, iZ) * fx * fY * fz;
-		// V011 (1 - x) y z +
-		b += get(ix, iY, iZ) * fX * fy * fz;
-		// V110 x y (1 - z) +
-		b += get(iX, iY, iz) * fx * fy * fZ;
-		// V111 x y z
-		b += get(iX, iY, iZ) * fx * fy * fz;
-
-		return b;
-	}
+	return b;
+    }
 };
 
 typedef Grid2D<float> Scalar2DGrid;

@@ -8,19 +8,19 @@ namespace hermes {
 namespace neutralgas {
 
 class NeutralGasDensity {
-      private:
-	QTemperature gasTemp;
+  private:
+    QTemperature gasTemp;
 
-      public:
-	NeutralGasDensity() : gasTemp(1e4_K) {}
-	NeutralGasDensity(QTemperature T) : gasTemp(T) {}
+  public:
+    NeutralGasDensity() : gasTemp(1e4_K) {}
+    NeutralGasDensity(QTemperature T) : gasTemp(T) {}
 
-	virtual ~NeutralGasDensity() {}
+    virtual ~NeutralGasDensity() {}
 
-	virtual int getRingNumber() const = 0;
+    virtual int getRingNumber() const = 0;
 
-	inline void setTemperature(QTemperature T) { gasTemp = T; }
-	inline QTemperature getTemperature() const { return gasTemp; }
+    inline void setTemperature(QTemperature T) { gasTemp = T; }
+    inline QTemperature getTemperature() const { return gasTemp; }
 };
 
 } // namespace neutralgas

@@ -17,17 +17,17 @@ namespace magneticfields {
  */
 
 class WMAP07Field : public MagneticField {
-      private:
-	QMField B_0;
-	QLength r_0;
-	QLength z_0;
-	QAngle chi_0;
-	QAngle psi_1;
-	QAngle psi_0;
+  private:
+    QMField B_0;
+    QLength r_0;
+    QLength z_0;
+    QAngle chi_0;
+    QAngle psi_1;
+    QAngle psi_0;
 
-      public:
-	WMAP07Field();
-	Vector3QMField getField(const Vector3QLength &pos) const override;
+  public:
+    WMAP07Field();
+    Vector3QMField getField(const Vector3QLength &pos) const override;
 };
 
 } // namespace magneticfields

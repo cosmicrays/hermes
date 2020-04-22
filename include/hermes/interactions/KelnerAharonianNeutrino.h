@@ -15,11 +15,11 @@ namespace hermes {
 namespace interactions {
 
 class KelnerAharonianNeutrino : public DifferentialCrossSection {
-      public:
-	KelnerAharonianNeutrino();
-	QDifferentialCrossSection
-	getDiffCrossSection(const QEnergy &E_proton,
-			    const QEnergy &E_nu) const override;
+  public:
+    KelnerAharonianNeutrino();
+    QDifferentialCrossSection
+    getDiffCrossSection(const QEnergy &E_proton,
+			const QEnergy &E_nu) const override;
 };
 
 } // namespace interactions

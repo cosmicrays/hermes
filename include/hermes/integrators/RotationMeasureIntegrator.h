@@ -21,18 +21,18 @@ typedef IntegratorTemplate<QRotationMeasure, QNumber>
 
 class RotationMeasureIntegrator
     : public IntegratorTemplate<QRotationMeasure, QNumber> {
-      private:
-	std::shared_ptr<magneticfields::MagneticField> mfield;
-	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
+  private:
+    std::shared_ptr<magneticfields::MagneticField> mfield;
+    std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
 
-	QRMIntegral integralFunction(Vector3QLength pos) const;
+    QRMIntegral integralFunction(Vector3QLength pos) const;
 
-      public:
-	RotationMeasureIntegrator(
-	    const std::shared_ptr<magneticfields::MagneticField> mfield,
-	    const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
-	~RotationMeasureIntegrator();
-	QRotationMeasure integrateOverLOS(QDirection iterdir) const;
+  public:
+    RotationMeasureIntegrator(
+	const std::shared_ptr<magneticfields::MagneticField> mfield,
+	const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
+    ~RotationMeasureIntegrator();
+    QRotationMeasure integrateOverLOS(QDirection iterdir) const;
 };
 
 /** @}*/

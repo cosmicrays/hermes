@@ -9,12 +9,12 @@ namespace hermes {
 namespace interactions {
 
 class KleinNishina : public DifferentialCrossSection {
-      public:
-	KleinNishina();
+  public:
+    KleinNishina();
 
-	QDifferentialCrossSection
-	getDiffCrossSection(const QEnergy &E_electron, const QEnergy &E_photon,
-			    const QEnergy &E_gamma) const override;
+    QDifferentialCrossSection
+    getDiffCrossSection(const QEnergy &E_electron, const QEnergy &E_photon,
+			const QEnergy &E_gamma) const override;
 };
 
 } // namespace interactions

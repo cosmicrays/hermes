@@ -14,15 +14,15 @@ namespace hermes {
 namespace interactions {
 
 class KelnerAharonianGamma : public DifferentialCrossSection {
-      public:
-	KelnerAharonianGamma();
-	QDifferentialCrossSection
-	getDiffCrossSection(const QEnergy &E_proton,
-			    const QEnergy &E_gamma) const override;
+  public:
+    KelnerAharonianGamma();
+    QDifferentialCrossSection
+    getDiffCrossSection(const QEnergy &E_proton,
+			const QEnergy &E_gamma) const override;
 
-	// Parametrization based on
-	// Phys.Rev. D90 (2014) 12, 123014 (astro-ph/1406.7369)
-	static QArea sigmaInelastic(const QEnergy &Tp);
+    // Parametrization based on
+    // Phys.Rev. D90 (2014) 12, 123014 (astro-ph/1406.7369)
+    static QArea sigmaInelastic(const QEnergy &Tp);
 };
 
 } // namespace interactions

@@ -7,17 +7,17 @@ namespace hermes {
 namespace cosmicrays {
 
 class SimpleCRDensity : public CosmicRayDensity {
-      private:
-	QEnergy minE, maxE;
-	int steps;
-	void makeEnergyRange();
+  private:
+    QEnergy minE, maxE;
+    int steps;
+    void makeEnergyRange();
 
-      public:
-	SimpleCRDensity(const PID &pid = Proton);
-	SimpleCRDensity(const PID &pid, QEnergy minE, QEnergy maxE, int steps);
-	QPDensityPerEnergy
-	getDensityPerEnergy(const QEnergy &E_,
-			    const Vector3QLength &pos_) const override;
+  public:
+    SimpleCRDensity(const PID &pid = Proton);
+    SimpleCRDensity(const PID &pid, QEnergy minE, QEnergy maxE, int steps);
+    QPDensityPerEnergy
+    getDensityPerEnergy(const QEnergy &E_,
+			const Vector3QLength &pos_) const override;
 };
 
 } // namespace cosmicrays
