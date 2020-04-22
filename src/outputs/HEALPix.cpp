@@ -29,7 +29,7 @@ void HEALPix::createTable(int nrows) {
 	const int naxis  = 1;
 	long int naxes[naxis] = {nrows};
 
-	long tfields = 1;
+	const int tfields = 1;
 	char* ttype[] = { (char*)"TFLOAT" };
 	char* tform[] = { (char*)("1E") };
 	char* tunit[] = { (char*)("nothing") };

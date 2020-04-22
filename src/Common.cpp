@@ -116,33 +116,34 @@ QTemperature intensityToTemperature(QIntensity intensity_, QFrequency freq_) {
 	return intensity_*c_squared / (2*freq_*freq_*k_boltzmann);
 }
 
-int getThreadsNumber() {
-	int max_threads = std::thread::hardware_concurrency();
-
+unsigned int getThreadsNumber() {
+	// From std::thread docs: the value should be considered only a hint
+	unsigned int max_threads = std::thread::hardware_concurrency();
+	
 	const char *env_num_threads = getenv("HERMES_NUM_THREADS");
         if (env_num_threads) {
-		int i = std::atoi(env_num_threads);
+		unsigned int i = std::atoi(env_num_threads);
 		if (i < 1) // just in case, since atoi throws no exceptions
 			return max_threads;
 		if (i < max_threads)
 			return i;
 	}
+	
 	return max_threads;
-
 }
 
 std::size_t getThreadId() {
 	return std::hash<std::thread::id>()(std::this_thread::get_id());
 }
 
-std::vector<std::pair<int,int>> getThreadChunks(int queueSize) {
+std::vector<std::pair<unsigned int,unsigned int>> getThreadChunks(unsigned int queueSize) {
 	
-	int tasks_per_thread =  queueSize / getThreadsNumber();
-	int reminder_tasks = queueSize % getThreadsNumber();
+	unsigned int tasks_per_thread =  queueSize / getThreadsNumber();
+	unsigned int reminder_tasks = queueSize % getThreadsNumber();
 	
 	// Initialize chunks of pixels:  chunk[i] = [ i, (i+1)*pixel_per_thread >
-	std::vector<std::pair<int,int>> chunks;
-	for (int i = 0; i < getThreadsNumber(); ++i) 
+	std::vector<std::pair<unsigned int,unsigned int>> chunks;
+	for (unsigned int i = 0; i < getThreadsNumber(); ++i) 
 		chunks.push_back(std::make_pair(i * tasks_per_thread, (i+1) * tasks_per_thread));
 	chunks[getThreadsNumber()-1].second += reminder_tasks;
 

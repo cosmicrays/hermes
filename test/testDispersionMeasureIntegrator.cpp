@@ -41,7 +41,7 @@ TEST(DispersionMeasureIntegrator, integrateOverLOS) {
 		DispersionMeasureIntegrator(gdensity));
 	skymap->setIntegrator(intDM);
 	QDirection dir;
-	int ipix;
+	std::size_t ipix;
 
 	// values taken from Fig.1 of the YMW16 paper (arXiv:1610.09448)
 	dir = fromGalCoord(QDirection({0_deg, 15_deg}));

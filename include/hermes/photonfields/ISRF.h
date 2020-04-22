@@ -23,20 +23,20 @@ private:
 
     	void buildEnergyRange();
 
-	double getISRF(const int& ir, const int& iz, const int& ifreq) const;
+	double getISRF(std::size_t ir, std::size_t iz, std::size_t ifreq) const;
 
 	void loadFrequencyAxis();
 	void loadISRF();
 
 public:
     ISRF();
-    int getSize() const;
+    std::size_t getSize() const;
     QEnergyDensity getEnergyDensity(
 		    const QLength &r, const QLength &z, const QEnergy &E_photon) const;
     QEnergyDensity getEnergyDensity(
 		    const Vector3QLength &pos, const QEnergy &E_photon) const override;
     QEnergyDensity getEnergyDensity(
-		    const Vector3QLength &pos_, int iE_) const override;
+		    const Vector3QLength &pos_, std::size_t iE_) const override;
     
 };
 

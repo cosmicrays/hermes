@@ -34,7 +34,7 @@ public:
 
     QEnergyDensity getEnergyDensity(
 		    const Vector3QLength &pos,
-		    const QEnergy &E_photon) const {
+		    const QEnergy &E_photon) const override {
 	const QTemperature T_CMB(2.725);
         QFrequency nu = E_photon / h_planck;
     
@@ -50,7 +50,7 @@ public:
     }
 
     QEnergyDensity getEnergyDensity(
-		    const Vector3QLength& pos_, int iE_) const {
+		    const Vector3QLength& pos_, std::size_t iE_) const override {
    	return density[iE_];
     }
 

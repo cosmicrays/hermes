@@ -16,7 +16,7 @@
 	using PPCAT(_class, ParentClass) = IntegratorTemplate<_qpxl, _qstep>; \
 	py::class_<PPCAT(_class, ParentClass), std::shared_ptr<PPCAT(_class, ParentClass)>>(m, (std::string(_name) + std::string("Parent")).c_str()) \
 		.def(py::init<>()); \
-	py::class_<_class, PPCAT(_class, ParentClass), std::shared_ptr<_class>> _obj(m, _name, py::buffer_protocol());
+	py::class_<_class, PPCAT(_class, ParentClass), std::shared_ptr<_class>> _obj(m, _name, py::buffer_protocol()); // NOLINT(bugprone-macro-parentheses)
 
 namespace py = pybind11;
 

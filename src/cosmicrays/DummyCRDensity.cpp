@@ -19,7 +19,7 @@ DummyCRDensity::DummyCRDensity(const PID &pid_, const QEnergy &minE_, const QEne
 
 void DummyCRDensity::makeEnergyRange() {
 	QEnergy energy = minE;
-	float energyRatio =
+	double energyRatio =
 		exp(1./static_cast<double>(steps-1) * log(maxE/minE));
 
 	for (int i = 0; i < steps; ++i) {

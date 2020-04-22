@@ -62,7 +62,7 @@ QTemperature intensityToTemperature(QIntensity intensity, QFrequency freq);
 /**
 	Returns number of available system threads
 */
-int getThreadsNumber();
+unsigned int getThreadsNumber();
 
 /**
 	Get thread ID
@@ -73,7 +73,7 @@ size_t getThreadId();
 	For a given number of tasks, split them over available system threads;
 	returns a vector of [start, stop> pairs
 */
-std::vector<std::pair<int,int>> getThreadChunks(int queueSize);
+std::vector<std::pair<unsigned int,unsigned int>> getThreadChunks(unsigned int queueSize);
 
 } // namespace hermes
 

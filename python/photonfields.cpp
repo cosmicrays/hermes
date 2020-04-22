@@ -20,7 +20,7 @@ void init(py::module &m) {
 		   (QEnergyDensity (PhotonField::*)(const Vector3QLength &, const QEnergy &) const)
 		   &PhotonField::getEnergyDensity)
 	      .def("getEnergyDensity",
-		   (QEnergyDensity (PhotonField::*)(const Vector3QLength &, int) const)
+		   (QEnergyDensity (PhotonField::*)(const Vector3QLength &, std::size_t) const)
 		   &PhotonField::getEnergyDensity)
 	      .def("getEnergyAxis", &PhotonField::getEnergyAxis);
     py::class_<CMB, std::shared_ptr<CMB>, PhotonField>(subm, "CMB")

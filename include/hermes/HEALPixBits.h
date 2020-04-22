@@ -10,14 +10,14 @@ using namespace units;
 
 static const double UNSEEN = -1.6375e30;
 
-std::size_t log2(std::size_t x);
+unsigned int log2(unsigned int x);
 
 // Adopted from HEALPix pix2ang_ring (https://healpix.sourceforge.io/)
-long nside2order(long nside);
-long nside2npix(long nside);
-QDirection pix2ang_ring(long nside, long ipix); 
-long ang2pix_ring(long nside, QDirection thetaphi);
-long loc2pix(long _nside, double z, double phi, double sth, bool have_sth);
+long nside2order(unsigned int nside);
+unsigned int nside2npix(unsigned int nside);
+QDirection pix2ang_ring(unsigned int nside, unsigned int ipix); 
+unsigned int ang2pix_ring(unsigned int nside, const QDirection &thetaphi);
+unsigned int loc2pix(unsigned int nside, double z, double phi, double sth, bool have_sth);
 
 } // namespace hermes
 

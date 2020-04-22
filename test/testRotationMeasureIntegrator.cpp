@@ -19,8 +19,6 @@ public:
 	        	return Vector3QMField(1_T, 1_T, 1_T);
 		else if ((pos-pos_sun).getR() < 1.5_kpc)
 			return Vector3QMField(-1_T, -1_T, -1_T);
-		else if ((pos-pos_right).getR() < 1.5_kpc)
-	        	return Vector3QMField(1_T, 1_T, 1_T);
 		else
 			return Vector3QMField(0);
         }
@@ -81,7 +79,7 @@ TEST(RotationMeasureIntegrator, PerformanceTest) {
         std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
         auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	float pxl_speed = milliseconds.count()/skymap->getNpix()*getThreadsNumber();
+	unsigned long pxl_speed = milliseconds.count()/skymap->getNpix()*getThreadsNumber();
 
         EXPECT_LE(pxl_speed, 45); // ms
 }

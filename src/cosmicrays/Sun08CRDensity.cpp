@@ -24,7 +24,7 @@ void Sun08CRDensity::setParameters() {
 
 void Sun08CRDensity::makeEnergyRange() {
 	QEnergy energy = minE;
-	float energyRatio =
+	double energyRatio =
 		exp(1./static_cast<double>(steps-1) * log(maxE/minE));
 
 	for (int i = 0; i < steps; ++i) {

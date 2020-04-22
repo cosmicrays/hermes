@@ -18,6 +18,7 @@ void init(py::module &m) {
 	    .value("CO", RingType::CO);
 
     // neutral gas density models
+    // NOLINTNEXTLINE(bugprone-unused-raii)
     py::class_<NeutralGasDensity, std::shared_ptr<NeutralGasDensity>>(subm, "NeutralGasDensity");
     py::class_<RingModel, std::shared_ptr<RingModel>, NeutralGasDensity>(subm, "RingModel")
 	      .def(py::init<RingType>(), py::arg("ring_type"))

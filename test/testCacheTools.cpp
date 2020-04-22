@@ -31,7 +31,7 @@ TEST(CacheTools, Kamae06Gamma) {
    	
 	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
         for (std::size_t i = 0; i < 1000000; ++i) {
-		integral += f_kn->getDiffCrossSection(E_proton*(i%100), E_gamma);
+		integral += f_kn->getDiffCrossSection(E_proton*(static_cast<double>(i%100)), E_gamma);
 	}
 	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -39,7 +39,7 @@ TEST(CacheTools, Kamae06Gamma) {
 
 	start = std::chrono::system_clock::now();
         for (std::size_t i = 0; i < 1000000; ++i) {
-		integral += f_kn->getDiffCrossSectionDirectly(E_proton*(i%100), E_gamma);
+		integral += f_kn->getDiffCrossSectionDirectly(E_proton*(static_cast<double>(i%100)), E_gamma);
 	}
     	stop = std::chrono::system_clock::now();
 	milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -57,7 +57,7 @@ TEST(CacheTools, BremsstrahlungSimple) {
    	
 	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
         for (std::size_t i = 0; i < 100000; ++i) {
-		integral += f_kn->getDiffCrossSection(E_proton*(i%100), E_gamma);
+		integral += f_kn->getDiffCrossSection(E_proton*(static_cast<double>(i%100)), E_gamma);
 	}
 	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -65,7 +65,7 @@ TEST(CacheTools, BremsstrahlungSimple) {
 
 	start = std::chrono::system_clock::now();
         for (std::size_t i = 0; i < 100000; ++i) {
-		integral += f_kn->getDiffCrossSectionDirectly(E_proton*(i%100), E_gamma);
+		integral += f_kn->getDiffCrossSectionDirectly(E_proton*(static_cast<double>(i%100)), E_gamma);
 	}
     	stop = std::chrono::system_clock::now();
 	milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);

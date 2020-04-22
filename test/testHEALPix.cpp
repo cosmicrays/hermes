@@ -6,7 +6,7 @@ namespace hermes {
 
 TEST(HEALPix, consistency) {
 	QDirection thetaphi;
-	long nside = 4;
+	long nside = 128;
 	long npix = nside2npix(nside);
 
 	for(long ipix = 0; ipix < npix; ++ipix) {

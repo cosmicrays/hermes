@@ -134,7 +134,7 @@ public:
 	void createImage(FITS::ImgType bitpix, int naxis, long *naxes);
 	void writeImage(FITS::DataType dtype, int firstElement,
 			int nElements, void *array);
-	std::vector<float> readImageAsFloat(int firstElement, int nElements);
+	std::vector<float> readImageAsFloat(unsigned int firstElement, unsigned int nElements);
 
 	void createTable(FITS::HDUType, long int nRows, int nColumns, char *columnName[],
                 char *columnType[], char *columnUnit[], const char *tableName);

@@ -70,7 +70,7 @@ namespace hermes { namespace photonfields {
 		}
 	}
 
-	int ISRF::getSize() const {
+	std::size_t ISRF::getSize() const {
 		return isrf.size();
 	}
 
@@ -82,12 +82,16 @@ namespace hermes { namespace photonfields {
 		for (auto i: r_id) {
 			for (auto j: z_id) {
 				std::ostringstream name;
-				name << "RadiationField/Vernetto16/spectrum_r" << str(i*10) << "_z" << str(j*10) << ".dat";
+				name << "RadiationField/Vernetto16/spectrum_r"
+				     << str(static_cast<int>(i*10))
+				     << "_z"
+				     << str(static_cast<int>(j*10))
+				     << ".dat";
 				std::string filename = getDataPath(name.str());
 
 				// TODO: exception if file not found
 				std::ifstream file_to_read(filename.c_str());
-				for(int k = 0; k < num_of_header_lines; ++k)
+				for(std::size_t k = 0; k < num_of_header_lines; ++k)
 					file_to_read.ignore(max_num_of_char_in_a_line, '\n');
 				while(!file_to_read.eof()) {
 					double f_, e_;
@@ -101,12 +105,12 @@ namespace hermes { namespace photonfields {
 		assert(isrf.size() == r_id.size() * z_id.size() * logwavelenghts.size());
 	}
 
-	double ISRF::getISRF(const int& ir, const int& iz, const int& imu) const {
-		long int i = imu + iz * logwavelenghts.size() + ir * (logwavelenghts.size() * z_id.size());
+	double ISRF::getISRF(std::size_t ir, std::size_t iz, std::size_t imu) const {
+		std::size_t i = imu + iz * logwavelenghts.size() + ir * (logwavelenghts.size() * z_id.size());
 		return isrf[i];
 	}
     
-	QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos, int iE) const {
+	QEnergyDensity ISRF::getEnergyDensity(const Vector3QLength &pos, std::size_t iE) const {
 		QLength r = sqrt(pos.x*pos.x + pos.y*pos.y);
 		QLength z = pos.z;
 		QEnergy E = energyRange[iE];
@@ -134,9 +138,9 @@ namespace hermes { namespace photonfields {
 			return 0;
 
 
-		int ir = std::lower_bound(r_id.begin(), r_id.end(), r_) - r_id.begin();
-		int iz = std::lower_bound(z_id.begin(), z_id.end(), z_) - z_id.begin();
-		int ifreq = std::lower_bound(logwavelenghts.begin(), logwavelenghts.end(), logf_) - logwavelenghts.begin() - 1;
+		std::size_t ir = std::lower_bound(r_id.begin(), r_id.end(), r_) - r_id.begin();
+		std::size_t iz = std::lower_bound(z_id.begin(), z_id.end(), z_) - z_id.begin();
+		std::size_t ifreq = std::lower_bound(logwavelenghts.begin(), logwavelenghts.end(), logf_) - logwavelenghts.begin() - 1;
 
 		if (ir == r_id.size())
 			return 0;

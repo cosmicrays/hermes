@@ -46,7 +46,7 @@ TEST(FITS, setGetKey) {
 	ffile->createImage(FITS::IMGFLOAT, 1, nullnaxes);
 	ffile->writeImage(FITS::FLOAT, 1, 1, nullArray);
 	
-	long tfields = 1;
+	const int tfields = 1;
 	int nrows = (int) (20);
 	char* ttype[] = { (char*)("TFLOAT") };
 	char* tform[] = { (char*)("1E") };

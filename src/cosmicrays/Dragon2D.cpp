@@ -124,10 +124,10 @@ void Dragon2D::readDensity2D() {
 	int hduIndex = 2;  
 	int hduActual = 0;
 	int hdu_type = 0;
-	int firstElement = 1;
+	unsigned long firstElement = 1;
     
 	auto vecSize = dimr * dimz;
-	long nElements = energyRange.size() * vecSize;
+	unsigned long nElements = energyRange.size() * vecSize;
 	constexpr double fluxToDensity = static_cast<double>(4_pi/(c_light*1_GeV));
 	
     	auto hduNumber = ffile->getNumberOfHDUs();

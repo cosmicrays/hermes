@@ -67,7 +67,7 @@ TEST(SkymapMask, RectangularWindow) {
 	skymap->setIntegrator(integrator);
 	skymap->compute();
 	
-	QDirection dir_1 = {0_deg, 15_deg};
+	QDirection dir_1 = {0_deg, 20_deg};
 	long int pixel_1 = ang2pix_ring(nside, fromGalCoord(dir_1));
 	QDirection dir_2 = {80_deg, 120_deg};
 	long int pixel_2 = ang2pix_ring(nside, fromGalCoord(dir_2));

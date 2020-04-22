@@ -197,7 +197,7 @@ TEST(InverseComptonIntegrator, PerformanceTest) {
         std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
         auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	float pxl_speed = milliseconds.count()/skymap->getNpix()*getThreadsNumber();
+	unsigned long pxl_speed = milliseconds.count()/skymap->getNpix()*getThreadsNumber();
 	
 	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
 	

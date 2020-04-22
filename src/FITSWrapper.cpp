@@ -43,7 +43,7 @@ void FITSFile::closeFile() {
 	if (fits_close_file(fptr, &status))
 		fits_report_error(stderr, status);
 	if (status != 0)
-                throw std::runtime_error("Cannot close file.");
+                std::cerr << "CFITSIO error: Status code non-zero when closing file. Potentially corrupted file." << std::endl;
 	fptr = nullptr;
 }
 
@@ -174,7 +174,7 @@ void FITSFile::writeImage(FITS::DataType dataType, int firstElement,
                 throw std::runtime_error("Cannot write image in FITS file.");
 }
 
-std::vector<float> FITSFile::readImageAsFloat(int firstElement, int nElements) {
+std::vector<float> FITSFile::readImageAsFloat(unsigned int firstElement, unsigned int nElements) {
 	std::vector<float> resultArray(nElements, 0);
 	void * arrayPtr = static_cast<void*>(resultArray.data());
 	float nullval = 0;

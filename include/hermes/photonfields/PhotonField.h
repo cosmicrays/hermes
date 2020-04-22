@@ -25,7 +25,7 @@ public:
 		    const Vector3QLength &pos, const QEnergy &E_photon) const = 0;
     
     	virtual QEnergyDensity getEnergyDensity(
-		    const Vector3QLength &pos_, int iE_) const = 0;
+		    const Vector3QLength &pos, std::size_t iE) const = 0;
 	
 	void setStartEnergy(QEnergy E_) {
 		startEnergy = E_;

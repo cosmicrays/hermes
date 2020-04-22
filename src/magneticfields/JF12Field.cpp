@@ -94,7 +94,7 @@ void JF12Field::randomStriated(int seed) {
 		for (int iy = 0; iy < N; iy++)
 			for (int iz = 0; iz < N; iz++) {
 				float &f = striatedGrid->get(ix, iy, iz);
-				f = round(random.rand()) * 2 - 1;
+				f = std::round(static_cast<float>(random.rand())) * 2 - 1;
 			}
 }
 
