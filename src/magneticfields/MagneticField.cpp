@@ -26,7 +26,7 @@ Vector3QLength &PeriodicMagneticField::getExtends() {
 	return extends;
 }
 
-void PeriodicMagneticField::setExtends(const Vector3QLength &origin) {
+void PeriodicMagneticField::setExtends(const Vector3QLength &extends) {
 	this->extends = extends;
 }
 

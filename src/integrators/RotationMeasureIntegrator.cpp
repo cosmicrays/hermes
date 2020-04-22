@@ -19,7 +19,7 @@ QRotationMeasure RotationMeasureIntegrator::integrateOverLOS(QDirection directio
 }
 
 QRMIntegral RotationMeasureIntegrator::integralFunction(Vector3QLength pos) const {
-	constexpr auto const_a0 = pow<3>(e_plus)/(8*pi*pi*epsilon0*squared(m_electron)*pow<3>(c_light));
+	const auto const_a0 = pow<3>(e_plus)/(8*pi*pi*epsilon0*squared(m_electron)*pow<3>(c_light));
 	
 	Vector3QMField B = mfield->getField(pos);
 	if (B.getR() == 0_muG) return 0;

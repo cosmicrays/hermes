@@ -311,7 +311,7 @@ constexpr Quantity<std::ratio_divide<l, std::ratio<2>>, std::ratio_divide<t, std
 		    std::ratio_divide<SA, std::ratio<2>>> 
                     (std::sqrt(static_cast<double>(num)));
 }
-constexpr double sqrt(double num) {
+inline double sqrt(double num) {
     return std::sqrt(num);
 }
 

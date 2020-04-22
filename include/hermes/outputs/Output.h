@@ -8,7 +8,10 @@ namespace hermes { namespace outputs {
 class Output {
 public:
         const std::string outputName;
-        Output() {};
+
+        Output() {}
+	virtual ~Output() {}
+
 	virtual void initOutput() = 0;
 	virtual void createTable(int) = 0;
 	virtual void writeMetadata(int, double, const std::string &) = 0;

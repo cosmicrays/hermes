@@ -7,6 +7,7 @@ addons:
             - g++-9
             - gcc-6
             - g++-6
+            - clang-8
             - libgsl-dev
             - libfftw3-dev
             - libcfitsio3-dev
@@ -34,6 +35,12 @@ matrix:
           compiler: gcc
           env:
               - COMPILER_NAME=gcc CXX=g++-6 CC=gcc-6
+              - PYTHON_EXECUTABLE=/usr/bin/python3
+        - os: linux
+          dist: xenial
+          compiler: clang
+          env:
+              - COMPILER_NAME=clang CXX=clang++ CC=clang
               - PYTHON_EXECUTABLE=/usr/bin/python3
         - os: osx
           compiler: gcc

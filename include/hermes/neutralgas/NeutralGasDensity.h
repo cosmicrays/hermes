@@ -13,6 +13,8 @@ public:
 	NeutralGasDensity() : gasTemp(1e4_K) { }
 	NeutralGasDensity(QTemperature T) : gasTemp(T) { }
 
+	virtual ~NeutralGasDensity() { }
+
 	virtual int getRingNumber() const = 0;
 
 	inline void setTemperature(QTemperature T) {

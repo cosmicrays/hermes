@@ -17,7 +17,9 @@ protected:
 public:
         typedef tEnergyRange::iterator iterator;
         typedef tEnergyRange::const_iterator const_iterator;
-	PhotonField() { };
+	
+	PhotonField() { }
+	virtual ~PhotonField() { }
 
 	virtual QEnergyDensity getEnergyDensity(
 		    const Vector3QLength &pos, const QEnergy &E_photon) const = 0;

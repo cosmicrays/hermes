@@ -26,7 +26,7 @@ void HEALPix::initOutput() {
 
 void HEALPix::createTable(int nrows) {
 	
-	int naxis  = 1;
+	const int naxis  = 1;
 	long int naxes[naxis] = {nrows};
 
 	long tfields = 1;

@@ -33,8 +33,8 @@ QNumber FreeFreeIntegrator::gauntFactor(QFrequency freq, QTemperature T, int Z) 
 	// Gaunt factor in the radio approximation from Longair 2011, Eq. 6.48a
 
 	// optimisation of constants
-	constexpr double sqrtEuler = sqrt(eulerGamma);
-	constexpr auto K = (128*pow<2>(epsilon0)*pow<3>(k_boltzmann)) /
+	const double sqrtEuler = sqrt(eulerGamma);
+	const auto K = (128*pow<2>(epsilon0)*pow<3>(k_boltzmann)) /
 			(m_electron*pow<4>(e_plus));
 	
 	auto logLambda = (log(K * T*T*T / ((freq*Z)*(freq*Z))) - sqrtEuler) / 2.;
@@ -69,7 +69,7 @@ QEmissivity FreeFreeIntegrator::spectralEmissivityExplicit(
 	QPDensity N, QPDensity N_e, QFrequency freq, QTemperature T, int Z) const {
 
 	// optimisation of constants
-	constexpr auto K = 1.0/(3*pi*pi) * std::sqrt(pi/6) * pow<6>(e_plus) /
+	const auto K = 1.0/(3*pi*pi) * std::sqrt(pi/6) * pow<6>(e_plus) /
                         (pow<3>(epsilon0*c_light)*pow<2>(m_electron)) *
 			sqrt(m_electron/(k_boltzmann));
 

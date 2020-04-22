@@ -50,11 +50,11 @@ constexpr auto			k_boltzmann 	= 1.3806488e-23 * joule / kelvin;
 constexpr auto			mu0 		= (4*pi) * 1e-7 * newton / (ampere * ampere);
 constexpr auto			epsilon0 	= 1.0 / mu0 / c_squared;
 
-constexpr QLength	r_electron	= 1.0 / (4*pi*epsilon0) * pow<2>(e_plus) / (m_electron*c_squared);
-constexpr QArea		sigma_Thompson 	= 8.0*pi /3.0 * pow<2>(r_electron); 
-constexpr QNumber	alpha_fine	= mu0 / (4.0*pi) * pow<2>(e_plus) * c_light / h_planck_bar; // Fine structure const.
-constexpr auto		Rydberg_const	= m_electron * pow<4>(e_plus) /
-							(8 * pow<2>(epsilon0) * pow<3>(h_planck) * c_light);
+constexpr QLength	r_electron	= 1.0 / (4*pi*epsilon0) * (e_plus*e_plus) / (m_electron*c_squared);
+constexpr QArea		sigma_Thompson 	= 8.0*pi /3.0 * (r_electron*r_electron); 
+constexpr QNumber	alpha_fine	= mu0 / (4.0*pi) * (e_plus*e_plus) * c_light / h_planck_bar; // Fine structure const.
+constexpr auto		Rydberg_const	= m_electron * (e_plus*e_plus*e_plus*e_plus) /
+							(8 * (epsilon0*epsilon0) * (h_planck*h_planck*h_planck) * c_light);
 constexpr QEnergy	Ry		= h_planck * c_light * Rydberg_const;
 
 

@@ -56,7 +56,7 @@ constexpr QAngle degree2radian(const QAngle &a) {
 	return (pi / 180.0) * a;
 }
 
-constexpr QAngle fmod(const QAngle &a, QNumber b) {
+inline QAngle fmod(const QAngle &a, QNumber b) {
 	return QAngle(std::fmod(static_cast<double>(a), static_cast<double>(b)));
 }
 
