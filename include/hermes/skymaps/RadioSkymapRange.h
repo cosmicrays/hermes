@@ -29,15 +29,15 @@ class RadioSkymapRange {
     ~RadioSkymapRange();
 
     void
-    setIntegrator(std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>>
+    setIntegrator(const std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>>&
 		      integrator);
-    void setMask(std::shared_ptr<SkymapMask> mask);
+    void setMask(const std::shared_ptr<SkymapMask>& mask);
     std::size_t size();
 
     void compute();
 
     /** output **/
-    void save(std::shared_ptr<outputs::Output> output) const;
+    void save(const std::shared_ptr<outputs::Output>& output) const;
 
     /** iterator goodies */
     typedef typename tSkymapsContainer::iterator iterator;

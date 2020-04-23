@@ -6,8 +6,8 @@
 
 Required:
 - **CMake** (`cmake`) is absolutely necessary to configure and build the source code (ver. 3.1+)
-- **GCC** (`g++`) is the only supported compiler at the moment (support for `clang` and intel compilers will be added later); as C++14 is needed, at least GCC 6 should be used
-- **GNU Scientific Library (GSL)** (`gsl`) is required for numerical integration and for special functions
+- **GCC** (`g++`) or **Clang** (`clang++`) are supported compilers; as modern C++ is employed (C++14), at least [GCC 6.1](https://gcc.gnu.org/projects/cxx-status.html#cxx14) / [Clang 3.4](https://clang.llvm.org/cxx_status.html) should be considered
+- **GNU Scientific Library (GSL)** (`gsl`) is mandatory for numerical integration and for special functions
 
 Optional:
 - **Git** is needed if one wants to clone and keep in sync the source code from the git repository (**recommended**)

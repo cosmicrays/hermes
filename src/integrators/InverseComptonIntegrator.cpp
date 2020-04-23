@@ -13,9 +13,9 @@
 namespace hermes {
 
 InverseComptonIntegrator::InverseComptonIntegrator(
-    const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity_,
-    const std::shared_ptr<photonfields::PhotonField> phdensity_,
-    const std::shared_ptr<interactions::DifferentialCrossSection> crossSec_)
+    const std::shared_ptr<cosmicrays::CosmicRayDensity>& crdensity_,
+    const std::shared_ptr<photonfields::PhotonField>& phdensity_,
+    const std::shared_ptr<interactions::DifferentialCrossSection>& crossSec_)
     : GammaIntegratorTemplate(), crdensity(crdensity_), phdensity(phdensity_),
       crossSec(crossSec_) {}
 
@@ -71,7 +71,8 @@ void InverseComptonIntegrator::initCacheTable() {
 
     auto job_chunks = getThreadChunks(grid_size);
     std::vector<std::thread> threads;
-    for (auto &c : job_chunks) {
+    threads.reserve(job_chunks.size());
+for (auto &c : job_chunks) {
 	threads.push_back(
 	    std::thread(&InverseComptonIntegrator::computeCacheInThread, this,
 			c.first, c.second, Egamma, std::ref(progressbar)));
@@ -83,19 +84,19 @@ void InverseComptonIntegrator::initCacheTable() {
     cacheTableInitialized = true;
 }
 
-QGREmissivity InverseComptonIntegrator::getIOEfromCache(Vector3QLength pos_,
-							QEnergy Egamma_) const {
+QGREmissivity InverseComptonIntegrator::getIOEfromCache(const Vector3QLength& pos_,
+							const QEnergy &Egamma_) const {
     return cacheTable->interpolate(static_cast<Vector3d>(pos_));
 }
 
 QDiffIntensity
-InverseComptonIntegrator::integrateOverLOS(QDirection direction) const {
+InverseComptonIntegrator::integrateOverLOS(const QDirection &direction) const {
     return integrateOverLOS(direction, 1_GeV);
 }
 
 QDiffIntensity
-InverseComptonIntegrator::integrateOverLOS(QDirection direction_,
-					   QEnergy Egamma_) const {
+InverseComptonIntegrator::integrateOverLOS(const QDirection &direction_,
+					   const QEnergy &Egamma_) const {
 
     auto integrand = [this, direction_, Egamma_](const QLength &dist) {
 	return this->integrateOverEnergy(
@@ -109,8 +110,8 @@ InverseComptonIntegrator::integrateOverLOS(QDirection direction_,
 }
 
 QGREmissivity
-InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_,
-					      QEnergy Egamma_) const {
+InverseComptonIntegrator::integrateOverEnergy(const Vector3QLength& pos_,
+					      const QEnergy &Egamma_) const {
     if (cacheTableInitialized)
 	return getIOEfromCache(pos_, Egamma_);
 
@@ -122,8 +123,8 @@ InverseComptonIntegrator::integrateOverEnergy(Vector3QLength pos_,
 }
 
 QGREmissivity
-InverseComptonIntegrator::integrateOverSumEnergy(Vector3QLength pos_,
-						 QEnergy Egamma_) const {
+InverseComptonIntegrator::integrateOverSumEnergy(const Vector3QLength& pos_,
+						 const QEnergy &Egamma_) const {
 
     QGREmissivity integral(0);
     QEnergy deltaE;
@@ -140,8 +141,8 @@ InverseComptonIntegrator::integrateOverSumEnergy(Vector3QLength pos_,
 }
 
 QGREmissivity
-InverseComptonIntegrator::integrateOverLogEnergy(Vector3QLength pos_,
-						 QEnergy Egamma_) const {
+InverseComptonIntegrator::integrateOverLogEnergy(const Vector3QLength& pos_,
+						 const QEnergy &Egamma_) const {
 
     QGREmissivity integral(0);
 
@@ -155,7 +156,7 @@ InverseComptonIntegrator::integrateOverLogEnergy(Vector3QLength pos_,
 }
 
 QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
-    Vector3QLength pos_, QEnergy Egamma_, QEnergy Eelectron_) const {
+    const Vector3QLength& pos_, const QEnergy &Egamma_, const QEnergy &Eelectron_) const {
 
     QICInnerIntegral integral(0);
 

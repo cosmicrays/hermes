@@ -30,7 +30,7 @@ class InvertMask : public SkymapMask {
     std::shared_ptr<SkymapMask> mask;
 
   public:
-    InvertMask(const std::shared_ptr<SkymapMask> mask);
+    InvertMask(const std::shared_ptr<SkymapMask> &mask);
     bool isAllowed(const QDirection &dir) const override;
 };
 
@@ -40,15 +40,15 @@ class MaskList : public SkymapMask {
 
   public:
     MaskList();
-    void addMask(const std::shared_ptr<SkymapMask> mask);
+    void addMask(const std::shared_ptr<SkymapMask> &mask);
     bool isAllowed(const QDirection &dir) const override;
 };
 
 class RectangularWindow : public SkymapMask {
   private:
     QDirection topleft, bottomright;
-    bool isAngleBetween(const QAngle &testAngle, QAngle first,
-			QAngle last) const;
+    bool isAngleBetween(const QAngle &testAngle, const QAngle &first,
+			const QAngle &last) const;
 
   public:
     // in galactic coordinates: b=(-90_deg, 90_deg), l=(-180_deg, 180_deg),

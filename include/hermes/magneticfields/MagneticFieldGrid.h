@@ -43,8 +43,8 @@ class ModulatedMagneticFieldGrid : public MagneticField {
 
   public:
     ModulatedMagneticFieldGrid() {}
-    ModulatedMagneticFieldGrid(std::shared_ptr<VectorGrid> grid,
-			       std::shared_ptr<ScalarGrid> modGrid);
+    ModulatedMagneticFieldGrid(const std::shared_ptr<VectorGrid>& grid,
+			       const std::shared_ptr<ScalarGrid>& modGrid);
     void setGrid(std::shared_ptr<VectorGrid> grid);
     void setModulationGrid(std::shared_ptr<ScalarGrid> modGrid);
     std::shared_ptr<VectorGrid> getGrid();

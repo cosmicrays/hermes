@@ -3,6 +3,7 @@
 #include "hermes/Random.h"
 
 #include <iostream>
+#include <utility>
 
 namespace hermes {
 namespace magneticfields {
@@ -115,12 +116,12 @@ void JF12Field::randomTurbulent(int seed) {
 
 void JF12Field::setStriatedGrid(std::shared_ptr<ScalarGrid> grid) {
     useStriated = true;
-    striatedGrid = grid;
+    striatedGrid = std::move(grid);
 }
 
 void JF12Field::setTurbulentGrid(std::shared_ptr<VectorGrid> grid) {
     useTurbulent = true;
-    turbulentGrid = grid;
+    turbulentGrid = std::move(grid);
 }
 
 std::shared_ptr<ScalarGrid> JF12Field::getStriatedGrid() {

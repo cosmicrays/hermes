@@ -152,8 +152,8 @@ if(CMAKE_VERSION VERSION_GREATER 3.6)
       message(WARNING "CMake_RUN_CLANG_TIDY is ON but clang-tidy is not found!")
       set(CMAKE_CXX_CLANG_TIDY "" CACHE STRING "" FORCE)
     else()
-      set(CLANG_TIDY_CHECKS "-*,clang-diagnostic-*,clang-analyzer-*,bugprone-*,google-readability-*")
-#      set(CLANG_TIDY_CHECKS "-*,google-readability-braces-around-statements")
+      set(CLANG_TIDY_CHECKS "-*,clang-diagnostic-*,clang-analyzer-*,bugprone-*,google-readability-*,performance-*")
+#      set(CLANG_TIDY_CHECKS "-*,performance-*")
       set(CMAKE_CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND};-checks=${CLANG_TIDY_CHECKS};-config=\
 {\"CheckOptions\":[\
  {\"key\": \"readability-braces-around-statements.ShortStatementLines\", \"value\": 2},\
@@ -311,7 +311,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	)
 
 	set_target_properties(pyhermes PROPERTIES
-				        PREFIX ""
+			        PREFIX ""
 					OUTPUT_NAME "pyhermes"
 				        LINKER_LANGUAGE CXX)
 	target_link_libraries(pyhermes PRIVATE hermes)
@@ -420,6 +420,10 @@ if(ENABLE_TESTING)
 	add_executable(testInverseComptonIntegrator test/testInverseComptonIntegrator.cpp)
 	target_link_libraries(testInverseComptonIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testInverseComptonIntegrator testInverseComptonIntegrator)
+	
+	add_executable(testBreitWheeler test/testBreitWheeler.cpp)
+	target_link_libraries(testBreitWheeler hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testBreitWheeler testBreitWheeler)
 endif(ENABLE_TESTING)
 
 # ----------------------------------------------------------------------------

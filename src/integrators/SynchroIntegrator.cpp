@@ -8,8 +8,8 @@
 namespace hermes {
 
 SynchroIntegrator::SynchroIntegrator(
-    const std::shared_ptr<magneticfields::MagneticField> mfield_,
-    const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity_)
+    const std::shared_ptr<magneticfields::MagneticField>& mfield_,
+    const std::shared_ptr<cosmicrays::CosmicRayDensity>& crdensity_)
     : RadioIntegratorTemplate(), mfield(mfield_), crdensity(crdensity_) {}
 
 SynchroIntegrator::~SynchroIntegrator() {}
@@ -20,12 +20,12 @@ void SynchroIntegrator::setFrequency(const QFrequency &freq) {
 
 QFrequency SynchroIntegrator::getFrequency() const { return skymapParameter; }
 
-QTemperature SynchroIntegrator::integrateOverLOS(QDirection direction) const {
+QTemperature SynchroIntegrator::integrateOverLOS(const QDirection &direction) const {
     return integrateOverLOS(direction, skymapParameter);
 }
 
-QTemperature SynchroIntegrator::integrateOverLOS(QDirection direction,
-						 QFrequency freq_) const {
+QTemperature SynchroIntegrator::integrateOverLOS(const QDirection &direction,
+						 const QFrequency &freq_) const {
 
     auto integrand = [this, direction, freq_](const QLength &dist) {
 	return this->integrateOverEnergy(
@@ -39,8 +39,8 @@ QTemperature SynchroIntegrator::integrateOverLOS(QDirection direction,
     return intensityToTemperature(total_intensity / 4_pi, freq_);
 }
 
-QEnergy SynchroIntegrator::singleElectronEmission(QFrequency freq_, QEnergy E_,
-						  QMField B_perp_) const {
+QEnergy SynchroIntegrator::singleElectronEmission(const QFrequency &freq_, const QEnergy &E_,
+						  const QMField &B_perp_) const {
 
     // TODO(adundovi): non-relativistic factor (c/v) (see Longair eq. 8.55)
     QFrequency freq_giro = e_plus * B_perp_ / m_electron;
@@ -58,8 +58,8 @@ QEnergy SynchroIntegrator::singleElectronEmission(QFrequency freq_, QEnergy E_,
     return const_synchro * B_perp_ * gsl_sf_synchrotron_1(ratio);
 }
 
-QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_,
-						   QFrequency freq_) const {
+QEmissivity SynchroIntegrator::integrateOverEnergy(const Vector3QLength& pos_,
+						   const QFrequency &freq_) const {
     if (crdensity->existsScaleFactor()) {
 	return integrateOverLogEnergy(pos_, freq_);
     } else {
@@ -67,8 +67,8 @@ QEmissivity SynchroIntegrator::integrateOverEnergy(Vector3QLength pos_,
     }
 }
 
-QEmissivity SynchroIntegrator::integrateOverSumEnergy(Vector3QLength pos_,
-						      QFrequency freq_) const {
+QEmissivity SynchroIntegrator::integrateOverSumEnergy(const Vector3QLength& pos_,
+						      const QFrequency &freq_) const {
 
     QEmissivity emissivity(0);
     QEnergy deltaE;
@@ -95,8 +95,8 @@ QEmissivity SynchroIntegrator::integrateOverSumEnergy(Vector3QLength pos_,
     return emissivity;
 }
 
-QEmissivity SynchroIntegrator::integrateOverLogEnergy(Vector3QLength pos_,
-						      QFrequency freq_) const {
+QEmissivity SynchroIntegrator::integrateOverLogEnergy(const Vector3QLength& pos_,
+						      const QFrequency &freq_) const {
 
     QEmissivity emissivity(0);
     Vector3QMField B;

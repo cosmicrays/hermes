@@ -8,21 +8,21 @@
 
 namespace hermes {
 
-void scaleGrid(std::shared_ptr<ScalarGrid> grid, double a) {
+void scaleGrid(const std::shared_ptr<ScalarGrid>& grid, double a) {
     for (int ix = 0; ix < grid->getNx(); ix++)
 	for (int iy = 0; iy < grid->getNy(); iy++)
 	    for (int iz = 0; iz < grid->getNz(); iz++)
 		grid->get(ix, iy, iz) *= a;
 }
 
-void scaleGrid(std::shared_ptr<VectorGrid> grid, double a) {
+void scaleGrid(const std::shared_ptr<VectorGrid>& grid, double a) {
     for (int ix = 0; ix < grid->getNx(); ix++)
 	for (int iy = 0; iy < grid->getNy(); iy++)
 	    for (int iz = 0; iz < grid->getNz(); iz++)
 		grid->get(ix, iy, iz) *= a;
 }
 
-Vector3f meanFieldVector(std::shared_ptr<VectorGrid> grid) {
+Vector3f meanFieldVector(const std::shared_ptr<VectorGrid>& grid) {
     size_t Nx = grid->getNx();
     size_t Ny = grid->getNy();
     size_t Nz = grid->getNz();
@@ -34,7 +34,7 @@ Vector3f meanFieldVector(std::shared_ptr<VectorGrid> grid) {
     return mean / Nx / Ny / Nz;
 }
 
-double meanFieldStrength(std::shared_ptr<VectorGrid> grid) {
+double meanFieldStrength(const std::shared_ptr<VectorGrid>& grid) {
     size_t Nx = grid->getNx();
     size_t Ny = grid->getNy();
     size_t Nz = grid->getNz();
@@ -46,7 +46,7 @@ double meanFieldStrength(std::shared_ptr<VectorGrid> grid) {
     return mean / Nx / Ny / Nz;
 }
 
-double meanFieldStrength(std::shared_ptr<ScalarGrid> grid) {
+double meanFieldStrength(const std::shared_ptr<ScalarGrid>& grid) {
     size_t Nx = grid->getNx();
     size_t Ny = grid->getNy();
     size_t Nz = grid->getNz();
@@ -58,7 +58,7 @@ double meanFieldStrength(std::shared_ptr<ScalarGrid> grid) {
     return mean / Nx / Ny / Nz;
 }
 
-double rmsFieldStrength(std::shared_ptr<VectorGrid> grid) {
+double rmsFieldStrength(const std::shared_ptr<VectorGrid>& grid) {
     size_t Nx = grid->getNx();
     size_t Ny = grid->getNy();
     size_t Nz = grid->getNz();
@@ -70,7 +70,7 @@ double rmsFieldStrength(std::shared_ptr<VectorGrid> grid) {
     return std::sqrt(sumV2 / Nx / Ny / Nz);
 }
 
-double rmsFieldStrength(std::shared_ptr<ScalarGrid> grid) {
+double rmsFieldStrength(const std::shared_ptr<ScalarGrid>& grid) {
     size_t Nx = grid->getNx();
     size_t Ny = grid->getNy();
     size_t Nz = grid->getNz();
@@ -284,8 +284,8 @@ void initTurbulence(std::shared_ptr<VectorGrid> grid, double Brms, double lMin,
 }
 #endif // HERMES_HAVE_FFTW3F
 
-void fromMagneticField(std::shared_ptr<VectorGrid> grid,
-		       std::shared_ptr<magneticfields::MagneticField> field) {
+void fromMagneticField(const std::shared_ptr<VectorGrid>& grid,
+		       const std::shared_ptr<magneticfields::MagneticField>& field) {
     Vector3d origin = grid->getOrigin();
     Vector3d spacing = grid->getSpacing();
     size_t Nx = grid->getNx();
@@ -304,8 +304,8 @@ void fromMagneticField(std::shared_ptr<VectorGrid> grid,
 }
 
 void fromMagneticFieldStrength(
-    std::shared_ptr<ScalarGrid> grid,
-    std::shared_ptr<magneticfields::MagneticField> field) {
+    const std::shared_ptr<ScalarGrid>& grid,
+    const std::shared_ptr<magneticfields::MagneticField>& field) {
     Vector3d origin = grid->getOrigin();
     Vector3d spacing = grid->getSpacing();
     size_t Nx = grid->getNx();
@@ -331,7 +331,7 @@ double turbulentCorrelationLength(double lMin, double lMax, double alpha) {
 	   (1 - std::pow(r, a - 1));
 }
 
-void loadGrid(std::shared_ptr<VectorGrid> grid, std::string filename,
+void loadGrid(const std::shared_ptr<VectorGrid>& grid, const std::string& filename,
 	      double c) {
     std::ifstream fin(filename.c_str(), std::ios::binary);
     if (!fin) {
@@ -366,7 +366,7 @@ void loadGrid(std::shared_ptr<VectorGrid> grid, std::string filename,
     fin.close();
 }
 
-void loadGrid(std::shared_ptr<ScalarGrid> grid, std::string filename,
+void loadGrid(const std::shared_ptr<ScalarGrid>& grid, const std::string& filename,
 	      double c) {
     std::ifstream fin(filename.c_str(), std::ios::binary);
     if (!fin) {
@@ -399,7 +399,7 @@ void loadGrid(std::shared_ptr<ScalarGrid> grid, std::string filename,
     fin.close();
 }
 
-void dumpGrid(std::shared_ptr<VectorGrid> grid, std::string filename,
+void dumpGrid(const std::shared_ptr<VectorGrid>& grid, const std::string& filename,
 	      double c) {
     std::ofstream fout(filename.c_str(), std::ios::binary);
     if (!fout) {
@@ -420,7 +420,7 @@ void dumpGrid(std::shared_ptr<VectorGrid> grid, std::string filename,
     fout.close();
 }
 
-void dumpGrid(std::shared_ptr<ScalarGrid> grid, std::string filename,
+void dumpGrid(const std::shared_ptr<ScalarGrid>& grid, const std::string& filename,
 	      double c) {
     std::ofstream fout(filename.c_str(), std::ios::binary);
     if (!fout) {
@@ -439,7 +439,7 @@ void dumpGrid(std::shared_ptr<ScalarGrid> grid, std::string filename,
     fout.close();
 }
 
-void loadGridFromTxt(std::shared_ptr<VectorGrid> grid, std::string filename,
+void loadGridFromTxt(const std::shared_ptr<VectorGrid>& grid, const std::string& filename,
 		     double c) {
     std::ifstream fin(filename.c_str());
     if (!fin) {
@@ -465,7 +465,7 @@ void loadGridFromTxt(std::shared_ptr<VectorGrid> grid, std::string filename,
     fin.close();
 }
 
-void loadGridFromTxt(std::shared_ptr<ScalarGrid> grid, std::string filename,
+void loadGridFromTxt(const std::shared_ptr<ScalarGrid>& grid, const std::string& filename,
 		     double c) {
     std::ifstream fin(filename.c_str());
     if (!fin) {
@@ -491,7 +491,7 @@ void loadGridFromTxt(std::shared_ptr<ScalarGrid> grid, std::string filename,
     fin.close();
 }
 
-void dumpGridToTxt(std::shared_ptr<VectorGrid> grid, std::string filename,
+void dumpGridToTxt(const std::shared_ptr<VectorGrid>& grid, const std::string& filename,
 		   double c) {
     std::ofstream fout(filename.c_str());
     if (!fout) {
@@ -510,7 +510,7 @@ void dumpGridToTxt(std::shared_ptr<VectorGrid> grid, std::string filename,
     fout.close();
 }
 
-void dumpGridToTxt(std::shared_ptr<ScalarGrid> grid, std::string filename,
+void dumpGridToTxt(const std::shared_ptr<ScalarGrid>& grid, const std::string& filename,
 		   double c) {
     std::ofstream fout(filename.c_str());
     if (!fout) {

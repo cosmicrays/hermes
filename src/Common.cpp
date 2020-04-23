@@ -8,7 +8,7 @@
 
 namespace hermes {
 
-std::string getDataPath(std::string filename) {
+std::string getDataPath(const std::string& filename) {
     // adopted from CRPropa3
     static std::string dataPath;
     if (dataPath.size())
@@ -51,15 +51,15 @@ std::string getDataPath(std::string filename) {
     return concat_path(dataPath, filename);
 }
 
-bool isWithinAngle(QDirection a, QDirection b, QAngle d) {
+bool isWithinAngle(const QDirection &a, const QDirection &b, const QAngle &d) {
     Vector3d v1, v2;
     v1.setRThetaPhi(1, a[0], a[1]);
     v2.setRThetaPhi(1, b[0], b[1]);
     return (v1.getAngleTo(v2) < d);
 }
 
-QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
-		       Vector3QLength vecGCSun) {
+QLength distanceFromGC(const QDirection &direction, const QLength &distanceFromSun,
+		       const Vector3QLength& vecGCSun) {
     Vector3QLength vecSunTarget;
     vecSunTarget.setRThetaPhi(distanceFromSun, direction[0], direction[1]);
     Vector3QLength vecGCTarget = vecSunTarget - vecGCSun;
@@ -109,9 +109,9 @@ QDirection fromGalCoord(const QDirection &d) {
     return QDirection({fmod(pi * 0.5_rad - d[0], pi), fmod(d[1], 2_pi)});
 }
 
-QNumber getLorentzFactor(QMass m, QEnergy E) { return E / (m * c_squared); }
+QNumber getLorentzFactor(const QMass &m, const QEnergy &E) { return E / (m * c_squared); }
 
-QTemperature intensityToTemperature(QIntensity intensity_, QFrequency freq_) {
+QTemperature intensityToTemperature(const QIntensity &intensity_, const QFrequency &freq_) {
     return intensity_ * c_squared / (2 * freq_ * freq_ * k_boltzmann);
 }
 

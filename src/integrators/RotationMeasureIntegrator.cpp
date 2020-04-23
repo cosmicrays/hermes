@@ -4,14 +4,14 @@
 namespace hermes {
 
 RotationMeasureIntegrator::RotationMeasureIntegrator(
-    const std::shared_ptr<magneticfields::MagneticField> mfield,
-    const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity)
+    const std::shared_ptr<magneticfields::MagneticField>& mfield,
+    const std::shared_ptr<chargedgas::ChargedGasDensity>& gdensity)
     : RotationMeasureIntegratorTemplate(), mfield(mfield), gdensity(gdensity) {}
 
 RotationMeasureIntegrator::~RotationMeasureIntegrator() {}
 
 QRotationMeasure
-RotationMeasureIntegrator::integrateOverLOS(QDirection direction) const {
+RotationMeasureIntegrator::integrateOverLOS(const QDirection &direction) const {
     auto integrand = [this, direction](const QLength &dist) {
 	return this->integralFunction(
 	    getGalacticPosition(getSunPosition(), dist, direction));
@@ -23,7 +23,7 @@ RotationMeasureIntegrator::integrateOverLOS(QDirection direction) const {
 }
 
 QRMIntegral
-RotationMeasureIntegrator::integralFunction(Vector3QLength pos) const {
+RotationMeasureIntegrator::integralFunction(const Vector3QLength& pos) const {
     const auto const_a0 =
 	pow<3>(e_plus) /
 	(8 * pi * pi * epsilon0 * squared(m_electron) * pow<3>(c_light));

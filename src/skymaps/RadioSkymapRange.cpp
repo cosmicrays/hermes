@@ -28,13 +28,13 @@ void RadioSkymapRange::initFrequencyRange() {
 }
 
 void RadioSkymapRange::setIntegrator(
-    std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>> integrator_) {
+    const std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>>& integrator_) {
     for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 	it->setIntegrator(integrator_);
     }
 }
 
-void RadioSkymapRange::setMask(std::shared_ptr<SkymapMask> mask_) {
+void RadioSkymapRange::setMask(const std::shared_ptr<SkymapMask>& mask_) {
     for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 	it->setMask(mask_);
     }
@@ -49,7 +49,7 @@ void RadioSkymapRange::compute() {
     }
 }
 
-void RadioSkymapRange::save(std::shared_ptr<outputs::Output> output) const {
+void RadioSkymapRange::save(const std::shared_ptr<outputs::Output>& output) const {
 
     output->initOutput();
 

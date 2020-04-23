@@ -612,7 +612,7 @@ double YMW16::lmc(double l, double b, double d, int *w_lmc) const {
     // ((alpha,delta,d)----((alpha_l,delta_l,D_l)-----get(dag,pag)
     c_dag = c_delta * cos(delta_l) * (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl) +
 	    s_delta * sin(delta_l);
-    s_dag = sin(acos(c_dag));
+    s_dag = std::sin(std::acos(c_dag));
     sc_dp = -c_delta * (s_alpha_cp * c_cpl + c_alpha_cp * s_cpl);
     ss_dp = s_delta * cos(delta_l) -
 	    c_delta * sin(delta_l) * (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl);
@@ -815,9 +815,9 @@ double YMW16::ne_ymw16(const Vector3QLength &pos) const {
 	glr = 0;
     } else {
 	if (x_s >= 0) {
-	    glr = acos(-y_s / r);
+	    glr = std::acos(-y_s / r);
 	} else {
-	    glr = acos(y_s / r) + pi;
+	    glr = std::acos(y_s / r) + pi;
 	}
     }
     gl = glr * RAD;

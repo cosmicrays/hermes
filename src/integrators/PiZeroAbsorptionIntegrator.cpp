@@ -224,4 +224,29 @@ PiZeroAbsorptionIntegrator::integrateOverEnergy(Vector3QLength pos_,
     return total;
 }
 
+QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
+    const Vector3QLength &pos_, const QEnergy &Egamma_, const QEnergy &Eelectron_) const {
+
+    QICInnerIntegral integral(0);
+
+    auto integrand = [this, pos_, Egamma_, Eelectron_](
+			 const cosmicrays::CosmicRayDensity::iterator itE,
+			 const QEnergy &deltaE) {
+	return crossSec->getDiffCrossSection(Eelectron_, (*itE), Egamma_) *
+	       phdensity->getEnergyDensity(
+		   pos_, static_cast<int>(itE - phdensity->begin())) /
+	       pow<2>(*itE);
+    };
+
+    for (auto itE = std::next(phdensity->begin()); itE != phdensity->end();
+	 ++itE) {
+	auto itE_prev = std::prev(itE);
+	QEnergy deltaE = (*itE) - (*itE_prev);
+	QNumber xlog = log((*itE) / (*itE_prev));
+	integral += (*itE) * integrand(itE, deltaE) * xlog;
+    }
+
+    return integral;
+}
+
 } // namespace hermes

@@ -61,7 +61,7 @@ class MagneticFieldList : public MagneticField {
     std::vector<std::shared_ptr<MagneticField>> fields;
 
   public:
-    void addField(std::shared_ptr<MagneticField> field);
+    void addField(const std::shared_ptr<MagneticField>& field);
     Vector3QMField getField(const Vector3QLength &position) const override;
 };
 

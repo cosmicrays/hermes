@@ -1,8 +1,12 @@
 #include "hermes/interactions/BreitWheeler.h"
 #include "hermes/Common.h"
 
+#include <functional>
 #include <gsl/gsl_integration.h>
-#define GSL_LIMIT 1000
+
+#define GSL_LIMIT 10000
+#define GSL_EPSINT 1e-2
+#define GSL_KEYINT 3
 
 namespace hermes {
 namespace interactions {
@@ -26,39 +30,29 @@ QArea BreitWheeler::getCrossSection(const QEnergy &Egamma, const QEnergy &Eph,
 }
 
 double BreitWheeler::integrateOverTheta(const QEnergy &Egamma, const QEnergy &Eph) const {
-    
+
     QNumber chi = Egamma * Eph / (2 * pow<2>(m_electron * c_squared));
 
-    double a = static_cast<double>(acos(1-1/static_cast<double>(chi)));
-    double b = static_cast<double>(2_pi-acos(-1/static_cast<double>(chi)));
+    QAngle a = acos(1_num-1/chi);
+    QAngle b = pi*2.0_rad - a;
     double abs_error = 0.0; // disabled
-    double rel_error = 1.0e-3;
-    int key = GSL_INTEG_GAUSS21; // GSL_INTEG_GAUSS15;
+    double rel_error = 1.0e-2;
+    int key = GSL_INTEG_GAUSS51; // GSL_INTEG_GAUSS15;
     double result = 0;
     double error = 0;
-/*
-	auto f = [chi](QAngle theta) -> double {
-		QNumber costheta = cos(theta);
-		QNumber x = chi * (1_num - costheta);
-        QNumber beta = sqrt(1_num - 1 / x);
-		return static_cast<double>((1_num - costheta) * 3. / 16. * sigma_Thompson * (1_num - beta * beta) *
-       (2 * beta * (beta * beta - 2_num) +
-        (3_num - pow<4>(beta)) * log((1_num + beta) / (1_num - beta))));
-	};
+	int N = 3000;    
+    
+	auto integrand = [this, Egamma, Eph](double th) {
+		return (1 - std::cos(th)) * static_cast<double>(getCrossSection(Egamma, Eph, QAngle(th)));
+    };
 
-    gsl_function F = {.function = [](double x, void *vf) -> double {
-			  auto &func =
-			      *static_cast<std::function<double(double)> *>(vf);
-			  return func(x);
-		      },
-		      .params = &f};
+    gsl_function_pp<decltype(integrand)> Fp(integrand);
+    gsl_function *F = static_cast<gsl_function *>(&Fp);
 
-    gsl_integration_workspace *workspace_ptr =
-	gsl_integration_workspace_alloc(GSL_LIMIT);
-    gsl_integration_qag(&F, a, b, abs_error, rel_error, N, key, workspace_ptr,
-			&result, &error);
-    gsl_integration_workspace_free(workspace_ptr);
-*/
+    gsl_integration_workspace *w = gsl_integration_workspace_alloc(GSL_LIMIT);
+    gsl_integration_qag(F, static_cast<double>(a), static_cast<double>(b), abs_error, rel_error, N, key, w, &result, &error);
+    gsl_integration_workspace_free(w);
+
     return result;
 }
 /*

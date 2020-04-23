@@ -56,19 +56,19 @@ template <class QPXL, typename QSTEP> class IntegratorTemplate {
        an integral of a targeted accumulated quantity `T` in a given
        direction `interdir`.
     */
-    virtual QPXL integrateOverLOS(QDirection iterdir) const { return QPXL(0); };
+    virtual QPXL integrateOverLOS(const QDirection &iterdir) const { return QPXL(0); };
     /**
 	    Additionally, for a frequency or energy dependent integrals one
        should implement the following method too.
     */
-    virtual QPXL integrateOverLOS(QDirection iterdir, QSTEP) const {
+    virtual QPXL integrateOverLOS(const QDirection &iterdir, const QSTEP &) const {
 	return QPXL(0);
     };
     /**
 	    Set the position of the Sun in the galaxy as a vector (x, y, z)
        from which the LOS integration starts, default: (8.5_kpc, 0, 0)
     */
-    void setSunPosition(Vector3QLength pos_) { positionSun = pos_; }
+    void setSunPosition(const Vector3QLength &pos) { positionSun = pos; }
     /**
 	    Get the position of the Sun in the galaxy as a vector (x, y, z)
     */
@@ -77,7 +77,7 @@ template <class QPXL, typename QSTEP> class IntegratorTemplate {
 	    Wrapper within the class for distanceToGalBorder(positionSun,
        direction) becomes getMaxDistance(direction)
     */
-    inline QLength getMaxDistance(QDirection direction) const {
+    inline QLength getMaxDistance(const QDirection &direction) const {
 	return distanceToGalBorder(positionSun, direction);
     }
     /**

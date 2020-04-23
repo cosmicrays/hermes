@@ -6,9 +6,9 @@
 namespace hermes {
 
 SynchroAbsorptionIntegrator::SynchroAbsorptionIntegrator(
-    const std::shared_ptr<magneticfields::MagneticField> mfield_,
-    const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity_,
-    const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity_)
+    const std::shared_ptr<magneticfields::MagneticField>& mfield_,
+    const std::shared_ptr<cosmicrays::CosmicRayDensity>& crdensity_,
+    const std::shared_ptr<chargedgas::ChargedGasDensity>& gdensity_)
     : RadioIntegratorTemplate(), mfield(mfield_), crdensity(crdensity_),
       gdensity(gdensity_) {
 
@@ -21,13 +21,13 @@ SynchroAbsorptionIntegrator::SynchroAbsorptionIntegrator(
 SynchroAbsorptionIntegrator::~SynchroAbsorptionIntegrator() {}
 
 QTemperature
-SynchroAbsorptionIntegrator::integrateOverLOS(QDirection direction) const {
+SynchroAbsorptionIntegrator::integrateOverLOS(const QDirection &direction) const {
     return integrateOverLOS(direction, 408_MHz);
 }
 
 QTemperature
-SynchroAbsorptionIntegrator::integrateOverLOS(QDirection direction_,
-					      QFrequency freq_) const {
+SynchroAbsorptionIntegrator::integrateOverLOS(const QDirection &direction_,
+					      const QFrequency &freq_) const {
 
     Vector3QLength positionSun(8.5_kpc, 0, 0);
     Vector3QLength pos(0.0);

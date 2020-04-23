@@ -4,13 +4,13 @@
 namespace hermes {
 
 DispersionMeasureIntegrator::DispersionMeasureIntegrator(
-    const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity)
+    const std::shared_ptr<chargedgas::ChargedGasDensity> &gdensity)
     : DispersionMeasureIntegratorTemplate(), gdensity(gdensity) {}
 
 DispersionMeasureIntegrator::~DispersionMeasureIntegrator() {}
 
 QDispersionMeasure
-DispersionMeasureIntegrator::integrateOverLOS(QDirection direction) const {
+DispersionMeasureIntegrator::integrateOverLOS(const QDirection &direction) const {
 
     auto integrand = [this, direction](const QLength &dist) {
 	return gdensity->getDensity(
@@ -23,7 +23,7 @@ DispersionMeasureIntegrator::integrateOverLOS(QDirection direction) const {
 }
 
 DispersionMeasureIntegrator::tLOSProfile
-DispersionMeasureIntegrator::getLOSProfile(QDirection direction,
+DispersionMeasureIntegrator::getLOSProfile(const QDirection &direction,
 					   int Nsteps) const {
 
     auto integrand = [this, direction](const QLength &dist) {

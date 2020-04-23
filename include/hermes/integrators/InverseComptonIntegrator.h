@@ -26,32 +26,32 @@ class InverseComptonIntegrator : public GammaIntegratorTemplate {
 
     typedef Grid<QGREmissivity> ICCacheTable;
     std::shared_ptr<ICCacheTable> cacheTable;
-    QGREmissivity getIOEfromCache(Vector3QLength, QEnergy) const;
+    QGREmissivity getIOEfromCache(const Vector3QLength&, const QEnergy &) const;
     void computeCacheInThread(std::size_t start, std::size_t end,
 			      const QEnergy &Egamma,
 			      std::shared_ptr<ProgressBar> &p);
 
-    QGREmissivity integrateOverSumEnergy(Vector3QLength pos,
-					 QEnergy Egamma) const;
-    QGREmissivity integrateOverLogEnergy(Vector3QLength pos,
-					 QEnergy Egamma) const;
+    QGREmissivity integrateOverSumEnergy(const Vector3QLength& pos,
+					 const QEnergy &Egamma) const;
+    QGREmissivity integrateOverLogEnergy(const Vector3QLength& pos,
+					 const QEnergy &Egamma) const;
 
   public:
     InverseComptonIntegrator(
-	const std::shared_ptr<cosmicrays::CosmicRayDensity>,
-	const std::shared_ptr<photonfields::PhotonField>,
-	const std::shared_ptr<interactions::DifferentialCrossSection>);
+	const std::shared_ptr<cosmicrays::CosmicRayDensity>&,
+	const std::shared_ptr<photonfields::PhotonField>&,
+	const std::shared_ptr<interactions::DifferentialCrossSection>&);
     ~InverseComptonIntegrator();
 
     void setEnergy(const QEnergy &Egamma);
     QEnergy getEnergy() const;
 
-    QDiffIntensity integrateOverLOS(QDirection iterdir) const;
-    QDiffIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
-    QGREmissivity integrateOverEnergy(Vector3QLength pos, QEnergy Egamma) const;
-    QICInnerIntegral integrateOverPhotonEnergy(Vector3QLength pos,
-					       QEnergy Egamma,
-					       QEnergy Eelectron) const;
+    QDiffIntensity integrateOverLOS(const QDirection &iterdir) const;
+    QDiffIntensity integrateOverLOS(const QDirection &iterdir, const QEnergy &Egamma) const;
+    QGREmissivity integrateOverEnergy(const Vector3QLength& pos, const QEnergy &Egamma) const;
+    QICInnerIntegral integrateOverPhotonEnergy(const Vector3QLength& pos,
+					       const QEnergy &Egamma,
+					       const QEnergy &Eelectron) const;
 
     void setupCacheTable(int N_x, int N_y, int N_z);
     void initCacheTable();

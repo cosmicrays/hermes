@@ -136,7 +136,7 @@ class FITSFile {
     std::vector<std::string> getHeaderRecords();
     void writeKeyValue(FITSKeyValue &kv, const char comment[]);
 
-    FITSKeyValue readKeyValue(std::string key_, FITS::DataType type_);
+    FITSKeyValue readKeyValue(const std::string& key_, FITS::DataType type_);
     inline std::string readKeyValueAsString(const std::string &key_) {
 	return (readKeyValue(key_, FITS::STRING)).getValueAsString();
     };

@@ -38,6 +38,9 @@ inline double cos(const QAngle &num) {
 inline double tan(const QAngle &num) {
     return std::tan(static_cast<double>(num));
 }
+inline QAngle acos(const QNumber &num) {
+    return static_cast<QAngle>(std::acos(static_cast<double>(num)));
+}
 inline double cosh(const QNumber &num) {
     return std::cosh(static_cast<double>(num));
 }

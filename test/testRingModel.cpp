@@ -18,8 +18,8 @@ class RingModel : public ::testing::Test {
 TEST_F(RingModel, RingBoundaries) {
     std::vector<std::pair<QLength, QLength>> result;
 
-    for (auto ring : ringModel_HI) {
-	result.push_back(ring->getBoundaries());
+    for (const auto &ring : ringModel_HI) {
+		result.push_back(ring->getBoundaries());
     }
 
     std::array<QLength, 12> b = {0_kpc, 2_kpc, 3_kpc,  4_kpc,  5_kpc,  6_kpc,
@@ -69,10 +69,10 @@ TEST_F(RingModel, RingValues) {
     QColumnDensity col_HI(0);
     QColumnDensity col_H2(0);
 
-    for (auto ring : ringModel_HI)
+    for (const auto &ring : ringModel_HI)
 	col_HI += ring->getHIColumnDensity(dir);
 
-    for (auto ring : ringModel_CO)
+    for (const auto &ring : ringModel_CO)
 	col_H2 += X0 * ring->getCOIntensity(dir);
 
     EXPECT_NEAR(static_cast<double>(col_HI), 2e26, 5e25);

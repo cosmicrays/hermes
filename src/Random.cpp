@@ -108,7 +108,7 @@ double Random::randRayleigh(double sigma) {
 }
 
 double Random::randFisher(double kappa) {
-    return acos(1. + 1. / kappa * log(1 - rand() * (1 - exp(-2 * kappa))));
+    return std::acos(1. + 1. / kappa * log(1 - rand() * (1 - exp(-2 * kappa))));
 }
 
 size_t Random::randBin(const std::vector<float> &cdf) {
@@ -133,7 +133,7 @@ Vector3d Random::randVector() {
 Vector3d Random::randVectorAroundMean(const Vector3d &meanDirection,
 				      double angle) {
     Vector3d axis = meanDirection.cross(randVector());
-    Vector3d v = meanDirection;
+    const Vector3d& v = meanDirection;
     return v.getRotated(axis, angle);
 }
 
@@ -145,7 +145,7 @@ Vector3d Random::randConeVector(const Vector3d &meanDirection,
 				double angularRadius) {
     double theta = 2 * M_PI;
     while (theta > angularRadius)
-	theta = acos(2 * rand() - 1);
+	theta = std::acos(2 * rand() - 1);
     return randVectorAroundMean(meanDirection, theta);
 }
 

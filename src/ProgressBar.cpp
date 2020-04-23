@@ -2,6 +2,7 @@
 
 #include <cstdio>
 #include <iostream>
+#include <utility>
 
 namespace hermes {
 
@@ -16,7 +17,7 @@ ProgressBar::ProgressBar(unsigned long steps, unsigned long updateSteps)
 }
 
 void ProgressBar::setMutex(std::shared_ptr<std::mutex> mutex) {
-    _mutex = mutex;
+    _mutex = std::move(mutex);
     mutexSet = true;
 }
 

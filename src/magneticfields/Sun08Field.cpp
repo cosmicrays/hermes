@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "hermes/magneticfields/Sun08Field.h"
 #include "hermes/Units.h"
 
@@ -43,7 +45,7 @@ void Sun08Field::randomTurbulent(int seed) {
 
 void Sun08Field::setTurbulentGrid(std::shared_ptr<VectorGrid> grid) {
     useTurbulent = true;
-    turbulentGrid = grid;
+    turbulentGrid = std::move(grid);
 }
 
 void Sun08Field::setUseTurbulent(bool use) {

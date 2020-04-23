@@ -17,22 +17,6 @@
 namespace hermes {
 namespace interactions {
 
-/* Template wrapper to expose lambda with capture to gsl_function
- * according to https://stackoverflow.com/a/18413206/6819103 */
-template <typename F> class gsl_function_pp : public gsl_function {
-  private:
-    const F &_func;
-    static double invoke(double x, void *params) {
-	return static_cast<gsl_function_pp *>(params)->_func(x);
-    }
-
-  public:
-    gsl_function_pp(const F &func) : _func(func) {
-	function = &gsl_function_pp::invoke;
-	params = this;
-    }
-};
-
 BremsstrahlungSimple::BremsstrahlungSimple()
     : cachingEnabled(true),
       cache(std::make_unique<CacheStorageCrossSection>()) {

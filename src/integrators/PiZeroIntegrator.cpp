@@ -13,18 +13,18 @@
 namespace hermes {
 
 PiZeroIntegrator::PiZeroIntegrator(
-    const std::shared_ptr<cosmicrays::CosmicRayDensity> crDensity_,
-    const std::shared_ptr<neutralgas::RingModel> ngdensity_,
-    const std::shared_ptr<interactions::DifferentialCrossSection> crossSec_)
+    const std::shared_ptr<cosmicrays::CosmicRayDensity>& crDensity_,
+    const std::shared_ptr<neutralgas::RingModel>& ngdensity_,
+    const std::shared_ptr<interactions::DifferentialCrossSection>& crossSec_)
     : GammaIntegratorTemplate(),
       crList(std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>{
 	  crDensity_}),
       ngdensity(ngdensity_), crossSec(crossSec_) {}
 
 PiZeroIntegrator::PiZeroIntegrator(
-    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList_,
-    const std::shared_ptr<neutralgas::RingModel> ngdensity_,
-    const std::shared_ptr<interactions::DifferentialCrossSection> crossSec_)
+    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>& crList_,
+    const std::shared_ptr<neutralgas::RingModel>& ngdensity_,
+    const std::shared_ptr<interactions::DifferentialCrossSection>& crossSec_)
     : GammaIntegratorTemplate(), crList(crList_), ngdensity(ngdensity_),
       crossSec(crossSec_) {}
 
@@ -80,7 +80,8 @@ void PiZeroIntegrator::initCacheTable() {
 
     auto job_chunks = getThreadChunks(grid_size);
     std::vector<std::thread> threads;
-    for (auto &c : job_chunks) {
+    threads.reserve(job_chunks.size());
+for (auto &c : job_chunks) {
 	threads.push_back(std::thread(&PiZeroIntegrator::computeCacheInThread,
 				      this, c.first, c.second, Egamma,
 				      std::ref(progressbar)));
@@ -92,17 +93,17 @@ void PiZeroIntegrator::initCacheTable() {
     cacheTableInitialized = true;
 }
 
-QPiZeroIntegral PiZeroIntegrator::getIOEfromCache(Vector3QLength pos_,
-						  QEnergy Egamma_) const {
+QPiZeroIntegral PiZeroIntegrator::getIOEfromCache(const Vector3QLength& pos_,
+						  const QEnergy &Egamma_) const {
     return cacheTable->interpolate(static_cast<Vector3d>(pos_));
 }
 
-QDiffIntensity PiZeroIntegrator::integrateOverLOS(QDirection direction) const {
+QDiffIntensity PiZeroIntegrator::integrateOverLOS(const QDirection &direction) const {
     return integrateOverLOS(direction, 1_GeV);
 }
 
-QDiffIntensity PiZeroIntegrator::integrateOverLOS(QDirection direction_,
-						  QEnergy Egamma_) const {
+QDiffIntensity PiZeroIntegrator::integrateOverLOS(const QDirection &direction_,
+						  const QEnergy &Egamma_) const {
 
     QDiffIntensity total_diff_flux(0.0);
 
@@ -170,8 +171,8 @@ QRingX0Unit PiZeroIntegrator::X0Function(const Vector3QLength &pos) const {
     return 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s;
 }
 
-QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_,
-						      QEnergy Egamma_) const {
+QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(const Vector3QLength& pos_,
+						      const QEnergy &Egamma_) const {
     if (cacheTableInitialized)
 	return getIOEfromCache(pos_, Egamma_);
 

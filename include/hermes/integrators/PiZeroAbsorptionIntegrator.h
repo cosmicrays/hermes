@@ -27,7 +27,8 @@ class PiZeroAbsorptionIntegrator : public GammaIntegratorTemplate {
 
     typedef Grid<QPiZeroIntegral> ICCacheTable;
     std::shared_ptr<ICCacheTable> cacheTable;
-    QPiZeroIntegral getIOEfromCache(Vector3QLength, QEnergy) const;
+
+    QPiZeroIntegral getIOEfromCache(const Vector3QLength &, const QEnergy &) const;
     void computeCacheInThread(std::size_t start, std::size_t end,
 			      const QEnergy &Egamma,
 			      std::shared_ptr<ProgressBar> &p);
@@ -49,14 +50,14 @@ class PiZeroAbsorptionIntegrator : public GammaIntegratorTemplate {
     QPDensity densityProfile(const Vector3QLength &) const;
     QRingX0Unit X0Function(const Vector3QLength &) const;
 
-    QDiffIntensity integrateOverLOS(QDirection iterdir) const;
-    QDiffIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
+    QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;
+    QDiffIntensity integrateOverLOS(const QDirection &iterdir, const QEnergy &Egamma) const override;
 
-    QPiZeroIntegral integrateOverEnergy(Vector3QLength pos,
-					QEnergy Egamma) const;
+    QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos,
+					const QEnergy &Egamma) const;
 
-    void setupCacheTable(int, int, int);
-    void initCacheTable();
+    void setupCacheTable(int, int, int) override;
+    void initCacheTable() override;
 };
 
 /** @}*/

@@ -27,13 +27,13 @@ void GammaSkymapRange::initEnergyRange() {
 }
 
 void GammaSkymapRange::setIntegrator(
-    std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>> integrator_) {
+    const std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>>& integrator_) {
     for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 	it->setIntegrator(integrator_);
     }
 }
 
-void GammaSkymapRange::setMask(std::shared_ptr<SkymapMask> mask_) {
+void GammaSkymapRange::setMask(const std::shared_ptr<SkymapMask>& mask_) {
     for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 	it->setMask(mask_);
     }
@@ -54,7 +54,7 @@ void GammaSkymapRange::compute() {
     }
 }
 
-void GammaSkymapRange::save(std::shared_ptr<outputs::Output> output) const {
+void GammaSkymapRange::save(const std::shared_ptr<outputs::Output>& output) const {
 
     output->initOutput();
 

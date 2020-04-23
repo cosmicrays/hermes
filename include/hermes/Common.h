@@ -4,6 +4,9 @@
 #include "hermes/Units.h"
 #include "hermes/Vector3Quantity.h"
 
+#include <functional>
+#include <gsl/gsl_integration.h>
+
 /**
  @file
  @brief Common helper functions
@@ -14,14 +17,14 @@ namespace hermes {
 /**
 	Resolves a full path to data files
 */
-std::string getDataPath(std::string filename);
+std::string getDataPath(const std::string& filename);
 
 /**
 	Gives a distance from the galactic centre (GC) by providing the distance
 	from the Sun and the direction (theta,phi)
 */
 QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
-		       Vector3QLength vecGCSun);
+		       const Vector3QLength& vecGCSun);
 
 /**
 	Gives a distance from an observer to the (spherical) galactic border
@@ -50,17 +53,17 @@ QDirection fromGalCoord(const QDirection &);
 	Test if two directions are close one another, within d
 
 */
-bool isWithinAngle(QDirection a, QDirection b, QAngle d);
+bool isWithinAngle(const QDirection &a, const QDirection &b, const QAngle &d);
 
 /**
 	Calculate the Lorentz factor (gamma) from a particle mass and energy
 */
-QNumber getLorentzFactor(QMass m, QEnergy E);
+QNumber getLorentzFactor(const QMass &m, const QEnergy &E);
 
 /**
 	Intensity to temperature coversion
 */
-QTemperature intensityToTemperature(QIntensity intensity, QFrequency freq);
+QTemperature intensityToTemperature(const QIntensity &intensity, const QFrequency &freq);
 
 /**
 	Returns number of available system threads
@@ -78,6 +81,23 @@ size_t getThreadId();
 */
 std::vector<std::pair<unsigned int, unsigned int>>
 getThreadChunks(unsigned int queueSize);
+
+/* Template wrapper to expose lambda with capture to gsl_function
+ * according to https://stackoverflow.com/a/18413206/6819103 */
+template <typename F> class gsl_function_pp : public gsl_function {
+  private:
+    const F &_func;
+    static double invoke(double x, void *params) {
+	return static_cast<gsl_function_pp *>(params)->_func(x);
+    }
+
+  public:
+    gsl_function_pp(const F &func) : _func(func) {
+	function = &gsl_function_pp::invoke;
+	params = this;
+    }
+};
+
 
 } // namespace hermes
 

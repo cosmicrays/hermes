@@ -37,7 +37,7 @@ std::vector<bool> SkymapMask::getMask(std::size_t nside) {
 }
 
 /* InvertWindows class */
-InvertMask::InvertMask(const std::shared_ptr<SkymapMask> mask_) : mask(mask_) {}
+InvertMask::InvertMask(const std::shared_ptr<SkymapMask> &mask_) : mask(mask_) {}
 
 bool InvertMask::isAllowed(const QDirection &dir) const {
     return !mask->isAllowed(dir);
@@ -46,7 +46,7 @@ bool InvertMask::isAllowed(const QDirection &dir) const {
 /* MaskList class */
 MaskList::MaskList() {}
 
-void MaskList::addMask(const std::shared_ptr<SkymapMask> mask_) {
+void MaskList::addMask(const std::shared_ptr<SkymapMask> &mask_) {
     list.push_back(mask_);
 }
 
@@ -67,8 +67,8 @@ RectangularWindow::RectangularWindow(const QDirection &topleft_,
     : topleft(fromGalCoord(topleft_)), bottomright(fromGalCoord(bottomright_)) {
 }
 
-bool RectangularWindow::isAngleBetween(const QAngle &testAngle, QAngle first,
-				       QAngle last) const {
+bool RectangularWindow::isAngleBetween(const QAngle &testAngle, const QAngle &first,
+				       const QAngle &last) const {
     /*	first -= testAngle;
 	    last  -= testAngle;
 	    first = normalizeAngle(first);

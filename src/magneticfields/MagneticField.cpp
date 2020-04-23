@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "hermes/magneticfields/MagneticField.h"
 
 namespace hermes {
@@ -5,12 +7,12 @@ namespace magneticfields {
 
 PeriodicMagneticField::PeriodicMagneticField(
     std::shared_ptr<MagneticField> field, const Vector3QLength &extends)
-    : field(field), extends(extends), origin(0_kpc), reflective(false) {}
+    : field(std::move(field)), extends(extends), origin(0_kpc), reflective(false) {}
 
 PeriodicMagneticField::PeriodicMagneticField(
     std::shared_ptr<MagneticField> field, const Vector3QLength &extends,
     const Vector3QLength &origin, bool reflective)
-    : field(field), extends(extends), origin(origin), reflective(reflective) {}
+    : field(std::move(field)), extends(extends), origin(origin), reflective(reflective) {}
 
 Vector3QLength &PeriodicMagneticField::getOrigin() { return origin; }
 
@@ -51,7 +53,7 @@ PeriodicMagneticField::getField(const Vector3QLength &position) const {
     return field->getField(p);
 }
 
-void MagneticFieldList::addField(std::shared_ptr<MagneticField> field) {
+void MagneticFieldList::addField(const std::shared_ptr<MagneticField>& field) {
     fields.push_back(field);
 }
 

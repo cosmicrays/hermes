@@ -146,7 +146,7 @@ void FITSFile::writeKeyValue(FITSKeyValue &kv, const char comment[]) {
 	throw std::runtime_error("Cannot write key-value pair.");
 }
 
-FITSKeyValue FITSFile::readKeyValue(std::string key_, FITS::DataType type_) {
+FITSKeyValue FITSFile::readKeyValue(const std::string& key_, FITS::DataType type_) {
     FITSKeyValue kv = FITSKeyValue(key_);
     kv.setType(type_);
 

@@ -9,6 +9,7 @@
 #include <cmath>
 #include <iomanip>
 #include <iostream>
+#include <utility>
 
 namespace hermes {
 namespace neutralgas {
@@ -77,7 +78,7 @@ QRingCOIntensity RingData::getCOIntensityInRing(int ring,
 
 Ring::Ring(std::size_t index_, std::shared_ptr<RingData> dataPtr_,
 	   QLength innerR_, QLength outerR_)
-    : index(index_), dataPtr(dataPtr_), innerR(innerR_), outerR(outerR_) {}
+    : index(index_), dataPtr(std::move(dataPtr_)), innerR(innerR_), outerR(outerR_) {}
 
 std::size_t Ring::getIndex() const { return index; }
 

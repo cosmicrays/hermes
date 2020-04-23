@@ -25,14 +25,14 @@ class RotationMeasureIntegrator
     std::shared_ptr<magneticfields::MagneticField> mfield;
     std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
 
-    QRMIntegral integralFunction(Vector3QLength pos) const;
+    QRMIntegral integralFunction(const Vector3QLength& pos) const;
 
   public:
     RotationMeasureIntegrator(
-	const std::shared_ptr<magneticfields::MagneticField> mfield,
-	const std::shared_ptr<chargedgas::ChargedGasDensity> gdensity);
+	const std::shared_ptr<magneticfields::MagneticField>& mfield,
+	const std::shared_ptr<chargedgas::ChargedGasDensity>& gdensity);
     ~RotationMeasureIntegrator();
-    QRotationMeasure integrateOverLOS(QDirection iterdir) const;
+    QRotationMeasure integrateOverLOS(const QDirection &iterdir) const override;
 };
 
 /** @}*/

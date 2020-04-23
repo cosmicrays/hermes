@@ -29,9 +29,9 @@ class GammaSkymapRange {
     ~GammaSkymapRange();
 
     void
-    setIntegrator(std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>>
+    setIntegrator(const std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>>&
 		      integrator_);
-    void setMask(std::shared_ptr<SkymapMask> mask_);
+    void setMask(const std::shared_ptr<SkymapMask>& mask_);
 
     std::size_t size() const;
     GammaSkymap operator[](std::size_t ipix) const;
@@ -39,7 +39,7 @@ class GammaSkymapRange {
     void compute();
 
     /** output **/
-    void save(std::shared_ptr<outputs::Output> output) const;
+    void save(const std::shared_ptr<outputs::Output>& output) const;
 
     /** iterator goodies */
     typedef typename tSkymapsContainer::iterator iterator;

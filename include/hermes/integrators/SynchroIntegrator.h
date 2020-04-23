@@ -23,26 +23,26 @@ class SynchroIntegrator : public RadioIntegratorTemplate {
 	std::sqrt(3) * pow<3>(e_plus) /
 	(8 * pi * pi * epsilon0 * c_light * m_electron);
 
-    QEmissivity integrateOverSumEnergy(Vector3QLength pos,
-				       QFrequency freq) const;
-    QEmissivity integrateOverLogEnergy(Vector3QLength pos,
-				       QFrequency freq) const;
+    QEmissivity integrateOverSumEnergy(const Vector3QLength& pos,
+				       const QFrequency &freq) const;
+    QEmissivity integrateOverLogEnergy(const Vector3QLength& pos,
+				       const QFrequency &freq) const;
 
   public:
     SynchroIntegrator(
-	const std::shared_ptr<magneticfields::MagneticField> mfield,
-	const std::shared_ptr<cosmicrays::CosmicRayDensity> crdensity);
+	const std::shared_ptr<magneticfields::MagneticField>& mfield,
+	const std::shared_ptr<cosmicrays::CosmicRayDensity>& crdensity);
     ~SynchroIntegrator();
 
     void setFrequency(const QFrequency &freq);
     QFrequency getFrequency() const;
 
-    QTemperature integrateOverLOS(QDirection iterdir) const;
-    QTemperature integrateOverLOS(QDirection iterdir, QFrequency freq) const;
+    QTemperature integrateOverLOS(const QDirection &iterdir) const;
+    QTemperature integrateOverLOS(const QDirection &iterdir, const QFrequency &freq) const;
 
-    QEnergy singleElectronEmission(QFrequency freq, QEnergy E,
-				   QMField B_perp) const;
-    QEmissivity integrateOverEnergy(Vector3QLength pos, QFrequency freq) const;
+    QEnergy singleElectronEmission(const QFrequency &freq, const QEnergy &E,
+				   const QMField &B_perp) const;
+    QEmissivity integrateOverEnergy(const Vector3QLength& pos, const QFrequency &freq) const;
 };
 
 /** @}*/
