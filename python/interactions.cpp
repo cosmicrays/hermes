@@ -2,7 +2,8 @@
 #include <pybind11/stl.h>
 
 #include "hermes/interactions/BremsstrahlungSimple.h"
-#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/BreitWheeler.h"
+#include "hermes/interactions/DiffCrossSection.h"
 #include "hermes/interactions/DummyCrossSection.h"
 #include "hermes/interactions/Kamae06Gamma.h"
 #include "hermes/interactions/Kamae06Neutrino.h"
@@ -27,55 +28,67 @@ void init(py::module &m) {
 	.def(py::init<bool>(), py::arg("cachingEnabled"))
 	.def("enableCaching", &DifferentialCrossSection::enableCaching)
 	.def("disableCaching", &DifferentialCrossSection::disableCaching);
-    py::class_<DummyCrossSection, std::shared_ptr<DummyCrossSection>,
+    
+	py::class_<DummyCrossSection, std::shared_ptr<DummyCrossSection>,
 	       DifferentialCrossSection>(subm, "DummyCrossSection")
-	.def(py::init<const QDifferentialCrossSection &>(),
-	     py::arg("constant"));
-    py::class_<KleinNishina, std::shared_ptr<KleinNishina>,
+	.def(py::init<const QDiffCrossSection &>(), py::arg("constant"));
+    
+	py::class_<KleinNishina, std::shared_ptr<KleinNishina>,
 	       DifferentialCrossSection>(subm, "KleinNishina")
 	.def(py::init<>())
 	.def("getDiffCrossSection",
-	     static_cast<QDifferentialCrossSection (KleinNishina::*)(
+	     static_cast<QDiffCrossSection (KleinNishina::*)(
 		 const QEnergy &, const QEnergy &, const QEnergy &) const>(
 		 &KleinNishina::getDiffCrossSection));
-    py::class_<Kamae06Gamma, std::shared_ptr<Kamae06Gamma>,
+    
+	py::class_<Kamae06Gamma, std::shared_ptr<Kamae06Gamma>,
 	       DifferentialCrossSection>(subm, "Kamae06Gamma")
 	.def(py::init<>())
 	.def("getDiffCrossSection",
-	     static_cast<QDifferentialCrossSection (Kamae06Gamma::*)(
+	     static_cast<QDiffCrossSection (Kamae06Gamma::*)(
 		 const QEnergy &, const QEnergy &) const>(
 		 &Kamae06Gamma::getDiffCrossSection));
-    py::class_<Kamae06Neutrino, std::shared_ptr<Kamae06Neutrino>,
+    
+	py::class_<Kamae06Neutrino, std::shared_ptr<Kamae06Neutrino>,
 	       DifferentialCrossSection>(subm, "Kamae06Neutrino")
 	.def(py::init<>())
 	.def("getDiffCrossSection",
-	     static_cast<QDifferentialCrossSection (Kamae06Neutrino::*)(
+	     static_cast<QDiffCrossSection (Kamae06Neutrino::*)(
 		 const QEnergy &, const QEnergy &) const>(
 		 &Kamae06Neutrino::getDiffCrossSection));
-    py::class_<KelnerAharonianGamma, std::shared_ptr<KelnerAharonianGamma>,
+    
+	py::class_<KelnerAharonianGamma, std::shared_ptr<KelnerAharonianGamma>,
 	       DifferentialCrossSection>(subm, "KelnerAharonianGamma")
 	.def(py::init<>())
 	.def_static("sigmaInelastic", &KelnerAharonianGamma::sigmaInelastic)
 	.def("getDiffCrossSection",
-	     static_cast<QDifferentialCrossSection (KelnerAharonianGamma::*)(
+	     static_cast<QDiffCrossSection (KelnerAharonianGamma::*)(
 		 const QEnergy &, const QEnergy &) const>(
 		 &KelnerAharonianGamma::getDiffCrossSection));
-    py::class_<KelnerAharonianNeutrino,
+    
+	py::class_<KelnerAharonianNeutrino,
 	       std::shared_ptr<KelnerAharonianNeutrino>,
 	       DifferentialCrossSection>(subm, "KelnerAharonianNeutrino")
 	.def(py::init<>())
 	.def_static("sigmaInelastic", &KelnerAharonianGamma::sigmaInelastic)
 	.def("getDiffCrossSection",
-	     static_cast<QDifferentialCrossSection (KelnerAharonianNeutrino::*)(
+	     static_cast<QDiffCrossSection (KelnerAharonianNeutrino::*)(
 		 const QEnergy &, const QEnergy &) const>(
 		 &KelnerAharonianNeutrino::getDiffCrossSection));
-    py::class_<BremsstrahlungSimple, std::shared_ptr<BremsstrahlungSimple>,
+    
+	py::class_<BremsstrahlungSimple, std::shared_ptr<BremsstrahlungSimple>,
 	       DifferentialCrossSection>(subm, "BremsstrahlungSimple")
 	.def(py::init<>())
 	.def("getDiffCrossSection",
-	     static_cast<QDifferentialCrossSection (BremsstrahlungSimple::*)(
+	     static_cast<QDiffCrossSection (BremsstrahlungSimple::*)(
 		 const QEnergy &, const QEnergy &) const>(
 		 &BremsstrahlungSimple::getDiffCrossSection));
+    
+	py::class_<BreitWheeler, std::shared_ptr<BreitWheeler>>(
+		subm, "BreitWheeler")
+	.def(py::init<>())
+	.def("getCrossSection", &BreitWheeler::getCrossSection)
+	.def("integrateOverTheta", &BreitWheeler::integrateOverTheta);
 }
 
 } // namespace interactions

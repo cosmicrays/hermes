@@ -386,6 +386,7 @@ squared(const Quantity<l, t, m, I, T, N, J, A, SA> &num) {
 
 // Predefined (physical unit) quantity types:
 // ------------------------------------------
+// clang-format off
 
 // Replacement of "double" type
 QUANTITY_TYPE(0, 0, 0, 0, 0, 0, 0, 0, 0, QNumber);
@@ -406,44 +407,46 @@ QUANTITY_TYPE(0, 0, 0, 0, 0, 0, 0, 0, 1, QSolidAngle);
 // Derived units types:
 // ------------------------------------
 //             l  t  m  I  T  N  J  A  SA
-QUANTITY_TYPE(0, 1, 0, 1, 0, 0, 0, 0, 0, QECharge);
-QUANTITY_TYPE(0, 2, -1, 0, 0, 0, 0, 0, 0, QDifferentialCrossSection);
-QUANTITY_TYPE(0, -1, 0, 0, 0, 0, 0, 0, 0, QFrequency);
-QUANTITY_TYPE(0, -2, 1, 0, 0, 0, 0, 0, 0, QIntensity);
-QUANTITY_TYPE(0, -2, 1, -1, 0, 0, 0, 0, 0, QMField);
-QUANTITY_TYPE(1, -1, 0, 0, 0, 0, 0, 0, 0, QSpeed);
-QUANTITY_TYPE(1, -1, 1, 0, 0, 0, 0, 0, 0, QMomentum);
-QUANTITY_TYPE(1, -2, 0, 0, 0, 0, 0, 0, 0, QAcceleration);
-QUANTITY_TYPE(1, -2, 1, 0, 0, 0, 0, 0, 0, QForce);
-QUANTITY_TYPE(1, -2, 1, 0, 0, 0, 0, 0, 0, QStoppingPower);
-QUANTITY_TYPE(1, -3, 1, 0, 0, 0, 0, 0, 0, QSpectralRadiance);
-QUANTITY_TYPE(2, 0, 0, 0, 0, 0, 0, 0, 0, QArea);
-QUANTITY_TYPE(2, -1, 1, 0, 0, 0, 0, 0, 0, QAngularMomentum);
-QUANTITY_TYPE(2, -2, 1, 0, 0, 0, 0, 0, 0, QEnergy);
-QUANTITY_TYPE(2, -2, 1, 0, 0, 0, 0, 0, 0, QTorque);
-QUANTITY_TYPE(2, -2, 1, -2, 0, 0, 0, 0, 0, QEResistance);
-QUANTITY_TYPE(2, -3, 1, 0, 0, 0, 0, 0, 0, QPower);
-QUANTITY_TYPE(2, -3, 1, -1, 0, 0, 0, 0, 0, QEPotential);
-QUANTITY_TYPE(3, 0, 0, 0, 0, 0, 0, 0, 0, QVolume);
+QUANTITY_TYPE( 0, 1, 0, 1, 0, 0, 0, 0, 0, QECharge);
+QUANTITY_TYPE( 0, 2,-1, 0, 0, 0, 0, 0, 0, QDiffCrossSection);
+QUANTITY_TYPE( 0,-1, 0, 0, 0, 0, 0, 0, 0, QFrequency);
+QUANTITY_TYPE( 0,-2, 1, 0, 0, 0, 0, 0, 0, QIntensity);
+QUANTITY_TYPE( 0,-2, 1,-1, 0, 0, 0, 0, 0, QMField);
+QUANTITY_TYPE( 1,-1, 0, 0, 0, 0, 0, 0, 0, QSpeed);
+QUANTITY_TYPE( 1,-1, 1, 0, 0, 0, 0, 0, 0, QMomentum);
+QUANTITY_TYPE( 1,-2, 0, 0, 0, 0, 0, 0, 0, QAcceleration);
+QUANTITY_TYPE( 1,-2, 1, 0, 0, 0, 0, 0, 0, QForce);
+QUANTITY_TYPE( 1,-2, 1, 0, 0, 0, 0, 0, 0, QStoppingPower);
+QUANTITY_TYPE( 1,-3, 1, 0, 0, 0, 0, 0, 0, QSpectralRadiance);
+QUANTITY_TYPE( 2, 0, 0, 0, 0, 0, 0, 0, 0, QArea);
+QUANTITY_TYPE( 2,-1, 1, 0, 0, 0, 0, 0, 0, QAngularMomentum);
+QUANTITY_TYPE( 2,-2, 1, 0, 0, 0, 0, 0, 0, QEnergy);
+QUANTITY_TYPE( 2,-2, 1, 0, 0, 0, 0, 0, 0, QTorque);
+QUANTITY_TYPE( 2,-2, 1,-2, 0, 0, 0, 0, 0, QEResistance);
+QUANTITY_TYPE( 2,-3, 1, 0, 0, 0, 0, 0, 0, QPower);
+QUANTITY_TYPE( 2,-3, 1,-1, 0, 0, 0, 0, 0, QEPotential);
+QUANTITY_TYPE( 3, 0, 0, 0, 0, 0, 0, 0, 0, QVolume);
 QUANTITY_TYPE(-1, 0, 0, 0, 0, 0, 0, 0, 0, QInverseLength);
-QUANTITY_TYPE(-1, -1, 1, 0, 0, 0, 0, 0, 0, QSpectralEnergyDensity);
-QUANTITY_TYPE(-1, -2, 1, 0, 0, 0, 0, 0, 0, QEmissivity);
-QUANTITY_TYPE(-1, -2, 1, 0, 0, 0, 0, 0, 0, QEnergyDensity);
-QUANTITY_TYPE(-1, -2, 1, 0, 0, 0, 0, 0, 0, QPressure);
+QUANTITY_TYPE(-1,-1, 1, 0, 0, 0, 0, 0, 0, QSpectralEnergyDensity);
+QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, 0, QEmissivity);
+QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, 0, QEnergyDensity);
+QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, 0, QPressure);
 QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 0, 0, QColumnDensity);
 QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 0, 0, QDispersionMeasure);
 QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 1, 0, QRotationMeasure);
-QUANTITY_TYPE(-2, 4, -1, 2, 0, 0, 0, 0, 0, QECapacitance);
+QUANTITY_TYPE(-2, 4,-1, 2, 0, 0, 0, 0, 0, QECapacitance);
 QUANTITY_TYPE(-3, 0, 0, 0, 0, 0, 0, 0, 0, QPDensity);
-QUANTITY_TYPE(-4, 1, -1, 0, 0, 0, 0, 0, 0, QDifferentialFlux);
-QUANTITY_TYPE(-4, 1, -1, 0, 0, 0, 0, 0, -1, QDifferentialIntensity);
-QUANTITY_TYPE(-5, 2, -1, 0, 0, 0, 0, 0, 0, QPDensityPerEnergy);
+QUANTITY_TYPE(-4, 1,-1, 0, 0, 0, 0, 0, 0, QDiffFlux);
+QUANTITY_TYPE(-4, 1,-1, 0, 0, 0, 0, 0,-1, QDiffIntensity);
+QUANTITY_TYPE(-5, 2,-1, 0, 0, 0, 0, 0, 0, QPDensityPerEnergy);
 
 // Unnamed quantities:
 // ------------------------------------
 //             l  t  m  I  T  N  J  A  SA
 QUANTITY_TYPE(2, -2, 1, 0, -1, 0, 0, 0, 0,
 	      QEnergyOverTemperature); // e.g., Boltzmann c.
+
+// clang-format on
 
 /** @}*/
 } // namespace units

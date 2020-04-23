@@ -27,8 +27,7 @@ void GammaSkymapRange::initEnergyRange() {
 }
 
 void GammaSkymapRange::setIntegrator(
-    std::shared_ptr<IntegratorTemplate<QDifferentialIntensity, QEnergy>>
-	integrator_) {
+    std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>> integrator_) {
     for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 	it->setIntegrator(integrator_);
     }

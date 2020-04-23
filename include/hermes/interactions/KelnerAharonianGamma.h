@@ -6,7 +6,7 @@ Model from Phys.Rev.D74:034018,2006; Erratum-ibid.D79:039901,2009
 	arXiv:astro-ph/0606058
 */
 
-#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/DiffCrossSection.h"
 
 #include <memory>
 
@@ -16,7 +16,7 @@ namespace interactions {
 class KelnerAharonianGamma : public DifferentialCrossSection {
   public:
     KelnerAharonianGamma();
-    QDifferentialCrossSection
+    QDiffCrossSection
     getDiffCrossSection(const QEnergy &E_proton,
 			const QEnergy &E_gamma) const override;
 

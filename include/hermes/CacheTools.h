@@ -231,10 +231,9 @@ class CacheStorageIC2 {
 };
 
 typedef CacheStorageWith3Args<int, int, QEnergy, QGREmissivity> CacheStorageIC;
-typedef CacheStorageWith2Args<QEnergy, QEnergy, QDifferentialCrossSection>
+typedef CacheStorageWith2Args<QEnergy, QEnergy, QDiffCrossSection>
     CacheStorageCrossSection;
-typedef CacheStorageWith3Args<QEnergy, QEnergy, QEnergy,
-			      QDifferentialCrossSection>
+typedef CacheStorageWith3Args<QEnergy, QEnergy, QEnergy, QDiffCrossSection>
     CacheStorageCrossSection3Args;
 
 } // namespace hermes

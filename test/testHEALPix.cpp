@@ -27,7 +27,7 @@ TEST(HEALPix, galacticCentre) {
     EXPECT_EQ(ang2pix_ring(nside, thetaphi), 11);
 }
 
-TEST(HEALPix, pix2ang_ring) {
+TEST(HEALPix, pix2ang) {
     QDirection thetaphi;
 
     thetaphi = pix2ang_ring(16, 1440);

@@ -2,7 +2,7 @@
 #define HERMES_BREMSSTRAHLUNGSIMPLE_H
 
 #include "hermes/CacheTools.h"
-#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/DiffCrossSection.h"
 
 #include <memory>
 
@@ -20,12 +20,11 @@ class BremsstrahlungSimple : public DifferentialCrossSection {
     void enableCaching();
     void disableCaching();
 
-    QDifferentialCrossSection
+    QDiffCrossSection
     getDiffCrossSection(const QEnergy &E_photon,
 			const QEnergy &E_gamma) const override;
-    QDifferentialCrossSection
-    getDiffCrossSectionDirectly(const QEnergy &E_photon,
-				const QEnergy &E_gamma) const;
+    QDiffCrossSection getDiffCrossSectionDirectly(const QEnergy &E_photon,
+						  const QEnergy &E_gamma) const;
 
     QNumber ElwertFactor(const QNumber &beta_i, const QNumber &beta_f,
 			 int Z) const;

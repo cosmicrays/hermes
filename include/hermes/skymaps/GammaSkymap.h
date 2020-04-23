@@ -15,7 +15,7 @@ namespace hermes {
  units of differential intensity (GeV^-1 m^-2 s^-1 sr^-1), specified by
  gamma-ray energy (J).
  */
-class GammaSkymap : public SkymapTemplate<QDifferentialIntensity, QEnergy> {
+class GammaSkymap : public SkymapTemplate<QDiffIntensity, QEnergy> {
   public:
     GammaSkymap(std::size_t nside_, QEnergy Egamma_)
 	: SkymapTemplate(nside_, Egamma_) {
@@ -26,10 +26,10 @@ class GammaSkymap : public SkymapTemplate<QDifferentialIntensity, QEnergy> {
     void setEnergy(QEnergy Egamma_) { setSkymapParameter(Egamma_); }
     QEnergy getEnergy() const { return skymapParameter; }
 
-    void computePixel(
-	std::size_t ipix,
-	std::shared_ptr<IntegratorTemplate<QDifferentialIntensity, QEnergy>>
-	    integrator_) {
+    void
+    computePixel(std::size_t ipix,
+		 std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>>
+		     integrator_) {
 	fluxContainer[ipix] = integrator_->integrateOverLOS(
 	    pix2ang_ring(getNside(), ipix), skymapParameter);
     }

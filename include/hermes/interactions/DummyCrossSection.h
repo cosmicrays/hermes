@@ -2,7 +2,7 @@
 #define HERMES_DUMMYCROSSSECTION_H
 
 #include "hermes/CacheTools.h"
-#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/DiffCrossSection.h"
 
 #include <memory>
 
@@ -11,21 +11,21 @@ namespace interactions {
 
 class DummyCrossSection : public DifferentialCrossSection {
   private:
-    QDifferentialCrossSection cs;
+    QDiffCrossSection cs;
 
   public:
-    DummyCrossSection(const QDifferentialCrossSection &cs_)
+    DummyCrossSection(const QDiffCrossSection &cs_)
 	: DifferentialCrossSection(), cs(cs_){};
 
-    QDifferentialCrossSection
-    getDiffCrossSection(const QEnergy &E_photon, const QEnergy &E_gamma) const {
-	return QDifferentialCrossSection(cs);
+    QDiffCrossSection getDiffCrossSection(const QEnergy &E_photon,
+					  const QEnergy &E_gamma) const {
+	return QDiffCrossSection(cs);
     }
 
-    QDifferentialCrossSection
-    getDiffCrossSection(const QEnergy &E_electron, const QEnergy &E_photon,
-			const QEnergy &E_gamma) const {
-	return QDifferentialCrossSection(cs);
+    QDiffCrossSection getDiffCrossSection(const QEnergy &E_electron,
+					  const QEnergy &E_photon,
+					  const QEnergy &E_gamma) const {
+	return QDiffCrossSection(cs);
     };
 };
 

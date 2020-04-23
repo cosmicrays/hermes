@@ -107,8 +107,8 @@ void init_skymaps(py::module &m) {
     gammaskymap.def(py::init<const std::size_t, const QEnergy &>(),
 		    py::arg("nside"), py::arg("Egamma")); // constructor
     gammaskymap.def("getEnergy", &GammaSkymap::getEnergy);
-    declare_default_skymap_methods<GammaSkymap, QDifferentialIntensity,
-				   QEnergy>(gammaskymap);
+    declare_default_skymap_methods<GammaSkymap, QDiffIntensity, QEnergy>(
+	gammaskymap);
 
     // GammaSkymapRange
     py::class_<GammaSkymapRange, std::shared_ptr<GammaSkymapRange>>(
@@ -116,11 +116,12 @@ void init_skymaps(py::module &m) {
 	.def(py::init<std::size_t, const QEnergy &, const QEnergy &, int>(),
 	     py::arg("nside"), py::arg("Emin"), py::arg("Emax"),
 	     py::arg("E_steps"))
-	.def("setIntegrator",
-	     [](GammaSkymapRange &s,
-		std::shared_ptr<
-		    IntegratorTemplate<QDifferentialIntensity, QEnergy>>
-		    i) { s.setIntegrator(i); })
+	.def(
+	    "setIntegrator",
+	    [](GammaSkymapRange &s,
+	       std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>> i) {
+		s.setIntegrator(i);
+	    })
 	.def("setMask", &GammaSkymapRange::setMask)
 	.def("compute", &GammaSkymapRange::compute)
 	.def("save", &GammaSkymapRange::save)

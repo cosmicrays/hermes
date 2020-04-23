@@ -6,7 +6,7 @@ namespace interactions {
 
 KleinNishina::KleinNishina() {}
 
-QDifferentialCrossSection
+QDiffCrossSection
 KleinNishina::getDiffCrossSection(const QEnergy &E_electron,
 				  const QEnergy &E_photon,
 				  const QEnergy &E_gamma) const {
@@ -20,7 +20,7 @@ KleinNishina::getDiffCrossSection(const QEnergy &E_electron,
 		(1_num - E_gamma / E_electron);
 
     if (q < 1.0 / (4 * gamma_el_2) || q > 1_num)
-	return QDifferentialCrossSection(0);
+	return QDiffCrossSection(0);
 
     // gamma_el >> 1 is requred for the approximation to work,
     // i.e., a relativistic electron, see (eq. 2.48) in Blumenthal et. al.,

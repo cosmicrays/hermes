@@ -45,8 +45,7 @@ TEST(InverseComptonIntegrator, integrateOverPhotonEnergy) {
     QEnergy Eelectron = 0.2_TeV;
 
     QTemperature T_CMB = 2.725_K;
-    QDifferentialCrossSection sigma(
-	1e-17); // in m^2/J (a bit overestimate from K-N)
+    QDiffCrossSection sigma(1e-17); // in m^2/J (a bit overestimate from K-N)
     auto analytical_res = sigma * 410 * 1e6; // from the previous test
     auto res =
 	intIC->integrateOverPhotonEnergy(Vector3QLength(0), Egamma, Eelectron);
@@ -100,11 +99,11 @@ TEST(InverseComptonIntegrator, compareLOSIntegrations) {
 	    getGalacticPosition(intIC->getSunPosition(), dist, dir), Egamma);
     };
 
-    auto result_QAG = gslQAGIntegration<QDifferentialFlux, QGREmissivity>(
+    auto result_QAG = gslQAGIntegration<QDiffFlux, QGREmissivity>(
 	[maxDist, dir, integrand](QLength dist) { return integrand(dist); }, 0,
 	maxDist, 300);
 
-    auto result_SI = simpsonIntegration<QDifferentialFlux, QGREmissivity>(
+    auto result_SI = simpsonIntegration<QDiffFlux, QGREmissivity>(
 	[maxDist, dir, integrand](QLength dist) { return integrand(dist); }, 0,
 	maxDist, 300);
 
@@ -136,11 +135,11 @@ dist, dir), Egamma
 	workspace_ptr = static_cast<std::shared_ptr<gsl_integration_workspace>>(
 			gsl_integration_workspace_alloc(1000));
 
-	auto result_QAG = gslQAGIntegration<QDifferentialFlux, QGREmissivity>(
+	auto result_QAG = gslQAGIntegration<QDiffFlux, QGREmissivity>(
 			[maxDist, dir, integrand](QLength dist) {return
 integrand(dist);}, 0, maxDist, 300, workspace_ptr);
 
-	auto result_SI  = simpsonIntegration<QDifferentialFlux, QGREmissivity>(
+	auto result_SI  = simpsonIntegration<QDiffFlux, QGREmissivity>(
 			[maxDist, dir, integrand](QLength dist) {return
 integrand(dist);}, 0, maxDist, 300);
 

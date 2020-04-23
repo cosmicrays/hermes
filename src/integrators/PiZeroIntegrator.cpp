@@ -97,16 +97,14 @@ QPiZeroIntegral PiZeroIntegrator::getIOEfromCache(Vector3QLength pos_,
     return cacheTable->interpolate(static_cast<Vector3d>(pos_));
 }
 
-QDifferentialIntensity
-PiZeroIntegrator::integrateOverLOS(QDirection direction) const {
+QDiffIntensity PiZeroIntegrator::integrateOverLOS(QDirection direction) const {
     return integrateOverLOS(direction, 1_GeV);
 }
 
-QDifferentialIntensity
-PiZeroIntegrator::integrateOverLOS(QDirection direction_,
-				   QEnergy Egamma_) const {
+QDiffIntensity PiZeroIntegrator::integrateOverLOS(QDirection direction_,
+						  QEnergy Egamma_) const {
 
-    QDifferentialIntensity total_diff_flux(0.0);
+    QDiffIntensity total_diff_flux(0.0);
 
     // Sum over rings
     for (const auto &ring : *ngdensity) {
@@ -144,8 +142,8 @@ PiZeroIntegrator::integrateOverLOS(QDirection direction_,
 		getGalacticPosition(this->positionSun, dist, direction_),
 		Egamma_);
 	};
-	QDifferentialIntensity losIntegrals =
-	    simpsonIntegration<QDifferentialFlux, QGREmissivity>(
+	QDiffIntensity losIntegrals =
+	    simpsonIntegration<QDiffFlux, QGREmissivity>(
 		losIntegrand, 0, getMaxDistance(direction_), 500) /
 	    (4_pi * 1_sr);
 
@@ -181,13 +179,12 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_,
 
     // TODO(adundovi): micro-optimization - E_min = E_gamma +
     // m_pi^2c^4/(4E_gamma)
-    std::vector<QDifferentialCrossSection> diffCrossSectionVector;
-    std::transform(
-	crList[0]->beginAfterEnergy(Egamma_), crList[0]->end(),
-	std::back_inserter(diffCrossSectionVector),
-	[this, Egamma_](const QEnergy &E) -> QDifferentialCrossSection {
-	    return crossSec->getDiffCrossSection(E, Egamma_);
-	});
+    std::vector<QDiffCrossSection> diffCrossSectionVector;
+    std::transform(crList[0]->beginAfterEnergy(Egamma_), crList[0]->end(),
+		   std::back_inserter(diffCrossSectionVector),
+		   [this, Egamma_](const QEnergy &E) -> QDiffCrossSection {
+		       return crossSec->getDiffCrossSection(E, Egamma_);
+		   });
 
     for (const auto &crDensity : crList) {
 	auto pid_projectile = crDensity->getPID();
@@ -200,12 +197,12 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(Vector3QLength pos_,
 		       });
 
 	std::vector<QPiZeroIntegral> integral;
-	std::transform(
-	    cosmicRayVector.begin(), cosmicRayVector.end(),
-	    diffCrossSectionVector.begin(), std::back_inserter(integral),
-	    [](const QPDensity &a, const QDifferentialCrossSection &b) {
-		return a * b * c_light;
-	    });
+	std::transform(cosmicRayVector.begin(), cosmicRayVector.end(),
+		       diffCrossSectionVector.begin(),
+		       std::back_inserter(integral),
+		       [](const QPDensity &a, const QDiffCrossSection &b) {
+			   return a * b * c_light;
+		       });
 	// log-integration
 	auto integralOverEnergy =
 	    std::log(crDensity->getEnergyScaleFactor()) *

@@ -88,12 +88,12 @@ QGREmissivity InverseComptonIntegrator::getIOEfromCache(Vector3QLength pos_,
     return cacheTable->interpolate(static_cast<Vector3d>(pos_));
 }
 
-QDifferentialIntensity
+QDiffIntensity
 InverseComptonIntegrator::integrateOverLOS(QDirection direction) const {
     return integrateOverLOS(direction, 1_GeV);
 }
 
-QDifferentialIntensity
+QDiffIntensity
 InverseComptonIntegrator::integrateOverLOS(QDirection direction_,
 					   QEnergy Egamma_) const {
 
@@ -102,7 +102,7 @@ InverseComptonIntegrator::integrateOverLOS(QDirection direction_,
 	    getGalacticPosition(getSunPosition(), dist, direction_), Egamma_);
     };
 
-    return gslQAGIntegration<QDifferentialFlux, QGREmissivity>(
+    return gslQAGIntegration<QDiffFlux, QGREmissivity>(
 	       [integrand](QLength dist) { return integrand(dist); }, 0,
 	       getMaxDistance(direction_), 500) /
 	   (4_pi * 1_sr);

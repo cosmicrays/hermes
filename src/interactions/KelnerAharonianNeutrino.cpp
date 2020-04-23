@@ -8,12 +8,12 @@ namespace interactions {
 KelnerAharonianNeutrino::KelnerAharonianNeutrino()
     : DifferentialCrossSection() {}
 
-QDifferentialCrossSection
+QDiffCrossSection
 KelnerAharonianNeutrino::getDiffCrossSection(const QEnergy &E_proton,
 					     const QEnergy &E_nu) const {
 
     if (E_nu > E_proton)
-	return QDifferentialCrossSection(0);
+	return QDiffCrossSection(0);
 
     const double L =
 	std::log(static_cast<double>(E_proton / 1_TeV)); // defined in pag. 9

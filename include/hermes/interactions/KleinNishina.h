@@ -1,7 +1,7 @@
 #ifndef HERMES_KLEINNISHINA_H
 #define HERMES_KLEINNISHINA_H
 
-#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/DiffCrossSection.h"
 
 #include <memory>
 
@@ -12,7 +12,7 @@ class KleinNishina : public DifferentialCrossSection {
   public:
     KleinNishina();
 
-    QDifferentialCrossSection
+    QDiffCrossSection
     getDiffCrossSection(const QEnergy &E_electron, const QEnergy &E_photon,
 			const QEnergy &E_gamma) const override;
 };

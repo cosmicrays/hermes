@@ -1,7 +1,6 @@
 #include "hermes/HEALPixBits.h"
-#include <cmath>
 
-#include <iostream>
+#include <cmath>
 
 namespace hermes {
 

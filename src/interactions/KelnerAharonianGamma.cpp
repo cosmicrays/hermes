@@ -22,12 +22,12 @@ QArea KelnerAharonianGamma::sigmaInelastic(const QEnergy &Tp) {
 	   mbarn;
 }
 
-QDifferentialCrossSection
+QDiffCrossSection
 KelnerAharonianGamma::getDiffCrossSection(const QEnergy &E_proton,
 					  const QEnergy &E_gamma) const {
 
     if (E_gamma > E_proton)
-	return QDifferentialCrossSection(0);
+	return QDiffCrossSection(0);
 
     const double L =
 	std::log(static_cast<double>(E_proton / 1_TeV)); // defined in pag. 9

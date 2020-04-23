@@ -5,7 +5,7 @@
 #include "hermes/Units.h"
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/integrators/IntegratorTemplate.h"
-#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/DiffCrossSection.h"
 #include "hermes/neutralgas/NeutralGasDensity.h"
 #include "hermes/neutralgas/RingModel.h"
 
@@ -49,9 +49,8 @@ class PiZeroAbsorptionIntegrator : public GammaIntegratorTemplate {
     QPDensity densityProfile(const Vector3QLength &) const;
     QRingX0Unit X0Function(const Vector3QLength &) const;
 
-    QDifferentialIntensity integrateOverLOS(QDirection iterdir) const;
-    QDifferentialIntensity integrateOverLOS(QDirection iterdir,
-					    QEnergy Egamma) const;
+    QDiffIntensity integrateOverLOS(QDirection iterdir) const;
+    QDiffIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
 
     QPiZeroIntegral integrateOverEnergy(Vector3QLength pos,
 					QEnergy Egamma) const;

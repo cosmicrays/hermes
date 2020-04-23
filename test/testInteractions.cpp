@@ -19,7 +19,7 @@ TEST(Interactions, Kamae06Gamma) {
 
     QEnergy E_p = 512000_GeV;
     QEnergy E_gamma = 100_GeV;
-    QDifferentialCrossSection dsigma_dE =
+    QDiffCrossSection dsigma_dE =
 	interaction->getDiffCrossSectionDirectly(E_p, E_gamma);
 
     QArea r = dsigma_dE * E_gamma;

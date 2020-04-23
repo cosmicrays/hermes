@@ -133,12 +133,11 @@ void init_quantity(py::module &m) {
     declare_quantity<QAngularMomentum>(m, "QAngularMomentum", "kg m^2 s^-1",
 				       apyu);
     declare_quantity<QArea>(m, "QArea", "m^2", apyu);
-    declare_quantity<QDifferentialCrossSection>(m, "QDiffCrossSection",
-						"m^2 J^-1", apyu);
-    declare_quantity<QDifferentialFlux>(m, "QDifferentialFlux",
-					"J^-1 m^-2 s^-1", apyu);
-    declare_quantity<QDifferentialIntensity>(m, "QDifferentialIntensity",
-					     "J^-1 m^-2 s^-1 sr^-1", apyu);
+    declare_quantity<QDiffCrossSection>(m, "QDiffCrossSection", "m^2 J^-1",
+					apyu);
+    declare_quantity<QDiffFlux>(m, "QDiffFlux", "J^-1 m^-2 s^-1", apyu);
+    declare_quantity<QDiffIntensity>(m, "QDiffIntensity",
+				     "J^-1 m^-2 s^-1 sr^-1", apyu);
     declare_quantity<QDispersionMeasure>(m, "QDispersionMeasure", "m^-2", apyu);
     declare_quantity<QECapacitance>(m, "QECapacitance", "F", apyu);
     declare_quantity<QECharge>(m, "QECharge", "C", apyu);

@@ -15,15 +15,18 @@
 #include "hermes/Vector3.h"
 #include "hermes/Vector3Quantity.h"
 
-#include "hermes/skymaps/DispersionMeasureSkymap.h"
-#include "hermes/skymaps/GammaSkymap.h"
-#include "hermes/skymaps/GammaSkymapRange.h"
-#include "hermes/skymaps/RadioSkymap.h"
-#include "hermes/skymaps/RadioSkymapRange.h"
-#include "hermes/skymaps/RotationMeasureSkymap.h"
-#include "hermes/skymaps/Skymap.h"
-#include "hermes/skymaps/SkymapMask.h"
-#include "hermes/skymaps/SkymapTemplate.h"
+#include "hermes/chargedgas/ChargedGasDensity.h"
+#include "hermes/chargedgas/HII_Cordes91.h"
+#include "hermes/chargedgas/NE2001Simple.h"
+#include "hermes/chargedgas/YMW16.h"
+
+#include "hermes/cosmicrays/CosmicRayDensity.h"
+#include "hermes/cosmicrays/Dragon2D.h"
+#include "hermes/cosmicrays/Dragon3D.h"
+#include "hermes/cosmicrays/DummyCRDensity.h"
+#include "hermes/cosmicrays/SimpleCRDensity.h"
+#include "hermes/cosmicrays/Sun08CRDensity.h"
+#include "hermes/cosmicrays/WMAP07CRDensity.h"
 
 #include "hermes/integrators/DispersionMeasureIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
@@ -36,35 +39,9 @@
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 
-#include "hermes/magneticfields/JF12Field.h"
-#include "hermes/magneticfields/MagneticField.h"
-#include "hermes/magneticfields/MagneticFieldGrid.h"
-#include "hermes/magneticfields/PT11Field.h"
-#include "hermes/magneticfields/Sun08Field.h"
-#include "hermes/magneticfields/WMAP07Field.h"
-
-#include "hermes/chargedgas/ChargedGasDensity.h"
-#include "hermes/chargedgas/HII_Cordes91.h"
-#include "hermes/chargedgas/NE2001Simple.h"
-#include "hermes/chargedgas/YMW16.h"
-
-#include "hermes/neutralgas/NeutralGasDensity.h"
-#include "hermes/neutralgas/RingModel.h"
-
-#include "hermes/cosmicrays/CosmicRayDensity.h"
-#include "hermes/cosmicrays/Dragon2D.h"
-#include "hermes/cosmicrays/Dragon3D.h"
-#include "hermes/cosmicrays/DummyCRDensity.h"
-#include "hermes/cosmicrays/SimpleCRDensity.h"
-#include "hermes/cosmicrays/Sun08CRDensity.h"
-#include "hermes/cosmicrays/WMAP07CRDensity.h"
-
-#include "hermes/photonfields/CMB.h"
-#include "hermes/photonfields/ISRF.h"
-#include "hermes/photonfields/PhotonField.h"
-
+#include "hermes/interactions/BreitWheeler.h"
 #include "hermes/interactions/BremsstrahlungSimple.h"
-#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/DiffCrossSection.h"
 #include "hermes/interactions/DummyCrossSection.h"
 #include "hermes/interactions/Kamae06Gamma.h"
 #include "hermes/interactions/Kamae06Neutrino.h"
@@ -72,7 +49,31 @@
 #include "hermes/interactions/KelnerAharonianNeutrino.h"
 #include "hermes/interactions/KleinNishina.h"
 
+#include "hermes/magneticfields/JF12Field.h"
+#include "hermes/magneticfields/MagneticField.h"
+#include "hermes/magneticfields/MagneticFieldGrid.h"
+#include "hermes/magneticfields/PT11Field.h"
+#include "hermes/magneticfields/Sun08Field.h"
+#include "hermes/magneticfields/WMAP07Field.h"
+
+#include "hermes/neutralgas/NeutralGasDensity.h"
+#include "hermes/neutralgas/RingModel.h"
+
 #include "hermes/outputs/HEALPix.h"
 #include "hermes/outputs/Output.h"
+
+#include "hermes/photonfields/CMB.h"
+#include "hermes/photonfields/ISRF.h"
+#include "hermes/photonfields/PhotonField.h"
+
+#include "hermes/skymaps/DispersionMeasureSkymap.h"
+#include "hermes/skymaps/GammaSkymap.h"
+#include "hermes/skymaps/GammaSkymapRange.h"
+#include "hermes/skymaps/RadioSkymap.h"
+#include "hermes/skymaps/RadioSkymapRange.h"
+#include "hermes/skymaps/RotationMeasureSkymap.h"
+#include "hermes/skymaps/Skymap.h"
+#include "hermes/skymaps/SkymapMask.h"
+#include "hermes/skymaps/SkymapTemplate.h"
 
 #endif // HERMES_H

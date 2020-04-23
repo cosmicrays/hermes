@@ -90,8 +90,7 @@ template <class QPXL, typename QSTEP> class IntegratorTemplate {
 };
 
 typedef IntegratorTemplate<QTemperature, QFrequency> RadioIntegratorTemplate;
-typedef IntegratorTemplate<QDifferentialIntensity, QEnergy>
-    GammaIntegratorTemplate;
+typedef IntegratorTemplate<QDiffIntensity, QEnergy> GammaIntegratorTemplate;
 
 /** @}*/
 } // namespace hermes

@@ -15,7 +15,7 @@ void Kamae06Gamma::setCachingStorage(
     cache->setFunction(f);
 };
 
-QDifferentialCrossSection
+QDiffCrossSection
 Kamae06Gamma::getDiffCrossSection(const QEnergy &E_proton,
 				  const QEnergy &E_gamma) const {
     if (cachingEnabled)
@@ -23,7 +23,7 @@ Kamae06Gamma::getDiffCrossSection(const QEnergy &E_proton,
     return getDiffCrossSectionDirectly(E_proton, E_gamma);
 }
 
-QDifferentialCrossSection
+QDiffCrossSection
 Kamae06Gamma::getDiffCrossSectionDirectly(const QEnergy &E_proton,
 					  const QEnergy &E_gamma) const {
 
@@ -39,8 +39,7 @@ Kamae06Gamma::getDiffCrossSectionDirectly(const QEnergy &E_proton,
     double dsigma_dlogTp = sigma_incl_tot(ID_GAMMA, E_gamma_GeV,
 					  std::min(T_proton_GeV, 1e5), &params);
 
-    return QDifferentialCrossSection(dsigma_dlogTp / E_gamma_GeV *
-				     (1_mbarn / 1_GeV));
+    return QDiffCrossSection(dsigma_dlogTp / E_gamma_GeV * (1_mbarn / 1_GeV));
 }
 
 } // namespace interactions

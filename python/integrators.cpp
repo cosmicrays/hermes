@@ -13,12 +13,12 @@
 
 // clang-format off
 #define PPCAT(A, B) A##B
-#define NEW_INTEGRATOR(_o, _n, _c, _qpxl, _qstep)                              		\
-	using PPCAT(_c, ParentClass) = IntegratorTemplate<_qpxl, _qstep>;      		\
-	py::class_<PPCAT(_c, ParentClass), std::shared_ptr<PPCAT(_c, ParentClass)>>(    \
-	    m, (std::string(_n) + std::string("Parent")).c_str())              		\
-	    .def(py::init<>());                                                		\
-	py::class_<_c, PPCAT(_c, ParentClass), std::shared_ptr<_c>> _o(m, _n, py::buffer_protocol()); // NOLINT(bugprone-macro-parentheses)
+#define NEW_INTEGRATOR(_o, _n, _c, _qpxl, _qstep)                              	 \
+    using PPCAT(_c, ParentClass) = IntegratorTemplate<_qpxl, _qstep>;      	 \
+    py::class_<PPCAT(_c, ParentClass), std::shared_ptr<PPCAT(_c, ParentClass)>>( \
+        m, (std::string(_n) + std::string("Parent")).c_str())              	 \
+        .def(py::init<>());                                                	 \
+    py::class_<_c, PPCAT(_c, ParentClass), std::shared_ptr<_c>> _o(m, _n, py::buffer_protocol()); // NOLINT(bugprone-macro-parentheses)
 // clang-format on
 
 namespace py = pybind11;
@@ -82,7 +82,7 @@ void init_integrators(py::module &m) {
 
     // InverseComptonIntegrator
     NEW_INTEGRATOR(icintegrator, "InverseComptonIntegrator",
-		   InverseComptonIntegrator, QDifferentialIntensity, QEnergy);
+		   InverseComptonIntegrator, QDiffIntensity, QEnergy);
     icintegrator.def(
 	py::init<
 	    const std::shared_ptr<cosmicrays::CosmicRayDensity>,

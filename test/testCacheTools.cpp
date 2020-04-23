@@ -27,7 +27,7 @@ TEST(CacheTools, Kamae06Gamma) {
 	interactions::Kamae06Gamma());
     f_kn->setCachingStorage(std::move(cache));
 
-    QDifferentialCrossSection integral(0);
+    QDiffCrossSection integral(0);
     QEnergy E_proton = 10_GeV;
     QEnergy E_gamma = 1_GeV;
 
@@ -61,7 +61,7 @@ TEST(CacheTools, BremsstrahlungSimple) {
 	interactions::BremsstrahlungSimple());
     //	f_kn->setCachingStorage(std::move(cache));
 
-    QDifferentialCrossSection integral(0);
+    QDiffCrossSection integral(0);
     QEnergy E_proton = 10_GeV;
     QEnergy E_gamma = 1_GeV;
 

@@ -28,9 +28,9 @@ class GammaSkymapRange {
 		     int enSteps_);
     ~GammaSkymapRange();
 
-    void setIntegrator(
-	std::shared_ptr<IntegratorTemplate<QDifferentialIntensity, QEnergy>>
-	    integrator_);
+    void
+    setIntegrator(std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>>
+		      integrator_);
     void setMask(std::shared_ptr<SkymapMask> mask_);
 
     std::size_t size() const;

@@ -6,7 +6,7 @@
 #include "hermes/Units.h"
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/integrators/IntegratorTemplate.h"
-#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/DiffCrossSection.h"
 #include "hermes/photonfields/PhotonField.h"
 
 #include <array>
@@ -46,9 +46,8 @@ class InverseComptonIntegrator : public GammaIntegratorTemplate {
     void setEnergy(const QEnergy &Egamma);
     QEnergy getEnergy() const;
 
-    QDifferentialIntensity integrateOverLOS(QDirection iterdir) const;
-    QDifferentialIntensity integrateOverLOS(QDirection iterdir,
-					    QEnergy Egamma) const;
+    QDiffIntensity integrateOverLOS(QDirection iterdir) const;
+    QDiffIntensity integrateOverLOS(QDirection iterdir, QEnergy Egamma) const;
     QGREmissivity integrateOverEnergy(Vector3QLength pos, QEnergy Egamma) const;
     QICInnerIntegral integrateOverPhotonEnergy(Vector3QLength pos,
 					       QEnergy Egamma,

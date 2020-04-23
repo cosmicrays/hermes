@@ -1,4 +1,4 @@
-#include "hermes/interactions/DifferentialCrossSection.h"
+#include "hermes/interactions/DiffCrossSection.h"
 
 namespace hermes {
 namespace interactions {
@@ -12,13 +12,13 @@ void DifferentialCrossSection::enableCaching() { cachingEnabled = true; };
 
 void DifferentialCrossSection::disableCaching() { cachingEnabled = false; };
 
-QDifferentialCrossSection
+QDiffCrossSection
 DifferentialCrossSection::getDiffCrossSection(const QEnergy &E_proton,
 					      const QEnergy &E_gamma) const {
     return 0;
 }
 
-QDifferentialCrossSection
+QDiffCrossSection
 DifferentialCrossSection::getDiffCrossSection(const QEnergy &E_electron,
 					      const QEnergy &E_photon,
 					      const QEnergy &E_gamma) const {

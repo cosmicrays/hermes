@@ -47,7 +47,7 @@ void BremsstrahlungSimple::enableCaching() { cachingEnabled = true; };
 
 void BremsstrahlungSimple::disableCaching() { cachingEnabled = false; };
 
-QDifferentialCrossSection
+QDiffCrossSection
 BremsstrahlungSimple::getDiffCrossSection(const QEnergy &E_proton,
 					  const QEnergy &E_gamma) const {
     if (cachingEnabled)
@@ -205,7 +205,7 @@ QArea BremsstrahlungSimple::dsdk_HighEnergy(const QNumber &gamma_i,
     return pow<2>(r_electron) * alpha_fine / k * factor;
 }
 
-QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSectionDirectly(
+QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionDirectly(
     const QEnergy &E_electron, const QEnergy &E_gamma) const {
     int Z = 1, N = 1;
 
@@ -217,10 +217,10 @@ QDifferentialCrossSection BremsstrahlungSimple::getDiffCrossSectionDirectly(
     QNumber T_electron_f = E_electron_f - 1_num;
 
     if (T_electron_i <= k)
-	return QDifferentialCrossSection(0);
+	return QDiffCrossSection(0);
 
     if (T_electron_i < 0.01_MeV / mc2_units)
-	return QDifferentialCrossSection(0);
+	return QDiffCrossSection(0);
 
     QNumber p_i = sqrt(T_electron_i * (T_electron_i + 2_num));
     QNumber p_f = sqrt(T_electron_f * (T_electron_f + 2_num));
