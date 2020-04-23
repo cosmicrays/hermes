@@ -16,34 +16,31 @@ Interaction in Astronomical Environment" to by submitted to Astrophysical
 Journal (2007).
 */
 
+#include <memory>
+
 #include "hermes/CacheTools.h"
 #include "hermes/interactions/DiffCrossSection.h"
-
-#include <memory>
 
 extern "C" {
 #include "cparamlib.h"
 }
 
-namespace hermes {
-namespace interactions {
+namespace hermes { namespace interactions {
 
 class Kamae06Gamma : public DifferentialCrossSection {
   private:
-    std::unique_ptr<CacheStorageCrossSection> cache;
+	std::unique_ptr<CacheStorageCrossSection> cache;
 
   public:
-    Kamae06Gamma();
-    void setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache);
+	Kamae06Gamma();
+	void setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache);
 
-    QDiffCrossSection
-    getDiffCrossSection(const QEnergy &E_proton,
-			const QEnergy &E_gamma) const override;
-    QDiffCrossSection getDiffCrossSectionDirectly(const QEnergy &E_proton,
-						  const QEnergy &E_gamma) const;
+	QDiffCrossSection getDiffCrossSection(
+	    const QEnergy &E_proton, const QEnergy &E_gamma) const override;
+	QDiffCrossSection getDiffCrossSectionDirectly(const QEnergy &E_proton,
+	                                              const QEnergy &E_gamma) const;
 };
 
-} // namespace interactions
-} // namespace hermes
+}}  // namespace hermes::interactions
 
-#endif // HERMES_KAMAE06GAMMA_H
+#endif  // HERMES_KAMAE06GAMMA_H

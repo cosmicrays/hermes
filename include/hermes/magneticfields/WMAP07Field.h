@@ -3,8 +3,7 @@
 
 #include "hermes/magneticfields/MagneticField.h"
 
-namespace hermes {
-namespace magneticfields {
+namespace hermes { namespace magneticfields {
 
 /**
  @class WMAP07Field
@@ -18,19 +17,18 @@ namespace magneticfields {
 
 class WMAP07Field : public MagneticField {
   private:
-    QMField B_0;
-    QLength r_0;
-    QLength z_0;
-    QAngle chi_0;
-    QAngle psi_1;
-    QAngle psi_0;
+	QMField B_0;
+	QLength r_0;
+	QLength z_0;
+	QAngle chi_0;
+	QAngle psi_1;
+	QAngle psi_0;
 
   public:
-    WMAP07Field();
-    Vector3QMField getField(const Vector3QLength &pos) const override;
+	WMAP07Field();
+	Vector3QMField getField(const Vector3QLength &pos) const override;
 };
 
-} // namespace magneticfields
-} // namespace hermes
+}}  // namespace hermes::magneticfields
 
-#endif // HERMES_WMAP07FIELD_H
+#endif  // HERMES_WMAP07FIELD_H

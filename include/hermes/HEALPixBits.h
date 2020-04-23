@@ -1,8 +1,9 @@
 #ifndef HERMES_HEALPIXBITS_H
 #define HERMES_HEALPIXBITS_H
 
-#include "hermes/Units.h"
 #include <cstddef>
+
+#include "hermes/Units.h"
 
 namespace hermes {
 
@@ -18,8 +19,8 @@ unsigned int nside2npix(unsigned int nside);
 QDirection pix2ang_ring(unsigned int nside, unsigned int ipix);
 unsigned int ang2pix_ring(unsigned int nside, const QDirection &thetaphi);
 unsigned int loc2pix(unsigned int nside, double z, double phi, double sth,
-		     bool have_sth);
+                     bool have_sth);
 
-} // namespace hermes
+}  // namespace hermes
 
-#endif // HERMES_HEALPIXBITS_H
+#endif  // HERMES_HEALPIXBITS_H

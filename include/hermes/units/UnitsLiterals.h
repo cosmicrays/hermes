@@ -7,28 +7,27 @@
 #include "UnitsSimple.h"
 #endif
 
-namespace hermes {
-namespace units {
+namespace hermes { namespace units {
 /**
  * \addtogroup Units
  * @{
  */
 
-#define BASELITERAL(_QUANTITY, _STRING)                                        \
-    constexpr _QUANTITY operator"" _STRING(long double x) {                    \
-	return _QUANTITY(x);                                                   \
-    }                                                                          \
-    constexpr _QUANTITY operator"" _STRING(unsigned long long int x) {         \
-	return _QUANTITY(static_cast<double>(x));                              \
-    }
+#define BASELITERAL(_QUANTITY, _STRING)                                \
+	constexpr _QUANTITY operator"" _STRING(long double x) {            \
+		return _QUANTITY(x);                                           \
+	}                                                                  \
+	constexpr _QUANTITY operator"" _STRING(unsigned long long int x) { \
+		return _QUANTITY(static_cast<double>(x));                      \
+	}
 
-#define LITERAL(_QUANTITY, _STRING, _UNIT)                                     \
-    constexpr _QUANTITY operator"" _STRING(long double x) {                    \
-	return x * _UNIT;                                                      \
-    }                                                                          \
-    constexpr _QUANTITY operator"" _STRING(unsigned long long int x) {         \
-	return static_cast<double>(x) * _UNIT;                                 \
-    }
+#define LITERAL(_QUANTITY, _STRING, _UNIT)                             \
+	constexpr _QUANTITY operator"" _STRING(long double x) {            \
+		return x * _UNIT;                                              \
+	}                                                                  \
+	constexpr _QUANTITY operator"" _STRING(unsigned long long int x) { \
+		return static_cast<double>(x) * _UNIT;                         \
+	}
 
 // Conversion macro, which utilizes the string literals
 #define ConvertTo(_x, _y) (_x).convertTo(1.0_##_y)
@@ -134,7 +133,6 @@ LITERAL(QPressure, _bar, bar)
 LITERAL(QPressure, _psi, psi)
 
 /** @}*/
-} // namespace units
-} // namespace hermes
+}}  // namespace hermes::units
 
-#endif // HERMES_UNITSLITERALS_H
+#endif  // HERMES_UNITSLITERALS_H

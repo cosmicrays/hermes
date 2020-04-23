@@ -1,13 +1,12 @@
 #ifndef HERMES_UNITSDERIVED_H
 #define HERMES_UNITSDERIVED_H
 
+#include <array>
+
 #include "UnitsBasic.h"
 #include "UnitsFunctions.h"
 
-#include <array>
-
-namespace hermes {
-namespace units {
+namespace hermes { namespace units {
 /**
  * \addtogroup Units
  * @{
@@ -32,12 +31,12 @@ constexpr QECapacitance farad(1.0);
  Partly inherited from CRPropa3.
  Based on:
  - CODATA recommended values of the fundamental physical constants: 2006
-	doi:10.1103/RevModPhys.80.633
+    doi:10.1103/RevModPhys.80.633
  - Review of Particle Physics.
-	M. Tanabashi et al. (Particle Data Group), Phys. Rev. D 98, 030001
+    M. Tanabashi et al. (Particle Data Group), Phys. Rev. D 98, 030001
  (2018) and 2019 update.
  - IAU 2012 Resolution B2, IAU 2015 Resolution B2
-	https://www.iau.org/administration/resolutions/
+    https://www.iau.org/administration/resolutions/
 */
 constexpr QECharge e_plus = 1.602176487e-19 * coulomb;
 constexpr QSpeed c_light = 2.99792458e8 * metre / second;
@@ -57,7 +56,7 @@ constexpr QLength r_electron =
     1.0 / (4 * pi * epsilon0) * (e_plus * e_plus) / (m_electron * c_squared);
 constexpr QArea sigma_Thompson = 8.0 * pi / 3.0 * (r_electron * r_electron);
 constexpr QNumber alpha_fine = mu0 / (4.0 * pi) * (e_plus * e_plus) * c_light /
-			       h_planck_bar; // Fine structure const.
+                               h_planck_bar;  // Fine structure const.
 constexpr auto Rydberg_const =
     m_electron * (e_plus * e_plus * e_plus * e_plus) /
     (8 * (epsilon0 * epsilon0) * (h_planck * h_planck * h_planck) * c_light);
@@ -130,7 +129,6 @@ constexpr QAngle degree = (pi / 180.0) * radian;
 typedef std::array<QAngle, 2> QDirection;
 
 /** @}*/
-} // namespace units
-} // namespace hermes
+}}  // namespace hermes::units
 
-#endif // HERMES_UNITSDERIVED_H
+#endif  // HERMES_UNITSDERIVED_H

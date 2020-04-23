@@ -12,6 +12,6 @@ namespace hermes {
 extern int g_cancel_signal_flag;
 void g_cancel_signal_callback(int sig);
 
-} // namespace hermes
+}  // namespace hermes
 
-#endif // HERMES_SIGNALS_H
+#endif  // HERMES_SIGNALS_H

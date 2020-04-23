@@ -15,39 +15,39 @@ namespace hermes {
  */
 class RadioSkymapRange {
   private:
-    typedef std::vector<RadioSkymap> tSkymapsContainer;
-    tSkymapsContainer skymaps;
-    std::vector<QFrequency> freqs;
-    QFrequency minFreq, maxFreq;
-    std::size_t nside;
-    int freqSteps;
-    void initFrequencyRange();
+	typedef std::vector<RadioSkymap> tSkymapsContainer;
+	tSkymapsContainer skymaps;
+	std::vector<QFrequency> freqs;
+	QFrequency minFreq, maxFreq;
+	std::size_t nside;
+	int freqSteps;
+	void initFrequencyRange();
 
   public:
-    RadioSkymapRange(std::size_t nside_, QFrequency minFreq_,
-		     QFrequency maxFreq_, int freqSteps_);
-    ~RadioSkymapRange();
+	RadioSkymapRange(std::size_t nside_, QFrequency minFreq_,
+	                 QFrequency maxFreq_, int freqSteps_);
+	~RadioSkymapRange();
 
-    void
-    setIntegrator(const std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>>&
-		      integrator);
-    void setMask(const std::shared_ptr<SkymapMask>& mask);
-    std::size_t size();
+	void setIntegrator(
+	    const std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>>&
+	        integrator);
+	void setMask(const std::shared_ptr<SkymapMask>& mask);
+	std::size_t size();
 
-    void compute();
+	void compute();
 
-    /** output **/
-    void save(const std::shared_ptr<outputs::Output>& output) const;
+	/** output **/
+	void save(const std::shared_ptr<outputs::Output>& output) const;
 
-    /** iterator goodies */
-    typedef typename tSkymapsContainer::iterator iterator;
-    typedef typename tSkymapsContainer::const_iterator const_iterator;
-    iterator begin();
-    const_iterator begin() const;
-    iterator end();
-    const_iterator end() const;
+	/** iterator goodies */
+	typedef typename tSkymapsContainer::iterator iterator;
+	typedef typename tSkymapsContainer::const_iterator const_iterator;
+	iterator begin();
+	const_iterator begin() const;
+	iterator end();
+	const_iterator end() const;
 };
 
-} // namespace hermes
+}  // namespace hermes
 /** @}*/
-#endif // HERMES_RADIOSKYMAPRANGE_H
+#endif  // HERMES_RADIOSKYMAPRANGE_H

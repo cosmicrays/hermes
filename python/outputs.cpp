@@ -1,24 +1,22 @@
 #include <pybind11/operators.h>
 #include <pybind11/pybind11.h>
 
-#include "hermes/outputs/HEALPix.h"
+#include "hermes/outputs/HEALPixFormat.h"
 #include "hermes/outputs/Output.h"
 
 namespace py = pybind11;
 
-namespace hermes {
-namespace outputs {
+namespace hermes { namespace outputs {
 
 void init(py::module &m) {
+	py::module subm = m.def_submodule("outputs");
+	subm.doc() = "outputs package";
 
-    py::module subm = m.def_submodule("outputs");
-    subm.doc() = "outputs package";
-
-    // NOLINTNEXTLINE(bugprone-unused-raii)
-    py::class_<Output, std::shared_ptr<Output>>(subm, "Output");
-    py::class_<HEALPix, std::shared_ptr<HEALPix>, Output>(subm, "HEALPix")
-	.def(py::init<std::string>());
+	// NOLINTNEXTLINE(bugprone-unused-raii)
+	py::class_<Output, std::shared_ptr<Output>>(subm, "Output");
+	py::class_<HEALPixFormat, std::shared_ptr<HEALPixFormat>, Output>(
+	    subm, "HEALPixFormat")
+	    .def(py::init<std::string>());
 }
 
-} // namespace outputs
-} // namespace hermes
+}}  // namespace hermes::outputs

@@ -8,8 +8,7 @@
 
 #include "UnitsSIPrefixes.h"
 
-namespace hermes {
-namespace units {
+namespace hermes { namespace units {
 
 typedef double QNumber;
 typedef double QAngle;
@@ -58,12 +57,12 @@ typedef double QRingX0Unit;
 typedef double QICInnerIntegral;
 typedef double QGREmissivity;
 
-template <int power> constexpr double pow(const QNumber &num) {
-    return std::pow(static_cast<double>(num), power);
+template <int power>
+constexpr double pow(const QNumber &num) {
+	return std::pow(static_cast<double>(num), power);
 }
 constexpr double squared(const QNumber &num) { return num * num; }
 
-} // namespace units
-} // namespace hermes
+}}  // namespace hermes::units
 
-#endif // HERMES_UNITSSIMPLE_H
+#endif  // HERMES_UNITSSIMPLE_H

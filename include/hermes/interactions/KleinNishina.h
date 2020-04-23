@@ -1,23 +1,21 @@
 #ifndef HERMES_KLEINNISHINA_H
 #define HERMES_KLEINNISHINA_H
 
-#include "hermes/interactions/DiffCrossSection.h"
-
 #include <memory>
 
-namespace hermes {
-namespace interactions {
+#include "hermes/interactions/DiffCrossSection.h"
+
+namespace hermes { namespace interactions {
 
 class KleinNishina : public DifferentialCrossSection {
   public:
-    KleinNishina();
+	KleinNishina();
 
-    QDiffCrossSection
-    getDiffCrossSection(const QEnergy &E_electron, const QEnergy &E_photon,
-			const QEnergy &E_gamma) const override;
+	QDiffCrossSection getDiffCrossSection(
+	    const QEnergy &E_electron, const QEnergy &E_photon,
+	    const QEnergy &E_gamma) const override;
 };
 
-} // namespace interactions
-} // namespace hermes
+}}  // namespace hermes::interactions
 
-#endif // HERMES_KLEINNISHINA_H
+#endif  // HERMES_KLEINNISHINA_H

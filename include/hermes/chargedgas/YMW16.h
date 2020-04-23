@@ -32,8 +32,7 @@ Modifed and optimized for C++ and multithreading execution
 by Andrej Dundovic (andrej.dundovic@gssi.it, 2020)
 */
 
-namespace hermes {
-namespace chargedgas {
+namespace hermes { namespace chargedgas {
 
 // Thick disk
 #define P_Ad 2500
@@ -157,119 +156,118 @@ namespace chargedgas {
 
 class YMW16 : public ChargedGasDensity {
   private:
-    QPDensity fne1, fne2;
-    QLength H1, A1, H2, A2, R2;
+	QPDensity fne1, fne2;
+	QLength H1, A1, H2, A2, R2;
 
-    struct Warp_Sun {
-	double Gamma_w;
-	double z_Sun;
-    } t0;
+	struct Warp_Sun {
+		double Gamma_w;
+		double z_Sun;
+	} t0;
 
-    struct Thick {
-	double Ad;
-	double Bd;
-	double n1;
-	double H1;
-    } t1;
+	struct Thick {
+		double Ad;
+		double Bd;
+		double n1;
+		double H1;
+	} t1;
 
-    struct Thin {
-	double A2;
-	double B2;
-	double n2;
-	double K2;
-    } t2;
+	struct Thin {
+		double A2;
+		double B2;
+		double n2;
+		double K2;
+	} t2;
 
-    struct Spiral {
-	double Ads;
-	double Bds;
-	double B2s;
-	double Ka;
-	double narm[5];
-	double warm[5];
-	double Aa;
-	double ncn;
-	double wcn;
-	double thetacn;
-	double nsg;
-	double wsg;
-	double thetasg;
-    } t3;
+	struct Spiral {
+		double Ads;
+		double Bds;
+		double B2s;
+		double Ka;
+		double narm[5];
+		double warm[5];
+		double Aa;
+		double ncn;
+		double wcn;
+		double thetacn;
+		double nsg;
+		double wsg;
+		double thetasg;
+	} t3;
 
-    struct GC {
-	double ngc;
-	double Agc;
-	double Hgc;
-    } t4;
+	struct GC {
+		double ngc;
+		double Agc;
+		double Hgc;
+	} t4;
 
-    struct Gum {
-	double Kgn;
-	double ngn;
-	double Wgn;
-	double Agn;
-    } t5;
+	struct Gum {
+		double Kgn;
+		double ngn;
+		double Wgn;
+		double Agn;
+	} t5;
 
-    struct LB {
-	double J_LB;
-	double nlb1;
-	double detlb1;
-	double wlb1;
-	double hlb1;
-	double thetalb1;
-	double nlb2;
-	double detlb2;
-	double wlb2;
-	double hlb2;
-	double thetalb2;
-    } t6;
+	struct LB {
+		double J_LB;
+		double nlb1;
+		double detlb1;
+		double wlb1;
+		double hlb1;
+		double thetalb1;
+		double nlb2;
+		double detlb2;
+		double wlb2;
+		double hlb2;
+		double thetalb2;
+	} t6;
 
-    struct LI {
-	double nLI;
-	double RLI;
-	double WLI;
-	double detthetaLI;
-	double thetaLI;
-    } t7;
+	struct LI {
+		double nLI;
+		double RLI;
+		double WLI;
+		double detthetaLI;
+		double thetaLI;
+	} t7;
 
-    struct FB {
-	double J_FB;
-    } t8;
+	struct FB {
+		double J_FB;
+	} t8;
 
-    struct LMC {
-	double nlmc;
-    } t9;
+	struct LMC {
+		double nlmc;
+	} t9;
 
-    struct Dora {
-	double n30D;
-    } t10;
+	struct Dora {
+		double n30D;
+	} t10;
 
-    struct SMC {
-	double nsmc;
-    } t11;
+	struct SMC {
+		double nsmc;
+	} t11;
 
-    void initParameters();
+	void initParameters();
 
   public:
-    YMW16();
-    YMW16(const QTemperature &t);
-    QPDensity getDensity(const Vector3QLength &pos) const override;
+	YMW16();
+	YMW16(const QTemperature &t);
+	QPDensity getDensity(const Vector3QLength &pos) const override;
 
-    double ne_ymw16(const Vector3QLength &pos) const;
-    double thick(double xx, double yy, double zz, double *gd, double rr) const;
-    double thin(double xx, double yy, double zz, double gd, double rr) const;
-    double galcen(double xx, double yy, double zz) const;
-    double spiral(double xx, double yy, double zz, double gd, double rr,
-		  int *ww, int *m_3) const;
-    double gum(double xx, double yy, double zz, int *m_5) const;
-    double localbubble(double xx, double yy, double zz, double gl, double gb,
-		       double *WW, int *m_6) const;
-    double nps(double xx, double yy, double zz, int *WLI, int *m_7) const;
-    double fermibubble(double xx, double yy, double zz) const;
-    double lmc(double l, double b, double d, int *w_lmc) const;
-    double dora(double l, double b, double d) const;
-    double smc(double xx, double yy, double zz, int *w_smc) const;
+	double ne_ymw16(const Vector3QLength &pos) const;
+	double thick(double xx, double yy, double zz, double *gd, double rr) const;
+	double thin(double xx, double yy, double zz, double gd, double rr) const;
+	double galcen(double xx, double yy, double zz) const;
+	double spiral(double xx, double yy, double zz, double gd, double rr,
+	              int *ww, int *m_3) const;
+	double gum(double xx, double yy, double zz, int *m_5) const;
+	double localbubble(double xx, double yy, double zz, double gl, double gb,
+	                   double *WW, int *m_6) const;
+	double nps(double xx, double yy, double zz, int *WLI, int *m_7) const;
+	double fermibubble(double xx, double yy, double zz) const;
+	double lmc(double l, double b, double d, int *w_lmc) const;
+	double dora(double l, double b, double d) const;
+	double smc(double xx, double yy, double zz, int *w_smc) const;
 };
 
-} // namespace chargedgas
-} // namespace hermes
+}}  // namespace hermes::chargedgas
 
-#endif // HERMES_YMW16_H
+#endif  // HERMES_YMW16_H

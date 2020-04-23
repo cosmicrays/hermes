@@ -1,9 +1,10 @@
 #ifndef HERMES_GRIDTOOLS_H
 #define HERMES_GRIDTOOLS_H
 
+#include <string>
+
 #include "hermes/Grid.h"
 #include "hermes/magneticfields/MagneticField.h"
-#include <string>
 
 /**
  @file
@@ -55,17 +56,17 @@ void scaleGrid(std::unique_ptr<VectorGrid> grid, double a);
  @param seed	Random seed
  */
 void initTurbulence(std::shared_ptr<VectorGrid> grid, double Brms, double lMin,
-		    double lMax, double alpha = -11. / 3., int seed = 0,
-		    bool helicity = false, double H = 0);
-#endif // HERMES_HAVE_FFTW3F
+                    double lMax, double alpha = -11. / 3., int seed = 0,
+                    bool helicity = false, double H = 0);
+#endif  // HERMES_HAVE_FFTW3F
 
 /** Analytically calculate the correlation length of a turbulent field */
 double turbulentCorrelationLength(double lMin, double lMax,
-				  double alpha = (-11. / 3.));
+                                  double alpha = (-11. / 3.));
 
 /** Fill vector grid from provided magnetic field */
 void fromMagneticField(std::unique_ptr<VectorGrid> grid,
-		       std::unique_ptr<magneticfields::MagneticField> field);
+                       std::unique_ptr<magneticfields::MagneticField> field);
 
 /** Fill scalar grid from provided magnetic field */
 void fromMagneticFieldStrength(
@@ -74,37 +75,37 @@ void fromMagneticFieldStrength(
 
 /** Load a VectorGrid from a binary file with single precision */
 void loadGrid(std::unique_ptr<VectorGrid> grid, std::string filename,
-	      double conversion = 1);
+              double conversion = 1);
 
 /** Load a ScalarGrid from a binary file with single precision */
 void loadGrid(std::unique_ptr<ScalarGrid> grid, std::string filename,
-	      double conversion = 1);
+              double conversion = 1);
 
 /** Dump a VectorGrid to a binary file */
 void dumpGrid(std::unique_ptr<VectorGrid> grid, std::string filename,
-	      double conversion = 1);
+              double conversion = 1);
 
 /** Dump a ScalarGrid to a binary file with single precision */
 void dumpGrid(std::unique_ptr<ScalarGrid> grid, std::string filename,
-	      double conversion = 1);
+              double conversion = 1);
 
 /** Load a VectorGrid grid from a plain text file */
 void loadGridFromTxt(std::unique_ptr<VectorGrid> grid, std::string filename,
-		     double conversion = 1);
+                     double conversion = 1);
 
 /** Load a ScalarGrid from a plain text file */
 void loadGridFromTxt(std::unique_ptr<ScalarGrid> grid, std::string filename,
-		     double conversion = 1);
+                     double conversion = 1);
 
 /** Dump a VectorGrid to a plain text file */
 void dumpGridToTxt(std::unique_ptr<VectorGrid> grid, std::string filename,
-		   double conversion = 1);
+                   double conversion = 1);
 
 /** Dump a ScalarGrid to a plain text file */
 void dumpGridToTxt(std::unique_ptr<ScalarGrid> grid, std::string filename,
-		   double conversion = 1);
+                   double conversion = 1);
 
 /** @}*/
-} // namespace hermes
+}  // namespace hermes
 
-#endif // HERMES_GRIDTOOLS_H
+#endif  // HERMES_GRIDTOOLS_H

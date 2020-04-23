@@ -3,59 +3,55 @@
 
 #include "hermes/photonfields/PhotonField.h"
 
-namespace hermes {
-namespace photonfields {
+namespace hermes { namespace photonfields {
 
 class CMB : public PhotonField {
   private:
-    std::vector<QEnergyDensity> density;
+	std::vector<QEnergyDensity> density;
 
-    void buildEnergyRange() {
-	const double scaling = getEnergyScaleFactor();
-	const QEnergy E_start = getStartEnergy();
-	const QEnergy E_end = getEndEnergy();
+	void buildEnergyRange() {
+		const double scaling = getEnergyScaleFactor();
+		const QEnergy E_start = getStartEnergy();
+		const QEnergy E_end = getEndEnergy();
 
-	for (auto E = E_start; E < E_end; E = E * scaling)
-	    energyRange.push_back(E);
-    }
+		for (auto E = E_start; E < E_end; E = E * scaling)
+			energyRange.push_back(E);
+	}
 
-    void precomputeValues() {
-	for (auto itE = begin(); itE != end(); ++itE)
-	    density.push_back(getEnergyDensity(Vector3QLength(0), (*itE)));
-    }
+	void precomputeValues() {
+		for (auto itE = begin(); itE != end(); ++itE)
+			density.push_back(getEnergyDensity(Vector3QLength(0), (*itE)));
+	}
 
   public:
-    CMB() {
-	setEnergyScaleFactor(1.01);
-	setStartEnergy(1.0e9_Hz * h_planck);
-	setEndEnergy(1.0e12_Hz * h_planck);
-	buildEnergyRange();
-	precomputeValues();
-    }
+	CMB() {
+		setEnergyScaleFactor(1.01);
+		setStartEnergy(1.0e9_Hz * h_planck);
+		setEndEnergy(1.0e12_Hz * h_planck);
+		buildEnergyRange();
+		precomputeValues();
+	}
 
-    QEnergyDensity getEnergyDensity(const Vector3QLength &pos,
-				    const QEnergy &E_photon) const override {
-	const QTemperature T_CMB(2.725);
-	QFrequency nu = E_photon / h_planck;
+	QEnergyDensity getEnergyDensity(const Vector3QLength &pos,
+	                                const QEnergy &E_photon) const override {
+		const QTemperature T_CMB(2.725);
+		QFrequency nu = E_photon / h_planck;
 
-	return getPlanckSpectralEnergyDensity(nu, T_CMB) * nu;
-    }
+		return getPlanckSpectralEnergyDensity(nu, T_CMB) * nu;
+	}
 
-    QSpectralEnergyDensity
-    getPlanckSpectralEnergyDensity(const QFrequency &nu,
-				   const QTemperature &T) const {
+	QSpectralEnergyDensity getPlanckSpectralEnergyDensity(
+	    const QFrequency &nu, const QTemperature &T) const {
+		return (8.0_pi * h_planck * pow<3>(nu)) / pow<3>(c_light) /
+		       (exp(h_planck * nu / (k_boltzmann * T)) - 1.);
+	}
 
-	return (8.0_pi * h_planck * pow<3>(nu)) / pow<3>(c_light) /
-	       (exp(h_planck * nu / (k_boltzmann * T)) - 1.);
-    }
-
-    QEnergyDensity getEnergyDensity(const Vector3QLength &pos_,
-				    std::size_t iE_) const override {
-	return density[iE_];
-    }
+	QEnergyDensity getEnergyDensity(const Vector3QLength &pos_,
+	                                std::size_t iE_) const override {
+		return density[iE_];
+	}
 };
 
-} // namespace photonfields
-} // namespace hermes
+}}  // namespace hermes::photonfields
 
-#endif // HERMES_CMB_H
+#endif  // HERMES_CMB_H

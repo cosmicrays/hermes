@@ -4,26 +4,24 @@
 #include "hermes/Grid.h"
 #include "hermes/Units.h"
 
-namespace hermes {
-namespace neutralgas {
+namespace hermes { namespace neutralgas {
 
 class NeutralGasDensity {
   private:
-    QTemperature gasTemp;
+	QTemperature gasTemp;
 
   public:
-    NeutralGasDensity() : gasTemp(1e4_K) {}
-    NeutralGasDensity(QTemperature T) : gasTemp(T) {}
+	NeutralGasDensity() : gasTemp(1e4_K) {}
+	NeutralGasDensity(QTemperature T) : gasTemp(T) {}
 
-    virtual ~NeutralGasDensity() {}
+	virtual ~NeutralGasDensity() {}
 
-    virtual int getRingNumber() const = 0;
+	virtual int getRingNumber() const = 0;
 
-    inline void setTemperature(QTemperature T) { gasTemp = T; }
-    inline QTemperature getTemperature() const { return gasTemp; }
+	inline void setTemperature(QTemperature T) { gasTemp = T; }
+	inline QTemperature getTemperature() const { return gasTemp; }
 };
 
-} // namespace neutralgas
-} // namespace hermes
+}}  // namespace hermes::neutralgas
 
-#endif // HERMES_NEUTRALGASDENSITY_H
+#endif  // HERMES_NEUTRALGASDENSITY_H

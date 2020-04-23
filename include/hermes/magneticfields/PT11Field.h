@@ -3,8 +3,7 @@
 
 #include "hermes/magneticfields/MagneticField.h"
 
-namespace hermes {
-namespace magneticfields {
+namespace hermes { namespace magneticfields {
 
 /**
  @class PshirkovField
@@ -27,44 +26,43 @@ namespace magneticfields {
 
 class PT11Field : public MagneticField {
   private:
-    bool useASS;  // switch for axisymmetric spiral field (ASS)
-    bool useBSS;  // switch for bisymmetric spiral field (BSS)
-    bool useHalo; // switch for halo field
+	bool useASS;   // switch for axisymmetric spiral field (ASS)
+	bool useBSS;   // switch for bisymmetric spiral field (BSS)
+	bool useHalo;  // switch for halo field
 
-    // disk parameters
-    QAngle pitch, PHI;
-    QNumber cos_pitch, sin_pitch, cos_PHI; // pitch angle parameters
-    QLength d;				   // distance to first field reversal
-    QLength R_sun; // distance between sun and galactic center
-    QLength R_c;   // radius of central region
-    QLength z0_D;  // vertical thickness in the galactic disk
-    QMField B0_D;  // magnetic field scale
+	// disk parameters
+	QAngle pitch, PHI;
+	QNumber cos_pitch, sin_pitch, cos_PHI;  // pitch angle parameters
+	QLength d;                              // distance to first field reversal
+	QLength R_sun;  // distance between sun and galactic center
+	QLength R_c;    // radius of central region
+	QLength z0_D;   // vertical thickness in the galactic disk
+	QMField B0_D;   // magnetic field scale
 
-    // halo parameters
-    QLength z0_H;  // halo vertical position
-    QLength R0_H;  // halo radial position
-    QMField B0_Hn; // halo magnetic field scale (north)
-    QMField B0_Hs; // halo magnetic field scale (south)
-    QLength z11_H; // halo vertical thickness towards disc
-    QLength z12_H; // halo vertical thickness off the disk
+	// halo parameters
+	QLength z0_H;   // halo vertical position
+	QLength R0_H;   // halo radial position
+	QMField B0_Hn;  // halo magnetic field scale (north)
+	QMField B0_Hs;  // halo magnetic field scale (south)
+	QLength z11_H;  // halo vertical thickness towards disc
+	QLength z12_H;  // halo vertical thickness off the disk
 
-    void SetParams();
+	void SetParams();
 
   public:
-    PT11Field();
+	PT11Field();
 
-    void setUseASS(bool use);
-    void setUseBSS(bool use);
-    void setUseHalo(bool use);
+	void setUseASS(bool use);
+	void setUseBSS(bool use);
+	void setUseHalo(bool use);
 
-    bool isUsingASS();
-    bool isUsingBSS();
-    bool isUsingHalo();
+	bool isUsingASS();
+	bool isUsingBSS();
+	bool isUsingHalo();
 
-    Vector3QMField getField(const Vector3QLength &pos) const override;
+	Vector3QMField getField(const Vector3QLength &pos) const override;
 };
 
-} // namespace magneticfields
-} // namespace hermes
+}}  // namespace hermes::magneticfields
 
-#endif // HERMES_PSHIRKOVFIELD_H
+#endif  // HERMES_PSHIRKOVFIELD_H

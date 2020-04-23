@@ -18,5 +18,5 @@ typedef SkymapTemplate<QRotationMeasure, QNumber> RotationMeasureSkymap;
 
 /** @}*/
 
-} // namespace hermes
-#endif // HERMES_ROTATIONMEASURESKYMAP_H
+}  // namespace hermes
+#endif  // HERMES_ROTATIONMEASURESKYMAP_H

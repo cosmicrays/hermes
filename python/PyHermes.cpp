@@ -25,23 +25,23 @@ namespace units 	 { void init(py::module &); }
 // clang-format on
 
 PYBIND11_MODULE(pyhermes, m) {
-    m.doc() = "HERMES python binding";
+	m.doc() = "HERMES python binding";
 
-    init_common(m);
-    init_integrators(m);
-    init_particleid(m);
-    init_quantity(m);
-    init_skymaps(m);
-    init_vectors(m);
+	init_common(m);
+	init_integrators(m);
+	init_particleid(m);
+	init_quantity(m);
+	init_skymaps(m);
+	init_vectors(m);
 
-    chargedgas::init(m);
-    cosmicrays::init(m);
-    interactions::init(m);
-    magneticfields::init(m);
-    neutralgas::init(m);
-    outputs::init(m);
-    photonfields::init(m);
-    units::init(m);
+	chargedgas::init(m);
+	cosmicrays::init(m);
+	interactions::init(m);
+	magneticfields::init(m);
+	neutralgas::init(m);
+	outputs::init(m);
+	photonfields::init(m);
+	units::init(m);
 }
 
-} // namespace hermes
+}  // namespace hermes

@@ -4,24 +4,22 @@
 #include "hermes/Grid.h"
 #include "hermes/Units.h"
 
-namespace hermes {
-namespace chargedgas {
+namespace hermes { namespace chargedgas {
 
 class ChargedGasDensity {
   private:
-    QTemperature gasTemp;
+	QTemperature gasTemp;
 
   public:
-    ChargedGasDensity() : gasTemp(1e4_K) {}
-    ChargedGasDensity(QTemperature T) : gasTemp(T) {}
-    virtual ~ChargedGasDensity() {}
-    virtual QPDensity getDensity(const Vector3QLength &pos) const = 0;
+	ChargedGasDensity() : gasTemp(1e4_K) {}
+	ChargedGasDensity(QTemperature T) : gasTemp(T) {}
+	virtual ~ChargedGasDensity() {}
+	virtual QPDensity getDensity(const Vector3QLength &pos) const = 0;
 
-    inline void setTemperature(QTemperature T) { gasTemp = T; }
-    inline QTemperature getTemperature() const { return gasTemp; }
+	inline void setTemperature(QTemperature T) { gasTemp = T; }
+	inline QTemperature getTemperature() const { return gasTemp; }
 };
 
-} // namespace chargedgas
-} // namespace hermes
+}}  // namespace hermes::chargedgas
 
-#endif // HERMES_CHARGEDGASDENSITY_H
+#endif  // HERMES_CHARGEDGASDENSITY_H
