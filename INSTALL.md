@@ -69,8 +69,8 @@ PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0]
 
 For Clang:
 ```sh                
-CC=clang \
-CXX=clang++ \
+export CC=`xcrun -find cc`
+export CXX=`xcrun -find c++`
 cmake .. \
   -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
   -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
@@ -80,11 +80,17 @@ cmake .. \
 
 For GCC:
 ```sh
-CC=$GCC_BREW_PATH/bin/gcc-9 \
-CXX=$GCC_BREW_PATH/bin/g++-9 \
+export CC=$GCC_BREW_PATH/bin/gcc-9
+export CXX=$GCC_BREW_PATH/bin/g++-9
 cmake .. \
   -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
   -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
   -DPYTHON_INCLUDE_PATH=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/include \
   -DENABLE_TESTING=On
+```
+
+Finally, making the library and test executables:
+```sh
+make -j
+make install
 ```
