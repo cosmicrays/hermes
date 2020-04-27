@@ -16,6 +16,7 @@ Optional:
 - **FFTW3F** provides turbulent components for galactic magnetic field models
 - **Doxygen** generates documentation from the source code
 - **LCOV** is used with `gcov` (GCC) to generate the code coverage reports
+- **Clang Tools** are necessary to use clang-format and clang-tidy which maintain code hygiene (recommended for developers)
 
 Provided with the source:
 - **Pybind11** is used to build the python interface to C++ classes and functions
