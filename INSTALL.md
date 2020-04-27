@@ -46,11 +46,45 @@ Once the environment is activated, clone the repository and build it with cmake:
 cd hermes
 mkdir build
 cd build
-CMAKE_PREFIX_PATH=$HERMES_DIR cmake -DCMAKE_INSTALL_PREFIX=$HERMES_DIR ..
+CMAKE_PREFIX_PATH=$HERMES_DIR cmake -DCMAKE_INSTALL_PREFIX=$HERMES_DIR -DENABLE_TESTING=On ..
 make -j
 make install
 ```
 
 ## Install on macOS (OS X)
 
-TODO (see commands in .travis.yml for now)
+To obtain the required and optional packages, one can use [Homebrew](https://brew.sh):
+```sh
+brew install python3 cfitsio gsl jq
+brew link --overwrite python # to make Python3 default in Homebrew
+brew install gcc # only if GCC is desired
+brew link --overwrite gcc # same as above
+```
+
+To be on the safe side regarding GCC and Python versions (if multiple versions are present on the system):
+```sh
+GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
+PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
+```
+
+For Clang:
+```sh                
+CC=clang \
+CXX=clang++ \
+cmake .. \
+  -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
+  -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
+  -DPYTHON_INCLUDE_PATH=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/include \
+  -DENABLE_TESTING=On
+```
+
+For GCC:
+```sh
+CC=$GCC_BREW_PATH/bin/gcc-9 \
+CXX=$GCC_BREW_PATH/bin/g++-9 \
+cmake .. \
+  -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
+  -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
+  -DPYTHON_INCLUDE_PATH=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/include \
+  -DENABLE_TESTING=On
+```
