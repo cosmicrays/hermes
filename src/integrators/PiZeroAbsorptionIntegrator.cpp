@@ -7,6 +7,7 @@
 #include <mutex>
 #include <numeric>
 #include <thread>
+#include <utility>
 
 #include "hermes/Common.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
@@ -14,22 +15,26 @@
 namespace hermes {
 
 PiZeroAbsorptionIntegrator::PiZeroAbsorptionIntegrator(
-    const std::shared_ptr<cosmicrays::CosmicRayDensity> crDensity_,
-    const std::shared_ptr<neutralgas::RingModel> ngdensity_,
-    const std::shared_ptr<interactions::DifferentialCrossSection> crossSec_)
+    const std::shared_ptr<cosmicrays::CosmicRayDensity> &crDensity_,
+    const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
+	const std::shared_ptr<photonfields::PhotonField> &phdensity_,
+    const std::shared_ptr<interactions::DifferentialCrossSection> &crossSec_)
     : GammaIntegratorTemplate(),
       crList(std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>{
           crDensity_}),
-      ngdensity(ngdensity_),
+	  ngdensity(ngdensity_),
+      phdensity(phdensity_),	
       crossSec(crossSec_) {}
 
 PiZeroAbsorptionIntegrator::PiZeroAbsorptionIntegrator(
-    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList_,
-    const std::shared_ptr<neutralgas::RingModel> ngdensity_,
-    const std::shared_ptr<interactions::DifferentialCrossSection> crossSec_)
+    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &crList_,
+    const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
+	const std::shared_ptr<photonfields::PhotonField> &phdensity_,
+    const std::shared_ptr<interactions::DifferentialCrossSection> &crossSec_)
     : GammaIntegratorTemplate(),
       crList(crList_),
       ngdensity(ngdensity_),
+	  phdensity(phdensity_),
       crossSec(crossSec_) {}
 
 PiZeroAbsorptionIntegrator::~PiZeroAbsorptionIntegrator() {}
@@ -81,6 +86,7 @@ void PiZeroAbsorptionIntegrator::initCacheTable() {
 
 	auto job_chunks = getThreadChunks(grid_size);
 	std::vector<std::thread> threads;
+	threads.reserve(job_chunks.size());
 	for (auto &c : job_chunks) {
 		threads.push_back(
 		    std::thread(&PiZeroAbsorptionIntegrator::computeCacheInThread, this,
@@ -94,18 +100,53 @@ void PiZeroAbsorptionIntegrator::initCacheTable() {
 }
 
 QPiZeroIntegral PiZeroAbsorptionIntegrator::getIOEfromCache(
-    Vector3QLength pos_, QEnergy Egamma_) const {
+    const Vector3QLength &pos_, const QEnergy &Egamma_) const {
 	return cacheTable->interpolate(static_cast<Vector3d>(pos_));
 }
 
 QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
-    QDirection direction) const {
+    const QDirection &direction) const {
 	return integrateOverLOS(direction, 1_GeV);
 }
 
 QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
-    QDirection direction_, QEnergy Egamma_) const {
+    const QDirection &direction_, const QEnergy & Egamma_) const {
 	QDiffIntensity total_diff_flux(0.0);
+	
+	QNumber opticalDepth(0);
+	typedef std::pair<QLength,QNumber> pairLN;
+	std::vector<pairLN> opticalDepthLOS;
+
+	// distance from the (spherical) galactic border in the given direction
+	QLength maxDistance = getMaxDistance(direction_);
+
+	QLength delta_d = 10.0_pc;
+	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
+		auto pos = getGalacticPosition(positionSun, dist, direction_);
+		opticalDepth +=
+			integrateOverPhotonEnergy(pos, Egamma_) * delta_d;
+		opticalDepthLOS.push_back(std::make_pair(dist, opticalDepth));
+	}
+
+	auto findOpticalDepth = [opticalDepthLOS](QLength s) -> QNumber {
+		auto t_pair = std::make_pair(s,0);
+		auto pair = std::upper_bound(opticalDepthLOS.begin(), opticalDepthLOS.end(),
+				t_pair, [](const pairLN &a, const pairLN &b) -> bool { return a.first < b.first; });
+		return (*pair).second;
+	};
+
+	/*
+	// TODO(adundovi): implement sophisticated adaptive integration method :-)
+	auto opticalDepthIter = opticalDepthLOS.begin();
+	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
+		pos = getGalacticPosition(positionSun, dist, direction_);
+		total_intensity += intSynchro->integrateOverEnergy(pos, freq_) / 4_pi *
+		                   exp((*opticalDepthIter) -
+		                       opticalDepthLOS[opticalDepthLOS.size() - 1]) *
+		                   delta_d;
+		++opticalDepthIter;
+	}
+	*/
 
 	// Sum over rings
 	for (const auto &ring : *ngdensity) {
@@ -132,14 +173,14 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
 		                           const QEnergy &Egamma_) {
 			return (ring->isInside(pos))
 			           ? this->densityProfile(pos) *
-			                 this->integrateOverEnergy(pos, Egamma_)
+			                 this->integrateOverEnergy(pos, Egamma_) 
 			           : 0;
 		};
 		auto losIntegrand = [this, losI_f, direction_,
-		                     Egamma_](const QLength &dist) {
+		                     Egamma_, findOpticalDepth](const QLength &dist) {
 			return losI_f(
 			    getGalacticPosition(this->positionSun, dist, direction_),
-			    Egamma_);
+			    Egamma_) * exp(-findOpticalDepth(dist));
 		};
 		QDiffIntensity losIntegrals =
 		    simpsonIntegration<QDiffFlux, QGREmissivity>(
@@ -172,7 +213,7 @@ QRingX0Unit PiZeroAbsorptionIntegrator::X0Function(
 }
 
 QPiZeroIntegral PiZeroAbsorptionIntegrator::integrateOverEnergy(
-    Vector3QLength pos_, QEnergy Egamma_) const {
+    const Vector3QLength &pos_, const QEnergy &Egamma_) const {
 	if (cacheTableInitialized) return getIOEfromCache(pos_, Egamma_);
 
 	QPiZeroIntegral total(0);
@@ -218,18 +259,16 @@ QPiZeroIntegral PiZeroAbsorptionIntegrator::integrateOverEnergy(
 	return total;
 }
 
-QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
-    const Vector3QLength &pos_, const QEnergy &Egamma_,
-    const QEnergy &Eelectron_) const {
-	QICInnerIntegral integral(0);
+QInverseLength PiZeroAbsorptionIntegrator::integrateOverPhotonEnergy(
+    const Vector3QLength &pos_, const QEnergy &Egamma_) const {
+	QInverseLength K(0);
 
-	auto integrand = [this, pos_, Egamma_, Eelectron_](
+	auto integrand = [this, pos_, Egamma_](
 	                     const cosmicrays::CosmicRayDensity::iterator itE,
 	                     const QEnergy &deltaE) {
-		return crossSec->getDiffCrossSection(Eelectron_, (*itE), Egamma_) *
+		return bwCrossSec->integratedOverTheta(Egamma_, (*itE)) *
 		       phdensity->getEnergyDensity(
-		           pos_, static_cast<int>(itE - phdensity->begin())) /
-		       pow<2>(*itE);
+		           pos_, static_cast<int>(itE - phdensity->begin())) / pow<2>(*itE);
 	};
 
 	for (auto itE = std::next(phdensity->begin()); itE != phdensity->end();
@@ -237,10 +276,10 @@ QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
 		auto itE_prev = std::prev(itE);
 		QEnergy deltaE = (*itE) - (*itE_prev);
 		QNumber xlog = log((*itE) / (*itE_prev));
-		integral += (*itE) * integrand(itE, deltaE) * xlog;
+		K += (*itE) * integrand(itE, deltaE) * xlog;
 	}
 
-	return integral;
+	return 2 * K;
 }
 
 }  // namespace hermes

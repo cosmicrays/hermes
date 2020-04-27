@@ -13,7 +13,7 @@ class BreitWheeler {
 
 	QArea getCrossSection(const QEnergy &Egamma, const QEnergy &Eph,
 	                      const QAngle &theta) const;
-	double integrateOverTheta(const QEnergy &Egamma, const QEnergy &Eph) const;
+	QArea integratedOverTheta(const QEnergy &Egamma, const QEnergy &Eph) const;
 };
 
 }}  // namespace hermes::interactions

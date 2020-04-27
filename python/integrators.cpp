@@ -7,17 +7,18 @@
 #include "hermes/integrators/InverseComptonIntegrator.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/integrators/PiZeroIntegrator.h"
+#include "hermes/integrators/PiZeroAbsorptionIntegrator.h"
 #include "hermes/integrators/RotationMeasureIntegrator.h"
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 
 // clang-format off
 #define PPCAT(A, B) A##B
-#define NEW_INTEGRATOR(_o, _n, _c, _qpxl, _qstep)                              	 \
-    using PPCAT(_c, ParentClass) = IntegratorTemplate<_qpxl, _qstep>;      	 \
-    py::class_<PPCAT(_c, ParentClass), std::shared_ptr<PPCAT(_c, ParentClass)>>( \
-        m, (std::string(_n) + std::string("Parent")).c_str())              	 \
-        .def(py::init<>());                                                	 \
+#define NEW_INTEGRATOR(_o, _n, _c, _qpxl, _qstep)                            		\
+    using PPCAT(_c, ParentClass) = IntegratorTemplate<_qpxl, _qstep>;      	 		\
+    py::class_<PPCAT(_c, ParentClass), std::shared_ptr<PPCAT(_c, ParentClass)>>( 	\
+        m, (std::string(_n) + std::string("Parent")).c_str())              	 		\
+        .def(py::init<>());                                                	 		\
     py::class_<_c, PPCAT(_c, ParentClass), std::shared_ptr<_c>> _o(m, _n, py::buffer_protocol()); // NOLINT(bugprone-macro-parentheses)
 // clang-format on
 
@@ -108,6 +109,35 @@ void init_integrators(py::module &m) {
 	        const std::shared_ptr<neutralgas::RingModel>,
 	        const std::shared_ptr<interactions::DifferentialCrossSection>>());
 	declare_default_integrator_methods<PiZeroIntegrator>(pizerointegrator);
+	pizerointegrator.def("integrateOverLOS", 
+			static_cast<QDiffIntensity (PiZeroIntegrator::*)(
+    	             const QDirection &, const QEnergy &) const>(
+						&PiZeroIntegrator::integrateOverLOS));
+
+	// PiZeroAbsorptionIntegrator
+	py::class_<PiZeroAbsorptionIntegrator, InverseComptonIntegratorParentClass,
+	           std::shared_ptr<PiZeroAbsorptionIntegrator>>
+	    pizeroabsintegrator(m, "PiZeroAbsorptionIntegrator", py::buffer_protocol());
+	pizeroabsintegrator.def(
+	    py::init<
+	        const std::shared_ptr<cosmicrays::CosmicRayDensity>,
+	        const std::shared_ptr<neutralgas::RingModel>,
+	        const std::shared_ptr<photonfields::PhotonField>,
+	        const std::shared_ptr<interactions::DifferentialCrossSection>>());
+	pizeroabsintegrator.def(
+	    py::init<
+	        const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>,
+	        const std::shared_ptr<neutralgas::RingModel>,
+	        const std::shared_ptr<photonfields::PhotonField>,
+	        const std::shared_ptr<interactions::DifferentialCrossSection>>());
+	declare_default_integrator_methods<PiZeroAbsorptionIntegrator>(pizeroabsintegrator);
+	pizeroabsintegrator.def(
+		"integrateOverPhotonEnergy", &PiZeroAbsorptionIntegrator::integrateOverPhotonEnergy);
+	pizeroabsintegrator.def("integrateOverLOS", 
+			static_cast<QDiffIntensity (PiZeroAbsorptionIntegrator::*)(
+    	             const QDirection &, const QEnergy &) const>(
+						&PiZeroAbsorptionIntegrator::integrateOverLOS));
+
 }
 
 }  // namespace hermes

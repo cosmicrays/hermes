@@ -86,7 +86,7 @@ void init(py::module &m) {
 	                                                        "BreitWheeler")
 	    .def(py::init<>())
 	    .def("getCrossSection", &BreitWheeler::getCrossSection)
-	    .def("integrateOverTheta", &BreitWheeler::integrateOverTheta);
+	    .def("integratedOverTheta", &BreitWheeler::integratedOverTheta);
 }
 
 }}  // namespace hermes::interactions

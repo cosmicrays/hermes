@@ -9,9 +9,11 @@
 #include "hermes/Units.h"
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/integrators/IntegratorTemplate.h"
+#include "hermes/interactions/BreitWheeler.h"
 #include "hermes/interactions/DiffCrossSection.h"
 #include "hermes/neutralgas/NeutralGasDensity.h"
 #include "hermes/neutralgas/RingModel.h"
+#include "hermes/photonfields/PhotonField.h"
 
 namespace hermes {
 /**
@@ -24,6 +26,10 @@ class PiZeroAbsorptionIntegrator : public GammaIntegratorTemplate {
 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList;
 	std::shared_ptr<neutralgas::RingModel> ngdensity;
 	std::shared_ptr<interactions::DifferentialCrossSection> crossSec;
+	std::shared_ptr<photonfields::PhotonField> phdensity;
+
+	std::unique_ptr<interactions::BreitWheeler> bwCrossSec{
+	    std::make_unique<interactions::BreitWheeler>()};
 
 	typedef Grid<QPiZeroIntegral> ICCacheTable;
 	std::shared_ptr<ICCacheTable> cacheTable;
@@ -36,13 +42,15 @@ class PiZeroAbsorptionIntegrator : public GammaIntegratorTemplate {
 
   public:
 	PiZeroAbsorptionIntegrator(
-	    const std::shared_ptr<cosmicrays::CosmicRayDensity>,
-	    const std::shared_ptr<neutralgas::RingModel>,
-	    const std::shared_ptr<interactions::DifferentialCrossSection>);
+	    const std::shared_ptr<cosmicrays::CosmicRayDensity> &,
+	    const std::shared_ptr<neutralgas::RingModel> &,
+		const std::shared_ptr<photonfields::PhotonField> &,
+	    const std::shared_ptr<interactions::DifferentialCrossSection> &);
 	PiZeroAbsorptionIntegrator(
-	    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>,
-	    const std::shared_ptr<neutralgas::RingModel>,
-	    const std::shared_ptr<interactions::DifferentialCrossSection>);
+	    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &,
+	    const std::shared_ptr<neutralgas::RingModel> &,
+		const std::shared_ptr<photonfields::PhotonField> &,
+	    const std::shared_ptr<interactions::DifferentialCrossSection> &);
 	~PiZeroAbsorptionIntegrator();
 
 	void setEnergy(const QEnergy &Egamma);
@@ -57,6 +65,9 @@ class PiZeroAbsorptionIntegrator : public GammaIntegratorTemplate {
 
 	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos,
 	                                    const QEnergy &Egamma) const;
+
+	QInverseLength integrateOverPhotonEnergy(const Vector3QLength &pos,
+	                                         const QEnergy &Egamma) const;
 
 	void setupCacheTable(int, int, int) override;
 	void initCacheTable() override;

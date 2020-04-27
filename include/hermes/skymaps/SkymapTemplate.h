@@ -92,10 +92,10 @@ class SkymapTemplate : public Skymap {
 
 	virtual void computePixel(
 	    std::size_t ipix,
-	    std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> integrator_);
+	    const std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> &integrator_);
 	void computePixelRange(
 	    std::size_t start, std::size_t end,
-	    std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> integrator_);
+	    const std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> &integrator_);
 	void compute();
 
 	/** output **/
@@ -220,7 +220,7 @@ void SkymapTemplate<QPXL, QSTEP>::setIntegrator(
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::computePixel(
     std::size_t ipix,
-    std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> integrator_) {
+    const std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> &integrator_) {
 	fluxContainer[ipix] =
 	    integrator_->integrateOverLOS(pix2ang_ring(getNside(), ipix));
 }
@@ -228,7 +228,7 @@ void SkymapTemplate<QPXL, QSTEP>::computePixel(
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::computePixelRange(
     std::size_t start, std::size_t end,
-    std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> integrator_) {
+    const std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> &integrator_) {
 	for (std::size_t ipix = start; ipix < end; ++ipix) {
 		if (!isMasked(ipix)) {
 			computePixel(ipix, integrator_);

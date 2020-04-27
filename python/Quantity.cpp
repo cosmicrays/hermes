@@ -129,6 +129,7 @@ void init_quantity(py::module &m) {
 	declare_quantity<QSolidAngle>(m, "QSolidAngle", "sr", apyu);
 
 	// |- derived
+	declare_quantity<QInverseLength>(m, "QInverseLength", "m^-1", apyu);
 	declare_quantity<QAngularMomentum>(m, "QAngularMomentum", "kg m^2 s^-1",
 	                                   apyu);
 	declare_quantity<QArea>(m, "QArea", "m^2", apyu);

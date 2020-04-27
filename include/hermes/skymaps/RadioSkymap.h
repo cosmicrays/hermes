@@ -24,8 +24,8 @@ class RadioSkymap : public SkymapTemplate<QTemperature, QFrequency> {
 	QFrequency getFrequency() const { return skymapParameter; }
 	void computePixel(
 	    std::size_t ipix,
-	    std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>>
-	        integrator_) {
+	    const std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>>
+	        &integrator_) override {
 		fluxContainer[ipix] = integrator_->integrateOverLOS(
 		    pix2ang_ring(getNside(), ipix), skymapParameter);
 	}

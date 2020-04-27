@@ -60,7 +60,7 @@ integrator.setupCacheTable(100, 100, 20)
 skymap.setIntegrator(integrator)
 skymap.compute()
 
-output = outputs.FITSOutput("!pizero-dragon2d.fits.gz")
+output = outputs.HEALPixFormat("!pizero-dragon2d.fits.gz")
 skymap.save(output)
 ```
 
