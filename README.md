@@ -1,4 +1,4 @@
-# HERMES - High-Energy Radiative MESsangers
+# HERMES - High-Energy Radiative MESsengers
 
 [![Build Status](https://travis-ci.org/cosmicrays/hermes.svg?branch=master)](https://travis-ci.org/cosmicrays/hermes)
 [![Coverage Status](https://coveralls.io/repos/github/cosmicrays/hermes/badge.svg?branch=master)](https://coveralls.io/github/cosmicrays/hermes?branch=master)
