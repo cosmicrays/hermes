@@ -63,8 +63,7 @@ brew link --overwrite gcc # same as above
 
 To be on the safe side regarding GCC and Python versions (if multiple versions are present on the system):
 ```sh
-GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
-PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
+export PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
 ```
 
 For Clang:
@@ -80,6 +79,7 @@ cmake .. \
 
 For GCC:
 ```sh
+export GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
 export CC=$GCC_BREW_PATH/bin/gcc-9
 export CXX=$GCC_BREW_PATH/bin/g++-9
 cmake .. \
