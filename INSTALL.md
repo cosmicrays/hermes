@@ -79,7 +79,7 @@ export CC=`xcrun -find cc`
 export CXX=`xcrun -find c++`
 ```
 
-For GCC:
+Or for GCC:
 ```sh
 export GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
 export CC=$GCC_BREW_PATH/bin/gcc-9
