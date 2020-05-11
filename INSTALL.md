@@ -70,11 +70,6 @@ For Clang:
 ```sh                
 export CC=`xcrun -find cc`
 export CXX=`xcrun -find c++`
-cmake .. \
-  -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
-  -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
-  -DPYTHON_INCLUDE_PATH=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/include \
-  -DENABLE_TESTING=On
 ```
 
 For GCC:
@@ -82,6 +77,10 @@ For GCC:
 export GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
 export CC=$GCC_BREW_PATH/bin/gcc-9
 export CXX=$GCC_BREW_PATH/bin/g++-9
+```
+
+Run `cmake` to generate Makefile
+```sh
 cmake .. \
   -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
   -DPYTHON_LIBRARY=$PYTHON_BREW_PATH/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7.dylib \
@@ -89,7 +88,7 @@ cmake .. \
   -DENABLE_TESTING=On
 ```
 
-Finally, making the library and test executables:
+Finally, make the library and test executables:
 ```sh
 make -j
 make install
