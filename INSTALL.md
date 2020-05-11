@@ -61,6 +61,13 @@ brew install gcc # only if GCC is desired
 brew link --overwrite gcc # same as above
 ```
 
+CMake offers out-of-source build, so we need to make a new folder inside of the source folder:
+```sh
+cd hermes # the folder where we cloned the git repository
+mkdir build
+cd build
+```
+
 To be on the safe side regarding the Python version (if multiple versions are found on the system):
 ```sh
 export PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
