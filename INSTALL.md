@@ -61,7 +61,7 @@ brew install gcc # only if GCC is desired
 brew link --overwrite gcc # same as above
 ```
 
-To be on the safe side regarding GCC and Python versions (if multiple versions are present on the system):
+To be on the safe side regarding Python versions (if multiple versions are present on the system):
 ```sh
 export PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
 ```
