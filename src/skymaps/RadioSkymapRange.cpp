@@ -65,14 +65,8 @@ void RadioSkymapRange::save(
 		    std::string("FREQ"), static_cast<double>(it->getFrequency()),
 		    std::string("The skymap radio frequency in Hz."));
 
-		float tempArray[npix];
-		for (unsigned long i = 0; i < npix; ++i) {
-			auto pxl = it->getPixel(i);
-			tempArray[i] = // don't convert UNSEEN pixels
-				pxl == QTemperature(UNSEEN) ? static_cast<float>(pxl)
-					: static_cast<float>(it->toSkymapDefaultUnits(pxl));
-		}
-		output->writeColumn(npix, tempArray);
+		auto tempArray = it->containerToRawVector();
+		output->writeColumn(npix, tempArray.data());
 	}
 }
 

@@ -69,16 +69,9 @@ void GammaSkymapRange::save(
 		output->writeKeyValueAsDouble(std::string("ENERGY"),
 		                              static_cast<double>(it->getEnergy()),
 		                              std::string("The skymap energy in J."));
-
-		float tempArray[npix];
-		for (unsigned long i = 0; i < npix; ++i) {
-			auto pxl = it->getPixel(i);
-			tempArray[i] = // don't convert UNSEEN pixels
-				pxl == QDiffIntensity(UNSEEN) ? static_cast<float>(pxl)
-					: static_cast<float>(it->toSkymapDefaultUnits(pxl));
-		}
-
-		output->writeColumn(npix, tempArray);
+		
+		auto tempArray = it->containerToRawVector();
+		output->writeColumn(npix, tempArray.data());
 	}
 }
 

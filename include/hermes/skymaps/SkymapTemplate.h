@@ -104,6 +104,7 @@ class SkymapTemplate : public Skymap {
 	QPXL getOutputUnits() const;
 	std::string getOutputUnitsAsString() const;
 	std::string getUnits() const;
+	std::vector<float> containerToRawVector() const;
 	void save(std::shared_ptr<outputs::Output> output) const;
 
 	/** iterator goodies */
@@ -316,14 +317,7 @@ std::string SkymapTemplate<QPXL, QSTEP>::getUnits() const {
 }
 
 template <typename QPXL, typename QSTEP>
-void SkymapTemplate<QPXL, QSTEP>::save(
-    std::shared_ptr<outputs::Output> output) const {
-	output->initOutput();
-	output->createTable(static_cast<int>(npix));
-	output->writeMetadata(nside, res, description);
-	output->writeKeyValueAsString("PIXUNITS", getOutputUnitsAsString(),
-	                              "Physical units of the skymap pixels");
-
+std::vector<float> SkymapTemplate<QPXL, QSTEP>::containerToRawVector() const {
 	std::vector<float> tempArray;  // allocate on heap, because of nside >= 512
 	for (auto pxl : fluxContainer) {
 		float converted_pxl = // don't convert UNSEEN pixels
@@ -331,7 +325,18 @@ void SkymapTemplate<QPXL, QSTEP>::save(
 				       	: static_cast<float>(toSkymapDefaultUnits(pxl));
 		tempArray.push_back(converted_pxl);
 	}
+	return tempArray;
+}
 
+template <typename QPXL, typename QSTEP>
+void SkymapTemplate<QPXL, QSTEP>::save(
+    std::shared_ptr<outputs::Output> output) const {
+	output->initOutput();
+	output->createTable(static_cast<int>(npix));
+	output->writeMetadata(nside, res, description);
+	output->writeKeyValueAsString("PIXUNITS", getOutputUnitsAsString(),
+	                              "Physical units of the skymap pixels");
+	auto tempArray = containerToRawVector();
 	output->writeColumn(npix, tempArray.data());
 }
 
