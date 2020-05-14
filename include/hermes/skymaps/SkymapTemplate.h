@@ -325,8 +325,12 @@ void SkymapTemplate<QPXL, QSTEP>::save(
 	                              "Physical units of the skymap pixels");
 
 	std::vector<float> tempArray;  // allocate on heap, because of nside >= 512
-	for (auto i : fluxContainer)
-		tempArray.push_back(static_cast<float>(toSkymapDefaultUnits(i)));
+	for (auto pxl : fluxContainer) {
+		float converted_pxl = // don't convert UNSEEN pixels
+			pxl == QPXL(UNSEEN) ? static_cast<float>(pxl)
+				       	: static_cast<float>(toSkymapDefaultUnits(pxl));
+		tempArray.push_back(converted_pxl);
+	}
 
 	output->writeColumn(npix, tempArray.data());
 }

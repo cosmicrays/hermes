@@ -72,8 +72,10 @@ void GammaSkymapRange::save(
 
 		float tempArray[npix];
 		for (unsigned long i = 0; i < npix; ++i) {
-			tempArray[i] =
-			    static_cast<float>(it->toSkymapDefaultUnits(it->getPixel(i)));
+			auto pxl = it->getPixel(i);
+			tempArray[i] = // don't convert UNSEEN pixels
+				pxl == QDiffIntensity(UNSEEN) ? static_cast<float>(pxl)
+					: static_cast<float>(it->toSkymapDefaultUnits(pxl));
 		}
 
 		output->writeColumn(npix, tempArray);
