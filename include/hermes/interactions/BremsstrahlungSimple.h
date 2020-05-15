@@ -20,8 +20,8 @@ class BremsstrahlungSimple : public DifferentialCrossSection {
 	void disableCaching();
 
 	QDiffCrossSection getDiffCrossSection(
-	    const QEnergy &E_photon, const QEnergy &E_gamma) const override;
-	QDiffCrossSection getDiffCrossSectionDirectly(const QEnergy &E_photon,
+	    const QEnergy &E_electron, const QEnergy &E_gamma) const override;
+	QDiffCrossSection getDiffCrossSectionDirectly(const QEnergy &E_electron,
 	                                              const QEnergy &E_gamma) const;
 
 	QNumber ElwertFactor(const QNumber &beta_i, const QNumber &beta_f,

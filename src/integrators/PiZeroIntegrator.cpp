@@ -110,7 +110,7 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(
 
 	// Sum over rings
 	for (const auto &ring : *ngdensity) {
-		// TODO(adundovi): this could be better
+		// TODO(adundovi): this could be checked better
 		if (!ngdensity->isRingEnabled(ring->getIndex())) continue;
 
 		// Normalization-part

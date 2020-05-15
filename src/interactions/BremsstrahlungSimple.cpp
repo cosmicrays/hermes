@@ -8,7 +8,7 @@
 #include "hermes/Common.h"
 
 // Following units from Koch and Motz, 1959
-#define mc_units (m_electron * c_light)
+#define mc_units (m_electron * c_light) 
 #define mc2_units (m_electron * c_squared)
 
 #define LIMIT 1000
@@ -197,7 +197,6 @@ QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionDirectly(
 	QNumber T_electron_f = E_electron_f - 1_num;
 
 	if (T_electron_i <= k) return QDiffCrossSection(0);
-
 	if (T_electron_i < 0.01_MeV / mc2_units) return QDiffCrossSection(0);
 
 	QNumber p_i = sqrt(T_electron_i * (T_electron_i + 2_num));
@@ -211,16 +210,16 @@ QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionDirectly(
 
 	if (T_electron_i < 0.07_MeV / mc2_units) {
 		return ElwertFactor(beta_i, beta_f, Z) *
-		       dsdk_LowEnergy(p_i, p_f, k, Z) / E_gamma;
+		       dsdk_LowEnergy(p_i, p_f, k, Z) / mc2_units;
 	}
 
 	if (T_electron_i < 2.0_MeV / mc2_units) {
 		return ElwertFactor(beta_i, beta_f, Z) * xiFunc(T_electron_i, k, Z, N) *
 		       dsdk_IntermediateEnergy(gamma_i, gamma_f, p_i, p_f, k, Z) /
-		       E_gamma;
+		       mc2_units;
 	}
 
-	return dsdk_HighEnergy(gamma_i, gamma_f, k, Z, N) / E_gamma;
+	return dsdk_HighEnergy(gamma_i, gamma_f, k, Z, N) / mc2_units;
 }
 
 }}  // namespace hermes::interactions
