@@ -120,9 +120,11 @@ TEST(Interactions, BremsstrahlungSimple) {
 	// tabular data
 	auto Eelectron = 10_MeV;
 	auto Egamma = 0.01_MeV;
+	i->disableCaching();
 	auto res = Egamma * i->getDiffCrossSection(
                         Eelectron, Egamma) / 1_mbarn;
 	EXPECT_NEAR(static_cast<double>(res), 35.821, 1e-1);
+	i->enableCaching();
 	
 	Eelectron = 100_MeV;
 	Egamma = 2.07965_MeV;
