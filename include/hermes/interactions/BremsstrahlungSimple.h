@@ -3,26 +3,38 @@
 
 #include <memory>
 
+#include "hermes/ParticleID.h"
 #include "hermes/CacheTools.h"
 #include "hermes/interactions/DiffCrossSection.h"
 
+#define TARGETS_NUMBER
+
 namespace hermes { namespace interactions {
 
+
 class BremsstrahlungSimple : public DifferentialCrossSection {
+  public:
+	constexpr static std::size_t Ntargets = 3;
+	enum class Target {HII, HI, He};
+	const std::array<Target,Ntargets> allTargets = { // to iterate over targets
+		Target::HII, Target::HI, Target::He
+	};
   private:
 	bool cachingEnabled;
-	std::unique_ptr<CacheStorageCrossSection> cache;
+	std::array<std::unique_ptr<CacheStorageCrossSection>, Ntargets> cache;
 
   public:
 	BremsstrahlungSimple();
-
+	
 	void enableCaching();
 	void disableCaching();
-
-	QDiffCrossSection getDiffCrossSection(
-	    const QEnergy &E_electron, const QEnergy &E_gamma) const override;
-	QDiffCrossSection getDiffCrossSectionDirectly(const QEnergy &E_electron,
-	                                              const QEnergy &E_gamma) const;
+	
+	QDiffCrossSection getDiffCrossSection(const QEnergy &T_electron,
+			const QEnergy &E_gamma) const override;
+	QDiffCrossSection getDiffCrossSectionForTarget(Target t,
+			const QEnergy &T_electron, const QEnergy &E_gamma) const;
+	QDiffCrossSection getDiffCrossSectionForTargetDirectly(Target t,
+			const QEnergy &T_electron, const QEnergy &E_gamma) const;
 
 	QNumber ElwertFactor(const QNumber &beta_i, const QNumber &beta_f,
 	                     int Z) const;
