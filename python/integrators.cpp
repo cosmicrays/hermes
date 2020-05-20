@@ -1,13 +1,14 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
+#include "hermes/integrators/BremsstrahlungIntegrator.h"
 #include "hermes/integrators/DispersionMeasureIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/integrators/InverseComptonIntegrator.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
-#include "hermes/integrators/PiZeroIntegrator.h"
 #include "hermes/integrators/PiZeroAbsorptionIntegrator.h"
+#include "hermes/integrators/PiZeroIntegrator.h"
 #include "hermes/integrators/RotationMeasureIntegrator.h"
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
@@ -113,6 +114,22 @@ void init_integrators(py::module &m) {
 			static_cast<QDiffIntensity (PiZeroIntegrator::*)(
     	             const QDirection &, const QEnergy &) const>(
 						&PiZeroIntegrator::integrateOverLOS));
+	
+	// BremsstrahlungIntegrator
+	py::class_<BremsstrahlungIntegrator, InverseComptonIntegratorParentClass,
+	           std::shared_ptr<BremsstrahlungIntegrator>>
+	    bremsintegrator(m, "BremsstrahlungIntegrator", py::buffer_protocol());
+	bremsintegrator.def(
+	    py::init<
+	        const std::shared_ptr<cosmicrays::CosmicRayDensity>,
+	        const std::shared_ptr<neutralgas::RingModel>,
+	        const std::shared_ptr<interactions::BremsstrahlungSimple>>());
+	declare_default_integrator_methods<BremsstrahlungIntegrator>(bremsintegrator);
+	bremsintegrator.def("integrateOverLOS", 
+			static_cast<QDiffIntensity (BremsstrahlungIntegrator::*)(
+    	             const QDirection &, const QEnergy &) const>(
+						&BremsstrahlungIntegrator::integrateOverLOS));
+
 
 	// PiZeroAbsorptionIntegrator
 	py::class_<PiZeroAbsorptionIntegrator, InverseComptonIntegratorParentClass,

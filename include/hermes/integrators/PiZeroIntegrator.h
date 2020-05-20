@@ -20,7 +20,7 @@ namespace hermes {
  */
 
 class PiZeroIntegrator : public GammaIntegratorTemplate {
-  private:
+  protected:
 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList;
 	std::shared_ptr<neutralgas::RingModel> ngdensity;
 	std::shared_ptr<interactions::DifferentialCrossSection> crossSec;
@@ -43,7 +43,7 @@ class PiZeroIntegrator : public GammaIntegratorTemplate {
 	    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &,
 	    const std::shared_ptr<neutralgas::RingModel> &,
 	    const std::shared_ptr<interactions::DifferentialCrossSection> &);
-	~PiZeroIntegrator();
+	virtual ~PiZeroIntegrator();
 
 	void setEnergy(const QEnergy &Egamma);
 	QEnergy getEnergy() const;
@@ -55,7 +55,7 @@ class PiZeroIntegrator : public GammaIntegratorTemplate {
 	QDiffIntensity integrateOverLOS(const QDirection &iterdir,
 	                                const QEnergy &Egamma) const override;
 
-	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos,
+	virtual QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos,
 	                                    const QEnergy &Egamma) const;
 
 	void setupCacheTable(int, int, int) override;

@@ -240,9 +240,7 @@ QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionForTargetDirectly(Tar
 		       dsdk_IntermediateEnergy(gamma_i, gamma_f, p_i, p_f, k, Z) /
 		       mc2_units;
 	}
-	//std::cerr << "k = " << k << std::endl;
-	//std::cerr << "gamma_i = " << gamma_i << std::endl;
-	//std::cerr << "gamma_f = " << gamma_f << std::endl;
+	
 	return dsdk_HighEnergy(gamma_i, gamma_f, k, Z, N) / mc2_units;
 }
 

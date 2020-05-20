@@ -32,6 +32,7 @@
 #include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/integrators/PiZeroAbsorptionIntegrator.h"
 #include "hermes/integrators/PiZeroIntegrator.h"
+#include "hermes/integrators/BremsstrahlungIntegrator.h"
 #include "hermes/integrators/RotationMeasureIntegrator.h"
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"

@@ -253,6 +253,7 @@ add_library(hermes SHARED
 	src/integrators/InverseComptonIntegrator.cpp
 	src/integrators/PiZeroAbsorptionIntegrator.cpp
 	src/integrators/PiZeroIntegrator.cpp
+	src/integrators/BremsstrahlungIntegrator.cpp
 	src/integrators/RotationMeasureIntegrator.cpp
 	src/integrators/SynchroAbsorptionIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
@@ -413,6 +414,10 @@ if(ENABLE_TESTING)
 	add_executable(testPiZeroIntegrator test/testPiZeroIntegrator.cpp)
 	target_link_libraries(testPiZeroIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testPiZeroIntegrator testPiZeroIntegrator)
+	
+	add_executable(testBremsstrahlungIntegrator test/testBremsstrahlungIntegrator.cpp)
+	target_link_libraries(testBremsstrahlungIntegrator hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testBremsstrahlungIntegrator testBremsstrahlungIntegrator)
 
 	add_executable(testPhotonField test/testPhotonField.cpp)
 	target_link_libraries(testPhotonField hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
