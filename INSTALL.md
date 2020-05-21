@@ -8,6 +8,7 @@ Required:
 - **CMake** (`cmake`) is absolutely necessary to configure and build the source code (ver. 3.1+)
 - **GCC** (`g++`) or **Clang** (`clang++`) are supported compilers; as modern C++ is employed (C++14), at least [GCC 6.1](https://gcc.gnu.org/projects/cxx-status.html#cxx14) / [Clang 3.4](https://clang.llvm.org/cxx_status.html) should be considered
 - **GNU Scientific Library (GSL)** (`gsl`) is mandatory for numerical integration and for special functions
+- **zlib** is a file (de)compression library (or more precisely "a massively spiffy yet delicately unobtrusive compression library") and is needed for reading compressed data files
 
 Optional:
 - **Git** is needed if one wants to clone and keep in sync the source code from the git repository (**recommended**)
@@ -22,6 +23,7 @@ Provided with the source:
 - **Pybind11** is used to build the python interface to C++ classes and functions
 - **Google Test** is employed as a framework for unit tests
 - **cparamlib** is used to calculate fluxes of stable secondary particles from p-p interactions (Kamae et al. 2006, 2007)
+- **zstream-cpp** provides support for zlib compressed streams
 
 ## Obtaining HERMES source
 

@@ -82,14 +82,20 @@ endif()
 # Dependencies
 # ----------------------------------------------------------------------------
 
-# C++ Threads
+# C++ Threads required
 find_package(Threads REQUIRED)
 list(APPEND HERMES_EXTRA_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 
-# GSL required dependency
+# GSL required
 find_package(GSL REQUIRED)
 list(APPEND HERMES_EXTRA_INCLUDES ${GSL_INCLUDE_DIRS})
 list(APPEND HERMES_EXTRA_LIBRARIES ${GSL_LIBRARIES})
+
+# zlib required / zstream-cpp provided
+find_package(ZLIB REQUIRED)
+list(APPEND HERMES_EXTRA_INCLUDES ${ZLIB_INCLUDE_DIRS})
+list(APPEND HERMES_EXTRA_LIBRARIES ${ZLIB_LIBRARIES})
+list(APPEND HERMES_EXTRA_INCLUDES "lib/zstream-cpp")
 
 # googletest (provided, see https://code.google.com/p/googletest/wiki/FAQ
 #     Why is it not recommended use a pre-compiled copy of Google Test?)
@@ -248,17 +254,18 @@ add_library(hermes SHARED
 	src/cosmicrays/SimpleCRDensity.cpp
 	src/cosmicrays/Sun08CRDensity.cpp
 	src/cosmicrays/WMAP07CRDensity.cpp
+	src/darkmatter/PPPC4DMIDSpectrum.cpp
+	src/integrators/BremsstrahlungIntegrator.cpp
 	src/integrators/DispersionMeasureIntegrator.cpp
 	src/integrators/FreeFreeIntegrator.cpp
 	src/integrators/InverseComptonIntegrator.cpp
 	src/integrators/PiZeroAbsorptionIntegrator.cpp
 	src/integrators/PiZeroIntegrator.cpp
-	src/integrators/BremsstrahlungIntegrator.cpp
 	src/integrators/RotationMeasureIntegrator.cpp
 	src/integrators/SynchroAbsorptionIntegrator.cpp
 	src/integrators/SynchroIntegrator.cpp
-	src/interactions/BremsstrahlungSimple.cpp
 	src/interactions/BreitWheeler.cpp
+	src/interactions/BremsstrahlungSimple.cpp
 	src/interactions/DifferentialCrossSection.cpp
 	src/interactions/Kamae06Gamma.cpp
 	src/interactions/Kamae06Neutrino.cpp
@@ -430,6 +437,10 @@ if(ENABLE_TESTING)
 	add_executable(testBreitWheeler test/testBreitWheeler.cpp)
 	target_link_libraries(testBreitWheeler hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testBreitWheeler testBreitWheeler)
+	
+	add_executable(testDarkMatter test/testDarkMatter.cpp)
+	target_link_libraries(testDarkMatter hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testDarkMatter testDarkMatter)
 endif(ENABLE_TESTING)
 
 # ----------------------------------------------------------------------------
