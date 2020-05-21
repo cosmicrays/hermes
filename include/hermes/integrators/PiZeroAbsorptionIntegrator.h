@@ -44,12 +44,12 @@ class PiZeroAbsorptionIntegrator : public GammaIntegratorTemplate {
 	PiZeroAbsorptionIntegrator(
 	    const std::shared_ptr<cosmicrays::CosmicRayDensity> &,
 	    const std::shared_ptr<neutralgas::RingModel> &,
-		const std::shared_ptr<photonfields::PhotonField> &,
+	    const std::shared_ptr<photonfields::PhotonField> &,
 	    const std::shared_ptr<interactions::DifferentialCrossSection> &);
 	PiZeroAbsorptionIntegrator(
 	    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &,
 	    const std::shared_ptr<neutralgas::RingModel> &,
-		const std::shared_ptr<photonfields::PhotonField> &,
+	    const std::shared_ptr<photonfields::PhotonField> &,
 	    const std::shared_ptr<interactions::DifferentialCrossSection> &);
 	~PiZeroAbsorptionIntegrator();
 

@@ -62,6 +62,8 @@ constexpr auto Rydberg_const =
     (8 * (epsilon0 * epsilon0) * (h_planck * h_planck * h_planck) * c_light);
 constexpr QEnergy Ry = h_planck * c_light * Rydberg_const;
 
+constexpr QMass sun_mass = 1.989e33 * gram;
+
 // Predefined time-derived units:
 constexpr QTime minute = 60. * second;
 constexpr QTime hour = 60. * minute;

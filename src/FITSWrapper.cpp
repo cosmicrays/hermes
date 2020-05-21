@@ -18,25 +18,29 @@ FITSFile::~FITSFile() {
 void FITSFile::createFile() {
 	if (fits_create_file(&fptr, filename.c_str(), &status))
 		fits_report_error(stderr, status);
-	if (status != 0) throw std::runtime_error("Cannot create file.");
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot create file.");
 }
 
 void FITSFile::deleteFile() {
 	if (fits_delete_file(fptr, &status)) fits_report_error(stderr, status);
-	if (status != 0) throw std::runtime_error("Cannot delete file.");
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot delete file.");
 	fptr = nullptr;
 }
 
 void FITSFile::openFile(FITS::IOMode ioMode) {
 	if (fits_open_file(&fptr, filename.c_str(), ioMode, &status))
 		fits_report_error(stderr, status);
-	if (status != 0) throw std::runtime_error("Cannot open file.");
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot open file.");
 }
 
 void FITSFile::closeFile() {
 	if (fits_close_file(fptr, &status)) fits_report_error(stderr, status);
 	if (status != 0) {
-		std::cerr << "CFITSIO error: Status code non-zero when closing file. "
+		std::cerr << "hermes: error: CFITSIO: Status code non-zero when "
+		             "closing file. "
 		             "Potentially corrupted file."
 		          << std::endl;
 	}
@@ -50,7 +54,8 @@ void FITSFile::moveToHDU(int hduNumber_) {
 	if (fits_movabs_hdu(fptr, hduNumber_, &readHDUType, &status))
 		fits_report_error(stderr, status);
 	if (status != 0)
-		throw std::runtime_error("Cannot move to the specified HDU.");
+		throw std::runtime_error(
+		    "hermes: error: Cannot move to the specified HDU.");
 	hduType = intToHDUType(readHDUType);
 }
 
@@ -59,7 +64,8 @@ int FITSFile::getNumberOfHDUs() {
 	if (fits_get_num_hdus(fptr, &hduNumber, &status))
 		fits_report_error(stderr, status);
 	if (status != 0)
-		throw std::runtime_error("Cannot retrieve the HDU number.");
+		throw std::runtime_error(
+		    "hermes: error: Cannot retrieve the HDU number.");
 	return hduNumber;
 }
 
@@ -67,7 +73,8 @@ int FITSFile::getCurrentHDUNumber() {
 	int hduActual;
 	if (fits_get_hdu_num(fptr, &hduActual)) fits_report_error(stderr, status);
 	if (status != 0) {
-		throw std::runtime_error("Cannot retrieve the selected HDU number.");
+		throw std::runtime_error(
+		    "hermes: error: Cannot retrieve the selected HDU number.");
 	}
 	return hduActual;
 }
@@ -81,7 +88,7 @@ FITS::HDUType FITSFile::intToHDUType(int hduType_) {
 		case BINARY_TBL:
 			return FITS::BINARY;
 		default:
-			throw std::runtime_error("Unknown HDU type!");
+			throw std::runtime_error("hermes: error: Unknown HDU type!");
 	}
 }
 
@@ -91,7 +98,7 @@ FITS::HDUType FITSFile::getHDUType() {
 		fits_report_error(stderr, status);
 	if (status != 0) {
 		throw std::runtime_error(
-		    "Cannot retrieve the type of the selected HDU.");
+		    "hermes: error: Cannot retrieve the type of the selected HDU.");
 	}
 	return intToHDUType(hduType);
 }
@@ -102,7 +109,8 @@ int FITSFile::getNumOfKeywords() {
 		fits_report_error(stderr, status);
 	if (status != 0) {
 		throw std::runtime_error(
-		    "Cannot access the number of keyword in this header.");
+		    "hermes: error: Cannot access the number of keyword in this "
+		    "header.");
 	}
 	return keyexist;
 }
@@ -118,7 +126,7 @@ std::vector<std::string> FITSFile::getHeaderRecords() {
 	}
 	if (status != 0) {
 		throw std::runtime_error(
-		    "Cannot read header records from this header.");
+		    "hermes: error: Cannot read header records from this header.");
 	}
 
 	return records;
@@ -126,14 +134,16 @@ std::vector<std::string> FITSFile::getHeaderRecords() {
 
 void FITSFile::writeDate() {
 	if (fits_write_date(fptr, &status)) fits_report_error(stderr, status);
-	if (status != 0) throw std::runtime_error("Cannot write date.");
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot write date.");
 }
 
 void FITSFile::writeKeyValue(FITSKeyValue &kv, const char comment[]) {
 	if (fits_write_key(fptr, kv.getType(), kv.getKey(), kv.getValueAsVoid(),
 	                   comment, &status))
 		fits_report_error(stderr, status);
-	if (status != 0) throw std::runtime_error("Cannot write key-value pair.");
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot write key-value pair.");
 }
 
 FITSKeyValue FITSFile::readKeyValue(const std::string &key_,
@@ -159,7 +169,8 @@ FITSKeyValue FITSFile::readKeyValue(const std::string &key_,
 			              &status);
 	}
 
-	if (status != 0) throw std::runtime_error("Cannot read key-value pair.");
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot read key-value pair.");
 
 	return kv;
 }
@@ -170,7 +181,8 @@ void FITSFile::createImage(FITS::ImgType bitpix, int naxis, long *naxes) {
 	if (fits_create_img(fptr, static_cast<int>(bitpix), naxis, naxes, &status))
 		fits_report_error(stderr, status);
 	if (status != 0)
-		throw std::runtime_error("Cannot create image in FITS file.");
+		throw std::runtime_error(
+		    "hermes: error: Cannot create image in FITS file.");
 }
 
 void FITSFile::writeImage(FITS::DataType dataType, int firstElement,
@@ -179,7 +191,8 @@ void FITSFile::writeImage(FITS::DataType dataType, int firstElement,
 	                   nElements, array, &status))
 		fits_report_error(stderr, status);
 	if (status != 0)
-		throw std::runtime_error("Cannot write image in FITS file.");
+		throw std::runtime_error(
+		    "hermes: error: Cannot write image in FITS file.");
 }
 
 std::vector<float> FITSFile::readImageAsFloat(unsigned int firstElement,
@@ -191,11 +204,12 @@ std::vector<float> FITSFile::readImageAsFloat(unsigned int firstElement,
 	int anynul = -1;
 
 	if (nElements == 0)
-		throw std::runtime_error("Cannot read image of size 0.");
+		throw std::runtime_error("hermes: error: Cannot read image of size 0.");
 	if (fits_read_img(fptr, dataType, firstElement, nElements, &nullval,
 	                  arrayPtr, &anynul, &status))
 		fits_report_error(stderr, status);
-	if (status != 0) throw std::runtime_error("Cannot read image.");
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot read image.");
 
 	return resultArray;
 }
@@ -206,7 +220,8 @@ void FITSFile::createTable(FITS::HDUType tableType, long int nRows,
 	if (fits_create_tbl(fptr, tableType, nRows, nColumns, columnName,
 	                    columnType, columnUnit, tableName, &status))
 		fits_report_error(stderr, status);
-	if (status != 0) throw std::runtime_error("Cannot create table.");
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot create table.");
 }
 
 void FITSFile::writeColumn(FITS::DataType dataType, int column,
@@ -215,7 +230,8 @@ void FITSFile::writeColumn(FITS::DataType dataType, int column,
 	if (fits_write_col(fptr, static_cast<int>(dataType), column, firstRow,
 	                   firstElement, nElements, array, &status))
 		fits_report_error(stderr, status);
-	if (status != 0) throw std::runtime_error("Cannot write a column.");
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot write a column.");
 }
 
 }  // namespace hermes

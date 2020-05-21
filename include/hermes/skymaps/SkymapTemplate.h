@@ -320,9 +320,9 @@ template <typename QPXL, typename QSTEP>
 std::vector<float> SkymapTemplate<QPXL, QSTEP>::containerToRawVector() const {
 	std::vector<float> tempArray;  // allocate on heap, because of nside >= 512
 	for (auto pxl : fluxContainer) {
-		float converted_pxl = // don't convert UNSEEN pixels
-			pxl == QPXL(UNSEEN) ? static_cast<float>(pxl)
-				       	: static_cast<float>(toSkymapDefaultUnits(pxl));
+		float converted_pxl =  // don't convert UNSEEN pixels
+		    pxl == QPXL(UNSEEN) ? static_cast<float>(pxl)
+		                        : static_cast<float>(toSkymapDefaultUnits(pxl));
 		tempArray.push_back(converted_pxl);
 	}
 	return tempArray;

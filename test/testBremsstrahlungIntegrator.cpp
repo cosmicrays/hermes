@@ -42,8 +42,9 @@ TEST(BremsstrahlungIntegrator, integrateOverEnergy) {
 	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(
 	    cosmicrays::SimpleCRDensity());
 	// interaction
-	auto bremsstrahlungCS = std::make_shared<interactions::BremsstrahlungSimple>(
-	    interactions::BremsstrahlungSimple());
+	auto bremsstrahlungCS =
+	    std::make_shared<interactions::BremsstrahlungSimple>(
+	        interactions::BremsstrahlungSimple());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
 	    neutralgas::RingModel(neutralgas::RingType::HI));
@@ -53,9 +54,12 @@ TEST(BremsstrahlungIntegrator, integrateOverEnergy) {
 
 	auto pos = Vector3QLength(8.5_kpc, 0, 0);
 	QDirection dir = {90_deg, 1_deg};
-	std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 1_GeV) << std::endl;
-	std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 100_MeV) << std::endl;
-	std::cerr << intBremsstrahlung->integrateOverLOS(dir, 1000_MeV) << std::endl;
+	std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 1_GeV)
+	          << std::endl;
+	std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 100_MeV)
+	          << std::endl;
+	std::cerr << intBremsstrahlung->integrateOverLOS(dir, 1000_MeV)
+	          << std::endl;
 }
 
 TEST(BremsstrahlungIntegrator, LOS) {
@@ -87,10 +91,10 @@ TEST(BremsstrahlungIntegrator, LOS) {
 
 	auto pos = Vector3QLength(8.5_kpc, 0, 0);
 	QDirection dir = {90_deg, 1_deg};
-	// std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 1_GeV) << std::endl;
-	// std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 100_MeV) <<
-	// std::endl; std::cerr << intBremsstrahlung->integrateOverLOS(dir, 1000_MeV) <<
-	// std::endl;
+	// std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 1_GeV) <<
+	// std::endl; std::cerr << intBremsstrahlung->integrateOverEnergy(pos,
+	// 100_MeV) << std::endl; std::cerr <<
+	// intBremsstrahlung->integrateOverLOS(dir, 1000_MeV) << std::endl;
 	std::chrono::time_point<std::chrono::system_clock> start =
 	    std::chrono::system_clock::now();
 	skymap->compute();

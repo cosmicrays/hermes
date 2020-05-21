@@ -110,31 +110,32 @@ void init_integrators(py::module &m) {
 	        const std::shared_ptr<neutralgas::RingModel>,
 	        const std::shared_ptr<interactions::DifferentialCrossSection>>());
 	declare_default_integrator_methods<PiZeroIntegrator>(pizerointegrator);
-	pizerointegrator.def("integrateOverLOS", 
-			static_cast<QDiffIntensity (PiZeroIntegrator::*)(
-    	             const QDirection &, const QEnergy &) const>(
-						&PiZeroIntegrator::integrateOverLOS));
-	
+	pizerointegrator.def("integrateOverLOS",
+	                     static_cast<QDiffIntensity (PiZeroIntegrator::*)(
+	                         const QDirection &, const QEnergy &) const>(
+	                         &PiZeroIntegrator::integrateOverLOS));
+
 	// BremsstrahlungIntegrator
 	py::class_<BremsstrahlungIntegrator, InverseComptonIntegratorParentClass,
 	           std::shared_ptr<BremsstrahlungIntegrator>>
 	    bremsintegrator(m, "BremsstrahlungIntegrator", py::buffer_protocol());
 	bremsintegrator.def(
-	    py::init<
-	        const std::shared_ptr<cosmicrays::CosmicRayDensity>,
-	        const std::shared_ptr<neutralgas::RingModel>,
-	        const std::shared_ptr<interactions::BremsstrahlungSimple>>());
-	declare_default_integrator_methods<BremsstrahlungIntegrator>(bremsintegrator);
-	bremsintegrator.def("integrateOverLOS", 
-			static_cast<QDiffIntensity (BremsstrahlungIntegrator::*)(
-    	             const QDirection &, const QEnergy &) const>(
-						&BremsstrahlungIntegrator::integrateOverLOS));
-
+	    py::init<const std::shared_ptr<cosmicrays::CosmicRayDensity>,
+	             const std::shared_ptr<neutralgas::RingModel>,
+	             const std::shared_ptr<interactions::BremsstrahlungSimple>>());
+	declare_default_integrator_methods<BremsstrahlungIntegrator>(
+	    bremsintegrator);
+	bremsintegrator.def(
+	    "integrateOverLOS",
+	    static_cast<QDiffIntensity (BremsstrahlungIntegrator::*)(
+	        const QDirection &, const QEnergy &) const>(
+	        &BremsstrahlungIntegrator::integrateOverLOS));
 
 	// PiZeroAbsorptionIntegrator
 	py::class_<PiZeroAbsorptionIntegrator, InverseComptonIntegratorParentClass,
 	           std::shared_ptr<PiZeroAbsorptionIntegrator>>
-	    pizeroabsintegrator(m, "PiZeroAbsorptionIntegrator", py::buffer_protocol());
+	    pizeroabsintegrator(m, "PiZeroAbsorptionIntegrator",
+	                        py::buffer_protocol());
 	pizeroabsintegrator.def(
 	    py::init<
 	        const std::shared_ptr<cosmicrays::CosmicRayDensity>,
@@ -147,14 +148,16 @@ void init_integrators(py::module &m) {
 	        const std::shared_ptr<neutralgas::RingModel>,
 	        const std::shared_ptr<photonfields::PhotonField>,
 	        const std::shared_ptr<interactions::DifferentialCrossSection>>());
-	declare_default_integrator_methods<PiZeroAbsorptionIntegrator>(pizeroabsintegrator);
+	declare_default_integrator_methods<PiZeroAbsorptionIntegrator>(
+	    pizeroabsintegrator);
 	pizeroabsintegrator.def(
-		"integrateOverPhotonEnergy", &PiZeroAbsorptionIntegrator::integrateOverPhotonEnergy);
-	pizeroabsintegrator.def("integrateOverLOS", 
-			static_cast<QDiffIntensity (PiZeroAbsorptionIntegrator::*)(
-    	             const QDirection &, const QEnergy &) const>(
-						&PiZeroAbsorptionIntegrator::integrateOverLOS));
-
+	    "integrateOverPhotonEnergy",
+	    &PiZeroAbsorptionIntegrator::integrateOverPhotonEnergy);
+	pizeroabsintegrator.def(
+	    "integrateOverLOS",
+	    static_cast<QDiffIntensity (PiZeroAbsorptionIntegrator::*)(
+	        const QDirection &, const QEnergy &) const>(
+	        &PiZeroAbsorptionIntegrator::integrateOverLOS));
 }
 
 }  // namespace hermes

@@ -17,13 +17,14 @@ BremsstrahlungIntegrator::BremsstrahlungIntegrator(
     const std::shared_ptr<cosmicrays::CosmicRayDensity> &crDensity_,
     const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
     const std::shared_ptr<interactions::BremsstrahlungSimple> &crossSec_)
-    : PiZeroIntegrator(crDensity_, ngdensity_, crossSec_), crossSec(crossSec_) { }
+    : PiZeroIntegrator(crDensity_, ngdensity_, crossSec_),
+      crossSec(crossSec_) {}
 
 BremsstrahlungIntegrator::BremsstrahlungIntegrator(
     const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &crList_,
     const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
     const std::shared_ptr<interactions::BremsstrahlungSimple> &crossSec_)
-    : PiZeroIntegrator(crList_, ngdensity_, crossSec_), crossSec(crossSec_) { }
+    : PiZeroIntegrator(crList_, ngdensity_, crossSec_), crossSec(crossSec_) {}
 
 BremsstrahlungIntegrator::~BremsstrahlungIntegrator() {}
 
@@ -31,29 +32,27 @@ QPiZeroIntegral BremsstrahlungIntegrator::integrateOverEnergy(
     const Vector3QLength &pos_, const QEnergy &Egamma_) const {
 	if (cacheTableInitialized) return getIOEfromCache(pos_, Egamma_);
 
-	auto crDensity = crList[0]; 
+	auto crDensity = crList[0];
 
 	// we have 3 targets: HI, HII and He
 	// the ring model has HI and H2 (CO)
-	
+
 	// Not ionized
-	
-	//brems = cs_HI + cs_He*He_abundance
+
+	// brems = cs_HI + cs_He*He_abundance
 	std::vector<QDiffCrossSection> diffCrossSectionVector;
-	std::transform(crDensity->beginAfterEnergy(Egamma_), crDensity->end(),
-	               std::back_inserter(diffCrossSectionVector),
-	               [this, Egamma_](const QEnergy &E) -> QDiffCrossSection {
-		               return (
-					       crossSec->getDiffCrossSectionForTarget(
-						       interactions::BremsstrahlungSimple::Target::HI,
-						       E, Egamma_)
-					       +
-					       0.1*crossSec->getDiffCrossSectionForTarget(
-						       interactions::BremsstrahlungSimple::Target::He,
-						       E, Egamma_)
-				      );
-	               });
-	
+	std::transform(
+	    crDensity->beginAfterEnergy(Egamma_), crDensity->end(),
+	    std::back_inserter(diffCrossSectionVector),
+	    [this, Egamma_](const QEnergy &E) -> QDiffCrossSection {
+		    return (crossSec->getDiffCrossSectionForTarget(
+		                interactions::BremsstrahlungSimple::Target::HI, E,
+		                Egamma_) +
+		            0.1 * crossSec->getDiffCrossSectionForTarget(
+		                      interactions::BremsstrahlungSimple::Target::He, E,
+		                      Egamma_));
+	    });
+
 	auto pid_projectile = crDensity->getPID();
 
 	std::vector<QPDensity> cosmicRayVector;
@@ -65,17 +64,15 @@ QPiZeroIntegral BremsstrahlungIntegrator::integrateOverEnergy(
 
 	std::vector<QPiZeroIntegral> integral;
 	std::transform(cosmicRayVector.begin(), cosmicRayVector.end(),
-	               diffCrossSectionVector.begin(),
-	               std::back_inserter(integral),
+	               diffCrossSectionVector.begin(), std::back_inserter(integral),
 	               [](const QPDensity &a, const QDiffCrossSection &b) {
 		               return a * b * c_light;
-	              });
-	
+	               });
+
 	// log-integration
 	auto integralOverEnergy =
 	    std::log(crDensity->getEnergyScaleFactor()) *
-	    std::accumulate(integral.begin(), integral.end(),
-	                    QPiZeroIntegral(0));
+	    std::accumulate(integral.begin(), integral.end(), QPiZeroIntegral(0));
 
 	return integralOverEnergy;
 }

@@ -56,7 +56,7 @@ class PiZeroIntegrator : public GammaIntegratorTemplate {
 	                                const QEnergy &Egamma) const override;
 
 	virtual QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos,
-	                                    const QEnergy &Egamma) const;
+	                                            const QEnergy &Egamma) const;
 
 	void setupCacheTable(int, int, int) override;
 	void initCacheTable() override;

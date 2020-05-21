@@ -69,7 +69,7 @@ void GammaSkymapRange::save(
 		output->writeKeyValueAsDouble(std::string("ENERGY"),
 		                              static_cast<double>(it->getEnergy()),
 		                              std::string("The skymap energy in J."));
-		
+
 		auto tempArray = it->containerToRawVector();
 		output->writeColumn(npix, tempArray.data());
 	}

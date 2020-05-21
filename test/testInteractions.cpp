@@ -115,56 +115,55 @@ TEST(Interactions, KleinNishina) {
 
 TEST(Interactions, BremsstrahlungSimple) {
 	auto i = std::make_shared<interactions::BremsstrahlungSimple>(
-	    		interactions::BremsstrahlungSimple());
+	    interactions::BremsstrahlungSimple());
 	auto t = interactions::BremsstrahlungSimple::Target::HI;
 	i->disableCaching();
 
 	// tabular data
 	auto Eelectron = 10_MeV;
 	auto Egamma = 0.01_MeV;
-	auto res = Egamma * i->getDiffCrossSectionForTarget(t,
-                        Eelectron, Egamma) / 1_mbarn;
+	auto res = Egamma * i->getDiffCrossSectionForTarget(t, Eelectron, Egamma) /
+	           1_mbarn;
 	EXPECT_NEAR(static_cast<double>(res), 35.821, 1e-1);
-	
+
 	Eelectron = 1e-1_MeV;
 	Egamma = 0.037975_MeV;
-	res = Egamma * i->getDiffCrossSectionForTarget(t,
-                        Eelectron, Egamma) / 1_mbarn;
-	//EXPECT_NEAR(static_cast<double>(res), 20.0682, 1e-1);
-	
+	res = Egamma * i->getDiffCrossSectionForTarget(t, Eelectron, Egamma) /
+	      1_mbarn;
+	// EXPECT_NEAR(static_cast<double>(res), 20.0682, 1e-1);
+
 	Eelectron = 1e-1_MeV;
 	Egamma = 0.089543_MeV;
-	res = Egamma * i->getDiffCrossSectionForTarget(t,
-                        Eelectron, Egamma) / 1_mbarn;
-	//EXPECT_NEAR(static_cast<double>(res), 5.9469, 1e-1);
-	
+	res = Egamma * i->getDiffCrossSectionForTarget(t, Eelectron, Egamma) /
+	      1_mbarn;
+	// EXPECT_NEAR(static_cast<double>(res), 5.9469, 1e-1);
+
 	i->enableCaching();
-	
+
 	Eelectron = 100_MeV;
 	Egamma = 2.07965_MeV;
-	res = Egamma * i->getDiffCrossSectionForTarget(t,
-                        Eelectron, Egamma) / 1_mbarn;
+	res = Egamma * i->getDiffCrossSectionForTarget(t, Eelectron, Egamma) /
+	      1_mbarn;
 	EXPECT_NEAR(static_cast<double>(res), 35.0416, 1e-1);
-	
+
 	Eelectron = 1e4_GeV;
 	Egamma = 0.01_MeV;
-	res = Egamma * i->getDiffCrossSectionForTarget(t,
-                        Eelectron, Egamma) / 1_mbarn;
+	res = Egamma * i->getDiffCrossSectionForTarget(t, Eelectron, Egamma) /
+	      1_mbarn;
 	EXPECT_NEAR(static_cast<double>(res), 35.922, 1e-1);
-	
+
 	Eelectron = 1e3_GeV;
 	Egamma = 974514.0_MeV;
-	res = Egamma * i->getDiffCrossSectionForTarget(t,
-                        Eelectron, Egamma) / 1_mbarn;
+	res = Egamma * i->getDiffCrossSectionForTarget(t, Eelectron, Egamma) /
+	      1_mbarn;
 	EXPECT_NEAR(static_cast<double>(res), 26.1198, 1e-2);
-	
+
 	Eelectron = 1e4_GeV;
 	Egamma = 9131.6_MeV;
-	res = Egamma * i->getDiffCrossSectionForTarget(t,
-                        Eelectron, Egamma) / 1_mbarn;
+	res = Egamma * i->getDiffCrossSectionForTarget(t, Eelectron, Egamma) /
+	      1_mbarn;
 	EXPECT_NEAR(static_cast<double>(res), 35.8892, 1e-1);
 }
-
 
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);

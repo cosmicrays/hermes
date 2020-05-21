@@ -85,15 +85,19 @@ void ISRF::loadISRF() {
 			     << str(static_cast<int>(j * 10)) << ".dat";
 			std::string filename = getDataPath(name.str());
 
-			// TODO(adundovi): exception if file not found
-			std::ifstream file_to_read(filename.c_str());
-			for (std::size_t k = 0; k < num_of_header_lines; ++k) {
-				file_to_read.ignore(max_num_of_char_in_a_line, '\n');
+			std::ifstream fin(filename.c_str());
+			if (!fin) {
+				std::stringstream ss;
+				ss << "hermes: error: File " << filename << " not found";
+				throw std::runtime_error(ss.str());
 			}
-			while (!file_to_read.eof()) {
+			for (std::size_t k = 0; k < num_of_header_lines; ++k) {
+				fin.ignore(max_num_of_char_in_a_line, '\n');
+			}
+			while (!fin.eof()) {
 				double f_, e_;
-				file_to_read >> f_ >> e_;
-				if (!file_to_read.eof()) isrf.push_back(e_);
+				fin >> f_ >> e_;
+				if (!fin.eof()) isrf.push_back(e_);
 			}
 			n++;
 		}

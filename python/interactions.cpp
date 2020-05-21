@@ -77,7 +77,8 @@ void init(py::module &m) {
 	py::class_<BremsstrahlungSimple, std::shared_ptr<BremsstrahlungSimple>,
 	           DifferentialCrossSection>(subm, "BremsstrahlungSimple")
 	    .def(py::init<>())
-	    .def("getDiffCrossSectionForTarget", &BremsstrahlungSimple::getDiffCrossSectionForTarget)
+	    .def("getDiffCrossSectionForTarget",
+	         &BremsstrahlungSimple::getDiffCrossSectionForTarget)
 	    .def("getDiffCrossSection", &BremsstrahlungSimple::getDiffCrossSection);
 
 	py::class_<BreitWheeler, std::shared_ptr<BreitWheeler>>(subm,

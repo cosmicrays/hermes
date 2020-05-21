@@ -254,8 +254,10 @@ add_library(hermes SHARED
 	src/cosmicrays/SimpleCRDensity.cpp
 	src/cosmicrays/Sun08CRDensity.cpp
 	src/cosmicrays/WMAP07CRDensity.cpp
+	src/darkmatter/NFW1996Profile.cpp
 	src/darkmatter/PPPC4DMIDSpectrum.cpp
 	src/integrators/BremsstrahlungIntegrator.cpp
+	src/integrators/DarkMatterIntegrator.cpp
 	src/integrators/DispersionMeasureIntegrator.cpp
 	src/integrators/FreeFreeIntegrator.cpp
 	src/integrators/InverseComptonIntegrator.cpp

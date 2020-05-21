@@ -17,6 +17,7 @@ namespace hermes {
 class BremsstrahlungIntegrator : public PiZeroIntegrator {
   private:
 	std::shared_ptr<interactions::BremsstrahlungSimple> crossSec;
+
   public:
 	BremsstrahlungIntegrator(
 	    const std::shared_ptr<cosmicrays::CosmicRayDensity> &,

@@ -36,9 +36,10 @@ void declare_default_skymap_methods(py::class_<SKYMAP> c) {
 	c.def("getOutputUnits", &SKYMAP::getOutputUnits);
 	c.def("getOutputUnitsAsString", &SKYMAP::getOutputUnitsAsString);
 	c.def("getUnits", &SKYMAP::getUnits);
-	c.def("setIntegrator", [](SKYMAP &s, const std::shared_ptr<IntegratorClass> &i) {
-		s.setIntegrator(i);
-	});
+	c.def("setIntegrator",
+	      [](SKYMAP &s, const std::shared_ptr<IntegratorClass> &i) {
+		      s.setIntegrator(i);
+	      });
 	c.def("compute", &SKYMAP::compute);
 	c.def("computePixel", &SKYMAP::computePixel);
 	c.def("computePixelRange", &SKYMAP::computePixelRange);
@@ -113,12 +114,12 @@ void init_skymaps(py::module &m) {
 	    .def(py::init<std::size_t, const QEnergy &, const QEnergy &, int>(),
 	         py::arg("nside"), py::arg("Emin"), py::arg("Emax"),
 	         py::arg("E_steps"))
-	    .def(
-	        "setIntegrator",
-	        [](GammaSkymapRange &s,
-	           const std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>> &i) {
-		        s.setIntegrator(i);
-	        })
+	    .def("setIntegrator",
+	         [](GammaSkymapRange &s,
+	            const std::shared_ptr<
+	                IntegratorTemplate<QDiffIntensity, QEnergy>> &i) {
+		         s.setIntegrator(i);
+	         })
 	    .def("setMask", &GammaSkymapRange::setMask)
 	    .def("compute", &GammaSkymapRange::compute)
 	    .def("save", &GammaSkymapRange::save)

@@ -340,6 +340,32 @@ pow(const Quantity<l, t, m, I, T, N, J, A, SA> &num) {
 	    std::pow(static_cast<double>(num), exponent));
 }
 
+// pow() with rational exponent
+template <int exp_nom, int exp_denom, typename l, typename t, typename m,
+          typename I, typename T, typename N, typename J, typename A,
+          typename SA>
+constexpr Quantity<std::ratio_multiply<l, std::ratio<exp_nom, exp_denom>>,
+                   std::ratio_multiply<t, std::ratio<exp_nom, exp_denom>>,
+                   std::ratio_multiply<m, std::ratio<exp_nom, exp_denom>>,
+                   std::ratio_multiply<I, std::ratio<exp_nom, exp_denom>>,
+                   std::ratio_multiply<T, std::ratio<exp_nom, exp_denom>>,
+                   std::ratio_multiply<N, std::ratio<exp_nom, exp_denom>>,
+                   std::ratio_multiply<J, std::ratio<exp_nom, exp_denom>>,
+                   std::ratio_multiply<A, std::ratio<exp_nom, exp_denom>>,
+                   std::ratio_multiply<SA, std::ratio<exp_nom, exp_denom>>>
+pow(const Quantity<l, t, m, I, T, N, J, A, SA> &num) {
+	return Quantity<std::ratio_multiply<l, std::ratio<exp_nom, exp_denom>>,
+	                std::ratio_multiply<t, std::ratio<exp_nom, exp_denom>>,
+	                std::ratio_multiply<m, std::ratio<exp_nom, exp_denom>>,
+	                std::ratio_multiply<I, std::ratio<exp_nom, exp_denom>>,
+	                std::ratio_multiply<T, std::ratio<exp_nom, exp_denom>>,
+	                std::ratio_multiply<N, std::ratio<exp_nom, exp_denom>>,
+	                std::ratio_multiply<J, std::ratio<exp_nom, exp_denom>>,
+	                std::ratio_multiply<A, std::ratio<exp_nom, exp_denom>>,
+	                std::ratio_multiply<SA, std::ratio<exp_nom, exp_denom>>>(
+	    std::pow(static_cast<double>(num), exp_nom / exp_denom));
+}
+
 // squared()
 template <typename l, typename t, typename m, typename I, typename T,
           typename N, typename J, typename A, typename SA>
@@ -433,8 +459,10 @@ QUANTITY_TYPE(-1,-2, 1, 0, 0, 0, 0, 0, 0, QPressure);
 QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 0, 0, QColumnDensity);
 QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 0, 0, QDispersionMeasure);
 QUANTITY_TYPE(-2, 0, 0, 0, 0, 0, 0, 1, 0, QRotationMeasure);
+QUANTITY_TYPE(-2, 2,-1, 0, 0, 0, 0, 0, 0, QInverseEnergy);
 QUANTITY_TYPE(-2, 4,-1, 2, 0, 0, 0, 0, 0, QECapacitance);
 QUANTITY_TYPE(-3, 0, 0, 0, 0, 0, 0, 0, 0, QPDensity);
+QUANTITY_TYPE(-3, 0, 1, 0, 0, 0, 0, 0, 0, QMassDensity);
 QUANTITY_TYPE(-4, 1,-1, 0, 0, 0, 0, 0, 0, QDiffFlux);
 QUANTITY_TYPE(-4, 1,-1, 0, 0, 0, 0, 0,-1, QDiffIntensity);
 QUANTITY_TYPE(-5, 2,-1, 0, 0, 0, 0, 0, 0, QPDensityPerEnergy);

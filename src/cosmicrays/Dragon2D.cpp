@@ -127,7 +127,7 @@ void Dragon2D::readDensity2D() {
 		ffile->moveToHDU(hduIndex);  // Move to the next HDU (the first HDU = 1)
 
 		if (ffile->getHDUType() != IMAGE_HDU) {
-			std::cerr << "HDU is not an image!" << std::endl;
+			std::cerr << "hermes: warning: HDU is not an image!" << std::endl;
 			hduIndex++;
 			continue;
 		}
@@ -138,8 +138,8 @@ void Dragon2D::readDensity2D() {
 		int A = ffile->readKeyValueAsInt("A");
 
 		if (isPIDEnabled(PID(Z, A))) {
-			std::cerr << "... reading species with Z = " << Z << " A = " << A
-			          << " at HDU = " << hduActual << std::endl;
+			std::cerr << "hermes: info: reading species with Z = " << Z
+			          << " A = " << A << " at HDU = " << hduActual << std::endl;
 
 			std::vector<float> rawData =
 			    ffile->readImageAsFloat(firstElement, nElements);

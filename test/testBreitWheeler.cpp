@@ -23,14 +23,13 @@ TEST(Interactions, BreitWheeler) {
 TEST(Interactions, BreitWheelerOverCMB) {
 	auto bw = std::make_shared<interactions::BreitWheeler>();
 	auto ph = std::make_shared<photonfields::CMB>();
-	
+
 	auto E_gamma = 50_TeV;
 
 	for (auto itE = std::next(ph->begin()); itE != ph->end(); ++itE) {
 		auto E_ph = (*itE);
 		auto res = bw->integratedOverTheta(E_gamma, E_ph);
 	}
-
 }
 
 int main(int argc, char **argv) {

@@ -33,8 +33,7 @@ QArea BreitWheeler::integratedOverTheta(const QEnergy &Egamma,
                                         const QEnergy &Eph) const {
 	QNumber chi = Egamma * Eph / (2 * pow<2>(m_electron * c_squared));
 
-	if (chi < 0.5_num)
-		return QArea(0);
+	if (chi < 0.5_num) return QArea(0);
 
 	QAngle a = acos(1_num - 1 / chi);
 	QAngle b = pi * 2.0_rad - a;

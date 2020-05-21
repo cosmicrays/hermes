@@ -42,6 +42,7 @@ typedef double QDiffFlux;
 typedef double QDiffIntensity;
 typedef double QEmissivity;
 typedef double QPDensity;
+typedef double QDensity;
 typedef double QInverseLength;
 typedef double QColumnDensity;
 typedef double QDispersionMeasure;

@@ -8,7 +8,7 @@
 #include "hermes/Common.h"
 
 // Following units from Koch and Motz, 1959
-#define mc_units (m_electron * c_light) 
+#define mc_units (m_electron * c_light)
 #define mc2_units (m_electron * c_squared)
 
 #define LIMIT 1000
@@ -20,16 +20,15 @@ namespace hermes { namespace interactions {
 BremsstrahlungSimple::BremsstrahlungSimple()
     : cachingEnabled(true),
       cache({std::make_unique<CacheStorageCrossSection>(),
-	     std::make_unique<CacheStorageCrossSection>(), 
+             std::make_unique<CacheStorageCrossSection>(),
              std::make_unique<CacheStorageCrossSection>()}) {
-
 	// Initialize caching for all targets
-	for(auto &t: allTargets) {
+	for (auto &t : allTargets) {
 		cache[static_cast<int>(t)]->setFunction(
-			[t, this](QEnergy T_electron, QEnergy E_gamma) {
-				return this->getDiffCrossSectionForTargetDirectly(t, T_electron, E_gamma);
-			}
-		);
+		    [t, this](QEnergy T_electron, QEnergy E_gamma) {
+			    return this->getDiffCrossSectionForTargetDirectly(t, T_electron,
+			                                                      E_gamma);
+		    });
 	}
 }
 
@@ -37,15 +36,15 @@ void BremsstrahlungSimple::enableCaching() { cachingEnabled = true; };
 
 void BremsstrahlungSimple::disableCaching() { cachingEnabled = false; };
 
-QDiffCrossSection BremsstrahlungSimple::getDiffCrossSection(const QEnergy &T_electron,
-		const QEnergy &E_gamma) const {
+QDiffCrossSection BremsstrahlungSimple::getDiffCrossSection(
+    const QEnergy &T_electron, const QEnergy &E_gamma) const {
 	return getDiffCrossSectionForTarget(Target::HI, T_electron, E_gamma);
 }
 
-
-QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionForTarget(Target t,
-    const QEnergy &T_electron, const QEnergy &E_gamma) const {
-	if (cachingEnabled) return cache[static_cast<int>(t)]->getValue(T_electron, E_gamma);
+QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionForTarget(
+    Target t, const QEnergy &T_electron, const QEnergy &E_gamma) const {
+	if (cachingEnabled)
+		return cache[static_cast<int>(t)]->getValue(T_electron, E_gamma);
 	return getDiffCrossSectionForTargetDirectly(t, T_electron, E_gamma);
 }
 
@@ -198,23 +197,26 @@ QArea BremsstrahlungSimple::dsdk_HighEnergy(const QNumber &gamma_i,
 	return pow<2>(r_electron) * alpha_fine / k * factor;
 }
 
-QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionForTargetDirectly(Target t,
-    const QEnergy &T_electron, const QEnergy &E_gamma) const {
+QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionForTargetDirectly(
+    Target t, const QEnergy &T_electron, const QEnergy &E_gamma) const {
 	int Z, N;
 	if (t == Target::HII) {
-		Z = 1; N = 0;
+		Z = 1;
+		N = 0;
 	}
 	if (t == Target::HI) {
-		Z = 1; N = 1;
+		Z = 1;
+		N = 1;
 	}
 	if (t == Target::He) {
-		Z = 2; N = 2;
+		Z = 2;
+		N = 2;
 	}
 
 	QNumber k = E_gamma / mc2_units;
 	QNumber T_electron_i = T_electron / mc2_units;
 	QNumber T_electron_f = T_electron_i - k;
-	
+
 	if (T_electron_f <= 0_num) return QDiffCrossSection(0);
 	if (T_electron_i < 0.01_MeV / mc2_units) return QDiffCrossSection(0);
 
@@ -229,7 +231,7 @@ QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionForTargetDirectly(Tar
 
 	QNumber beta_i = sqrt(1_num - 1. / (gamma_i * gamma_i));
 	QNumber beta_f = sqrt(1_num - 1. / (gamma_f * gamma_f));
-	
+
 	if (T_electron_i < 0.07_MeV / mc2_units) {
 		return ElwertFactor(beta_i, beta_f, Z) *
 		       dsdk_LowEnergy(p_i, p_f, k, Z) / mc2_units;
@@ -240,7 +242,7 @@ QDiffCrossSection BremsstrahlungSimple::getDiffCrossSectionForTargetDirectly(Tar
 		       dsdk_IntermediateEnergy(gamma_i, gamma_f, p_i, p_f, k, Z) /
 		       mc2_units;
 	}
-	
+
 	return dsdk_HighEnergy(gamma_i, gamma_f, k, Z, N) / mc2_units;
 }
 

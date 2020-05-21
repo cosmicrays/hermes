@@ -16,10 +16,8 @@ TEST(CacheTools, getValue) {
 	cache->setFunction(f_area);
 
 	QLength a = 10_m, b = 50_m;
-	EXPECT_DOUBLE_EQ(
-			static_cast<double>(cache->getValue(a, b)),
-			static_cast<double>(cache->getValue(a, b))
-			);
+	EXPECT_DOUBLE_EQ(static_cast<double>(cache->getValue(a, b)),
+	                 static_cast<double>(cache->getValue(a, b)));
 }
 
 TEST(CacheTools, Kamae06Gamma) {
@@ -35,9 +33,9 @@ TEST(CacheTools, Kamae06Gamma) {
 	std::chrono::time_point<std::chrono::system_clock> start =
 	    std::chrono::system_clock::now();
 	for (int i = 0; i < 40; ++i) {
-		for (QEnergy E_gamma = 1_MeV; E_gamma < 1_TeV; E_gamma = E_gamma * 1.05) {
-			integral1 += f_kn->getDiffCrossSection(
-			    E_proton, E_gamma)*i;
+		for (QEnergy E_gamma = 1_MeV; E_gamma < 1_TeV;
+		     E_gamma = E_gamma * 1.05) {
+			integral1 += f_kn->getDiffCrossSection(E_proton, E_gamma) * i;
 		}
 	}
 	std::chrono::time_point<std::chrono::system_clock> stop =
@@ -47,16 +45,18 @@ TEST(CacheTools, Kamae06Gamma) {
 
 	start = std::chrono::system_clock::now();
 	for (int i = 0; i < 40; ++i) {
-		for (QEnergy E_gamma = 1_MeV; E_gamma < 1_TeV; E_gamma = E_gamma * 1.05) {
-			integral2 += f_kn->getDiffCrossSectionDirectly(
-			    E_proton, E_gamma)*i;
+		for (QEnergy E_gamma = 1_MeV; E_gamma < 1_TeV;
+		     E_gamma = E_gamma * 1.05) {
+			integral2 +=
+			    f_kn->getDiffCrossSectionDirectly(E_proton, E_gamma) * i;
 		}
 	}
 	stop = std::chrono::system_clock::now();
 	auto milliseconds2 =
 	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	
-	EXPECT_DOUBLE_EQ(static_cast<double>(integral1), static_cast<double>(integral2));
+
+	EXPECT_DOUBLE_EQ(static_cast<double>(integral1),
+	                 static_cast<double>(integral2));
 	EXPECT_GT(milliseconds2.count(), milliseconds1.count());
 }
 
@@ -73,8 +73,8 @@ TEST(CacheTools, BremsstrahlungSimple) {
 	std::chrono::time_point<std::chrono::system_clock> start =
 	    std::chrono::system_clock::now();
 	for (std::size_t i = 0; i < 10000; ++i) {
-		integral1 += f_brem->getDiffCrossSectionForTarget(t,
-		    E_gamma * (static_cast<double>(i % 100)), E_gamma);
+		integral1 += f_brem->getDiffCrossSectionForTarget(
+		    t, E_gamma * (static_cast<double>(i % 100)), E_gamma);
 	}
 	std::chrono::time_point<std::chrono::system_clock> stop =
 	    std::chrono::system_clock::now();
@@ -84,14 +84,15 @@ TEST(CacheTools, BremsstrahlungSimple) {
 	f_brem->disableCaching();
 	start = std::chrono::system_clock::now();
 	for (std::size_t i = 0; i < 10000; ++i) {
-		integral2 += f_brem->getDiffCrossSectionForTarget(t,
-		    E_gamma * (static_cast<double>(i % 100)), E_gamma);
+		integral2 += f_brem->getDiffCrossSectionForTarget(
+		    t, E_gamma * (static_cast<double>(i % 100)), E_gamma);
 	}
 	stop = std::chrono::system_clock::now();
 	auto milliseconds2 =
 	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 
-	EXPECT_DOUBLE_EQ(static_cast<double>(integral1), static_cast<double>(integral2));
+	EXPECT_DOUBLE_EQ(static_cast<double>(integral1),
+	                 static_cast<double>(integral2));
 	EXPECT_GT(milliseconds2.count(), milliseconds1.count());
 }
 
