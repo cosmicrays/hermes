@@ -54,12 +54,6 @@ TEST(BremsstrahlungIntegrator, integrateOverEnergy) {
 
 	auto pos = Vector3QLength(8.5_kpc, 0, 0);
 	QDirection dir = {90_deg, 1_deg};
-	std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 1_GeV)
-	          << std::endl;
-	std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 100_MeV)
-	          << std::endl;
-	std::cerr << intBremsstrahlung->integrateOverLOS(dir, 1000_MeV)
-	          << std::endl;
 }
 
 TEST(BremsstrahlungIntegrator, LOS) {

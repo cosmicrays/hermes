@@ -231,8 +231,6 @@ TEST(InverseComptonIntegrator, PerformanceTest) {
 	unsigned long pxl_speed =
 	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 
-	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
-
 	EXPECT_LE(pxl_speed, 1000);  // ms
 }
 

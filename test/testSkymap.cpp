@@ -8,15 +8,11 @@ typedef IntegratorTemplate<QNumber, QFrequency> SimpleIntegrator;
 
 class DummyIntegrator : public SimpleIntegrator {
   public:
-	DummyIntegrator() { std::cerr << "I'm born!" << std::endl; };
+	DummyIntegrator() {};
 	~DummyIntegrator(){};
 	QNumber integrateOverLOS(const QDirection &direction) const {
 		QDirection galacticCentre = {90_deg, 0};
 		QDirection galacticNorth = {0, 0};
-
-		std::cerr << "Dir: " << direction[0] << ", ";
-		std::cerr << direction[1] << std::endl;
-
 		if (isWithinAngle(direction, galacticCentre, 20_deg)) return QNumber(1);
 		if (isWithinAngle(direction, galacticNorth, 30_deg)) return QNumber(-1);
 		return QNumber(0);
@@ -44,9 +40,6 @@ TEST(Skymap, computePixel) {
 	long int gcPixel = ang2pix_ring(nside, galacticCentre);
 	QDirection galacticNorth = {0, 0};
 	long int gnPixel = ang2pix_ring(nside, galacticNorth);
-
-	std::cerr << "GC: " << galacticCentre[0] << ", ";
-	std::cerr << galacticCentre[1] << std::endl;
 
 	skymap->computePixel(gcPixel, integrator);
 	skymap->computePixel(gnPixel, integrator);
