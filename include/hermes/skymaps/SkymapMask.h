@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <vector>
+#include <array>
 
 #include "hermes/HEALPixBits.h"
 #include "hermes/Vector3.h"
@@ -52,9 +53,10 @@ class RectangularWindow : public SkymapMask {
 
   public:
 	// in galactic coordinates: b=(-90_deg, 90_deg), l=(-180_deg, 180_deg),
-	// top - bottom = lattitude
+	// top - bottom = latitude
 	// left - right = longitude
-	RectangularWindow(const QDirection &topleft, const QDirection &bottomright);
+	// RectangularWindow(const QDirection &topleft, const QDirection &bottomright);
+	RectangularWindow(const std::array<QAngle, 2> &latitude, const std::array<QAngle,2> &longitude);
 	bool isAllowed(const QDirection &dir_) const override;
 };
 

@@ -8,7 +8,7 @@ typedef IntegratorTemplate<QNumber, QFrequency> SimpleIntegrator;
 
 class DummyIntegrator : public SimpleIntegrator {
   public:
-	DummyIntegrator() {};
+	DummyIntegrator(){};
 	~DummyIntegrator(){};
 	QNumber integrateOverLOS(const QDirection &direction) const {
 		QDirection galacticCentre = {90_deg, 0};
@@ -51,7 +51,7 @@ TEST(Skymap, computePixel) {
 TEST(SkymapMask, RectangularWindow) {
 	int nside = 32;
 	auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
-	    QDirection({40_deg, 30_deg}), QDirection({-30_deg, 60_deg})));
+	    {40_deg, -30_deg}, {30_deg, 60_deg}));
 	mask->getDescription();
 
 	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside, mask));
@@ -85,7 +85,7 @@ TEST(SkymapMask, CombinationOfMasks) {
 	auto mask_circle = std::make_shared<CircularWindow>(
 	    CircularWindow(QDirection{0_deg, 30_deg}, 10_deg));
 	auto mask_window = std::make_shared<RectangularWindow>(RectangularWindow(
-	    QDirection({20_deg, 20_deg}), QDirection({-20_deg, 50_deg})));
+	    {20_deg, -20_deg}, {20_deg, 50_deg}));
 	auto invert_circle = std::make_shared<InvertMask>(InvertMask(mask_circle));
 	mask->addMask(invert_circle);
 	mask->addMask(mask_window);

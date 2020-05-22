@@ -61,10 +61,10 @@ bool MaskList::isAllowed(const QDirection &dir) const {
 }
 
 /* RectangularWindows class */
-RectangularWindow::RectangularWindow(const QDirection &topleft_,
-                                     const QDirection &bottomright_)
-    : topleft(fromGalCoord(topleft_)),
-      bottomright(fromGalCoord(bottomright_)) {}
+RectangularWindow::RectangularWindow(const std::array<QAngle, 2> &latitude,
+                                     const std::array<QAngle, 2> &longitude)
+    : topleft(fromGalCoord({latitude[0], longitude[0]})),
+      bottomright(fromGalCoord({latitude[1], longitude[1]})) {}
 
 bool RectangularWindow::isAngleBetween(const QAngle &testAngle,
                                        const QAngle &first,
