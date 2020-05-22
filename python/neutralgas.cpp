@@ -12,7 +12,7 @@ void init(py::module &m) {
 	py::module subm = m.def_submodule("neutralgas");
 	subm.doc() = "neutral gas package";
 
-	py::enum_<RingType>(subm, "RingType", py::arithmetic())
+	py::enum_<RingType>(subm, "RingType")
 	    .value("HI", RingType::HI)
 	    .value("CO", RingType::CO);
 

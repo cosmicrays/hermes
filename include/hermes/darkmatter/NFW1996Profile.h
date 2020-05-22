@@ -12,7 +12,7 @@ namespace hermes { namespace darkmatter {
  */
 
 class NFW1996Profile : public GalacticProfile {
-  protected:
+  private:
 	const QMassDensity rho_cr = 9.1e-30 * 1_g / 1_cm3;  // WMAP-9
 
 	// input

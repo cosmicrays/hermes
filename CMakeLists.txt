@@ -312,6 +312,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/Vectors.cpp
 		python/chargedgas.cpp
 		python/cosmicrays.cpp
+		python/darkmatter.cpp
 		python/integrators.cpp
 		python/interactions.cpp
 		python/magneticfields.cpp

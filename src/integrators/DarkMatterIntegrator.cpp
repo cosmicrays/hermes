@@ -26,12 +26,11 @@ QDiffIntensity DarkMatterIntegrator::integrateOverLOS(
 
 QGREmissivity DarkMatterIntegrator::spectralEmissivity(const Vector3QLength &pos,
                                                      QEnergy Egamma) const {
-	QLength r = pos.getR();
 	const auto sigma_v = 3e26_cm3 / 1_s;
 	return 0.5 * sigma_v * pow<4>(c_light) /
 	       pow<2>(spectrum->getRestMassEnergy()) *
 	       spectrum->getParticlesPerEnergy(Egamma) *
-	       pow<2>(profile->getMassDensity(r));
+	       pow<2>(profile->getMassDensity(pos.getR()));
 }
 
 }  // namespace hermes

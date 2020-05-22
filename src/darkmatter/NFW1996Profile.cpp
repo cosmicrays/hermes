@@ -3,6 +3,8 @@
 #include <cmath>
 #include <gsl/gsl_integration.h>
 
+#include <iostream>
+
 namespace hermes { namespace darkmatter {
 
 static const double f_NFW(double x, double gamma) {
@@ -33,7 +35,7 @@ double I(double c, double gamma) {
 
 void NFW1996Profile::init() {
 	//TODO(adundovi): potentially improve the units system to handle the 1/3 power
-	R_200 = pow<1,3>(3. * M_200 / 4. / M_PI / 200. / rho_cr); // definition of virial radius at 200 kpc
+	R_200 = std::pow(static_cast<double>(3. * M_200 / 4. / M_PI / 200. / rho_cr), 1/3.); // definition of virial radius at 200 kpc
 	r_s = R_200 / ((2. - gamma) * concentration);
 	rho_s = 200. * rho_cr * std::pow(concentration, 3) / 3. / I(concentration, gamma);
 }
