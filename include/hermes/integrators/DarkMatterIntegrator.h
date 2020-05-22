@@ -29,7 +29,7 @@ class DarkMatterIntegrator : public GammaIntegratorTemplate {
 	QDiffIntensity integrateOverLOS(const QDirection &iterdir,
 	                                const QEnergy &Egamma) const override;
 	QGREmissivity spectralEmissivity(const Vector3QLength &pos,
-	                               QEnergy Egamma) const;
+	                                 QEnergy Egamma) const;
 };
 
 /** @}*/

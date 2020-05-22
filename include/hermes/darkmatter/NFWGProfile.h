@@ -1,5 +1,5 @@
-#ifndef HERMES_DARKMATTER_NFW1996PROFILE_H
-#define HERMES_DARKMATTER_NFW1996PROFILE_H
+#ifndef HERMES_DARKMATTER_NFWGPROFILE_H
+#define HERMES_DARKMATTER_NFWGPROFILE_H
 
 #include <memory>
 
@@ -11,7 +11,7 @@ namespace hermes { namespace darkmatter {
  * @{
  */
 
-class NFW1996Profile : public GalacticProfile {
+class NFWGProfile : public GalacticProfile {
   private:
 	const QMassDensity rho_cr = 9.1e-30 * 1_g / 1_cm3;  // WMAP-9
 
@@ -29,12 +29,13 @@ class NFW1996Profile : public GalacticProfile {
 	void init();
 
   public:
-	NFW1996Profile(double gamma, double c, QMass M_200);
-	~NFW1996Profile() = default;
+	NFWGProfile(double gamma, double c, QMass M_200);
+	~NFWGProfile() = default;
 	QMassDensity getMassDensity(QLength r) const override;
+	QMassDensity getRhoSun() const;
 };
 
 /** @}*/
 }}  // namespace hermes::darkmatter
 
-#endif  // HERMES_DARKMATTER_NFW1996PROFILE_H
+#endif  // HERMES_DARKMATTER_NFWGPROFILE_H

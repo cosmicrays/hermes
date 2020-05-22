@@ -149,6 +149,7 @@ void init_quantity(py::module &m) {
 	                                         "J K^-1", apyu);
 	declare_quantity<QForce>(m, "QForce", "N", apyu);
 	declare_quantity<QFrequency>(m, "QFrequency", "Hz", apyu);
+	declare_quantity<QMassDensity>(m, "QMassDensity", "kg m^-3", apyu);
 	declare_quantity<QMField>(m, "QMField", "T", apyu);
 	declare_quantity<QPDensityPerEnergy>(m, "QPDensityPerEnergy", "m^-3 J^-1",
 	                                     apyu);
@@ -166,6 +167,7 @@ void init_quantity(py::module &m) {
 	declare_quantity<QGREmissivity>(m, "QGREmissivity", "m^-5 kg^-1 s", apyu);
 	declare_quantity<QICInnerIntegral>(m, "QICInnerIntegral", "m^-3 kg^-1 s^2",
 	                                   apyu);
+	declare_quantity<QInverseEnergy>(m, "QInverseEnergy", "J^-1", apyu);
 }
 
 }  // namespace hermes

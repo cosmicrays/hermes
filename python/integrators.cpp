@@ -2,6 +2,7 @@
 #include <pybind11/stl.h>
 
 #include "hermes/integrators/BremsstrahlungIntegrator.h"
+#include "hermes/integrators/DarkMatterIntegrator.h"
 #include "hermes/integrators/DispersionMeasureIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
 #include "hermes/integrators/IntegratorTemplate.h"
@@ -158,6 +159,16 @@ void init_integrators(py::module &m) {
 	    static_cast<QDiffIntensity (PiZeroAbsorptionIntegrator::*)(
 	        const QDirection &, const QEnergy &) const>(
 	        &PiZeroAbsorptionIntegrator::integrateOverLOS));
+
+	// DarkMatterIntegrator
+	py::class_<DarkMatterIntegrator, InverseComptonIntegratorParentClass,
+	           std::shared_ptr<DarkMatterIntegrator>>
+	    darkmatterintegrator(m, "DarkMatterIntegrator", py::buffer_protocol());
+	darkmatterintegrator.def(
+	    py::init<const std::shared_ptr<darkmatter::DarkMatterSpectrum>,
+	             const std::shared_ptr<darkmatter::GalacticProfile>>());
+	declare_default_integrator_methods<DarkMatterIntegrator>(
+	    darkmatterintegrator);
 }
 
 }  // namespace hermes

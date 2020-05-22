@@ -118,6 +118,7 @@ void init(py::module &m) {
 	subm.attr("k_boltzmann") = k_boltzmann;
 	// subm.attr("mu0")		= mu0;
 	// subm.attr("epsilon0")	= epsilon0;
+	subm.attr("sun_mass") = sun_mass;
 }
 
 }}  // namespace hermes::units

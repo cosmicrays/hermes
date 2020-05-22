@@ -13,6 +13,8 @@ using namespace units;
 
 class GalacticProfile {
   public:
+	GalacticProfile() {}
+	virtual ~GalacticProfile() {}
 	virtual QMassDensity getMassDensity(QLength r) const = 0;
 };
 

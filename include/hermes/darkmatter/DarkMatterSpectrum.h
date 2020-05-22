@@ -13,6 +13,8 @@ using namespace units;
 
 class DarkMatterSpectrum {
   public:
+	DarkMatterSpectrum() {}
+	virtual ~DarkMatterSpectrum() {}
 	virtual QEnergy getRestMassEnergy() const = 0;
 	virtual QInverseEnergy getParticlesPerEnergy(QEnergy Egamma) const = 0;
 };

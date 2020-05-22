@@ -254,7 +254,7 @@ add_library(hermes SHARED
 	src/cosmicrays/SimpleCRDensity.cpp
 	src/cosmicrays/Sun08CRDensity.cpp
 	src/cosmicrays/WMAP07CRDensity.cpp
-	src/darkmatter/NFW1996Profile.cpp
+	src/darkmatter/NFWGProfile.cpp
 	src/darkmatter/PPPC4DMIDSpectrum.cpp
 	src/integrators/BremsstrahlungIntegrator.cpp
 	src/integrators/DarkMatterIntegrator.cpp
@@ -302,7 +302,10 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	include_directories(${PYTHON_INCLUDE_DIRS})
 	include(cmake/FindPython.cmake)
 	add_subdirectory(lib/pybind11)
-	
+	# for PYBIND11_EXPAND_SIDE_EFFECTS in pybind11.h - temporary,
+	#   should be removed after the fix lands to the upstream
+	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -Wno-unused-value")
+
 	pybind11_add_module(pyhermes
 		python/Common.cpp
 		python/ParticleID.cpp
