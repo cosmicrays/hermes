@@ -268,6 +268,7 @@ add_library(hermes SHARED
 	src/integrators/SynchroIntegrator.cpp
 	src/interactions/BreitWheeler.cpp
 	src/interactions/BremsstrahlungGALPROP.cpp
+	src/interactions/BremsstrahlungTsai74.cpp
 	src/interactions/DifferentialCrossSection.cpp
 	src/interactions/Kamae06Gamma.cpp
 	src/interactions/Kamae06Neutrino.cpp

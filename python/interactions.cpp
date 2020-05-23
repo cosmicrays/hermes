@@ -3,6 +3,7 @@
 
 #include "hermes/interactions/BreitWheeler.h"
 #include "hermes/interactions/BremsstrahlungGALPROP.h"
+#include "hermes/interactions/BremsstrahlungTsai74.h"
 #include "hermes/interactions/DiffCrossSection.h"
 #include "hermes/interactions/DummyCrossSection.h"
 #include "hermes/interactions/Kamae06Gamma.h"
@@ -75,13 +76,21 @@ void init(py::module &m) {
 	             &KelnerAharonianNeutrino::getDiffCrossSection));
 	
 	py::class_<BremsstrahlungAbstract, std::shared_ptr<BremsstrahlungAbstract>>(subm, "BremsstrahlungAbstract");
+	
+	py::enum_<BremsstrahlungAbstract::Target>(subm, "BremTarget")
+	    .value("HI", BremsstrahlungAbstract::Target::HI)
+	    .value("HII", BremsstrahlungAbstract::Target::HII)
+	    .value("He", BremsstrahlungAbstract::Target::He);
 
 	py::class_<BremsstrahlungGALPROP, std::shared_ptr<BremsstrahlungGALPROP>,
 	           BremsstrahlungAbstract>(subm, "BremsstrahlungGALPROP")
 	    .def(py::init<>())
-	    .def("getDiffCrossSectionForTarget",
-	         &BremsstrahlungGALPROP::getDiffCrossSectionForTarget)
 	    .def("getDiffCrossSectionForTarget", &BremsstrahlungGALPROP::getDiffCrossSectionForTarget);
+	
+	py::class_<BremsstrahlungTsai74, std::shared_ptr<BremsstrahlungTsai74>,
+	           BremsstrahlungAbstract>(subm, "BremsstrahlungTsai74")
+	    .def(py::init<>())
+	    .def("getDiffCrossSectionForTarget", &BremsstrahlungTsai74::getDiffCrossSectionForTarget);
 
 	py::class_<BreitWheeler, std::shared_ptr<BreitWheeler>>(subm,
 	                                                        "BreitWheeler")

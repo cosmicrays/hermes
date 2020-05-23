@@ -44,6 +44,7 @@
 #include "hermes/interactions/BreitWheeler.h"
 #include "hermes/interactions/BremsstrahlungAbstract.h"
 #include "hermes/interactions/BremsstrahlungGALPROP.h"
+#include "hermes/interactions/BremsstrahlungTsai74.h"
 #include "hermes/interactions/DiffCrossSection.h"
 #include "hermes/interactions/DummyCrossSection.h"
 #include "hermes/interactions/Kamae06Gamma.h"

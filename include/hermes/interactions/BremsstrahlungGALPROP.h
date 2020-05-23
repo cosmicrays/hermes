@@ -1,12 +1,11 @@
 #ifndef HERMES_BREMSSTRAHLUNGGALPROP_H
 #define HERMES_BREMSSTRAHLUNGGALPROP_H
 
+#include <array>
 #include <memory>
 
 #include "hermes/CacheTools.h"
 #include "hermes/interactions/BremsstrahlungAbstract.h"
-
-#define TARGETS_NUMBER
 
 namespace hermes { namespace interactions {
 
