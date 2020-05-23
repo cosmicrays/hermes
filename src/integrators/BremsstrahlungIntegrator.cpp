@@ -16,15 +16,9 @@ namespace hermes {
 BremsstrahlungIntegrator::BremsstrahlungIntegrator(
     const std::shared_ptr<cosmicrays::CosmicRayDensity> &crDensity_,
     const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
-    const std::shared_ptr<interactions::BremsstrahlungSimple> &crossSec_)
+    const std::shared_ptr<interactions::BremsstrahlungAbstract> &crossSec_)
     : PiZeroIntegrator(crDensity_, ngdensity_, crossSec_),
       crossSec(crossSec_) {}
-
-BremsstrahlungIntegrator::BremsstrahlungIntegrator(
-    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &crList_,
-    const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
-    const std::shared_ptr<interactions::BremsstrahlungSimple> &crossSec_)
-    : PiZeroIntegrator(crList_, ngdensity_, crossSec_), crossSec(crossSec_) {}
 
 BremsstrahlungIntegrator::~BremsstrahlungIntegrator() {}
 
@@ -46,10 +40,10 @@ QPiZeroIntegral BremsstrahlungIntegrator::integrateOverEnergy(
 	    std::back_inserter(diffCrossSectionVector),
 	    [this, Egamma_](const QEnergy &E) -> QDiffCrossSection {
 		    return (crossSec->getDiffCrossSectionForTarget(
-		                interactions::BremsstrahlungSimple::Target::HI, E,
+		                interactions::BremsstrahlungAbstract::Target::HI, E,
 		                Egamma_) +
 		            0.1 * crossSec->getDiffCrossSectionForTarget(
-		                      interactions::BremsstrahlungSimple::Target::He, E,
+		                      interactions::BremsstrahlungAbstract::Target::He, E,
 		                      Egamma_));
 	    });
 

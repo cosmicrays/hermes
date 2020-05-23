@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "hermes/integrators/PiZeroIntegrator.h"
-#include "hermes/interactions/BremsstrahlungSimple.h"
+#include "hermes/interactions/BremsstrahlungAbstract.h"
 
 namespace hermes {
 /**
@@ -16,17 +16,13 @@ namespace hermes {
 
 class BremsstrahlungIntegrator : public PiZeroIntegrator {
   private:
-	std::shared_ptr<interactions::BremsstrahlungSimple> crossSec;
+	std::shared_ptr<interactions::BremsstrahlungAbstract> crossSec;
 
   public:
 	BremsstrahlungIntegrator(
 	    const std::shared_ptr<cosmicrays::CosmicRayDensity> &,
 	    const std::shared_ptr<neutralgas::RingModel> &,
-	    const std::shared_ptr<interactions::BremsstrahlungSimple> &);
-	BremsstrahlungIntegrator(
-	    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &,
-	    const std::shared_ptr<neutralgas::RingModel> &,
-	    const std::shared_ptr<interactions::BremsstrahlungSimple> &);
+	    const std::shared_ptr<interactions::BremsstrahlungAbstract> &);
 	~BremsstrahlungIntegrator();
 
 	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos,

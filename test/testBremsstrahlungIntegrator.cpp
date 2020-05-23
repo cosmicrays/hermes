@@ -43,8 +43,8 @@ TEST(BremsstrahlungIntegrator, integrateOverEnergy) {
 	    cosmicrays::SimpleCRDensity());
 	// interaction
 	auto bremsstrahlungCS =
-	    std::make_shared<interactions::BremsstrahlungSimple>(
-	        interactions::BremsstrahlungSimple());
+	    std::make_shared<interactions::BremsstrahlungGALPROP>(
+	        interactions::BremsstrahlungGALPROP());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
 	    neutralgas::RingModel(neutralgas::RingType::HI));
@@ -66,8 +66,8 @@ TEST(BremsstrahlungIntegrator, LOS) {
 	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(
 	    cosmicrays::Dragon2D(particletypes));
 	// interaction
-	auto bremsstrahlung = std::make_shared<interactions::BremsstrahlungSimple>(
-	    interactions::BremsstrahlungSimple());
+	auto bremsstrahlung = std::make_shared<interactions::BremsstrahlungGALPROP>(
+	    interactions::BremsstrahlungGALPROP());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
 	    neutralgas::RingModel(neutralgas::RingType::HI));

@@ -113,10 +113,10 @@ TEST(Interactions, KleinNishina) {
 	            0.0, 1e-25);
 }
 
-TEST(Interactions, BremsstrahlungSimple) {
-	auto i = std::make_shared<interactions::BremsstrahlungSimple>(
-	    interactions::BremsstrahlungSimple());
-	auto t = interactions::BremsstrahlungSimple::Target::HI;
+TEST(Interactions, BremsstrahlungGALPROP) {
+	auto i = std::make_shared<interactions::BremsstrahlungGALPROP>(
+	    interactions::BremsstrahlungGALPROP());
+	auto t = interactions::BremsstrahlungAbstract::Target::HI;
 	i->disableCaching();
 
 	// tabular data

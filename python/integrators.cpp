@@ -123,7 +123,7 @@ void init_integrators(py::module &m) {
 	bremsintegrator.def(
 	    py::init<const std::shared_ptr<cosmicrays::CosmicRayDensity>,
 	             const std::shared_ptr<neutralgas::RingModel>,
-	             const std::shared_ptr<interactions::BremsstrahlungSimple>>());
+	             const std::shared_ptr<interactions::BremsstrahlungAbstract>>());
 	declare_default_integrator_methods<BremsstrahlungIntegrator>(
 	    bremsintegrator);
 	bremsintegrator.def(

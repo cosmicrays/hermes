@@ -2,7 +2,7 @@
 #include <pybind11/stl.h>
 
 #include "hermes/interactions/BreitWheeler.h"
-#include "hermes/interactions/BremsstrahlungSimple.h"
+#include "hermes/interactions/BremsstrahlungGALPROP.h"
 #include "hermes/interactions/DiffCrossSection.h"
 #include "hermes/interactions/DummyCrossSection.h"
 #include "hermes/interactions/Kamae06Gamma.h"
@@ -73,13 +73,15 @@ void init(py::module &m) {
 	         static_cast<QDiffCrossSection (KelnerAharonianNeutrino::*)(
 	             const QEnergy &, const QEnergy &) const>(
 	             &KelnerAharonianNeutrino::getDiffCrossSection));
+	
+	py::class_<BremsstrahlungAbstract, std::shared_ptr<BremsstrahlungAbstract>>(subm, "BremsstrahlungAbstract");
 
-	py::class_<BremsstrahlungSimple, std::shared_ptr<BremsstrahlungSimple>,
-	           DifferentialCrossSection>(subm, "BremsstrahlungSimple")
+	py::class_<BremsstrahlungGALPROP, std::shared_ptr<BremsstrahlungGALPROP>,
+	           BremsstrahlungAbstract>(subm, "BremsstrahlungGALPROP")
 	    .def(py::init<>())
 	    .def("getDiffCrossSectionForTarget",
-	         &BremsstrahlungSimple::getDiffCrossSectionForTarget)
-	    .def("getDiffCrossSection", &BremsstrahlungSimple::getDiffCrossSection);
+	         &BremsstrahlungGALPROP::getDiffCrossSectionForTarget)
+	    .def("getDiffCrossSectionForTarget", &BremsstrahlungGALPROP::getDiffCrossSectionForTarget);
 
 	py::class_<BreitWheeler, std::shared_ptr<BreitWheeler>>(subm,
 	                                                        "BreitWheeler")
