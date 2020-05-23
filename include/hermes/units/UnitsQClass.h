@@ -44,9 +44,6 @@ class Quantity {
 		return value / rhs.value;
 	}
 
-	// returns the raw value of the quantity (should not be used)
-	constexpr double getValue() const { return value; }
-
 	// overload explicitly the typecast operator
 	constexpr explicit operator double() const { return value; }
 	constexpr explicit operator float() const {
@@ -289,7 +286,7 @@ constexpr Quantity<l, t, m, I, T, N, J, A, SA> fmod(
     const Quantity<l, t, m, I, T, N, J, A, SA> &first,
     const Quantity<l, t, m, I, T, N, J, A, SA> &second) {
 	return Quantity<l, t, m, I, T, N, J, A, SA>(
-	    std::fmod(first.getValue(), second.getValue()));
+	    std::fmod(static_cast<double>(first), static_cast<double>(second)));
 }
 
 // sqrt()
