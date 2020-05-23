@@ -13,7 +13,7 @@ class BremsstrahlungGALPROP : public BremsstrahlungAbstract {
   private:
 	bool cachingEnabled;
 	std::array<std::unique_ptr<CacheStorageCrossSection>, Ntargets> cache;
-	
+
 	QNumber ElwertFactor(const QNumber &beta_i, const QNumber &beta_f,
 	                     int Z) const;
 	QNumber xiFunc(const QNumber &T_electron_i, const QNumber &k, int Z,
@@ -38,9 +38,10 @@ class BremsstrahlungGALPROP : public BremsstrahlungAbstract {
 	                              int Z) const;
 	QArea dsdk_HighEnergy(const QNumber &gamma_i, const QNumber &gamma_f,
 	                      const QNumber &k, int Z, int N) const;
-	
+
 	QDiffCrossSection getDiffCrossSectionForTargetDirectly(
 	    Target t, const QEnergy &T_electron, const QEnergy &E_gamma) const;
+
   public:
 	BremsstrahlungGALPROP();
 
@@ -48,7 +49,8 @@ class BremsstrahlungGALPROP : public BremsstrahlungAbstract {
 	void disableCaching();
 
 	QDiffCrossSection getDiffCrossSectionForTarget(
-	    Target t, const QEnergy &T_electron, const QEnergy &E_gamma) const override;
+	    Target t, const QEnergy &T_electron,
+	    const QEnergy &E_gamma) const override;
 };
 
 }}  // namespace hermes::interactions

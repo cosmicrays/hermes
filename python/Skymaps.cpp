@@ -150,7 +150,8 @@ void init_skymaps(py::module &m) {
 	// in galactic coordinates: b=(-90_deg, 90_deg), l=(-180_deg, 180_deg)
 	py::class_<RectangularWindow, std::shared_ptr<RectangularWindow>,
 	           SkymapMask>(m, "RectangularWindow")
-	    .def(py::init<const std::array<QAngle,2> &, const std::array<QAngle,2> &>(),
+	    .def(py::init<const std::array<QAngle, 2> &,
+	                  const std::array<QAngle, 2> &>(),
 	         py::arg("latitude"), py::arg("longitude"));
 	py::class_<CircularWindow, std::shared_ptr<CircularWindow>, SkymapMask>(
 	    m, "CircularWindow")
