@@ -79,7 +79,7 @@ bool RectangularWindow::isAngleBetween(QAngle testAngle,
   QAngle normAngle = fmod(fmod(close - open, 2*pi) + 2*pi*1_rad, 2*pi);
   if (normAngle >= pi*1_rad) { // swap
 		QAngle tmp = open;
-		close = open;
+		open = close;
 		close = tmp;
 	}
 
