@@ -31,6 +31,17 @@ TEST(Skymap, resNsideNpixelsConvert) {
 	EXPECT_EQ(skymap->getNpix(), 3072);
 }
 
+TEST(Skymap, sizeCheck) {
+	int nside = 256;
+	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(nside, 1_GeV));
+
+	//auto size = sizeof(skymap);
+	//std::cerr << "SizeOf = " << sizeof(skymap) << " Length = " << skymap->size() << std::endl;
+
+	EXPECT_EQ(skymap->size(), 12*256*256);
+}
+
+
 TEST(Skymap, computePixel) {
 	int nside = 4;
 	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
@@ -50,20 +61,54 @@ TEST(Skymap, computePixel) {
 
 TEST(SkymapMask, RectangularWindow) {
 	int nside = 32;
-	auto mask = std::make_shared<RectangularWindow>(RectangularWindow(
-	    {40_deg, -30_deg}, {30_deg, 60_deg}));
-	mask->getDescription();
-
-	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside, mask));
+	long int pixel_1, pixel_2, pixel_3;
+	QDirection dir_1, dir_2, dir_3;
+	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
 	auto integrator = std::make_shared<DummyIntegrator>(DummyIntegrator());
-
 	skymap->setIntegrator(integrator);
+
+	auto GC_mask = std::make_shared<RectangularWindow>(RectangularWindow(
+	    {5_deg, -5_deg}, {355_deg, 5_deg}));
+	skymap->setMask(GC_mask);
 	skymap->compute();
 
-	QDirection dir_1 = {0_deg, 40_deg};
-	long int pixel_1 = ang2pix_ring(nside, fromGalCoord(dir_1));
-	QDirection dir_2 = {80_deg, 120_deg};
-	long int pixel_2 = ang2pix_ring(nside, fromGalCoord(dir_2));
+	dir_1 = {0_deg, 0_deg};
+	pixel_1 = ang2pix_ring(nside, fromGalCoord(dir_1));
+	dir_2 = {10_deg, 5_deg};
+	pixel_2 = ang2pix_ring(nside, fromGalCoord(dir_2));
+	dir_3 = {-3_deg, 357_deg};
+	pixel_3 = ang2pix_ring(nside, fromGalCoord(dir_3));
+
+	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_1)), UNSEEN);
+	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);
+	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_3)), UNSEEN);
+
+	auto GP_mask = std::make_shared<RectangularWindow>(RectangularWindow(
+	    {5_deg, -5_deg}, {0_deg, 360_deg}));
+	skymap->setMask(GP_mask);
+	skymap->compute();
+
+	dir_1 = {2_deg, 2_deg};
+	pixel_1 = ang2pix_ring(nside, fromGalCoord(dir_1));
+	dir_2 = {180_deg, 4_deg};
+	pixel_2 = ang2pix_ring(nside, fromGalCoord(dir_2));
+	dir_3 = {-45_deg, 300_deg};
+	pixel_3 = ang2pix_ring(nside, fromGalCoord(dir_3));
+
+	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_1)), UNSEEN);
+	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);
+	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_3)), UNSEEN);
+	
+	auto XY_mask = std::make_shared<RectangularWindow>(RectangularWindow(
+	    {40_deg, -30_deg}, {30_deg, 60_deg}));
+	XY_mask->getDescription();
+	skymap->setMask(XY_mask);
+	skymap->compute();
+
+	dir_1 = {0_deg, 40_deg};
+	pixel_1 = ang2pix_ring(nside, fromGalCoord(dir_1));
+	dir_2 = {80_deg, 120_deg};
+	pixel_2 = ang2pix_ring(nside, fromGalCoord(dir_2));
 
 	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_1)), UNSEEN);
 	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);

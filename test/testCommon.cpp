@@ -27,6 +27,12 @@ TEST(Common, toGalCoord) {
 	auto gal_dir_5 = toGalCoord(QDirection({200_deg, 0_deg}));
 	EXPECT_DOUBLE_EQ(static_cast<double>(70_deg),
 	                 static_cast<double>(gal_dir_5[0]));
+	
+	auto gal_dir_6 = toGalCoord(QDirection({270_deg, 710_deg}));
+	EXPECT_DOUBLE_EQ(static_cast<double>(0_deg),
+	                 static_cast<double>(gal_dir_6[0]));
+	EXPECT_DOUBLE_EQ(static_cast<double>(350_deg),
+	                 static_cast<double>(gal_dir_6[1]));
 }
 
 TEST(Common, fromGalCoord) {

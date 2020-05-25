@@ -5,6 +5,7 @@
 
 namespace hermes { namespace interactions {
 
+// Rev. Mod. Phys. 46, 815 (1974).
 class BremsstrahlungTsai74 : public BremsstrahlungAbstract {
   private:
 	std::pair<double, double> RadiationLogarithms(int Z) const;

@@ -59,10 +59,9 @@ void PPPC4DMIDSpectrum::loadData() {
 }
 
 QInverseEnergy PPPC4DMIDSpectrum::getParticlesPerEnergy(QEnergy Egamma) const {
-	QEnergy M2C_DM = getRestMassEnergy();
-	double lgx = std::log10(static_cast<double>(Egamma / M2C_DM));
+	double lgx = std::log10(static_cast<double>(Egamma / getRestMassEnergy()));
 
-	if (lgx <= -8. || lgx >= 1.) return 0;
+	if (lgx <= -8. || lgx >= 1.) return QInverseEnergy(0);
 
 	auto lessThan = [](const std::pair<double, double> &point, double x) {
 		return point.first < x;

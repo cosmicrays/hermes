@@ -18,7 +18,7 @@ QDiffIntensity DarkMatterIntegrator::integrateOverLOS(
 		    getGalacticPosition(getSunPosition(), dist, direction_), Egamma_);
 	};
 
-	return gslQAGIntegration<QDiffFlux, QGREmissivity>(
+	return gslQAGSIntegration<QDiffFlux, QGREmissivity>(
 	           [integrand](QLength dist) { return integrand(dist); }, 0,
 	           getMaxDistance(direction_), 500) /
 	       (4_pi * 1_sr);
@@ -26,7 +26,7 @@ QDiffIntensity DarkMatterIntegrator::integrateOverLOS(
 
 QGREmissivity DarkMatterIntegrator::spectralEmissivity(
     const Vector3QLength &pos, QEnergy Egamma) const {
-	const auto sigma_v = 3e26_cm3 / 1_s;
+	const auto sigma_v = 3e-26_cm3 / 1_s;
 	return 0.5 * sigma_v * pow<4>(c_light) /
 	       pow<2>(spectrum->getRestMassEnergy()) *
 	       spectrum->getParticlesPerEnergy(Egamma) *

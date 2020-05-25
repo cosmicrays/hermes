@@ -54,7 +54,7 @@ TEST(DarkMatterIntegrator, spectralEmissivity) {
 
 	auto e = i->spectralEmissivity(r, Egamma) / units;
 
-	EXPECT_NEAR(static_cast<double>(e), 1e19, 1e18);
+	EXPECT_NEAR(static_cast<double>(e), 1e-33, 1e-34);
 }
 
 int main(int argc, char **argv) {

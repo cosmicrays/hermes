@@ -48,15 +48,16 @@ class MaskList : public SkymapMask {
 class RectangularWindow : public SkymapMask {
   private:
 	QDirection topleft, bottomright;
-	bool isAngleBetween(const QAngle &testAngle, const QAngle &first,
-	                    const QAngle &last) const;
+	bool isAngleBetween(QAngle testAngle, const QAngle open,
+	                    QAngle close) const;
 
   public:
-	// in galactic coordinates: b=(-90_deg, 90_deg), l=(-180_deg, 180_deg),
-	// top - bottom = latitude
-	// left - right = longitude
-	// RectangularWindow(const QDirection &topleft, const QDirection &bottomright);
-	RectangularWindow(const std::array<QAngle, 2> &latitude, const std::array<QAngle,2> &longitude);
+	/* In galactic coordinates: b=(-90_deg, 90_deg), l=(0_deg, 360_deg)
+	   Examples:
+	   the galactic north b = 90_deg
+	   the galactic centre b = 0_deg, l = 0_deg */
+	RectangularWindow(const std::array<QAngle,2> &latitude,
+					  const std::array<QAngle,2> &longitude);
 	bool isAllowed(const QDirection &dir_) const override;
 };
 

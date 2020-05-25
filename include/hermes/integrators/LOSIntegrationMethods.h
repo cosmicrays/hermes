@@ -111,6 +111,32 @@ QPXL gslQAGIntegration(std::function<INTTYPE(QLength)> f, QLength start,
 }
 
 template <typename QPXL, typename INTTYPE>
+QPXL gslQAGSIntegration(std::function<INTTYPE(QLength)> f, QLength start,
+                       QLength stop, int N) {
+	double a = static_cast<double>(start);
+	double b = static_cast<double>(stop);
+	double abs_error = 0.0;  // disabled
+	double rel_error = 1.0e-3;
+	double result;
+	double error;
+
+	gsl_function F = {.function = [](double x, void *vf) -> double {
+		                  auto &func =
+		                      *static_cast<std::function<double(double)> *>(vf);
+		                  return func(x);
+	                  },
+	                  .params = &f};
+
+	gsl_integration_workspace *workspace_ptr =
+	    gsl_integration_workspace_alloc(GSL_LIMIT);
+	gsl_integration_qags(&F, a, b, abs_error, rel_error, N, workspace_ptr,
+	                    &result, &error);
+	gsl_integration_workspace_free(workspace_ptr);
+
+	return QPXL(result);
+}
+
+template <typename QPXL, typename INTTYPE>
 QPXL adaptiveSimpsonIntegration(std::function<INTTYPE(QLength)> f,
                                 QLength start, QLength stop, QPXL tolerance,
                                 int N = 30) {

@@ -62,18 +62,15 @@ TEST(BremsstrahlungIntegrator, LOS) {
 	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(
 	    cosmicrays::SimpleCRDensity());
 
-	std::vector<PID> particletypes = {Electron, Positron};
-	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(
-	    cosmicrays::Dragon2D(particletypes));
 	// interaction
-	auto bremsstrahlung = std::make_shared<interactions::BremsstrahlungGALPROP>(
-	    interactions::BremsstrahlungGALPROP());
+	auto bremsstrahlung = std::make_shared<interactions::BremsstrahlungTsai74>(
+	    interactions::BremsstrahlungTsai74());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
 	    neutralgas::RingModel(neutralgas::RingType::HI));
 	// integrator
 	auto intBremsstrahlung = std::make_shared<BremsstrahlungIntegrator>(
-	    BremsstrahlungIntegrator(dragonModel, ringModel, bremsstrahlung));
+	    BremsstrahlungIntegrator(simpleModel, ringModel, bremsstrahlung));
 
 	// skymap
 	int nside = 4;
@@ -101,6 +98,7 @@ TEST(BremsstrahlungIntegrator, LOS) {
 	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 
 	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+	skymap->printPixels();
 	// skymap->save(output);
 
 	// sqrt(3)*e_charge^3/(8*pi^2*epsilon_0*c*electron_mass)*0.655*1*microGauss*1/(m^3*J)*1_eV
