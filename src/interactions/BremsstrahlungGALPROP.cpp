@@ -13,12 +13,13 @@
 
 #define LIMIT 1000
 #define EPSINT 1e-5
-#define KEYINT 3
+#define KEYINT 15
 
 namespace hermes { namespace interactions {
 
 BremsstrahlungGALPROP::BremsstrahlungGALPROP()
-    : BremsstrahlungAbstract(), cachingEnabled(true),
+    : BremsstrahlungAbstract(),
+      cachingEnabled(true),
       cache({std::make_unique<CacheStorageCrossSection>(),
              std::make_unique<CacheStorageCrossSection>(),
              std::make_unique<CacheStorageCrossSection>()}) {
@@ -44,13 +45,14 @@ QDiffCrossSection BremsstrahlungGALPROP::getDiffCrossSectionForTarget(
 }
 
 QNumber BremsstrahlungGALPROP::ElwertFactor(const QNumber &beta_i,
-                                           const QNumber &beta_f, int Z) const {
+                                            const QNumber &beta_f,
+                                            int Z) const {
 	return beta_i * (1. - exp(-2.0 * pi * Z * alpha_fine / beta_i)) / beta_f *
 	       (1. - exp(-2.0 * pi * Z * alpha_fine / beta_f));
 }
 
 QNumber BremsstrahlungGALPROP::xiFunc(const QNumber &T_electron_i,
-                                     const QNumber &k, int Z, int N) const {
+                                      const QNumber &k, int Z, int N) const {
 	constexpr QNumber b = 0.07_MeV / mc2_units;
 	constexpr QNumber c = 0.33_MeV / mc2_units;
 	return 1. + N / pow<2>(Z) * (1. - exp((b - T_electron_i) / (9. * b))) *
@@ -58,8 +60,8 @@ QNumber BremsstrahlungGALPROP::xiFunc(const QNumber &T_electron_i,
 }
 
 QNumber BremsstrahlungGALPROP::Phi_u(const QNumber &gamma_i,
-                                    const QNumber &gamma_f,
-                                    const QNumber &k) const {
+                                     const QNumber &gamma_f,
+                                     const QNumber &k) const {
 	return 4. * (log(2. * gamma_i * gamma_f / k) - 0.5);
 }
 
@@ -79,7 +81,7 @@ inline double BremsstrahlungGALPROP::R_2(double q, double Z) const {
 }
 
 QNumber BremsstrahlungGALPROP::I_Phi_1(const QNumber &delta_, int Z,
-                                      int N) const {
+                                       int N) const {
 	double result, error;
 	double delta = static_cast<double>(delta_);
 
@@ -99,7 +101,7 @@ QNumber BremsstrahlungGALPROP::I_Phi_1(const QNumber &delta_, int Z,
 }
 
 QNumber BremsstrahlungGALPROP::I_Phi_2(const QNumber &delta_, int Z,
-                                      int N) const {
+                                       int N) const {
 	double result, error;
 	double delta = static_cast<double>(delta_);
 
@@ -120,24 +122,24 @@ QNumber BremsstrahlungGALPROP::I_Phi_2(const QNumber &delta_, int Z,
 }
 
 QNumber BremsstrahlungGALPROP::Phi_1(const QNumber &gamma_i,
-                                    const QNumber &gamma_f, const QNumber &k,
-                                    const QNumber &delta, int Z, int N) const {
+                                     const QNumber &gamma_f, const QNumber &k,
+                                     const QNumber &delta, int Z, int N) const {
 	QNumber I = I_Phi_1(delta, Z, N);
 	return pow<2>(Z - N) * Phi_u(gamma_i, gamma_f, k) +
 	       8.0 * Z * (1.0_num - QNumber((N - 1.) / Z) + I);
 }
 
 QNumber BremsstrahlungGALPROP::Phi_2(const QNumber &gamma_i,
-                                    const QNumber &gamma_f, const QNumber &k,
-                                    const QNumber &delta, int Z, int N) const {
+                                     const QNumber &gamma_f, const QNumber &k,
+                                     const QNumber &delta, int Z, int N) const {
 	QNumber I = I_Phi_2(delta, Z, N);
 	return pow<2>(Z - N) * Phi_u(gamma_i, gamma_f, k) +
 	       8.0 * Z * (5.0_num / 6. * (1. - (N - 1.) / Z) + I);
 }
 
 QArea BremsstrahlungGALPROP::dsdk_LowEnergy(const QNumber &p_i,
-                                           const QNumber &p_f, QNumber k,
-                                           int Z) const {
+                                            const QNumber &p_f, QNumber k,
+                                            int Z) const {
 	return 16. * pow<2>(Z * r_electron) * alpha_fine / (3. * k * pow<2>(p_i)) *
 	       log((p_i + p_f) / (p_i - p_f));
 }
@@ -173,9 +175,9 @@ QArea BremsstrahlungGALPROP::dsdk_IntermediateEnergy(
 }
 
 QArea BremsstrahlungGALPROP::dsdk_HighEnergy(const QNumber &gamma_i,
-                                            const QNumber &gamma_f,
-                                            const QNumber &k, int Z,
-                                            int N) const {
+                                             const QNumber &gamma_f,
+                                             const QNumber &k, int Z,
+                                             int N) const {
 	QNumber delta = k / 2. / gamma_i / gamma_f;
 
 	QNumber phi_1, phi_2;

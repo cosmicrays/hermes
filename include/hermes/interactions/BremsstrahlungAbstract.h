@@ -12,9 +12,9 @@ class BremsstrahlungAbstract : public DifferentialCrossSection {
 	const std::array<Target, Ntargets> allTargets = {
 	    // to iterate over targets
 	    Target::HII, Target::HI, Target::He};
-	
-	BremsstrahlungAbstract() {};
-	virtual ~BremsstrahlungAbstract() {};
+
+	BremsstrahlungAbstract(){};
+	virtual ~BremsstrahlungAbstract(){};
 
 	virtual QDiffCrossSection getDiffCrossSectionForTarget(
 	    Target t, const QEnergy &T_electron, const QEnergy &E_gamma) const = 0;

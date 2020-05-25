@@ -44,9 +44,7 @@ void NFWGProfile::init() {
 	        I(concentration, gamma);
 }
 
-QMassDensity NFWGProfile::getRhoSun() const {
-	return rho_s;
-}
+QMassDensity NFWGProfile::getRhoSun() const { return rho_s; }
 
 QMassDensity NFWGProfile::getMassDensity(QLength r) const {
 	auto x = r / r_s;

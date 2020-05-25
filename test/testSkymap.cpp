@@ -129,8 +129,8 @@ TEST(SkymapMask, CombinationOfMasks) {
 	auto mask = std::make_shared<MaskList>(MaskList());
 	auto mask_circle = std::make_shared<CircularWindow>(
 	    CircularWindow(QDirection{0_deg, 30_deg}, 10_deg));
-	auto mask_window = std::make_shared<RectangularWindow>(RectangularWindow(
-	    {20_deg, -20_deg}, {20_deg, 50_deg}));
+	auto mask_window = std::make_shared<RectangularWindow>(
+	    RectangularWindow({20_deg, -20_deg}, {20_deg, 50_deg}));
 	auto invert_circle = std::make_shared<InvertMask>(InvertMask(mask_circle));
 	mask->addMask(invert_circle);
 	mask->addMask(mask_window);

@@ -1,9 +1,9 @@
 #ifndef HERMES_SKYMAPMASK_H
 #define HERMES_SKYMAPMASK_H
 
+#include <array>
 #include <memory>
 #include <vector>
-#include <array>
 
 #include "hermes/HEALPixBits.h"
 #include "hermes/Vector3.h"

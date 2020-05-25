@@ -43,8 +43,8 @@ QPiZeroIntegral BremsstrahlungIntegrator::integrateOverEnergy(
 		                interactions::BremsstrahlungAbstract::Target::HI, E,
 		                Egamma_) +
 		            0.1 * crossSec->getDiffCrossSectionForTarget(
-		                      interactions::BremsstrahlungAbstract::Target::He, E,
-		                      Egamma_));
+		                      interactions::BremsstrahlungAbstract::Target::He,
+		                      E, Egamma_));
 	    });
 
 	auto pid_projectile = crDensity->getPID();
