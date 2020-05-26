@@ -46,4 +46,4 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_JF12Field_8cpp_1a0d6b7018ba839b009cc6fc757b3e7605`
+- :ref:`exhale_function_namespacehermes_1_1magneticfields_1a0d6b7018ba839b009cc6fc757b3e7605`

@@ -4,6 +4,11 @@
 File IntegratorTemplate.h
 =========================
 
+
+Contains ``IntegratorTemplate`` definition used in all other integrators. 
+
+
+
 .. contents:: Contents
    :local:
    :backlinks: none

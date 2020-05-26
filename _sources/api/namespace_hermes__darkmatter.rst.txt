@@ -39,8 +39,8 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_NFWGProfile_8cpp_1ab61b1577fd0ecb1fd77588ee1b2c7466`
+- :ref:`exhale_function_namespacehermes_1_1darkmatter_1ab61b1577fd0ecb1fd77588ee1b2c7466`
 
-- :ref:`exhale_function_NFWGProfile_8cpp_1aa93df710db997cf0dc306709efb0e491`
+- :ref:`exhale_function_namespacehermes_1_1darkmatter_1aa93df710db997cf0dc306709efb0e491`
 
-- :ref:`exhale_function_NFWGProfile_8cpp_1ad686df245a8f4306de4b937d26523978`
+- :ref:`exhale_function_namespacehermes_1_1darkmatter_1ad686df245a8f4306de4b937d26523978`

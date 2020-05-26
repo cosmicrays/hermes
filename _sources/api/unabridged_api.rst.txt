@@ -622,27 +622,27 @@ Enums
 .. toctree::
    :maxdepth: 5
 
-   enum_FITSWrapper_8h_1ad8ed01ff3ff33333d8e19db4d2818bb6.rst
+   enum_namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6.rst
 
 .. toctree::
    :maxdepth: 5
 
-   enum_FITSWrapper_8h_1ae3cad0012491f6b195d44b53e67a6f37.rst
+   enum_namespacehermes_1_1FITS_1ae3cad0012491f6b195d44b53e67a6f37.rst
 
 .. toctree::
    :maxdepth: 5
 
-   enum_FITSWrapper_8h_1a39bee33e1fd856a194ce551099db32e8.rst
+   enum_namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8.rst
 
 .. toctree::
    :maxdepth: 5
 
-   enum_FITSWrapper_8h_1a6920ce5d7f5c06c676fe801e538aed49.rst
+   enum_namespacehermes_1_1FITS_1a6920ce5d7f5c06c676fe801e538aed49.rst
 
 .. toctree::
    :maxdepth: 5
 
-   enum_RingModel_8h_1a6e6e8dec15851f2136618b418cf844f7.rst
+   enum_namespacehermes_1_1neutralgas_1a6e6e8dec15851f2136618b418cf844f7.rst
 
 Functions
 *********
@@ -651,52 +651,52 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_Random_8cpp_1a8595384c9be525c15b4d15a2b66b385f.rst
+   function_namespacehermes_1a8595384c9be525c15b4d15a2b66b385f.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Random_8cpp_1ab48f80ec6a4725ec9387e1dab8c08da7.rst
+   function_namespacehermes_1ab48f80ec6a4725ec9387e1dab8c08da7.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_LOSIntegrationMethods_8h_1aab83269110d53cbcf531a12843ffdf73.rst
+   function_namespacehermes_1aab83269110d53cbcf531a12843ffdf73.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_HEALPixBits_8h_1adca7018746886af2b19439d66a07f152.rst
+   function_namespacehermes_1adca7018746886af2b19439d66a07f152.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_NFWGProfile_8cpp_1ab61b1577fd0ecb1fd77588ee1b2c7466.rst
+   function_namespacehermes_1_1darkmatter_1ab61b1577fd0ecb1fd77588ee1b2c7466.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_NFWGProfile_8cpp_1aa93df710db997cf0dc306709efb0e491.rst
+   function_namespacehermes_1_1darkmatter_1aa93df710db997cf0dc306709efb0e491.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_NFWGProfile_8cpp_1ad686df245a8f4306de4b937d26523978.rst
+   function_namespacehermes_1_1darkmatter_1ad686df245a8f4306de4b937d26523978.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a8238e5ea84755ca291f5fe33eabc4e07.rst
+   function_namespacehermes_1a8238e5ea84755ca291f5fe33eabc4e07.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8cpp_1aefeac1d50b6dfe2bafea892a9c560370.rst
+   function_namespacehermes_1aefeac1d50b6dfe2bafea892a9c560370.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a26cf6e5a6eb42fca7df65a4057f4c36d.rst
+   function_namespacehermes_1a26cf6e5a6eb42fca7df65a4057f4c36d.rst
 
 .. toctree::
    :maxdepth: 5
@@ -711,12 +711,12 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1adbace0895ffceceba9f7e835c50729e6.rst
+   function_namespacehermes_1adbace0895ffceceba9f7e835c50729e6.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a11f622cfa477f5d94f5cedd52a5d6ac5.rst
+   function_namespacehermes_1a11f622cfa477f5d94f5cedd52a5d6ac5.rst
 
 .. toctree::
    :maxdepth: 5
@@ -731,27 +731,27 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1aa72d8a7d7169c7140afb5574140b40bd.rst
+   function_namespacehermes_1aa72d8a7d7169c7140afb5574140b40bd.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a002ec613d1cbae33f809a462a3b1bad2.rst
+   function_namespacehermes_1a002ec613d1cbae33f809a462a3b1bad2.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_ParticleID_8h_1adaf6926e294f6daf14fbba1cc4deb1bd.rst
+   function_namespacehermes_1adaf6926e294f6daf14fbba1cc4deb1bd.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_HEALPixBits_8cpp_1aea7081362703f3c323f5b783ba23c282.rst
+   function_namespacehermes_1aea7081362703f3c323f5b783ba23c282.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a6be8ab078bdc80be66f151ea9e1eaae1.rst
+   function_namespacehermes_1a6be8ab078bdc80be66f151ea9e1eaae1.rst
 
 .. toctree::
    :maxdepth: 5
@@ -761,7 +761,7 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a3aff1a45fe5aa42baf22b3b4f16f741f.rst
+   function_namespacehermes_1a3aff1a45fe5aa42baf22b3b4f16f741f.rst
 
 .. toctree::
    :maxdepth: 5
@@ -771,67 +771,67 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1aa235c1aea73c85a3e08fffc29f420b3b.rst
+   function_namespacehermes_1aa235c1aea73c85a3e08fffc29f420b3b.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Signals_8h_1a18aa87dcffccbb8c736f92ed737bd0b2.rst
+   function_namespacehermes_1a18aa87dcffccbb8c736f92ed737bd0b2.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_LOSIntegrationMethods_8h_1adbf18fd724ac960936e5c18aa514be51.rst
+   function_namespacehermes_1adbf18fd724ac960936e5c18aa514be51.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a012863a22000a2f0a01821cf7d3fc8c5.rst
+   function_namespacehermes_1a012863a22000a2f0a01821cf7d3fc8c5.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1ade041a25f94a13ce9c3697d51b7f06b0.rst
+   function_namespacehermes_1ade041a25f94a13ce9c3697d51b7f06b0.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a11111cff32514fdc9229ffa19445b358.rst
+   function_namespacehermes_1a11111cff32514fdc9229ffa19445b358.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a0b8bf796a4d1bbefab10928fab4eae77.rst
+   function_namespacehermes_1a0b8bf796a4d1bbefab10928fab4eae77.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1adacda698829badafef87b0b51e705043.rst
+   function_namespacehermes_1adacda698829badafef87b0b51e705043.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a2fc00b3aa62d6ff8390048c22edb4120.rst
+   function_namespacehermes_1a2fc00b3aa62d6ff8390048c22edb4120.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_LOSIntegrationMethods_8h_1afdfd885920354390af16e7fee90d932b.rst
+   function_namespacehermes_1afdfd885920354390af16e7fee90d932b.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_LOSIntegrationMethods_8h_1ab7a86100c4f5cf732eb45bfc20ad2c4f.rst
+   function_namespacehermes_1ab7a86100c4f5cf732eb45bfc20ad2c4f.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_CacheTools_8h_1a37e2cd252b4a28a1d125d638046dfdd6.rst
+   function_namespacehermes_1a37e2cd252b4a28a1d125d638046dfdd6.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_ParticleID_8h_1a057073daf498666646a7f6025f3d6da0.rst
+   function_namespacehermes_1a057073daf498666646a7f6025f3d6da0.rst
 
 .. toctree::
    :maxdepth: 5
@@ -841,12 +841,12 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a7caf30b5720f27d1b744a7c7eaa786a8.rst
+   function_namespacehermes_1a7caf30b5720f27d1b744a7c7eaa786a8.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a2fac14165a26f3fcaf84bbed5460558f.rst
+   function_namespacehermes_1a2fac14165a26f3fcaf84bbed5460558f.rst
 
 .. toctree::
    :maxdepth: 5
@@ -861,12 +861,12 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a2f32ac35602b79e985748f98b98ce469.rst
+   function_namespacehermes_1a2f32ac35602b79e985748f98b98ce469.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a13d27e88127e77eb32d30c2a560758c4.rst
+   function_namespacehermes_1a13d27e88127e77eb32d30c2a560758c4.rst
 
 .. toctree::
    :maxdepth: 5
@@ -881,27 +881,27 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a39ed770566ff62dfc1c3e8e67e1142f4.rst
+   function_namespacehermes_1a39ed770566ff62dfc1c3e8e67e1142f4.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a2212b9d5e1b590af49b7470f34ea4b03.rst
+   function_namespacehermes_1a2212b9d5e1b590af49b7470f34ea4b03.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_HEALPixBits_8h_1aeda6358b7ac7eac3abac2bfaa564e516.rst
+   function_namespacehermes_1aeda6358b7ac7eac3abac2bfaa564e516.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_HEALPixBits_8h_1a45b99e0ca17bd99e0c8fded860f86d69.rst
+   function_namespacehermes_1a45b99e0ca17bd99e0c8fded860f86d69.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_JF12Field_8cpp_1a0d6b7018ba839b009cc6fc757b3e7605.rst
+   function_namespacehermes_1_1magneticfields_1a0d6b7018ba839b009cc6fc757b3e7605.rst
 
 .. toctree::
    :maxdepth: 5
@@ -916,12 +916,12 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1aa2849fe086560a48e414778b731e1f8d.rst
+   function_namespacehermes_1aa2849fe086560a48e414778b731e1f8d.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1adf7f8c2cc9782fda8053ded628825aef.rst
+   function_namespacehermes_1adf7f8c2cc9782fda8053ded628825aef.rst
 
 .. toctree::
    :maxdepth: 5
@@ -931,17 +931,17 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a51ffa818467a42da1ac66fc0a685f92e.rst
+   function_namespacehermes_1a51ffa818467a42da1ac66fc0a685f92e.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_HEALPixBits_8h_1af3dd2ca8dc8acd57a6dd923a085ea9cb.rst
+   function_namespacehermes_1af3dd2ca8dc8acd57a6dd923a085ea9cb.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_HEALPixBits_8h_1a25b2e7fa94f0fd4e105db8a20680c056.rst
+   function_namespacehermes_1a25b2e7fa94f0fd4e105db8a20680c056.rst
 
 .. toctree::
    :maxdepth: 5
@@ -986,7 +986,7 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_Random_8cpp_1ae3fa6e6b0d54e1dbb1a768a266e4649b.rst
+   function_namespacehermes_1ae3fa6e6b0d54e1dbb1a768a266e4649b.rst
 
 .. toctree::
    :maxdepth: 5
@@ -996,37 +996,37 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_Random_8cpp_1a74c291278f81519f2153f730ffacd360.rst
+   function_namespacehermes_1a74c291278f81519f2153f730ffacd360.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Grid_8h_1ae203a969f1d78336fd2b5192ab33b6b9.rst
+   function_namespacehermes_1ae203a969f1d78336fd2b5192ab33b6b9.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_ISRF_8cpp_1a5d26c38446f5846b3f43ca458cb7ff89.rst
+   function_namespacehermes_1_1photonfields_1a5d26c38446f5846b3f43ca458cb7ff89.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_HEALPixBits_8h_1a09f25fdd0b7fcfa44a364e4f18c2aaba.rst
+   function_namespacehermes_1a09f25fdd0b7fcfa44a364e4f18c2aaba.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_ParticleID_8h_1a9e61c36ffdfdb5b700b0ac6d7ab2b597.rst
+   function_namespacehermes_1a9e61c36ffdfdb5b700b0ac6d7ab2b597.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_ParticleID_8h_1ae5ef77c9a3c00d7d047f0b56dbb38b0a.rst
+   function_namespacehermes_1ae5ef77c9a3c00d7d047f0b56dbb38b0a.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Grid_8h_1abab317364a3bcdd6418d633865ab073a.rst
+   function_namespacehermes_1abab317364a3bcdd6418d633865ab073a.rst
 
 .. toctree::
    :maxdepth: 5
@@ -1041,17 +1041,17 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a1eb9dca3e91995daf5b50bcbc0e6c8f9.rst
+   function_namespacehermes_1a1eb9dca3e91995daf5b50bcbc0e6c8f9.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1ae284fd34aa7b5048eceaec5309a5b0a9.rst
+   function_namespacehermes_1ae284fd34aa7b5048eceaec5309a5b0a9.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Grid_8h_1a4f7c9d13ffa99db140577c98933bd926.rst
+   function_namespacehermes_1a4f7c9d13ffa99db140577c98933bd926.rst
 
 .. toctree::
    :maxdepth: 5
@@ -1066,32 +1066,32 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1accb4708c6655cfec82210306631ea767.rst
+   function_namespacehermes_1accb4708c6655cfec82210306631ea767.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_GridTools_8cpp_1a6f6f87a91c7024fbff73febe3aefba57.rst
+   function_namespacehermes_1a6f6f87a91c7024fbff73febe3aefba57.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_LOSIntegrationMethods_8h_1a8dcd138f7d4bb7e288aed9a83dcde085.rst
+   function_namespacehermes_1a8dcd138f7d4bb7e288aed9a83dcde085.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_LOSIntegrationMethods_8h_1a0b024770c7b8223e7c0dccdb963ee00d.rst
+   function_namespacehermes_1a0b024770c7b8223e7c0dccdb963ee00d.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_Common_8h_1a1564a0a913257b84fea302bb6f4984cc.rst
+   function_namespacehermes_1a1564a0a913257b84fea302bb6f4984cc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_LOSIntegrationMethods_8h_1a8c0de8a27b286d7ff866a548f109eec2.rst
+   function_namespacehermes_1a8c0de8a27b286d7ff866a548f109eec2.rst
 
 .. toctree::
    :maxdepth: 5
@@ -1541,17 +1541,17 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_UnitsSimple_8h_1a0709379f89073a1d6e125682f9c0830e.rst
+   function_namespacehermes_1_1units_1a0709379f89073a1d6e125682f9c0830e.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_UnitsHERMES_8h_1abc4316024c8b735f6ae822eeea7d157e.rst
+   function_namespacehermes_1_1units_1abc4316024c8b735f6ae822eeea7d157e.rst
 
 .. toctree::
    :maxdepth: 5
 
-   function_UnitsHERMES_8h_1a0d858fd0da3b2a2f1f21233b0504c479.rst
+   function_namespacehermes_1_1units_1a0d858fd0da3b2a2f1f21233b0504c479.rst
 
 .. toctree::
    :maxdepth: 5
@@ -1566,7 +1566,7 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_UnitsHERMES_8h_1ac2ef5e32c6c49910a12e1d2bd6397e20.rst
+   function_namespacehermes_1_1units_1ac2ef5e32c6c49910a12e1d2bd6397e20.rst
 
 .. toctree::
    :maxdepth: 5
@@ -1786,7 +1786,7 @@ Functions
 .. toctree::
    :maxdepth: 5
 
-   function_UnitsSimple_8h_1a3a51d0e5f4a5ce1024da6658f0bfbfd4.rst
+   function_namespacehermes_1_1units_1a3a51d0e5f4a5ce1024da6658f0bfbfd4.rst
 
 .. toctree::
    :maxdepth: 5
@@ -1830,17 +1830,17 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_Random_8cpp_1a660441872cddfe877ad1c1b4cef8d164.rst
+   variable_namespacehermes_1a660441872cddfe877ad1c1b4cef8d164.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_Signals_8h_1adebadb30598d3cf64fe91485c3049ced.rst
+   variable_namespacehermes_1adebadb30598d3cf64fe91485c3049ced.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_Random_8cpp_1a6534aea88ad941c2ee2ea1bffb759652.rst
+   variable_namespacehermes_1a6534aea88ad941c2ee2ea1bffb759652.rst
 
 .. toctree::
    :maxdepth: 5
@@ -1995,7 +1995,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1afd7be92c7220e42409d3d947fbfb11e6.rst
+   variable_namespacehermes_1_1units_1afd7be92c7220e42409d3d947fbfb11e6.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2020,7 +2020,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a29524edd8a2c8c1103502a9358f79e4b.rst
+   variable_namespacehermes_1_1units_1a29524edd8a2c8c1103502a9358f79e4b.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2035,12 +2035,12 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a718707832b2522ae324230a0c4d30264.rst
+   variable_namespacehermes_1_1units_1a718707832b2522ae324230a0c4d30264.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a438535c531d8ba8a923366c446aa3c8f.rst
+   variable_namespacehermes_1_1units_1a438535c531d8ba8a923366c446aa3c8f.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2075,12 +2075,12 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a63ea0a9636c4ef570851c8f638b6dded.rst
+   variable_namespacehermes_1_1units_1a63ea0a9636c4ef570851c8f638b6dded.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a83ae53768251585b9e65dfbaf0ed9fbe.rst
+   variable_namespacehermes_1_1units_1a83ae53768251585b9e65dfbaf0ed9fbe.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2100,7 +2100,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1adbd5d8e1502473f191f3b821d709eb05.rst
+   variable_namespacehermes_1_1units_1adbd5d8e1502473f191f3b821d709eb05.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2120,7 +2120,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1ad4ddad2e4e6e3e683c40c7e375d1ca50.rst
+   variable_namespacehermes_1_1units_1ad4ddad2e4e6e3e683c40c7e375d1ca50.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2140,7 +2140,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a5646ca4131c28eac28bcdac3b6dc8747.rst
+   variable_namespacehermes_1_1units_1a5646ca4131c28eac28bcdac3b6dc8747.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2180,7 +2180,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a1936065a818d8594010e95a289ecc971.rst
+   variable_namespacehermes_1_1units_1a1936065a818d8594010e95a289ecc971.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2190,7 +2190,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1ad24dc0a3aa9e5eac772d7bb4dfbd6f1c.rst
+   variable_namespacehermes_1_1units_1ad24dc0a3aa9e5eac772d7bb4dfbd6f1c.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2200,7 +2200,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a1a85d239e63adea88718cc638d976686.rst
+   variable_namespacehermes_1_1units_1a1a85d239e63adea88718cc638d976686.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2220,7 +2220,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1ad1e91dbaaf3d09ff684c32ea0d9872b7.rst
+   variable_namespacehermes_1_1units_1ad1e91dbaaf3d09ff684c32ea0d9872b7.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2235,7 +2235,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a527d59388bce9c826c8292c114743885.rst
+   variable_namespacehermes_1_1units_1a527d59388bce9c826c8292c114743885.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2245,7 +2245,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a0426ce2753e9bfbdd74756b220f1f679.rst
+   variable_namespacehermes_1_1units_1a0426ce2753e9bfbdd74756b220f1f679.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2295,7 +2295,7 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1aa5446b28be6215dfe2ca39251d32f08c.rst
+   variable_namespacehermes_1_1units_1aa5446b28be6215dfe2ca39251d32f08c.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2320,37 +2320,37 @@ Variables
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a8aad129a888d3227d466b844e14e00ff.rst
+   variable_namespacehermes_1_1units_1a8aad129a888d3227d466b844e14e00ff.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1ad60e738f6ab990cd5928246c070a9aac.rst
+   variable_namespacehermes_1_1units_1ad60e738f6ab990cd5928246c070a9aac.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1ac790d00969a5ba20b7d2babe708bbfb5.rst
+   variable_namespacehermes_1_1units_1ac790d00969a5ba20b7d2babe708bbfb5.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_UnitsSIPrefixes_8h_1a5ff9f2b1681c89dd7d48041c39a83d76.rst
+   variable_namespacehermes_1_1units_1a5ff9f2b1681c89dd7d48041c39a83d76.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_HEALPixBits_8h_1af17f037ff39603cfe4208a43bfcfb8f6.rst
+   variable_namespacehermes_1af17f037ff39603cfe4208a43bfcfb8f6.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_LOSIntegrationMethods_8h_1a43779031bbc6e102be279b8702c5eef5.rst
+   variable_namespacehermes_1a43779031bbc6e102be279b8702c5eef5.rst
 
 .. toctree::
    :maxdepth: 5
 
-   variable_LOSIntegrationMethods_8h_1ae0e636b5119e31607138675be292cf2c.rst
+   variable_namespacehermes_1ae0e636b5119e31607138675be292cf2c.rst
 
 Typedefs
 ********
@@ -2359,17 +2359,17 @@ Typedefs
 .. toctree::
    :maxdepth: 5
 
-   typedef_CacheTools_8h_1ac1e97935e75d13cb8138971d06fa8672.rst
+   typedef_namespacehermes_1ac1e97935e75d13cb8138971d06fa8672.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_CacheTools_8h_1a2e9feda1b21561f65bab00b5e51aeff9.rst
+   typedef_namespacehermes_1a2e9feda1b21561f65bab00b5e51aeff9.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_CacheTools_8h_1afbebdc77c5226b42a3caa5b614efc704.rst
+   typedef_namespacehermes_1afbebdc77c5226b42a3caa5b614efc704.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2419,67 +2419,67 @@ Typedefs
 .. toctree::
    :maxdepth: 5
 
-   typedef_CacheTools_8h_1a20991e733aed18d347c855020f0345ae.rst
+   typedef_namespacehermes_1a20991e733aed18d347c855020f0345ae.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_CacheTools_8h_1ac9fffeaa9f83c8434acaa6af317a6ca0.rst
+   typedef_namespacehermes_1ac9fffeaa9f83c8434acaa6af317a6ca0.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_CacheTools_8h_1a85bf74584595cca6b9dda8c091b1400b.rst
+   typedef_namespacehermes_1a85bf74584595cca6b9dda8c091b1400b.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_CacheTools_8h_1a440dbaab719ad3dd6edd9dece95faf70.rst
+   typedef_namespacehermes_1a440dbaab719ad3dd6edd9dece95faf70.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a90796c8083e0e96d3fd6ba1266a3ddd0.rst
+   typedef_namespacehermes_1_1units_1a90796c8083e0e96d3fd6ba1266a3ddd0.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1acc4e548474922dd119e8c9bf9492bace.rst
+   typedef_namespacehermes_1_1units_1acc4e548474922dd119e8c9bf9492bace.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1af3e07db6a1feb6f96f20e33589215d40.rst
+   typedef_namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1abe6966a015d5a1f3ca75558829d00d6c.rst
+   typedef_namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a73f8dce63834f57204084ff97dd58bcf.rst
+   typedef_namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1abfd2d95d5ad24fefdc11b58460cdef65.rst
+   typedef_namespacehermes_1_1units_1abfd2d95d5ad24fefdc11b58460cdef65.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a4a2226450548bd2c1933872630cddb2c.rst
+   typedef_namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a93760358a2f865d72e4c32104285f35a.rst
+   typedef_namespacehermes_1_1units_1a93760358a2f865d72e4c32104285f35a.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1ada76cbae8b500c364499a35f1e24c0f5.rst
+   typedef_namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2489,187 +2489,187 @@ Typedefs
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a6fadfde6ede5563e06f8a138b9842301.rst
+   typedef_namespacehermes_1_1units_1a6fadfde6ede5563e06f8a138b9842301.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a755d56da761e757675d206a4c66da013.rst
+   typedef_namespacehermes_1_1units_1a755d56da761e757675d206a4c66da013.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a242b7c6d821226abcd4c9c1df4080b7c.rst
+   typedef_namespacehermes_1_1units_1a242b7c6d821226abcd4c9c1df4080b7c.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1afed1063e6c1cf425c9e80def217f4cba.rst
+   typedef_namespacehermes_1_1units_1afed1063e6c1cf425c9e80def217f4cba.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1aff19f49188ecc2e366d24bf507e7a8d1.rst
+   typedef_namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1ac285eba14ae940108acd8ef39210c167.rst
+   typedef_namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a36118aef995d85ab91489798de37611c.rst
+   typedef_namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a5e81348dd8e9c30ddd626f52910a24a1.rst
+   typedef_namespacehermes_1_1units_1a5e81348dd8e9c30ddd626f52910a24a1.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a81921f7da5e61ae8b3510dacd4017d5f.rst
+   typedef_namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1aa5aca56b7d2fd0c4824c1ac399f2a8fc.rst
+   typedef_namespacehermes_1_1units_1aa5aca56b7d2fd0c4824c1ac399f2a8fc.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a15830f33c3cfe7911529e7bd9e46962b.rst
+   typedef_namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1ab69c0333fdf6a779b43f399201e786d3.rst
+   typedef_namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a9970527ffabff2dd35c43fb96f45cda7.rst
+   typedef_namespacehermes_1_1units_1a9970527ffabff2dd35c43fb96f45cda7.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a0703452ed5c2a2a12f88a839462bb24f.rst
+   typedef_namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a960c15962cb540bdae2630fd2fa54af0.rst
+   typedef_namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a1c20dce17af7f82f171ce3c5605de909.rst
+   typedef_namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a7fafd935f08d30262bfba7261e8f76f3.rst
+   typedef_namespacehermes_1_1units_1a7fafd935f08d30262bfba7261e8f76f3.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a9aa63b3fba22eb70c9c723863eef6b59.rst
+   typedef_namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a72b849b5230560167419622406054305.rst
+   typedef_namespacehermes_1_1units_1a72b849b5230560167419622406054305.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a6a7ff69b5d0f535262f7981fc5f3a3e1.rst
+   typedef_namespacehermes_1_1units_1a6a7ff69b5d0f535262f7981fc5f3a3e1.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1acb8e306c9eeb1842a89b8e3bf7ea1780.rst
+   typedef_namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1ac18d9683b4f126f51b4fab7a1304400c.rst
+   typedef_namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1ad065263541ca8902f903e26e57dc33cf.rst
+   typedef_namespacehermes_1_1units_1ad065263541ca8902f903e26e57dc33cf.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a758ac2a09e6404bedc9f6c9b0fba33b8.rst
+   typedef_namespacehermes_1_1units_1a758ac2a09e6404bedc9f6c9b0fba33b8.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a825916b4e02cdff105ae3f499c221be5.rst
+   typedef_namespacehermes_1_1units_1a825916b4e02cdff105ae3f499c221be5.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a8800da94a80f732ff7ef93cb954a8e31.rst
+   typedef_namespacehermes_1_1units_1a8800da94a80f732ff7ef93cb954a8e31.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a6fa6e2566d07746568b0ab61b4f0e491.rst
+   typedef_namespacehermes_1_1units_1a6fa6e2566d07746568b0ab61b4f0e491.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a7430130b27415445121268ef33e2b9f0.rst
+   typedef_namespacehermes_1_1units_1a7430130b27415445121268ef33e2b9f0.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a882108de6a7baeb179ec278907e91489.rst
+   typedef_namespacehermes_1_1units_1a882108de6a7baeb179ec278907e91489.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a1902de5339ae78e3e0816282e4ad4f65.rst
+   typedef_namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a30f5a6207bff5e9e3503d039f5485439.rst
+   typedef_namespacehermes_1_1units_1a30f5a6207bff5e9e3503d039f5485439.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1ada6d27e18c6b882bd684cb05c2fea781.rst
+   typedef_namespacehermes_1_1units_1ada6d27e18c6b882bd684cb05c2fea781.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a4240d354c79517ce51fbc34f6a7e791a.rst
+   typedef_namespacehermes_1_1units_1a4240d354c79517ce51fbc34f6a7e791a.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1af1f97c9b0b9bdd6cc6b1ae114f535785.rst
+   typedef_namespacehermes_1_1units_1af1f97c9b0b9bdd6cc6b1ae114f535785.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1afc7955aa972e295d1538348d16e11537.rst
+   typedef_namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1ab16ea1563d0b091f28aae94e1ef44d20.rst
+   typedef_namespacehermes_1_1units_1ab16ea1563d0b091f28aae94e1ef44d20.rst
 
 .. toctree::
    :maxdepth: 5
 
-   typedef_UnitsSimple_8h_1a0646abfdd66253cf534207b37bccb0d4.rst
+   typedef_namespacehermes_1_1units_1a0646abfdd66253cf534207b37bccb0d4.rst
 
 .. toctree::
    :maxdepth: 5

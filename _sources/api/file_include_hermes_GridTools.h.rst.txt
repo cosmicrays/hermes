@@ -22,7 +22,7 @@ Definition (``include/hermes/GridTools.h``)
 Detailed Description
 --------------------
 
-This file contains a number of functions related to scalar and vector grids (Grid.h).
+This file contains a number of functions related to scalar and vector grids (:ref:`file_include_hermes_Grid.h`).
 
 Dump/load functions are available for saving/loading grids to/from and binary and plain text files. In the files the grid points are stored from (0, 0, 0) to (Nx, Ny, Nz) with the z-index changing the fastest. Vector components are stored per grid point in xyz-order. In case of plain-text files the vector components are separated by a blank or tab and grid points are stored one per line. All functions offer a conversion factor that is multiplied to all values. 
 
