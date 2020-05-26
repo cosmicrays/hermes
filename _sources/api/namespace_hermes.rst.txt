@@ -143,9 +143,9 @@ Functions
 
 - :ref:`exhale_function_HEALPixBits_8h_1adca7018746886af2b19439d66a07f152`
 
-- :ref:`exhale_function_Common_8h_1a8238e5ea84755ca291f5fe33eabc4e07`
-
 - :ref:`exhale_function_Common_8cpp_1aefeac1d50b6dfe2bafea892a9c560370`
+
+- :ref:`exhale_function_Common_8h_1a8238e5ea84755ca291f5fe33eabc4e07`
 
 - :ref:`exhale_function_Common_8h_1a26cf6e5a6eb42fca7df65a4057f4c36d`
 
@@ -153,9 +153,9 @@ Functions
 
 - :ref:`exhale_function_group__Core_1gaa523e8e1f4238bc94aeb41646356cd4e`
 
-- :ref:`exhale_function_GridTools_8cpp_1adbace0895ffceceba9f7e835c50729e6`
-
 - :ref:`exhale_function_GridTools_8cpp_1a11f622cfa477f5d94f5cedd52a5d6ac5`
+
+- :ref:`exhale_function_GridTools_8cpp_1adbace0895ffceceba9f7e835c50729e6`
 
 - :ref:`exhale_function_group__Core_1ga64e88565f0514de2c1ba9c1bbc7a7091`
 
@@ -209,13 +209,13 @@ Functions
 
 - :ref:`exhale_function_Common_8h_1a2fac14165a26f3fcaf84bbed5460558f`
 
-- :ref:`exhale_function_group__Core_1ga81f7140150a08f94cf6e8be25fbcb300`
-
-- :ref:`exhale_function_group__Core_1gaad98beffee251f22831b72cb591a0c95`
+- :ref:`exhale_function_GridTools_8cpp_1a13d27e88127e77eb32d30c2a560758c4`
 
 - :ref:`exhale_function_GridTools_8cpp_1a2f32ac35602b79e985748f98b98ce469`
 
-- :ref:`exhale_function_GridTools_8cpp_1a13d27e88127e77eb32d30c2a560758c4`
+- :ref:`exhale_function_group__Core_1ga81f7140150a08f94cf6e8be25fbcb300`
+
+- :ref:`exhale_function_group__Core_1gaad98beffee251f22831b72cb591a0c95`
 
 - :ref:`exhale_function_group__Core_1ga4005328a48e1f0a728532ab660b2edd6`
 
@@ -229,17 +229,17 @@ Functions
 
 - :ref:`exhale_function_HEALPixBits_8h_1a45b99e0ca17bd99e0c8fded860f86d69`
 
-- :ref:`exhale_function_group__Core_1gaa43bf974e4480af550b7cd3392c83ee6`
-
-- :ref:`exhale_function_group__Core_1ga1072f274a7e4eb62bddbea8799b80f58`
-
 - :ref:`exhale_function_GridTools_8cpp_1aa2849fe086560a48e414778b731e1f8d`
 
 - :ref:`exhale_function_GridTools_8cpp_1adf7f8c2cc9782fda8053ded628825aef`
 
-- :ref:`exhale_function_group__Core_1ga933b649c5796ace1f70fd222262209c4`
+- :ref:`exhale_function_group__Core_1gaa43bf974e4480af550b7cd3392c83ee6`
+
+- :ref:`exhale_function_group__Core_1ga1072f274a7e4eb62bddbea8799b80f58`
 
 - :ref:`exhale_function_GridTools_8cpp_1a51ffa818467a42da1ac66fc0a685f92e`
+
+- :ref:`exhale_function_group__Core_1ga933b649c5796ace1f70fd222262209c4`
 
 - :ref:`exhale_function_HEALPixBits_8h_1af3dd2ca8dc8acd57a6dd923a085ea9cb`
 
@@ -277,23 +277,23 @@ Functions
 
 - :ref:`exhale_function_Grid_8h_1abab317364a3bcdd6418d633865ab073a`
 
-- :ref:`exhale_function_group__Core_1ga009d2e8b110b6af0083f230fadca2a7c`
-
-- :ref:`exhale_function_group__Core_1gaf5f58beb01b5500088ddeef6b3b2f35b`
-
 - :ref:`exhale_function_GridTools_8cpp_1a1eb9dca3e91995daf5b50bcbc0e6c8f9`
 
 - :ref:`exhale_function_GridTools_8cpp_1ae284fd34aa7b5048eceaec5309a5b0a9`
 
+- :ref:`exhale_function_group__Core_1ga009d2e8b110b6af0083f230fadca2a7c`
+
+- :ref:`exhale_function_group__Core_1gaf5f58beb01b5500088ddeef6b3b2f35b`
+
 - :ref:`exhale_function_Grid_8h_1a4f7c9d13ffa99db140577c98933bd926`
-
-- :ref:`exhale_function_group__Core_1ga6aaaae4f6c0ce2a7ab5fcf34da276bb9`
-
-- :ref:`exhale_function_group__Core_1ga23391a00178d0e36e9dd7f035fd96286`
 
 - :ref:`exhale_function_GridTools_8cpp_1accb4708c6655cfec82210306631ea767`
 
 - :ref:`exhale_function_GridTools_8cpp_1a6f6f87a91c7024fbff73febe3aefba57`
+
+- :ref:`exhale_function_group__Core_1ga6aaaae4f6c0ce2a7ab5fcf34da276bb9`
+
+- :ref:`exhale_function_group__Core_1ga23391a00178d0e36e9dd7f035fd96286`
 
 - :ref:`exhale_function_LOSIntegrationMethods_8h_1a8dcd138f7d4bb7e288aed9a83dcde085`
 
