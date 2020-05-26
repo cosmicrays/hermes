@@ -13,5 +13,5 @@ Contents
    :caption: API
    :maxdepth: 2
 
-   building_blocks
+   components
    api/library_root
