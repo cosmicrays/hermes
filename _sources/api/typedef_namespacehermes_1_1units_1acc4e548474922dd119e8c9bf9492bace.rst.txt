@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1acc4e548474922dd119e8c9bf9492bace:
+
+Typedef hermes::units::QAMomentum
+=================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QAMomentum

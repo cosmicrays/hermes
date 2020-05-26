@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1a882108de6a7baeb179ec278907e91489:
+
+Typedef hermes::units::QRMIntegral
+==================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QRMIntegral

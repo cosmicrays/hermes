@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1a2fac14165a26f3fcaf84bbed5460558f:
+
+Function hermes::isWithinAngle
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::isWithinAngle(const QDirection&, const QDirection&, const QAngle&)

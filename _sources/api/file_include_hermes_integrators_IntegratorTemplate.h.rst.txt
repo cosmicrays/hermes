@@ -5,7 +5,7 @@ File IntegratorTemplate.h
 =========================
 
 
-Contains ``IntegratorTemplate`` definition used in all other integrators. 
+Contains ``IntegratorTemplate`` definition used in all integrators. 
 
 
 

@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1ab16ea1563d0b091f28aae94e1ef44d20:
+
+Typedef hermes::units::QTime
+============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QTime

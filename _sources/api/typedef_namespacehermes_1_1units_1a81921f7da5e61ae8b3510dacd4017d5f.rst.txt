@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f:
+
+Typedef hermes::units::QEResistance
+===================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QEResistance

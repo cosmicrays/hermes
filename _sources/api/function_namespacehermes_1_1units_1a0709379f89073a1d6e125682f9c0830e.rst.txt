@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1_1units_1a0709379f89073a1d6e125682f9c0830e:
+
+Template Function hermes::units::pow(const QNumber&)
+====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::pow(const QNumber&)

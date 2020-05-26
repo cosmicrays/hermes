@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1aeda6358b7ac7eac3abac2bfaa564e516:
+
+Function hermes::loc2pix
+========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::loc2pix(unsigned int, double, double, double, bool)

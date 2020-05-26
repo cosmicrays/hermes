@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1a1564a0a913257b84fea302bb6f4984cc:
+
+Function hermes::toGalCoord
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::toGalCoord(const QDirection&)

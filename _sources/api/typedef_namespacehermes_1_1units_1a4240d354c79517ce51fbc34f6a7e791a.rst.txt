@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1a4240d354c79517ce51fbc34f6a7e791a:
+
+Typedef hermes::units::QSubstance
+=================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QSubstance

@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c:
+
+Typedef hermes::units::QPDensity
+================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QPDensity

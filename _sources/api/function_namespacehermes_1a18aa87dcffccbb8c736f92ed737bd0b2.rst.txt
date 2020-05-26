@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1a18aa87dcffccbb8c736f92ed737bd0b2:
+
+Function hermes::g_cancel_signal_callback
+=========================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::g_cancel_signal_callback(int)

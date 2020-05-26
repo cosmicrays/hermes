@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1a8800da94a80f732ff7ef93cb954a8e31:
+
+Typedef hermes::units::QPressure
+================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QPressure

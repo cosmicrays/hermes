@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1a2212b9d5e1b590af49b7470f34ea4b03:
+
+Function hermes::loadGridFromTxt(const std::shared_ptr<ScalarGrid>&, const std::string&, double)
+================================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::loadGridFromTxt(const std::shared_ptr<ScalarGrid>&, const std::string&, double)

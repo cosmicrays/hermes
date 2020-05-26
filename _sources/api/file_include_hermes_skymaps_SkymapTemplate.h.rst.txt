@@ -4,6 +4,11 @@
 File SkymapTemplate.h
 =====================
 
+
+Contains ``SkymapTemplate`` definition used in all skymaps. 
+
+
+
 .. contents:: Contents
    :local:
    :backlinks: none

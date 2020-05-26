@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1_1magneticfields_1a0d6b7018ba839b009cc6fc757b3e7605:
+
+Function hermes::magneticfields::logisticFunction
+=================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::magneticfields::logisticFunction(QLength, QLength, QLength)

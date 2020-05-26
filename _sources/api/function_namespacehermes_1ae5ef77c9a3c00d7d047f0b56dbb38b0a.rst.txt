@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1ae5ef77c9a3c00d7d047f0b56dbb38b0a:
+
+Function hermes::Proton
+=======================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::Proton(1, 1)

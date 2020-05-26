@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1adacda698829badafef87b0b51e705043:
+
+Function hermes::getThreadId
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::getThreadId()

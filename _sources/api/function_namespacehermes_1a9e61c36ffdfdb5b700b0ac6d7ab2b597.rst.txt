@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1a9e61c36ffdfdb5b700b0ac6d7ab2b597:
+
+Function hermes::Positron
+=========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::Positron(1, 0)

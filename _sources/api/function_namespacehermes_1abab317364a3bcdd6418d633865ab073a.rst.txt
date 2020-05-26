@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1abab317364a3bcdd6418d633865ab073a:
+
+Function hermes::reflectiveClamp
+================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::reflectiveClamp(double, int, int&, int&)

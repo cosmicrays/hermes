@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909:
+
+Typedef hermes::units::QLength
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QLength

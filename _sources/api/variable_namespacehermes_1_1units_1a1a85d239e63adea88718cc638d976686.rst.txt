@@ -1,0 +1,13 @@
+.. _exhale_variable_namespacehermes_1_1units_1a1a85d239e63adea88718cc638d976686:
+
+Variable hermes::units::milli
+=============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::milli

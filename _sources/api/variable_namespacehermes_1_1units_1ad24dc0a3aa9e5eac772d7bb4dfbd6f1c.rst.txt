@@ -1,0 +1,13 @@
+.. _exhale_variable_namespacehermes_1_1units_1ad24dc0a3aa9e5eac772d7bb4dfbd6f1c:
+
+Variable hermes::units::micro
+=============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::micro

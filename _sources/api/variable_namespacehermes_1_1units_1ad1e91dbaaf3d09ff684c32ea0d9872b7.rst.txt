@@ -1,0 +1,13 @@
+.. _exhale_variable_namespacehermes_1_1units_1ad1e91dbaaf3d09ff684c32ea0d9872b7:
+
+Variable hermes::units::nano
+============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::nano

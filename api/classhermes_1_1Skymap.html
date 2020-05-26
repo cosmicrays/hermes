@@ -108,6 +108,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../components/SkymapsGroup.html">Skymaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../components/IntegratorsGroup.html">Integrators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../components/ChargedGasGroup.html">Charged Gas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/CosmicRaysGroup.html">Cosmic Rays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/NeutralGasGroup.html">Neutral Gas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/PhotonFieldsGroup.html">Photon Fields</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
@@ -246,7 +249,7 @@
 <li class="toctree-l4"><a class="reference internal" href="enum_namespacehermes_1_1FITS_1ae3cad0012491f6b195d44b53e67a6f37.html">Enum HDUType</a></li>
 <li class="toctree-l4"><a class="reference internal" href="enum_namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8.html">Enum ImgType</a></li>
 <li class="toctree-l4"><a class="reference internal" href="enum_namespacehermes_1_1FITS_1a6920ce5d7f5c06c676fe801e538aed49.html">Enum IOMode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="enum_namespacehermes_1_1neutralgas_1a6e6e8dec15851f2136618b418cf844f7.html">Enum RingType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7.html">Enum RingType</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="library_root.html#functions">Functions</a><ul>
@@ -760,7 +763,9 @@
 <dl class="class">
 <dt id="_CPPv3N6hermes6SkymapE">
 <span id="_CPPv2N6hermes6SkymapE"></span><span id="hermes::Skymap"></span><span class="target" id="classhermes_1_1Skymap"></span><em class="property">class </em><code class="descname">Skymap</code><a class="headerlink" href="#_CPPv3N6hermes6SkymapE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Subclassed by <a class="reference internal" href="../components/SkymapsGroup.html#classhermes_1_1SkymapTemplate"><span class="std std-ref">SkymapTemplate&lt; QPXL, QSTEP &gt;</span></a>, <a class="reference internal" href="../components/SkymapsGroup.html#classhermes_1_1SkymapTemplate"><span class="std std-ref">SkymapTemplate&lt; QDiffIntensity, QEnergy &gt;</span></a>, <a class="reference internal" href="../components/SkymapsGroup.html#classhermes_1_1SkymapTemplate"><span class="std std-ref">SkymapTemplate&lt; QDispersionMeasure, QNumber &gt;</span></a>, <a class="reference internal" href="../components/SkymapsGroup.html#classhermes_1_1SkymapTemplate"><span class="std std-ref">SkymapTemplate&lt; QTemperature, QFrequency &gt;</span></a></p>
+<dd><p>Base abstract class for all Skymaps; provides elementary HEALPix functions. </p>
+<p>res : The resolution index nside = 2^res : The number of pixels per side. npix = 12 * nside^2 : The total number of pixels in the map. </p>
+<p>Subclassed by <a class="reference internal" href="../components/SkymapsGroup.html#classhermes_1_1SkymapTemplate"><span class="std std-ref">SkymapTemplate&lt; QPXL, QSTEP &gt;</span></a>, <a class="reference internal" href="../components/SkymapsGroup.html#classhermes_1_1SkymapTemplate"><span class="std std-ref">SkymapTemplate&lt; QDiffIntensity, QEnergy &gt;</span></a>, <a class="reference internal" href="../components/SkymapsGroup.html#classhermes_1_1SkymapTemplate"><span class="std std-ref">SkymapTemplate&lt; QDispersionMeasure, QNumber &gt;</span></a>, <a class="reference internal" href="../components/SkymapsGroup.html#classhermes_1_1SkymapTemplate"><span class="std std-ref">SkymapTemplate&lt; QTemperature, QFrequency &gt;</span></a></p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
 <dl class="function">

@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537:
+
+Typedef hermes::units::QTemperature
+===================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QTemperature

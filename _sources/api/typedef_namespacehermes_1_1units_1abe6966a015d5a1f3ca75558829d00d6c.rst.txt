@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c:
+
+Typedef hermes::units::QArea
+============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QArea

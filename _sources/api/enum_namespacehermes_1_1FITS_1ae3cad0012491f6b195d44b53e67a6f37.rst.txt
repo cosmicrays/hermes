@@ -1,0 +1,13 @@
+.. _exhale_enum_namespacehermes_1_1FITS_1ae3cad0012491f6b195d44b53e67a6f37:
+
+Enum HDUType
+============
+
+.. did not find file this was defined in
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: hermes::FITS::HDUType

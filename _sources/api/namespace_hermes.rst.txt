@@ -149,21 +149,21 @@ Functions
 
 - :ref:`exhale_function_namespacehermes_1a26cf6e5a6eb42fca7df65a4057f4c36d`
 
-- :ref:`exhale_function_namespacehermes_1adbace0895ffceceba9f7e835c50729e6`
-
-- :ref:`exhale_function_namespacehermes_1a11f622cfa477f5d94f5cedd52a5d6ac5`
-
 - :ref:`exhale_function_group__Core_1gabc931910e8c034ccaec9fe10dcc37e0a`
 
 - :ref:`exhale_function_group__Core_1gaa523e8e1f4238bc94aeb41646356cd4e`
 
-- :ref:`exhale_function_namespacehermes_1aa72d8a7d7169c7140afb5574140b40bd`
+- :ref:`exhale_function_namespacehermes_1adbace0895ffceceba9f7e835c50729e6`
 
-- :ref:`exhale_function_namespacehermes_1a002ec613d1cbae33f809a462a3b1bad2`
+- :ref:`exhale_function_namespacehermes_1a11f622cfa477f5d94f5cedd52a5d6ac5`
 
 - :ref:`exhale_function_group__Core_1ga64e88565f0514de2c1ba9c1bbc7a7091`
 
 - :ref:`exhale_function_group__Core_1ga0d1d3dde27f81f2dba1001549f29fa09`
+
+- :ref:`exhale_function_namespacehermes_1aa72d8a7d7169c7140afb5574140b40bd`
+
+- :ref:`exhale_function_namespacehermes_1a002ec613d1cbae33f809a462a3b1bad2`
 
 - :ref:`exhale_function_namespacehermes_1adaf6926e294f6daf14fbba1cc4deb1bd`
 
@@ -171,13 +171,13 @@ Functions
 
 - :ref:`exhale_function_namespacehermes_1a6be8ab078bdc80be66f151ea9e1eaae1`
 
-- :ref:`exhale_function_namespacehermes_1a3aff1a45fe5aa42baf22b3b4f16f741f`
-
 - :ref:`exhale_function_group__Core_1ga1740d95e0ab1f964666d31420c992cbc`
 
-- :ref:`exhale_function_namespacehermes_1aa235c1aea73c85a3e08fffc29f420b3b`
+- :ref:`exhale_function_namespacehermes_1a3aff1a45fe5aa42baf22b3b4f16f741f`
 
 - :ref:`exhale_function_group__Core_1ga9f6061fd165e820213917be52553f853`
+
+- :ref:`exhale_function_namespacehermes_1aa235c1aea73c85a3e08fffc29f420b3b`
 
 - :ref:`exhale_function_namespacehermes_1a18aa87dcffccbb8c736f92ed737bd0b2`
 
@@ -209,47 +209,41 @@ Functions
 
 - :ref:`exhale_function_namespacehermes_1a2fac14165a26f3fcaf84bbed5460558f`
 
-- :ref:`exhale_function_namespacehermes_1a2f32ac35602b79e985748f98b98ce469`
-
-- :ref:`exhale_function_namespacehermes_1a13d27e88127e77eb32d30c2a560758c4`
-
 - :ref:`exhale_function_group__Core_1ga81f7140150a08f94cf6e8be25fbcb300`
 
 - :ref:`exhale_function_group__Core_1gaad98beffee251f22831b72cb591a0c95`
 
-- :ref:`exhale_function_namespacehermes_1a39ed770566ff62dfc1c3e8e67e1142f4`
+- :ref:`exhale_function_namespacehermes_1a2f32ac35602b79e985748f98b98ce469`
 
-- :ref:`exhale_function_namespacehermes_1a2212b9d5e1b590af49b7470f34ea4b03`
+- :ref:`exhale_function_namespacehermes_1a13d27e88127e77eb32d30c2a560758c4`
 
 - :ref:`exhale_function_group__Core_1ga4005328a48e1f0a728532ab660b2edd6`
 
 - :ref:`exhale_function_group__Core_1ga83cfe70c254a50f105eb7643d98294ff`
 
+- :ref:`exhale_function_namespacehermes_1a39ed770566ff62dfc1c3e8e67e1142f4`
+
+- :ref:`exhale_function_namespacehermes_1a2212b9d5e1b590af49b7470f34ea4b03`
+
 - :ref:`exhale_function_namespacehermes_1aeda6358b7ac7eac3abac2bfaa564e516`
 
 - :ref:`exhale_function_namespacehermes_1a45b99e0ca17bd99e0c8fded860f86d69`
-
-- :ref:`exhale_function_namespacehermes_1aa2849fe086560a48e414778b731e1f8d`
-
-- :ref:`exhale_function_namespacehermes_1adf7f8c2cc9782fda8053ded628825aef`
 
 - :ref:`exhale_function_group__Core_1gaa43bf974e4480af550b7cd3392c83ee6`
 
 - :ref:`exhale_function_group__Core_1ga1072f274a7e4eb62bddbea8799b80f58`
 
-- :ref:`exhale_function_namespacehermes_1a51ffa818467a42da1ac66fc0a685f92e`
+- :ref:`exhale_function_namespacehermes_1aa2849fe086560a48e414778b731e1f8d`
+
+- :ref:`exhale_function_namespacehermes_1adf7f8c2cc9782fda8053ded628825aef`
 
 - :ref:`exhale_function_group__Core_1ga933b649c5796ace1f70fd222262209c4`
+
+- :ref:`exhale_function_namespacehermes_1a51ffa818467a42da1ac66fc0a685f92e`
 
 - :ref:`exhale_function_namespacehermes_1af3dd2ca8dc8acd57a6dd923a085ea9cb`
 
 - :ref:`exhale_function_namespacehermes_1a25b2e7fa94f0fd4e105db8a20680c056`
-
-- :ref:`exhale_function_group__Core_1gac0738d2887b147eee1100671e7b5be2a`
-
-- :ref:`exhale_function_group__Core_1ga3885df4723d99c2f118f9cce136beb61`
-
-- :ref:`exhale_function_group__Core_1ga4f33e9180938be7d97bc55d0e0dd2930`
 
 - :ref:`exhale_function_group__Core_1gacfbea51a420cdfdd343b9fec0fe7d301`
 
@@ -257,15 +251,21 @@ Functions
 
 - :ref:`exhale_function_group__Core_1gad744b0b61f9f9d3c010bb33b7fc66517`
 
-- :ref:`exhale_function_group__Core_1ga92f2fdfa289f52d0f0d6bb7e516c183f`
+- :ref:`exhale_function_group__Core_1ga3885df4723d99c2f118f9cce136beb61`
 
-- :ref:`exhale_function_namespacehermes_1ae3fa6e6b0d54e1dbb1a768a266e4649b`
+- :ref:`exhale_function_group__Core_1gac0738d2887b147eee1100671e7b5be2a`
+
+- :ref:`exhale_function_group__Core_1ga4f33e9180938be7d97bc55d0e0dd2930`
+
+- :ref:`exhale_function_group__Core_1ga92f2fdfa289f52d0f0d6bb7e516c183f`
 
 - :ref:`exhale_function_group__Core_1ga9f02e42d4bd23be5470ca1b7803226ab`
 
-- :ref:`exhale_function_namespacehermes_1a74c291278f81519f2153f730ffacd360`
+- :ref:`exhale_function_namespacehermes_1ae3fa6e6b0d54e1dbb1a768a266e4649b`
 
 - :ref:`exhale_function_group__Core_1ga3e247485bc0464886a88331f7a75a705`
+
+- :ref:`exhale_function_namespacehermes_1a74c291278f81519f2153f730ffacd360`
 
 - :ref:`exhale_function_namespacehermes_1ae203a969f1d78336fd2b5192ab33b6b9`
 
@@ -277,23 +277,23 @@ Functions
 
 - :ref:`exhale_function_namespacehermes_1abab317364a3bcdd6418d633865ab073a`
 
-- :ref:`exhale_function_namespacehermes_1a1eb9dca3e91995daf5b50bcbc0e6c8f9`
-
-- :ref:`exhale_function_namespacehermes_1ae284fd34aa7b5048eceaec5309a5b0a9`
-
 - :ref:`exhale_function_group__Core_1ga009d2e8b110b6af0083f230fadca2a7c`
 
 - :ref:`exhale_function_group__Core_1gaf5f58beb01b5500088ddeef6b3b2f35b`
 
+- :ref:`exhale_function_namespacehermes_1a1eb9dca3e91995daf5b50bcbc0e6c8f9`
+
+- :ref:`exhale_function_namespacehermes_1ae284fd34aa7b5048eceaec5309a5b0a9`
+
 - :ref:`exhale_function_namespacehermes_1a4f7c9d13ffa99db140577c98933bd926`
-
-- :ref:`exhale_function_namespacehermes_1a6f6f87a91c7024fbff73febe3aefba57`
-
-- :ref:`exhale_function_namespacehermes_1accb4708c6655cfec82210306631ea767`
 
 - :ref:`exhale_function_group__Core_1ga6aaaae4f6c0ce2a7ab5fcf34da276bb9`
 
 - :ref:`exhale_function_group__Core_1ga23391a00178d0e36e9dd7f035fd96286`
+
+- :ref:`exhale_function_namespacehermes_1accb4708c6655cfec82210306631ea767`
+
+- :ref:`exhale_function_namespacehermes_1a6f6f87a91c7024fbff73febe3aefba57`
 
 - :ref:`exhale_function_namespacehermes_1a8dcd138f7d4bb7e288aed9a83dcde085`
 

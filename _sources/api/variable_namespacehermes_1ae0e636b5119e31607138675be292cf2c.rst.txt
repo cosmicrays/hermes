@@ -1,0 +1,13 @@
+.. _exhale_variable_namespacehermes_1ae0e636b5119e31607138675be292cf2c:
+
+Variable hermes::X
+==================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::X

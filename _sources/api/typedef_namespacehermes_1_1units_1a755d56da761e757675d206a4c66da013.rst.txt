@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1a755d56da761e757675d206a4c66da013:
+
+Typedef hermes::units::QECapacitance
+====================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QECapacitance

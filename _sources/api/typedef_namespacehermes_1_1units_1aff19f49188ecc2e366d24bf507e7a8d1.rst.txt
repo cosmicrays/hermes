@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1:
+
+Typedef hermes::units::QEmissivity
+==================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QEmissivity

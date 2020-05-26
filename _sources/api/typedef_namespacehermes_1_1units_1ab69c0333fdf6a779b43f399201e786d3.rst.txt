@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3:
+
+Typedef hermes::units::QGREmissivity
+====================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QGREmissivity

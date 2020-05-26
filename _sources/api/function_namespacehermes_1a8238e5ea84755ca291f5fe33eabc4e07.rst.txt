@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1a8238e5ea84755ca291f5fe33eabc4e07:
+
+Function hermes::distanceFromGC(QDirection, QLength, const Vector3QLength&)
+===========================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::distanceFromGC(QDirection, QLength, const Vector3QLength&)

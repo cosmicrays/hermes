@@ -642,7 +642,7 @@ Enums
 .. toctree::
    :maxdepth: 5
 
-   enum_namespacehermes_1_1neutralgas_1a6e6e8dec15851f2136618b418cf844f7.rst
+   enum_group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7.rst
 
 Functions
 *********

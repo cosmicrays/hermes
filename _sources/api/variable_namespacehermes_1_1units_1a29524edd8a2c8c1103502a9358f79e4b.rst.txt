@@ -1,0 +1,13 @@
+.. _exhale_variable_namespacehermes_1_1units_1a29524edd8a2c8c1103502a9358f79e4b:
+
+Variable hermes::units::centi
+=============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::centi

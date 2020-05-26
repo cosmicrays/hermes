@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1a37e2cd252b4a28a1d125d638046dfdd6:
+
+Template Function hermes::hash_combine
+======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::hash_combine(std::size_t&, const T&)

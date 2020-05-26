@@ -1,0 +1,13 @@
+.. _exhale_variable_namespacehermes_1_1units_1a63ea0a9636c4ef570851c8f638b6dded:
+
+Variable hermes::units::exa
+===========================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::exa

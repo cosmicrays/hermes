@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1a6fadfde6ede5563e06f8a138b9842301:
+
+Typedef hermes::units::QDispersionMeasure
+=========================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QDispersionMeasure

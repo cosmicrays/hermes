@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1_1darkmatter_1aa93df710db997cf0dc306709efb0e491:
+
+Function hermes::darkmatter::I
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::darkmatter::I(double, double)
