@@ -11,6 +11,10 @@
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 
 namespace hermes { namespace cosmicrays {
+/**
+ * \addtogroup CosmicRays
+ * @{
+ */
 
 class Dragon3D : public CosmicRayDensity {
   private:
@@ -43,6 +47,7 @@ class Dragon3D : public CosmicRayDensity {
 	                                       const Vector3QLength &pos_) const;
 };
 
+/** @}*/
 }}  // namespace hermes::cosmicrays
 
 #endif  // HERMES_DRAGON3D_H

@@ -4,6 +4,10 @@
 #include "hermes/magneticfields/MagneticField.h"
 
 namespace hermes { namespace magneticfields {
+/**
+ * \addtogroup MagneticFields
+ * @{
+ */
 
 /**
  @class WMAP07Field
@@ -29,6 +33,7 @@ class WMAP07Field : public MagneticField {
 	Vector3QMField getField(const Vector3QLength &pos) const override;
 };
 
+/** @} */
 }}  // namespace hermes::magneticfields
 
 #endif  // HERMES_WMAP07FIELD_H

@@ -56,8 +56,8 @@ class RectangularWindow : public SkymapMask {
 	   Examples:
 	   the galactic north b = 90_deg
 	   the galactic centre b = 0_deg, l = 0_deg */
-	RectangularWindow(const std::array<QAngle,2> &latitude,
-					  const std::array<QAngle,2> &longitude);
+	RectangularWindow(const std::array<QAngle, 2> &latitude,
+	                  const std::array<QAngle, 2> &longitude);
 	bool isAllowed(const QDirection &dir_) const override;
 };
 

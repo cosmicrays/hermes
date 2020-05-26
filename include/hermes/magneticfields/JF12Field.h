@@ -9,6 +9,10 @@
 #include "hermes/magneticfields/MagneticField.h"
 
 namespace hermes { namespace magneticfields {
+/**
+ * \addtogroup MagneticFields
+ * @{
+ */
 
 /**
  @class JF12Field
@@ -123,6 +127,7 @@ class JF12Field : public MagneticField {
 	Vector3QMField getField(const Vector3QLength &pos) const override;
 };
 
+/** @} */
 }}  // namespace hermes::magneticfields
 
 #endif  // HERMES_JF12FIELD_H

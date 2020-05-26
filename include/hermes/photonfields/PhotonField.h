@@ -5,6 +5,10 @@
 #include "hermes/Units.h"
 
 namespace hermes { namespace photonfields {
+/**
+ * \addtogroup PhotonFields
+ * @{
+ */
 
 class PhotonField {
   protected:
@@ -48,6 +52,7 @@ class PhotonField {
 	const_iterator end() const { return energyRange.end(); }
 };
 
+/** @}*/
 }}  // namespace hermes::photonfields
 
 #endif  // HERMES_PHOTONFIELD_H

@@ -9,7 +9,20 @@
 #include "hermes/outputs/Output.h"
 
 namespace hermes {
+/**
+ * \addtogroup Skymaps
+ * @{
+ */
 
+/**
+ \class Skymap
+ \brief Base abstract class for all Skymaps; provides elementary HEALPix
+ functions
+
+ res	: The resolution index
+ nside	= 2^res		: The number of pixels per side.
+ npix	= 12 * nside^2	: The total number of pixels in the map.
+ */
 class Skymap {
   protected:
 	std::size_t nside;
@@ -18,11 +31,6 @@ class Skymap {
 	std::string description;
 
   public:
-	/*
-	 *	res	: The resolution index
-	 * 	nside	= 2^res		: The number of pixels per side.
-	 *	npix	= 12 * nside^2	: The total number of pixels in the map.
-	 */
 	Skymap(std::size_t nside_);
 	virtual ~Skymap(){};
 
@@ -39,6 +47,7 @@ class Skymap {
 	virtual void save(std::shared_ptr<outputs::Output> output) const = 0;
 };
 
+/** @}*/
 }  // namespace hermes
 
 #endif  // HERMES_SKYMAP_H

@@ -4,6 +4,10 @@
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 
 namespace hermes { namespace cosmicrays {
+/**
+ * \addtogroup CosmicRays
+ * @{
+ */
 
 class SimpleCRDensity : public CosmicRayDensity {
   private:
@@ -18,6 +22,7 @@ class SimpleCRDensity : public CosmicRayDensity {
 	    const QEnergy &E_, const Vector3QLength &pos_) const override;
 };
 
+/** @}*/
 }}  // namespace hermes::cosmicrays
 
 #endif  // HERMES_SIMPLECRDENSITY_H

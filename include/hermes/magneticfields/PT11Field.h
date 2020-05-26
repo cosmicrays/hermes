@@ -4,6 +4,10 @@
 #include "hermes/magneticfields/MagneticField.h"
 
 namespace hermes { namespace magneticfields {
+/**
+ * \addtogroup MagneticFields
+ * @{
+ */
 
 /**
  @class PshirkovField
@@ -63,6 +67,7 @@ class PT11Field : public MagneticField {
 	Vector3QMField getField(const Vector3QLength &pos) const override;
 };
 
+/** @} */
 }}  // namespace hermes::magneticfields
 
 #endif  // HERMES_PSHIRKOVFIELD_H

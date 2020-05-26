@@ -6,6 +6,10 @@
 #include "hermes/magneticfields/MagneticField.h"
 
 namespace hermes { namespace magneticfields {
+/**
+ * \addtogroup MagneticFields
+ * @{
+ */
 
 /**
  @class TorroidalHaloField
@@ -94,6 +98,7 @@ class LogarithmicSpiralField : public MagneticField {
 	}
 };
 
+/** @} */
 }}  // namespace hermes::magneticfields
 
 #endif  // HERMES_GALACTICMAGNETICFIELD_H

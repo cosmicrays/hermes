@@ -32,7 +32,12 @@ class RotationMeasureIntegrator
 	    const std::shared_ptr<magneticfields::MagneticField>& mfield,
 	    const std::shared_ptr<chargedgas::ChargedGasDensity>& gdensity);
 	~RotationMeasureIntegrator();
+
 	QRotationMeasure integrateOverLOS(const QDirection& iterdir) const override;
+	QRotationMeasure integrateOverLOS(const QDirection& iterdir,
+	                                  const QNumber& num) const override {
+		return QRotationMeasure(0);
+	}
 };
 
 /** @}*/

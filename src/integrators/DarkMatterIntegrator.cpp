@@ -12,6 +12,11 @@ DarkMatterIntegrator::DarkMatterIntegrator(
 DarkMatterIntegrator::~DarkMatterIntegrator() {}
 
 QDiffIntensity DarkMatterIntegrator::integrateOverLOS(
+    const QDirection &direction) const {
+	return QDiffIntensity(0);
+}
+
+QDiffIntensity DarkMatterIntegrator::integrateOverLOS(
     const QDirection &direction_, const QEnergy &Egamma_) const {
 	auto integrand = [this, direction_, Egamma_](const QLength &dist) {
 		return this->spectralEmissivity(

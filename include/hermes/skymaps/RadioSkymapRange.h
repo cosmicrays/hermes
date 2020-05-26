@@ -10,8 +10,8 @@ namespace hermes {
  */
 
 /**
- @class RadioSkymapRange
- @brief A range of RadioSkymap containers.
+ \class RadioSkymapRange
+ \brief A range of RadioSkymap containers.
  */
 class RadioSkymapRange {
   private:
@@ -48,6 +48,6 @@ class RadioSkymapRange {
 	const_iterator end() const;
 };
 
-}  // namespace hermes
 /** @}*/
+}  // namespace hermes
 #endif  // HERMES_RADIOSKYMAPRANGE_H

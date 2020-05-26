@@ -82,5 +82,4 @@ QInverseEnergy PPPC4DMIDSpectrum::getParticlesPerEnergy(QEnergy Egamma) const {
 	return dNdlog10x / M_LN10 / Egamma;
 }
 
-/** @}*/
 }}  // namespace hermes::darkmatter

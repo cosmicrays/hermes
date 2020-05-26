@@ -14,6 +14,11 @@
 #include "hermes/skymaps/Skymap.h"
 #include "hermes/skymaps/SkymapMask.h"
 
+/**
+ \file SkymapTemplate.h
+ \brief Contains \p SkymapTemplate definition used in all skymaps.
+ */
+
 namespace hermes {
 /**
  * \addtogroup Skymaps
@@ -24,12 +29,11 @@ namespace hermes {
  @class SkymapTemplate
  @brief Provides a HEALPix-compatibile container template with undefined units
  of pixels; should be inherited in every process-specific skymap.
- * \tparam QPXL A type of pixel which a skymap contains (for example,
- QTemperature, QRotationMeasure)
- * \tparam QSTEP A physical quantity (parameter) that describes a particular map
- (if needed), e.g., QFrequency, QEnergy
+ \tparam QPXL A type of pixel which a skymap contains (e.g.,
+ units::QTemperature, units::QRotationMeasure)
+ \tparam QSTEP A physical quantity (parameter) that describes a particular map
+ (if needed), e.g., units::QFrequency, units::QEnergy
  */
-
 template <typename QPXL, typename QSTEP>
 class SkymapTemplate : public Skymap {
   protected:

@@ -54,6 +54,8 @@ void scaleGrid(std::unique_ptr<VectorGrid> grid, double a);
  to a Kolmogorov spectrum)
  @param Brms	RMS field strength
  @param seed	Random seed
+ @param helicity Turn on/off helicity
+ @param H		helicity parameter
  */
 void initTurbulence(std::shared_ptr<VectorGrid> grid, double Brms, double lMin,
                     double lMax, double alpha = -11. / 3., int seed = 0,

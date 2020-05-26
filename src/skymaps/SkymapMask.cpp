@@ -66,26 +66,27 @@ RectangularWindow::RectangularWindow(const std::array<QAngle, 2> &latitude,
     : topleft(fromGalCoord({latitude[0], longitude[0]})),
       bottomright(fromGalCoord({latitude[1], longitude[1]})) {}
 
-bool RectangularWindow::isAngleBetween(QAngle testAngle,
-                                       QAngle open,
+bool RectangularWindow::isAngleBetween(QAngle testAngle, QAngle open,
                                        QAngle close) const {
-	//std::cerr << "open = " << radian2degree(open) << " angle = " << radian2degree(testAngle) << " close = " << radian2degree(close);
+	// std::cerr << "open = " << radian2degree(open) << " angle = " <<
+	// radian2degree(testAngle) << " close = " << radian2degree(close);
 	// If the opening and closing angle are the same, the full circle is allowed
-	// since the mask otherwise wouldn't make sanse as it will always return false
+	// since the mask otherwise wouldn't make sanse as it will always return
+	// false
 	if (open == close) return true;
 
-	// Adopted from: https://stackoverflow.com/a/11412077	
-  // normalized angle which is less than 180 degrees
-  QAngle normAngle = fmod(fmod(close - open, 2*pi) + 2*pi*1_rad, 2*pi);
-  if (normAngle >= pi*1_rad) { // swap
+	// Adopted from: https://stackoverflow.com/a/11412077
+	// normalized angle which is less than 180 degrees
+	QAngle normAngle =
+	    fmod(fmod(close - open, 2 * pi) + 2 * pi * 1_rad, 2 * pi);
+	if (normAngle >= pi * 1_rad) {  // swap
 		QAngle tmp = open;
 		open = close;
 		close = tmp;
 	}
 
-  if (open <= close)
-    return testAngle >= open && testAngle <= close;
-  return testAngle >= open || testAngle <= close;
+	if (open <= close) return testAngle >= open && testAngle <= close;
+	return testAngle >= open || testAngle <= close;
 }
 
 bool RectangularWindow::isAllowed(const QDirection &dir_) const {

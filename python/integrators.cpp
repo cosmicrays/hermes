@@ -19,8 +19,7 @@
 #define NEW_INTEGRATOR(_o, _n, _c, _qpxl, _qstep)                            		\
     using PPCAT(_c, ParentClass) = IntegratorTemplate<_qpxl, _qstep>;      	 		\
     py::class_<PPCAT(_c, ParentClass), std::shared_ptr<PPCAT(_c, ParentClass)>>( 	\
-        m, (std::string(_n) + std::string("Parent")).c_str())              	 		\
-        .def(py::init<>());                                                	 		\
+        m, (std::string(_n) + std::string("Parent")).c_str());             	 		\
     py::class_<_c, PPCAT(_c, ParentClass), std::shared_ptr<_c>> _o(m, _n, py::buffer_protocol()); // NOLINT(bugprone-macro-parentheses)
 // clang-format on
 

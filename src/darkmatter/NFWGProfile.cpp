@@ -51,5 +51,4 @@ QMassDensity NFWGProfile::getMassDensity(QLength r) const {
 	return rho_s * f_NFW(static_cast<double>(x), static_cast<double>(gamma));
 }
 
-/** @}*/
 }}  // namespace hermes::darkmatter

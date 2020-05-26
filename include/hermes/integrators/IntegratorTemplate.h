@@ -11,22 +11,27 @@
 #include "hermes/HEALPixBits.h"
 #include "hermes/Units.h"
 
+/**
+ \file IntegratorTemplate.h
+ \brief Contains \p IntegratorTemplate definition used in all
+ integrators.
+ */
+
 namespace hermes {
 /**
- * \addtogroup Integrators
- * @{
+ \addtogroup Integrators
+ @{
  */
 
 /**
- @class IntegratorTemplate
- @brief Provides the main integrator interface and implements methods shared
- across  integrators.
- \param QPXL A type of pixel which an integrator returns (e.g.,
- QTemperature, QDiffIntensity)
- \param QSTEP A physical quantity (a parameter) that describes a specific map
- (e.g., QFrequency, QEnergy)
+ \class IntegratorTemplate
+ \brief Defines the main integrator interface and typical methods shared
+ across all integrators.
+ \tparam QPXL A type of pixel which an integrator returns (e.g.,
+ units::QTemperature, units::QDiffIntensity)
+ \tparam QSTEP A physical quantity (a parameter) that describes a specific map
+ (e.g., units::QFrequency, units::QEnergy)
  */
-
 template <class QPXL, typename QSTEP>
 class IntegratorTemplate {
   protected:
@@ -40,6 +45,8 @@ class IntegratorTemplate {
 	    : positionSun(Vector3QLength(8.5_kpc, 0, 0)),
 	      cacheEnabled(false),
 	      cacheTableInitialized(false){};
+	virtual ~IntegratorTemplate() {}
+
 	/**
 	    Setter for the skymap parameter
 	    (requires for the cacheTable, if enabled, to be re-initialized)
@@ -55,21 +62,23 @@ class IntegratorTemplate {
 	*/
 	QSTEP setSkymapParameter() const { return skymapParameter; }
 	/**
-	    Every child class should implement this method which represents
-	   an integral of a targeted accumulated quantity `T` in a given
-	   direction `interdir`.
-	*/
-	virtual QPXL integrateOverLOS(const QDirection &iterdir) const {
-		return QPXL(0);
-	};
+	 * Every instantiation/derived class must implement this method which
+	 * represents an integral over the line of sight of an accumulated
+	 * quantity \f$ f(s)\f$ for a given units::QDirection \p dir. When
+	 * multiplied with ::units::QLength gives the pixel type, \p QPXL
+	 * @f[
+	 * I(\mathrm{dir}) \sim \int_0^\infty \mathrm{d}s f(s)
+	 * @f]
+	 */
+	virtual QPXL integrateOverLOS(const QDirection &dir) const = 0;
+
 	/**
-	    Additionally, for a frequency or energy dependent integrals one
-	   should implement the following method too.
-	*/
+	 *  Additionally, for a frequency or energy dependent integrals one
+	 *  should implement the following method too.
+	 */
 	virtual QPXL integrateOverLOS(const QDirection &iterdir,
-	                              const QSTEP &) const {
-		return QPXL(0);
-	};
+	                              const QSTEP &) const = 0;
+
 	/**
 	    Set the position of the Sun in the galaxy as a vector (x, y, z)
 	   from which the LOS integration starts, default: (8.5_kpc, 0, 0)

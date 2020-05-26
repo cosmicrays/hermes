@@ -10,13 +10,17 @@ class DummyIntegrator : public SimpleIntegrator {
   public:
 	DummyIntegrator(){};
 	~DummyIntegrator(){};
-	QNumber integrateOverLOS(const QDirection &direction) const {
+	QNumber integrateOverLOS(const QDirection &direction) const override {
 		QDirection galacticCentre = {90_deg, 0};
 		QDirection galacticNorth = {0, 0};
 		if (isWithinAngle(direction, galacticCentre, 20_deg)) return QNumber(1);
 		if (isWithinAngle(direction, galacticNorth, 30_deg)) return QNumber(-1);
 		return QNumber(0);
 	};
+	QNumber integrateOverLOS(const QDirection &direction,
+	                         const QFrequency &f) const override {
+		return QNumber(0);
+	}
 };
 
 TEST(Skymap, resNsideNpixelsConvert) {
@@ -35,12 +39,12 @@ TEST(Skymap, sizeCheck) {
 	int nside = 256;
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(nside, 1_GeV));
 
-	//auto size = sizeof(skymap);
-	//std::cerr << "SizeOf = " << sizeof(skymap) << " Length = " << skymap->size() << std::endl;
+	// auto size = sizeof(skymap);
+	// std::cerr << "SizeOf = " << sizeof(skymap) << " Length = " <<
+	// skymap->size() << std::endl;
 
-	EXPECT_EQ(skymap->size(), 12*256*256);
+	EXPECT_EQ(skymap->size(), 12 * 256 * 256);
 }
-
 
 TEST(Skymap, computePixel) {
 	int nside = 4;
@@ -67,8 +71,8 @@ TEST(SkymapMask, RectangularWindow) {
 	auto integrator = std::make_shared<DummyIntegrator>(DummyIntegrator());
 	skymap->setIntegrator(integrator);
 
-	auto GC_mask = std::make_shared<RectangularWindow>(RectangularWindow(
-	    {5_deg, -5_deg}, {355_deg, 5_deg}));
+	auto GC_mask = std::make_shared<RectangularWindow>(
+	    RectangularWindow({5_deg, -5_deg}, {355_deg, 5_deg}));
 	skymap->setMask(GC_mask);
 	skymap->compute();
 
@@ -83,8 +87,8 @@ TEST(SkymapMask, RectangularWindow) {
 	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);
 	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_3)), UNSEEN);
 
-	auto GP_mask = std::make_shared<RectangularWindow>(RectangularWindow(
-	    {5_deg, -5_deg}, {0_deg, 360_deg}));
+	auto GP_mask = std::make_shared<RectangularWindow>(
+	    RectangularWindow({5_deg, -5_deg}, {0_deg, 360_deg}));
 	skymap->setMask(GP_mask);
 	skymap->compute();
 
@@ -98,9 +102,9 @@ TEST(SkymapMask, RectangularWindow) {
 	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_1)), UNSEEN);
 	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);
 	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_3)), UNSEEN);
-	
-	auto XY_mask = std::make_shared<RectangularWindow>(RectangularWindow(
-	    {40_deg, -30_deg}, {30_deg, 60_deg}));
+
+	auto XY_mask = std::make_shared<RectangularWindow>(
+	    RectangularWindow({40_deg, -30_deg}, {30_deg, 60_deg}));
 	XY_mask->getDescription();
 	skymap->setMask(XY_mask);
 	skymap->compute();

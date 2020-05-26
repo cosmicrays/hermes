@@ -13,6 +13,10 @@
 #include "hermes/neutralgas/NeutralGasDensity.h"
 
 namespace hermes { namespace neutralgas {
+/**
+ * \addtogroup NeutralGas
+ * @{
+ */
 
 enum class RingType { HI, CO };
 
@@ -95,6 +99,7 @@ class RingModel : public NeutralGasDensity {
 	const_iterator end() const;
 };
 
+/** @}*/
 }}  // namespace hermes::neutralgas
 
 #endif  // HERMES_RINGMODELDENSITY_H

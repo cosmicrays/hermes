@@ -26,6 +26,7 @@ class DarkMatterIntegrator : public GammaIntegratorTemplate {
 	    const std::shared_ptr<darkmatter::GalacticProfile> &profile);
 	~DarkMatterIntegrator();
 
+	QDiffIntensity integrateOverLOS(const QDirection &direction) const override;
 	QDiffIntensity integrateOverLOS(const QDirection &iterdir,
 	                                const QEnergy &Egamma) const override;
 	QGREmissivity spectralEmissivity(const Vector3QLength &pos,

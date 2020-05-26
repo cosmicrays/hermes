@@ -28,7 +28,12 @@ class DispersionMeasureIntegrator : public DispersionMeasureIntegratorTemplate {
 	    const std::shared_ptr<chargedgas::ChargedGasDensity> &gdensity);
 	~DispersionMeasureIntegrator();
 
-	QDispersionMeasure integrateOverLOS(const QDirection &iterdir) const;
+	QDispersionMeasure integrateOverLOS(
+	    const QDirection &iterdir) const override;
+	QDispersionMeasure integrateOverLOS(const QDirection &iterdir,
+	                                    const QNumber &num) const override {
+		return QDispersionMeasure(0);
+	}
 
 	/**
 	    Get the line of sight profile (integrand of integrateOverLOS) of

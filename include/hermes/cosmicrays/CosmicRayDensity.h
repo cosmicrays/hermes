@@ -10,6 +10,10 @@
 #include "hermes/Units.h"
 
 namespace hermes { namespace cosmicrays {
+/**
+ * \addtogroup CosmicRays
+ * @{
+ */
 
 class CosmicRayDensity {
   protected:
@@ -64,6 +68,7 @@ class CosmicRayDensity {
 	const_iterator end() const { return energyRange.end(); }
 };
 
+/** @}*/
 }}  // namespace hermes::cosmicrays
 
 #endif  // HERMES_COSMICRAYDENSITY_H

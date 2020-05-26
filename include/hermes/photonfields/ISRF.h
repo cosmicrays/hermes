@@ -6,6 +6,10 @@
 #include "hermes/photonfields/PhotonField.h"
 
 namespace hermes { namespace photonfields {
+/**
+ * \addtogroup PhotonFields
+ * @{
+ */
 
 class ISRF : public PhotonField {
   private:
@@ -41,6 +45,7 @@ class ISRF : public PhotonField {
 	                                std::size_t iE_) const override;
 };
 
+/** @}*/
 }}  // namespace hermes::photonfields
 
 #endif  // HERMES_ISRF_H

@@ -4,6 +4,10 @@
 #include "hermes/photonfields/PhotonField.h"
 
 namespace hermes { namespace photonfields {
+/**
+ * \addtogroup PhotonFields
+ * @{
+ */
 
 class CMB : public PhotonField {
   private:
@@ -52,6 +56,7 @@ class CMB : public PhotonField {
 	}
 };
 
+/** @}*/
 }}  // namespace hermes::photonfields
 
 #endif  // HERMES_CMB_H
