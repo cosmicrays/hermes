@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga79eb9988c8f2e505d6c33e23573cc561:
+
+Variable hermes::units::alpha_fine
+==================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::alpha_fine

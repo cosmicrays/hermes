@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga7c14fbadf733fffe585fa19593427ab3:
+
+Function hermes::units::cos
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::cos(const QAngle&)

@@ -1,0 +1,44 @@
+
+.. _file_include_hermes_magneticfields_MagneticField.h:
+
+File MagneticField.h
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/magneticfields/MagneticField.h``)
+--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__magneticfields`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticField`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticFieldList`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1PeriodicMagneticField`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1UniformMagneticField`
+

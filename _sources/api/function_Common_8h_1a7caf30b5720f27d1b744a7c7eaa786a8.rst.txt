@@ -1,0 +1,13 @@
+.. _exhale_function_Common_8h_1a7caf30b5720f27d1b744a7c7eaa786a8:
+
+Function hermes::intensityToTemperature
+=======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::intensityToTemperature(const QIntensity&, const QFrequency&)

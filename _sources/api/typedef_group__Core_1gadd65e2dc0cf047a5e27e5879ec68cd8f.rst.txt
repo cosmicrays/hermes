@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Core_1gadd65e2dc0cf047a5e27e5879ec68cd8f:
+
+Typedef hermes::Vector3QNumber
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::Vector3QNumber

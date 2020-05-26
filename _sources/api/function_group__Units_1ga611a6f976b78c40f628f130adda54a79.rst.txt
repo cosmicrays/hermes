@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga611a6f976b78c40f628f130adda54a79:
+
+Function hermes::units::QUANTITY_TYPE(1, -, 1, 0, 0, 0, 0, 0, 0, QStoppingPower)
+================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::QUANTITY_TYPE(1, -, 1, 0, 0, 0, 0, 0, 0, QStoppingPower)

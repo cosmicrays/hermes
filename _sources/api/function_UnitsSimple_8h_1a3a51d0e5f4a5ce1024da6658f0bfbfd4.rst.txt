@@ -1,0 +1,13 @@
+.. _exhale_function_UnitsSimple_8h_1a3a51d0e5f4a5ce1024da6658f0bfbfd4:
+
+Function hermes::units::squared(const QNumber&)
+===============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::squared(const QNumber&)

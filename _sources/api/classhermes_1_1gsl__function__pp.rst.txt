@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1gsl__function__pp:
+
+Template Class gsl_function_pp
+==============================
+
+- Defined in :ref:`file_include_hermes_Common.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public gsl_function``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::gsl_function_pp
+   :members:
+   :protected-members:
+   :undoc-members:

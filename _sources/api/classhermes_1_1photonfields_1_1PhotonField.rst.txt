@@ -1,0 +1,26 @@
+.. _exhale_class_classhermes_1_1photonfields_1_1PhotonField:
+
+Class PhotonField
+=================
+
+- Defined in :ref:`file_include_hermes_photonfields_PhotonField.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public CMB`` (:ref:`exhale_class_classhermes_1_1photonfields_1_1CMB`)
+- ``public ISRF`` (:ref:`exhale_class_classhermes_1_1photonfields_1_1ISRF`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::photonfields::PhotonField
+   :members:
+   :protected-members:
+   :undoc-members:

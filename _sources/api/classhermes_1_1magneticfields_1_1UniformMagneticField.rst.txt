@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1magneticfields_1_1UniformMagneticField:
+
+Class UniformMagneticField
+==========================
+
+- Defined in :ref:`file_include_hermes_magneticfields_MagneticField.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public MagneticField`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticField`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::magneticfields::UniformMagneticField
+   :members:
+   :protected-members:
+   :undoc-members:

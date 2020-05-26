@@ -1,0 +1,13 @@
+.. _exhale_function_GridTools_8cpp_1a51ffa818467a42da1ac66fc0a685f92e:
+
+Function hermes::meanFieldVector(const std::shared_ptr<VectorGrid>&)
+====================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::meanFieldVector(const std::shared_ptr<VectorGrid>&)

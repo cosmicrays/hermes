@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1DarkMatterIntegrator:
+
+Class DarkMatterIntegrator
+==========================
+
+- Defined in :ref:`file_include_hermes_integrators_DarkMatterIntegrator.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public IntegratorTemplate< QDiffIntensity, QEnergy >`` (:ref:`exhale_class_classhermes_1_1IntegratorTemplate`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::DarkMatterIntegrator
+   :members:
+   :protected-members:
+   :undoc-members:

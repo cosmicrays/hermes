@@ -1,0 +1,40 @@
+
+.. _file_include_hermes_magneticfields_GalacticMagneticField.h:
+
+File GalacticMagneticField.h
+============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/magneticfields/GalacticMagneticField.h``)
+----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__magneticfields`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1LogarithmicSpiralField`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1TorroidalHaloField`
+

@@ -1,0 +1,11 @@
+.. _dir_darkmatter:
+
+
+Directory darkmatter
+====================
+
+
+*Directory path:* ``darkmatter``
+
+
+

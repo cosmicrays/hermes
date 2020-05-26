@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga7864884cdce767dc755c5b310fc4622c:
+
+Variable hermes::units::r_electron
+==================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::r_electron

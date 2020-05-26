@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga444483ffda3155157d9ee6e735830473:
+
+Template Function hermes::units::sqrt(const Quantity<l, t, m, I, T, N, J, A, SA>&)
+==================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::sqrt(const Quantity<l, t, m, I, T, N, J, A, SA>&)

@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga88d7c26e3136cc9cc1baa0d862f87f65:
+
+Variable hermes::units::Ry
+==========================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::Ry

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga11d9796ac62c671b3123a6863bb11536:
+
+Template Function hermes::units::operator\*=(const Quantity<l1, t1, m1, I1, T1, N1, J1, A1, SA1>&, const Quantity<l2, t2, m2, I2, T2, N2, J2, A2, SA2>&)
+========================================================================================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::operator*=(const Quantity<l1, t1, m1, I1, T1, N1, J1, A1, SA1>&, const Quantity<l2, t2, m2, I2, T2, N2, J2, A2, SA2>&)

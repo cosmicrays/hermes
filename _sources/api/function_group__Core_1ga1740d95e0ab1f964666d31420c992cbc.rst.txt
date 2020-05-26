@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1ga1740d95e0ab1f964666d31420c992cbc:
+
+Function hermes::fromMagneticField(std::unique_ptr<VectorGrid>, std::unique_ptr<magneticfields::MagneticField>)
+===============================================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::fromMagneticField(std::unique_ptr<VectorGrid>, std::unique_ptr<magneticfields::MagneticField>)

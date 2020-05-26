@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a960c15962cb540bdae2630fd2fa54af0:
+
+Typedef hermes::units::QInverseLength
+=====================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QInverseLength

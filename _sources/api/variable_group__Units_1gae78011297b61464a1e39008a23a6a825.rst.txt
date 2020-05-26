@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gae78011297b61464a1e39008a23a6a825:
+
+Variable hermes::units::sigma_Thompson
+======================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::sigma_Thompson

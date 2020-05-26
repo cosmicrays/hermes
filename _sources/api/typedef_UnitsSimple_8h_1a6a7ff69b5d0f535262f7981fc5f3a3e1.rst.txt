@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a6a7ff69b5d0f535262f7981fc5f3a3e1:
+
+Typedef hermes::units::QMomentum
+================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QMomentum

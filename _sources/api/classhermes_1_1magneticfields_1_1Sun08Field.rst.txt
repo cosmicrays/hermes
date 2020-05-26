@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1magneticfields_1_1Sun08Field:
+
+Class Sun08Field
+================
+
+- Defined in :ref:`file_include_hermes_magneticfields_Sun08Field.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public MagneticField`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticField`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::magneticfields::Sun08Field
+   :members:
+   :protected-members:
+   :undoc-members:

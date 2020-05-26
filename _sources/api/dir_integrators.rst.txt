@@ -1,0 +1,11 @@
+.. _dir_integrators:
+
+
+Directory integrators
+=====================
+
+
+*Directory path:* ``integrators``
+
+
+

@@ -1,0 +1,31 @@
+
+.. _file_src_chargedgas_YMW16.cpp:
+
+File YMW16.cpp
+==============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/chargedgas/YMW16.cpp``)
+-----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__chargedgas`
+

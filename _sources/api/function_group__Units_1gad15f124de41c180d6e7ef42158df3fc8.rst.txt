@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gad15f124de41c180d6e7ef42158df3fc8:
+
+Function hermes::units::LITERAL(QMass, _lb, pound)
+==================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QMass, _lb, pound)

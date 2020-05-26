@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga29ce2692bb564d2eca5109ed835880cf:
+
+Function hermes::units::acos
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::acos(const QNumber&)

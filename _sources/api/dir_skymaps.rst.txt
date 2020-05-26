@@ -1,0 +1,11 @@
+.. _dir_skymaps:
+
+
+Directory skymaps
+=================
+
+
+*Directory path:* ``skymaps``
+
+
+

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga317c864aeb334cbae64716fabb27eda1:
+
+Function hermes::units::GENERATE_PREFIXED_UNITS(barn)
+=====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::GENERATE_PREFIXED_UNITS(barn)

@@ -1,0 +1,13 @@
+.. _exhale_typedef_CacheTools_8h_1ac1e97935e75d13cb8138971d06fa8672:
+
+Typedef hermes::CacheStorageCrossSection
+========================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::CacheStorageCrossSection

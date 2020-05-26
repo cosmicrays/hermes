@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e:
+
+Typedef hermes::RadioIntegratorTemplate
+=======================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::RadioIntegratorTemplate

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gac1cf972dfd47dc60fa02c52e10e750aa:
+
+Function hermes::units::BASELITERAL(QAngle, _rad)
+=================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::BASELITERAL(QAngle, _rad)

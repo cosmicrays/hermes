@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga5956743504f8c64d16e2b1bd8236d21f:
+
+Function hermes::units::tanh
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::tanh(const QNumber&)

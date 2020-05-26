@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad:
+
+Typedef hermes::Vector3QLength
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::Vector3QLength

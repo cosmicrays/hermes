@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gacac9381a5dc6c64c2f693239330ff58e:
+
+Variable hermes::units::bar
+===========================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::bar

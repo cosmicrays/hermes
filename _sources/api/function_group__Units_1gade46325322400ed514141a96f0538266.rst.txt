@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gade46325322400ed514141a96f0538266:
+
+Function hermes::units::LITERAL(QLength, _pc, parsec)
+=====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QLength, _pc, parsec)

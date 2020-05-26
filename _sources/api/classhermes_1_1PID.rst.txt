@@ -1,0 +1,16 @@
+.. _exhale_class_classhermes_1_1PID:
+
+Class PID
+=========
+
+- Defined in :ref:`file_include_hermes_ParticleID.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::PID
+   :members:
+   :protected-members:
+   :undoc-members:

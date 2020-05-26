@@ -1,0 +1,17 @@
+.. mdinclude:: ../README.md
+
+Contents
+========
+
+.. toctree::
+   :caption: General
+   :maxdepth: 2
+
+   pages/Installation.rst
+
+.. toctree::
+   :caption: API
+   :maxdepth: 2
+
+   building_blocks
+   api/library_root

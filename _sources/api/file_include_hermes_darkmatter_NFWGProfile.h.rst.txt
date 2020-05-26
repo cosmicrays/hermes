@@ -1,0 +1,38 @@
+
+.. _file_include_hermes_darkmatter_NFWGProfile.h:
+
+File NFWGProfile.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/darkmatter/NFWGProfile.h``)
+--------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__darkmatter`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1darkmatter_1_1NFWGProfile`
+

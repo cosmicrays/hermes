@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga9d5e59d64ad72ccc0d882b225430de23:
+
+Function hermes::units::coulomb
+===============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::coulomb(1.)

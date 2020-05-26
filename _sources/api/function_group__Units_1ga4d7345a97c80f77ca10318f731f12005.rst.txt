@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga4d7345a97c80f77ca10318f731f12005:
+
+Function hermes::units::LITERAL(QSpeed, _miph, mile/)
+=====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QSpeed, _miph, mile/)

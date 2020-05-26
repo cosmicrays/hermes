@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga854d680613682a4d51f486ef85368dd6:
+
+Function hermes::units::BASELITERAL(QFrequency, _Hz)
+====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::BASELITERAL(QFrequency, _Hz)

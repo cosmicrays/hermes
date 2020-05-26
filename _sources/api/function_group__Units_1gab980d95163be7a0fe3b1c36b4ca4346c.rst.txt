@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gab980d95163be7a0fe3b1c36b4ca4346c:
+
+Function hermes::units::GENERATE_SHORT_PREFIXED_UNITS(second, s)
+================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::GENERATE_SHORT_PREFIXED_UNITS(second, s)

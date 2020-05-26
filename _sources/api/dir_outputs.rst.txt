@@ -1,0 +1,11 @@
+.. _dir_outputs:
+
+
+Directory outputs
+=================
+
+
+*Directory path:* ``outputs``
+
+
+

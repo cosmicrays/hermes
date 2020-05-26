@@ -1,0 +1,29 @@
+
+.. _file_include_hermes_HEALPixBits.h:
+
+File HEALPixBits.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/HEALPixBits.h``)
+---------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+

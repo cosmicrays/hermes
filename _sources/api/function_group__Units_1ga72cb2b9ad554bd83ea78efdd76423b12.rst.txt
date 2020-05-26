@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga72cb2b9ad554bd83ea78efdd76423b12:
+
+Template Function hermes::units::round
+======================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::round(const Quantity<l, t, m, I, T, N, J, A, SA>&)

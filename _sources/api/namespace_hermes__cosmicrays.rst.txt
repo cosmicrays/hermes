@@ -1,0 +1,32 @@
+
+.. _namespace_hermes__cosmicrays:
+
+Namespace hermes::cosmicrays
+============================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1cosmicrays_1_1CosmicRayDensity`
+
+- :ref:`exhale_class_classhermes_1_1cosmicrays_1_1Dragon2D`
+
+- :ref:`exhale_class_classhermes_1_1cosmicrays_1_1Dragon3D`
+
+- :ref:`exhale_class_classhermes_1_1cosmicrays_1_1DummyCRDensity`
+
+- :ref:`exhale_class_classhermes_1_1cosmicrays_1_1SimpleCRDensity`
+
+- :ref:`exhale_class_classhermes_1_1cosmicrays_1_1Sun08CRDensity`
+
+- :ref:`exhale_class_classhermes_1_1cosmicrays_1_1WMAP07CRDensity`

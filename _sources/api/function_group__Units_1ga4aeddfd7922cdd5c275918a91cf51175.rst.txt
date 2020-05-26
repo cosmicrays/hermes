@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga4aeddfd7922cdd5c275918a91cf51175:
+
+Function hermes::units::QUANTITY_TYPE(0, 2, -, 0, 0, 0, 0, 0, 0, QDiffCrossSection)
+===================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::QUANTITY_TYPE(0, 2, -, 0, 0, 0, 0, 0, 0, QDiffCrossSection)

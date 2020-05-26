@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1ga0d1d3dde27f81f2dba1001549f29fa09:
+
+Function hermes::dumpGridToTxt(std::unique_ptr<ScalarGrid>, std::string, double)
+================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::dumpGridToTxt(std::unique_ptr<ScalarGrid>, std::string, double)

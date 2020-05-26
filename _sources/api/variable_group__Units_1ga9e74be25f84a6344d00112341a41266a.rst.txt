@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga9e74be25f84a6344d00112341a41266a:
+
+Variable hermes::units::mu0
+===========================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::mu0

@@ -1,0 +1,11 @@
+.. _dir_magneticfields:
+
+
+Directory magneticfields
+========================
+
+
+*Directory path:* ``magneticfields``
+
+
+

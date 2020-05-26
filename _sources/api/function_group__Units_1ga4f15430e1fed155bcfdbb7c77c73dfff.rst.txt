@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga4f15430e1fed155bcfdbb7c77c73dfff:
+
+Function hermes::units::metre
+=============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::metre(1.)

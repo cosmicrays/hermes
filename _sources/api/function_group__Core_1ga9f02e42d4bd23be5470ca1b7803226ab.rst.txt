@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1ga9f02e42d4bd23be5470ca1b7803226ab:
+
+Template Function hermes::operator<<(std::ostream&, const Vector3<T>&)
+======================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::operator<<(std::ostream&, const Vector3<T>&)

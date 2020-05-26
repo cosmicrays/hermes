@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a72b849b5230560167419622406054305:
+
+Typedef hermes::units::QMField
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QMField

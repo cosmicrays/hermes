@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206:
+
+Typedef hermes::Vector3d
+========================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::Vector3d

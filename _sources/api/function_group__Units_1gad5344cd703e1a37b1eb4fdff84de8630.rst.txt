@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gad5344cd703e1a37b1eb4fdff84de8630:
+
+Function hermes::units::LITERAL(QArea, _m2, (metre \*metre))
+============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QArea, _m2, (metre *metre))

@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gaa902c0a0ee0823ac79e5b19efaa0048e:
+
+Variable hermes::units::pound
+=============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::pound

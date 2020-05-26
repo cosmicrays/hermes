@@ -1,0 +1,13 @@
+.. _exhale_function_HEALPixBits_8h_1af3dd2ca8dc8acd57a6dd923a085ea9cb:
+
+Function hermes::nside2npix
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::nside2npix(unsigned int)

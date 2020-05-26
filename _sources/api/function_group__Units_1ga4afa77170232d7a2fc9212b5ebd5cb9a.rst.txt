@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga4afa77170232d7a2fc9212b5ebd5cb9a:
+
+Function hermes::units::BASELITERAL(QMass, _kg)
+===============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::BASELITERAL(QMass, _kg)

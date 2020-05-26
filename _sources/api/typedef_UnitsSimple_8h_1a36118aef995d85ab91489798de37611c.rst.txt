@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a36118aef995d85ab91489798de37611c:
+
+Typedef hermes::units::QEnergyDensity
+=====================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QEnergyDensity

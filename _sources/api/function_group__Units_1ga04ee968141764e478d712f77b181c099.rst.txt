@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga04ee968141764e478d712f77b181c099:
+
+Function hermes::units::watt
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::watt(1.)

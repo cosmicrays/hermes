@@ -1,0 +1,38 @@
+
+.. _file_include_hermes_magneticfields_JF12Field.h:
+
+File JF12Field.h
+================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/magneticfields/JF12Field.h``)
+----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__magneticfields`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1JF12Field`
+

@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gafdd2ce5300f34a571f7a4c8365024bd9:
+
+Variable hermes::units::c_light
+===============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::c_light

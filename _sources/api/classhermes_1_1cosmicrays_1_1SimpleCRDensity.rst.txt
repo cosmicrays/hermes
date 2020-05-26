@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1cosmicrays_1_1SimpleCRDensity:
+
+Class SimpleCRDensity
+=====================
+
+- Defined in :ref:`file_include_hermes_cosmicrays_SimpleCRDensity.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public CosmicRayDensity`` (:ref:`exhale_class_classhermes_1_1cosmicrays_1_1CosmicRayDensity`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::cosmicrays::SimpleCRDensity
+   :members:
+   :protected-members:
+   :undoc-members:

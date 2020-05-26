@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1SkymapTemplate:
+
+Template Class SkymapTemplate
+=============================
+
+- Defined in :ref:`file_include_hermes_skymaps_SkymapTemplate.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public Skymap`` (:ref:`exhale_class_classhermes_1_1Skymap`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::SkymapTemplate
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1gabc931910e8c034ccaec9fe10dcc37e0a:
+
+Function hermes::dumpGrid(std::unique_ptr<VectorGrid>, std::string, double)
+===========================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::dumpGrid(std::unique_ptr<VectorGrid>, std::string, double)

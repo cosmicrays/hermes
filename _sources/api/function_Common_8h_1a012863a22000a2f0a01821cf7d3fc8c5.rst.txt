@@ -1,0 +1,13 @@
+.. _exhale_function_Common_8h_1a012863a22000a2f0a01821cf7d3fc8c5:
+
+Function hermes::getDataPath
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::getDataPath(const std::string&)

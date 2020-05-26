@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1IntegratorTemplate:
+
+Template Class IntegratorTemplate
+=================================
+
+- Defined in :ref:`file_include_hermes_integrators_IntegratorTemplate.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public PiZeroIntegrator`` (:ref:`exhale_class_classhermes_1_1PiZeroIntegrator`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::IntegratorTemplate
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,16 @@
+.. _exhale_class_classhermes_1_1RadioSkymapRange:
+
+Class RadioSkymapRange
+======================
+
+- Defined in :ref:`file_include_hermes_skymaps_RadioSkymapRange.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::RadioSkymapRange
+   :members:
+   :protected-members:
+   :undoc-members:

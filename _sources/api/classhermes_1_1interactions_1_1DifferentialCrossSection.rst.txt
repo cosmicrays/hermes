@@ -1,0 +1,31 @@
+.. _exhale_class_classhermes_1_1interactions_1_1DifferentialCrossSection:
+
+Class DifferentialCrossSection
+==============================
+
+- Defined in :ref:`file_include_hermes_interactions_DiffCrossSection.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public BremsstrahlungAbstract`` (:ref:`exhale_class_classhermes_1_1interactions_1_1BremsstrahlungAbstract`)
+- ``public DummyCrossSection`` (:ref:`exhale_class_classhermes_1_1interactions_1_1DummyCrossSection`)
+- ``public Kamae06Gamma`` (:ref:`exhale_class_classhermes_1_1interactions_1_1Kamae06Gamma`)
+- ``public Kamae06Neutrino`` (:ref:`exhale_class_classhermes_1_1interactions_1_1Kamae06Neutrino`)
+- ``public KelnerAharonianGamma`` (:ref:`exhale_class_classhermes_1_1interactions_1_1KelnerAharonianGamma`)
+- ``public KelnerAharonianNeutrino`` (:ref:`exhale_class_classhermes_1_1interactions_1_1KelnerAharonianNeutrino`)
+- ``public KleinNishina`` (:ref:`exhale_class_classhermes_1_1interactions_1_1KleinNishina`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::interactions::DifferentialCrossSection
+   :members:
+   :protected-members:
+   :undoc-members:

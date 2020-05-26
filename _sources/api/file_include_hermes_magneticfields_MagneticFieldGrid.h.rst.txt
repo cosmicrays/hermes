@@ -1,0 +1,40 @@
+
+.. _file_include_hermes_magneticfields_MagneticFieldGrid.h:
+
+File MagneticFieldGrid.h
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/magneticfields/MagneticFieldGrid.h``)
+------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__magneticfields`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticFieldGrid`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid`
+

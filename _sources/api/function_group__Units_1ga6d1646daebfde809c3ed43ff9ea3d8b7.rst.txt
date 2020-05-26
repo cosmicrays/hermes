@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga6d1646daebfde809c3ed43ff9ea3d8b7:
+
+Function hermes::units::pascal
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::pascal(1.)

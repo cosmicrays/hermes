@@ -1,0 +1,29 @@
+
+.. _file_include_hermes_skymaps_RotationMeasureSkymap.h:
+
+File RotationMeasureSkymap.h
+============================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/skymaps/RotationMeasureSkymap.h``)
+---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+

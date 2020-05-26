@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849:
+
+Typedef hermes::ScalarGrid
+==========================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::ScalarGrid

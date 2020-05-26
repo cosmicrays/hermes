@@ -1,0 +1,793 @@
+:orphan:
+
+
+Full API
+========
+
+Directories
+***********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_chargedgas.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_chargedgas.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_cosmicrays.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_cosmicrays.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_darkmatter.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_darkmatter.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_hermes.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_include.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_integrators.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_integrators.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_interactions.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_interactions.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_magneticfields.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_magneticfields.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_neutralgas.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_neutralgas.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_outputs.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_outputs.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_photonfields.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_photonfields.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_skymaps.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_skymaps.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_units.rst
+
+Files
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_interactions_BreitWheeler.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_BreitWheeler.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_BremsstrahlungAbstract.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_interactions_BremsstrahlungGALPROP.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_BremsstrahlungGALPROP.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_BremsstrahlungIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_BremsstrahlungIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_interactions_BremsstrahlungTsai74.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_BremsstrahlungTsai74.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_CacheTools.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_chargedgas_ChargedGasDensity.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_photonfields_CMB.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_Common.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_Common.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_cosmicrays_CosmicRayDensity.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_DarkMatterIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_DarkMatterIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_darkmatter_DarkMatterSpectrum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_DiffCrossSection.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_interactions_DifferentialCrossSection.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_DispersionMeasureIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_DispersionMeasureIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_skymaps_DispersionMeasureSkymap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cosmicrays_Dragon2D.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_cosmicrays_Dragon2D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cosmicrays_Dragon3D.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_cosmicrays_Dragon3D.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cosmicrays_DummyCRDensity.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_cosmicrays_DummyCRDensity.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_DummyCrossSection.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_FITSWrapper.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_FITSWrapper.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_FreeFreeIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_FreeFreeIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_magneticfields_GalacticMagneticField.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_darkmatter_GalacticProfile.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_skymaps_GammaSkymap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_skymaps_GammaSkymapRange.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_skymaps_GammaSkymapRange.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_Grid.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_GridTools.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_GridTools.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_HEALPixBits.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_HEALPixBits.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_outputs_HEALPixFormat.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_outputs_HEALPixFormat.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_chargedgas_HII_Cordes91.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_chargedgas_HII_Cordes91.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_IntegratorTemplate.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_InverseComptonIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_InverseComptonIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_photonfields_ISRF.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_photonfields_ISRF.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_magneticfields_JF12Field.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_magneticfields_JF12Field.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_interactions_Kamae06Gamma.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_Kamae06Gamma.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_interactions_Kamae06Neutrino.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_Kamae06Neutrino.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_interactions_KelnerAharonianGamma.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_KelnerAharonianGamma.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_interactions_KelnerAharonianNeutrino.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_KelnerAharonianNeutrino.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_interactions_KleinNishina.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_interactions_KleinNishina.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_LOSIntegrationMethods.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_magneticfields_MagneticField.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_magneticfields_MagneticField.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_magneticfields_MagneticFieldGrid.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_magneticfields_MagneticFieldGrid.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_Mainpage.md.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_chargedgas_NE2001Simple.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_chargedgas_NE2001Simple.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_neutralgas_NeutralGasDensity.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_darkmatter_NFWGProfile.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_darkmatter_NFWGProfile.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_outputs_Output.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_ParticleID.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_photonfields_PhotonField.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_PiZeroAbsorptionIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_PiZeroAbsorptionIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_PiZeroIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_PiZeroIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_darkmatter_PPPC4DMIDChannels.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_darkmatter_PPPC4DMIDSpectrum.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_darkmatter_PPPC4DMIDSpectrum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_magneticfields_PT11Field.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_magneticfields_PT11Field.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_skymaps_RadioSkymap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_skymaps_RadioSkymapRange.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_skymaps_RadioSkymapRange.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_Random.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_Random.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_neutralgas_RingModel.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_neutralgas_RingModel.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_RotationMeasureIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_RotationMeasureIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_skymaps_RotationMeasureSkymap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_Signals.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_Signals.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cosmicrays_SimpleCRDensity.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_cosmicrays_SimpleCRDensity.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_skymaps_Skymap.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_skymaps_Skymap.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_skymaps_SkymapMask.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_skymaps_SkymapMask.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_skymaps_SkymapTemplate.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cosmicrays_Sun08CRDensity.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_cosmicrays_Sun08CRDensity.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_magneticfields_Sun08Field.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_magneticfields_Sun08Field.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_SynchroAbsorptionIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_SynchroAbsorptionIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_integrators_SynchroIntegrator.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_integrators_SynchroIntegrator.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_units_UnitsBasic.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_units_UnitsDerived.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_units_UnitsFunctions.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_units_UnitsHERMES.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_units_UnitsLiterals.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_units_UnitsQClass.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_units_UnitsSimple.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_units_UnitsSIPrefixes.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_Vector3.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_Vector3Quantity.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_cosmicrays_WMAP07CRDensity.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_cosmicrays_WMAP07CRDensity.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_magneticfields_WMAP07Field.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_magneticfields_WMAP07Field.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_src_chargedgas_YMW16.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_chargedgas_YMW16.h.rst

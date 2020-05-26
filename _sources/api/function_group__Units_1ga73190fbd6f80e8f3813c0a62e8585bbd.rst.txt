@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga73190fbd6f80e8f3813c0a62e8585bbd:
+
+Function hermes::units::LITERAL(QForce, _kp, kilopond)
+======================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QForce, _kp, kilopond)

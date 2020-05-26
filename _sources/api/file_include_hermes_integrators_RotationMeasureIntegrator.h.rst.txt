@@ -1,0 +1,36 @@
+
+.. _file_include_hermes_integrators_RotationMeasureIntegrator.h:
+
+File RotationMeasureIntegrator.h
+================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/integrators/RotationMeasureIntegrator.h``)
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1RotationMeasureIntegrator`
+

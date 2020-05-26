@@ -1,0 +1,13 @@
+.. _exhale_function_GridTools_8cpp_1adf7f8c2cc9782fda8053ded628825aef:
+
+Function hermes::meanFieldStrength(const std::shared_ptr<ScalarGrid>&)
+======================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::meanFieldStrength(const std::shared_ptr<ScalarGrid>&)

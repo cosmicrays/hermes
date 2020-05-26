@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1interactions_1_1BremsstrahlungTsai74:
+
+Class BremsstrahlungTsai74
+==========================
+
+- Defined in :ref:`file_include_hermes_interactions_BremsstrahlungTsai74.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public BremsstrahlungAbstract`` (:ref:`exhale_class_classhermes_1_1interactions_1_1BremsstrahlungAbstract`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::interactions::BremsstrahlungTsai74
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,16 @@
+.. _exhale_class_classhermes_1_1units_1_1Quantity:
+
+Template Class Quantity
+=======================
+
+- Defined in :ref:`file_include_hermes_units_UnitsQClass.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::units::Quantity
+   :members:
+   :protected-members:
+   :undoc-members:

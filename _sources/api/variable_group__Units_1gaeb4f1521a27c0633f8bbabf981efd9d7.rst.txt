@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gaeb4f1521a27c0633f8bbabf981efd9d7:
+
+Variable hermes::units::c_squared
+=================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::c_squared

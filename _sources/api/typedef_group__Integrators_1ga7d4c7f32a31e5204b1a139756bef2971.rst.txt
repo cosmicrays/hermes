@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971:
+
+Typedef hermes::RotationMeasureIntegratorTemplate
+=================================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::RotationMeasureIntegratorTemplate

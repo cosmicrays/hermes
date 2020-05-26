@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1ga83cfe70c254a50f105eb7643d98294ff:
+
+Function hermes::loadGridFromTxt(std::unique_ptr<ScalarGrid>, std::string, double)
+==================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::loadGridFromTxt(std::unique_ptr<ScalarGrid>, std::string, double)

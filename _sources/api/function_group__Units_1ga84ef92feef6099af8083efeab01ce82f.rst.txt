@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga84ef92feef6099af8083efeab01ce82f:
+
+Template Function hermes::units::pow(double)
+============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::pow(double)

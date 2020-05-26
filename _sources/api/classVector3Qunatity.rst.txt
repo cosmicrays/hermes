@@ -1,0 +1,16 @@
+.. _exhale_class_classVector3Qunatity:
+
+Class Vector3Qunatity
+=====================
+
+.. did not find file this was defined in
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: Vector3Qunatity
+   :members:
+   :protected-members:
+   :undoc-members:

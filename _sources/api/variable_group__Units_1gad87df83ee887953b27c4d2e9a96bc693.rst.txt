@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gad87df83ee887953b27c4d2e9a96bc693:
+
+Variable hermes::units::_min
+============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::_min

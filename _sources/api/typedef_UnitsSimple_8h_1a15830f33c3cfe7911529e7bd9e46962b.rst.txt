@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a15830f33c3cfe7911529e7bd9e46962b:
+
+Typedef hermes::units::QFrequency
+=================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QFrequency

@@ -1,0 +1,13 @@
+.. _exhale_function_GridTools_8cpp_1aa2849fe086560a48e414778b731e1f8d:
+
+Function hermes::meanFieldStrength(const std::shared_ptr<VectorGrid>&)
+======================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::meanFieldStrength(const std::shared_ptr<VectorGrid>&)

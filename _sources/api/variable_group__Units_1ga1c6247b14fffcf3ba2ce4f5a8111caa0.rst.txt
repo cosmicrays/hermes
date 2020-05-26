@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga1c6247b14fffcf3ba2ce4f5a8111caa0:
+
+Variable hermes::units::erg
+===========================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::erg

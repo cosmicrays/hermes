@@ -1,0 +1,16 @@
+.. _exhale_class_classhermes_1_1interactions_1_1BreitWheeler:
+
+Class BreitWheeler
+==================
+
+- Defined in :ref:`file_include_hermes_interactions_BreitWheeler.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::interactions::BreitWheeler
+   :members:
+   :protected-members:
+   :undoc-members:

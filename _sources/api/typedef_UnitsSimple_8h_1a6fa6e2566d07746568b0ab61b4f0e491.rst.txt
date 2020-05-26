@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a6fa6e2566d07746568b0ab61b4f0e491:
+
+Typedef hermes::units::QRingCOIntensity
+=======================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QRingCOIntensity

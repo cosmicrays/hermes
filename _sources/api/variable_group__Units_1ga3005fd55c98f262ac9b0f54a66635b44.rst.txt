@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga3005fd55c98f262ac9b0f54a66635b44:
+
+Variable hermes::units::ounce
+=============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::ounce

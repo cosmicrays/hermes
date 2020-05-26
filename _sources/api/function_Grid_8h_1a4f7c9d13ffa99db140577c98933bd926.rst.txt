@@ -1,0 +1,13 @@
+.. _exhale_function_Grid_8h_1a4f7c9d13ffa99db140577c98933bd926:
+
+Function hermes::round
+======================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::round(double)

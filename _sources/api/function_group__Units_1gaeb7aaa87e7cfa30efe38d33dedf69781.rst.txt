@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaeb7aaa87e7cfa30efe38d33dedf69781:
+
+Function hermes::units::fmod(const QAngle&, QNumber)
+====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::fmod(const QAngle&, QNumber)

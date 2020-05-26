@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga946bb5e7635f73028d10a3e3283de38e:
+
+Function hermes::units::GENERATE_PREFIXED_UNITS(metre)
+======================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::GENERATE_PREFIXED_UNITS(metre)

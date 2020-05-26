@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga74deaf90bc12266a4de9237c1702ef82:
+
+Function hermes::units::BASELITERAL(QTemperature, _K)
+=====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::BASELITERAL(QTemperature, _K)

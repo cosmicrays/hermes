@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga3322c67d01dd13f5244a0a5f696b7d9a:
+
+Function hermes::units::atan2
+=============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::atan2(const QLength&, const QLength&)

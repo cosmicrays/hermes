@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1interactions_1_1KleinNishina:
+
+Class KleinNishina
+==================
+
+- Defined in :ref:`file_include_hermes_interactions_KleinNishina.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public DifferentialCrossSection`` (:ref:`exhale_class_classhermes_1_1interactions_1_1DifferentialCrossSection`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::interactions::KleinNishina
+   :members:
+   :protected-members:
+   :undoc-members:

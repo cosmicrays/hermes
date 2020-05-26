@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga5a9b86907b0cbd70c9b1e6bac2e9433c:
+
+Function hermes::units::LITERAL(QTime, _h, hour)
+================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QTime, _h, hour)

@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Core_1gacd187b9035d7c5901ab464dc46951fc7:
+
+Typedef hermes::ScalarGrid2DQPDensityPerEnergy
+==============================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::ScalarGrid2DQPDensityPerEnergy

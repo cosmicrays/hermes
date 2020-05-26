@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gacbdce437ac9b6727406161e34f48e446:
+
+Function hermes::units::LITERAL(QLength, _yd, yard)
+===================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QLength, _yd, yard)

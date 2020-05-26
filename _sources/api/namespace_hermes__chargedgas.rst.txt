@@ -1,0 +1,50 @@
+
+.. _namespace_hermes__chargedgas:
+
+Namespace hermes::chargedgas
+============================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Dora`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1FB`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1GC`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Gum`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1LB`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1LI`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1LMC`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1SMC`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Spiral`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Thick`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Thin`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun`
+
+- :ref:`exhale_class_classhermes_1_1chargedgas_1_1ChargedGasDensity`
+
+- :ref:`exhale_class_classhermes_1_1chargedgas_1_1HII__Cordes91`
+
+- :ref:`exhale_class_classhermes_1_1chargedgas_1_1NE2001Simple`
+
+- :ref:`exhale_class_classhermes_1_1chargedgas_1_1YMW16`

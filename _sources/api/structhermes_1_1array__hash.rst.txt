@@ -1,0 +1,25 @@
+.. _exhale_struct_structhermes_1_1array__hash:
+
+Struct array_hash
+=================
+
+- Defined in :ref:`file_include_hermes_CacheTools.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::unary_function< tArrayKey, std::size_t >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: hermes::array_hash
+   :members:
+   :protected-members:
+   :undoc-members:

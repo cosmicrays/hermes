@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Core_1ga4b91c7c5257383886e740336452f40ab:
+
+Typedef hermes::VectorGrid
+==========================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::VectorGrid

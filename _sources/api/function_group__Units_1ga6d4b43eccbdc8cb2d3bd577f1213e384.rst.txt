@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga6d4b43eccbdc8cb2d3bd577f1213e384:
+
+Function hermes::units::QUANTITY_TYPE(2, -, 1, 0, -, 0, 0, 0, 0, QEnergyOverTemperature)
+========================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::QUANTITY_TYPE(2, -, 1, 0, -, 0, 0, 0, 0, QEnergyOverTemperature)

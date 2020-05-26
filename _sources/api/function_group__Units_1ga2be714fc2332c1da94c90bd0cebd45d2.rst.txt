@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga2be714fc2332c1da94c90bd0cebd45d2:
+
+Function hermes::units::gram
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::gram(0.)

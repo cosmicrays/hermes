@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga007cb3570f99c733cafdf8d1b8f80335:
+
+Function hermes::units::floor(const QNumber&)
+=============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::floor(const QNumber&)

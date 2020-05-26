@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gae871d03fe67ab9667b9a21c776044401:
+
+Function hermes::units::GENERATE_SHORT_PREFIXED_UNITS(mole, mol)
+================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::GENERATE_SHORT_PREFIXED_UNITS(mole, mol)

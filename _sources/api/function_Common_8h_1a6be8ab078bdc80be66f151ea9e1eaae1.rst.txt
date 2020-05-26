@@ -1,0 +1,13 @@
+.. _exhale_function_Common_8h_1a6be8ab078bdc80be66f151ea9e1eaae1:
+
+Function hermes::fromGalCoord
+=============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::fromGalCoord(const QDirection&)

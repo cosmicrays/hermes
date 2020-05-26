@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1outputs_1_1Output:
+
+Class Output
+============
+
+- Defined in :ref:`file_include_hermes_outputs_Output.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public HEALPixFormat`` (:ref:`exhale_class_classhermes_1_1outputs_1_1HEALPixFormat`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::outputs::Output
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga2d04d6f80681634eb134560be544f929:
+
+Function hermes::units::log
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::log(const QNumber&)

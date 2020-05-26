@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gafdec74d2baa915d21f660af93e45e014:
+
+Function hermes::units::candela
+===============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::candela(1.)

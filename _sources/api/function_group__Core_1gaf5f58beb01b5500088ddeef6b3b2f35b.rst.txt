@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1gaf5f58beb01b5500088ddeef6b3b2f35b:
+
+Function hermes::rmsFieldStrength(std::unique_ptr<VectorGrid>)
+==============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::rmsFieldStrength(std::unique_ptr<VectorGrid>)

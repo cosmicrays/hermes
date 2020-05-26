@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1chargedgas_1_1HII__Cordes91:
+
+Class HII_Cordes91
+==================
+
+- Defined in :ref:`file_include_hermes_chargedgas_HII_Cordes91.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ChargedGasDensity`` (:ref:`exhale_class_classhermes_1_1chargedgas_1_1ChargedGasDensity`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::chargedgas::HII_Cordes91
+   :members:
+   :protected-members:
+   :undoc-members:

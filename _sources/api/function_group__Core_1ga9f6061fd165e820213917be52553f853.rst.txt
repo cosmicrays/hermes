@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1ga9f6061fd165e820213917be52553f853:
+
+Function hermes::fromMagneticFieldStrength(std::unique_ptr<ScalarGrid>, std::unique_ptr<magneticfields::MagneticField>)
+=======================================================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::fromMagneticFieldStrength(std::unique_ptr<ScalarGrid>, std::unique_ptr<magneticfields::MagneticField>)

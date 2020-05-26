@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga05757cbc1d7eb84b57abf0ad7d8e763e:
+
+Function hermes::units::degree2radian
+=====================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::degree2radian(const QAngle&)

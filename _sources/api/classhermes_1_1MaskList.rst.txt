@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1MaskList:
+
+Class MaskList
+==============
+
+- Defined in :ref:`file_include_hermes_skymaps_SkymapMask.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public SkymapMask`` (:ref:`exhale_class_classhermes_1_1SkymapMask`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::MaskList
+   :members:
+   :protected-members:
+   :undoc-members:

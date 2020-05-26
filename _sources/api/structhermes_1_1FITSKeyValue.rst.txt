@@ -1,0 +1,16 @@
+.. _exhale_struct_structhermes_1_1FITSKeyValue:
+
+Struct FITSKeyValue
+===================
+
+- Defined in :ref:`file_include_hermes_FITSWrapper.h`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: hermes::FITSKeyValue
+   :members:
+   :protected-members:
+   :undoc-members:

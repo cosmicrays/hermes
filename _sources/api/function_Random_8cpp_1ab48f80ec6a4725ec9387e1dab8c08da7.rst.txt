@@ -1,0 +1,13 @@
+.. _exhale_function_Random_8cpp_1ab48f80ec6a4725ec9387e1dab8c08da7:
+
+Function hermes::__declspec
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::__declspec(align(64))

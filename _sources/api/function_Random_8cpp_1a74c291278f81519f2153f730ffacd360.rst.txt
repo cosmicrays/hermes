@@ -1,0 +1,13 @@
+.. _exhale_function_Random_8cpp_1a74c291278f81519f2153f730ffacd360:
+
+Function hermes::operator>>(std::istream&, Random&)
+===================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::operator>>(std::istream&, Random&)

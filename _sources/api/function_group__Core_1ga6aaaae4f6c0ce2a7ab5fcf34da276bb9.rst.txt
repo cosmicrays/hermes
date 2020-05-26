@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1ga6aaaae4f6c0ce2a7ab5fcf34da276bb9:
+
+Function hermes::scaleGrid(std::unique_ptr<ScalarGrid>, double)
+===============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::scaleGrid(std::unique_ptr<ScalarGrid>, double)

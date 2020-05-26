@@ -1,0 +1,16 @@
+.. _exhale_class_classhermes_1_1neutralgas_1_1Ring:
+
+Class Ring
+==========
+
+- Defined in :ref:`file_include_hermes_neutralgas_RingModel.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::neutralgas::Ring
+   :members:
+   :protected-members:
+   :undoc-members:

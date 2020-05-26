@@ -1,0 +1,13 @@
+.. _exhale_function_HEALPixBits_8h_1a45b99e0ca17bd99e0c8fded860f86d69:
+
+Function hermes::log2
+=====================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::log2(unsigned int)

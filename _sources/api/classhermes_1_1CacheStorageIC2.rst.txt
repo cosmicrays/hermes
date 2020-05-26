@@ -1,0 +1,16 @@
+.. _exhale_class_classhermes_1_1CacheStorageIC2:
+
+Class CacheStorageIC2
+=====================
+
+- Defined in :ref:`file_include_hermes_CacheTools.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::CacheStorageIC2
+   :members:
+   :protected-members:
+   :undoc-members:

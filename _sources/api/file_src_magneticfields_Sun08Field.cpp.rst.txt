@@ -1,0 +1,31 @@
+
+.. _file_src_magneticfields_Sun08Field.cpp:
+
+File Sun08Field.cpp
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/magneticfields/Sun08Field.cpp``)
+--------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__magneticfields`
+

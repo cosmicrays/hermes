@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gafb9548a38e9217dd194ff4cd5257a790:
+
+Variable hermes::units::_ns
+===========================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::_ns

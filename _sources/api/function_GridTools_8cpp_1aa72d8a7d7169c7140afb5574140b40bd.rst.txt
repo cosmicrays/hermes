@@ -1,0 +1,13 @@
+.. _exhale_function_GridTools_8cpp_1aa72d8a7d7169c7140afb5574140b40bd:
+
+Function hermes::dumpGridToTxt(const std::shared_ptr<VectorGrid>&, const std::string&, double)
+==============================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::dumpGridToTxt(const std::shared_ptr<VectorGrid>&, const std::string&, double)

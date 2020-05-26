@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga5914569a17ae4bdba86e36b6be658e2e:
+
+Function hermes::units::ampere
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::ampere(1.)

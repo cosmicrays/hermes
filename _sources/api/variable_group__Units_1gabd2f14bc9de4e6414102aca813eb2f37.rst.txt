@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gabd2f14bc9de4e6414102aca813eb2f37:
+
+Variable hermes::units::hectare
+===============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::hectare

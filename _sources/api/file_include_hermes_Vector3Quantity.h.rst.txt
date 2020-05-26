@@ -1,0 +1,36 @@
+
+.. _file_include_hermes_Vector3Quantity.h:
+
+File Vector3Quantity.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/Vector3Quantity.h``)
+-------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1Vector3Quantity`
+

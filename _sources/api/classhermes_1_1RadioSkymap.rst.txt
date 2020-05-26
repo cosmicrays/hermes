@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1RadioSkymap:
+
+Class RadioSkymap
+=================
+
+- Defined in :ref:`file_include_hermes_skymaps_RadioSkymap.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public SkymapTemplate< QTemperature, QFrequency >`` (:ref:`exhale_class_classhermes_1_1SkymapTemplate`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::RadioSkymap
+   :members:
+   :protected-members:
+   :undoc-members:

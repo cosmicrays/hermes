@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaad7b644fe8fdb4ebfe5215c2837707a1:
+
+Function hermes::units::sqrt(double)
+====================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::sqrt(double)

@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Core_1gacd3b779f87b4de87e8289f36419b921a:
+
+Typedef hermes::VectorQLengthGrid
+=================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::VectorQLengthGrid

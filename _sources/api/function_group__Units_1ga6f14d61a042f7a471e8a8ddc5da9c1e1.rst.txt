@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga6f14d61a042f7a471e8a8ddc5da9c1e1:
+
+Function hermes::units::LITERAL(QFrequency, _MHz, mega \*)
+==========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QFrequency, _MHz, mega *)

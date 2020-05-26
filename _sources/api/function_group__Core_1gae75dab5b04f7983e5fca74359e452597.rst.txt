@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1gae75dab5b04f7983e5fca74359e452597:
+
+Template Function hermes::operator\*(const Vector3Quantity<Q>&, const Vector3<T>&)
+==================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::operator*(const Vector3Quantity<Q>&, const Vector3<T>&)

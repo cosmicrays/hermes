@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga173f4481d9e5615f34be8cf942655116:
+
+Template Function hermes::units::squared(const Quantity<l, t, m, I, T, N, J, A, SA>&)
+=====================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::squared(const Quantity<l, t, m, I, T, N, J, A, SA>&)

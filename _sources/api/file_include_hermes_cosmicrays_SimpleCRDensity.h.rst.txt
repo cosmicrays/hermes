@@ -1,0 +1,38 @@
+
+.. _file_include_hermes_cosmicrays_SimpleCRDensity.h:
+
+File SimpleCRDensity.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/cosmicrays/SimpleCRDensity.h``)
+------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__cosmicrays`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1cosmicrays_1_1SimpleCRDensity`
+

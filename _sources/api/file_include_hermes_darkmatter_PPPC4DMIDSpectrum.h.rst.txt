@@ -1,0 +1,38 @@
+
+.. _file_include_hermes_darkmatter_PPPC4DMIDSpectrum.h:
+
+File PPPC4DMIDSpectrum.h
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/darkmatter/PPPC4DMIDSpectrum.h``)
+--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__darkmatter`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum`
+

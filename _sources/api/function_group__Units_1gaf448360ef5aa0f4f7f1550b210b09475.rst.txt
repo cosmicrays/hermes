@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaf448360ef5aa0f4f7f1550b210b09475:
+
+Function hermes::units::GENERATE_SHORT_PREFIXED_UNITS(ampere, a)
+================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::GENERATE_SHORT_PREFIXED_UNITS(ampere, a)

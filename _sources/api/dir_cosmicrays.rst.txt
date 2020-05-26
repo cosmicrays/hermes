@@ -1,0 +1,11 @@
+.. _dir_cosmicrays:
+
+
+Directory cosmicrays
+====================
+
+
+*Directory path:* ``cosmicrays``
+
+
+

@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5:
+
+Typedef hermes::Vector3QMField
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::Vector3QMField

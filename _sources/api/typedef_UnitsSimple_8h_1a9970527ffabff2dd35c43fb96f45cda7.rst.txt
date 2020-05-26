@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a9970527ffabff2dd35c43fb96f45cda7:
+
+Typedef hermes::units::QICInnerIntegral
+=======================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QICInnerIntegral

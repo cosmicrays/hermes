@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga99e6101cb162b8ba4f777ab3bd6b922d:
+
+Template Function hermes::units::fmod(const Quantity<l, t, m, I, T, N, J, A, SA>&, const Quantity<l, t, m, I, T, N, J, A, SA>&)
+===============================================================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::fmod(const Quantity<l, t, m, I, T, N, J, A, SA>&, const Quantity<l, t, m, I, T, N, J, A, SA>&)

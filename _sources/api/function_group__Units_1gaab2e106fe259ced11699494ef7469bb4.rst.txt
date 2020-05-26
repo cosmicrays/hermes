@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaab2e106fe259ced11699494ef7469bb4:
+
+Function hermes::units::tan
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::tan(const QAngle&)

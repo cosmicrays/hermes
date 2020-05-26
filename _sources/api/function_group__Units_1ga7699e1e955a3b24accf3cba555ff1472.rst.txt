@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga7699e1e955a3b24accf3cba555ff1472:
+
+Function hermes::units::expm1
+=============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::expm1(const QNumber&)

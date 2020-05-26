@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga7f8c9f2f98ec106ae761f1b006f964bc:
+
+Variable hermes::units::astronomical_unit
+=========================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::astronomical_unit

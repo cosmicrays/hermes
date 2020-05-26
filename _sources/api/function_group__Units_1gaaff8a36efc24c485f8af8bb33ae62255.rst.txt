@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaaff8a36efc24c485f8af8bb33ae62255:
+
+Template Function hermes::units::pow(const Quantity<l, t, m, I, T, N, J, A, SA>&)
+=================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::pow(const Quantity<l, t, m, I, T, N, J, A, SA>&)

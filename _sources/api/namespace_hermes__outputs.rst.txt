@@ -1,0 +1,22 @@
+
+.. _namespace_hermes__outputs:
+
+Namespace hermes::outputs
+=========================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1outputs_1_1HEALPixFormat`
+
+- :ref:`exhale_class_classhermes_1_1outputs_1_1Output`

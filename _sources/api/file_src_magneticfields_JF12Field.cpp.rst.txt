@@ -1,0 +1,31 @@
+
+.. _file_src_magneticfields_JF12Field.cpp:
+
+File JF12Field.cpp
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/magneticfields/JF12Field.cpp``)
+-------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__magneticfields`
+

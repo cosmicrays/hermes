@@ -1,0 +1,16 @@
+.. _exhale_class_classhermes_1_1GammaSkymapRange:
+
+Class GammaSkymapRange
+======================
+
+- Defined in :ref:`file_include_hermes_skymaps_GammaSkymapRange.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::GammaSkymapRange
+   :members:
+   :protected-members:
+   :undoc-members:

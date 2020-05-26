@@ -1,0 +1,13 @@
+.. _exhale_typedef_CacheTools_8h_1afbebdc77c5226b42a3caa5b614efc704:
+
+Typedef hermes::CacheStorageIC
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::CacheStorageIC

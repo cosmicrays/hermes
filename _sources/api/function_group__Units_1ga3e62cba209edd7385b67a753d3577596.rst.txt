@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga3e62cba209edd7385b67a753d3577596:
+
+Function hermes::units::GENERATE_PREFIXED_UNITS(parsec)
+=======================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::GENERATE_PREFIXED_UNITS(parsec)

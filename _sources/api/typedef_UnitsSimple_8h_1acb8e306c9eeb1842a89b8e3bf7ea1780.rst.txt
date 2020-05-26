@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1acb8e306c9eeb1842a89b8e3bf7ea1780:
+
+Typedef hermes::units::QNumber
+==============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QNumber

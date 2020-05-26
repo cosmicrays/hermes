@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Skymaps_1gad8bef09011464052be598bdbc504f4ea:
+
+Typedef hermes::RotationMeasureSkymap
+=====================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::RotationMeasureSkymap

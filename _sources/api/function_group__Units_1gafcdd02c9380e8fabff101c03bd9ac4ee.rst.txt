@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gafcdd02c9380e8fabff101c03bd9ac4ee:
+
+Function hermes::units::BASELITERAL(QNumber, _num)
+==================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::BASELITERAL(QNumber, _num)

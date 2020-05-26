@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga3124f5546f892523baf376f0c3f5ec4a:
+
+Function hermes::units::radian
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::radian(1.)

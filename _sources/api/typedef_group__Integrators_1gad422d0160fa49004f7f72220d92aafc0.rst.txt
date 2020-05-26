@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Integrators_1gad422d0160fa49004f7f72220d92aafc0:
+
+Typedef hermes::DispersionMeasureIntegratorTemplate
+===================================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::DispersionMeasureIntegratorTemplate

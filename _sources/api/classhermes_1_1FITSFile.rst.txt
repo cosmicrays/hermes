@@ -1,0 +1,16 @@
+.. _exhale_class_classhermes_1_1FITSFile:
+
+Class FITSFile
+==============
+
+- Defined in :ref:`file_include_hermes_FITSWrapper.h`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::FITSFile
+   :members:
+   :protected-members:
+   :undoc-members:

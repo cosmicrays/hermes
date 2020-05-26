@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga87fa2f8162fbe8e86d23ac6cb6c0280d:
+
+Function hermes::units::QUANTITY_TYPE(1, -, 1, 0, 0, 0, 0, 0, 0, QSpectralRadiance)
+===================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::QUANTITY_TYPE(1, -, 1, 0, 0, 0, 0, 0, 0, QSpectralRadiance)

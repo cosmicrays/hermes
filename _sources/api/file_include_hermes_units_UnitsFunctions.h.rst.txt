@@ -1,0 +1,31 @@
+
+.. _file_include_hermes_units_UnitsFunctions.h:
+
+File UnitsFunctions.h
+=====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/units/UnitsFunctions.h``)
+------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__units`
+

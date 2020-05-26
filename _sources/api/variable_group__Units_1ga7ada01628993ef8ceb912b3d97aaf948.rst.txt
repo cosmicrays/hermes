@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga7ada01628993ef8ceb912b3d97aaf948:
+
+Variable hermes::units::barn
+============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::barn

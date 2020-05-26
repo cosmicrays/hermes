@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga82b813cab1b18f85f2dd483abf5a381f:
+
+Variable hermes::units::stone
+=============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::stone

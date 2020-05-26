@@ -1,0 +1,62 @@
+
+.. _file_include_hermes_chargedgas_YMW16.h:
+
+File YMW16.h
+============
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/chargedgas/YMW16.h``)
+--------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__chargedgas`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Dora`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1FB`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1GC`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Gum`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1LB`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1LI`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1LMC`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1SMC`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Spiral`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Thick`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Thin`
+
+- :ref:`exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun`
+
+- :ref:`exhale_class_classhermes_1_1chargedgas_1_1YMW16`
+

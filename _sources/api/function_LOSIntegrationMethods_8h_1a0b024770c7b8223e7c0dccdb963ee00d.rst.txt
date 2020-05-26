@@ -1,0 +1,13 @@
+.. _exhale_function_LOSIntegrationMethods_8h_1a0b024770c7b8223e7c0dccdb963ee00d:
+
+Template Function hermes::sumIntegration
+========================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::sumIntegration(std::function<INTTYPE(QLength)>, QLength, QLength, int)

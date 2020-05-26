@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1ga3e247485bc0464886a88331f7a75a705:
+
+Template Function hermes::operator>>(std::istream&, Vector3<T>&)
+================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::operator>>(std::istream&, Vector3<T>&)

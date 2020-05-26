@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga44936d6068e538b77a2a139ee271afee:
+
+Function hermes::units::fabs(double)
+====================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::fabs(double)

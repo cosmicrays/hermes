@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaf7187461e145afb9cb3392b137e33244:
+
+Function hermes::units::LITERAL(QPressure, _bar, bar)
+=====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QPressure, _bar, bar)

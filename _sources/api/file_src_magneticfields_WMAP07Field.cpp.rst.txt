@@ -1,0 +1,31 @@
+
+.. _file_src_magneticfields_WMAP07Field.cpp:
+
+File WMAP07Field.cpp
+====================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/magneticfields/WMAP07Field.cpp``)
+---------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__magneticfields`
+

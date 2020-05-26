@@ -1,0 +1,38 @@
+
+.. _file_include_hermes_units_UnitsQClass.h:
+
+File UnitsQClass.h
+==================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/units/UnitsQClass.h``)
+---------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__units`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1units_1_1Quantity`
+

@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gaf7dc890d120ecbc8ef0cbe17b3102afa:
+
+Variable hermes::units::h_planck
+================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::h_planck

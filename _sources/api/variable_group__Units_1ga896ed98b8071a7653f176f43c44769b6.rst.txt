@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga896ed98b8071a7653f176f43c44769b6:
+
+Variable hermes::units::_GHz
+============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::_GHz

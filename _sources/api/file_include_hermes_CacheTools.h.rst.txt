@@ -1,0 +1,56 @@
+
+.. _file_include_hermes_CacheTools.h:
+
+File CacheTools.h
+=================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/CacheTools.h``)
+--------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhermes_1_1array2__equal`
+
+- :ref:`exhale_struct_structhermes_1_1array2__hash`
+
+- :ref:`exhale_struct_structhermes_1_1array__equal`
+
+- :ref:`exhale_struct_structhermes_1_1array__hash`
+
+- :ref:`exhale_struct_structhermes_1_1pair__equal`
+
+- :ref:`exhale_struct_structhermes_1_1pair__hash`
+
+- :ref:`exhale_struct_structhermes_1_1tuple__equal`
+
+- :ref:`exhale_struct_structhermes_1_1tuple__hash`
+
+- :ref:`exhale_class_classhermes_1_1CacheStorageIC2`
+
+- :ref:`exhale_class_classhermes_1_1CacheStorageWith2Args`
+
+- :ref:`exhale_class_classhermes_1_1CacheStorageWith3Args`
+

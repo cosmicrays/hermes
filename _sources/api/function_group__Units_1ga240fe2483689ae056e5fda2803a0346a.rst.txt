@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga240fe2483689ae056e5fda2803a0346a:
+
+Function hermes::units::steradian
+=================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::steradian(1.)

@@ -1,0 +1,46 @@
+
+.. _namespace_hermes__darkmatter:
+
+Namespace hermes::darkmatter
+============================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1darkmatter_1_1DarkMatterSpectrum`
+
+- :ref:`exhale_class_classhermes_1_1darkmatter_1_1GalacticProfile`
+
+- :ref:`exhale_class_classhermes_1_1darkmatter_1_1NFWGProfile`
+
+- :ref:`exhale_class_classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_group__DarkMatter_1ga1ce9b523fd4f3b5bbcadcd796183455a`
+
+- :ref:`exhale_enum_group__DarkMatter_1ga4b82e49d40fec5c282ce4115db150889`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_NFWGProfile_8cpp_1ab61b1577fd0ecb1fd77588ee1b2c7466`
+
+- :ref:`exhale_function_NFWGProfile_8cpp_1aa93df710db997cf0dc306709efb0e491`
+
+- :ref:`exhale_function_NFWGProfile_8cpp_1ad686df245a8f4306de4b937d26523978`

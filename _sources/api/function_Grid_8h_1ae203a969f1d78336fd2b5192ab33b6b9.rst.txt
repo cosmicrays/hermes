@@ -1,0 +1,13 @@
+.. _exhale_function_Grid_8h_1ae203a969f1d78336fd2b5192ab33b6b9:
+
+Function hermes::periodicClamp
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::periodicClamp(double, int, int&, int&)

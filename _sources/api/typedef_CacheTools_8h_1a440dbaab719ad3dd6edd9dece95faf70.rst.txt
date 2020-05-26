@@ -1,0 +1,13 @@
+.. _exhale_typedef_CacheTools_8h_1a440dbaab719ad3dd6edd9dece95faf70:
+
+Typedef hermes::tTupleKey
+=========================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::tTupleKey

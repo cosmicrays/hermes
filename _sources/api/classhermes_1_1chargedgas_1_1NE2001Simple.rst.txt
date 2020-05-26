@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1chargedgas_1_1NE2001Simple:
+
+Class NE2001Simple
+==================
+
+- Defined in :ref:`file_include_hermes_chargedgas_NE2001Simple.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ChargedGasDensity`` (:ref:`exhale_class_classhermes_1_1chargedgas_1_1ChargedGasDensity`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::chargedgas::NE2001Simple
+   :members:
+   :protected-members:
+   :undoc-members:

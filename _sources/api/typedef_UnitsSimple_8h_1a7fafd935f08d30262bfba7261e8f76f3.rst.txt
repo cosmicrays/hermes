@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a7fafd935f08d30262bfba7261e8f76f3:
+
+Typedef hermes::units::QLIntensity
+==================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QLIntensity

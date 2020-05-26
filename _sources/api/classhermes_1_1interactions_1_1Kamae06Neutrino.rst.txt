@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1interactions_1_1Kamae06Neutrino:
+
+Class Kamae06Neutrino
+=====================
+
+- Defined in :ref:`file_include_hermes_interactions_Kamae06Neutrino.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public DifferentialCrossSection`` (:ref:`exhale_class_classhermes_1_1interactions_1_1DifferentialCrossSection`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::interactions::Kamae06Neutrino
+   :members:
+   :protected-members:
+   :undoc-members:

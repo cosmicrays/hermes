@@ -1,0 +1,13 @@
+.. _exhale_function_GridTools_8cpp_1a3aff1a45fe5aa42baf22b3b4f16f741f:
+
+Function hermes::fromMagneticField(const std::shared_ptr<VectorGrid>&, const std::shared_ptr<magneticfields::MagneticField>&)
+=============================================================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::fromMagneticField(const std::shared_ptr<VectorGrid>&, const std::shared_ptr<magneticfields::MagneticField>&)

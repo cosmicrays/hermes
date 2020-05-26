@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1neutralgas_1_1NeutralGasDensity:
+
+Class NeutralGasDensity
+=======================
+
+- Defined in :ref:`file_include_hermes_neutralgas_NeutralGasDensity.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public RingModel`` (:ref:`exhale_class_classhermes_1_1neutralgas_1_1RingModel`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::neutralgas::NeutralGasDensity
+   :members:
+   :protected-members:
+   :undoc-members:

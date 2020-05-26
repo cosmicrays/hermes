@@ -1,0 +1,30 @@
+.. _exhale_class_classhermes_1_1cosmicrays_1_1CosmicRayDensity:
+
+Class CosmicRayDensity
+======================
+
+- Defined in :ref:`file_include_hermes_cosmicrays_CosmicRayDensity.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public Dragon2D`` (:ref:`exhale_class_classhermes_1_1cosmicrays_1_1Dragon2D`)
+- ``public Dragon3D`` (:ref:`exhale_class_classhermes_1_1cosmicrays_1_1Dragon3D`)
+- ``public DummyCRDensity`` (:ref:`exhale_class_classhermes_1_1cosmicrays_1_1DummyCRDensity`)
+- ``public SimpleCRDensity`` (:ref:`exhale_class_classhermes_1_1cosmicrays_1_1SimpleCRDensity`)
+- ``public Sun08CRDensity`` (:ref:`exhale_class_classhermes_1_1cosmicrays_1_1Sun08CRDensity`)
+- ``public WMAP07CRDensity`` (:ref:`exhale_class_classhermes_1_1cosmicrays_1_1WMAP07CRDensity`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::cosmicrays::CosmicRayDensity
+   :members:
+   :protected-members:
+   :undoc-members:

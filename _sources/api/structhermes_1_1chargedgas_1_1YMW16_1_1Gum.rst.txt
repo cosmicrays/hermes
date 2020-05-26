@@ -1,0 +1,22 @@
+.. _exhale_struct_structhermes_1_1chargedgas_1_1YMW16_1_1Gum:
+
+Struct YMW16::Gum
+=================
+
+- Defined in :ref:`file_include_hermes_chargedgas_YMW16.h`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classhermes_1_1chargedgas_1_1YMW16`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: hermes::chargedgas::YMW16::Gum
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga336dce08e89f40fb5ac1971a7ced411a:
+
+Function hermes::units::GENERATE_PREFIXED_UNITS(hertz)
+======================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::GENERATE_PREFIXED_UNITS(hertz)

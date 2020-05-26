@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga975df5c1fc2138d876cafc3505f5de78:
+
+Variable hermes::units::Rydberg_const
+=====================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::Rydberg_const

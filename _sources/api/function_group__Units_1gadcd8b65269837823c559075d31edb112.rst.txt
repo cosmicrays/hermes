@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gadcd8b65269837823c559075d31edb112:
+
+Function hermes::units::BASELITERAL(QAcceleration, _mps2)
+=========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::BASELITERAL(QAcceleration, _mps2)

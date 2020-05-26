@@ -1,0 +1,32 @@
+.. _exhale_class_classhermes_1_1interactions_1_1BremsstrahlungAbstract:
+
+Class BremsstrahlungAbstract
+============================
+
+- Defined in :ref:`file_include_hermes_interactions_BremsstrahlungAbstract.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public DifferentialCrossSection`` (:ref:`exhale_class_classhermes_1_1interactions_1_1DifferentialCrossSection`)
+
+
+Derived Types
+*************
+
+- ``public BremsstrahlungGALPROP`` (:ref:`exhale_class_classhermes_1_1interactions_1_1BremsstrahlungGALPROP`)
+- ``public BremsstrahlungTsai74`` (:ref:`exhale_class_classhermes_1_1interactions_1_1BremsstrahlungTsai74`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::interactions::BremsstrahlungAbstract
+   :members:
+   :protected-members:
+   :undoc-members:

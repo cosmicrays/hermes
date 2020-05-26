@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga4a33513efc7c22c2a47897818d7c74dd:
+
+Variable hermes::units::year
+============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::year

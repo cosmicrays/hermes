@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga3c690f7883882b6c3155fa2f7965ae87:
+
+Function hermes::units::cosh
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::cosh(const QNumber&)

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gac4512956a68f6b74a865ed0de99505e2:
+
+Function hermes::units::kelvin
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::kelvin(1.)

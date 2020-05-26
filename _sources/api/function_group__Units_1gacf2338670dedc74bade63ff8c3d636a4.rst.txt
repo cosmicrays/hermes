@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gacf2338670dedc74bade63ff8c3d636a4:
+
+Function hermes::units::newton
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::newton(1.)

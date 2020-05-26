@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gab2783de82e9fa3be818bc7df99212f68:
+
+Function hermes::units::LITERAL(QArea, _barn, barn)
+===================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QArea, _barn, barn)

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga7401954f71324c72ed0327d2fc9b102c:
+
+Function hermes::units::volt
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::volt(1.)

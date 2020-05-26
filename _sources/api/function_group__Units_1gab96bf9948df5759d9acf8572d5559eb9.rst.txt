@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gab96bf9948df5759d9acf8572d5559eb9:
+
+Function hermes::units::QUANTITY_TYPE(0, 0, 0, 0, 0, 1, 0, 0, 0, QSubstance)
+============================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::QUANTITY_TYPE(0, 0, 0, 0, 0, 1, 0, 0, 0, QSubstance)

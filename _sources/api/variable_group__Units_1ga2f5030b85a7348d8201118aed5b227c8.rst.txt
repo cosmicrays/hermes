@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga2f5030b85a7348d8201118aed5b227c8:
+
+Variable hermes::units::sun_mass
+================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::sun_mass

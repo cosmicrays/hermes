@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gab262b3d7987e32fc08c9f9abd01a5543:
+
+Variable hermes::units::parsec
+==============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::parsec

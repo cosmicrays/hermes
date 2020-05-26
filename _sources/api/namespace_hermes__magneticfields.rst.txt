@@ -1,0 +1,49 @@
+
+.. _namespace_hermes__magneticfields:
+
+Namespace hermes::magneticfields
+================================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1JF12Field`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1LogarithmicSpiralField`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticField`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticFieldGrid`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticFieldList`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1PeriodicMagneticField`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1PT11Field`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1Sun08Field`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1TorroidalHaloField`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1UniformMagneticField`
+
+- :ref:`exhale_class_classhermes_1_1magneticfields_1_1WMAP07Field`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_JF12Field_8cpp_1a0d6b7018ba839b009cc6fc757b3e7605`

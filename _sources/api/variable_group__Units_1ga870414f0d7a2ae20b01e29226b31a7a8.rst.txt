@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga870414f0d7a2ae20b01e29226b31a7a8:
+
+Variable hermes::units::day
+===========================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::day

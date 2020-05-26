@@ -1,0 +1,13 @@
+.. _exhale_variable_Signals_8h_1adebadb30598d3cf64fe91485c3049ced:
+
+Variable hermes::g_cancel_signal_flag
+=====================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::g_cancel_signal_flag

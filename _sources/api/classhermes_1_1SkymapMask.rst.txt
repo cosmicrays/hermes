@@ -1,0 +1,28 @@
+.. _exhale_class_classhermes_1_1SkymapMask:
+
+Class SkymapMask
+================
+
+- Defined in :ref:`file_include_hermes_skymaps_SkymapMask.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public CircularWindow`` (:ref:`exhale_class_classhermes_1_1CircularWindow`)
+- ``public InvertMask`` (:ref:`exhale_class_classhermes_1_1InvertMask`)
+- ``public MaskList`` (:ref:`exhale_class_classhermes_1_1MaskList`)
+- ``public RectangularWindow`` (:ref:`exhale_class_classhermes_1_1RectangularWindow`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::SkymapMask
+   :members:
+   :protected-members:
+   :undoc-members:

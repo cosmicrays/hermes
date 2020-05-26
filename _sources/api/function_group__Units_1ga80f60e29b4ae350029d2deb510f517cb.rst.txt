@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga80f60e29b4ae350029d2deb510f517cb:
+
+Function hermes::units::LITERAL(QMass, _t, tonne)
+=================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QMass, _t, tonne)

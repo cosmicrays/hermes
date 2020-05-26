@@ -1,0 +1,25 @@
+.. _exhale_struct_structhermes_1_1array2__equal:
+
+Struct array2_equal
+===================
+
+- Defined in :ref:`file_include_hermes_CacheTools.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::binary_function< tArray2Key, tArray2Key, bool >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: hermes::array2_equal
+   :members:
+   :protected-members:
+   :undoc-members:

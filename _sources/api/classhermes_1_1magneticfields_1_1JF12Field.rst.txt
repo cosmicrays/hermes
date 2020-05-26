@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1magneticfields_1_1JF12Field:
+
+Class JF12Field
+===============
+
+- Defined in :ref:`file_include_hermes_magneticfields_JF12Field.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public MagneticField`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticField`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::magneticfields::JF12Field
+   :members:
+   :protected-members:
+   :undoc-members:

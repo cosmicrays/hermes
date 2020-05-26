@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gab57a92b9ef895b8aef0845806b8f4389:
+
+Function hermes::units::second
+==============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::second(1.)

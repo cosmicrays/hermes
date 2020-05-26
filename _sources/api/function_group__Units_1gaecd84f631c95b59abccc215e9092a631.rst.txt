@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaecd84f631c95b59abccc215e9092a631:
+
+Function hermes::units::mole
+============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::mole(1.)

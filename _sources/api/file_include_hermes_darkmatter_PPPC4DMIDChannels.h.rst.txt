@@ -1,0 +1,31 @@
+
+.. _file_include_hermes_darkmatter_PPPC4DMIDChannels.h:
+
+File PPPC4DMIDChannels.h
+========================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/darkmatter/PPPC4DMIDChannels.h``)
+--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__darkmatter`
+

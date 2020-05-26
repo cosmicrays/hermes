@@ -1,0 +1,35 @@
+.. _exhale_class_classhermes_1_1magneticfields_1_1MagneticField:
+
+Class MagneticField
+===================
+
+- Defined in :ref:`file_include_hermes_magneticfields_MagneticField.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Types
+*************
+
+- ``public JF12Field`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1JF12Field`)
+- ``public LogarithmicSpiralField`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1LogarithmicSpiralField`)
+- ``public MagneticFieldGrid`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticFieldGrid`)
+- ``public MagneticFieldList`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1MagneticFieldList`)
+- ``public ModulatedMagneticFieldGrid`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid`)
+- ``public PeriodicMagneticField`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1PeriodicMagneticField`)
+- ``public PT11Field`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1PT11Field`)
+- ``public Sun08Field`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1Sun08Field`)
+- ``public TorroidalHaloField`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1TorroidalHaloField`)
+- ``public UniformMagneticField`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1UniformMagneticField`)
+- ``public WMAP07Field`` (:ref:`exhale_class_classhermes_1_1magneticfields_1_1WMAP07Field`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::magneticfields::MagneticField
+   :members:
+   :protected-members:
+   :undoc-members:

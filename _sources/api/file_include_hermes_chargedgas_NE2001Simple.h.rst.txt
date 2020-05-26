@@ -1,0 +1,38 @@
+
+.. _file_include_hermes_chargedgas_NE2001Simple.h:
+
+File NE2001Simple.h
+===================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/chargedgas/NE2001Simple.h``)
+---------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__chargedgas`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1chargedgas_1_1NE2001Simple`
+

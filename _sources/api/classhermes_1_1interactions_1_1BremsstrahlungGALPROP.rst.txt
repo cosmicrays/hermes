@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1interactions_1_1BremsstrahlungGALPROP:
+
+Class BremsstrahlungGALPROP
+===========================
+
+- Defined in :ref:`file_include_hermes_interactions_BremsstrahlungGALPROP.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public BremsstrahlungAbstract`` (:ref:`exhale_class_classhermes_1_1interactions_1_1BremsstrahlungAbstract`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::interactions::BremsstrahlungGALPROP
+   :members:
+   :protected-members:
+   :undoc-members:

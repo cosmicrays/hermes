@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gadb9bb4a0b5e42350e1ddc427aca4e07f:
+
+Function hermes::units::LITERAL(QEnergy, _J, joule)
+===================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QEnergy, _J, joule)

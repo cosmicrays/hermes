@@ -1,0 +1,13 @@
+.. _exhale_function_UnitsHERMES_8h_1a0d858fd0da3b2a2f1f21233b0504c479:
+
+Function hermes::units::QUANTITY_TYPE(2, 0, 0, 1, 0, 0, 0, 0, 0, QSynchroConstant)
+==================================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::QUANTITY_TYPE(2, 0, 0, 1, 0, 0, 0, 0, 0, QSynchroConstant)

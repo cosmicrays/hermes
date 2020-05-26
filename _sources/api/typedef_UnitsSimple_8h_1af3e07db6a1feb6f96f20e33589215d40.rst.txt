@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1af3e07db6a1feb6f96f20e33589215d40:
+
+Typedef hermes::units::QAngle
+=============================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QAngle

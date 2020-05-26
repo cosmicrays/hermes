@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1ga07e7a722b04a8f34e68964286b7fb8df:
+
+Function hermes::initTurbulence
+===============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::initTurbulence(std::shared_ptr<VectorGrid>, double, double, double, double, int, bool, double)

@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a:
+
+Typedef hermes::units::QDirection
+=================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QDirection

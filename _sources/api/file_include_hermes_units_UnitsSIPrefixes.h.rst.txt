@@ -1,0 +1,31 @@
+
+.. _file_include_hermes_units_UnitsSIPrefixes.h:
+
+File UnitsSIPrefixes.h
+======================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/units/UnitsSIPrefixes.h``)
+-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__units`
+

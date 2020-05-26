@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga1a07f949dba8ee4c5460e7d19439d126:
+
+Function hermes::units::BASELITERAL(QSolidAngle, _sr)
+=====================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::BASELITERAL(QSolidAngle, _sr)

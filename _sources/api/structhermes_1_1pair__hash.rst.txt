@@ -1,0 +1,25 @@
+.. _exhale_struct_structhermes_1_1pair__hash:
+
+Struct pair_hash
+================
+
+- Defined in :ref:`file_include_hermes_CacheTools.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::unary_function< std::size_t, std::size_t >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: hermes::pair_hash
+   :members:
+   :protected-members:
+   :undoc-members:

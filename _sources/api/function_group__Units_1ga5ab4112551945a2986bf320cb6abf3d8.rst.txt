@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga5ab4112551945a2986bf320cb6abf3d8:
+
+Function hermes::units::sin
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::sin(const QAngle&)

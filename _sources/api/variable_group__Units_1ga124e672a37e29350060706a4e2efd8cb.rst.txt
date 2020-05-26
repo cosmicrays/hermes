@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga124e672a37e29350060706a4e2efd8cb:
+
+Variable hermes::units::eulerGamma
+==================================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::eulerGamma

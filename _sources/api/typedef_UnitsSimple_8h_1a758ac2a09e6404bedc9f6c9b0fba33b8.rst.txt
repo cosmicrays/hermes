@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a758ac2a09e6404bedc9f6c9b0fba33b8:
+
+Typedef hermes::units::QPiZeroIntegral
+======================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QPiZeroIntegral

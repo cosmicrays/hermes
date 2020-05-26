@@ -1,0 +1,29 @@
+
+.. _file_src_integrators_DispersionMeasureIntegrator.cpp:
+
+File DispersionMeasureIntegrator.cpp
+====================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/integrators/DispersionMeasureIntegrator.cpp``)
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+

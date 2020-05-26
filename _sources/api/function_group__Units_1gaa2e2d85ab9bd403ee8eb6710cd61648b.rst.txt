@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaa2e2d85ab9bd403ee8eb6710cd61648b:
+
+Function hermes::units::ohm
+===========================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::ohm(1.)

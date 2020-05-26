@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1interactions_1_1KelnerAharonianGamma:
+
+Class KelnerAharonianGamma
+==========================
+
+- Defined in :ref:`file_include_hermes_interactions_KelnerAharonianGamma.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public DifferentialCrossSection`` (:ref:`exhale_class_classhermes_1_1interactions_1_1DifferentialCrossSection`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::interactions::KelnerAharonianGamma
+   :members:
+   :protected-members:
+   :undoc-members:

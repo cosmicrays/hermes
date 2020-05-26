@@ -1,0 +1,13 @@
+.. _exhale_typedef_group__Core_1gae466bfccef775505ce0fc993bfed2f2b:
+
+Typedef hermes::VectorQMFieldGrid
+=================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::VectorQMFieldGrid

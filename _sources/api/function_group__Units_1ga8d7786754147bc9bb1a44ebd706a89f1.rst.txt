@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga8d7786754147bc9bb1a44ebd706a89f1:
+
+Template Function hermes::units::stepFunction
+=============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::stepFunction(const Q&)

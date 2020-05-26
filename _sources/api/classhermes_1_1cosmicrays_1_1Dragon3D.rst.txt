@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1cosmicrays_1_1Dragon3D:
+
+Class Dragon3D
+==============
+
+- Defined in :ref:`file_include_hermes_cosmicrays_Dragon3D.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public CosmicRayDensity`` (:ref:`exhale_class_classhermes_1_1cosmicrays_1_1CosmicRayDensity`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::cosmicrays::Dragon3D
+   :members:
+   :protected-members:
+   :undoc-members:

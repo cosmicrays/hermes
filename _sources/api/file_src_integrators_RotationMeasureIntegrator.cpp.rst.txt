@@ -1,0 +1,29 @@
+
+.. _file_src_integrators_RotationMeasureIntegrator.cpp:
+
+File RotationMeasureIntegrator.cpp
+==================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/integrators/RotationMeasureIntegrator.cpp``)
+--------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+

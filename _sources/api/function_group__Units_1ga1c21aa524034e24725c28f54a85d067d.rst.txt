@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga1c21aa524034e24725c28f54a85d067d:
+
+Function hermes::units::LITERAL(QMField, _nG, nano \*)
+======================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QMField, _nG, nano *)

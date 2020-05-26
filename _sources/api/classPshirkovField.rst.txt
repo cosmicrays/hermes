@@ -1,0 +1,16 @@
+.. _exhale_class_classPshirkovField:
+
+Class PshirkovField
+===================
+
+.. did not find file this was defined in
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: PshirkovField
+   :members:
+   :protected-members:
+   :undoc-members:

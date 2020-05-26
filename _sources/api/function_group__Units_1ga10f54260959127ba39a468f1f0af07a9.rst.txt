@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga10f54260959127ba39a468f1f0af07a9:
+
+Function hermes::units::BASELITERAL(QTime, _s)
+==============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::BASELITERAL(QTime, _s)

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga215f23dcb96f83177c10dcedf0bc09de:
+
+Function hermes::units::farad
+=============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::farad(1.)

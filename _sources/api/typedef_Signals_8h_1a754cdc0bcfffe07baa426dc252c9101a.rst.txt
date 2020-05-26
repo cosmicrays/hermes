@@ -1,0 +1,13 @@
+.. _exhale_typedef_Signals_8h_1a754cdc0bcfffe07baa426dc252c9101a:
+
+Typedef sighandler_t
+====================
+
+- Defined in :ref:`file_include_hermes_Signals.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: sighandler_t

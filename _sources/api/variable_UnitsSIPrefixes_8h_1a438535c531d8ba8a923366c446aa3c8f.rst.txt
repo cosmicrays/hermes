@@ -1,0 +1,13 @@
+.. _exhale_variable_UnitsSIPrefixes_8h_1a438535c531d8ba8a923366c446aa3c8f:
+
+Variable hermes::units::deci
+============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::deci

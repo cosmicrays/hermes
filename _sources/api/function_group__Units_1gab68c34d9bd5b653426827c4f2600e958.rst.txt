@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gab68c34d9bd5b653426827c4f2600e958:
+
+Function hermes::units::BASELITERAL(QForce, _N)
+===============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::BASELITERAL(QForce, _N)

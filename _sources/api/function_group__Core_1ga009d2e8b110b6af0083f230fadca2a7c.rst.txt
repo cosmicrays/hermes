@@ -1,0 +1,13 @@
+.. _exhale_function_group__Core_1ga009d2e8b110b6af0083f230fadca2a7c:
+
+Function hermes::rmsFieldStrength(std::unique_ptr<ScalarGrid>)
+==============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::rmsFieldStrength(std::unique_ptr<ScalarGrid>)

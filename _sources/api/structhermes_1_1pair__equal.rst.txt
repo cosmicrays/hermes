@@ -1,0 +1,25 @@
+.. _exhale_struct_structhermes_1_1pair__equal:
+
+Struct pair_equal
+=================
+
+- Defined in :ref:`file_include_hermes_CacheTools.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public std::binary_function< tPairKey, tPairKey, bool >``
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: hermes::pair_equal
+   :members:
+   :protected-members:
+   :undoc-members:

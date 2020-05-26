@@ -1,0 +1,13 @@
+.. _exhale_variable_HEALPixBits_8h_1af17f037ff39603cfe4208a43bfcfb8f6:
+
+Variable hermes::UNSEEN
+=======================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::UNSEEN

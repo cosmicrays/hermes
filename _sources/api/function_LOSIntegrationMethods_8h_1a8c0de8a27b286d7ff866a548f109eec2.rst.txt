@@ -1,0 +1,13 @@
+.. _exhale_function_LOSIntegrationMethods_8h_1a8c0de8a27b286d7ff866a548f109eec2:
+
+Template Function hermes::trapesoidIntegration
+==============================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::trapesoidIntegration(std::function<INTTYPE(QLength)>, QLength, QLength, int)

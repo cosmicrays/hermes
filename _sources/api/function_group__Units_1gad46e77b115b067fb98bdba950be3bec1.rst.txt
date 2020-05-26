@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gad46e77b115b067fb98bdba950be3bec1:
+
+Function hermes::units::LITERAL(QFrequency, _THz, tera \*)
+==========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QFrequency, _THz, tera *)

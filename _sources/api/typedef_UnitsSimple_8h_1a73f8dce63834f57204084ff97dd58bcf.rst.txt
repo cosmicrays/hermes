@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a73f8dce63834f57204084ff97dd58bcf:
+
+Typedef hermes::units::QColumnDensity
+=====================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QColumnDensity

@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1darkmatter_1_1DarkMatterSpectrum:
+
+Class DarkMatterSpectrum
+========================
+
+- Defined in :ref:`file_include_hermes_darkmatter_DarkMatterSpectrum.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public PPPC4DMIDSpectrum`` (:ref:`exhale_class_classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::darkmatter::DarkMatterSpectrum
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1a93760358a2f865d72e4c32104285f35a:
+
+Typedef hermes::units::QDiffFlux
+================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QDiffFlux

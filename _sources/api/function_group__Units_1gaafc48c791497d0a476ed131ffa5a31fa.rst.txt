@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaafc48c791497d0a476ed131ffa5a31fa:
+
+Function hermes::units::LITERAL(QEnergy, _MeV, megaelectronvolt)
+================================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QEnergy, _MeV, megaelectronvolt)

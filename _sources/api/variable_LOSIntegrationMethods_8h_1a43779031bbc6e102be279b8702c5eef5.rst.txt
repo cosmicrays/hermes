@@ -1,0 +1,13 @@
+.. _exhale_variable_LOSIntegrationMethods_8h_1a43779031bbc6e102be279b8702c5eef5:
+
+Variable hermes::W
+==================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::W

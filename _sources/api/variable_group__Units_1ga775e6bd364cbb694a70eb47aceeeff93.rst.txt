@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga775e6bd364cbb694a70eb47aceeeff93:
+
+Variable hermes::units::_mi
+===========================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::_mi

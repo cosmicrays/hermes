@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1gafc9fb1958023ac6c36afc5e15fcf9124:
+
+Variable hermes::units::_kmph
+=============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::_kmph

@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1Vector3:
+
+Template Class Vector3
+======================
+
+- Defined in :ref:`file_include_hermes_Vector3.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public Vector3Quantity< T >`` (:ref:`exhale_class_classhermes_1_1Vector3Quantity`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::Vector3
+   :members:
+   :protected-members:
+   :undoc-members:

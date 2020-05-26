@@ -1,0 +1,29 @@
+
+.. _file_src_integrators_BremsstrahlungIntegrator.cpp:
+
+File BremsstrahlungIntegrator.cpp
+=================================
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/integrators/BremsstrahlungIntegrator.cpp``)
+-------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+

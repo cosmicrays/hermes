@@ -1,0 +1,13 @@
+.. _exhale_typedef_UnitsSimple_8h_1afed1063e6c1cf425c9e80def217f4cba:
+
+Typedef hermes::units::QECurrent
+================================
+
+.. did not find file this was defined in
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QECurrent

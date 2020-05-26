@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga2387b735e9d721e9eb9d7df0e3f71784:
+
+Function hermes::units::LITERAL(QLength, _mm, millimetre)
+=========================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QLength, _mm, millimetre)

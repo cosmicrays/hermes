@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1darkmatter_1_1GalacticProfile:
+
+Class GalacticProfile
+=====================
+
+- Defined in :ref:`file_include_hermes_darkmatter_GalacticProfile.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public NFWGProfile`` (:ref:`exhale_class_classhermes_1_1darkmatter_1_1NFWGProfile`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::darkmatter::GalacticProfile
+   :members:
+   :protected-members:
+   :undoc-members:

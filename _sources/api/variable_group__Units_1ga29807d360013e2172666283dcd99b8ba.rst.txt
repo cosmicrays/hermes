@@ -1,0 +1,13 @@
+.. _exhale_variable_group__Units_1ga29807d360013e2172666283dcd99b8ba:
+
+Variable hermes::units::inch
+============================
+
+.. did not find file this was defined in
+
+
+Variable Documentation
+----------------------
+
+
+.. doxygenvariable:: hermes::units::inch

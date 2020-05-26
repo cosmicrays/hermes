@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaf6e296bb97d9647d16b50470693db102:
+
+Function hermes::units::LITERAL(QVolume, _cm3, (centimetre3))
+=============================================================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::LITERAL(QVolume, _cm3, (centimetre3))

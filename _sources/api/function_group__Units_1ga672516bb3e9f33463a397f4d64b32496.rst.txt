@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga672516bb3e9f33463a397f4d64b32496:
+
+Function hermes::units::joule
+=============================
+
+.. did not find file this was defined in
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::joule(1.)
