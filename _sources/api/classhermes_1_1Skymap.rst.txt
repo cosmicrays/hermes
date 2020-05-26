@@ -15,6 +15,7 @@ Derived Types
 - ``public SkymapTemplate< QPXL, QSTEP >`` (:ref:`exhale_class_classhermes_1_1SkymapTemplate`)
 - ``public SkymapTemplate< QDiffIntensity, QEnergy >`` (:ref:`exhale_class_classhermes_1_1SkymapTemplate`)
 - ``public SkymapTemplate< QDispersionMeasure, QNumber >`` (:ref:`exhale_class_classhermes_1_1SkymapTemplate`)
+- ``public SkymapTemplate< QRotationMeasure, QNumber >`` (:ref:`exhale_class_classhermes_1_1SkymapTemplate`)
 - ``public SkymapTemplate< QTemperature, QFrequency >`` (:ref:`exhale_class_classhermes_1_1SkymapTemplate`)
 
 

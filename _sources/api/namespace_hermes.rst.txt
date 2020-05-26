@@ -116,6 +116,8 @@ Classes
 
 - :ref:`exhale_class_classhermes_1_1RotationMeasureIntegrator`
 
+- :ref:`exhale_class_classhermes_1_1RotationMeasureSkymap`
+
 - :ref:`exhale_class_classhermes_1_1Skymap`
 
 - :ref:`exhale_class_classhermes_1_1SkymapMask`
@@ -143,9 +145,9 @@ Functions
 
 - :ref:`exhale_function_namespacehermes_1adca7018746886af2b19439d66a07f152`
 
-- :ref:`exhale_function_namespacehermes_1aefeac1d50b6dfe2bafea892a9c560370`
-
 - :ref:`exhale_function_namespacehermes_1a8238e5ea84755ca291f5fe33eabc4e07`
+
+- :ref:`exhale_function_namespacehermes_1aefeac1d50b6dfe2bafea892a9c560370`
 
 - :ref:`exhale_function_namespacehermes_1a26cf6e5a6eb42fca7df65a4057f4c36d`
 
@@ -323,8 +325,6 @@ Typedefs
 - :ref:`exhale_typedef_group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e`
 
 - :ref:`exhale_typedef_group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971`
-
-- :ref:`exhale_typedef_group__Skymaps_1gad8bef09011464052be598bdbc504f4ea`
 
 - :ref:`exhale_typedef_group__Core_1gafc4b1fa31ba12760b259bc3097bc0699`
 

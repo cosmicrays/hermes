@@ -553,6 +553,11 @@ Classes and Structs
 .. toctree::
    :maxdepth: 5
 
+   classhermes_1_1RotationMeasureSkymap.rst
+
+.. toctree::
+   :maxdepth: 5
+
    classhermes_1_1Skymap.rst
 
 .. toctree::
@@ -589,16 +594,6 @@ Classes and Structs
    :maxdepth: 5
 
    classhermes_1_1Vector3Quantity.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classPshirkovField.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   classRotationMeasureSkymap.rst
 
 .. toctree::
    :maxdepth: 5
@@ -2390,11 +2385,6 @@ Typedefs
    :maxdepth: 5
 
    typedef_group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   typedef_group__Skymaps_1gad8bef09011464052be598bdbc504f4ea.rst
 
 .. toctree::
    :maxdepth: 5

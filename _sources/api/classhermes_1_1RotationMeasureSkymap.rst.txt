@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1RotationMeasureSkymap:
+
+Class RotationMeasureSkymap
+===========================
+
+- Defined in :ref:`file_include_hermes_skymaps_RotationMeasureSkymap.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public SkymapTemplate< QRotationMeasure, QNumber >`` (:ref:`exhale_class_classhermes_1_1SkymapTemplate`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::RotationMeasureSkymap
+   :members:
+   :protected-members:
+   :undoc-members:

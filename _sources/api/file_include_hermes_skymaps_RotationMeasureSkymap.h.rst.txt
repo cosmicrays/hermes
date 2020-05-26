@@ -27,3 +27,10 @@ Namespaces
 
 - :ref:`namespace_hermes`
 
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1RotationMeasureSkymap`
+
