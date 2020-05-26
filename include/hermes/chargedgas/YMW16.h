@@ -33,6 +33,10 @@ by Andrej Dundovic (andrej.dundovic@gssi.it, 2020)
 */
 
 namespace hermes { namespace chargedgas {
+/**
+ * \addtogroup ChargedGas
+ * @{
+ */
 
 // Thick disk
 #define P_Ad 2500
@@ -268,6 +272,7 @@ class YMW16 : public ChargedGasDensity {
 	double smc(double xx, double yy, double zz, int *w_smc) const;
 };
 
+/** @}*/
 }}  // namespace hermes::chargedgas
 
 #endif  // HERMES_YMW16_H

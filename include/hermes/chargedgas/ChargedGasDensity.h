@@ -5,6 +5,10 @@
 #include "hermes/Units.h"
 
 namespace hermes { namespace chargedgas {
+/**
+ * \addtogroup ChargedGas
+ * @{
+ */
 
 class ChargedGasDensity {
   private:
@@ -20,6 +24,7 @@ class ChargedGasDensity {
 	inline QTemperature getTemperature() const { return gasTemp; }
 };
 
+/** @}*/
 }}  // namespace hermes::chargedgas
 
 #endif  // HERMES_CHARGEDGASDENSITY_H

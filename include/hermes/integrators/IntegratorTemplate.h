@@ -19,11 +19,11 @@ namespace hermes {
 
 /**
  @class IntegratorTemplate
- @brief Provides the integrator interface and implements methods shared across
- integrators.
- * \tparam QPXL A type of pixel which an integrator returns (for example,
- QTemperature, QIntensity)
- * \tparam QSTEP A physical quantity (a parameter) that describes a specific map
+ @brief Provides the main integrator interface and implements methods shared
+ across  integrators.
+ \param QPXL A type of pixel which an integrator returns (e.g.,
+ QTemperature, QDiffIntensity)
+ \param QSTEP A physical quantity (a parameter) that describes a specific map
  (e.g., QFrequency, QEnergy)
  */
 

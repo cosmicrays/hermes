@@ -1,0 +1,4 @@
+Charged Gas
+===========
+.. doxygengroup:: ChargedGas
+

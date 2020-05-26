@@ -4,6 +4,10 @@
 #include "hermes/chargedgas/ChargedGasDensity.h"
 
 namespace hermes { namespace chargedgas {
+/**
+ * \addtogroup ChargedGas
+ * @{
+ */
 
 class HII_Cordes91 : public ChargedGasDensity {
   private:
@@ -15,6 +19,7 @@ class HII_Cordes91 : public ChargedGasDensity {
 	QPDensity getDensity(const Vector3QLength &pos) const override;
 };
 
+/** @}*/
 }}  // namespace hermes::chargedgas
 
 #endif  // HERMES_HIICORDES91_H

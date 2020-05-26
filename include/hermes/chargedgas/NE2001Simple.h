@@ -4,6 +4,10 @@
 #include "hermes/chargedgas/ChargedGasDensity.h"
 
 namespace hermes { namespace chargedgas {
+/**
+ * \addtogroup ChargedGas
+ * @{
+ */
 
 class NE2001Simple : public ChargedGasDensity {
   private:
@@ -24,6 +28,7 @@ class NE2001Simple : public ChargedGasDensity {
 	QPDensity getGalacticCentreDensity(const Vector3QLength &pos) const;
 };
 
+/** @}*/
 }}  // namespace hermes::chargedgas
 
 #endif  // HERMES_NE2001SIMPLE_H
