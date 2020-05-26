@@ -10,7 +10,7 @@ namespace hermes { namespace magneticfields {
  */
 
 /**
- @class PshirkovField
+ @class PT11Field
  @brief Pshirkov2011 galactic magnetic field model
 
  Implements the Pshirkov2011 galactic magnetic field model, consisting of

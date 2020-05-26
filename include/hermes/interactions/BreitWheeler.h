@@ -6,6 +6,10 @@
 #include "hermes/interactions/DiffCrossSection.h"
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 class BreitWheeler {
   public:
@@ -16,6 +20,7 @@ class BreitWheeler {
 	QArea integratedOverTheta(const QEnergy &Egamma, const QEnergy &Eph) const;
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_BREITWHEELER_H

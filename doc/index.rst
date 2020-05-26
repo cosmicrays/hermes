@@ -8,6 +8,7 @@ Contents
    :maxdepth: 2
 
    pages/Installation.rst
+   pages/Examples.rst
 
 .. toctree::
    :caption: API

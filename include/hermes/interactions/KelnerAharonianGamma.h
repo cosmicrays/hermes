@@ -11,6 +11,10 @@ Model from Phys.Rev.D74:034018,2006; Erratum-ibid.D79:039901,2009
 #include "hermes/interactions/DiffCrossSection.h"
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 class KelnerAharonianGamma : public DifferentialCrossSection {
   public:
@@ -23,6 +27,7 @@ class KelnerAharonianGamma : public DifferentialCrossSection {
 	static QArea sigmaInelastic(const QEnergy &Tp);
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_KELNERAHARONIANGAMMA_H

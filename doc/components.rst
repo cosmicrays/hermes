@@ -9,4 +9,5 @@ Components
   components/CosmicRaysGroup.rst
   components/NeutralGasGroup.rst
   components/PhotonFieldsGroup.rst
+  components/InteractionsGroup.rst
 

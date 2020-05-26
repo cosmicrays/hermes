@@ -26,6 +26,10 @@ extern "C" {
 }
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 class Kamae06Gamma : public DifferentialCrossSection {
   private:
@@ -41,6 +45,7 @@ class Kamae06Gamma : public DifferentialCrossSection {
 	                                              const QEnergy &E_gamma) const;
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_KAMAE06GAMMA_H

@@ -26,6 +26,8 @@ namespace hermes {
  Angle definitions are
  phi [-pi, pi]: azimuthal angle in the x-y plane, 0 pointing in x-direction
  theta [0, pi]: zenith angle towards the z axis, 0 pointing in z-direction
+
+ \tparam Quantity	Any of the QClass quantities
  */
 template <typename T>
 class Vector3Quantity : public Vector3<T> {

@@ -13,8 +13,14 @@ namespace hermes {
  @class RotationMeasureSkymap
  @brief A skymap container for rotation measure (RM).
  */
-
-typedef SkymapTemplate<QRotationMeasure, QNumber> RotationMeasureSkymap;
+class RotationMeasureSkymap
+    : public SkymapTemplate<QRotationMeasure, QNumber> {
+  private:
+  public:
+	RotationMeasureSkymap(std::size_t nside_) : SkymapTemplate(nside_) {
+		initDefaultOutputUnits(1_rad / 1_m2, "rad m^-2");
+	};
+};
 
 /** @}*/
 

@@ -12,6 +12,10 @@ Model from Phys.Rev.D74:034018,2006; Erratum-ibid.D79:039901,2009
 #include "hermes/interactions/KelnerAharonianGamma.h"
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 class KelnerAharonianNeutrino : public DifferentialCrossSection {
   public:
@@ -20,6 +24,7 @@ class KelnerAharonianNeutrino : public DifferentialCrossSection {
 	                                      const QEnergy &E_nu) const override;
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_KELNERAHARONIANNEUTRINO_H

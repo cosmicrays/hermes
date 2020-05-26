@@ -8,6 +8,10 @@
 #include "hermes/interactions/BremsstrahlungAbstract.h"
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 class BremsstrahlungGALPROP : public BremsstrahlungAbstract {
   private:
@@ -53,6 +57,7 @@ class BremsstrahlungGALPROP : public BremsstrahlungAbstract {
 	    const QEnergy &E_gamma) const override;
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_BREMSSTRAHLUNGGALPROP_H

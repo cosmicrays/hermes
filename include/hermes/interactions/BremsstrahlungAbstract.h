@@ -4,6 +4,10 @@
 #include "hermes/interactions/DiffCrossSection.h"
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 class BremsstrahlungAbstract : public DifferentialCrossSection {
   public:
@@ -20,6 +24,7 @@ class BremsstrahlungAbstract : public DifferentialCrossSection {
 	    Target t, const QEnergy &T_electron, const QEnergy &E_gamma) const = 0;
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_BREMSSTRAHLUNGABSTRACT_H

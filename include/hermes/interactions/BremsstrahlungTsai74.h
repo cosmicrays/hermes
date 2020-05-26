@@ -4,6 +4,10 @@
 #include "hermes/interactions/BremsstrahlungAbstract.h"
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 // Rev. Mod. Phys. 46, 815 (1974).
 class BremsstrahlungTsai74 : public BremsstrahlungAbstract {
@@ -19,6 +23,7 @@ class BremsstrahlungTsai74 : public BremsstrahlungAbstract {
 	    const QEnergy &E_gamma) const override;
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_BREMSSTRAHLUNGTSAI74_H

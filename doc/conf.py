@@ -43,8 +43,9 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
-    'sphinx.ext.viewcode',
+    #'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
+    #'sphinx.ext.linkcode',
     "breathe",
     "exhale",
     "m2r",
@@ -53,7 +54,6 @@ extensions = [
 
 # Breathe Configuration
 breathe_default_project = "hermes"
-
 breathe_domain_by_extension = {"h" : "cpp"}
 
 #source_parsers = {
@@ -68,7 +68,6 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 source_suffix = ['.rst', '.md']
-#source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
@@ -106,7 +105,7 @@ html_theme_options = {
         'logo_only': False,
         'display_version': False,
         }
-html_show_sourcelink = False
+html_show_sourcelink = True
 
 html_logo = ""
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -186,6 +185,14 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+
+def linkcode_resolve(domain, info):
+    if domain != 'cpp':
+        return None
+    if not info['names']:
+        return None
+    filename = info['names'].replace('.', '/')
+    return "https://github.com/cosmicrays/hermes/tree/master/src/%s.cpp".format(filename)
 
 #nbsphinx_kernel_name = 'python'
 #nbsphinx_allow_errors = True

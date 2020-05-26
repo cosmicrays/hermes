@@ -7,6 +7,10 @@
 #include "hermes/interactions/DiffCrossSection.h"
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 class DummyCrossSection : public DifferentialCrossSection {
   private:
@@ -28,6 +32,7 @@ class DummyCrossSection : public DifferentialCrossSection {
 	};
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_DUMMYCROSSSECTION_H

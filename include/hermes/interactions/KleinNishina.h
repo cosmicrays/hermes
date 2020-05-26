@@ -6,6 +6,10 @@
 #include "hermes/interactions/DiffCrossSection.h"
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 class KleinNishina : public DifferentialCrossSection {
   public:
@@ -16,6 +20,7 @@ class KleinNishina : public DifferentialCrossSection {
 	    const QEnergy &E_gamma) const override;
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_KLEINNISHINA_H

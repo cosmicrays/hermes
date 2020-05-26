@@ -5,6 +5,10 @@
 #include "hermes/Units.h"
 
 namespace hermes { namespace interactions {
+/**
+ * \addtogroup Interactions
+ * @{
+ */
 
 using namespace units;
 
@@ -27,6 +31,7 @@ class DifferentialCrossSection {
 	virtual QNumber getSigma(const PID &projectile, const PID &target) const;
 };
 
+/** @}*/
 }}  // namespace hermes::interactions
 
 #endif  // HERMES_DIFFERENTIALCROSSSECTION_H
