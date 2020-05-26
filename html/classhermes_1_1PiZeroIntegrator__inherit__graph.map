@@ -1,0 +1,5 @@
+<map id="PiZeroIntegrator" name="PiZeroIntegrator">
+<area shape="rect" id="node1" title=" " alt="" coords="41,80,169,107"/>
+<area shape="rect" id="node3" href="$group__Integrators.html#classhermes_1_1BremsstrahlungIntegrator" title=" " alt="" coords="10,155,199,181"/>
+<area shape="rect" id="node2" href="$group__Integrators.html#classhermes_1_1IntegratorTemplate" title="Defines the main integrator interface and typical methods shared across all integrators." alt="" coords="5,5,204,32"/>
+</map>

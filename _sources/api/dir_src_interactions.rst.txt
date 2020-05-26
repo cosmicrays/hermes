@@ -1,0 +1,28 @@
+.. _dir_src_interactions:
+
+
+Directory interactions
+======================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``src/interactions``
+
+
+Files
+-----
+
+- :ref:`file_src_interactions_BreitWheeler.cpp`
+- :ref:`file_src_interactions_BremsstrahlungGALPROP.cpp`
+- :ref:`file_src_interactions_BremsstrahlungTsai74.cpp`
+- :ref:`file_src_interactions_DifferentialCrossSection.cpp`
+- :ref:`file_src_interactions_Kamae06Gamma.cpp`
+- :ref:`file_src_interactions_Kamae06Neutrino.cpp`
+- :ref:`file_src_interactions_KelnerAharonianGamma.cpp`
+- :ref:`file_src_interactions_KelnerAharonianNeutrino.cpp`
+- :ref:`file_src_interactions_KleinNishina.cpp`
+
+

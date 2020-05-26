@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_1d4aab99f2d89ae4a2e7b4894c077514" kind="dir">
+    <compoundname>src/photonfields</compoundname>
+    <innerfile refid="ISRF_8cpp">ISRF.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/photonfields/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_05f662742734ae5b4756600b03cf1828" kind="dir">
+    <compoundname>src/integrators</compoundname>
+    <innerfile refid="BremsstrahlungIntegrator_8cpp">BremsstrahlungIntegrator.cpp</innerfile>
+    <innerfile refid="DarkMatterIntegrator_8cpp">DarkMatterIntegrator.cpp</innerfile>
+    <innerfile refid="DispersionMeasureIntegrator_8cpp">DispersionMeasureIntegrator.cpp</innerfile>
+    <innerfile refid="FreeFreeIntegrator_8cpp">FreeFreeIntegrator.cpp</innerfile>
+    <innerfile refid="InverseComptonIntegrator_8cpp">InverseComptonIntegrator.cpp</innerfile>
+    <innerfile refid="PiZeroAbsorptionIntegrator_8cpp">PiZeroAbsorptionIntegrator.cpp</innerfile>
+    <innerfile refid="PiZeroIntegrator_8cpp">PiZeroIntegrator.cpp</innerfile>
+    <innerfile refid="RotationMeasureIntegrator_8cpp">RotationMeasureIntegrator.cpp</innerfile>
+    <innerfile refid="SynchroAbsorptionIntegrator_8cpp">SynchroAbsorptionIntegrator.cpp</innerfile>
+    <innerfile refid="SynchroIntegrator_8cpp">SynchroIntegrator.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/integrators/"/>
+  </compounddef>
+</doxygen>

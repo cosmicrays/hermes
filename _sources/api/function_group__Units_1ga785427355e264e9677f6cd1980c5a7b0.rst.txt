@@ -3,7 +3,7 @@
 Function hermes::units::QUANTITY_TYPE(-, 1, -, 0, 0, 0, 0, 0, 0, QPiZeroIntegral)
 =================================================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsHERMES.h`
 
 
 Function Documentation

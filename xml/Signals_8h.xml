@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Signals_8h" kind="file" language="C++">
+    <compoundname>Signals.h</compoundname>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="Signals_8h_1a754cdc0bcfffe07baa426dc252c9101a" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* sighandler_t) (int)</definition>
+        <argsstring>)(int)</argsstring>
+        <name>sighandler_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Signals.h" line="7" column="9" bodyfile="include/hermes/Signals.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/Signals.h"/>
+  </compounddef>
+</doxygen>

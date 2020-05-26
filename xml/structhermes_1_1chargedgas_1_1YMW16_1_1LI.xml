@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1LI" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::LI</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1a518804c46e8c6892255ebbc898a9f5fe" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nLI</definition>
+        <argsstring></argsstring>
+        <name>nLI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="229" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1a1d9a159b4b4a0b266a9b6d0750c30777" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RLI</definition>
+        <argsstring></argsstring>
+        <name>RLI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="230" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1aec5c17abddb666118cff1049596c6905" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WLI</definition>
+        <argsstring></argsstring>
+        <name>WLI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="231" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1a2591f243e98164a13139e1559c0c8629" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double detthetaLI</definition>
+        <argsstring></argsstring>
+        <name>detthetaLI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="232" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1ad4939f26b2fd14521b49f198c49697d8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double thetaLI</definition>
+        <argsstring></argsstring>
+        <name>thetaLI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="233" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="228" column="9" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="228" bodyend="234"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1a2591f243e98164a13139e1559c0c8629" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LI</scope><name>detthetaLI</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1a518804c46e8c6892255ebbc898a9f5fe" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LI</scope><name>nLI</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1a1d9a159b4b4a0b266a9b6d0750c30777" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LI</scope><name>RLI</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1ad4939f26b2fd14521b49f198c49697d8" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LI</scope><name>thetaLI</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LI_1aec5c17abddb666118cff1049596c6905" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LI</scope><name>WLI</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

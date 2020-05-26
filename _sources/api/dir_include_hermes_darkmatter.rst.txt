@@ -1,0 +1,24 @@
+.. _dir_include_hermes_darkmatter:
+
+
+Directory darkmatter
+====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/hermes/darkmatter``
+
+
+Files
+-----
+
+- :ref:`file_include_hermes_darkmatter_DarkMatterSpectrum.h`
+- :ref:`file_include_hermes_darkmatter_GalacticProfile.h`
+- :ref:`file_include_hermes_darkmatter_NFWGProfile.h`
+- :ref:`file_include_hermes_darkmatter_PPPC4DMIDChannels.h`
+- :ref:`file_include_hermes_darkmatter_PPPC4DMIDSpectrum.h`
+
+

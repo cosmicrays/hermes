@@ -4,6 +4,10 @@
 File Vector3.h
 ==============
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none
@@ -33,4 +37,24 @@ Classes
 
 
 - :ref:`exhale_class_classhermes_1_1Vector3`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_group__Core_1gacfbea51a420cdfdd343b9fec0fe7d301`
+
+- :ref:`exhale_function_group__Core_1ga9f02e42d4bd23be5470ca1b7803226ab`
+
+- :ref:`exhale_function_group__Core_1ga3e247485bc0464886a88331f7a75a705`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206`
+
+- :ref:`exhale_typedef_group__Core_1gaf345ad77ba5e240c7ab72b4b2077e754`
 

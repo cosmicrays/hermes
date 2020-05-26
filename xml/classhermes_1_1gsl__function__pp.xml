@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1gsl__function__pp" kind="class" language="C++" prot="public">
+    <compoundname>hermes::gsl_function_pp</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">gsl_function</basecompoundref>
+    <includes refid="Common_8h" local="no">include/hermes/Common.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename F</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1gsl__function__pp_1a9b77685e6e0a4317dad2a1fe49e0bcbe" prot="private" static="no" mutable="no">
+        <type>const F &amp;</type>
+        <definition>const F&amp; _func</definition>
+        <argsstring></argsstring>
+        <name>_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Common.h" line="92" column="9" bodyfile="include/hermes/Common.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classhermes_1_1gsl__function__pp_1a93073ae38b2785288c268eaf103e7aa2" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double invoke</definition>
+        <argsstring>(double x, void *params)</argsstring>
+        <name>invoke</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Common.h" line="93" column="15" bodyfile="include/hermes/Common.h" bodystart="93" bodyend="95"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1gsl__function__pp_1af98389e745cd443e59676ba29f296af0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>gsl_function_pp</definition>
+        <argsstring>(const F &amp;func)</argsstring>
+        <name>gsl_function_pp</name>
+        <param>
+          <type>const F &amp;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Common.h" line="98" column="1" bodyfile="include/hermes/Common.h" bodystart="98" bodyend="101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>gsl_function</label>
+      </node>
+      <node id="1">
+        <label>gsl_function_pp&lt; F &gt;</label>
+        <link refid="classhermes_1_1gsl__function__pp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>gsl_function</label>
+      </node>
+      <node id="1">
+        <label>gsl_function_pp&lt; F &gt;</label>
+        <link refid="classhermes_1_1gsl__function__pp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/Common.h" line="90" column="42" bodyfile="include/hermes/Common.h" bodystart="90" bodyend="102"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1gsl__function__pp_1a9b77685e6e0a4317dad2a1fe49e0bcbe" prot="private" virt="non-virtual"><scope>hermes::gsl_function_pp</scope><name>_func</name></member>
+      <member refid="classhermes_1_1gsl__function__pp_1af98389e745cd443e59676ba29f296af0" prot="public" virt="non-virtual"><scope>hermes::gsl_function_pp</scope><name>gsl_function_pp</name></member>
+      <member refid="classhermes_1_1gsl__function__pp_1a93073ae38b2785288c268eaf103e7aa2" prot="private" virt="non-virtual"><scope>hermes::gsl_function_pp</scope><name>invoke</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1PID" kind="class" language="C++" prot="public">
+    <compoundname>hermes::PID</compoundname>
+    <includes refid="ParticleID_8h" local="no">include/hermes/ParticleID.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhermes_1_1PID_1a5ed5bfe6933ed8cba853237650cc041b" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Z</definition>
+        <argsstring></argsstring>
+        <name>Z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="10" column="5" bodyfile="include/hermes/ParticleID.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1PID_1a56a52f73797a8d06045cf5bc1ab831bf" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int A</definition>
+        <argsstring></argsstring>
+        <name>A</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="11" column="5" bodyfile="include/hermes/ParticleID.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1PID_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="12" column="5" bodyfile="include/hermes/ParticleID.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1PID_1a9e5666b71fa7ec122c36aa6a42254db8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PID</definition>
+        <argsstring>(int Z_, int A_)</argsstring>
+        <name>PID</name>
+        <param>
+          <type>int</type>
+          <declname>Z_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>A_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="15" column="1" bodyfile="include/hermes/ParticleID.h" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1PID_1a9c9659a6c6ba66b4107ba59c95a24241" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getID</definition>
+        <argsstring>() const</argsstring>
+        <name>getID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="20" column="5" bodyfile="include/hermes/ParticleID.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1PID_1a054d1c7a992e9d5f66073709bf6a09f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~PID</definition>
+        <argsstring>()</argsstring>
+        <name>~PID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="22" column="9" bodyfile="include/hermes/ParticleID.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1PID_1a70786f88d868b9694b2daf00b49d2f0d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isNucleus</definition>
+        <argsstring>()</argsstring>
+        <name>isNucleus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="24" column="6" bodyfile="include/hermes/ParticleID.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1PID_1a5621aadb588b9a465ef383e8484761eb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int atomicNr</definition>
+        <argsstring>() const</argsstring>
+        <name>atomicNr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="26" column="5" bodyfile="include/hermes/ParticleID.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1PID_1abc235e4aca95521371fc9077bfa73d54" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int massNr</definition>
+        <argsstring>() const</argsstring>
+        <name>massNr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="28" column="5" bodyfile="include/hermes/ParticleID.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1PID_1a653edc8b12a8c23dbd0cdedff92c0c95" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&lt;</definition>
+        <argsstring>(const PID &amp;p2) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="30" column="1" bodyfile="include/hermes/ParticleID.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1PID_1a7023d6431f08e442679c6688f79d2a6b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&gt;</definition>
+        <argsstring>(const PID &amp;p2) const</argsstring>
+        <name>operator&gt;</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="32" column="6" bodyfile="include/hermes/ParticleID.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1PID_1a273df06507382695230b48648417dc1b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const PID &amp;p2) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="34" column="6" bodyfile="include/hermes/ParticleID.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/ParticleID.h" line="8" column="10" bodyfile="include/hermes/ParticleID.h" bodystart="8" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1PID_1a56a52f73797a8d06045cf5bc1ab831bf" prot="protected" virt="non-virtual"><scope>hermes::PID</scope><name>A</name></member>
+      <member refid="classhermes_1_1PID_1a5621aadb588b9a465ef383e8484761eb" prot="public" virt="non-virtual"><scope>hermes::PID</scope><name>atomicNr</name></member>
+      <member refid="classhermes_1_1PID_1a9c9659a6c6ba66b4107ba59c95a24241" prot="public" virt="non-virtual"><scope>hermes::PID</scope><name>getID</name></member>
+      <member refid="classhermes_1_1PID_1a7441ef0865bcb3db9b8064dd7375c1ea" prot="protected" virt="non-virtual"><scope>hermes::PID</scope><name>id</name></member>
+      <member refid="classhermes_1_1PID_1a70786f88d868b9694b2daf00b49d2f0d" prot="public" virt="non-virtual"><scope>hermes::PID</scope><name>isNucleus</name></member>
+      <member refid="classhermes_1_1PID_1abc235e4aca95521371fc9077bfa73d54" prot="public" virt="non-virtual"><scope>hermes::PID</scope><name>massNr</name></member>
+      <member refid="classhermes_1_1PID_1a653edc8b12a8c23dbd0cdedff92c0c95" prot="public" virt="non-virtual"><scope>hermes::PID</scope><name>operator&lt;</name></member>
+      <member refid="classhermes_1_1PID_1a273df06507382695230b48648417dc1b" prot="public" virt="non-virtual"><scope>hermes::PID</scope><name>operator==</name></member>
+      <member refid="classhermes_1_1PID_1a7023d6431f08e442679c6688f79d2a6b" prot="public" virt="non-virtual"><scope>hermes::PID</scope><name>operator&gt;</name></member>
+      <member refid="classhermes_1_1PID_1a9e5666b71fa7ec122c36aa6a42254db8" prot="public" virt="non-virtual"><scope>hermes::PID</scope><name>PID</name></member>
+      <member refid="classhermes_1_1PID_1a5ed5bfe6933ed8cba853237650cc041b" prot="protected" virt="non-virtual"><scope>hermes::PID</scope><name>Z</name></member>
+      <member refid="classhermes_1_1PID_1a054d1c7a992e9d5f66073709bf6a09f2" prot="public" virt="virtual"><scope>hermes::PID</scope><name>~PID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

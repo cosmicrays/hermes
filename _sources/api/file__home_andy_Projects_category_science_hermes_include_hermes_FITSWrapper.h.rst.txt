@@ -1,0 +1,57 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_FITSWrapper.h:
+
+File FITSWrapper.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes>` (``/home/andy/Projects/category_science/hermes/include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/FITSWrapper.h``)
+-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__FITS`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhermes_1_1FITSKeyValue`
+
+- :ref:`exhale_class_classhermes_1_1FITSFile`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6`
+
+- :ref:`exhale_enum_namespacehermes_1_1FITS_1ae3cad0012491f6b195d44b53e67a6f37`
+
+- :ref:`exhale_enum_namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8`
+
+- :ref:`exhale_enum_namespacehermes_1_1FITS_1a6920ce5d7f5c06c676fe801e538aed49`
+

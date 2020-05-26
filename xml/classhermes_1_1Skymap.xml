@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1Skymap" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>hermes::Skymap</compoundname>
+    <derivedcompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QPXL, QSTEP &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QDiffIntensity, QEnergy &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QDispersionMeasure, QNumber &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QRotationMeasure, QNumber &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QTemperature, QFrequency &gt;</derivedcompoundref>
+    <includes refid="Skymap_8h" local="no">include/hermes/skymaps/Skymap.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhermes_1_1Skymap_1a3328ec22dec02cd6bd374ba8a13e4904" prot="protected" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t nside</definition>
+        <argsstring></argsstring>
+        <name>nside</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="28" column="13" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Skymap_1a8a13305d34d8c4edc489fcbf2fd91743" prot="protected" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t npix</definition>
+        <argsstring></argsstring>
+        <name>npix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="29" column="13" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Skymap_1a32116be1557ba3e7a7d7722f1b7ea27c" prot="protected" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t res</definition>
+        <argsstring></argsstring>
+        <name>res</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="30" column="13" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Skymap_1a2e1454f6988673f814408646edaeb320" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="31" column="13" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a4c026ab53690bf18f9c0c094627f5669" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Skymap</definition>
+        <argsstring>(std::size_t nside_)</argsstring>
+        <name>Skymap</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="34" column="1" bodyfile="src/skymaps/Skymap.cpp" bodystart="7" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1aa37fec4c8a7829dd4f28997711dd13ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~Skymap</definition>
+        <argsstring>()</argsstring>
+        <name>~Skymap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="35" column="9" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a4c9dd9660b26bc53339d7a8acdde7069" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setNside</definition>
+        <argsstring>(std::size_t nside_)</argsstring>
+        <name>setNside</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="37" column="6" bodyfile="src/skymaps/Skymap.cpp" bodystart="19" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a651f6c10bb22039f33ec55aee9d98958" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getNside</definition>
+        <argsstring>() const</argsstring>
+        <name>getNside</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="38" column="13" bodyfile="src/skymaps/Skymap.cpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a2b397d25a69465a0c3a2b205f33ff0b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setRes</definition>
+        <argsstring>(std::size_t res_)</argsstring>
+        <name>setRes</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>res_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="39" column="6" bodyfile="src/skymaps/Skymap.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a3eac88a40358035b1df3a9a5bc1ab015" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getRes</definition>
+        <argsstring>() const</argsstring>
+        <name>getRes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="40" column="13" bodyfile="src/skymaps/Skymap.cpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a08cd2ad9ba9fed511837e7b0ff97e282" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getNpix</definition>
+        <argsstring>() const</argsstring>
+        <name>getNpix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="41" column="13" bodyfile="src/skymaps/Skymap.cpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1aea425314aebc36d0f6bf7671705158da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>getDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="43" column="13" bodyfile="src/skymaps/Skymap.cpp" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a3406b56004afdbe7a1815a541d40de99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setDescription</definition>
+        <argsstring>(const std::string &amp;description)</argsstring>
+        <name>setDescription</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="44" column="6" bodyfile="src/skymaps/Skymap.cpp" bodystart="15" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a76d10b4d7bacfe1717a28e73a940a6a5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double getPixelAsDouble</definition>
+        <argsstring>(std::size_t i) const =0</argsstring>
+        <name>getPixelAsDouble</name>
+        <reimplementedby refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8">getPixelAsDouble</reimplementedby>
+        <reimplementedby refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8">getPixelAsDouble</reimplementedby>
+        <reimplementedby refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8">getPixelAsDouble</reimplementedby>
+        <reimplementedby refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8">getPixelAsDouble</reimplementedby>
+        <reimplementedby refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8">getPixelAsDouble</reimplementedby>
+        <param>
+          <type>std::size_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="46" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a0a91d18671e2094c35e1853627d29252" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void save</definition>
+        <argsstring>(std::shared_ptr&lt; outputs::Output &gt; output) const =0</argsstring>
+        <name>save</name>
+        <reimplementedby refid="group__Skymaps_1gab3a090f0c95948ea8a13308317aa8d53">save</reimplementedby>
+        <reimplementedby refid="group__Skymaps_1gab3a090f0c95948ea8a13308317aa8d53">save</reimplementedby>
+        <reimplementedby refid="group__Skymaps_1gab3a090f0c95948ea8a13308317aa8d53">save</reimplementedby>
+        <reimplementedby refid="group__Skymaps_1gab3a090f0c95948ea8a13308317aa8d53">save</reimplementedby>
+        <reimplementedby refid="group__Skymaps_1gab3a090f0c95948ea8a13308317aa8d53">save</reimplementedby>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classhermes_1_1outputs_1_1Output" kindref="compound">outputs::Output</ref> &gt;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="47" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base abstract class for all Skymaps; provides elementary HEALPix functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>res : The resolution index nside = 2^res : The number of pixels per side. npix = 12 * nside^2 : The total number of pixels in the map. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>SkymapTemplate&lt; QDiffIntensity, QEnergy &gt;</label>
+        <link refid="classhermes_1_1SkymapTemplate"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SkymapTemplate&lt; QPXL, QSTEP &gt;</label>
+        <link refid="classhermes_1_1SkymapTemplate"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>SkymapTemplate&lt; QRotationMeasure, QNumber &gt;</label>
+        <link refid="classhermes_1_1SkymapTemplate"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>DispersionMeasureSkymap</label>
+        <link refid="classhermes_1_1DispersionMeasureSkymap"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GammaSkymap</label>
+        <link refid="classhermes_1_1GammaSkymap"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>SkymapTemplate&lt; QTemperature, QFrequency &gt;</label>
+        <link refid="classhermes_1_1SkymapTemplate"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>RadioSkymap</label>
+        <link refid="classhermes_1_1RadioSkymap"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>RotationMeasureSkymap</label>
+        <link refid="classhermes_1_1RotationMeasureSkymap"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Skymap</label>
+        <link refid="classhermes_1_1Skymap"/>
+      </node>
+      <node id="5">
+        <label>SkymapTemplate&lt; QDispersionMeasure, QNumber &gt;</label>
+        <link refid="classhermes_1_1SkymapTemplate"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>string</label>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>basic_string&lt; char &gt;</label>
+      </node>
+      <node id="1">
+        <label>Skymap</label>
+        <link refid="classhermes_1_1Skymap"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>description</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/skymaps/Skymap.h" line="26" column="13" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="26" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1Skymap_1a2e1454f6988673f814408646edaeb320" prot="protected" virt="non-virtual"><scope>hermes::Skymap</scope><name>description</name></member>
+      <member refid="classhermes_1_1Skymap_1aea425314aebc36d0f6bf7671705158da" prot="public" virt="non-virtual"><scope>hermes::Skymap</scope><name>getDescription</name></member>
+      <member refid="classhermes_1_1Skymap_1a08cd2ad9ba9fed511837e7b0ff97e282" prot="public" virt="non-virtual"><scope>hermes::Skymap</scope><name>getNpix</name></member>
+      <member refid="classhermes_1_1Skymap_1a651f6c10bb22039f33ec55aee9d98958" prot="public" virt="non-virtual"><scope>hermes::Skymap</scope><name>getNside</name></member>
+      <member refid="classhermes_1_1Skymap_1a76d10b4d7bacfe1717a28e73a940a6a5" prot="public" virt="pure-virtual"><scope>hermes::Skymap</scope><name>getPixelAsDouble</name></member>
+      <member refid="classhermes_1_1Skymap_1a3eac88a40358035b1df3a9a5bc1ab015" prot="public" virt="non-virtual"><scope>hermes::Skymap</scope><name>getRes</name></member>
+      <member refid="classhermes_1_1Skymap_1a8a13305d34d8c4edc489fcbf2fd91743" prot="protected" virt="non-virtual"><scope>hermes::Skymap</scope><name>npix</name></member>
+      <member refid="classhermes_1_1Skymap_1a3328ec22dec02cd6bd374ba8a13e4904" prot="protected" virt="non-virtual"><scope>hermes::Skymap</scope><name>nside</name></member>
+      <member refid="classhermes_1_1Skymap_1a32116be1557ba3e7a7d7722f1b7ea27c" prot="protected" virt="non-virtual"><scope>hermes::Skymap</scope><name>res</name></member>
+      <member refid="classhermes_1_1Skymap_1a0a91d18671e2094c35e1853627d29252" prot="public" virt="pure-virtual"><scope>hermes::Skymap</scope><name>save</name></member>
+      <member refid="classhermes_1_1Skymap_1a3406b56004afdbe7a1815a541d40de99" prot="public" virt="non-virtual"><scope>hermes::Skymap</scope><name>setDescription</name></member>
+      <member refid="classhermes_1_1Skymap_1a4c9dd9660b26bc53339d7a8acdde7069" prot="public" virt="non-virtual"><scope>hermes::Skymap</scope><name>setNside</name></member>
+      <member refid="classhermes_1_1Skymap_1a2b397d25a69465a0c3a2b205f33ff0b8" prot="public" virt="non-virtual"><scope>hermes::Skymap</scope><name>setRes</name></member>
+      <member refid="classhermes_1_1Skymap_1a4c026ab53690bf18f9c0c094627f5669" prot="public" virt="non-virtual"><scope>hermes::Skymap</scope><name>Skymap</name></member>
+      <member refid="classhermes_1_1Skymap_1aa37fec4c8a7829dd4f28997711dd13ef" prot="public" virt="virtual"><scope>hermes::Skymap</scope><name>~Skymap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

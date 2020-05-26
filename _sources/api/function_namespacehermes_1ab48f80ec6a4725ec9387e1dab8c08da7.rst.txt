@@ -3,7 +3,7 @@
 Function hermes::__declspec
 ===========================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_src_Random.cpp`
 
 
 Function Documentation

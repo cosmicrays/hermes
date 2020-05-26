@@ -3,7 +3,7 @@
 Function hermes::magneticfields::logisticFunction
 =================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_src_magneticfields_JF12Field.cpp`
 
 
 Function Documentation

@@ -1,0 +1,21 @@
+.. _dir_include_hermes_neutralgas:
+
+
+Directory neutralgas
+====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/hermes/neutralgas``
+
+
+Files
+-----
+
+- :ref:`file_include_hermes_neutralgas_NeutralGasDensity.h`
+- :ref:`file_include_hermes_neutralgas_RingModel.h`
+
+

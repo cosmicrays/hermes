@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_7b5f7dfcc53a3fccf0164e34282747ab" kind="dir">
+    <compoundname>include/hermes/skymaps</compoundname>
+    <innerfile refid="DispersionMeasureSkymap_8h">DispersionMeasureSkymap.h</innerfile>
+    <innerfile refid="GammaSkymap_8h">GammaSkymap.h</innerfile>
+    <innerfile refid="GammaSkymapRange_8h">GammaSkymapRange.h</innerfile>
+    <innerfile refid="RadioSkymap_8h">RadioSkymap.h</innerfile>
+    <innerfile refid="RadioSkymapRange_8h">RadioSkymapRange.h</innerfile>
+    <innerfile refid="RotationMeasureSkymap_8h">RotationMeasureSkymap.h</innerfile>
+    <innerfile refid="Skymap_8h">Skymap.h</innerfile>
+    <innerfile refid="SkymapMask_8h">SkymapMask.h</innerfile>
+    <innerfile refid="SkymapTemplate_8h">SkymapTemplate.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/skymaps/"/>
+  </compounddef>
+</doxygen>

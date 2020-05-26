@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1CircularWindow" kind="class" language="C++" prot="public">
+    <compoundname>hermes::CircularWindow</compoundname>
+    <basecompoundref refid="classhermes_1_1SkymapMask" prot="public" virt="non-virtual">SkymapMask</basecompoundref>
+    <includes refid="SkymapMask_8h" local="no">include/hermes/skymaps/SkymapMask.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1CircularWindow_1a4815810925491f4071d6539e1352fb5f" prot="private" static="no" mutable="no">
+        <type><ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref></type>
+        <definition>QDirection centre</definition>
+        <argsstring></argsstring>
+        <name>centre</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="66" column="12" bodyfile="include/hermes/skymaps/SkymapMask.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1CircularWindow_1a4b012471ae422ea151d2920c02136165" prot="private" static="no" mutable="no">
+        <type><ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref></type>
+        <definition>Vector3d v_centre</definition>
+        <argsstring></argsstring>
+        <name>v_centre</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="67" column="10" bodyfile="include/hermes/skymaps/SkymapMask.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1CircularWindow_1aa26b08c42256dad5826293acefeccfbc" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle aperature</definition>
+        <argsstring></argsstring>
+        <name>aperature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="68" column="8" bodyfile="include/hermes/skymaps/SkymapMask.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1CircularWindow_1a53b668e0ecb7b7bb90dbea7e4828d416" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CircularWindow</definition>
+        <argsstring>(const QDirection &amp;centre, const QAngle &amp;aperature)</argsstring>
+        <name>CircularWindow</name>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>centre</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref> &amp;</type>
+          <declname>aperature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="71" column="1" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="100" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CircularWindow_1a44c4272ba968898afad5223b2d01d3fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool isAllowed</definition>
+        <argsstring>(const QDirection &amp;dir) const override</argsstring>
+        <name>isAllowed</name>
+        <reimplements refid="classhermes_1_1SkymapMask_1a83fb5e18d6583bc6d0e57d9b04d34d1c">isAllowed</reimplements>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="72" column="6" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="107" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapMask_1af2b50ac24b7c39cc310fc5c27d227bee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; bool &gt;</type>
+        <definition>std::vector&lt; bool &gt; getMask</definition>
+        <argsstring>(std::size_t nside)</argsstring>
+        <name>getMask</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="22" column="13" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="23" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapMask_1aea425314aebc36d0f6bf7671705158da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string getDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>getDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="25" column="21" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapMask_1a3406b56004afdbe7a1815a541d40de99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setDescription</definition>
+        <argsstring>(const std::string &amp;description)</argsstring>
+        <name>setDescription</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="26" column="6" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="13" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhermes_1_1SkymapMask_1a2dbf8fd50ff2ad1a8c9b38d8ffa3af81" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle normalizeAngle</definition>
+        <argsstring>(QAngle angle) const</argsstring>
+        <name>normalizeAngle</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="18" column="8" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="17" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CircularWindow</label>
+        <link refid="classhermes_1_1CircularWindow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SkymapMask</label>
+        <link refid="classhermes_1_1SkymapMask"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>CircularWindow</label>
+        <link refid="classhermes_1_1CircularWindow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SkymapMask</label>
+        <link refid="classhermes_1_1SkymapMask"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/skymaps/SkymapMask.h" line="64" column="39" bodyfile="include/hermes/skymaps/SkymapMask.h" bodystart="64" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1CircularWindow_1aa26b08c42256dad5826293acefeccfbc" prot="private" virt="non-virtual"><scope>hermes::CircularWindow</scope><name>aperature</name></member>
+      <member refid="classhermes_1_1CircularWindow_1a4815810925491f4071d6539e1352fb5f" prot="private" virt="non-virtual"><scope>hermes::CircularWindow</scope><name>centre</name></member>
+      <member refid="classhermes_1_1CircularWindow_1a53b668e0ecb7b7bb90dbea7e4828d416" prot="public" virt="non-virtual"><scope>hermes::CircularWindow</scope><name>CircularWindow</name></member>
+      <member refid="classhermes_1_1SkymapMask_1aea425314aebc36d0f6bf7671705158da" prot="public" virt="virtual"><scope>hermes::CircularWindow</scope><name>getDescription</name></member>
+      <member refid="classhermes_1_1SkymapMask_1af2b50ac24b7c39cc310fc5c27d227bee" prot="public" virt="non-virtual"><scope>hermes::CircularWindow</scope><name>getMask</name></member>
+      <member refid="classhermes_1_1CircularWindow_1a44c4272ba968898afad5223b2d01d3fe" prot="public" virt="virtual"><scope>hermes::CircularWindow</scope><name>isAllowed</name></member>
+      <member refid="classhermes_1_1SkymapMask_1a2dbf8fd50ff2ad1a8c9b38d8ffa3af81" prot="protected" virt="non-virtual"><scope>hermes::CircularWindow</scope><name>normalizeAngle</name></member>
+      <member refid="classhermes_1_1SkymapMask_1a3406b56004afdbe7a1815a541d40de99" prot="public" virt="non-virtual"><scope>hermes::CircularWindow</scope><name>setDescription</name></member>
+      <member refid="classhermes_1_1SkymapMask_1a52700f0492561b364c7be31df0952939" prot="public" virt="non-virtual"><scope>hermes::CircularWindow</scope><name>SkymapMask</name></member>
+      <member refid="classhermes_1_1CircularWindow_1a4b012471ae422ea151d2920c02136165" prot="private" virt="non-virtual"><scope>hermes::CircularWindow</scope><name>v_centre</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

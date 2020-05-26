@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::Warp_Sun</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun_1a74dd8acdcbaca405de79072674aced4d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Gamma_w</definition>
+        <argsstring></argsstring>
+        <name>Gamma_w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="167" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun_1a77866cf8c233a5aef5b0431c645f6bce" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double z_Sun</definition>
+        <argsstring></argsstring>
+        <name>z_Sun</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="168" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="166" column="15" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="166" bodyend="169"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun_1a74dd8acdcbaca405de79072674aced4d" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Warp_Sun</scope><name>Gamma_w</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun_1a77866cf8c233a5aef5b0431c645f6bce" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Warp_Sun</scope><name>z_Sun</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

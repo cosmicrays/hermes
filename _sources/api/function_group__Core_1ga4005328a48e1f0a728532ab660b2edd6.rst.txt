@@ -3,7 +3,7 @@
 Function hermes::loadGridFromTxt(std::unique_ptr<VectorGrid>, std::string, double)
 ==================================================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_GridTools.h`
 
 
 Function Documentation

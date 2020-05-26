@@ -1,0 +1,607 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__DarkMatter" kind="group">
+    <compoundname>DarkMatter</compoundname>
+    <title>DarkMatter</title>
+    <innerclass refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum" prot="public">hermes::darkmatter::DarkMatterSpectrum</innerclass>
+    <innerclass refid="classhermes_1_1darkmatter_1_1GalacticProfile" prot="public">hermes::darkmatter::GalacticProfile</innerclass>
+    <innerclass refid="classhermes_1_1darkmatter_1_1NFWGProfile" prot="public">hermes::darkmatter::NFWGProfile</innerclass>
+    <innerclass refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum" prot="public">hermes::darkmatter::PPPC4DMIDSpectrum</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__DarkMatter_1ga1ce9b523fd4f3b5bbcadcd796183455a" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Channel</name>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aae1671797c52e15f763380b45e841ec32" prot="public">
+          <name>e</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aa89aa4b196b48c8a13a6549bb1eaebd80" prot="public">
+          <name>mu</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aa4580c2740ab6d9222ef06d7c6865583e" prot="public">
+          <name>tau</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aa7694f4a66316e53c8cdd9d9954bd611d" prot="public">
+          <name>q</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aa4a8a08f09d37b73795649038408b5f33" prot="public">
+          <name>c</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aa92eb5ffee6ae2fec3ad71c777531578f" prot="public">
+          <name>b</name>
+          <initializer>= 11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aae358efa489f58062f10dd7316b65649e" prot="public">
+          <name>t</name>
+          <initializer>= 12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aa61e9c06ea9a85a5088a499df6458d276" prot="public">
+          <name>W</name>
+          <initializer>= 15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aa21c2e59531c8710156d34a3c30ac81d5" prot="public">
+          <name>Z</name>
+          <initializer>= 18</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga1ce9b523fd4f3b5bbcadcd796183455aa2510c39011c5be704182423e3a695e91" prot="public">
+          <name>h</name>
+          <initializer>= 21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDChannels.h" line="10" column="19" bodyfile="include/hermes/darkmatter/PPPC4DMIDChannels.h" bodystart="10" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__DarkMatter_1ga4b82e49d40fec5c282ce4115db150889" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Mass</name>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a087ebea9b5103d75384003e41fb57b8a" prot="public">
+          <name>m5GeV</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a04711b47efe73c751b89f88e3188533d" prot="public">
+          <name>m6GeV</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a2aa4ab947be52ad431e68ee201e0e1f7" prot="public">
+          <name>m8GeV</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889afeb606e111c33dd21c39b3505eda4a47" prot="public">
+          <name>m10GeV</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a2faa687d022ceae001433760e30ba85a" prot="public">
+          <name>m15GeV</name>
+          <initializer>= 15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889af872e4a4232bec6cd1d63302e36dc347" prot="public">
+          <name>m20GeV</name>
+          <initializer>= 20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a78a24f9d57638eb5bc3748eddc2717ea" prot="public">
+          <name>m25GeV</name>
+          <initializer>= 25</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889abdeb110295d1a7d708b02e559edc4b96" prot="public">
+          <name>m30GeV</name>
+          <initializer>= 30</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889aeb72ab6f60f45776ff7ff0734014926e" prot="public">
+          <name>m40GeV</name>
+          <initializer>= 40</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a60de103be3c234aacbee3ff5015940b7" prot="public">
+          <name>m50GeV</name>
+          <initializer>= 50</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a79711adf49812adc527d513e126ec9fd" prot="public">
+          <name>m60GeV</name>
+          <initializer>= 60</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a04e9c9ba709735bce0a81d5725d366f4" prot="public">
+          <name>m70GeV</name>
+          <initializer>= 70</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a3939d72158be615f29d056a7e7c60287" prot="public">
+          <name>m80GeV</name>
+          <initializer>= 80</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889ab926b554bdcdd983cfdd0353aaaae298" prot="public">
+          <name>m90GeV</name>
+          <initializer>= 90</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a6505b10d4aa1baa5ee51f534093e71fb" prot="public">
+          <name>m100GeV</name>
+          <initializer>= 100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889ab85e1afca72bbd62d62c521ac8611963" prot="public">
+          <name>m110GeV</name>
+          <initializer>= 110</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a3415d4496a6488052cc64efb61b5cfe4" prot="public">
+          <name>m120GeV</name>
+          <initializer>= 120</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a34e584a3d068c55169058860424edec0" prot="public">
+          <name>m130GeV</name>
+          <initializer>= 130</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a65d8c6b484c7f6b9cf20137c4854ea72" prot="public">
+          <name>m140GeV</name>
+          <initializer>= 140</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a82d559c7c288ebca7f846c03971a85fd" prot="public">
+          <name>m150GeV</name>
+          <initializer>= 150</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889afd52371068fc14920aa7b9f70f110230" prot="public">
+          <name>m160GeV</name>
+          <initializer>= 160</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a3fa47a5504b3659166526885f62daf3b" prot="public">
+          <name>m180GeV</name>
+          <initializer>= 180</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a9090686591f58b78c831ea593d67cba7" prot="public">
+          <name>m200GeV</name>
+          <initializer>= 200</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889acc55e286d81c3f4b5ab0314145f3ffd8" prot="public">
+          <name>m220GeV</name>
+          <initializer>= 220</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a8a2b567c83abcf795f9527aaf6eab9b7" prot="public">
+          <name>m240GeV</name>
+          <initializer>= 240</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a0311c6da5dbbc6904c5aa52c1df0dbf5" prot="public">
+          <name>m260GeV</name>
+          <initializer>= 260</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889ac8adddb022433bea5389f47e6b5bc56d" prot="public">
+          <name>m280GeV</name>
+          <initializer>= 280</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a88fc5e96373ac8bc5557e90f617f1640" prot="public">
+          <name>m300GeV</name>
+          <initializer>= 300</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889aec4f74c0073521a639e233686db72369" prot="public">
+          <name>m330GeV</name>
+          <initializer>= 330</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889acbcacec93458c310d03e6b5e23f4b4b1" prot="public">
+          <name>m360GeV</name>
+          <initializer>= 360</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a02be78dd078f41506bef32fad2cdf49d" prot="public">
+          <name>m400GeV</name>
+          <initializer>= 400</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889ad4015ed44d8a7872092276fcba5af21a" prot="public">
+          <name>m450GeV</name>
+          <initializer>= 450</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889aee82d85db3eff4e8fe2fa78fc2fbb369" prot="public">
+          <name>m500GeV</name>
+          <initializer>= 500</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a154b01dedad8a68941bd01294f90dd57" prot="public">
+          <name>m550GeV</name>
+          <initializer>= 550</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a0bb0a13ec6587a97fa6f6c01ea76d5f0" prot="public">
+          <name>m600GeV</name>
+          <initializer>= 600</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a16a13d622ef839794e1a29e54efd3ac6" prot="public">
+          <name>m650GeV</name>
+          <initializer>= 650</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a6f09c733bf6c97d4dbcfcbaac3051b20" prot="public">
+          <name>m700GeV</name>
+          <initializer>= 700</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a64b00fa852238adba661d1b884d78eef" prot="public">
+          <name>m750GeV</name>
+          <initializer>= 750</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a2f90dabf473c23c534233151669f4547" prot="public">
+          <name>m800GeV</name>
+          <initializer>= 800</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a617c7e5f907083f1850d35a995ef215b" prot="public">
+          <name>m900GeV</name>
+          <initializer>= 900</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889afa5b794e61dac47e42d556c43f162877" prot="public">
+          <name>m1TeV</name>
+          <initializer>= 1000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a2ec0ce7409da1a602cb5a732e0c30d80" prot="public">
+          <name>m1100GeV</name>
+          <initializer>= 1100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a320d6727d2d64dbd20d21909c6cdec0a" prot="public">
+          <name>m1200GeV</name>
+          <initializer>= 1200</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a5f008c55ff2bb37985ff52c131dd663b" prot="public">
+          <name>m1300GeV</name>
+          <initializer>= 1300</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a3e7de17fd6cda8ee0f365892e82f8aff" prot="public">
+          <name>m1500GeV</name>
+          <initializer>= 1500</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a64fc01a4aa342d39b6d82ed658069b6a" prot="public">
+          <name>m1700GeV</name>
+          <initializer>= 1700</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889add12b21f582c445985f8cd79cb1272fd" prot="public">
+          <name>m2TeV</name>
+          <initializer>= 2000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a27ff6dcd66cac472297b638718734e4b" prot="public">
+          <name>m3TeV</name>
+          <initializer>= 3000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a899dada9543206a879b1c41401165b10" prot="public">
+          <name>m4TeV</name>
+          <initializer>= 4000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a7fdd8085192a28a8dfb40bb862063ba5" prot="public">
+          <name>m5TeV</name>
+          <initializer>= 5000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a8a015d62e457debd13b0d2f8b3b1d202" prot="public">
+          <name>m6TeV</name>
+          <initializer>= 6000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889aecb1525fc2dfaaa39c110d9817df188f" prot="public">
+          <name>m7TeV</name>
+          <initializer>= 7000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a458c0e31c74946d00ce12a81996ec656" prot="public">
+          <name>m8TeV</name>
+          <initializer>= 8000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a5f8749d0adb15e6a503195c2600489bd" prot="public">
+          <name>m9TeV</name>
+          <initializer>= 9000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a0fcdfa44fde9d2b4f0dd352751914e60" prot="public">
+          <name>m10TeV</name>
+          <initializer>= 10000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a46ef185cde607ea6dd1e309cbd5541b2" prot="public">
+          <name>m12TeV</name>
+          <initializer>= 12000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a5656de2e903b58d7b6421ce65a941afe" prot="public">
+          <name>m15TeV</name>
+          <initializer>= 15000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a43aef8f35acebb83a9f83796c258c65e" prot="public">
+          <name>m20TeV</name>
+          <initializer>= 20000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889a1534f7b81a674d24d88f44824165c05e" prot="public">
+          <name>m30TeV</name>
+          <initializer>= 30000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889af2504227a5706d5a8a2a1abf2812e68f" prot="public">
+          <name>m50TeV</name>
+          <initializer>= 50000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__DarkMatter_1gga4b82e49d40fec5c282ce4115db150889ac463beb5b690e65b73f20b383d7327e6" prot="public">
+          <name>m100TeV</name>
+          <initializer>= 100000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDChannels.h" line="23" column="16" bodyfile="include/hermes/darkmatter/PPPC4DMIDChannels.h" bodystart="23" bodyend="85"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

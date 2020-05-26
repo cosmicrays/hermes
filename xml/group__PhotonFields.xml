@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__PhotonFields" kind="group">
+    <compoundname>PhotonFields</compoundname>
+    <title>PhotonFields</title>
+    <innerclass refid="classhermes_1_1photonfields_1_1CMB" prot="public">hermes::photonfields::CMB</innerclass>
+    <innerclass refid="classhermes_1_1photonfields_1_1ISRF" prot="public">hermes::photonfields::ISRF</innerclass>
+    <innerclass refid="classhermes_1_1photonfields_1_1PhotonField" prot="public">hermes::photonfields::PhotonField</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

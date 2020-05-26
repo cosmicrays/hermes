@@ -3,7 +3,7 @@
 Function hermes::units::GENERATE_SHORT_PREFIXED_UNITS(ampere, a)
 ================================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsBasic.h`
 
 
 Function Documentation

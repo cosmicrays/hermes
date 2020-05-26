@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1CacheStorageWith2Args" kind="class" language="C++" prot="public">
+    <compoundname>hermes::CacheStorageWith2Args</compoundname>
+    <includes refid="CacheTools_8h" local="no">include/hermes/CacheTools.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Q1</type>
+      </param>
+      <param>
+        <type>typename Q2</type>
+      </param>
+      <param>
+        <type>typename V</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classhermes_1_1CacheStorageWith2Args_1a7898306aac425d41b5a5f7f83f97aada" prot="private" static="no">
+        <type>std::mutex</type>
+        <definition>using MutexType =  std::mutex</definition>
+        <argsstring></argsstring>
+        <name>MutexType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="116" column="1" bodyfile="include/hermes/CacheTools.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhermes_1_1CacheStorageWith2Args_1a85bf74584595cca6b9dda8c091b1400b" prot="private" static="no">
+        <type>std::pair&lt; double, double &gt;</type>
+        <definition>typedef std::pair&lt;double, double&gt; tPairKey</definition>
+        <argsstring></argsstring>
+        <name>tPairKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="117" column="19" bodyfile="include/hermes/CacheTools.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1CacheStorageWith2Args_1aaf329376bd1113facc5daaa85b86fd69" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; tPairKey, V, <ref refid="structhermes_1_1pair__hash" kindref="compound">pair_hash</ref>, <ref refid="structhermes_1_1pair__equal" kindref="compound">pair_equal</ref> &gt;</type>
+        <definition>std::unordered_map&lt;tPairKey, V, pair_hash, pair_equal&gt; cachedValues</definition>
+        <argsstring></argsstring>
+        <name>cachedValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="118" column="20" bodyfile="include/hermes/CacheTools.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1CacheStorageWith2Args_1a5c192040c3cbe0b3e8a1da5ef0f221d4" prot="private" static="no" mutable="no">
+        <type>std::function&lt; V(Q1, Q2)&gt;</type>
+        <definition>std::function&lt;V(Q1, Q2)&gt; f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="120" column="15" bodyfile="include/hermes/CacheTools.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1CacheStorageWith2Args_1af6e57e6ef99bad4d83ed19592ecdfb65" prot="private" static="no" mutable="yes">
+        <type>MutexType</type>
+        <definition>MutexType mtx</definition>
+        <argsstring></argsstring>
+        <name>mtx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="121" column="19" bodyfile="include/hermes/CacheTools.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1a52650d891074c64154b2520f3c42023e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CacheStorageWith2Args</definition>
+        <argsstring>()</argsstring>
+        <name>CacheStorageWith2Args</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="124" column="1" bodyfile="include/hermes/CacheTools.h" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1a59d2b7ca880a7e9768df9e0f42229abc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~CacheStorageWith2Args</definition>
+        <argsstring>()</argsstring>
+        <name>~CacheStorageWith2Args</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="125" column="1" bodyfile="include/hermes/CacheTools.h" bodystart="125" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1aa10e637b2c3a94d81984ee839b603343" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CacheStorageWith2Args</definition>
+        <argsstring>(CacheStorageWith2Args &amp;&amp;other)</argsstring>
+        <name>CacheStorageWith2Args</name>
+        <param>
+          <type><ref refid="classhermes_1_1CacheStorageWith2Args" kindref="compound">CacheStorageWith2Args</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="126" column="1" bodyfile="include/hermes/CacheTools.h" bodystart="126" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1aac59db11cb561b2253f161d5e0c6b4e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1CacheStorageWith2Args" kindref="compound">CacheStorageWith2Args</ref> &amp;</type>
+        <definition>CacheStorageWith2Args&amp; operator=</definition>
+        <argsstring>(CacheStorageWith2Args &amp;&amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classhermes_1_1CacheStorageWith2Args" kindref="compound">CacheStorageWith2Args</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="129" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1a08bf004a464ae97e806884875f9922aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CacheStorageWith2Args</definition>
+        <argsstring>(const CacheStorageWith2Args &amp;other)=delete</argsstring>
+        <name>CacheStorageWith2Args</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1CacheStorageWith2Args" kindref="compound">CacheStorageWith2Args</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="131" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1a82953143f186155eff88777dba47de0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1CacheStorageWith2Args" kindref="compound">CacheStorageWith2Args</ref> &amp;</type>
+        <definition>CacheStorageWith2Args&amp; operator=</definition>
+        <argsstring>(const CacheStorageWith2Args &amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1CacheStorageWith2Args" kindref="compound">CacheStorageWith2Args</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="133" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1afa51899534f8e977d63d9192ac7fc50b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setFunction</definition>
+        <argsstring>(std::function&lt; V(Q1, Q2)&gt; f_)</argsstring>
+        <name>setFunction</name>
+        <param>
+          <type>std::function&lt; V(Q1, Q2)&gt;</type>
+          <declname>f_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="136" column="6" bodyfile="include/hermes/CacheTools.h" bodystart="136" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1a135e5586b6f79b140c8041f8f55de669" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void cacheValue</definition>
+        <argsstring>(const tPairKey &amp;key, V value)</argsstring>
+        <name>cacheValue</name>
+        <param>
+          <type>const tPairKey &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>V</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="138" column="6" bodyfile="include/hermes/CacheTools.h" bodystart="138" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1a31a08fc439081bc75bf59d583a4cd4c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V getValue</definition>
+        <argsstring>(Q1 q1, Q2 q2)</argsstring>
+        <name>getValue</name>
+        <param>
+          <type>Q1</type>
+          <declname>q1</declname>
+        </param>
+        <param>
+          <type>Q2</type>
+          <declname>q2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="140" column="3" bodyfile="include/hermes/CacheTools.h" bodystart="140" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith2Args_1a8bc28074169633643189b37c12763ea5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V operator[]</definition>
+        <argsstring>(const std::pair&lt; double, double &gt; &amp;key) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>const std::pair&lt; double, double &gt; &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="153" column="3" bodyfile="include/hermes/CacheTools.h" bodystart="153" bodyend="155"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/CacheTools.h" line="114" column="28" bodyfile="include/hermes/CacheTools.h" bodystart="114" bodyend="156"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1aaf329376bd1113facc5daaa85b86fd69" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>cachedValues</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a52650d891074c64154b2520f3c42023e" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>CacheStorageWith2Args</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1aa10e637b2c3a94d81984ee839b603343" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>CacheStorageWith2Args</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a08bf004a464ae97e806884875f9922aa" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>CacheStorageWith2Args</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a135e5586b6f79b140c8041f8f55de669" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>cacheValue</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a5c192040c3cbe0b3e8a1da5ef0f221d4" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>f</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a31a08fc439081bc75bf59d583a4cd4c7" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>getValue</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1af6e57e6ef99bad4d83ed19592ecdfb65" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>mtx</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a7898306aac425d41b5a5f7f83f97aada" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>MutexType</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1aac59db11cb561b2253f161d5e0c6b4e5" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>operator=</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a82953143f186155eff88777dba47de0e" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>operator=</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a8bc28074169633643189b37c12763ea5" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>operator[]</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1afa51899534f8e977d63d9192ac7fc50b" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>setFunction</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a85bf74584595cca6b9dda8c091b1400b" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>tPairKey</name></member>
+      <member refid="classhermes_1_1CacheStorageWith2Args_1a59d2b7ca880a7e9768df9e0f42229abc" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith2Args</scope><name>~CacheStorageWith2Args</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

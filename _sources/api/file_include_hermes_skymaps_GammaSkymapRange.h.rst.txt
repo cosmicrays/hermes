@@ -4,6 +4,10 @@
 File GammaSkymapRange.h
 =======================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes_skymaps>` (``include/hermes/skymaps``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none

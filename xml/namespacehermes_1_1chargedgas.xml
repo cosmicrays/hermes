@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacehermes_1_1chargedgas" kind="namespace" language="C++">
+    <compoundname>hermes::chargedgas</compoundname>
+    <innerclass refid="classhermes_1_1chargedgas_1_1ChargedGasDensity" prot="public">hermes::chargedgas::ChargedGasDensity</innerclass>
+    <innerclass refid="classhermes_1_1chargedgas_1_1HII__Cordes91" prot="public">hermes::chargedgas::HII_Cordes91</innerclass>
+    <innerclass refid="classhermes_1_1chargedgas_1_1NE2001Simple" prot="public">hermes::chargedgas::NE2001Simple</innerclass>
+    <innerclass refid="classhermes_1_1chargedgas_1_1YMW16" prot="public">hermes::chargedgas::YMW16</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="7" column="35"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_103bfd87e7b632590891bdff774c3ec0" kind="dir">
+    <compoundname>include/hermes/photonfields</compoundname>
+    <innerfile refid="CMB_8h">CMB.h</innerfile>
+    <innerfile refid="ISRF_8h">ISRF.h</innerfile>
+    <innerfile refid="PhotonField_8h">PhotonField.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/photonfields/"/>
+  </compounddef>
+</doxygen>

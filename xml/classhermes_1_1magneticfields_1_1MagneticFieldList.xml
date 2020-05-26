@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1magneticfields_1_1MagneticFieldList" kind="class" language="C++" prot="public">
+    <compoundname>hermes::magneticfields::MagneticFieldList</compoundname>
+    <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
+    <includes refid="MagneticField_8h" local="no">include/hermes/magneticfields/MagneticField.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1MagneticFieldList_1a23ee94928bf1626c950c6498d44972bf" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">MagneticField</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;MagneticField&gt; &gt; fields</definition>
+        <argsstring></argsstring>
+        <name>fields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="61" column="13" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1MagneticFieldList_1ace631e26288802929b5646347c2facfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addField</definition>
+        <argsstring>(const std::shared_ptr&lt; MagneticField &gt; &amp;field)</argsstring>
+        <name>addField</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">MagneticField</ref> &gt; &amp;</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="64" column="6" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="58" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1MagneticFieldList_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getField</definition>
+        <argsstring>(const Vector3QLength &amp;position) const override</argsstring>
+        <name>getField</name>
+        <reimplements refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe">getField</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="65" column="16" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="62" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Magnetic field decorator implementing a superposition of fields. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+      <node id="1">
+        <label>MagneticFieldList</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticFieldList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+      <node id="1">
+        <label>MagneticFieldList</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticFieldList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/magneticfields/MagneticField.h" line="60" column="45" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="60" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticFieldList_1ace631e26288802929b5646347c2facfd" prot="public" virt="non-virtual"><scope>hermes::magneticfields::MagneticFieldList</scope><name>addField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticFieldList_1a23ee94928bf1626c950c6498d44972bf" prot="private" virt="non-virtual"><scope>hermes::magneticfields::MagneticFieldList</scope><name>fields</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticFieldList_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c" prot="public" virt="virtual"><scope>hermes::magneticfields::MagneticFieldList</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" virt="virtual"><scope>hermes::magneticfields::MagneticFieldList</scope><name>~MagneticField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

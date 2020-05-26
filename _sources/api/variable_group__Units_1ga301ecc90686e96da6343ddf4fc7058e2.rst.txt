@@ -3,7 +3,7 @@
 Variable hermes::units::_mbarn
 ==============================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsLiterals.h`
 
 
 Variable Documentation

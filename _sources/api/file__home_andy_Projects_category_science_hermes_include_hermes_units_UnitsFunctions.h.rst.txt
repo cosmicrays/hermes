@@ -1,0 +1,74 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_units_UnitsFunctions.h:
+
+File UnitsFunctions.h
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes_units>` (``/home/andy/Projects/category_science/hermes/include/hermes/units``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/units/UnitsFunctions.h``)
+--------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__units`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_group__Units_1ga29ce2692bb564d2eca5109ed835880cf`
+
+- :ref:`exhale_function_group__Units_1ga3322c67d01dd13f5244a0a5f696b7d9a`
+
+- :ref:`exhale_function_group__Units_1ga7c14fbadf733fffe585fa19593427ab3`
+
+- :ref:`exhale_function_group__Units_1ga3c690f7883882b6c3155fa2f7965ae87`
+
+- :ref:`exhale_function_group__Units_1ga05757cbc1d7eb84b57abf0ad7d8e763e`
+
+- :ref:`exhale_function_group__Units_1ga4dd7a6e478019c3c099c61e6458bfebb`
+
+- :ref:`exhale_function_group__Units_1ga7699e1e955a3b24accf3cba555ff1472`
+
+- :ref:`exhale_function_group__Units_1ga44936d6068e538b77a2a139ee271afee`
+
+- :ref:`exhale_function_group__Units_1ga007cb3570f99c733cafdf8d1b8f80335`
+
+- :ref:`exhale_function_group__Units_1gaeb7aaa87e7cfa30efe38d33dedf69781`
+
+- :ref:`exhale_function_group__Units_1ga2d04d6f80681634eb134560be544f929`
+
+- :ref:`exhale_function_group__Units_1ga84ef92feef6099af8083efeab01ce82f`
+
+- :ref:`exhale_function_group__Units_1ga80cade9b7f9a05a436602bb50a3180b0`
+
+- :ref:`exhale_function_group__Units_1ga5ab4112551945a2986bf320cb6abf3d8`
+
+- :ref:`exhale_function_group__Units_1ga8d7786754147bc9bb1a44ebd706a89f1`
+
+- :ref:`exhale_function_group__Units_1gaab2e106fe259ced11699494ef7469bb4`
+
+- :ref:`exhale_function_group__Units_1ga5956743504f8c64d16e2b1bd8236d21f`
+

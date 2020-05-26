@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_9f7bfb3ff3dc261789317b052a1828ea" kind="dir">
+    <compoundname>include/hermes/units</compoundname>
+    <innerfile refid="UnitsBasic_8h">UnitsBasic.h</innerfile>
+    <innerfile refid="UnitsDerived_8h">UnitsDerived.h</innerfile>
+    <innerfile refid="UnitsFunctions_8h">UnitsFunctions.h</innerfile>
+    <innerfile refid="UnitsHERMES_8h">UnitsHERMES.h</innerfile>
+    <innerfile refid="UnitsLiterals_8h">UnitsLiterals.h</innerfile>
+    <innerfile refid="UnitsQClass_8h">UnitsQClass.h</innerfile>
+    <innerfile refid="UnitsSimple_8h">UnitsSimple.h</innerfile>
+    <innerfile refid="UnitsSIPrefixes_8h">UnitsSIPrefixes.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/units/"/>
+  </compounddef>
+</doxygen>

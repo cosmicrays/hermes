@@ -1,0 +1,52 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_Common.h:
+
+File Common.h
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes>` (``/home/andy/Projects/category_science/hermes/include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+Common helper functions. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/Common.h``)
+------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1gsl__function__pp`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1a8238e5ea84755ca291f5fe33eabc4e07`
+

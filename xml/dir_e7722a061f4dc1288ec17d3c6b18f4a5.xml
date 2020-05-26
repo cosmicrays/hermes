@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_e7722a061f4dc1288ec17d3c6b18f4a5" kind="dir">
+    <compoundname>src/skymaps</compoundname>
+    <innerfile refid="GammaSkymapRange_8cpp">GammaSkymapRange.cpp</innerfile>
+    <innerfile refid="RadioSkymapRange_8cpp">RadioSkymapRange.cpp</innerfile>
+    <innerfile refid="Skymap_8cpp">Skymap.cpp</innerfile>
+    <innerfile refid="SkymapMask_8cpp">SkymapMask.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/skymaps/"/>
+  </compounddef>
+</doxygen>

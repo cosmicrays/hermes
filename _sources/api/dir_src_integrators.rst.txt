@@ -1,0 +1,29 @@
+.. _dir_src_integrators:
+
+
+Directory integrators
+=====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``src/integrators``
+
+
+Files
+-----
+
+- :ref:`file_src_integrators_BremsstrahlungIntegrator.cpp`
+- :ref:`file_src_integrators_DarkMatterIntegrator.cpp`
+- :ref:`file_src_integrators_DispersionMeasureIntegrator.cpp`
+- :ref:`file_src_integrators_FreeFreeIntegrator.cpp`
+- :ref:`file_src_integrators_InverseComptonIntegrator.cpp`
+- :ref:`file_src_integrators_PiZeroAbsorptionIntegrator.cpp`
+- :ref:`file_src_integrators_PiZeroIntegrator.cpp`
+- :ref:`file_src_integrators_RotationMeasureIntegrator.cpp`
+- :ref:`file_src_integrators_SynchroAbsorptionIntegrator.cpp`
+- :ref:`file_src_integrators_SynchroIntegrator.cpp`
+
+

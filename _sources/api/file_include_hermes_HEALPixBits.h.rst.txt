@@ -4,6 +4,10 @@
 File HEALPixBits.h
 ==================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none
@@ -26,4 +30,11 @@ Namespaces
 
 
 - :ref:`namespace_hermes`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespacehermes_1af17f037ff39603cfe4208a43bfcfb8f6`
 

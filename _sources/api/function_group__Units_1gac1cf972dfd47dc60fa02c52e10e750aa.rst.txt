@@ -3,7 +3,7 @@
 Function hermes::units::BASELITERAL(QAngle, _rad)
 =================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsLiterals.h`
 
 
 Function Documentation

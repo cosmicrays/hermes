@@ -1,0 +1,24 @@
+.. _dir__home_andy_Projects_category_science_hermes_include_hermes_darkmatter:
+
+
+Directory darkmatter
+====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes>` (``/home/andy/Projects/category_science/hermes/include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``/home/andy/Projects/category_science/hermes/include/hermes/darkmatter``
+
+
+Files
+-----
+
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_darkmatter_DarkMatterSpectrum.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_darkmatter_GalacticProfile.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_darkmatter_NFWGProfile.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_darkmatter_PPPC4DMIDChannels.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_darkmatter_PPPC4DMIDSpectrum.h`
+
+

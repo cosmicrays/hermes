@@ -1,0 +1,28 @@
+.. _dir__home_andy_Projects_category_science_hermes_include_hermes_skymaps:
+
+
+Directory skymaps
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes>` (``/home/andy/Projects/category_science/hermes/include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``/home/andy/Projects/category_science/hermes/include/hermes/skymaps``
+
+
+Files
+-----
+
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_skymaps_DispersionMeasureSkymap.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_skymaps_GammaSkymap.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_skymaps_GammaSkymapRange.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_skymaps_RadioSkymap.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_skymaps_RadioSkymapRange.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_skymaps_RotationMeasureSkymap.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_skymaps_Skymap.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_skymaps_SkymapMask.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_skymaps_SkymapTemplate.h`
+
+

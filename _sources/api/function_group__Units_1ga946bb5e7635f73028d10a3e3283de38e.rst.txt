@@ -3,7 +3,7 @@
 Function hermes::units::GENERATE_PREFIXED_UNITS(metre)
 ======================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsBasic.h`
 
 
 Function Documentation

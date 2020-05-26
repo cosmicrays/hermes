@@ -4,6 +4,10 @@
 File DispersionMeasureIntegrator.h
 ==================================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes_integrators>` (``include/hermes/integrators``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none
@@ -33,4 +37,11 @@ Classes
 
 
 - :ref:`exhale_class_classhermes_1_1DispersionMeasureIntegrator`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_group__Integrators_1gad422d0160fa49004f7f72220d92aafc0`
 

@@ -3,7 +3,7 @@
 Function hermes::fromMagneticFieldStrength(std::unique_ptr<ScalarGrid>, std::unique_ptr<magneticfields::MagneticField>)
 =======================================================================================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_GridTools.h`
 
 
 Function Documentation

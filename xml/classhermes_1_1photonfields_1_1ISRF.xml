@@ -1,0 +1,616 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1photonfields_1_1ISRF" kind="class" language="C++" prot="public">
+    <compoundname>hermes::photonfields::ISRF</compoundname>
+    <basecompoundref refid="classhermes_1_1photonfields_1_1PhotonField" prot="public" virt="non-virtual">PhotonField</basecompoundref>
+    <includes refid="ISRF_8h" local="no">include/hermes/photonfields/ISRF.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1ISRF_1ae807ac4a456d95180ee051a665b11efc" prot="private" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int freqR1</definition>
+        <argsstring></argsstring>
+        <name>freqR1</name>
+        <initializer>= 200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="16" column="18" bodyfile="include/hermes/photonfields/ISRF.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1ISRF_1acf456cae30efce7c34a72377e0d55095" prot="private" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int freqR2</definition>
+        <argsstring></argsstring>
+        <name>freqR2</name>
+        <initializer>= 680</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="17" column="18" bodyfile="include/hermes/photonfields/ISRF.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1ISRF_1a363311542a33b34a067adbf56bb28569" prot="private" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int freqR3</definition>
+        <argsstring></argsstring>
+        <name>freqR3</name>
+        <initializer>= 331</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="18" column="18" bodyfile="include/hermes/photonfields/ISRF.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1ISRF_1a978ecafa67238b6ccf6f56368a713e5f" prot="private" static="no" mutable="no">
+        <type>std::array&lt; double, freqR1+freqR2+freqR3 &gt;</type>
+        <definition>std::array&lt;double, freqR1 + freqR2 + freqR3&gt; logwavelenghts</definition>
+        <argsstring></argsstring>
+        <name>logwavelenghts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="19" column="12" bodyfile="include/hermes/photonfields/ISRF.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1ISRF_1a3a4dc1fa1c549b53e31c2353882fbd1b" prot="private" static="no" mutable="no">
+        <type>std::array&lt; double, 30 &gt;</type>
+        <definition>std::array&lt;double, 30&gt; r_id</definition>
+        <argsstring></argsstring>
+        <name>r_id</name>
+        <initializer>= {
+	    0.0,  0.2,  0.5,  1.0,  1.5,  2.0,  2.5,  3.0, 3.5, 4.0, 4.5,
+	    5.0,  5.5,  6.0,  6.5,  7.0,  7.5,  8.0,  8.5, 9.0, 9.5, 10.0,
+	    11.0, 12.0, 14.0, 16.0, 18.0, 20.0, 25.0, 30.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="20" column="12" bodyfile="include/hermes/photonfields/ISRF.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1ISRF_1a0e1999c7f0eaaef22760a9ad50a8a312" prot="private" static="no" mutable="no">
+        <type>std::array&lt; double, 24 &gt;</type>
+        <definition>std::array&lt;double, 24&gt; z_id</definition>
+        <argsstring></argsstring>
+        <name>z_id</name>
+        <initializer>= {0.0,  0.1,  0.2, 0.3, 0.4,  0.5,  0.6,
+	                               0.8,  1.0,  1.2, 1.5, 2.0,  2.5,  3.0,
+	                               4.0,  5.0,  6.0, 8.0, 10.0, 12.0, 15.0,
+	                               20.0, 25.0, 30.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="24" column="12" bodyfile="include/hermes/photonfields/ISRF.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1ISRF_1a20226d059e363a851fa31dc1baa5b551" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; isrf</definition>
+        <argsstring></argsstring>
+        <name>isrf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="28" column="13" bodyfile="include/hermes/photonfields/ISRF.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1ISRF_1a2610c3823953edc31c4b9fb169e79bfd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void buildEnergyRange</definition>
+        <argsstring>()</argsstring>
+        <name>buildEnergyRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="30" column="6" bodyfile="src/photonfields/ISRF.cpp" bodystart="48" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1ISRF_1ac8368e933f40c1947478e57ad4c1f821" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double getISRF</definition>
+        <argsstring>(std::size_t ir, std::size_t iz, std::size_t ifreq) const</argsstring>
+        <name>getISRF</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>ir</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>iz</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>ifreq</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="32" column="8" bodyfile="src/photonfields/ISRF.cpp" bodystart="108" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1ISRF_1add2bfc292f7fc6f1d0839250c7758a92" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void loadFrequencyAxis</definition>
+        <argsstring>()</argsstring>
+        <name>loadFrequencyAxis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="34" column="6" bodyfile="src/photonfields/ISRF.cpp" bodystart="57" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1ISRF_1abd682680925f5bf8db429e0d2c4b562f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void loadISRF</definition>
+        <argsstring>()</argsstring>
+        <name>loadISRF</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="35" column="6" bodyfile="src/photonfields/ISRF.cpp" bodystart="75" bodyend="106"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1ISRF_1ad411e6e1e08f650efcc76a67f6bf825c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ISRF</definition>
+        <argsstring>()</argsstring>
+        <name>ISRF</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="38" column="1" bodyfile="src/photonfields/ISRF.cpp" bodystart="23" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1ISRF_1a3940a24de61ee09a3de13f3512180b6f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getSize</definition>
+        <argsstring>() const</argsstring>
+        <name>getSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="39" column="13" bodyfile="src/photonfields/ISRF.cpp" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1ISRF_1a4bbc57b13d6c3008395faa91b1660239" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c" kindref="member">QEnergyDensity</ref></type>
+        <definition>QEnergyDensity getEnergyDensity</definition>
+        <argsstring>(const QLength &amp;r, const QLength &amp;z, const QEnergy &amp;E_photon) const</argsstring>
+        <name>getEnergyDensity</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &amp;</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_photon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="40" column="16" bodyfile="src/photonfields/ISRF.cpp" bodystart="130" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1ISRF_1a5681a7d4b45773edb38b4130420f964b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c" kindref="member">QEnergyDensity</ref></type>
+        <definition>QEnergyDensity getEnergyDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos, const QEnergy &amp;E_photon) const override</argsstring>
+        <name>getEnergyDensity</name>
+        <reimplements refid="classhermes_1_1photonfields_1_1PhotonField_1af667989913d861fed4bb2b1bb219cba6">getEnergyDensity</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_photon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="42" column="16" bodyfile="src/photonfields/ISRF.cpp" bodystart="123" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1ISRF_1af836a2df6ef5cf878dcd1509043a5f09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c" kindref="member">QEnergyDensity</ref></type>
+        <definition>QEnergyDensity getEnergyDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos_, std::size_t iE_) const override</argsstring>
+        <name>getEnergyDensity</name>
+        <reimplements refid="classhermes_1_1photonfields_1_1PhotonField_1af37cc8d1c6d8ad6f46e5367fb8f98c49">getEnergyDensity</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos_</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>iE_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/ISRF.h" line="44" column="16" bodyfile="src/photonfields/ISRF.cpp" bodystart="114" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1a2fc6158d089249d3397d88ed145ed1a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setStartEnergy</definition>
+        <argsstring>(QEnergy E_)</argsstring>
+        <name>setStartEnergy</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+          <declname>E_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="35" column="6" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1abdd9d1c1f2f0a974b74cdcc80c6ef1cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setEndEnergy</definition>
+        <argsstring>(QEnergy E_)</argsstring>
+        <name>setEndEnergy</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+          <declname>E_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="37" column="6" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1a73dc4a39c965cb9cdbff900693c3eabc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setEnergyScaleFactor</definition>
+        <argsstring>(double s_)</argsstring>
+        <name>setEnergyScaleFactor</name>
+        <param>
+          <type>double</type>
+          <declname>s_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="39" column="6" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1ab7601bdb093ab410da3cf2b42f841fee" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy getStartEnergy</definition>
+        <argsstring>() const</argsstring>
+        <name>getStartEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="41" column="9" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1acd273def3edd657b57b6384c4d5028e9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy getEndEnergy</definition>
+        <argsstring>() const</argsstring>
+        <name>getEndEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="43" column="9" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1a32a1bd1740480c4569eb385789d8b16e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double getEnergyScaleFactor</definition>
+        <argsstring>() const</argsstring>
+        <name>getEnergyScaleFactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="45" column="8" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1a744a3a7b79f25648a2529de5ddb999b0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1photonfields_1_1PhotonField_1afe417b0dce3c177f9834e269e2dfa019" kindref="member">tEnergyRange</ref></type>
+        <definition>tEnergyRange getEnergyAxis</definition>
+        <argsstring>() const</argsstring>
+        <name>getEnergyAxis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="47" column="14" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1ad69bd11391be1a1dba5c8202259664f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1photonfields_1_1PhotonField_1a9e56c47cfffc7f9139e5a1e724e39317" kindref="member">iterator</ref></type>
+        <definition>iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="49" column="10" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1a29305669b60ca1680752e2fc3592ba99" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1photonfields_1_1PhotonField_1a0b727ee5668ba659c422fc1803b03c0f" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="50" column="16" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1acad38d52497a975bfb6f2f6acd76631f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1photonfields_1_1PhotonField_1a9e56c47cfffc7f9139e5a1e724e39317" kindref="member">iterator</ref></type>
+        <definition>iterator end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="51" column="10" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1photonfields_1_1PhotonField_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1photonfields_1_1PhotonField_1a0b727ee5668ba659c422fc1803b03c0f" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="52" column="16" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-type">
+      <memberdef kind="typedef" id="classhermes_1_1photonfields_1_1PhotonField_1afe417b0dce3c177f9834e269e2dfa019" prot="protected" static="no">
+        <type>std::vector&lt; <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &gt;</type>
+        <definition>typedef std::vector&lt;QEnergy&gt; tEnergyRange</definition>
+        <argsstring></argsstring>
+        <name>tEnergyRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="15" column="21" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhermes_1_1photonfields_1_1PhotonField_1a9e56c47cfffc7f9139e5a1e724e39317" prot="public" static="no">
+        <type>tEnergyRange::iterator</type>
+        <definition>typedef tEnergyRange::iterator iterator</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="23" column="32" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhermes_1_1photonfields_1_1PhotonField_1a0b727ee5668ba659c422fc1803b03c0f" prot="public" static="no">
+        <type>tEnergyRange::const_iterator</type>
+        <definition>typedef tEnergyRange::const_iterator const_iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="24" column="38" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1PhotonField_1a72c7eb56a7feb5d9feaa11f644ae9f64" prot="protected" static="no" mutable="yes">
+        <type><ref refid="classhermes_1_1photonfields_1_1PhotonField_1afe417b0dce3c177f9834e269e2dfa019" kindref="member">tEnergyRange</ref></type>
+        <definition>tEnergyRange energyRange</definition>
+        <argsstring></argsstring>
+        <name>energyRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="16" column="22" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1PhotonField_1a65cb6d3a3d6b640b0836b4c389d8ce44" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool scaleFactorFlag</definition>
+        <argsstring></argsstring>
+        <name>scaleFactorFlag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="18" column="6" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1PhotonField_1a59da8bbe440161ef087c890f58316efd" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double energyScaleFactor</definition>
+        <argsstring></argsstring>
+        <name>energyScaleFactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="19" column="8" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1PhotonField_1ae0567760585ecce0a61d859402186b7d" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy startEnergy</definition>
+        <argsstring></argsstring>
+        <name>startEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="20" column="9" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1photonfields_1_1PhotonField_1a8dc14bbf678d94e73f06833f84d6b34a" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy endEnergy</definition>
+        <argsstring></argsstring>
+        <name>endEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/photonfields/PhotonField.h" line="20" column="21" bodyfile="include/hermes/photonfields/PhotonField.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PhotonField</label>
+        <link refid="classhermes_1_1photonfields_1_1PhotonField"/>
+      </node>
+      <node id="1">
+        <label>ISRF</label>
+        <link refid="classhermes_1_1photonfields_1_1ISRF"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>PhotonField</label>
+        <link refid="classhermes_1_1photonfields_1_1PhotonField"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>energyRange</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ISRF</label>
+        <link refid="classhermes_1_1photonfields_1_1ISRF"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>vector&lt; QEnergy &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/photonfields/ISRF.h" line="14" column="30" bodyfile="include/hermes/photonfields/ISRF.h" bodystart="14" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1ad69bd11391be1a1dba5c8202259664f8" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>begin</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a29305669b60ca1680752e2fc3592ba99" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>begin</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1a2610c3823953edc31c4b9fb169e79bfd" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>buildEnergyRange</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a0b727ee5668ba659c422fc1803b03c0f" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>const_iterator</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1acad38d52497a975bfb6f2f6acd76631f" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>end</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>end</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a8dc14bbf678d94e73f06833f84d6b34a" prot="protected" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>endEnergy</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a72c7eb56a7feb5d9feaa11f644ae9f64" prot="protected" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>energyRange</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a59da8bbe440161ef087c890f58316efd" prot="protected" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>energyScaleFactor</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1ae807ac4a456d95180ee051a665b11efc" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>freqR1</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1acf456cae30efce7c34a72377e0d55095" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>freqR2</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1a363311542a33b34a067adbf56bb28569" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>freqR3</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1acd273def3edd657b57b6384c4d5028e9" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>getEndEnergy</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a744a3a7b79f25648a2529de5ddb999b0" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>getEnergyAxis</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1a4bbc57b13d6c3008395faa91b1660239" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>getEnergyDensity</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1a5681a7d4b45773edb38b4130420f964b" prot="public" virt="virtual"><scope>hermes::photonfields::ISRF</scope><name>getEnergyDensity</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1af836a2df6ef5cf878dcd1509043a5f09" prot="public" virt="virtual"><scope>hermes::photonfields::ISRF</scope><name>getEnergyDensity</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a32a1bd1740480c4569eb385789d8b16e" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>getEnergyScaleFactor</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1ac8368e933f40c1947478e57ad4c1f821" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>getISRF</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1a3940a24de61ee09a3de13f3512180b6f" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>getSize</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1ab7601bdb093ab410da3cf2b42f841fee" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>getStartEnergy</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1a20226d059e363a851fa31dc1baa5b551" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>isrf</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1ad411e6e1e08f650efcc76a67f6bf825c" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>ISRF</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a9e56c47cfffc7f9139e5a1e724e39317" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>iterator</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1add2bfc292f7fc6f1d0839250c7758a92" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>loadFrequencyAxis</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1abd682680925f5bf8db429e0d2c4b562f" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>loadISRF</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1a978ecafa67238b6ccf6f56368a713e5f" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>logwavelenghts</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a185be309b96cd03e2255560fceb492c9" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>PhotonField</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1a3a4dc1fa1c549b53e31c2353882fbd1b" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>r_id</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a65cb6d3a3d6b640b0836b4c389d8ce44" prot="protected" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>scaleFactorFlag</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1abdd9d1c1f2f0a974b74cdcc80c6ef1cb" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>setEndEnergy</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a73dc4a39c965cb9cdbff900693c3eabc" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>setEnergyScaleFactor</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a2fc6158d089249d3397d88ed145ed1a4" prot="public" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>setStartEnergy</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1ae0567760585ecce0a61d859402186b7d" prot="protected" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>startEnergy</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1afe417b0dce3c177f9834e269e2dfa019" prot="protected" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>tEnergyRange</name></member>
+      <member refid="classhermes_1_1photonfields_1_1ISRF_1a0e1999c7f0eaaef22760a9ad50a8a312" prot="private" virt="non-virtual"><scope>hermes::photonfields::ISRF</scope><name>z_id</name></member>
+      <member refid="classhermes_1_1photonfields_1_1PhotonField_1a4eba805502ba840579b74bfb0e18021b" prot="public" virt="virtual"><scope>hermes::photonfields::ISRF</scope><name>~PhotonField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

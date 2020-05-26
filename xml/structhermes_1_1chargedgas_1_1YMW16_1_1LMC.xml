@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1LMC" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::LMC</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LMC_1ab6ca9dfaca4fb2808005e99f58101d26" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nlmc</definition>
+        <argsstring></argsstring>
+        <name>nlmc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="241" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="240" column="10" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="240" bodyend="242"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LMC_1ab6ca9dfaca4fb2808005e99f58101d26" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LMC</scope><name>nlmc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

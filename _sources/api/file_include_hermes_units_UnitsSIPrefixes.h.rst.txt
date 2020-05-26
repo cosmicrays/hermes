@@ -4,6 +4,10 @@
 File UnitsSIPrefixes.h
 ======================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes_units>` (``include/hermes/units``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none
@@ -28,4 +32,49 @@ Namespaces
 - :ref:`namespace_hermes`
 
 - :ref:`namespace_hermes__units`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1afd7be92c7220e42409d3d947fbfb11e6`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a29524edd8a2c8c1103502a9358f79e4b`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a718707832b2522ae324230a0c4d30264`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a438535c531d8ba8a923366c446aa3c8f`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a63ea0a9636c4ef570851c8f638b6dded`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a83ae53768251585b9e65dfbaf0ed9fbe`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1adbd5d8e1502473f191f3b821d709eb05`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1ad4ddad2e4e6e3e683c40c7e375d1ca50`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a5646ca4131c28eac28bcdac3b6dc8747`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a1936065a818d8594010e95a289ecc971`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1ad24dc0a3aa9e5eac772d7bb4dfbd6f1c`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a1a85d239e63adea88718cc638d976686`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1ad1e91dbaaf3d09ff684c32ea0d9872b7`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a527d59388bce9c826c8292c114743885`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a0426ce2753e9bfbdd74756b220f1f679`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1aa5446b28be6215dfe2ca39251d32f08c`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a8aad129a888d3227d466b844e14e00ff`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1ad60e738f6ab990cd5928246c070a9aac`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1ac790d00969a5ba20b7d2babe708bbfb5`
+
+- :ref:`exhale_variable_namespacehermes_1_1units_1a5ff9f2b1681c89dd7d48041c39a83d76`
 

@@ -1,0 +1,2564 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacehermes" kind="namespace" language="C++">
+    <compoundname>hermes</compoundname>
+    <innerclass refid="structhermes_1_1array2__equal" prot="public">hermes::array2_equal</innerclass>
+    <innerclass refid="structhermes_1_1array2__hash" prot="public">hermes::array2_hash</innerclass>
+    <innerclass refid="structhermes_1_1array__equal" prot="public">hermes::array_equal</innerclass>
+    <innerclass refid="structhermes_1_1array__hash" prot="public">hermes::array_hash</innerclass>
+    <innerclass refid="classhermes_1_1BremsstrahlungIntegrator" prot="public">hermes::BremsstrahlungIntegrator</innerclass>
+    <innerclass refid="classhermes_1_1CacheStorageIC2" prot="public">hermes::CacheStorageIC2</innerclass>
+    <innerclass refid="classhermes_1_1CacheStorageWith2Args" prot="public">hermes::CacheStorageWith2Args</innerclass>
+    <innerclass refid="classhermes_1_1CacheStorageWith3Args" prot="public">hermes::CacheStorageWith3Args</innerclass>
+    <innerclass refid="classhermes_1_1CircularWindow" prot="public">hermes::CircularWindow</innerclass>
+    <innerclass refid="classhermes_1_1DarkMatterIntegrator" prot="public">hermes::DarkMatterIntegrator</innerclass>
+    <innerclass refid="classhermes_1_1DispersionMeasureIntegrator" prot="public">hermes::DispersionMeasureIntegrator</innerclass>
+    <innerclass refid="classhermes_1_1DispersionMeasureSkymap" prot="public">hermes::DispersionMeasureSkymap</innerclass>
+    <innerclass refid="classhermes_1_1FITSFile" prot="public">hermes::FITSFile</innerclass>
+    <innerclass refid="structhermes_1_1FITSKeyValue" prot="public">hermes::FITSKeyValue</innerclass>
+    <innerclass refid="classhermes_1_1FreeFreeIntegrator" prot="public">hermes::FreeFreeIntegrator</innerclass>
+    <innerclass refid="classhermes_1_1GammaSkymap" prot="public">hermes::GammaSkymap</innerclass>
+    <innerclass refid="classhermes_1_1GammaSkymapRange" prot="public">hermes::GammaSkymapRange</innerclass>
+    <innerclass refid="classhermes_1_1Grid" prot="public">hermes::Grid</innerclass>
+    <innerclass refid="classhermes_1_1Grid2D" prot="public">hermes::Grid2D</innerclass>
+    <innerclass refid="classhermes_1_1gsl__function__pp" prot="public">hermes::gsl_function_pp</innerclass>
+    <innerclass refid="classhermes_1_1IntegratorTemplate" prot="public">hermes::IntegratorTemplate</innerclass>
+    <innerclass refid="classhermes_1_1InverseComptonIntegrator" prot="public">hermes::InverseComptonIntegrator</innerclass>
+    <innerclass refid="classhermes_1_1InvertMask" prot="public">hermes::InvertMask</innerclass>
+    <innerclass refid="classhermes_1_1MaskList" prot="public">hermes::MaskList</innerclass>
+    <innerclass refid="structhermes_1_1pair__equal" prot="public">hermes::pair_equal</innerclass>
+    <innerclass refid="structhermes_1_1pair__hash" prot="public">hermes::pair_hash</innerclass>
+    <innerclass refid="classhermes_1_1PID" prot="public">hermes::PID</innerclass>
+    <innerclass refid="classhermes_1_1PiZeroAbsorptionIntegrator" prot="public">hermes::PiZeroAbsorptionIntegrator</innerclass>
+    <innerclass refid="classhermes_1_1PiZeroIntegrator" prot="public">hermes::PiZeroIntegrator</innerclass>
+    <innerclass refid="classhermes_1_1RadioSkymap" prot="public">hermes::RadioSkymap</innerclass>
+    <innerclass refid="classhermes_1_1RadioSkymapRange" prot="public">hermes::RadioSkymapRange</innerclass>
+    <innerclass refid="classhermes_1_1Random" prot="public">hermes::Random</innerclass>
+    <innerclass refid="structhermes_1_1RANDOM__TLS__ITEM" prot="public">hermes::RANDOM_TLS_ITEM</innerclass>
+    <innerclass refid="classhermes_1_1RectangularWindow" prot="public">hermes::RectangularWindow</innerclass>
+    <innerclass refid="classhermes_1_1RotationMeasureIntegrator" prot="public">hermes::RotationMeasureIntegrator</innerclass>
+    <innerclass refid="classhermes_1_1RotationMeasureSkymap" prot="public">hermes::RotationMeasureSkymap</innerclass>
+    <innerclass refid="classhermes_1_1Skymap" prot="public">hermes::Skymap</innerclass>
+    <innerclass refid="classhermes_1_1SkymapMask" prot="public">hermes::SkymapMask</innerclass>
+    <innerclass refid="classhermes_1_1SkymapTemplate" prot="public">hermes::SkymapTemplate</innerclass>
+    <innerclass refid="classhermes_1_1SynchroAbsorptionIntegrator" prot="public">hermes::SynchroAbsorptionIntegrator</innerclass>
+    <innerclass refid="classhermes_1_1SynchroIntegrator" prot="public">hermes::SynchroIntegrator</innerclass>
+    <innerclass refid="structhermes_1_1tuple__equal" prot="public">hermes::tuple_equal</innerclass>
+    <innerclass refid="structhermes_1_1tuple__hash" prot="public">hermes::tuple_hash</innerclass>
+    <innerclass refid="classhermes_1_1Vector3" prot="public">hermes::Vector3</innerclass>
+    <innerclass refid="classhermes_1_1Vector3Quantity" prot="public">hermes::Vector3Quantity</innerclass>
+    <innernamespace refid="namespacehermes_1_1chargedgas">hermes::chargedgas</innernamespace>
+    <innernamespace refid="namespacehermes_1_1cosmicrays">hermes::cosmicrays</innernamespace>
+    <innernamespace refid="namespacehermes_1_1darkmatter">hermes::darkmatter</innernamespace>
+    <innernamespace refid="namespacehermes_1_1FITS">hermes::FITS</innernamespace>
+    <innernamespace refid="namespacehermes_1_1interactions">hermes::interactions</innernamespace>
+    <innernamespace refid="namespacehermes_1_1magneticfields">hermes::magneticfields</innernamespace>
+    <innernamespace refid="namespacehermes_1_1neutralgas">hermes::neutralgas</innernamespace>
+    <innernamespace refid="namespacehermes_1_1outputs">hermes::outputs</innernamespace>
+    <innernamespace refid="namespacehermes_1_1photonfields">hermes::photonfields</innernamespace>
+    <innernamespace refid="namespacehermes_1_1units">hermes::units</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacehermes_1a85bf74584595cca6b9dda8c091b1400b" prot="public" static="no">
+        <type>std::pair&lt; double, double &gt;</type>
+        <definition>typedef std::pair&lt;double, double&gt; tPairKey</definition>
+        <argsstring></argsstring>
+        <name>tPairKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="19" column="19" bodyfile="include/hermes/CacheTools.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1ac9fffeaa9f83c8434acaa6af317a6ca0" prot="public" static="no">
+        <type>std::array&lt; double, 3 &gt;</type>
+        <definition>typedef std::array&lt;double, 3&gt; tArrayKey</definition>
+        <argsstring></argsstring>
+        <name>tArrayKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="20" column="20" bodyfile="include/hermes/CacheTools.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1a20991e733aed18d347c855020f0345ae" prot="public" static="no">
+        <type>std::array&lt; int, 2 &gt;</type>
+        <definition>typedef std::array&lt;int, 2&gt; tArray2Key</definition>
+        <argsstring></argsstring>
+        <name>tArray2Key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="21" column="20" bodyfile="include/hermes/CacheTools.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1a440dbaab719ad3dd6edd9dece95faf70" prot="public" static="no">
+        <type>std::tuple&lt; double, double, double &gt;</type>
+        <definition>typedef std::tuple&lt;double, double, double&gt; tTupleKey</definition>
+        <argsstring></argsstring>
+        <name>tTupleKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="22" column="20" bodyfile="include/hermes/CacheTools.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1afbebdc77c5226b42a3caa5b614efc704" prot="public" static="no">
+        <type><ref refid="classhermes_1_1CacheStorageWith3Args" kindref="compound">CacheStorageWith3Args</ref>&lt; int, int, <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref>, <ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref> &gt;</type>
+        <definition>typedef CacheStorageWith3Args&lt;int, int, QEnergy, QGREmissivity&gt; CacheStorageIC</definition>
+        <argsstring></argsstring>
+        <name>CacheStorageIC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="235" column="31" bodyfile="include/hermes/CacheTools.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1ac1e97935e75d13cb8138971d06fa8672" prot="public" static="no">
+        <type><ref refid="classhermes_1_1CacheStorageWith2Args" kindref="compound">CacheStorageWith2Args</ref>&lt; <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref>, <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref>, <ref refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kindref="member">QDiffCrossSection</ref> &gt;</type>
+        <definition>typedef CacheStorageWith2Args&lt;QEnergy, QEnergy, QDiffCrossSection&gt; CacheStorageCrossSection</definition>
+        <argsstring></argsstring>
+        <name>CacheStorageCrossSection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="237" column="5" bodyfile="include/hermes/CacheTools.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1a2e9feda1b21561f65bab00b5e51aeff9" prot="public" static="no">
+        <type><ref refid="classhermes_1_1CacheStorageWith3Args" kindref="compound">CacheStorageWith3Args</ref>&lt; <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref>, <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref>, <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref>, <ref refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kindref="member">QDiffCrossSection</ref> &gt;</type>
+        <definition>typedef CacheStorageWith3Args&lt;QEnergy, QEnergy, QEnergy, QDiffCrossSection&gt; CacheStorageCrossSection3Args</definition>
+        <argsstring></argsstring>
+        <name>CacheStorageCrossSection3Args</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="239" column="5" bodyfile="include/hermes/CacheTools.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1gafc4b1fa31ba12760b259bc3097bc0699" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Grid2D" kindref="compound">Grid2D</ref>&lt; float &gt;</type>
+        <definition>typedef Grid2D&lt;float&gt; Scalar2DGrid</definition>
+        <argsstring></argsstring>
+        <name>Scalar2DGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="434" column="16" bodyfile="include/hermes/Grid.h" bodystart="434" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Grid" kindref="compound">Grid</ref>&lt; float &gt;</type>
+        <definition>typedef Grid&lt;float&gt; ScalarGrid</definition>
+        <argsstring></argsstring>
+        <name>ScalarGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="435" column="14" bodyfile="include/hermes/Grid.h" bodystart="435" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1gacd187b9035d7c5901ab464dc46951fc7" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Grid2D" kindref="compound">Grid2D</ref>&lt; <ref refid="namespacehermes_1_1units_1ad065263541ca8902f903e26e57dc33cf" kindref="member">QPDensityPerEnergy</ref> &gt;</type>
+        <definition>typedef Grid2D&lt;QPDensityPerEnergy&gt; ScalarGrid2DQPDensityPerEnergy</definition>
+        <argsstring></argsstring>
+        <name>ScalarGrid2DQPDensityPerEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="436" column="16" bodyfile="include/hermes/Grid.h" bodystart="436" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1ga091b39628a1f7124d75543714f843844" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Grid" kindref="compound">Grid</ref>&lt; <ref refid="namespacehermes_1_1units_1ad065263541ca8902f903e26e57dc33cf" kindref="member">QPDensityPerEnergy</ref> &gt;</type>
+        <definition>typedef Grid&lt;QPDensityPerEnergy&gt; ScalarGridQPDensityPerEnergy</definition>
+        <argsstring></argsstring>
+        <name>ScalarGridQPDensityPerEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="437" column="14" bodyfile="include/hermes/Grid.h" bodystart="437" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1ga4b91c7c5257383886e740336452f40ab" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Grid" kindref="compound">Grid</ref>&lt; <ref refid="group__Core_1gaf345ad77ba5e240c7ab72b4b2077e754" kindref="member">Vector3f</ref> &gt;</type>
+        <definition>typedef Grid&lt;Vector3f&gt; VectorGrid</definition>
+        <argsstring></argsstring>
+        <name>VectorGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="438" column="14" bodyfile="include/hermes/Grid.h" bodystart="438" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1gacd3b779f87b4de87e8289f36419b921a" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Grid" kindref="compound">Grid</ref>&lt; <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &gt;</type>
+        <definition>typedef Grid&lt;Vector3QLength&gt; VectorQLengthGrid</definition>
+        <argsstring></argsstring>
+        <name>VectorQLengthGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="439" column="14" bodyfile="include/hermes/Grid.h" bodystart="439" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1gae466bfccef775505ce0fc993bfed2f2b" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Grid" kindref="compound">Grid</ref>&lt; <ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref> &gt;</type>
+        <definition>typedef Grid&lt;Vector3QMField&gt; VectorQMFieldGrid</definition>
+        <argsstring></argsstring>
+        <name>VectorQMFieldGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="440" column="14" bodyfile="include/hermes/Grid.h" bodystart="440" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Integrators_1gad422d0160fa49004f7f72220d92aafc0" prot="public" static="no">
+        <type><ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1a6fadfde6ede5563e06f8a138b9842301" kindref="member">QDispersionMeasure</ref>, <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &gt;</type>
+        <definition>typedef IntegratorTemplate&lt;QDispersionMeasure, QNumber&gt; DispersionMeasureIntegratorTemplate</definition>
+        <argsstring></argsstring>
+        <name>DispersionMeasureIntegratorTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/DispersionMeasureIntegrator.h" line="18" column="5" bodyfile="include/hermes/integrators/DispersionMeasureIntegrator.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e" prot="public" static="no">
+        <type><ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref>, <ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref> &gt;</type>
+        <definition>typedef IntegratorTemplate&lt;QTemperature, QFrequency&gt; RadioIntegratorTemplate</definition>
+        <argsstring></argsstring>
+        <name>RadioIntegratorTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="107" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Integrators_1ga8e4aab0440286adb2c039146ba8f9fed" prot="public" static="no">
+        <type><ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" kindref="member">QDiffIntensity</ref>, <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &gt;</type>
+        <definition>typedef IntegratorTemplate&lt;QDiffIntensity, QEnergy&gt; GammaIntegratorTemplate</definition>
+        <argsstring></argsstring>
+        <name>GammaIntegratorTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="108" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971" prot="public" static="no">
+        <type><ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref>, <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &gt;</type>
+        <definition>typedef IntegratorTemplate&lt;QRotationMeasure, QNumber&gt; RotationMeasureIntegratorTemplate</definition>
+        <argsstring></argsstring>
+        <name>RotationMeasureIntegratorTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/RotationMeasureIntegrator.h" line="20" column="5" bodyfile="include/hermes/integrators/RotationMeasureIntegrator.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; double &gt;</type>
+        <definition>typedef Vector3&lt;double&gt; Vector3d</definition>
+        <argsstring></argsstring>
+        <name>Vector3d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="373" column="17" bodyfile="include/hermes/Vector3.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1gaf345ad77ba5e240c7ab72b4b2077e754" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; float &gt;</type>
+        <definition>typedef Vector3&lt;float&gt; Vector3f</definition>
+        <argsstring></argsstring>
+        <name>Vector3f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="374" column="17" bodyfile="include/hermes/Vector3.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1gadd65e2dc0cf047a5e27e5879ec68cd8f" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &gt;</type>
+        <definition>typedef Vector3Quantity&lt;QNumber&gt; Vector3QNumber</definition>
+        <argsstring></argsstring>
+        <name>Vector3QNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="342" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &gt;</type>
+        <definition>typedef Vector3Quantity&lt;QLength&gt; Vector3QLength</definition>
+        <argsstring></argsstring>
+        <name>Vector3QLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="343" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" prot="public" static="no">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; <ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref> &gt;</type>
+        <definition>typedef Vector3Quantity&lt;QMField&gt; Vector3QMField</definition>
+        <argsstring></argsstring>
+        <name>Vector3QMField</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="344" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacehermes_1af17f037ff39603cfe4208a43bfcfb8f6" prot="public" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double UNSEEN</definition>
+        <argsstring></argsstring>
+        <name>UNSEEN</name>
+        <initializer>= -1.6375e30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/HEALPixBits.h" line="12" column="21" bodyfile="include/hermes/HEALPixBits.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacehermes_1ae0e636b5119e31607138675be292cf2c" prot="public" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double X[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>X</name>
+        <initializer>= {.0950125098, .2816035507, .4580167776, .6178762444,
+                            .7554044083, .8656312023, .9445750230, .9894009349}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/LOSIntegrationMethods.h" line="68" column="21" bodyfile="include/hermes/integrators/LOSIntegrationMethods.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacehermes_1a43779031bbc6e102be279b8702c5eef5" prot="public" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double W[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>W</name>
+        <initializer>= {.1894506104, .1826034150, .1691565193, .1495959888,
+                            .1246289712, .0951585116, .0622535239, .0271524594}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/LOSIntegrationMethods.h" line="70" column="21" bodyfile="include/hermes/integrators/LOSIntegrationMethods.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacehermes_1adebadb30598d3cf64fe91485c3049ced" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int g_cancel_signal_flag</definition>
+        <argsstring></argsstring>
+        <name>g_cancel_signal_flag</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Signals.cpp" line="5" column="5" bodyfile="src/Signals.cpp" bodystart="5" bodyend="-1" declfile="include/hermes/Signals.h" declline="12" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacehermes_1a6534aea88ad941c2ee2ea1bffb759652" prot="public" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int MAX_THREAD</definition>
+        <argsstring></argsstring>
+        <name>MAX_THREAD</name>
+        <initializer>= 256</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Random.cpp" line="410" column="18" bodyfile="src/Random.cpp" bodystart="410" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacehermes_1a660441872cddfe877ad1c1b4cef8d164" prot="public" static="yes" mutable="no">
+        <type><ref refid="classhermes_1_1Random" kindref="compound">Random</ref></type>
+        <definition>Random _random</definition>
+        <argsstring></argsstring>
+        <name>_random</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Random.cpp" line="435" column="15" bodyfile="src/Random.cpp" bodystart="435" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacehermes_1a37e2cd252b4a28a1d125d638046dfdd6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void hermes::hash_combine</definition>
+        <argsstring>(std::size_t &amp;seed, const T &amp;v)</argsstring>
+        <name>hash_combine</name>
+        <param>
+          <type>std::size_t &amp;</type>
+          <declname>seed</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="25" column="13" bodyfile="include/hermes/CacheTools.h" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a012863a22000a2f0a01821cf7d3fc8c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getDataPath</definition>
+        <argsstring>(const std::string &amp;filename)</argsstring>
+        <name>getDataPath</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resolves a full path to data files </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="11" column="13" bodyfile="src/Common.cpp" bodystart="11" bodyend="51" declfile="include/hermes/Common.h" declline="21" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a8238e5ea84755ca291f5fe33eabc4e07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength hermes::distanceFromGC</definition>
+        <argsstring>(QDirection direction, QLength distanceFromSun, const Vector3QLength &amp;vecGCSun)</argsstring>
+        <name>distanceFromGC</name>
+        <param>
+          <type><ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref></type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>distanceFromSun</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>vecGCSun</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gives a distance from the galactic centre (GC) by providing the distance from the Sun and the direction (theta,phi) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Common.h" line="27" column="9" declfile="include/hermes/Common.h" declline="27" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a26cf6e5a6eb42fca7df65a4057f4c36d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength distanceToGalBorder</definition>
+        <argsstring>(const Vector3QLength &amp;positionSun, const QDirection &amp;direction, const QLength &amp;galacticBorder=30_kpc, const QLength &amp;zBorder=5_kpc)</argsstring>
+        <name>distanceToGalBorder</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>positionSun</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &amp;</type>
+          <declname>galacticBorder</declname>
+          <defval>30_kpc</defval>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &amp;</type>
+          <declname>zBorder</declname>
+          <defval>5_kpc</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gives a distance from an observer to the (spherical) galactic border in the given direction (law of cosines) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="70" column="9" bodyfile="src/Common.cpp" bodystart="70" bodyend="89" declfile="include/hermes/Common.h" declline="34" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1ade041a25f94a13ce9c3697d51b7f06b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref></type>
+        <definition>Vector3QLength getGalacticPosition</definition>
+        <argsstring>(const Vector3QLength &amp;posSun, const QLength &amp;dist, const QDirection &amp;dir)</argsstring>
+        <name>getGalacticPosition</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>posSun</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &amp;</type>
+          <declname>dist</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns XYZ position in the (right-handed) galacto-centric coordinate system by giving distance and direction from the observer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="91" column="16" bodyfile="src/Common.cpp" bodystart="91" bodyend="101" declfile="include/hermes/Common.h" declline="43" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a1564a0a913257b84fea302bb6f4984cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref></type>
+        <definition>QDirection toGalCoord</definition>
+        <argsstring>(const QDirection &amp;)</argsstring>
+        <name>toGalCoord</name>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <defname>d</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Conversion to/from Galactic coordinates from/to angles of spherical coordinate system (ISO) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="103" column="12" bodyfile="src/Common.cpp" bodystart="103" bodyend="105" declfile="include/hermes/Common.h" declline="50" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a6be8ab078bdc80be66f151ea9e1eaae1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref></type>
+        <definition>QDirection fromGalCoord</definition>
+        <argsstring>(const QDirection &amp;)</argsstring>
+        <name>fromGalCoord</name>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <defname>d</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="107" column="12" bodyfile="src/Common.cpp" bodystart="107" bodyend="109" declfile="include/hermes/Common.h" declline="51" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a2fac14165a26f3fcaf84bbed5460558f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isWithinAngle</definition>
+        <argsstring>(const QDirection &amp;a, const QDirection &amp;b, const QAngle &amp;d)</argsstring>
+        <name>isWithinAngle</name>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref> &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test if two directions are close one another, within d </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="53" column="6" bodyfile="src/Common.cpp" bodystart="53" bodyend="58" declfile="include/hermes/Common.h" declline="57" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a11111cff32514fdc9229ffa19445b358" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber getLorentzFactor</definition>
+        <argsstring>(const QMass &amp;m, const QEnergy &amp;E)</argsstring>
+        <name>getLorentzFactor</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59" kindref="member">QMass</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculate the Lorentz factor (gamma) from a particle mass and energy </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="111" column="9" bodyfile="src/Common.cpp" bodystart="111" bodyend="113" declfile="include/hermes/Common.h" declline="62" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a7caf30b5720f27d1b744a7c7eaa786a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
+        <definition>QTemperature intensityToTemperature</definition>
+        <argsstring>(const QIntensity &amp;intensity, const QFrequency &amp;freq)</argsstring>
+        <name>intensityToTemperature</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f" kindref="member">QIntensity</ref> &amp;</type>
+          <declname>intensity</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref> &amp;</type>
+          <declname>freq</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Intensity to temperature coversion </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="115" column="14" bodyfile="src/Common.cpp" bodystart="115" bodyend="118" declfile="include/hermes/Common.h" declline="67" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a2fc00b3aa62d6ff8390048c22edb4120" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int getThreadsNumber</definition>
+        <argsstring>()</argsstring>
+        <name>getThreadsNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns number of available system threads </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="120" column="14" bodyfile="src/Common.cpp" bodystart="120" bodyend="133" declfile="include/hermes/Common.h" declline="73" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1adacda698829badafef87b0b51e705043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>std::size_t getThreadId</definition>
+        <argsstring>()</argsstring>
+        <name>getThreadId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get thread ID </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="135" column="13" bodyfile="src/Common.cpp" bodystart="135" bodyend="137" declfile="include/hermes/Common.h" declline="78" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a0b8bf796a4d1bbefab10928fab4eae77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::pair&lt; unsigned int, unsigned int &gt; &gt;</type>
+        <definition>std::vector&lt; std::pair&lt; unsigned int, unsigned int &gt; &gt; getThreadChunks</definition>
+        <argsstring>(unsigned int queueSize)</argsstring>
+        <name>getThreadChunks</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>queueSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>For a given number of tasks, split them over available system threads; returns a vector of [start, stop&gt; pairs </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="139" column="13" bodyfile="src/Common.cpp" bodystart="139" bodyend="153" declfile="include/hermes/Common.h" declline="84" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1ae203a969f1d78336fd2b5192ab33b6b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::periodicClamp</definition>
+        <argsstring>(double x, int n, int &amp;lo, int &amp;hi)</argsstring>
+        <name>periodicClamp</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>lo</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>hi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lower and upper neighbor in a periodically continued unit grid </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="19" column="13" bodyfile="include/hermes/Grid.h" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1abab317364a3bcdd6418d633865ab073a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::reflectiveClamp</definition>
+        <argsstring>(double x, int n, int &amp;lo, int &amp;hi)</argsstring>
+        <name>reflectiveClamp</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>lo</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>hi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lower and upper neighbor in a reflectively repeated unit grid </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="25" column="13" bodyfile="include/hermes/Grid.h" bodystart="25" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a4f7c9d13ffa99db140577c98933bd926" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::round</definition>
+        <argsstring>(double r)</argsstring>
+        <name>round</name>
+        <param>
+          <type>double</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Symmetrical round </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Grid.h" line="32" column="15" bodyfile="include/hermes/Grid.h" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga933b649c5796ace1f70fd222262209c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1gaf345ad77ba5e240c7ab72b4b2077e754" kindref="member">Vector3f</ref></type>
+        <definition>Vector3f hermes::meanFieldVector</definition>
+        <argsstring>(std::unique_ptr&lt; VectorGrid &gt; grid)</argsstring>
+        <name>meanFieldVector</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluate the mean vector of all grid points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="31" column="10" declfile="include/hermes/GridTools.h" declline="31" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1gaa43bf974e4480af550b7cd3392c83ee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::meanFieldStrength</definition>
+        <argsstring>(std::unique_ptr&lt; ScalarGrid &gt; grid)</argsstring>
+        <name>meanFieldStrength</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluate the mean of all grid points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="34" column="8" declfile="include/hermes/GridTools.h" declline="34" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga1072f274a7e4eb62bddbea8799b80f58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::meanFieldStrength</definition>
+        <argsstring>(std::unique_ptr&lt; VectorGrid &gt; grid)</argsstring>
+        <name>meanFieldStrength</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluate the mean of all grid points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="36" column="8" declfile="include/hermes/GridTools.h" declline="36" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga009d2e8b110b6af0083f230fadca2a7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::rmsFieldStrength</definition>
+        <argsstring>(std::unique_ptr&lt; ScalarGrid &gt; grid)</argsstring>
+        <name>rmsFieldStrength</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluate the RMS of all grid points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="39" column="8" declfile="include/hermes/GridTools.h" declline="39" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1gaf5f58beb01b5500088ddeef6b3b2f35b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::rmsFieldStrength</definition>
+        <argsstring>(std::unique_ptr&lt; VectorGrid &gt; grid)</argsstring>
+        <name>rmsFieldStrength</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluate the RMS of all grid points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="41" column="8" declfile="include/hermes/GridTools.h" declline="41" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga6aaaae4f6c0ce2a7ab5fcf34da276bb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::scaleGrid</definition>
+        <argsstring>(std::unique_ptr&lt; ScalarGrid &gt; grid, double a)</argsstring>
+        <name>scaleGrid</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Multiply all grid values by a given factor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="44" column="6" declfile="include/hermes/GridTools.h" declline="44" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga23391a00178d0e36e9dd7f035fd96286" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::scaleGrid</definition>
+        <argsstring>(std::unique_ptr&lt; VectorGrid &gt; grid, double a)</argsstring>
+        <name>scaleGrid</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Multiply all grid values by a given factor </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="46" column="6" declfile="include/hermes/GridTools.h" declline="46" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga07e7a722b04a8f34e68964286b7fb8df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initTurbulence</definition>
+        <argsstring>(std::shared_ptr&lt; VectorGrid &gt; grid, double Brms, double lMin, double lMax, double alpha=-11./3., int seed=0, bool helicity=false, double H=0)</argsstring>
+        <name>initTurbulence</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Brms</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lMin</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lMax</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha</declname>
+          <defval>-11./3.</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>seed</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>helicity</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>H</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a random initialization of a turbulent field. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lMin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minimum wavelength of the turbulence </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lMax</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum wavelength of the turbulence </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>alpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Power law index of &lt;B^2(k)&gt; ~ k^alpha (alpha = -11/3 corresponds to a Kolmogorov spectrum) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Brms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RMS field strength </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>seed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classhermes_1_1Random" kindref="compound">Random</ref> seed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>helicity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Turn on/off helicity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>H</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>helicity parameter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="86" column="6" bodyfile="src/GridTools.cpp" bodystart="86" bodyend="279" declfile="include/hermes/GridTools.h" declline="60" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga79636b9ebe8a83dbdd16a895c7a1e316" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double turbulentCorrelationLength</definition>
+        <argsstring>(double lMin, double lMax, double alpha=(-11./3.))</argsstring>
+        <name>turbulentCorrelationLength</name>
+        <param>
+          <type>double</type>
+          <declname>lMin</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lMax</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha</declname>
+          <defval>(-11./3.)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Analytically calculate the correlation length of a turbulent field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="323" column="8" bodyfile="src/GridTools.cpp" bodystart="323" bodyend="328" declfile="include/hermes/GridTools.h" declline="66" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga1740d95e0ab1f964666d31420c992cbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::fromMagneticField</definition>
+        <argsstring>(std::unique_ptr&lt; VectorGrid &gt; grid, std::unique_ptr&lt; magneticfields::MagneticField &gt; field)</argsstring>
+        <name>fromMagneticField</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">magneticfields::MagneticField</ref> &gt;</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fill vector grid from provided magnetic field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="70" column="6" declfile="include/hermes/GridTools.h" declline="70" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga9f6061fd165e820213917be52553f853" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::fromMagneticFieldStrength</definition>
+        <argsstring>(std::unique_ptr&lt; ScalarGrid &gt; grid, std::unique_ptr&lt; magneticfields::MagneticField &gt; field)</argsstring>
+        <name>fromMagneticFieldStrength</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">magneticfields::MagneticField</ref> &gt;</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fill scalar grid from provided magnetic field </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="74" column="6" declfile="include/hermes/GridTools.h" declline="74" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga81f7140150a08f94cf6e8be25fbcb300" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::loadGrid</definition>
+        <argsstring>(std::unique_ptr&lt; VectorGrid &gt; grid, std::string filename, double conversion=1)</argsstring>
+        <name>loadGrid</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>conversion</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load a VectorGrid from a binary file with single precision </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="79" column="6" declfile="include/hermes/GridTools.h" declline="79" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1gaad98beffee251f22831b72cb591a0c95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::loadGrid</definition>
+        <argsstring>(std::unique_ptr&lt; ScalarGrid &gt; grid, std::string filename, double conversion=1)</argsstring>
+        <name>loadGrid</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>conversion</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load a ScalarGrid from a binary file with single precision </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="83" column="6" declfile="include/hermes/GridTools.h" declline="83" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1gabc931910e8c034ccaec9fe10dcc37e0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::dumpGrid</definition>
+        <argsstring>(std::unique_ptr&lt; VectorGrid &gt; grid, std::string filename, double conversion=1)</argsstring>
+        <name>dumpGrid</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>conversion</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dump a VectorGrid to a binary file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="87" column="6" declfile="include/hermes/GridTools.h" declline="87" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1gaa523e8e1f4238bc94aeb41646356cd4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::dumpGrid</definition>
+        <argsstring>(std::unique_ptr&lt; ScalarGrid &gt; grid, std::string filename, double conversion=1)</argsstring>
+        <name>dumpGrid</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>conversion</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dump a ScalarGrid to a binary file with single precision </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="91" column="6" declfile="include/hermes/GridTools.h" declline="91" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga4005328a48e1f0a728532ab660b2edd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::loadGridFromTxt</definition>
+        <argsstring>(std::unique_ptr&lt; VectorGrid &gt; grid, std::string filename, double conversion=1)</argsstring>
+        <name>loadGridFromTxt</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>conversion</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load a VectorGrid grid from a plain text file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="95" column="6" declfile="include/hermes/GridTools.h" declline="95" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga83cfe70c254a50f105eb7643d98294ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::loadGridFromTxt</definition>
+        <argsstring>(std::unique_ptr&lt; ScalarGrid &gt; grid, std::string filename, double conversion=1)</argsstring>
+        <name>loadGridFromTxt</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>conversion</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Load a ScalarGrid from a plain text file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="99" column="6" declfile="include/hermes/GridTools.h" declline="99" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga64e88565f0514de2c1ba9c1bbc7a7091" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::dumpGridToTxt</definition>
+        <argsstring>(std::unique_ptr&lt; VectorGrid &gt; grid, std::string filename, double conversion=1)</argsstring>
+        <name>dumpGridToTxt</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>conversion</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dump a VectorGrid to a plain text file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="103" column="6" declfile="include/hermes/GridTools.h" declline="103" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga0d1d3dde27f81f2dba1001549f29fa09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::dumpGridToTxt</definition>
+        <argsstring>(std::unique_ptr&lt; ScalarGrid &gt; grid, std::string filename, double conversion=1)</argsstring>
+        <name>dumpGridToTxt</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>conversion</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dump a ScalarGrid to a plain text file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/GridTools.h" line="107" column="6" declfile="include/hermes/GridTools.h" declline="107" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a45b99e0ca17bd99e0c8fded860f86d69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int log2</definition>
+        <argsstring>(unsigned int x)</argsstring>
+        <name>log2</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/HEALPixBits.cpp" line="18" column="14" bodyfile="src/HEALPixBits.cpp" bodystart="18" bodyend="22" declfile="include/hermes/HEALPixBits.h" declline="14" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a25b2e7fa94f0fd4e105db8a20680c056" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long nside2order</definition>
+        <argsstring>(unsigned int nside)</argsstring>
+        <name>nside2order</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>nside</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/HEALPixBits.cpp" line="24" column="13" bodyfile="src/HEALPixBits.cpp" bodystart="24" bodyend="26" declfile="include/hermes/HEALPixBits.h" declline="17" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1af3dd2ca8dc8acd57a6dd923a085ea9cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int nside2npix</definition>
+        <argsstring>(unsigned int nside)</argsstring>
+        <name>nside2npix</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>nside</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/HEALPixBits.cpp" line="7" column="14" bodyfile="src/HEALPixBits.cpp" bodystart="7" bodyend="7" declfile="include/hermes/HEALPixBits.h" declline="18" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a09f25fdd0b7fcfa44a364e4f18c2aaba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref></type>
+        <definition>QDirection pix2ang_ring</definition>
+        <argsstring>(unsigned int nside, unsigned int ipix)</argsstring>
+        <name>pix2ang_ring</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>nside</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>ipix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>South Polar cap</para>
+<para>South Polar cap</para>
+        </inbodydescription>
+        <location file="src/HEALPixBits.cpp" line="37" column="12" bodyfile="src/HEALPixBits.cpp" bodystart="37" bodyend="106" declfile="include/hermes/HEALPixBits.h" declline="19" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1adca7018746886af2b19439d66a07f152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ang2pix_ring</definition>
+        <argsstring>(unsigned int nside, const QDirection &amp;thetaphi)</argsstring>
+        <name>ang2pix_ring</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>nside</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>thetaphi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/HEALPixBits.cpp" line="28" column="14" bodyfile="src/HEALPixBits.cpp" bodystart="28" bodyend="35" declfile="include/hermes/HEALPixBits.h" declline="20" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1aeda6358b7ac7eac3abac2bfaa564e516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int loc2pix</definition>
+        <argsstring>(unsigned int nside, double z, double phi, double sth, bool have_sth)</argsstring>
+        <name>loc2pix</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>nside</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>phi</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>sth</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>have_sth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/HEALPixBits.cpp" line="108" column="14" bodyfile="src/HEALPixBits.cpp" bodystart="108" bodyend="159" declfile="include/hermes/HEALPixBits.h" declline="21" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a0b024770c7b8223e7c0dccdb963ee00d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename QPXL</type>
+          </param>
+          <param>
+            <type>typename INTTYPE</type>
+          </param>
+        </templateparamlist>
+        <type>QPXL</type>
+        <definition>QPXL hermes::sumIntegration</definition>
+        <argsstring>(std::function&lt; INTTYPE(QLength)&gt; f, QLength start, QLength stop, int N=100)</argsstring>
+        <name>sumIntegration</name>
+        <param>
+          <type>std::function&lt; INTTYPE(<ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref>)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/LOSIntegrationMethods.h" line="21" column="6" bodyfile="include/hermes/integrators/LOSIntegrationMethods.h" bodystart="21" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a8c0de8a27b286d7ff866a548f109eec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename QPXL</type>
+          </param>
+          <param>
+            <type>typename INTTYPE</type>
+          </param>
+        </templateparamlist>
+        <type>QPXL</type>
+        <definition>QPXL hermes::trapesoidIntegration</definition>
+        <argsstring>(std::function&lt; INTTYPE(QLength)&gt; f, QLength start, QLength stop, int N=100)</argsstring>
+        <name>trapesoidIntegration</name>
+        <param>
+          <type>std::function&lt; INTTYPE(<ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref>)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/LOSIntegrationMethods.h" line="34" column="6" bodyfile="include/hermes/integrators/LOSIntegrationMethods.h" bodystart="34" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a8dcd138f7d4bb7e288aed9a83dcde085" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename QPXL</type>
+          </param>
+          <param>
+            <type>typename INTTYPE</type>
+          </param>
+        </templateparamlist>
+        <type>QPXL</type>
+        <definition>QPXL hermes::simpsonIntegration</definition>
+        <argsstring>(std::function&lt; INTTYPE(QLength)&gt; f, QLength start, QLength stop, int N=100)</argsstring>
+        <name>simpsonIntegration</name>
+        <param>
+          <type>std::function&lt; INTTYPE(<ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref>)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/LOSIntegrationMethods.h" line="47" column="6" bodyfile="include/hermes/integrators/LOSIntegrationMethods.h" bodystart="47" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1adbf18fd724ac960936e5c18aa514be51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename QPXL</type>
+          </param>
+          <param>
+            <type>typename INTTYPE</type>
+          </param>
+        </templateparamlist>
+        <type>QPXL</type>
+        <definition>QPXL hermes::gaussIntegration</definition>
+        <argsstring>(std::function&lt; INTTYPE(QLength)&gt; f, QLength start, QLength stop, int N=1)</argsstring>
+        <name>gaussIntegration</name>
+        <param>
+          <type>std::function&lt; INTTYPE(<ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref>)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/LOSIntegrationMethods.h" line="74" column="6" bodyfile="include/hermes/integrators/LOSIntegrationMethods.h" bodystart="74" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1afdfd885920354390af16e7fee90d932b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename QPXL</type>
+          </param>
+          <param>
+            <type>typename INTTYPE</type>
+          </param>
+        </templateparamlist>
+        <type>QPXL</type>
+        <definition>QPXL hermes::gslQAGIntegration</definition>
+        <argsstring>(std::function&lt; INTTYPE(QLength)&gt; f, QLength start, QLength stop, int N)</argsstring>
+        <name>gslQAGIntegration</name>
+        <param>
+          <type>std::function&lt; INTTYPE(<ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref>)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/LOSIntegrationMethods.h" line="87" column="6" bodyfile="include/hermes/integrators/LOSIntegrationMethods.h" bodystart="87" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1ab7a86100c4f5cf732eb45bfc20ad2c4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename QPXL</type>
+          </param>
+          <param>
+            <type>typename INTTYPE</type>
+          </param>
+        </templateparamlist>
+        <type>QPXL</type>
+        <definition>QPXL hermes::gslQAGSIntegration</definition>
+        <argsstring>(std::function&lt; INTTYPE(QLength)&gt; f, QLength start, QLength stop, int N)</argsstring>
+        <name>gslQAGSIntegration</name>
+        <param>
+          <type>std::function&lt; INTTYPE(<ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref>)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/LOSIntegrationMethods.h" line="114" column="6" bodyfile="include/hermes/integrators/LOSIntegrationMethods.h" bodystart="114" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1aab83269110d53cbcf531a12843ffdf73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename QPXL</type>
+          </param>
+          <param>
+            <type>typename INTTYPE</type>
+          </param>
+        </templateparamlist>
+        <type>QPXL</type>
+        <definition>QPXL hermes::adaptiveSimpsonIntegration</definition>
+        <argsstring>(std::function&lt; INTTYPE(QLength)&gt; f, QLength start, QLength stop, QPXL tolerance, int N=30)</argsstring>
+        <name>adaptiveSimpsonIntegration</name>
+        <param>
+          <type>std::function&lt; INTTYPE(<ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref>)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>stop</declname>
+        </param>
+        <param>
+          <type>QPXL</type>
+          <declname>tolerance</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/LOSIntegrationMethods.h" line="140" column="6" bodyfile="include/hermes/integrators/LOSIntegrationMethods.h" bodystart="140" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1adaf6926e294f6daf14fbba1cc4deb1bd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref></type>
+        <definition>static const PID hermes::Electron</definition>
+        <argsstring>(-1, 0)</argsstring>
+        <name>Electron</name>
+        <param>
+          <type>-</type>
+          <declname>1</declname>
+        </param>
+        <param>
+          <type>0</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="37" column="18" declfile="include/hermes/ParticleID.h" declline="37" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a9e61c36ffdfdb5b700b0ac6d7ab2b597" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref></type>
+        <definition>static const PID hermes::Positron</definition>
+        <argsstring>(1, 0)</argsstring>
+        <name>Positron</name>
+        <param>
+          <type>1</type>
+        </param>
+        <param>
+          <type>0</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="38" column="18" declfile="include/hermes/ParticleID.h" declline="38" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1ae5ef77c9a3c00d7d047f0b56dbb38b0a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref></type>
+        <definition>static const PID hermes::Proton</definition>
+        <argsstring>(1, 1)</argsstring>
+        <name>Proton</name>
+        <param>
+          <type>1</type>
+        </param>
+        <param>
+          <type>1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="39" column="18" declfile="include/hermes/ParticleID.h" declline="39" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a057073daf498666646a7f6025f3d6da0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref></type>
+        <definition>static const PID hermes::Helium</definition>
+        <argsstring>(2, 4)</argsstring>
+        <name>Helium</name>
+        <param>
+          <type>2</type>
+        </param>
+        <param>
+          <type>4</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/ParticleID.h" line="40" column="18" declfile="include/hermes/ParticleID.h" declline="40" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a18aa87dcffccbb8c736f92ed737bd0b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void g_cancel_signal_callback</definition>
+        <argsstring>(int sig)</argsstring>
+        <name>g_cancel_signal_callback</name>
+        <param>
+          <type>int</type>
+          <declname>sig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Signals.cpp" line="7" column="6" bodyfile="src/Signals.cpp" bodystart="7" bodyend="11" declfile="include/hermes/Signals.h" declline="13" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga9f02e42d4bd23be5470ca1b7803226ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; hermes::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out, const Vector3&lt; T &gt; &amp;v)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="356" column="8" bodyfile="include/hermes/Vector3.h" bodystart="356" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga3e247485bc0464886a88331f7a75a705" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; hermes::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;in, Vector3&lt; T &gt; &amp;v)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="362" column="21" bodyfile="include/hermes/Vector3.h" bodystart="362" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1gacfbea51a420cdfdd343b9fec0fe7d301" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; hermes::operator*</definition>
+        <argsstring>(T f, const Vector3&lt; T &gt; &amp;v)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>T</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="369" column="16" bodyfile="include/hermes/Vector3.h" bodystart="369" bodyend="371"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1gae75dab5b04f7983e5fca74359e452597" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename Q</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; Q &gt;</type>
+        <definition>Vector3Quantity&lt;Q&gt; hermes::operator*</definition>
+        <argsstring>(const Vector3Quantity&lt; Q &gt; &amp;q, const Vector3&lt; T &gt; &amp;v)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; Q &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="316" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="316" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1gad744b0b61f9f9d3c010bb33b7fc66517" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename Q</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; Q &gt;</type>
+        <definition>Vector3Quantity&lt;Q&gt; hermes::operator*</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v, const Vector3Quantity&lt; Q &gt; &amp;q)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; Q &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="321" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="321" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga3885df4723d99c2f118f9cce136beb61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename Q</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; Q &gt;</type>
+        <definition>Vector3Quantity&lt;Q&gt; hermes::operator*</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v, const Q q)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const Q</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="327" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="327" bodyend="329"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1gac0738d2887b147eee1100671e7b5be2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Q</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; Q &gt;</type>
+        <definition>Vector3Quantity&lt;Q&gt; hermes::operator*</definition>
+        <argsstring>(const Vector3Quantity&lt; Q &gt; &amp;q, const double a)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; Q &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="331" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="331" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga4f33e9180938be7d97bc55d0e0dd2930" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Q</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; Q &gt;</type>
+        <definition>Vector3Quantity&lt;Q&gt; hermes::operator*</definition>
+        <argsstring>(const Vector3Quantity&lt; Q &gt; &amp;q, const QNumber &amp;a)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; Q &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="337" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="337" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Core_1ga92f2fdfa289f52d0f0d6bb7e516c183f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField hermes::operator*</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;q, const QMField &amp;a)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="347" column="23" bodyfile="include/hermes/Vector3Quantity.h" bodystart="347" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1aefeac1d50b6dfe2bafea892a9c560370" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength hermes::distanceFromGC</definition>
+        <argsstring>(const QDirection &amp;direction, const QLength &amp;distanceFromSun, const Vector3QLength &amp;vecGCSun)</argsstring>
+        <name>distanceFromGC</name>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &amp;</type>
+          <declname>distanceFromSun</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>vecGCSun</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Common.cpp" line="60" column="9" bodyfile="src/Common.cpp" bodystart="60" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1accb4708c6655cfec82210306631ea767" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::scaleGrid</definition>
+        <argsstring>(const std::shared_ptr&lt; ScalarGrid &gt; &amp;grid, double a)</argsstring>
+        <name>scaleGrid</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="12" column="6" bodyfile="src/GridTools.cpp" bodystart="12" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a6f6f87a91c7024fbff73febe3aefba57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::scaleGrid</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid, double a)</argsstring>
+        <name>scaleGrid</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="19" column="6" bodyfile="src/GridTools.cpp" bodystart="19" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a51ffa818467a42da1ac66fc0a685f92e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1gaf345ad77ba5e240c7ab72b4b2077e754" kindref="member">Vector3f</ref></type>
+        <definition>Vector3f hermes::meanFieldVector</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid)</argsstring>
+        <name>meanFieldVector</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="26" column="10" bodyfile="src/GridTools.cpp" bodystart="26" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1aa2849fe086560a48e414778b731e1f8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::meanFieldStrength</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid)</argsstring>
+        <name>meanFieldStrength</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="37" column="8" bodyfile="src/GridTools.cpp" bodystart="37" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1adf7f8c2cc9782fda8053ded628825aef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::meanFieldStrength</definition>
+        <argsstring>(const std::shared_ptr&lt; ScalarGrid &gt; &amp;grid)</argsstring>
+        <name>meanFieldStrength</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="49" column="8" bodyfile="src/GridTools.cpp" bodystart="49" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a1eb9dca3e91995daf5b50bcbc0e6c8f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::rmsFieldStrength</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid)</argsstring>
+        <name>rmsFieldStrength</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="60" column="8" bodyfile="src/GridTools.cpp" bodystart="60" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1ae284fd34aa7b5048eceaec5309a5b0a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::rmsFieldStrength</definition>
+        <argsstring>(const std::shared_ptr&lt; ScalarGrid &gt; &amp;grid)</argsstring>
+        <name>rmsFieldStrength</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="72" column="8" bodyfile="src/GridTools.cpp" bodystart="72" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a3aff1a45fe5aa42baf22b3b4f16f741f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::fromMagneticField</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid, const std::shared_ptr&lt; magneticfields::MagneticField &gt; &amp;field)</argsstring>
+        <name>fromMagneticField</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">magneticfields::MagneticField</ref> &gt; &amp;</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="282" column="6" bodyfile="src/GridTools.cpp" bodystart="282" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1aa235c1aea73c85a3e08fffc29f420b3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::fromMagneticFieldStrength</definition>
+        <argsstring>(const std::shared_ptr&lt; ScalarGrid &gt; &amp;grid, const std::shared_ptr&lt; magneticfields::MagneticField &gt; &amp;field)</argsstring>
+        <name>fromMagneticFieldStrength</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">magneticfields::MagneticField</ref> &gt; &amp;</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="302" column="6" bodyfile="src/GridTools.cpp" bodystart="302" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a2f32ac35602b79e985748f98b98ce469" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::loadGrid</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid, const std::string &amp;filename, double c)</argsstring>
+        <name>loadGrid</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="330" column="6" bodyfile="src/GridTools.cpp" bodystart="330" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a13d27e88127e77eb32d30c2a560758c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::loadGrid</definition>
+        <argsstring>(const std::shared_ptr&lt; ScalarGrid &gt; &amp;grid, const std::string &amp;filename, double c)</argsstring>
+        <name>loadGrid</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="365" column="6" bodyfile="src/GridTools.cpp" bodystart="365" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1adbace0895ffceceba9f7e835c50729e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::dumpGrid</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid, const std::string &amp;filename, double c)</argsstring>
+        <name>dumpGrid</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="398" column="6" bodyfile="src/GridTools.cpp" bodystart="398" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a11f622cfa477f5d94f5cedd52a5d6ac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::dumpGrid</definition>
+        <argsstring>(const std::shared_ptr&lt; ScalarGrid &gt; &amp;grid, const std::string &amp;filename, double c)</argsstring>
+        <name>dumpGrid</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="419" column="6" bodyfile="src/GridTools.cpp" bodystart="419" bodyend="436"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a39ed770566ff62dfc1c3e8e67e1142f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::loadGridFromTxt</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid, const std::string &amp;filename, double c)</argsstring>
+        <name>loadGridFromTxt</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="438" column="6" bodyfile="src/GridTools.cpp" bodystart="438" bodyend="462"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a2212b9d5e1b590af49b7470f34ea4b03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::loadGridFromTxt</definition>
+        <argsstring>(const std::shared_ptr&lt; ScalarGrid &gt; &amp;grid, const std::string &amp;filename, double c)</argsstring>
+        <name>loadGridFromTxt</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="464" column="6" bodyfile="src/GridTools.cpp" bodystart="464" bodyend="488"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1aa72d8a7d7169c7140afb5574140b40bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::dumpGridToTxt</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid, const std::string &amp;filename, double c)</argsstring>
+        <name>dumpGridToTxt</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="490" column="6" bodyfile="src/GridTools.cpp" bodystart="490" bodyend="507"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a002ec613d1cbae33f809a462a3b1bad2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hermes::dumpGridToTxt</definition>
+        <argsstring>(const std::shared_ptr&lt; ScalarGrid &gt; &amp;grid, const std::string &amp;filename, double c)</argsstring>
+        <name>dumpGridToTxt</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/GridTools.cpp" line="509" column="6" bodyfile="src/GridTools.cpp" bodystart="509" bodyend="526"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1aea7081362703f3c323f5b783ba23c282" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double hermes::fmodulo</definition>
+        <argsstring>(double v1, double v2)</argsstring>
+        <name>fmodulo</name>
+        <param>
+          <type>double</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>v2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the remainder of the division <emphasis>v1/v2</emphasis>. The result is non-negative. <emphasis>v1</emphasis> can be positive or negative; <emphasis>v2</emphasis> must be positive. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/HEALPixBits.cpp" line="12" column="15" bodyfile="src/HEALPixBits.cpp" bodystart="12" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1ae3fa6e6b0d54e1dbb1a768a266e4649b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; hermes::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const Random &amp;mtrand)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random" kindref="compound">Random</ref> &amp;</type>
+          <declname>mtrand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Random.cpp" line="385" column="1" bodyfile="src/Random.cpp" bodystart="385" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a74c291278f81519f2153f730ffacd360" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; hermes::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, Random &amp;mtrand)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classhermes_1_1Random" kindref="compound">Random</ref> &amp;</type>
+          <declname>mtrand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Random.cpp" line="393" column="14" bodyfile="src/Random.cpp" bodystart="393" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1ab48f80ec6a4725ec9387e1dab8c08da7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hermes::__declspec</definition>
+        <argsstring>(align(64)) static RANDOM_TLS_ITEM _tls[MAX_THREAD]</argsstring>
+        <name>__declspec</name>
+        <param>
+          <type>align(64)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Random.cpp" line="418" column="1" declfile="src/Random.cpp" declline="418" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacehermes_1a8595384c9be525c15b4d15a2b66b385f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hermes::__attribute__</definition>
+        <argsstring>((aligned(64))) static RANDOM_TLS_ITEM _tls[MAX_THREAD]</argsstring>
+        <name>__attribute__</name>
+        <param>
+          <type>(aligned(64))</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Random.cpp" line="420" column="1" declfile="src/Random.cpp" declline="420" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/CacheTools.h" line="17" column="16"/>
+  </compounddef>
+</doxygen>

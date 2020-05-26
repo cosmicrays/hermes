@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1Gum" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::Gum</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Gum_1a361f19f35fe422d078c30ae5f6aa03c7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Kgn</definition>
+        <argsstring></argsstring>
+        <name>Kgn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="208" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Gum_1ad1b8ad82ab27876e64f65b043e450fe1" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ngn</definition>
+        <argsstring></argsstring>
+        <name>ngn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="209" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Gum_1a9e966c510c4c95b459aea7cee56519b4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Wgn</definition>
+        <argsstring></argsstring>
+        <name>Wgn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="210" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Gum_1a04beeda23195dfbe77fdc676bb890ebe" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Agn</definition>
+        <argsstring></argsstring>
+        <name>Agn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="211" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="207" column="10" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="207" bodyend="212"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Gum_1a04beeda23195dfbe77fdc676bb890ebe" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Gum</scope><name>Agn</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Gum_1a361f19f35fe422d078c30ae5f6aa03c7" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Gum</scope><name>Kgn</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Gum_1ad1b8ad82ab27876e64f65b043e450fe1" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Gum</scope><name>ngn</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Gum_1a9e966c510c4c95b459aea7cee56519b4" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Gum</scope><name>Wgn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid" kind="class" language="C++" prot="public">
+    <compoundname>hermes::magneticfields::ModulatedMagneticFieldGrid</compoundname>
+    <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
+    <includes refid="MagneticFieldGrid_8h" local="no">include/hermes/magneticfields/MagneticFieldGrid.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a63b7faa1452d56c93a009b097e89f7e1" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;VectorGrid&gt; grid</definition>
+        <argsstring></argsstring>
+        <name>grid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="40" column="17" bodyfile="include/hermes/magneticfields/MagneticFieldGrid.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a03643ceece1aa17281173004a4caf164" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;ScalarGrid&gt; modGrid</definition>
+        <argsstring></argsstring>
+        <name>modGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="41" column="17" bodyfile="include/hermes/magneticfields/MagneticFieldGrid.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1ada6810830daa243850ae99688f4fbfa7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ModulatedMagneticFieldGrid</definition>
+        <argsstring>()</argsstring>
+        <name>ModulatedMagneticFieldGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="44" column="1" bodyfile="include/hermes/magneticfields/MagneticFieldGrid.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1afb87ca0c381b9a481989f119df476397" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ModulatedMagneticFieldGrid</definition>
+        <argsstring>(const std::shared_ptr&lt; VectorGrid &gt; &amp;grid, const std::shared_ptr&lt; ScalarGrid &gt; &amp;modGrid)</argsstring>
+        <name>ModulatedMagneticFieldGrid</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt; &amp;</type>
+          <declname>grid</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt; &amp;</type>
+          <declname>modGrid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="45" column="1" bodyfile="src/magneticfields/MagneticFieldGrid.cpp" bodystart="21" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1ab693d29906584a153e64d91eb9601122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setGrid</definition>
+        <argsstring>(std::shared_ptr&lt; VectorGrid &gt; grid)</argsstring>
+        <name>setGrid</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="47" column="6" bodyfile="src/magneticfields/MagneticFieldGrid.cpp" bodystart="30" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a369e9f547b1e1b949cf3afde39ec78b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setModulationGrid</definition>
+        <argsstring>(std::shared_ptr&lt; ScalarGrid &gt; modGrid)</argsstring>
+        <name>setModulationGrid</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>modGrid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="48" column="6" bodyfile="src/magneticfields/MagneticFieldGrid.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a82ca4b62d2204b290ff76556e41edd50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; VectorGrid &gt; getGrid</definition>
+        <argsstring>()</argsstring>
+        <name>getGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="49" column="17" bodyfile="src/magneticfields/MagneticFieldGrid.cpp" bodystart="34" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1aea176638a4181bacf03ac6816a340a4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; ScalarGrid &gt; getModulationGrid</definition>
+        <argsstring>()</argsstring>
+        <name>getModulationGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="50" column="17" bodyfile="src/magneticfields/MagneticFieldGrid.cpp" bodystart="43" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a97a1318bcec16d20191d9467ea4b708a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setReflective</definition>
+        <argsstring>(bool gridReflective, bool modGridReflective)</argsstring>
+        <name>setReflective</name>
+        <param>
+          <type>bool</type>
+          <declname>gridReflective</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>modGridReflective</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="51" column="6" bodyfile="src/magneticfields/MagneticFieldGrid.cpp" bodystart="47" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1aecbe60d2b34da88e8aa2a0872b904d38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref></type>
+        <definition>Vector3d getField</definition>
+        <argsstring>(const Vector3d &amp;position) const</argsstring>
+        <name>getField</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="52" column="10" bodyfile="src/magneticfields/MagneticFieldGrid.cpp" bodystart="53" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>virtual Vector3QMField getField</definition>
+        <argsstring>(const Vector3QLength &amp;position) const</argsstring>
+        <name>getField</name>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1WMAP07Field_1ac0dae9109932406f2020365815e0de79">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1PT11Field_1ac0dae9109932406f2020365815e0de79">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1Sun08Field_1ac0dae9109932406f2020365815e0de79">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1JF12Field_1ac0dae9109932406f2020365815e0de79">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1MagneticFieldList_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1UniformMagneticField_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c">getField</reimplementedby>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="27" column="24" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="27" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Modulated magnetic field on a periodic grid. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class wraps a VectorGrid to serve as a <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">MagneticField</ref>. The field is modulated on-the-fly with a ScalarGrid. The VectorGrid and ScalarGrid do not need to share the same origin, spacing or size. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ModulatedMagneticFieldGrid</label>
+        <link refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ModulatedMagneticFieldGrid</label>
+        <link refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/magneticfields/MagneticFieldGrid.h" line="39" column="54" bodyfile="include/hermes/magneticfields/MagneticFieldGrid.h" bodystart="39" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1aecbe60d2b34da88e8aa2a0872b904d38" prot="public" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe" prot="public" virt="virtual" ambiguityscope="hermes::magneticfields::MagneticField::"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a82ca4b62d2204b290ff76556e41edd50" prot="public" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>getGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1aea176638a4181bacf03ac6816a340a4c" prot="public" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>getModulationGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a63b7faa1452d56c93a009b097e89f7e1" prot="private" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>grid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a03643ceece1aa17281173004a4caf164" prot="private" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>modGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1ada6810830daa243850ae99688f4fbfa7" prot="public" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>ModulatedMagneticFieldGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1afb87ca0c381b9a481989f119df476397" prot="public" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>ModulatedMagneticFieldGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1ab693d29906584a153e64d91eb9601122" prot="public" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>setGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a369e9f547b1e1b949cf3afde39ec78b1" prot="public" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>setModulationGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1a97a1318bcec16d20191d9467ea4b708a" prot="public" virt="non-virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>setReflective</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" virt="virtual"><scope>hermes::magneticfields::ModulatedMagneticFieldGrid</scope><name>~MagneticField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

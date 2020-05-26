@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacehermes_1_1interactions" kind="namespace" language="C++">
+    <compoundname>hermes::interactions</compoundname>
+    <innerclass refid="classhermes_1_1interactions_1_1BreitWheeler" prot="public">hermes::interactions::BreitWheeler</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract" prot="public">hermes::interactions::BremsstrahlungAbstract</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP" prot="public">hermes::interactions::BremsstrahlungGALPROP</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1BremsstrahlungTsai74" prot="public">hermes::interactions::BremsstrahlungTsai74</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1DifferentialCrossSection" prot="public">hermes::interactions::DifferentialCrossSection</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1DummyCrossSection" prot="public">hermes::interactions::DummyCrossSection</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1Kamae06Gamma" prot="public">hermes::interactions::Kamae06Gamma</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1Kamae06Neutrino" prot="public">hermes::interactions::Kamae06Neutrino</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1KelnerAharonianGamma" prot="public">hermes::interactions::KelnerAharonianGamma</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1KelnerAharonianNeutrino" prot="public">hermes::interactions::KelnerAharonianNeutrino</innerclass>
+    <innerclass refid="classhermes_1_1interactions_1_1KleinNishina" prot="public">hermes::interactions::KleinNishina</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/interactions/BreitWheeler.h" line="8" column="37"/>
+  </compounddef>
+</doxygen>

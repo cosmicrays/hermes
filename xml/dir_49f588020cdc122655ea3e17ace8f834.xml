@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_49f588020cdc122655ea3e17ace8f834" kind="dir">
+    <compoundname>include/hermes/chargedgas</compoundname>
+    <innerfile refid="ChargedGasDensity_8h">ChargedGasDensity.h</innerfile>
+    <innerfile refid="HII__Cordes91_8h">HII_Cordes91.h</innerfile>
+    <innerfile refid="NE2001Simple_8h">NE2001Simple.h</innerfile>
+    <innerfile refid="YMW16_8h">YMW16.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/"/>
+  </compounddef>
+</doxygen>

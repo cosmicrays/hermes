@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1Thin" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::Thin</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Thin_1afa3a186973380d1ac2ac6de73f840418" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double A2</definition>
+        <argsstring></argsstring>
+        <name>A2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="179" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Thin_1ac25028524f0b3bb1e35a6f5b62bc4f47" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double B2</definition>
+        <argsstring></argsstring>
+        <name>B2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="180" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Thin_1a82a5c821146c480262161fb064b2c99b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double n2</definition>
+        <argsstring></argsstring>
+        <name>n2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="181" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Thin_1a2e65f840fe090660c4e720b3734e6097" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double K2</definition>
+        <argsstring></argsstring>
+        <name>K2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="182" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="178" column="11" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="178" bodyend="183"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thin_1afa3a186973380d1ac2ac6de73f840418" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Thin</scope><name>A2</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thin_1ac25028524f0b3bb1e35a6f5b62bc4f47" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Thin</scope><name>B2</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thin_1a2e65f840fe090660c4e720b3734e6097" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Thin</scope><name>K2</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thin_1a82a5c821146c480262161fb064b2c99b" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Thin</scope><name>n2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

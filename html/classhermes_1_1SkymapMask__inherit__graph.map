@@ -1,0 +1,7 @@
+<map id="SkymapMask" name="SkymapMask">
+<area shape="rect" id="node1" title=" " alt="" coords="202,5,311,32"/>
+<area shape="rect" id="node2" href="$classhermes_1_1CircularWindow.html" title=" " alt="" coords="5,80,129,107"/>
+<area shape="rect" id="node3" href="$classhermes_1_1InvertMask.html" title=" " alt="" coords="153,80,248,107"/>
+<area shape="rect" id="node4" href="$classhermes_1_1MaskList.html" title=" " alt="" coords="273,80,353,107"/>
+<area shape="rect" id="node5" href="$classhermes_1_1RectangularWindow.html" title=" " alt="" coords="377,80,529,107"/>
+</map>

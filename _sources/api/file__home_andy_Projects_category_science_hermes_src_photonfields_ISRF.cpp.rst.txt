@@ -1,0 +1,42 @@
+
+.. _file__home_andy_Projects_category_science_hermes_src_photonfields_ISRF.cpp:
+
+File ISRF.cpp
+=============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src_photonfields>` (``/home/andy/Projects/category_science/hermes/src/photonfields``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/src/photonfields/ISRF.cpp``)
+--------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__photonfields`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1_1photonfields_1a5d26c38446f5846b3f43ca458cb7ff89`
+

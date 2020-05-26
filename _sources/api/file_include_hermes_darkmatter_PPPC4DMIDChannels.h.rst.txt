@@ -4,6 +4,10 @@
 File PPPC4DMIDChannels.h
 ========================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes_darkmatter>` (``include/hermes/darkmatter``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none
@@ -28,4 +32,13 @@ Namespaces
 - :ref:`namespace_hermes`
 
 - :ref:`namespace_hermes__darkmatter`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_group__DarkMatter_1ga1ce9b523fd4f3b5bbcadcd796183455a`
+
+- :ref:`exhale_enum_group__DarkMatter_1ga4b82e49d40fec5c282ce4115db150889`
 

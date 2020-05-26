@@ -1,4 +1,0 @@
-Integrators
-===========
-.. doxygengroup:: Integrators
-

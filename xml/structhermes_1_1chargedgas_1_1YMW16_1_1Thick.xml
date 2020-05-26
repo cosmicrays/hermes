@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1Thick" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::Thick</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Thick_1a5c5a4978f8f572fecaa4cd4f99718e0c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Ad</definition>
+        <argsstring></argsstring>
+        <name>Ad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="172" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Thick_1a84960a46a3093ff14db97e95f24e8044" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Bd</definition>
+        <argsstring></argsstring>
+        <name>Bd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="173" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Thick_1a13055a91d9c746b4c4ac5beea9a2a61c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double n1</definition>
+        <argsstring></argsstring>
+        <name>n1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="174" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Thick_1afa5f25beeda3aece1803a92b64262dab" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double H1</definition>
+        <argsstring></argsstring>
+        <name>H1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="175" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="171" column="12" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="171" bodyend="176"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thick_1a5c5a4978f8f572fecaa4cd4f99718e0c" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Thick</scope><name>Ad</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thick_1a84960a46a3093ff14db97e95f24e8044" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Thick</scope><name>Bd</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thick_1afa5f25beeda3aece1803a92b64262dab" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Thick</scope><name>H1</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thick_1a13055a91d9c746b4c4ac5beea9a2a61c" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Thick</scope><name>n1</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

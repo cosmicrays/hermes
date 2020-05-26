@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Random_8cpp" kind="file" language="C++">
+    <compoundname>Random.cpp</compoundname>
+    <innerclass refid="structhermes_1_1RANDOM__TLS__ITEM" prot="public">hermes::RANDOM_TLS_ITEM</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/Random.cpp"/>
+  </compounddef>
+</doxygen>

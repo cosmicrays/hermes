@@ -3,7 +3,7 @@
 Function hermes::units::cos
 ===========================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsFunctions.h`
 
 
 Function Documentation

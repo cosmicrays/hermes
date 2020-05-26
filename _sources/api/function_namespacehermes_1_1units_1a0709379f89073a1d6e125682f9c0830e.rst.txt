@@ -3,7 +3,7 @@
 Template Function hermes::units::pow(const QNumber&)
 ====================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsSimple.h`
 
 
 Function Documentation

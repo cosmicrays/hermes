@@ -1,0 +1,14 @@
+<map id="MagneticField" name="MagneticField">
+<area shape="rect" id="node1" title="Abstract base class for magnetic fields." alt="" coords="5,259,119,285"/>
+<area shape="rect" id="node2" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1JF12Field" title="JF12Field galactic magnetic field model." alt="" coords="231,5,312,32"/>
+<area shape="rect" id="node3" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1LogarithmicSpiralField" title="Galactic disk field model of axisymmetric (ASS) or bisymmetric (BSS) logarithmic spiral shape." alt="" coords="188,56,355,83"/>
+<area shape="rect" id="node4" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1MagneticFieldGrid" title="Magnetic field on a periodic (or reflective), cartesian grid with trilinear interpolation." alt="" coords="201,107,341,133"/>
+<area shape="rect" id="node5" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1MagneticFieldList" title="Magnetic field decorator implementing a superposition of fields." alt="" coords="203,157,339,184"/>
+<area shape="rect" id="node6" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid" title="Modulated magnetic field on a periodic grid." alt="" coords="167,208,376,235"/>
+<area shape="rect" id="node7" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1PeriodicMagneticField" title="Magnetic field decorator implementing periodic fields." alt="" coords="189,259,354,285"/>
+<area shape="rect" id="node8" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1PT11Field" title="Pshirkov2011 galactic magnetic field model." alt="" coords="229,309,314,336"/>
+<area shape="rect" id="node9" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1Sun08Field" title="Implemented the galactic magnetic field model used in 3&#45;year WMAP analyses." alt="" coords="225,360,318,387"/>
+<area shape="rect" id="node10" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1TorroidalHaloField" title="Galactic halo field model from Prouza &amp; Smida 2003 and Sun et al. 2008." alt="" coords="202,411,341,437"/>
+<area shape="rect" id="node11" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1UniformMagneticField" title="Magnetic field with one B&#45;field vector." alt="" coords="188,461,355,488"/>
+<area shape="rect" id="node12" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1WMAP07Field" title="3&#45;year WMAP galactic magnetic field model" alt="" coords="216,512,327,539"/>
+</map>

@@ -1,0 +1,1043 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1RotationMeasureSkymap" kind="class" language="C++" prot="public">
+    <compoundname>hermes::RotationMeasureSkymap</compoundname>
+    <basecompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QRotationMeasure, QNumber &gt;</basecompoundref>
+    <includes refid="RotationMeasureSkymap_8h" local="no">include/hermes/skymaps/RotationMeasureSkymap.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1RotationMeasureSkymap_1a1c8b18d974e8c5c9dffcd40fcfed23c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RotationMeasureSkymap</definition>
+        <argsstring>(std::size_t nside_)</argsstring>
+        <name>RotationMeasureSkymap</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RotationMeasureSkymap.h" line="20" column="1" bodyfile="include/hermes/skymaps/RotationMeasureSkymap.h" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setSkymapParameter</definition>
+        <argsstring>(const QNumber &amp;p)</argsstring>
+        <name>setSkymapParameter</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Setter for the skymap parameter </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="74" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber  setSkymapParameter</definition>
+        <argsstring>() const</argsstring>
+        <name>setSkymapParameter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Getter for the skymap parameter </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="78" column="7" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gade1601ccf1fa3bcf050867f0852ca4e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="80" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="178" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gabd2739ed77df833d30b72f2140e59c40" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getUnmaskedPixelCount</definition>
+        <argsstring>() const</argsstring>
+        <name>getUnmaskedPixelCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="81" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="183" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref></type>
+        <definition>QRotationMeasure  getPixel</definition>
+        <argsstring>(std::size_t ipix) const</argsstring>
+        <name>getPixel</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>ipix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="82" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="188" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double getPixelAsDouble</definition>
+        <argsstring>(std::size_t i) const</argsstring>
+        <name>getPixelAsDouble</name>
+        <reimplements refid="classhermes_1_1Skymap_1a76d10b4d7bacfe1717a28e73a940a6a5">getPixelAsDouble</reimplements>
+        <param>
+          <type>std::size_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="83" column="8" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="193" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref></type>
+        <definition>QRotationMeasure  getMean</definition>
+        <argsstring>() const</argsstring>
+        <name>getMean</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="84" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="198" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref></type>
+        <definition>QRotationMeasure  operator[]</definition>
+        <argsstring>(std::size_t ipix) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>ipix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="85" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="210" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1a3941e9e06332ecd9878d91c28cb95914" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref> *</type>
+        <definition>QRotationMeasure * data</definition>
+        <argsstring>()</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="86" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setIntegrator</definition>
+        <argsstring>(std::shared_ptr&lt; IntegratorTemplate&lt; QRotationMeasure, QNumber &gt;&gt; integrator_)</argsstring>
+        <name>setIntegrator</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref>, <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &gt;&gt;</type>
+          <declname>integrator_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="88" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="220" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1a37aa9080345c10402de7268293497f2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setOutput</definition>
+        <argsstring>()</argsstring>
+        <name>setOutput</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="90" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gabef15a424c177135fd05df19875b799f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printPixels</definition>
+        <argsstring>() const</argsstring>
+        <name>printPixels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="92" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="215" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga5c8a2243928153f37fdeaa10c0d87b8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setMask</definition>
+        <argsstring>(std::shared_ptr&lt; SkymapMask &gt; mask_)</argsstring>
+        <name>setMask</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classhermes_1_1SkymapMask" kindref="compound">SkymapMask</ref> &gt;</type>
+          <declname>mask_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="93" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="348" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga249a66ed61d77fb85beee37b465252ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; bool &gt;</type>
+        <definition>std::vector&lt; bool &gt; getMask</definition>
+        <argsstring>() const</argsstring>
+        <name>getMask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="94" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="354" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga53ac253e25a531e5343704376e95c3f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isMasked</definition>
+        <argsstring>(std::size_t pixel) const</argsstring>
+        <name>isMasked</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>pixel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="95" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="359" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga266bd5fe2c64c74ab1f080adf87ff698" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void computePixel</definition>
+        <argsstring>(std::size_t ipix, const std::shared_ptr&lt; IntegratorTemplate&lt; QRotationMeasure, QNumber &gt;&gt; &amp;integrator_)</argsstring>
+        <name>computePixel</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>ipix</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref>, <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &gt;&gt; &amp;</type>
+          <declname>integrator_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="97" column="14" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="226" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga03461b98b27eb60d2af5220579acf5bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void computePixelRange</definition>
+        <argsstring>(std::size_t start, std::size_t end, const std::shared_ptr&lt; IntegratorTemplate&lt; QRotationMeasure, QNumber &gt;&gt; &amp;integrator_)</argsstring>
+        <name>computePixelRange</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>end</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref>, <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &gt;&gt; &amp;</type>
+          <declname>integrator_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="100" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="234" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga4993c97a669fa259c6574a18d547c117" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void compute</definition>
+        <argsstring>()</argsstring>
+        <name>compute</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="103" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="248" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gade7d320408689e59a231ec1e0fb7bc95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void convertToUnits</definition>
+        <argsstring>(QRotationMeasure units_, const std::string &amp;defaultUnitsString)</argsstring>
+        <name>convertToUnits</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref></type>
+          <declname>units_</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>defaultUnitsString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>output </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="106" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="295" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga169e6c7645d6ac3a035793e5acfe3c77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber toSkymapDefaultUnits</definition>
+        <argsstring>(const QRotationMeasure pixel) const</argsstring>
+        <name>toSkymapDefaultUnits</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref></type>
+          <declname>pixel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="107" column="9" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="289" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga8a1d7738e3481a250fb4a695ee566f9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref></type>
+        <definition>QRotationMeasure  getOutputUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>getOutputUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="108" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="309" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gaafaf4af3194121a33d722c46d8f26e38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getOutputUnitsAsString</definition>
+        <argsstring>() const</argsstring>
+        <name>getOutputUnitsAsString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="109" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="314" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gaf7075f797d48da89d03eabf940f9d6b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>getUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="110" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="319" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga0e464850f1102fd6698d3dc5e2681b98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt; float &gt; containerToRawVector</definition>
+        <argsstring>() const</argsstring>
+        <name>containerToRawVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="111" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="324" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gab3a090f0c95948ea8a13308317aa8d53" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void save</definition>
+        <argsstring>(std::shared_ptr&lt; outputs::Output &gt; output) const</argsstring>
+        <name>save</name>
+        <reimplements refid="classhermes_1_1Skymap_1a0a91d18671e2094c35e1853627d29252">save</reimplements>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classhermes_1_1outputs_1_1Output" kindref="compound">outputs::Output</ref> &gt;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="112" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="336" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga8a4a270f1b9a794e342c07263f39fd72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1SkymapTemplate_1ab2f907e1700415a320e23d727c8feeb1" kindref="member">iterator</ref></type>
+        <definition>SkymapTemplate&lt; QRotationMeasure , QNumber  &gt;::const_iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="117" column="10" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="365" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1a29305669b60ca1680752e2fc3592ba99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1SkymapTemplate_1abdb5a0210356a580b39042483c0ef491" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="118" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gabbe2e707d37e7e53f03f1a7501c73093" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1SkymapTemplate_1ab2f907e1700415a320e23d727c8feeb1" kindref="member">iterator</ref></type>
+        <definition>SkymapTemplate&lt; QRotationMeasure , QNumber  &gt;::const_iterator end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="119" column="10" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="377" bodyend="379"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1SkymapTemplate_1abdb5a0210356a580b39042483c0ef491" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="120" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a4c9dd9660b26bc53339d7a8acdde7069" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setNside</definition>
+        <argsstring>(std::size_t nside_)</argsstring>
+        <name>setNside</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="37" column="6" bodyfile="src/skymaps/Skymap.cpp" bodystart="19" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a651f6c10bb22039f33ec55aee9d98958" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getNside</definition>
+        <argsstring>() const</argsstring>
+        <name>getNside</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="38" column="13" bodyfile="src/skymaps/Skymap.cpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a2b397d25a69465a0c3a2b205f33ff0b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setRes</definition>
+        <argsstring>(std::size_t res_)</argsstring>
+        <name>setRes</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>res_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="39" column="6" bodyfile="src/skymaps/Skymap.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a3eac88a40358035b1df3a9a5bc1ab015" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getRes</definition>
+        <argsstring>() const</argsstring>
+        <name>getRes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="40" column="13" bodyfile="src/skymaps/Skymap.cpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a08cd2ad9ba9fed511837e7b0ff97e282" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getNpix</definition>
+        <argsstring>() const</argsstring>
+        <name>getNpix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="41" column="13" bodyfile="src/skymaps/Skymap.cpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1aea425314aebc36d0f6bf7671705158da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>getDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="43" column="13" bodyfile="src/skymaps/Skymap.cpp" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Skymap_1a3406b56004afdbe7a1815a541d40de99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setDescription</definition>
+        <argsstring>(const std::string &amp;description)</argsstring>
+        <name>setDescription</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="44" column="6" bodyfile="src/skymaps/Skymap.cpp" bodystart="15" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-type">
+      <memberdef kind="typedef" id="classhermes_1_1SkymapTemplate_1a067d528dc31f8cef125127899c48cf34" prot="protected" static="no">
+        <type><ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref></type>
+        <definition>typedef QRotationMeasure  tPixel</definition>
+        <argsstring></argsstring>
+        <name>tPixel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="40" column="14" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhermes_1_1SkymapTemplate_1aaaebe4dcc74cd6479f7d16e898fcbc85" prot="protected" static="no">
+        <type>std::vector&lt; <ref refid="classhermes_1_1SkymapTemplate_1a067d528dc31f8cef125127899c48cf34" kindref="member">tPixel</ref> &gt;</type>
+        <definition>typedef std::vector&lt;tPixel&gt; tFluxContainer</definition>
+        <argsstring></argsstring>
+        <name>tFluxContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="42" column="21" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhermes_1_1SkymapTemplate_1ab2f907e1700415a320e23d727c8feeb1" prot="public" static="no">
+        <type>tFluxContainer::iterator</type>
+        <definition>typedef tFluxContainer::iterator iterator</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>iterator goodies </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="115" column="43" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhermes_1_1SkymapTemplate_1abdb5a0210356a580b39042483c0ef491" prot="public" static="no">
+        <type>tFluxContainer::const_iterator</type>
+        <definition>typedef tFluxContainer::const_iterator const_iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="116" column="49" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhermes_1_1SkymapTemplate_1a7d9ae0e09b9fefdb409c3c90675a965b" prot="protected" static="no" mutable="yes">
+        <type><ref refid="classhermes_1_1SkymapTemplate_1aaaebe4dcc74cd6479f7d16e898fcbc85" kindref="member">tFluxContainer</ref></type>
+        <definition>tFluxContainer fluxContainer</definition>
+        <argsstring></argsstring>
+        <name>fluxContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="43" column="24" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1SkymapTemplate_1a810a274dc98705d9016669cc458a631a" prot="protected" static="no" mutable="yes">
+        <type>std::vector&lt; bool &gt;</type>
+        <definition>std::vector&lt;bool&gt; maskContainer</definition>
+        <argsstring></argsstring>
+        <name>maskContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="44" column="21" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1SkymapTemplate_1ab0e35b70977a932ffe1691490e14e32c" prot="protected" static="no" mutable="yes">
+        <type><ref refid="classhermes_1_1SkymapTemplate_1a067d528dc31f8cef125127899c48cf34" kindref="member">tPixel</ref></type>
+        <definition>tPixel defaultOutputUnits</definition>
+        <argsstring></argsstring>
+        <name>defaultOutputUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="46" column="16" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1SkymapTemplate_1a61e385a9228cc1dd5c2ede92983c7660" prot="protected" static="no" mutable="yes">
+        <type>std::string</type>
+        <definition>std::string defaultOutputUnitsString</definition>
+        <argsstring></argsstring>
+        <name>defaultOutputUnitsString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="47" column="21" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1SkymapTemplate_1acefd152ad0cbdd995e02c0421c0f917e" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber  skymapParameter</definition>
+        <argsstring></argsstring>
+        <name>skymapParameter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="49" column="7" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1SkymapTemplate_1a766bdcb4e331e9f0503ead96570ccb23" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classhermes_1_1SkymapMask" kindref="compound">SkymapMask</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;SkymapMask&gt; mask</definition>
+        <argsstring></argsstring>
+        <name>mask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="51" column="17" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1SkymapTemplate_1ad04c8d188613bb3cd42ef95e14f9765c" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref>, <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;IntegratorTemplate&lt;QRotationMeasure , QNumber &gt; &gt; integrator</definition>
+        <argsstring></argsstring>
+        <name>integrator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="52" column="17" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1SkymapTemplate_1aa1830b47f0b317528dd6814e1499d1c1" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; ProgressBar &gt;</type>
+        <definition>std::shared_ptr&lt;ProgressBar&gt; progressbar</definition>
+        <argsstring></argsstring>
+        <name>progressbar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="54" column="17" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1SkymapTemplate_1a351bc16bf5905947ade4e63cd5f9da38" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; std::mutex &gt;</type>
+        <definition>std::shared_ptr&lt;std::mutex&gt; progressbar_mutex</definition>
+        <argsstring></argsstring>
+        <name>progressbar_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="55" column="17" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Skymap_1a3328ec22dec02cd6bd374ba8a13e4904" prot="protected" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t nside</definition>
+        <argsstring></argsstring>
+        <name>nside</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="28" column="13" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Skymap_1a8a13305d34d8c4edc489fcbf2fd91743" prot="protected" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t npix</definition>
+        <argsstring></argsstring>
+        <name>npix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="29" column="13" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Skymap_1a32116be1557ba3e7a7d7722f1b7ea27c" prot="protected" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t res</definition>
+        <argsstring></argsstring>
+        <name>res</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="30" column="13" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Skymap_1a2e1454f6988673f814408646edaeb320" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/Skymap.h" line="31" column="13" bodyfile="include/hermes/skymaps/Skymap.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="group__Skymaps_1gac1f1ef686abb10ce34a22e8f813be29c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initDefaultOutputUnits</definition>
+        <argsstring>(QRotationMeasure units, const std::string &amp;unitsString)</argsstring>
+        <name>initDefaultOutputUnits</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref></type>
+          <declname>units</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unitsString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="57" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="282" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga3c9b9e7b084b323c64caf7b027cf713b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initContainer</definition>
+        <argsstring>()</argsstring>
+        <name>initContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="58" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="166" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga1480e0a77dbbb0edda9d9a9760230bdf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initMask</definition>
+        <argsstring>()</argsstring>
+        <name>initMask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="59" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="171" bodyend="174"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A skymap container for rotation measure (RM). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>SkymapTemplate&lt; QRotationMeasure, QNumber &gt;</label>
+        <link refid="classhermes_1_1SkymapTemplate"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RotationMeasureSkymap</label>
+        <link refid="classhermes_1_1RotationMeasureSkymap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Skymap</label>
+        <link refid="classhermes_1_1Skymap"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>SkymapTemplate&lt; QRotationMeasure, QNumber &gt;</label>
+        <link refid="classhermes_1_1SkymapTemplate"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>progressbar</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>progressbar_mutex</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>mask</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>integrator</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>defaultOutputUnitsString</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>fluxContainer</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>maskContainer</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Vector3&lt; QLength &gt;</label>
+        <link refid="classhermes_1_1Vector3"/>
+      </node>
+      <node id="4">
+        <label>string</label>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>basic_string&lt; char &gt;</label>
+      </node>
+      <node id="16">
+        <label>vector&lt; bool &gt;</label>
+      </node>
+      <node id="6">
+        <label>shared_ptr&lt; ProgressBar &gt;</label>
+      </node>
+      <node id="1">
+        <label>RotationMeasureSkymap</label>
+        <link refid="classhermes_1_1RotationMeasureSkymap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>shared_ptr&lt; hermes::SkymapMask &gt;</label>
+        <childnode refid="10" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Vector3Quantity&lt; QLength &gt;</label>
+        <link refid="classhermes_1_1Vector3Quantity"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>shared_ptr&lt; std::mutex &gt;</label>
+        <childnode refid="8" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>vector&lt; tPixel &gt;</label>
+      </node>
+      <node id="3">
+        <label>Skymap</label>
+        <link refid="classhermes_1_1Skymap"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>description</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>mutex</label>
+      </node>
+      <node id="10">
+        <label>SkymapMask</label>
+        <link refid="classhermes_1_1SkymapMask"/>
+      </node>
+      <node id="12">
+        <label>IntegratorTemplate&lt; QRotationMeasure, QNumber &gt;</label>
+        <link refid="classhermes_1_1IntegratorTemplate"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>positionSun</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>shared_ptr&lt; hermes::IntegratorTemplate&lt; QRotationMeasure, QNumber &gt; &gt;</label>
+        <childnode refid="12" relation="usage">
+          <edgelabel>ptr</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/skymaps/RotationMeasureSkymap.h" line="17" column="25" bodyfile="include/hermes/skymaps/RotationMeasureSkymap.h" bodystart="16" bodyend="23"/>
+    <listofallmembers>
+      <member refid="group__Skymaps_1ga8a4a270f1b9a794e342c07263f39fd72" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>begin</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1a29305669b60ca1680752e2fc3592ba99" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>begin</name></member>
+      <member refid="group__Skymaps_1ga4993c97a669fa259c6574a18d547c117" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>compute</name></member>
+      <member refid="group__Skymaps_1ga266bd5fe2c64c74ab1f080adf87ff698" prot="public" virt="virtual"><scope>hermes::RotationMeasureSkymap</scope><name>computePixel</name></member>
+      <member refid="group__Skymaps_1ga03461b98b27eb60d2af5220579acf5bf" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>computePixelRange</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1abdb5a0210356a580b39042483c0ef491" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>const_iterator</name></member>
+      <member refid="group__Skymaps_1ga0e464850f1102fd6698d3dc5e2681b98" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>containerToRawVector</name></member>
+      <member refid="group__Skymaps_1gade7d320408689e59a231ec1e0fb7bc95" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>convertToUnits</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1a3941e9e06332ecd9878d91c28cb95914" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>data</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1ab0e35b70977a932ffe1691490e14e32c" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>defaultOutputUnits</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1a61e385a9228cc1dd5c2ede92983c7660" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>defaultOutputUnitsString</name></member>
+      <member refid="classhermes_1_1Skymap_1a2e1454f6988673f814408646edaeb320" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>description</name></member>
+      <member refid="group__Skymaps_1gabbe2e707d37e7e53f03f1a7501c73093" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>end</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>end</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1a7d9ae0e09b9fefdb409c3c90675a965b" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>fluxContainer</name></member>
+      <member refid="classhermes_1_1Skymap_1aea425314aebc36d0f6bf7671705158da" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getDescription</name></member>
+      <member refid="group__Skymaps_1ga249a66ed61d77fb85beee37b465252ca" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getMask</name></member>
+      <member refid="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getMean</name></member>
+      <member refid="classhermes_1_1Skymap_1a08cd2ad9ba9fed511837e7b0ff97e282" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getNpix</name></member>
+      <member refid="classhermes_1_1Skymap_1a651f6c10bb22039f33ec55aee9d98958" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getNside</name></member>
+      <member refid="group__Skymaps_1ga8a1d7738e3481a250fb4a695ee566f9e" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getOutputUnits</name></member>
+      <member refid="group__Skymaps_1gaafaf4af3194121a33d722c46d8f26e38" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getOutputUnitsAsString</name></member>
+      <member refid="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getPixel</name></member>
+      <member refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" prot="public" virt="virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getPixelAsDouble</name></member>
+      <member refid="classhermes_1_1Skymap_1a3eac88a40358035b1df3a9a5bc1ab015" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getRes</name></member>
+      <member refid="group__Skymaps_1gaf7075f797d48da89d03eabf940f9d6b8" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getUnits</name></member>
+      <member refid="group__Skymaps_1gabd2739ed77df833d30b72f2140e59c40" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>getUnmaskedPixelCount</name></member>
+      <member refid="group__Skymaps_1ga3c9b9e7b084b323c64caf7b027cf713b" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>initContainer</name></member>
+      <member refid="group__Skymaps_1gac1f1ef686abb10ce34a22e8f813be29c" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>initDefaultOutputUnits</name></member>
+      <member refid="group__Skymaps_1ga1480e0a77dbbb0edda9d9a9760230bdf" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>initMask</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1ad04c8d188613bb3cd42ef95e14f9765c" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>integrator</name></member>
+      <member refid="group__Skymaps_1ga53ac253e25a531e5343704376e95c3f0" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>isMasked</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1ab2f907e1700415a320e23d727c8feeb1" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>iterator</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1a766bdcb4e331e9f0503ead96570ccb23" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>mask</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1a810a274dc98705d9016669cc458a631a" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>maskContainer</name></member>
+      <member refid="classhermes_1_1Skymap_1a8a13305d34d8c4edc489fcbf2fd91743" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>npix</name></member>
+      <member refid="classhermes_1_1Skymap_1a3328ec22dec02cd6bd374ba8a13e4904" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>nside</name></member>
+      <member refid="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>operator[]</name></member>
+      <member refid="group__Skymaps_1gabef15a424c177135fd05df19875b799f" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>printPixels</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1aa1830b47f0b317528dd6814e1499d1c1" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>progressbar</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1a351bc16bf5905947ade4e63cd5f9da38" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>progressbar_mutex</name></member>
+      <member refid="classhermes_1_1Skymap_1a32116be1557ba3e7a7d7722f1b7ea27c" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>res</name></member>
+      <member refid="classhermes_1_1RotationMeasureSkymap_1a1c8b18d974e8c5c9dffcd40fcfed23c5" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>RotationMeasureSkymap</name></member>
+      <member refid="group__Skymaps_1gab3a090f0c95948ea8a13308317aa8d53" prot="public" virt="virtual"><scope>hermes::RotationMeasureSkymap</scope><name>save</name></member>
+      <member refid="classhermes_1_1Skymap_1a3406b56004afdbe7a1815a541d40de99" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>setDescription</name></member>
+      <member refid="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>setIntegrator</name></member>
+      <member refid="group__Skymaps_1ga5c8a2243928153f37fdeaa10c0d87b8b" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>setMask</name></member>
+      <member refid="classhermes_1_1Skymap_1a4c9dd9660b26bc53339d7a8acdde7069" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>setNside</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1a37aa9080345c10402de7268293497f2c" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>setOutput</name></member>
+      <member refid="classhermes_1_1Skymap_1a2b397d25a69465a0c3a2b205f33ff0b8" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>setRes</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>setSkymapParameter</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>setSkymapParameter</name></member>
+      <member refid="group__Skymaps_1gade1601ccf1fa3bcf050867f0852ca4e5" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>size</name></member>
+      <member refid="classhermes_1_1Skymap_1a4c026ab53690bf18f9c0c094627f5669" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>Skymap</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1acefd152ad0cbdd995e02c0421c0f917e" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>skymapParameter</name></member>
+      <member refid="group__Skymaps_1ga4fdeabc4b74ae6e5073babe8aa57d64c" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>SkymapTemplate</name></member>
+      <member refid="group__Skymaps_1ga0137a2637c65a42d91e15504bd3e6b9f" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>SkymapTemplate</name></member>
+      <member refid="group__Skymaps_1ga6a287e000c20a2771839cd638397333c" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>SkymapTemplate</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1aaaebe4dcc74cd6479f7d16e898fcbc85" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>tFluxContainer</name></member>
+      <member refid="group__Skymaps_1ga169e6c7645d6ac3a035793e5acfe3c77" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>toSkymapDefaultUnits</name></member>
+      <member refid="classhermes_1_1SkymapTemplate_1a067d528dc31f8cef125127899c48cf34" prot="protected" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>tPixel</name></member>
+      <member refid="classhermes_1_1Skymap_1aa37fec4c8a7829dd4f28997711dd13ef" prot="public" virt="virtual"><scope>hermes::RotationMeasureSkymap</scope><name>~Skymap</name></member>
+      <member refid="group__Skymaps_1ga762d20725f066f424b3d42d1796ba80b" prot="public" virt="non-virtual"><scope>hermes::RotationMeasureSkymap</scope><name>~SkymapTemplate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

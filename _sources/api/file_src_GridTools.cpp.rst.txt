@@ -31,3 +31,46 @@ Namespaces
 
 - :ref:`namespace_hermes`
 
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1adbace0895ffceceba9f7e835c50729e6`
+
+- :ref:`exhale_function_namespacehermes_1a11f622cfa477f5d94f5cedd52a5d6ac5`
+
+- :ref:`exhale_function_namespacehermes_1aa72d8a7d7169c7140afb5574140b40bd`
+
+- :ref:`exhale_function_namespacehermes_1a002ec613d1cbae33f809a462a3b1bad2`
+
+- :ref:`exhale_function_namespacehermes_1a3aff1a45fe5aa42baf22b3b4f16f741f`
+
+- :ref:`exhale_function_namespacehermes_1aa235c1aea73c85a3e08fffc29f420b3b`
+
+- :ref:`exhale_function_group__Core_1ga07e7a722b04a8f34e68964286b7fb8df`
+
+- :ref:`exhale_function_namespacehermes_1a2f32ac35602b79e985748f98b98ce469`
+
+- :ref:`exhale_function_namespacehermes_1a13d27e88127e77eb32d30c2a560758c4`
+
+- :ref:`exhale_function_namespacehermes_1a39ed770566ff62dfc1c3e8e67e1142f4`
+
+- :ref:`exhale_function_namespacehermes_1a2212b9d5e1b590af49b7470f34ea4b03`
+
+- :ref:`exhale_function_namespacehermes_1aa2849fe086560a48e414778b731e1f8d`
+
+- :ref:`exhale_function_namespacehermes_1adf7f8c2cc9782fda8053ded628825aef`
+
+- :ref:`exhale_function_namespacehermes_1a51ffa818467a42da1ac66fc0a685f92e`
+
+- :ref:`exhale_function_namespacehermes_1a1eb9dca3e91995daf5b50bcbc0e6c8f9`
+
+- :ref:`exhale_function_namespacehermes_1ae284fd34aa7b5048eceaec5309a5b0a9`
+
+- :ref:`exhale_function_namespacehermes_1accb4708c6655cfec82210306631ea767`
+
+- :ref:`exhale_function_namespacehermes_1a6f6f87a91c7024fbff73febe3aefba57`
+
+- :ref:`exhale_function_group__Core_1ga79636b9ebe8a83dbdd16a895c7a1e316`
+

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="DarkMatterSpectrum_8h" kind="file" language="C++">
+    <compoundname>DarkMatterSpectrum.h</compoundname>
+    <innerclass refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum" prot="public">hermes::darkmatter::DarkMatterSpectrum</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <innernamespace refid="namespacehermes_1_1darkmatter">hermes::darkmatter</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/darkmatter/DarkMatterSpectrum.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="CacheTools_8h" kind="file" language="C++">
+    <compoundname>CacheTools.h</compoundname>
+    <innerclass refid="structhermes_1_1pair__hash" prot="public">hermes::pair_hash</innerclass>
+    <innerclass refid="structhermes_1_1pair__equal" prot="public">hermes::pair_equal</innerclass>
+    <innerclass refid="structhermes_1_1array__hash" prot="public">hermes::array_hash</innerclass>
+    <innerclass refid="structhermes_1_1array__equal" prot="public">hermes::array_equal</innerclass>
+    <innerclass refid="structhermes_1_1array2__hash" prot="public">hermes::array2_hash</innerclass>
+    <innerclass refid="structhermes_1_1array2__equal" prot="public">hermes::array2_equal</innerclass>
+    <innerclass refid="structhermes_1_1tuple__hash" prot="public">hermes::tuple_hash</innerclass>
+    <innerclass refid="structhermes_1_1tuple__equal" prot="public">hermes::tuple_equal</innerclass>
+    <innerclass refid="classhermes_1_1CacheStorageWith2Args" prot="public">hermes::CacheStorageWith2Args</innerclass>
+    <innerclass refid="classhermes_1_1CacheStorageWith3Args" prot="public">hermes::CacheStorageWith3Args</innerclass>
+    <innerclass refid="classhermes_1_1CacheStorageIC2" prot="public">hermes::CacheStorageIC2</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/CacheTools.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,5 @@
+<map id="IntegratorTemplate&lt; QPXL, QSTEP &gt;" name="IntegratorTemplate&lt; QPXL, QSTEP &gt;">
+<area shape="rect" id="node1" title="Defines the main integrator interface and typical methods shared across all integrators." alt="" coords="51,5,197,47"/>
+<area shape="rect" id="node2" href="$group__Integrators.html#classhermes_1_1PiZeroIntegrator" title=" " alt="" coords="5,95,243,136"/>
+<area shape="rect" id="node3" href="$group__Integrators.html#classhermes_1_1BremsstrahlungIntegrator" title=" " alt="" coords="29,184,219,211"/>
+</map>

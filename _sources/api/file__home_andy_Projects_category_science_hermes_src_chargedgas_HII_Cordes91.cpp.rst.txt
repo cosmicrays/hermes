@@ -1,0 +1,35 @@
+
+.. _file__home_andy_Projects_category_science_hermes_src_chargedgas_HII_Cordes91.cpp:
+
+File HII_Cordes91.cpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src_chargedgas>` (``/home/andy/Projects/category_science/hermes/src/chargedgas``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/src/chargedgas/HII_Cordes91.cpp``)
+--------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__chargedgas`
+

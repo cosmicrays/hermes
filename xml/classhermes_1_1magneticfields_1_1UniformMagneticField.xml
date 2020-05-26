@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1magneticfields_1_1UniformMagneticField" kind="class" language="C++" prot="public">
+    <compoundname>hermes::magneticfields::UniformMagneticField</compoundname>
+    <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
+    <includes refid="MagneticField_8h" local="no">include/hermes/magneticfields/MagneticField.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1UniformMagneticField_1acfbcdb5e75de9e61f9f395d4b5014362" prot="private" static="no" mutable="no">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="73" column="16" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1UniformMagneticField_1afdd7ccde98b98fcc4463ef542e7cd5f4" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UniformMagneticField</definition>
+        <argsstring>(const Vector3QMField &amp;value)</argsstring>
+        <name>UniformMagneticField</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref> &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="76" column="10" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1UniformMagneticField_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getField</definition>
+        <argsstring>(const Vector3QLength &amp;position) const override</argsstring>
+        <name>getField</name>
+        <reimplements refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe">getField</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="77" column="16" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="77" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Magnetic field with one B-field vector. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+      <node id="1">
+        <label>UniformMagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1UniformMagneticField"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+      <node id="1">
+        <label>UniformMagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1UniformMagneticField"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/magneticfields/MagneticField.h" line="72" column="48" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="72" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1magneticfields_1_1UniformMagneticField_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c" prot="public" virt="virtual"><scope>hermes::magneticfields::UniformMagneticField</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1UniformMagneticField_1afdd7ccde98b98fcc4463ef542e7cd5f4" prot="public" virt="non-virtual"><scope>hermes::magneticfields::UniformMagneticField</scope><name>UniformMagneticField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1UniformMagneticField_1acfbcdb5e75de9e61f9f395d4b5014362" prot="private" virt="non-virtual"><scope>hermes::magneticfields::UniformMagneticField</scope><name>value</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" virt="virtual"><scope>hermes::magneticfields::UniformMagneticField</scope><name>~MagneticField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

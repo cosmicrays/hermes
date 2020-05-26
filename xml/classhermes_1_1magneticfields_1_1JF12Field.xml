@@ -1,0 +1,847 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1magneticfields_1_1JF12Field" kind="class" language="C++" prot="public">
+    <compoundname>hermes::magneticfields::JF12Field</compoundname>
+    <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
+    <includes refid="JF12Field_8h" local="no">include/hermes/magneticfields/JF12Field.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1ae955d49c5df10336398492c54e69ccde" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool useRegular</definition>
+        <argsstring></argsstring>
+        <name>useRegular</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="37" column="6" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1af9f1fc02b2d55d4a8c5642b727c540e6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool useStriated</definition>
+        <argsstring></argsstring>
+        <name>useStriated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="38" column="6" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a0c00f428856f40fcbbd13896722393ca" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool useTurbulent</definition>
+        <argsstring></argsstring>
+        <name>useTurbulent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="39" column="6" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a7ee9f6e4eb79b0f38ef09a560ef0616a" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength rArms[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>rArms</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="42" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a60129bec2c79b6e00bcecfa91c8d01e4" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="43" column="8" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a47f9c9cf9986ef2b98d9f92d1598835b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double sinPitch</definition>
+        <argsstring></argsstring>
+        <name>sinPitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="44" column="8" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a1eb6a82501901bf17b03e24daee14025" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double cosPitch</definition>
+        <argsstring></argsstring>
+        <name>cosPitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="44" column="17" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1aef07f583f509e8751aa53ba4d8daaaec" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double tan90MinusPitch</definition>
+        <argsstring></argsstring>
+        <name>tan90MinusPitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="44" column="26" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1ad4e6749bb6c6082c3e3376d25b3dbc7d" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField bDisk[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>bDisk</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="48" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a9e7b6fe1bb6c85308cd2fd6c52889162" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField bRing</definition>
+        <argsstring></argsstring>
+        <name>bRing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="49" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a23751c38982f625e6f28645156e1f8f5" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength hDisk</definition>
+        <argsstring></argsstring>
+        <name>hDisk</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="50" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a277aff9dbd18564a9912d316927446a8" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength wDisk</definition>
+        <argsstring></argsstring>
+        <name>wDisk</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="50" column="15" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1aa9ef1e5196c2e4519ca69636e20922d1" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField bNorth</definition>
+        <argsstring></argsstring>
+        <name>bNorth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="52" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1aae14138a5a71ccf3306bfaa68ade3294" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField bSouth</definition>
+        <argsstring></argsstring>
+        <name>bSouth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="52" column="16" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a9125b010e87b3f8e0c13daf1fa3149d8" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength rNorth</definition>
+        <argsstring></argsstring>
+        <name>rNorth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="53" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a69422bf7104c2035857052d698f4fe7e" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength rSouth</definition>
+        <argsstring></argsstring>
+        <name>rSouth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="53" column="16" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a15b83d385fc52d304f518c47091f45d5" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength wHalo</definition>
+        <argsstring></argsstring>
+        <name>wHalo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="54" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1ac6b03618439084009c1d922a5997578d" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength z0</definition>
+        <argsstring></argsstring>
+        <name>z0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="54" column="15" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1af99219fb675e7e916e48ddf617624d7b" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField bX</definition>
+        <argsstring></argsstring>
+        <name>bX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="56" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a62acf95f87159c1eff7926d23612f36c" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle thetaX0</definition>
+        <argsstring></argsstring>
+        <name>thetaX0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="57" column="8" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a0230cf54d10385debc1f3c9358403810" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double sinThetaX0</definition>
+        <argsstring></argsstring>
+        <name>sinThetaX0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="58" column="8" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1afc5be2cbafe86b565a6d968d32df4888" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double cosThetaX0</definition>
+        <argsstring></argsstring>
+        <name>cosThetaX0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="58" column="19" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a7b72d55b8cd2e3d3d6b5715b64003e1b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double tanThetaX0</definition>
+        <argsstring></argsstring>
+        <name>tanThetaX0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="58" column="30" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a491a1bfc94272210519639bf5ede17c1" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength rXc</definition>
+        <argsstring></argsstring>
+        <name>rXc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="59" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1ae38fff2b5eebc20c7a65fb18e627a585" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength rX</definition>
+        <argsstring></argsstring>
+        <name>rX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="60" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1ad36dda93d75f0ca0840c2295de47d198" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double sqrtbeta</definition>
+        <argsstring></argsstring>
+        <name>sqrtbeta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="64" column="8" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1aef5a5d099d5b8448142942d1086ae36c" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;ScalarGrid&gt; striatedGrid</definition>
+        <argsstring></argsstring>
+        <name>striatedGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="65" column="17" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1ae1856517c9fcc6d4bf14c9e076a4d523" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;VectorGrid&gt; turbulentGrid</definition>
+        <argsstring></argsstring>
+        <name>turbulentGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="69" column="17" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1af2b6de406b7ae6aef23c3360878f6688" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField bDiskTurb[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>bDiskTurb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="71" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a5ad23120ab759f068ef59041b4c453e7" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField bDiskTurb5</definition>
+        <argsstring></argsstring>
+        <name>bDiskTurb5</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="72" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a3c3695af4f84477ad2e8ce636faa6c55" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength zDiskTurb</definition>
+        <argsstring></argsstring>
+        <name>zDiskTurb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="73" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1a7663086fa7d571eaf6705b458333ccc8" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField bHaloTurb</definition>
+        <argsstring></argsstring>
+        <name>bHaloTurb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="75" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1aa1b48ad3bdbf9ae6fb60dc2b8bb218cc" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength rHaloTurb</definition>
+        <argsstring></argsstring>
+        <name>rHaloTurb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="76" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1JF12Field_1acded03a9debc9e8c464463932ae1dd91" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength zHaloTurb</definition>
+        <argsstring></argsstring>
+        <name>zHaloTurb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="77" column="9" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a49b791a20cb2ad67ea7b23bd64c2ebd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>JF12Field</definition>
+        <argsstring>()</argsstring>
+        <name>JF12Field</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="80" column="1" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="15" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a2d57377d7f105bce917f15132abf0ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void randomStriated</definition>
+        <argsstring>(int seed=0)</argsstring>
+        <name>randomStriated</name>
+        <param>
+          <type>int</type>
+          <declname>seed</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="83" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="85" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a8e5cd5b7537e4880f44db79547371e5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void randomTurbulent</definition>
+        <argsstring>(int seed=0)</argsstring>
+        <name>randomTurbulent</name>
+        <param>
+          <type>int</type>
+          <declname>seed</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="87" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="105" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a9bce1906e74ba358772a6d9dbd08fcc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setStriatedGrid</definition>
+        <argsstring>(std::shared_ptr&lt; ScalarGrid &gt; grid)</argsstring>
+        <name>setStriatedGrid</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set a striated grid and activate the striated field component <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>scalar grid containing random +1/-1 values, 100 parsec grid spacing </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="95" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="116" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a62455594d5d0115d246aad32897cecb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTurbulentGrid</definition>
+        <argsstring>(std::shared_ptr&lt; VectorGrid &gt; grid)</argsstring>
+        <name>setTurbulentGrid</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set a turbulent grid and activate the turbulent field component <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector grid containing a random field of Brms = 1 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="101" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1aeb2b4a399605ae124cf2efdc2aad800f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga2e3bd5cc4063dd9573ba6a6b3e75b849" kindref="member">ScalarGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; ScalarGrid &gt; getStriatedGrid</definition>
+        <argsstring>()</argsstring>
+        <name>getStriatedGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="103" column="17" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="126" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1aa6756df7cce012de33944c17b71693f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; VectorGrid &gt; getTurbulentGrid</definition>
+        <argsstring>()</argsstring>
+        <name>getTurbulentGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="104" column="17" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="130" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1ad4fb5159515c22f9de639d9f43fb3632" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUseRegular</definition>
+        <argsstring>(bool use)</argsstring>
+        <name>setUseRegular</name>
+        <param>
+          <type>bool</type>
+          <declname>use</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="106" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="134" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a7fc8d2fc944478c899a0945d5db11884" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUseStriated</definition>
+        <argsstring>(bool use)</argsstring>
+        <name>setUseStriated</name>
+        <param>
+          <type>bool</type>
+          <declname>use</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="107" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="136" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1aa80d210302a5a3a86346db03fb0c92e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUseTurbulent</definition>
+        <argsstring>(bool use)</argsstring>
+        <name>setUseTurbulent</name>
+        <param>
+          <type>bool</type>
+          <declname>use</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="108" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="144" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a1a96a7f9c8d67d7bc8e02afff6132436" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isUsingRegular</definition>
+        <argsstring>() const</argsstring>
+        <name>isUsingRegular</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="110" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="152" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a4e6b4fe87211790cd2004658ea7ffcf2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isUsingStriated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUsingStriated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="111" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="154" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a983ce997ebc4f63966375cbb4f3ac01b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isUsingTurbulent</definition>
+        <argsstring>() const</argsstring>
+        <name>isUsingTurbulent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="112" column="6" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="156" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1af8e8681f2335f9b972d8c39802fa3f1a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getRegularField</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getRegularField</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="115" column="16" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="158" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a9ec307f47d3be2982de09907efa54205" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getStriatedField</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getStriatedField</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="118" column="16" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="247" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1ac6a4a9c1df1e13da99d73acbe38bdf7b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField getTurbulentStrength</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getTurbulentStrength</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="121" column="9" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="252" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1a1d18943e91f3c73c0bf690375d81741b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getTurbulentField</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getTurbulentField</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="124" column="16" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="288" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1JF12Field_1ac0dae9109932406f2020365815e0de79" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getField</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const override</argsstring>
+        <name>getField</name>
+        <reimplements refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe">getField</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/JF12Field.h" line="127" column="16" bodyfile="src/magneticfields/JF12Field.cpp" bodystart="292" bodyend="307"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classhermes_1_1magneticfields_1_1JF12Field" kindref="compound">JF12Field</ref> galactic magnetic field model. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Implements the JF2012 magnetic field model, consisting of a large-scale regular and random (striated) field and a small-scale random (turbulent) field. See: Jansson 2012a, ApJ. 757, A New Model of the Galactic Magnetic Field Jansson 2012b, arXiv:1210.7820, The Galactic Magnetic Field</para>
+<para>All three components may individually turned on and off. Currently only best fit values of the field paramaters are implemented and cannot be changed.</para>
+<para>The field is defined in the usual galactocentric coordinate system with the Galactic center at the origin, the x-axis pointing in the direction of the Sun, and the z-axis pointing towards Galactic north. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>JF12Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1JF12Field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>JF12Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1JF12Field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/magneticfields/JF12Field.h" line="35" column="37" bodyfile="include/hermes/magneticfields/JF12Field.h" bodystart="35" bodyend="128"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1ad4e6749bb6c6082c3e3376d25b3dbc7d" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>bDisk</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1af2b6de406b7ae6aef23c3360878f6688" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>bDiskTurb</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a5ad23120ab759f068ef59041b4c453e7" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>bDiskTurb5</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a7663086fa7d571eaf6705b458333ccc8" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>bHaloTurb</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1aa9ef1e5196c2e4519ca69636e20922d1" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>bNorth</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a9e7b6fe1bb6c85308cd2fd6c52889162" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>bRing</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1aae14138a5a71ccf3306bfaa68ade3294" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>bSouth</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1af99219fb675e7e916e48ddf617624d7b" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>bX</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a1eb6a82501901bf17b03e24daee14025" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>cosPitch</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1afc5be2cbafe86b565a6d968d32df4888" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>cosThetaX0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1ac0dae9109932406f2020365815e0de79" prot="public" virt="virtual"><scope>hermes::magneticfields::JF12Field</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1af8e8681f2335f9b972d8c39802fa3f1a" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>getRegularField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a9ec307f47d3be2982de09907efa54205" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>getStriatedField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1aeb2b4a399605ae124cf2efdc2aad800f" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>getStriatedGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a1d18943e91f3c73c0bf690375d81741b" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>getTurbulentField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1aa6756df7cce012de33944c17b71693f8" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>getTurbulentGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1ac6a4a9c1df1e13da99d73acbe38bdf7b" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>getTurbulentStrength</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a23751c38982f625e6f28645156e1f8f5" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>hDisk</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a1a96a7f9c8d67d7bc8e02afff6132436" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>isUsingRegular</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a4e6b4fe87211790cd2004658ea7ffcf2" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>isUsingStriated</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a983ce997ebc4f63966375cbb4f3ac01b" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>isUsingTurbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a49b791a20cb2ad67ea7b23bd64c2ebd2" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>JF12Field</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a60129bec2c79b6e00bcecfa91c8d01e4" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>pitch</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a2d57377d7f105bce917f15132abf0ad7" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>randomStriated</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a8e5cd5b7537e4880f44db79547371e5a" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>randomTurbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a7ee9f6e4eb79b0f38ef09a560ef0616a" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>rArms</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1aa1b48ad3bdbf9ae6fb60dc2b8bb218cc" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>rHaloTurb</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a9125b010e87b3f8e0c13daf1fa3149d8" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>rNorth</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a69422bf7104c2035857052d698f4fe7e" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>rSouth</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1ae38fff2b5eebc20c7a65fb18e627a585" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>rX</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a491a1bfc94272210519639bf5ede17c1" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>rXc</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a9bce1906e74ba358772a6d9dbd08fcc8" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>setStriatedGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a62455594d5d0115d246aad32897cecb6" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>setTurbulentGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1ad4fb5159515c22f9de639d9f43fb3632" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>setUseRegular</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a7fc8d2fc944478c899a0945d5db11884" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>setUseStriated</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1aa80d210302a5a3a86346db03fb0c92e2" prot="public" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>setUseTurbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a47f9c9cf9986ef2b98d9f92d1598835b" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>sinPitch</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a0230cf54d10385debc1f3c9358403810" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>sinThetaX0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1ad36dda93d75f0ca0840c2295de47d198" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>sqrtbeta</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1aef5a5d099d5b8448142942d1086ae36c" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>striatedGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1aef07f583f509e8751aa53ba4d8daaaec" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>tan90MinusPitch</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a7b72d55b8cd2e3d3d6b5715b64003e1b" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>tanThetaX0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a62acf95f87159c1eff7926d23612f36c" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>thetaX0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1ae1856517c9fcc6d4bf14c9e076a4d523" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>turbulentGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1ae955d49c5df10336398492c54e69ccde" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>useRegular</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1af9f1fc02b2d55d4a8c5642b727c540e6" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>useStriated</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a0c00f428856f40fcbbd13896722393ca" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>useTurbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a277aff9dbd18564a9912d316927446a8" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>wDisk</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a15b83d385fc52d304f518c47091f45d5" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>wHalo</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1ac6b03618439084009c1d922a5997578d" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>z0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1a3c3695af4f84477ad2e8ce636faa6c55" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>zDiskTurb</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1JF12Field_1acded03a9debc9e8c464463932ae1dd91" prot="private" virt="non-virtual"><scope>hermes::magneticfields::JF12Field</scope><name>zHaloTurb</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" virt="virtual"><scope>hermes::magneticfields::JF12Field</scope><name>~MagneticField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

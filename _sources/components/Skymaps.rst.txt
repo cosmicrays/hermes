@@ -1,4 +1,0 @@
-Skymaps
-=======
-.. doxygengroup:: Skymaps
-

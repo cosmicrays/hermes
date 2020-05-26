@@ -3,7 +3,7 @@
 Template Function hermes::units::operator\*(const Quantity<l, t, m, I, T, N, J, A, SA>&, const double&)
 =======================================================================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsQClass.h`
 
 
 Function Documentation

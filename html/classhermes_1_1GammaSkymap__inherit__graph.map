@@ -1,0 +1,5 @@
+<map id="GammaSkymap" name="GammaSkymap">
+<area shape="rect" id="node1" title="A skymap container suitable for gamma&#45;ray emissions; saves pixels in units of differential intensity ..." alt="" coords="63,169,190,196"/>
+<area shape="rect" id="node2" href="$group__Skymaps.html" title=" " alt="" coords="5,80,248,121"/>
+<area shape="rect" id="node3" href="$group__Skymaps.html#classhermes_1_1Skymap" title="Base abstract class for all Skymaps; provides elementary HEALPix functions." alt="" coords="89,5,164,32"/>
+</map>

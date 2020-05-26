@@ -1,0 +1,12 @@
+<map id="Skymap" name="Skymap">
+<area shape="rect" id="node1" title="Base abstract class for all Skymaps; provides elementary HEALPix functions." alt="" coords="5,143,80,170"/>
+<area shape="rect" id="node2" href="$group__Skymaps.html#classhermes_1_1SkymapTemplate" title="Provides a HEALPix&#45;compatibile container template with undefined units of pixels; should be inherited..." alt="" coords="157,5,344,47"/>
+<area shape="rect" id="node3" href="$group__Skymaps.html" title=" " alt="" coords="129,71,372,112"/>
+<area shape="rect" id="node5" href="$group__Skymaps.html" title=" " alt="" coords="137,136,365,177"/>
+<area shape="rect" id="node7" href="$group__Skymaps.html" title=" " alt="" coords="143,201,358,243"/>
+<area shape="rect" id="node9" href="$group__Skymaps.html" title=" " alt="" coords="128,267,373,308"/>
+<area shape="rect" id="node4" href="$group__Skymaps.html#classhermes_1_1GammaSkymap" title="A skymap container suitable for gamma&#45;ray emissions; saves pixels in units of differential intensity ..." alt="" coords="457,78,584,105"/>
+<area shape="rect" id="node6" href="$group__Skymaps.html#classhermes_1_1DispersionMeasureSkymap" title="A skymap container for dispersion measure (DM)." alt="" coords="421,143,620,170"/>
+<area shape="rect" id="node8" href="$group__Skymaps.html#classhermes_1_1RotationMeasureSkymap" title="A skymap container for rotation measure (RM)." alt="" coords="428,209,613,235"/>
+<area shape="rect" id="node10" href="$group__Skymaps.html#classhermes_1_1RadioSkymap" title="A skymap container suitable for radio emissions; saves pixels in units of temperature (K),..." alt="" coords="465,274,576,301"/>
+</map>

@@ -4,6 +4,10 @@
 File GridTools.h
 ================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 
 Grid related functions: load, dump, save, create turbulent field ... 
 
@@ -39,4 +43,43 @@ Namespaces
 
 
 - :ref:`namespace_hermes`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_group__Core_1gabc931910e8c034ccaec9fe10dcc37e0a`
+
+- :ref:`exhale_function_group__Core_1gaa523e8e1f4238bc94aeb41646356cd4e`
+
+- :ref:`exhale_function_group__Core_1ga64e88565f0514de2c1ba9c1bbc7a7091`
+
+- :ref:`exhale_function_group__Core_1ga0d1d3dde27f81f2dba1001549f29fa09`
+
+- :ref:`exhale_function_group__Core_1ga1740d95e0ab1f964666d31420c992cbc`
+
+- :ref:`exhale_function_group__Core_1ga9f6061fd165e820213917be52553f853`
+
+- :ref:`exhale_function_group__Core_1ga81f7140150a08f94cf6e8be25fbcb300`
+
+- :ref:`exhale_function_group__Core_1gaad98beffee251f22831b72cb591a0c95`
+
+- :ref:`exhale_function_group__Core_1ga83cfe70c254a50f105eb7643d98294ff`
+
+- :ref:`exhale_function_group__Core_1ga4005328a48e1f0a728532ab660b2edd6`
+
+- :ref:`exhale_function_group__Core_1gaa43bf974e4480af550b7cd3392c83ee6`
+
+- :ref:`exhale_function_group__Core_1ga1072f274a7e4eb62bddbea8799b80f58`
+
+- :ref:`exhale_function_group__Core_1ga933b649c5796ace1f70fd222262209c4`
+
+- :ref:`exhale_function_group__Core_1ga009d2e8b110b6af0083f230fadca2a7c`
+
+- :ref:`exhale_function_group__Core_1gaf5f58beb01b5500088ddeef6b3b2f35b`
+
+- :ref:`exhale_function_group__Core_1ga6aaaae4f6c0ce2a7ab5fcf34da276bb9`
+
+- :ref:`exhale_function_group__Core_1ga23391a00178d0e36e9dd7f035fd96286`
 

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_608f2298d0b25a339fcfa86fe6bedde7" kind="dir">
+    <compoundname>include/hermes/integrators</compoundname>
+    <innerfile refid="BremsstrahlungIntegrator_8h">BremsstrahlungIntegrator.h</innerfile>
+    <innerfile refid="DarkMatterIntegrator_8h">DarkMatterIntegrator.h</innerfile>
+    <innerfile refid="DispersionMeasureIntegrator_8h">DispersionMeasureIntegrator.h</innerfile>
+    <innerfile refid="FreeFreeIntegrator_8h">FreeFreeIntegrator.h</innerfile>
+    <innerfile refid="IntegratorTemplate_8h">IntegratorTemplate.h</innerfile>
+    <innerfile refid="InverseComptonIntegrator_8h">InverseComptonIntegrator.h</innerfile>
+    <innerfile refid="LOSIntegrationMethods_8h">LOSIntegrationMethods.h</innerfile>
+    <innerfile refid="PiZeroAbsorptionIntegrator_8h">PiZeroAbsorptionIntegrator.h</innerfile>
+    <innerfile refid="PiZeroIntegrator_8h">PiZeroIntegrator.h</innerfile>
+    <innerfile refid="RotationMeasureIntegrator_8h">RotationMeasureIntegrator.h</innerfile>
+    <innerfile refid="SynchroAbsorptionIntegrator_8h">SynchroAbsorptionIntegrator.h</innerfile>
+    <innerfile refid="SynchroIntegrator_8h">SynchroIntegrator.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/integrators/"/>
+  </compounddef>
+</doxygen>

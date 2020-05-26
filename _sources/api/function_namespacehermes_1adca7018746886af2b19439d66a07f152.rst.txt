@@ -3,7 +3,7 @@
 Function hermes::ang2pix_ring
 =============================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_src_HEALPixBits.cpp`
 
 
 Function Documentation

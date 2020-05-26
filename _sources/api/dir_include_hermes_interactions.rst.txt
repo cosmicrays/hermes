@@ -1,0 +1,30 @@
+.. _dir_include_hermes_interactions:
+
+
+Directory interactions
+======================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/hermes/interactions``
+
+
+Files
+-----
+
+- :ref:`file_include_hermes_interactions_BreitWheeler.h`
+- :ref:`file_include_hermes_interactions_BremsstrahlungAbstract.h`
+- :ref:`file_include_hermes_interactions_BremsstrahlungGALPROP.h`
+- :ref:`file_include_hermes_interactions_BremsstrahlungTsai74.h`
+- :ref:`file_include_hermes_interactions_DiffCrossSection.h`
+- :ref:`file_include_hermes_interactions_DummyCrossSection.h`
+- :ref:`file_include_hermes_interactions_Kamae06Gamma.h`
+- :ref:`file_include_hermes_interactions_Kamae06Neutrino.h`
+- :ref:`file_include_hermes_interactions_KelnerAharonianGamma.h`
+- :ref:`file_include_hermes_interactions_KelnerAharonianNeutrino.h`
+- :ref:`file_include_hermes_interactions_KleinNishina.h`
+
+

@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1darkmatter_1_1NFWGProfile" kind="class" language="C++" prot="public">
+    <compoundname>hermes::darkmatter::NFWGProfile</compoundname>
+    <basecompoundref refid="classhermes_1_1darkmatter_1_1GalacticProfile" prot="public" virt="non-virtual">GalacticProfile</basecompoundref>
+    <includes refid="NFWGProfile_8h" local="no">include/hermes/darkmatter/NFWGProfile.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1NFWGProfile_1a918f4f8ead6f1e3d9cb680252a65790c" prot="private" static="no" mutable="no">
+        <type>const QMassDensity</type>
+        <definition>const QMassDensity rho_cr</definition>
+        <argsstring></argsstring>
+        <name>rho_cr</name>
+        <initializer>= 9.1e-30 * 1_g / 1_cm3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="16" column="20" bodyfile="include/hermes/darkmatter/NFWGProfile.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1NFWGProfile_1a72f9e01745b3a8203067ab84aefc9aea" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double gamma</definition>
+        <argsstring></argsstring>
+        <name>gamma</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="19" column="8" bodyfile="include/hermes/darkmatter/NFWGProfile.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1NFWGProfile_1a615f71d08796a22ba665dbbaf6b82551" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double concentration</definition>
+        <argsstring></argsstring>
+        <name>concentration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="20" column="8" bodyfile="include/hermes/darkmatter/NFWGProfile.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1NFWGProfile_1a1e7fe8e3fb945b2ff612aaf2cabd0946" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59" kindref="member">QMass</ref></type>
+        <definition>QMass M_200</definition>
+        <argsstring></argsstring>
+        <name>M_200</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="21" column="7" bodyfile="include/hermes/darkmatter/NFWGProfile.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1NFWGProfile_1af40a857b840ede53c9b9d316a4005ca0" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength R_200</definition>
+        <argsstring></argsstring>
+        <name>R_200</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="24" column="9" bodyfile="include/hermes/darkmatter/NFWGProfile.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1NFWGProfile_1a10ae9b0bb526da60a0a42a835d0310ca" prot="private" static="no" mutable="no">
+        <type>QMassDensity</type>
+        <definition>QMassDensity rho_s</definition>
+        <argsstring></argsstring>
+        <name>rho_s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="25" column="14" bodyfile="include/hermes/darkmatter/NFWGProfile.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1NFWGProfile_1aa12b1acfe31ea516d0303775b108ea89" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength r_s</definition>
+        <argsstring></argsstring>
+        <name>r_s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="26" column="9" bodyfile="include/hermes/darkmatter/NFWGProfile.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1NFWGProfile_1a02fd73d861ef2e4aabb38c0c9ff82947" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="29" column="6" bodyfile="src/darkmatter/NFWGProfile.cpp" bodystart="36" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1NFWGProfile_1a4e73eefa8adf42a8764cc9f60efa43a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NFWGProfile</definition>
+        <argsstring>(double gamma, double c, QMass M_200)</argsstring>
+        <name>NFWGProfile</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59" kindref="member">QMass</ref></type>
+          <declname>M_200</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="32" column="1" bodyfile="src/darkmatter/NFWGProfile.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1NFWGProfile_1ae9c13c5dc7731451b94b55c0d16f1293" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~NFWGProfile</definition>
+        <argsstring>()=default</argsstring>
+        <name>~NFWGProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="33" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1NFWGProfile_1a0bf093bf80ab9865ac1eeca6788996cf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QMassDensity</type>
+        <definition>QMassDensity getMassDensity</definition>
+        <argsstring>(QLength r) const override</argsstring>
+        <name>getMassDensity</name>
+        <reimplements refid="classhermes_1_1darkmatter_1_1GalacticProfile_1a6af4a7fdd3a1b048d3771a5949336b45">getMassDensity</reimplements>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="34" column="14" bodyfile="src/darkmatter/NFWGProfile.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1NFWGProfile_1a133a77ec7a32944e34b3ba4a981b01e9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QMassDensity</type>
+        <definition>QMassDensity getRhoSun</definition>
+        <argsstring>() const</argsstring>
+        <name>getRhoSun</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/NFWGProfile.h" line="35" column="14" bodyfile="src/darkmatter/NFWGProfile.cpp" bodystart="47" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GalacticProfile</label>
+        <link refid="classhermes_1_1darkmatter_1_1GalacticProfile"/>
+      </node>
+      <node id="1">
+        <label>NFWGProfile</label>
+        <link refid="classhermes_1_1darkmatter_1_1NFWGProfile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>GalacticProfile</label>
+        <link refid="classhermes_1_1darkmatter_1_1GalacticProfile"/>
+      </node>
+      <node id="1">
+        <label>NFWGProfile</label>
+        <link refid="classhermes_1_1darkmatter_1_1NFWGProfile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/darkmatter/NFWGProfile.h" line="14" column="41" bodyfile="include/hermes/darkmatter/NFWGProfile.h" bodystart="14" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a615f71d08796a22ba665dbbaf6b82551" prot="private" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>concentration</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1GalacticProfile_1ad5452a791c274b13aa520d06f09d9dbf" prot="public" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>GalacticProfile</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a72f9e01745b3a8203067ab84aefc9aea" prot="private" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>gamma</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a0bf093bf80ab9865ac1eeca6788996cf" prot="public" virt="virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>getMassDensity</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a133a77ec7a32944e34b3ba4a981b01e9" prot="public" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>getRhoSun</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a02fd73d861ef2e4aabb38c0c9ff82947" prot="protected" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>init</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a1e7fe8e3fb945b2ff612aaf2cabd0946" prot="private" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>M_200</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a4e73eefa8adf42a8764cc9f60efa43a0" prot="public" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>NFWGProfile</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1af40a857b840ede53c9b9d316a4005ca0" prot="private" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>R_200</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1aa12b1acfe31ea516d0303775b108ea89" prot="private" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>r_s</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a918f4f8ead6f1e3d9cb680252a65790c" prot="private" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>rho_cr</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a10ae9b0bb526da60a0a42a835d0310ca" prot="private" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>rho_s</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1GalacticProfile_1a0dafc9245539c96fa75fe2511fcd0e4d" prot="public" virt="virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>~GalacticProfile</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1ae9c13c5dc7731451b94b55c0d16f1293" prot="public" virt="non-virtual"><scope>hermes::darkmatter::NFWGProfile</scope><name>~NFWGProfile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

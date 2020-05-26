@@ -3,7 +3,7 @@
 Typedef hermes::DispersionMeasureIntegratorTemplate
 ===================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_integrators_DispersionMeasureIntegrator.h`
 
 
 Typedef Documentation

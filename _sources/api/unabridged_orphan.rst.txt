@@ -11,112 +11,67 @@ Directories
 .. toctree::
    :maxdepth: 5
 
-   dir_chargedgas.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_chargedgas.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_cosmicrays.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_cosmicrays.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_darkmatter.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_darkmatter.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_hermes.rst
-
-.. toctree::
-   :maxdepth: 5
-
    dir_include.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_integrators.rst
+   dir_include_hermes.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_integrators.rst
+   dir_include_hermes_chargedgas.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_interactions.rst
+   dir_include_hermes_cosmicrays.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_interactions.rst
+   dir_include_hermes_darkmatter.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_magneticfields.rst
+   dir_include_hermes_integrators.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_magneticfields.rst
+   dir_include_hermes_interactions.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_neutralgas.rst
+   dir_include_hermes_magneticfields.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_neutralgas.rst
+   dir_include_hermes_neutralgas.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_outputs.rst
+   dir_include_hermes_outputs.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_outputs.rst
+   dir_include_hermes_photonfields.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_photonfields.rst
+   dir_include_hermes_skymaps.rst
 
 .. toctree::
    :maxdepth: 5
 
-   dir_photonfields.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_skymaps.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   dir_skymaps.rst
+   dir_include_hermes_units.rst
 
 .. toctree::
    :maxdepth: 5
@@ -126,7 +81,52 @@ Directories
 .. toctree::
    :maxdepth: 5
 
-   dir_units.rst
+   dir_src_chargedgas.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_cosmicrays.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_darkmatter.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_integrators.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_interactions.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_magneticfields.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_neutralgas.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_outputs.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_photonfields.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_src_skymaps.rst
 
 Files
 *****

@@ -3,7 +3,7 @@
 Template Function hermes::gslQAGIntegration
 ===========================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_integrators_LOSIntegrationMethods.h`
 
 
 Function Documentation

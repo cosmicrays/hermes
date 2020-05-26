@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="MagneticField_8h" kind="file" language="C++">
+    <compoundname>MagneticField.h</compoundname>
+    <innerclass refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public">hermes::magneticfields::MagneticField</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField" prot="public">hermes::magneticfields::PeriodicMagneticField</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1MagneticFieldList" prot="public">hermes::magneticfields::MagneticFieldList</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1UniformMagneticField" prot="public">hermes::magneticfields::UniformMagneticField</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <innernamespace refid="namespacehermes_1_1magneticfields">hermes::magneticfields</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/magneticfields/MagneticField.h"/>
+  </compounddef>
+</doxygen>

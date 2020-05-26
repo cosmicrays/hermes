@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="YMW16_8h" kind="file" language="C++">
+    <compoundname>YMW16.h</compoundname>
+    <innerclass refid="classhermes_1_1chargedgas_1_1YMW16" prot="public">hermes::chargedgas::YMW16</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun" prot="private">hermes::chargedgas::YMW16::Warp_Sun</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thick" prot="private">hermes::chargedgas::YMW16::Thick</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thin" prot="private">hermes::chargedgas::YMW16::Thin</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1Spiral" prot="private">hermes::chargedgas::YMW16::Spiral</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1GC" prot="private">hermes::chargedgas::YMW16::GC</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1Gum" prot="private">hermes::chargedgas::YMW16::Gum</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB" prot="private">hermes::chargedgas::YMW16::LB</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1LI" prot="private">hermes::chargedgas::YMW16::LI</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1FB" prot="private">hermes::chargedgas::YMW16::FB</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1LMC" prot="private">hermes::chargedgas::YMW16::LMC</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1Dora" prot="private">hermes::chargedgas::YMW16::Dora</innerclass>
+    <innerclass refid="structhermes_1_1chargedgas_1_1YMW16_1_1SMC" prot="private">hermes::chargedgas::YMW16::SMC</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <innernamespace refid="namespacehermes_1_1chargedgas">hermes::chargedgas</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h"/>
+  </compounddef>
+</doxygen>

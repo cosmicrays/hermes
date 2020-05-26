@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1MaskList" kind="class" language="C++" prot="public">
+    <compoundname>hermes::MaskList</compoundname>
+    <basecompoundref refid="classhermes_1_1SkymapMask" prot="public" virt="non-virtual">SkymapMask</basecompoundref>
+    <includes refid="SkymapMask_8h" local="no">include/hermes/skymaps/SkymapMask.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1MaskList_1a7a60c3f872a81e171fede9856be4caf5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="classhermes_1_1SkymapMask" kindref="compound">SkymapMask</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;SkymapMask&gt; &gt; list</definition>
+        <argsstring></argsstring>
+        <name>list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="40" column="13" bodyfile="include/hermes/skymaps/SkymapMask.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1MaskList_1aa023033da472f117c19b213d35fc9d5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MaskList</definition>
+        <argsstring>()</argsstring>
+        <name>MaskList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="43" column="1" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1MaskList_1a08d03bed5919d146c40b46e34d002f93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addMask</definition>
+        <argsstring>(const std::shared_ptr&lt; SkymapMask &gt; &amp;mask)</argsstring>
+        <name>addMask</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1SkymapMask" kindref="compound">SkymapMask</ref> &gt; &amp;</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="44" column="6" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1MaskList_1a44c4272ba968898afad5223b2d01d3fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool isAllowed</definition>
+        <argsstring>(const QDirection &amp;dir) const override</argsstring>
+        <name>isAllowed</name>
+        <reimplements refid="classhermes_1_1SkymapMask_1a83fb5e18d6583bc6d0e57d9b04d34d1c">isAllowed</reimplements>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="45" column="6" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="52" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapMask_1af2b50ac24b7c39cc310fc5c27d227bee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; bool &gt;</type>
+        <definition>std::vector&lt; bool &gt; getMask</definition>
+        <argsstring>(std::size_t nside)</argsstring>
+        <name>getMask</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="22" column="13" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="23" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapMask_1aea425314aebc36d0f6bf7671705158da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string getDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>getDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="25" column="21" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1SkymapMask_1a3406b56004afdbe7a1815a541d40de99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setDescription</definition>
+        <argsstring>(const std::string &amp;description)</argsstring>
+        <name>setDescription</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="26" column="6" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="13" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhermes_1_1SkymapMask_1a2dbf8fd50ff2ad1a8c9b38d8ffa3af81" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle normalizeAngle</definition>
+        <argsstring>(QAngle angle) const</argsstring>
+        <name>normalizeAngle</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapMask.h" line="18" column="8" bodyfile="src/skymaps/SkymapMask.cpp" bodystart="17" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MaskList</label>
+        <link refid="classhermes_1_1MaskList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SkymapMask</label>
+        <link refid="classhermes_1_1SkymapMask"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>MaskList</label>
+        <link refid="classhermes_1_1MaskList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SkymapMask</label>
+        <link refid="classhermes_1_1SkymapMask"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/skymaps/SkymapMask.h" line="38" column="33" bodyfile="include/hermes/skymaps/SkymapMask.h" bodystart="38" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1MaskList_1a08d03bed5919d146c40b46e34d002f93" prot="public" virt="non-virtual"><scope>hermes::MaskList</scope><name>addMask</name></member>
+      <member refid="classhermes_1_1SkymapMask_1aea425314aebc36d0f6bf7671705158da" prot="public" virt="virtual"><scope>hermes::MaskList</scope><name>getDescription</name></member>
+      <member refid="classhermes_1_1SkymapMask_1af2b50ac24b7c39cc310fc5c27d227bee" prot="public" virt="non-virtual"><scope>hermes::MaskList</scope><name>getMask</name></member>
+      <member refid="classhermes_1_1MaskList_1a44c4272ba968898afad5223b2d01d3fe" prot="public" virt="virtual"><scope>hermes::MaskList</scope><name>isAllowed</name></member>
+      <member refid="classhermes_1_1MaskList_1a7a60c3f872a81e171fede9856be4caf5" prot="private" virt="non-virtual"><scope>hermes::MaskList</scope><name>list</name></member>
+      <member refid="classhermes_1_1MaskList_1aa023033da472f117c19b213d35fc9d5a" prot="public" virt="non-virtual"><scope>hermes::MaskList</scope><name>MaskList</name></member>
+      <member refid="classhermes_1_1SkymapMask_1a2dbf8fd50ff2ad1a8c9b38d8ffa3af81" prot="protected" virt="non-virtual"><scope>hermes::MaskList</scope><name>normalizeAngle</name></member>
+      <member refid="classhermes_1_1SkymapMask_1a3406b56004afdbe7a1815a541d40de99" prot="public" virt="non-virtual"><scope>hermes::MaskList</scope><name>setDescription</name></member>
+      <member refid="classhermes_1_1SkymapMask_1a52700f0492561b364c7be31df0952939" prot="public" virt="non-virtual"><scope>hermes::MaskList</scope><name>SkymapMask</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

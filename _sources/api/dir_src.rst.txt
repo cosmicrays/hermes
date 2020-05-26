@@ -7,6 +7,20 @@ Directory src
 
 *Directory path:* ``src``
 
+Subdirectories
+--------------
+
+- :ref:`dir_src_chargedgas`
+- :ref:`dir_src_cosmicrays`
+- :ref:`dir_src_darkmatter`
+- :ref:`dir_src_integrators`
+- :ref:`dir_src_interactions`
+- :ref:`dir_src_magneticfields`
+- :ref:`dir_src_neutralgas`
+- :ref:`dir_src_outputs`
+- :ref:`dir_src_photonfields`
+- :ref:`dir_src_skymaps`
+
 
 Files
 -----

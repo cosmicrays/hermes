@@ -1,0 +1,35 @@
+
+.. _file__home_andy_Projects_category_science_hermes_src_cosmicrays_SimpleCRDensity.cpp:
+
+File SimpleCRDensity.cpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src_cosmicrays>` (``/home/andy/Projects/category_science/hermes/src/cosmicrays``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/src/cosmicrays/SimpleCRDensity.cpp``)
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__cosmicrays`
+

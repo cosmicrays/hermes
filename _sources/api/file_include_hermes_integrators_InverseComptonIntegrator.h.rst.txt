@@ -4,6 +4,10 @@
 File InverseComptonIntegrator.h
 ===============================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes_integrators>` (``include/hermes/integrators``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none

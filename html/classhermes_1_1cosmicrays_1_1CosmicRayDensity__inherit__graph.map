@@ -1,0 +1,9 @@
+<map id="CosmicRayDensity" name="CosmicRayDensity">
+<area shape="rect" id="node1" title=" " alt="" coords="307,5,452,32"/>
+<area shape="rect" id="node2" href="$group__CosmicRays.html#classhermes_1_1cosmicrays_1_1Dragon2D" title=" " alt="" coords="5,80,92,107"/>
+<area shape="rect" id="node3" href="$group__CosmicRays.html#classhermes_1_1cosmicrays_1_1Dragon3D" title=" " alt="" coords="116,80,203,107"/>
+<area shape="rect" id="node4" href="$group__CosmicRays.html#classhermes_1_1cosmicrays_1_1DummyCRDensity" title=" " alt="" coords="227,80,369,107"/>
+<area shape="rect" id="node5" href="$group__CosmicRays.html#classhermes_1_1cosmicrays_1_1SimpleCRDensity" title=" " alt="" coords="393,80,528,107"/>
+<area shape="rect" id="node6" href="$group__CosmicRays.html#classhermes_1_1cosmicrays_1_1Sun08CRDensity" title=" " alt="" coords="553,80,683,107"/>
+<area shape="rect" id="node7" href="$group__CosmicRays.html#classhermes_1_1cosmicrays_1_1WMAP07CRDensity" title=" " alt="" coords="708,80,856,107"/>
+</map>

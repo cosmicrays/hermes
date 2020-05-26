@@ -4,6 +4,10 @@
 File KelnerAharonianNeutrino.h
 ==============================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes_interactions>` (``include/hermes/interactions``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none

@@ -3,7 +3,7 @@
 Variable hermes::units::electronvolt
 ====================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsDerived.h`
 
 
 Variable Documentation

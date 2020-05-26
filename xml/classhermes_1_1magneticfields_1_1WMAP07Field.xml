@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1magneticfields_1_1WMAP07Field" kind="class" language="C++" prot="public">
+    <compoundname>hermes::magneticfields::WMAP07Field</compoundname>
+    <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
+    <includes refid="WMAP07Field_8h" local="no">include/hermes/magneticfields/WMAP07Field.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1WMAP07Field_1aa53b0720173923ece26e04a4e6f9feaa" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField B_0</definition>
+        <argsstring></argsstring>
+        <name>B_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/WMAP07Field.h" line="24" column="9" bodyfile="include/hermes/magneticfields/WMAP07Field.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1WMAP07Field_1ab86f799a4975b1e78149f2e213350f75" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength r_0</definition>
+        <argsstring></argsstring>
+        <name>r_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/WMAP07Field.h" line="25" column="9" bodyfile="include/hermes/magneticfields/WMAP07Field.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1WMAP07Field_1a1b6dd82983660a6140f188132ddf00a9" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength z_0</definition>
+        <argsstring></argsstring>
+        <name>z_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/WMAP07Field.h" line="26" column="9" bodyfile="include/hermes/magneticfields/WMAP07Field.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1WMAP07Field_1a8c9e1ddde34a7a0a10ffd53ae30d6f65" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle chi_0</definition>
+        <argsstring></argsstring>
+        <name>chi_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/WMAP07Field.h" line="27" column="8" bodyfile="include/hermes/magneticfields/WMAP07Field.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1WMAP07Field_1ac0d81961e176cb38f237ca0e55f10dba" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle psi_1</definition>
+        <argsstring></argsstring>
+        <name>psi_1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/WMAP07Field.h" line="28" column="8" bodyfile="include/hermes/magneticfields/WMAP07Field.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1WMAP07Field_1a993fd508664e5681b6159bed7f9e979c" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle psi_0</definition>
+        <argsstring></argsstring>
+        <name>psi_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/WMAP07Field.h" line="29" column="8" bodyfile="include/hermes/magneticfields/WMAP07Field.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1WMAP07Field_1a9011965a5be2ad19dae9b1300adf9a44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WMAP07Field</definition>
+        <argsstring>()</argsstring>
+        <name>WMAP07Field</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/WMAP07Field.h" line="32" column="1" bodyfile="src/magneticfields/WMAP07Field.cpp" bodystart="7" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1WMAP07Field_1ac0dae9109932406f2020365815e0de79" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getField</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const override</argsstring>
+        <name>getField</name>
+        <reimplements refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe">getField</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/WMAP07Field.h" line="33" column="16" bodyfile="src/magneticfields/WMAP07Field.cpp" bodystart="17" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>3-year WMAP galactic magnetic field model </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Implemented the galactic magnetic field model used in 3-year WMAP analyses.</para>
+<para>See: L. Page et al 2007 ApJS 170 335, <ulink url="https://iopscience.iop.org/article/10.1086/513699">https://iopscience.iop.org/article/10.1086/513699</ulink> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>WMAP07Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1WMAP07Field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>WMAP07Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1WMAP07Field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/magneticfields/WMAP07Field.h" line="22" column="39" bodyfile="include/hermes/magneticfields/WMAP07Field.h" bodystart="22" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1magneticfields_1_1WMAP07Field_1aa53b0720173923ece26e04a4e6f9feaa" prot="private" virt="non-virtual"><scope>hermes::magneticfields::WMAP07Field</scope><name>B_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1WMAP07Field_1a8c9e1ddde34a7a0a10ffd53ae30d6f65" prot="private" virt="non-virtual"><scope>hermes::magneticfields::WMAP07Field</scope><name>chi_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1WMAP07Field_1ac0dae9109932406f2020365815e0de79" prot="public" virt="virtual"><scope>hermes::magneticfields::WMAP07Field</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1WMAP07Field_1a993fd508664e5681b6159bed7f9e979c" prot="private" virt="non-virtual"><scope>hermes::magneticfields::WMAP07Field</scope><name>psi_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1WMAP07Field_1ac0d81961e176cb38f237ca0e55f10dba" prot="private" virt="non-virtual"><scope>hermes::magneticfields::WMAP07Field</scope><name>psi_1</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1WMAP07Field_1ab86f799a4975b1e78149f2e213350f75" prot="private" virt="non-virtual"><scope>hermes::magneticfields::WMAP07Field</scope><name>r_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1WMAP07Field_1a9011965a5be2ad19dae9b1300adf9a44" prot="public" virt="non-virtual"><scope>hermes::magneticfields::WMAP07Field</scope><name>WMAP07Field</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1WMAP07Field_1a1b6dd82983660a6140f188132ddf00a9" prot="private" virt="non-virtual"><scope>hermes::magneticfields::WMAP07Field</scope><name>z_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" virt="virtual"><scope>hermes::magneticfields::WMAP07Field</scope><name>~MagneticField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

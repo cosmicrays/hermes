@@ -101,6 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../pages/Installation.html#install-on-macos-os-x">Install on macOS (OS X)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Examples.html">Examples</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul class="current">
@@ -111,6 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../components/CosmicRaysGroup.html">Cosmic Rays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../components/NeutralGasGroup.html">Neutral Gas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../components/PhotonFieldsGroup.html">Photon Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/InteractionsGroup.html">Interactions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
@@ -753,7 +755,7 @@
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
 <dl class="function">
 <dt id="_CPPv34RingNSt6size_tENSt10shared_ptrI8RingDataEE7QLength7QLength">
-<span id="_CPPv24RingNSt6size_tENSt10shared_ptrI8RingDataEE7QLength7QLength"></span><span id="Ring__std::s.std::shared_ptr:RingData:.QLength.QLength"></span><span class="target" id="classhermes_1_1neutralgas_1_1Ring_1ae2e62a0d9a14f37047f7d2fac672fee3"></span><code class="descname">Ring</code><span class="sig-paren">(</span>std::size_t <em>index_</em>, std::shared_ptr&lt;<a class="reference internal" href="classhermes_1_1neutralgas_1_1RingData.html#_CPPv38RingData8RingType" title="RingData">RingData</a>&gt; <em>RingModelPtr_</em>, <a class="reference internal" href="typedef_UnitsSimple_8h_1a1c20dce17af7f82f171ce3c5605de909.html#_CPPv37QLength" title="QLength">QLength</a> <em>innerR_</em>, <a class="reference internal" href="typedef_UnitsSimple_8h_1a1c20dce17af7f82f171ce3c5605de909.html#_CPPv37QLength" title="QLength">QLength</a> <em>outerR_</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv34RingNSt6size_tENSt10shared_ptrI8RingDataEE7QLength7QLength" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv24RingNSt6size_tENSt10shared_ptrI8RingDataEE7QLength7QLength"></span><span id="Ring__std::s.std::shared_ptr:RingData:.QLength.QLength"></span><span class="target" id="classhermes_1_1neutralgas_1_1Ring_1ae2e62a0d9a14f37047f7d2fac672fee3"></span><code class="descname">Ring</code><span class="sig-paren">(</span>std::size_t <em>index_</em>, std::shared_ptr&lt;<a class="reference internal" href="classhermes_1_1neutralgas_1_1RingData.html#_CPPv38RingData8RingType" title="RingData">RingData</a>&gt; <em>RingModelPtr_</em>, <a class="reference internal" href="typedef_namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909.html#_CPPv37QLength" title="QLength">QLength</a> <em>innerR_</em>, <a class="reference internal" href="typedef_namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909.html#_CPPv37QLength" title="QLength">QLength</a> <em>outerR_</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv34RingNSt6size_tENSt10shared_ptrI8RingDataEE7QLength7QLength" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -763,7 +765,7 @@
 
 <dl class="function">
 <dt id="_CPPv3NK13getBoundariesEv">
-<span id="_CPPv2NK13getBoundariesEv"></span><span id="getBoundariesC"></span><span class="target" id="classhermes_1_1neutralgas_1_1Ring_1adfdd2f7089ad96caddee54ad6d0df7d0"></span>std::pair&lt;<a class="reference internal" href="typedef_UnitsSimple_8h_1a1c20dce17af7f82f171ce3c5605de909.html#_CPPv37QLength" title="QLength">QLength</a>, <a class="reference internal" href="typedef_UnitsSimple_8h_1a1c20dce17af7f82f171ce3c5605de909.html#_CPPv37QLength" title="QLength">QLength</a>&gt; <code class="descname">getBoundaries</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK13getBoundariesEv" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv2NK13getBoundariesEv"></span><span id="getBoundariesC"></span><span class="target" id="classhermes_1_1neutralgas_1_1Ring_1adfdd2f7089ad96caddee54ad6d0df7d0"></span>std::pair&lt;<a class="reference internal" href="typedef_namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909.html#_CPPv37QLength" title="QLength">QLength</a>, <a class="reference internal" href="typedef_namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909.html#_CPPv37QLength" title="QLength">QLength</a>&gt; <code class="descname">getBoundaries</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK13getBoundariesEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -773,12 +775,12 @@
 
 <dl class="function">
 <dt id="_CPPv3NK18getHIColumnDensityERK10QDirection">
-<span id="_CPPv2NK18getHIColumnDensityERK10QDirection"></span><span id="getHIColumnDensity__QDirectionCRC"></span><span class="target" id="classhermes_1_1neutralgas_1_1Ring_1ad98ab52efcfced4e9d1af4f75e9696a2"></span><a class="reference internal" href="typedef_UnitsSimple_8h_1a73f8dce63834f57204084ff97dd58bcf.html#_CPPv314QColumnDensity" title="QColumnDensity">QColumnDensity</a> <code class="descname">getHIColumnDensity</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a.html#_CPPv310QDirection" title="QDirection">QDirection</a> &amp;<em>dir_</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK18getHIColumnDensityERK10QDirection" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv2NK18getHIColumnDensityERK10QDirection"></span><span id="getHIColumnDensity__QDirectionCRC"></span><span class="target" id="classhermes_1_1neutralgas_1_1Ring_1ad98ab52efcfced4e9d1af4f75e9696a2"></span><a class="reference internal" href="typedef_namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf.html#_CPPv314QColumnDensity" title="QColumnDensity">QColumnDensity</a> <code class="descname">getHIColumnDensity</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a.html#_CPPv310QDirection" title="QDirection">QDirection</a> &amp;<em>dir_</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK18getHIColumnDensityERK10QDirection" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="_CPPv3NK14getCOIntensityERK10QDirection">
-<span id="_CPPv2NK14getCOIntensityERK10QDirection"></span><span id="getCOIntensity__QDirectionCRC"></span><span class="target" id="classhermes_1_1neutralgas_1_1Ring_1a240676bddaae8e9ba371e89f7f3c827c"></span><a class="reference internal" href="typedef_UnitsSimple_8h_1a6fa6e2566d07746568b0ab61b4f0e491.html#_CPPv316QRingCOIntensity" title="QRingCOIntensity">QRingCOIntensity</a> <code class="descname">getCOIntensity</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a.html#_CPPv310QDirection" title="QDirection">QDirection</a> &amp;<em>dir</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK14getCOIntensityERK10QDirection" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv2NK14getCOIntensityERK10QDirection"></span><span id="getCOIntensity__QDirectionCRC"></span><span class="target" id="classhermes_1_1neutralgas_1_1Ring_1a240676bddaae8e9ba371e89f7f3c827c"></span><a class="reference internal" href="typedef_namespacehermes_1_1units_1a6fa6e2566d07746568b0ab61b4f0e491.html#_CPPv316QRingCOIntensity" title="QRingCOIntensity">QRingCOIntensity</a> <code class="descname">getCOIntensity</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a.html#_CPPv310QDirection" title="QDirection">QDirection</a> &amp;<em>dir</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK14getCOIntensityERK10QDirection" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 </div>

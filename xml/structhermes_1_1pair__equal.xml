@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1pair__equal" kind="struct" language="C++" prot="public">
+    <compoundname>hermes::pair_equal</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::binary_function&lt; tPairKey, tPairKey, bool &gt;</basecompoundref>
+    <includes refid="CacheTools_8h" local="no">include/hermes/CacheTools.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structhermes_1_1pair__equal_1a4268490e14785085a2a1985cac25465f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool areEqual</definition>
+        <argsstring>(double a, double b) const</argsstring>
+        <name>areEqual</name>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="41" column="13" bodyfile="include/hermes/CacheTools.h" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1pair__equal_1af73ea38c01c33e3bcfa50fe2e2f8937b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator()</definition>
+        <argsstring>(const tPairKey &amp;v0, const tPairKey &amp;v1) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1a85bf74584595cca6b9dda8c091b1400b" kindref="member">tPairKey</ref> &amp;</type>
+          <declname>v0</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1a85bf74584595cca6b9dda8c091b1400b" kindref="member">tPairKey</ref> &amp;</type>
+          <declname>v1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="44" column="6" bodyfile="include/hermes/CacheTools.h" bodystart="44" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>pair_equal</label>
+        <link refid="structhermes_1_1pair__equal"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>binary_function&lt; tPairKey, tPairKey, bool &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>pair_equal</label>
+        <link refid="structhermes_1_1pair__equal"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>binary_function&lt; tPairKey, tPairKey, bool &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/CacheTools.h" line="40" column="48" bodyfile="include/hermes/CacheTools.h" bodystart="40" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1pair__equal_1a4268490e14785085a2a1985cac25465f" prot="public" virt="non-virtual"><scope>hermes::pair_equal</scope><name>areEqual</name></member>
+      <member refid="structhermes_1_1pair__equal_1af73ea38c01c33e3bcfa50fe2e2f8937b" prot="public" virt="non-virtual"><scope>hermes::pair_equal</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

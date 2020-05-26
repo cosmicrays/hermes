@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacehermes_1_1FITS" kind="namespace" language="C++">
+    <compoundname>hermes::FITS</compoundname>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>DataType</name>
+        <enumvalue id="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6afd5a5f51ce25953f3db2c7e93eb7864a" prot="public">
+          <name>INT</name>
+          <initializer>= TINT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6aaee055c4a5aba7d55774e4f1c01dacea" prot="public">
+          <name>LONG</name>
+          <initializer>= TLONG</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6a9cf4a0866224b0bb4a7a895da27c9c4c" prot="public">
+          <name>FLOAT</name>
+          <initializer>= TFLOAT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6a33465d1d419b1074fb259ef444609e92" prot="public">
+          <name>DOUBLE</name>
+          <initializer>= TDOUBLE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6aee847e634a4297b274316de8a8ca9921" prot="public">
+          <name>STRING</name>
+          <initializer>= TSTRING</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="17" column="14" bodyfile="include/hermes/FITSWrapper.h" bodystart="17" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacehermes_1_1FITS_1a6920ce5d7f5c06c676fe801e538aed49" prot="public" static="no" strong="no">
+        <type></type>
+        <name>IOMode</name>
+        <enumvalue id="namespacehermes_1_1FITS_1a6920ce5d7f5c06c676fe801e538aed49acb9be765f361bb7efb9073730aac92c6" prot="public">
+          <name>READ</name>
+          <initializer>= READONLY</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1a6920ce5d7f5c06c676fe801e538aed49a61aa7ff70b76bff0fda378cf61d6afbc" prot="public">
+          <name>WRITE</name>
+          <initializer>= READWRITE</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="24" column="12" bodyfile="include/hermes/FITSWrapper.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacehermes_1_1FITS_1ae3cad0012491f6b195d44b53e67a6f37" prot="public" static="no" strong="no">
+        <type></type>
+        <name>HDUType</name>
+        <enumvalue id="namespacehermes_1_1FITS_1ae3cad0012491f6b195d44b53e67a6f37a3501d25cdde2b141c20edb67965fb692" prot="public">
+          <name>IMAGE</name>
+          <initializer>= IMAGE_HDU</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1ae3cad0012491f6b195d44b53e67a6f37af9c208c7d7a0f102f2683165540c882d" prot="public">
+          <name>ASCII</name>
+          <initializer>= ASCII_TBL</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1ae3cad0012491f6b195d44b53e67a6f37aecafbc1299672a8c1521cc0d5f1ae986" prot="public">
+          <name>BINARY</name>
+          <initializer>= BINARY_TBL</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="25" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ImgType</name>
+        <enumvalue id="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8ab0b7480ad6f8d951229c163f6a362dfd" prot="public">
+          <name>IMGBYTE</name>
+          <initializer>= BYTE_IMG</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8a83b11d8c7a06442f7d73c441403742f1" prot="public">
+          <name>IMGSHORT</name>
+          <initializer>= SHORT_IMG</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8ab3c073d0c0188fa728bbcfba32b6fb79" prot="public">
+          <name>IMGFLOAT</name>
+          <initializer>= FLOAT_IMG</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8a22a235796b432800b3ee4daf01c66712" prot="public">
+          <name>IMGDOUBLE</name>
+          <initializer>= DOUBLE_IMG</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="26" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="26" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/FITSWrapper.h" line="15" column="14"/>
+  </compounddef>
+</doxygen>

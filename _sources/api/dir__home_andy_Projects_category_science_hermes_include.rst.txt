@@ -1,0 +1,21 @@
+.. _dir__home_andy_Projects_category_science_hermes_include:
+
+
+Directory include
+=================
+
+
+*Directory path:* ``/home/andy/Projects/category_science/hermes/include``
+
+Subdirectories
+--------------
+
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes`
+
+
+Files
+-----
+
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes.h`
+
+

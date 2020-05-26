@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1darkmatter_1_1GalacticProfile" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>hermes::darkmatter::GalacticProfile</compoundname>
+    <derivedcompoundref refid="classhermes_1_1darkmatter_1_1NFWGProfile" prot="public" virt="non-virtual">NFWGProfile</derivedcompoundref>
+    <includes refid="GalacticProfile_8h" local="no">include/hermes/darkmatter/GalacticProfile.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1GalacticProfile_1ad5452a791c274b13aa520d06f09d9dbf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GalacticProfile</definition>
+        <argsstring>()</argsstring>
+        <name>GalacticProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/GalacticProfile.h" line="16" column="1" bodyfile="include/hermes/darkmatter/GalacticProfile.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1GalacticProfile_1a0dafc9245539c96fa75fe2511fcd0e4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~GalacticProfile</definition>
+        <argsstring>()</argsstring>
+        <name>~GalacticProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/GalacticProfile.h" line="17" column="9" bodyfile="include/hermes/darkmatter/GalacticProfile.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1GalacticProfile_1a6af4a7fdd3a1b048d3771a5949336b45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>QMassDensity</type>
+        <definition>virtual QMassDensity getMassDensity</definition>
+        <argsstring>(QLength r) const =0</argsstring>
+        <name>getMassDensity</name>
+        <reimplementedby refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a0bf093bf80ab9865ac1eeca6788996cf">getMassDensity</reimplementedby>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/GalacticProfile.h" line="18" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GalacticProfile</label>
+        <link refid="classhermes_1_1darkmatter_1_1GalacticProfile"/>
+      </node>
+      <node id="2">
+        <label>NFWGProfile</label>
+        <link refid="classhermes_1_1darkmatter_1_1NFWGProfile"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="include/hermes/darkmatter/GalacticProfile.h" line="14" column="22" bodyfile="include/hermes/darkmatter/GalacticProfile.h" bodystart="14" bodyend="19"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1darkmatter_1_1GalacticProfile_1ad5452a791c274b13aa520d06f09d9dbf" prot="public" virt="non-virtual"><scope>hermes::darkmatter::GalacticProfile</scope><name>GalacticProfile</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1GalacticProfile_1a6af4a7fdd3a1b048d3771a5949336b45" prot="public" virt="pure-virtual"><scope>hermes::darkmatter::GalacticProfile</scope><name>getMassDensity</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1GalacticProfile_1a0dafc9245539c96fa75fe2511fcd0e4d" prot="public" virt="virtual"><scope>hermes::darkmatter::GalacticProfile</scope><name>~GalacticProfile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

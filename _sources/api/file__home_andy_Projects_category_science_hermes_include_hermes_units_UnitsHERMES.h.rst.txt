@@ -1,0 +1,52 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_units_UnitsHERMES.h:
+
+File UnitsHERMES.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes_units>` (``/home/andy/Projects/category_science/hermes/include/hermes/units``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/units/UnitsHERMES.h``)
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__units`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1_1units_1abc4316024c8b735f6ae822eeea7d157e`
+
+- :ref:`exhale_function_namespacehermes_1_1units_1a0d858fd0da3b2a2f1f21233b0504c479`
+
+- :ref:`exhale_function_group__Units_1ga785427355e264e9677f6cd1980c5a7b0`
+
+- :ref:`exhale_function_group__Units_1gaccef8d9b262e892b63dbb73d29fbdbf2`
+
+- :ref:`exhale_function_namespacehermes_1_1units_1ac2ef5e32c6c49910a12e1d2bd6397e20`
+
+- :ref:`exhale_function_group__Units_1ga75bd6af29b4260f0d25a24f568adc221`
+

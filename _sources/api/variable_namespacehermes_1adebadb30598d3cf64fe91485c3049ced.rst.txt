@@ -3,7 +3,7 @@
 Variable hermes::g_cancel_signal_flag
 =====================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_src_Signals.cpp`
 
 
 Variable Documentation

@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1magneticfields_1_1MagneticField" kind="class" language="C++" prot="public">
+    <compoundname>hermes::magneticfields::MagneticField</compoundname>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1JF12Field" prot="public" virt="non-virtual">JF12Field</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1LogarithmicSpiralField" prot="public" virt="non-virtual">LogarithmicSpiralField</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1MagneticFieldGrid" prot="public" virt="non-virtual">MagneticFieldGrid</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1MagneticFieldList" prot="public" virt="non-virtual">MagneticFieldList</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid" prot="public" virt="non-virtual">ModulatedMagneticFieldGrid</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField" prot="public" virt="non-virtual">PeriodicMagneticField</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1PT11Field" prot="public" virt="non-virtual">PT11Field</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1Sun08Field" prot="public" virt="non-virtual">Sun08Field</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1TorroidalHaloField" prot="public" virt="non-virtual">TorroidalHaloField</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1UniformMagneticField" prot="public" virt="non-virtual">UniformMagneticField</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1magneticfields_1_1WMAP07Field" prot="public" virt="non-virtual">WMAP07Field</derivedcompoundref>
+    <includes refid="MagneticField_8h" local="no">include/hermes/magneticfields/MagneticField.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~MagneticField</definition>
+        <argsstring>()</argsstring>
+        <name>~MagneticField</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="26" column="9" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>virtual Vector3QMField getField</definition>
+        <argsstring>(const Vector3QLength &amp;position) const</argsstring>
+        <name>getField</name>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1WMAP07Field_1ac0dae9109932406f2020365815e0de79">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1PT11Field_1ac0dae9109932406f2020365815e0de79">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1Sun08Field_1ac0dae9109932406f2020365815e0de79">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1JF12Field_1ac0dae9109932406f2020365815e0de79">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1MagneticFieldList_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c">getField</reimplementedby>
+        <reimplementedby refid="classhermes_1_1magneticfields_1_1UniformMagneticField_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c">getField</reimplementedby>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="27" column="24" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="27" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract base class for magnetic fields. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>ModulatedMagneticFieldGrid</label>
+        <link refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>WMAP07Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1WMAP07Field"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>PT11Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1PT11Field"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Sun08Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1Sun08Field"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>JF12Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1JF12Field"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>LogarithmicSpiralField</label>
+        <link refid="classhermes_1_1magneticfields_1_1LogarithmicSpiralField"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>TorroidalHaloField</label>
+        <link refid="classhermes_1_1magneticfields_1_1TorroidalHaloField"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+      <node id="11">
+        <label>UniformMagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1UniformMagneticField"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>MagneticFieldGrid</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticFieldGrid"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>PeriodicMagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>MagneticFieldList</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticFieldList"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="include/hermes/magneticfields/MagneticField.h" line="24" column="20" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="24" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe" prot="public" virt="virtual"><scope>hermes::magneticfields::MagneticField</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" virt="virtual"><scope>hermes::magneticfields::MagneticField</scope><name>~MagneticField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

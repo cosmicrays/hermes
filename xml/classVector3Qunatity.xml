@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classVector3Qunatity" kind="class" language="C++" prot="public">
+    <compoundname>Vector3Qunatity</compoundname>
+    <includes refid="Vector3Quantity_8h" local="no">include/hermes/Vector3Quantity.h</includes>
+    <briefdescription>
+<para>Template class for 3-vectors of type Quantity. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Allows accessing and changing the elements x, y, z directly or through the corresponding get and set methods.</para>
+<para>Angle definitions are phi [-pi, pi]: azimuthal angle in the x-y plane, 0 pointing in x-direction theta [0, pi]: zenith angle towards the z axis, 0 pointing in z-direction</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Quantity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any of the QClass quantities </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="include/hermes/Vector3Quantity.h" line="19" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

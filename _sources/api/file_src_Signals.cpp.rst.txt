@@ -31,3 +31,17 @@ Namespaces
 
 - :ref:`namespace_hermes`
 
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1a18aa87dcffccbb8c736f92ed737bd0b2`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespacehermes_1adebadb30598d3cf64fe91485c3049ced`
+

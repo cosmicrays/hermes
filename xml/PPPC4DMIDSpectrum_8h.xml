@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="PPPC4DMIDSpectrum_8h" kind="file" language="C++">
+    <compoundname>PPPC4DMIDSpectrum.h</compoundname>
+    <innerclass refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum" prot="public">hermes::darkmatter::PPPC4DMIDSpectrum</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <innernamespace refid="namespacehermes_1_1darkmatter">hermes::darkmatter</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h"/>
+  </compounddef>
+</doxygen>

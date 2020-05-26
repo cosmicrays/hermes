@@ -1,0 +1,1026 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1Random" kind="class" language="C++" prot="public">
+    <compoundname>hermes::Random</compoundname>
+    <includes refid="Random_8h" local="no">include/hermes/Random.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classhermes_1_1Random_1a99fb83031ce9923c84392b4e92f956b5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>@2</name>
+        <enumvalue id="classhermes_1_1Random_1a99fb83031ce9923c84392b4e92f956b5a2c63acbe79d9f41ba6bb7766e9c37702" prot="public">
+          <name>N</name>
+          <initializer>= 624</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="101" column="6" bodyfile="include/hermes/Random.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="enum" id="classhermes_1_1Random_1abc6126af1d45847bc59afa0aa3216b04" prot="public" static="no" strong="no">
+        <type></type>
+        <name>@3</name>
+        <enumvalue id="classhermes_1_1Random_1abc6126af1d45847bc59afa0aa3216b04a793562cbf5bffacba71303cee907ef7d" prot="public">
+          <name>SAVE</name>
+          <initializer>= N + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="102" column="6" bodyfile="include/hermes/Random.h" bodystart="102" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" prot="public" static="no">
+        <type>unsigned long</type>
+        <definition>typedef unsigned long uint32</definition>
+        <argsstring></argsstring>
+        <name>uint32</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="99" column="23" bodyfile="include/hermes/Random.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-type">
+      <memberdef kind="enum" id="classhermes_1_1Random_1adc29c2ff13d900c2f185ee95427fb06c" prot="protected" static="no" strong="no">
+        <type></type>
+        <name>@4</name>
+        <enumvalue id="classhermes_1_1Random_1adc29c2ff13d900c2f185ee95427fb06ca51ca6c63d97347ee58cc7da59ab6994b" prot="protected">
+          <name>M</name>
+          <initializer>= 397</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="105" column="6" bodyfile="include/hermes/Random.h" bodystart="105" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhermes_1_1Random_1a4a74b6534461b0dde4f9709d6516ea3a" prot="protected" static="no" mutable="no">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+        <definition>uint32 state[N]</definition>
+        <argsstring>[N]</argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="106" column="8" bodyfile="include/hermes/Random.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Random_1a825b8792d2c478ca40b94a1879f076f1" prot="protected" static="no" mutable="no">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> *</type>
+        <definition>uint32* pNext</definition>
+        <argsstring></argsstring>
+        <name>pNext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="107" column="8" bodyfile="include/hermes/Random.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Random_1ad8f5e19e19f12974c9713e920ec54331" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="108" column="5" bodyfile="include/hermes/Random.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1Random_1a01ab10f1ae5e9e2c8aaf5d7b3ceb32e6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Random</definition>
+        <argsstring>(const uint32 &amp;oneSeed)</argsstring>
+        <name>Random</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>oneSeed</declname>
+        </param>
+        <briefdescription>
+<para>initialize with a simple uint32 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="113" column="10" bodyfile="src/Random.cpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a68d2d4852cf4842fd7d3ca454a20e340" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Random</definition>
+        <argsstring>(uint32 *const bigSeed, uint32 const seedLength=N)</argsstring>
+        <name>Random</name>
+        <param>
+          <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> *const</type>
+          <declname>bigSeed</declname>
+        </param>
+        <param>
+          <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> const</type>
+          <declname>seedLength</declname>
+          <defval><ref refid="classhermes_1_1Random_1a99fb83031ce9923c84392b4e92f956b5a2c63acbe79d9f41ba6bb7766e9c37702" kindref="member">N</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="115" column="10" bodyfile="src/Random.cpp" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1aa0cd23a16025cfeef7b8810eeb2a5d36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Random</definition>
+        <argsstring>()</argsstring>
+        <name>Random</name>
+        <briefdescription>
+<para>auto-initialize with /dev/urandom or time() and clock() Do NOT use for CRYPTOGRAPHY without securely hashing several returned values together, otherwise the generator state can be learned after reading 624 consecutive values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="120" column="1" bodyfile="src/Random.cpp" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a78309d923f245b6acf167260194ba6e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double rand</definition>
+        <argsstring>()</argsstring>
+        <name>rand</name>
+        <briefdescription>
+<para>real number in [0,1] </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="122" column="8" bodyfile="src/Random.cpp" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a6b54c1bfd54a46e292478870554eb4d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double rand</definition>
+        <argsstring>(const double &amp;n)</argsstring>
+        <name>rand</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>real number in [0,n] </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="123" column="8" bodyfile="src/Random.cpp" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1adfd027765dc6de35f4305204edf51622" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randExc</definition>
+        <argsstring>()</argsstring>
+        <name>randExc</name>
+        <briefdescription>
+<para>real number in [0,1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="124" column="8" bodyfile="src/Random.cpp" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1ad9888d54bf71c0c6bb5941394a0e5651" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randExc</definition>
+        <argsstring>(const double &amp;n)</argsstring>
+        <name>randExc</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>real number in [0,n) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="125" column="8" bodyfile="src/Random.cpp" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a540919a8c8868928fffce58c66d1b91e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randDblExc</definition>
+        <argsstring>()</argsstring>
+        <name>randDblExc</name>
+        <briefdescription>
+<para>real number in (0,1) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="126" column="8" bodyfile="src/Random.cpp" bodystart="83" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a680cbcf457bdc668d1a4d9a1c8bb882b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randDblExc</definition>
+        <argsstring>(const double &amp;n)</argsstring>
+        <name>randDblExc</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>real number in (0,n) Pull a 32-bit integer from the generator state Every other access function simply transforms the numbers extracted here </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="127" column="8" bodyfile="src/Random.cpp" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1ab6ceb5ccc93f49f4e2dccf63fd63e774" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+        <definition>Random::uint32 randInt</definition>
+        <argsstring>()</argsstring>
+        <name>randInt</name>
+        <briefdescription>
+<para>integer in [0,2^32-1] </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="131" column="8" bodyfile="src/Random.cpp" bodystart="219" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1acce4316f2530cab99b6cc4d75ac398b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+        <definition>Random::uint32 randInt</definition>
+        <argsstring>(const uint32 &amp;n)</argsstring>
+        <name>randInt</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>integer in [0,n] for n &lt; 2^32 </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="132" column="8" bodyfile="src/Random.cpp" bodystart="231" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a957487771e79552480efa2f2ed887261" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t randInt64</definition>
+        <argsstring>()</argsstring>
+        <name>randInt64</name>
+        <briefdescription>
+<para>integer in [0, 2**64 -1]. PROBABLY NOT SECURE TO USE </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="135" column="1" bodyfile="src/Random.cpp" bodystart="249" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a87c673ee0416521c657d34434ea4bfeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t randInt64</definition>
+        <argsstring>(const uint64_t &amp;n)</argsstring>
+        <name>randInt64</name>
+        <param>
+          <type>const uint64_t &amp;</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>integer in [0, n] for n &lt; 2**64 -1. PROBABLY NOT SECURE TO USE </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="136" column="10" bodyfile="src/Random.cpp" bodystart="251" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1ae021627627a0dbdbd19b503a3955dcc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double rand53</definition>
+        <argsstring>()</argsstring>
+        <name>rand53</name>
+        <briefdescription>
+<para>Access to 53-bit random numbers (capacity of IEEE double precision) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="142" column="8" bodyfile="src/Random.cpp" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a4b16357aa8da99122fa67aaba2653d68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randExponential</definition>
+        <argsstring>()</argsstring>
+        <name>randExponential</name>
+        <briefdescription>
+<para>Exponential distribution in (0,inf) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="144" column="8" bodyfile="src/Random.cpp" bodystart="211" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1aa9ff74123d4d205b49c9c8c44b2b3af3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randNorm</definition>
+        <argsstring>(const double &amp;mean=0.0, const double &amp;variance=1.0)</argsstring>
+        <name>randNorm</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>mean</declname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>variance</declname>
+          <defval>1.0</defval>
+        </param>
+        <briefdescription>
+<para>Normal distributed random number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="146" column="8" bodyfile="src/Random.cpp" bodystart="96" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a676ea228bb8be981a245f243599be2ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randUniform</definition>
+        <argsstring>(double min, double max)</argsstring>
+        <name>randUniform</name>
+        <param>
+          <type>double</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+<para>Uniform distribution in [min, max]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="148" column="8" bodyfile="src/Random.cpp" bodystart="102" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a22b7848147a9fecaa227fe4170ae6c6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randRayleigh</definition>
+        <argsstring>(double sigma)</argsstring>
+        <name>randRayleigh</name>
+        <param>
+          <type>double</type>
+          <declname>sigma</declname>
+        </param>
+        <briefdescription>
+<para>Rayleigh distributed random number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="150" column="8" bodyfile="src/Random.cpp" bodystart="106" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a0ef89b01dbab3b7af11d83ebbb088caf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randFisher</definition>
+        <argsstring>(double k)</argsstring>
+        <name>randFisher</name>
+        <param>
+          <type>double</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+<para>Fisher distributed random number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="152" column="8" bodyfile="src/Random.cpp" bodystart="110" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1ab70ffcf4477320f22f8c4b70756f60ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t randBin</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;cdf)</argsstring>
+        <name>randBin</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>cdf</declname>
+        </param>
+        <briefdescription>
+<para>Draw a random bin from a (unnormalized) cumulative distribution function, without leading zero. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="156" column="8" bodyfile="src/Random.cpp" bodystart="114" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1ab4e6c23c7c183cf426ab1fc941d641ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t randBin</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;cdf)</argsstring>
+        <name>randBin</name>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>cdf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="157" column="8" bodyfile="src/Random.cpp" bodystart="120" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a72fcc3b309bcab75050c60ffa2659e3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref></type>
+        <definition>Vector3d randVector</definition>
+        <argsstring>()</argsstring>
+        <name>randVector</name>
+        <briefdescription>
+<para><ref refid="classhermes_1_1Random" kindref="compound">Random</ref> point on a unit-sphere. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="160" column="10" bodyfile="src/Random.cpp" bodystart="126" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a61c9eacb9b10051428e5302d47b43c6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref></type>
+        <definition>Vector3d randVectorAroundMean</definition>
+        <argsstring>(const Vector3d &amp;meanDirection, double angle)</argsstring>
+        <name>randVectorAroundMean</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref> &amp;</type>
+          <declname>meanDirection</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classhermes_1_1Random" kindref="compound">Random</ref> vector with given angular separation around mean direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="162" column="10" bodyfile="src/Random.cpp" bodystart="133" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a59845772e010c85222696da08143282d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref></type>
+        <definition>Vector3d randFisherVector</definition>
+        <argsstring>(const Vector3d &amp;meanDirection, double kappa)</argsstring>
+        <name>randFisherVector</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref> &amp;</type>
+          <declname>meanDirection</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>kappa</declname>
+        </param>
+        <briefdescription>
+<para>Fisher distributed random vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="164" column="10" bodyfile="src/Random.cpp" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a81c75a710fe75ed3ea662b23591dd171" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref></type>
+        <definition>Vector3d randConeVector</definition>
+        <argsstring>(const Vector3d &amp;meanDirection, double angularRadius)</argsstring>
+        <name>randConeVector</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref> &amp;</type>
+          <declname>meanDirection</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>angularRadius</declname>
+        </param>
+        <briefdescription>
+<para>Uniform distributed random vector inside a cone. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="166" column="10" bodyfile="src/Random.cpp" bodystart="144" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1abcd421d6ac5d8720014afa6e6e9ec9af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref></type>
+        <definition>Vector3d randomInterpolatedPosition</definition>
+        <argsstring>(const Vector3d &amp;a, const Vector3d &amp;b)</argsstring>
+        <name>randomInterpolatedPosition</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>_Position vector uniformly distributed within propagation step size bin </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="170" column="10" bodyfile="src/Random.cpp" bodystart="151" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a0cd29fd1c9f315dbd0630fc3462d9831" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randPowerLaw</definition>
+        <argsstring>(double index, double min, double max)</argsstring>
+        <name>randPowerLaw</name>
+        <param>
+          <type>double</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+<para>Power-law distribution of a given differential spectral index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="173" column="8" bodyfile="src/Random.cpp" bodystart="156" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1abb08d2082cd8525b8968d45ba6b06378" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double randBrokenPowerLaw</definition>
+        <argsstring>(double index1, double index2, double breakpoint, double min, double max)</argsstring>
+        <name>randBrokenPowerLaw</name>
+        <param>
+          <type>double</type>
+          <declname>index1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>index2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>breakpoint</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+<para>Broken power-law distribution. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="175" column="8" bodyfile="src/Random.cpp" bodystart="174" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1ab5ce969c6442850460e63f7140b15643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void seed</definition>
+        <argsstring>(const uint32 oneSeed)</argsstring>
+        <name>seed</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+          <declname>oneSeed</declname>
+        </param>
+        <briefdescription>
+<para>Seed the generator with a simple uint32. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="179" column="6" bodyfile="src/Random.cpp" bodystart="268" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a71165679ffe6b9e1d1e53e2acdd5b1f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void seed</definition>
+        <argsstring>(uint32 *const bigSeed, const uint32 seedLength=N)</argsstring>
+        <name>seed</name>
+        <param>
+          <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> *const</type>
+          <declname>bigSeed</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+          <declname>seedLength</declname>
+          <defval><ref refid="classhermes_1_1Random_1a99fb83031ce9923c84392b4e92f956b5a2c63acbe79d9f41ba6bb7766e9c37702" kindref="member">N</ref></defval>
+        </param>
+        <briefdescription>
+<para>Seed the generator with an array of uint32&apos;s There are 2^19937-1 possible initial states. This function allows all of those to be accessed by providing at least 19937 bits (with a default seed length of N = 624 uint32&apos;s). Any bits above the lower 32 in each element are discarded. Just call <ref refid="classhermes_1_1Random_1a78c8e327d0192e2a6c1df70828a86ec6" kindref="member">seed()</ref> if you want to get array from /dev/urandom. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="186" column="6" bodyfile="src/Random.cpp" bodystart="273" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a78c8e327d0192e2a6c1df70828a86ec6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void seed</definition>
+        <argsstring>()</argsstring>
+        <name>seed</name>
+        <briefdescription>
+<para>Seed the generator with an array from /dev/urandom if available Otherwise use a hash of time() and clock() values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="189" column="6" bodyfile="src/Random.cpp" bodystart="306" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a29428ae92bee4d3725f596d960b7b4cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void save</definition>
+        <argsstring>(uint32 *saveArray) const</argsstring>
+        <name>save</name>
+        <param>
+          <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> *</type>
+          <declname>saveArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="192" column="6" bodyfile="src/Random.cpp" bodystart="366" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a740a03e0a7c519b32e1e0d027038d7b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void load</definition>
+        <argsstring>(uint32 *const loadArray)</argsstring>
+        <name>load</name>
+        <param>
+          <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> *const</type>
+          <declname>loadArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="193" column="6" bodyfile="src/Random.cpp" bodystart="375" bodyend="383"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classhermes_1_1Random_1a350d627aeb66bc5b822c5a17b6a27827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;os, const Random &amp;mtrand)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random" kindref="compound">Random</ref> &amp;</type>
+          <declname>mtrand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="194" column="8" bodyfile="src/Random.cpp" bodystart="385" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="friend" id="classhermes_1_1Random_1a3f3449854b004c8d90c8a2a09f190997" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend std::istream &amp;</type>
+        <definition>std::istream&amp; operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;is, Random &amp;mtrand)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <param>
+          <type><ref refid="classhermes_1_1Random" kindref="compound">Random</ref> &amp;</type>
+          <declname>mtrand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="195" column="21" bodyfile="src/Random.cpp" bodystart="393" bodyend="401"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classhermes_1_1Random_1aec024bcb4b3e84f664f198329b51e050" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Random" kindref="compound">Random</ref> &amp;</type>
+        <definition>Random &amp; instance</definition>
+        <argsstring>()</argsstring>
+        <name>instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="197" column="15" bodyfile="src/Random.cpp" bodystart="423" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a3b78230fb4ddf186ab06b573a87d9d02" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void seedThreads</definition>
+        <argsstring>(const uint32 oneSeed)</argsstring>
+        <name>seedThreads</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+          <declname>oneSeed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="198" column="13" bodyfile="src/Random.cpp" bodystart="431" bodyend="433"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhermes_1_1Random_1a62b212a5fa25790b0e3c102cea847228" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initialize</definition>
+        <argsstring>(const uint32 oneSeed)</argsstring>
+        <name>initialize</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+          <declname>oneSeed</declname>
+        </param>
+        <briefdescription>
+<para>Initialize generator state with seed See Knuth TAOCP Vol 2, 3rd Ed, p.106 for multiplier. In previous versions, most significant bits (MSBs) of the seed affect only MSBs of the state array. Modified 9 Jan 2002 by Makoto Matsumoto. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="206" column="6" bodyfile="src/Random.cpp" bodystart="327" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1af0de4b4127be745f3a835f316c6d2d03" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void reload</definition>
+        <argsstring>()</argsstring>
+        <name>reload</name>
+        <briefdescription>
+<para>Generate N new values in state Made clearer and faster by Matthew Bellew (<ulink url="mailto:matthew.bellew@home.com">matthew.bellew@home.com</ulink>) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="210" column="6" bodyfile="src/Random.cpp" bodystart="338" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1ab56c28c7f78d2364195460a8f746c4e1" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+        <definition>uint32 hiBit</definition>
+        <argsstring>(const uint32 &amp;u) const</argsstring>
+        <name>hiBit</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="211" column="8" bodyfile="include/hermes/Random.h" bodystart="211" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a4abe80c8ce9b7eb9894159f554aa159b" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+        <definition>uint32 loBit</definition>
+        <argsstring>(const uint32 &amp;u) const</argsstring>
+        <name>loBit</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="212" column="8" bodyfile="include/hermes/Random.h" bodystart="212" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a56d38cfb9b426867e3e754c0aea846d9" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+        <definition>uint32 loBits</definition>
+        <argsstring>(const uint32 &amp;u) const</argsstring>
+        <name>loBits</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>u</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="213" column="8" bodyfile="include/hermes/Random.h" bodystart="213" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a1864231c6fcc1e4eddbbeb664cb58bd2" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+        <definition>uint32 mixBits</definition>
+        <argsstring>(const uint32 &amp;u, const uint32 &amp;v) const</argsstring>
+        <name>mixBits</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="214" column="8" bodyfile="include/hermes/Random.h" bodystart="214" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Random_1a1421ab3c2d14deac773a46afe8557d48" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+        <definition>uint32 twist</definition>
+        <argsstring>(const uint32 &amp;m, const uint32 &amp;s0, const uint32 &amp;s1) const</argsstring>
+        <name>twist</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>s0</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref> &amp;</type>
+          <declname>s1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="222" column="8" bodyfile="include/hermes/Random.h" bodystart="222" bodyend="224"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="classhermes_1_1Random_1ab49863f98f4b310ace4c6c869573089c" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" kindref="member">uint32</ref></type>
+        <definition>Random::uint32 hash</definition>
+        <argsstring>(time_t t, clock_t c)</argsstring>
+        <name>hash</name>
+        <param>
+          <type>time_t</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>clock_t</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Get a uint32 from t and c Better than uint32(x) in case x is floating point in [0,1] Based on code by Lawrence Kirby (<ulink url="mailto:fred@genesis.demon.co.uk">fred@genesis.demon.co.uk</ulink>) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Random.h" line="233" column="15" bodyfile="src/Random.cpp" bodystart="348" bodyend="364"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classhermes_1_1Random" kindref="compound">Random</ref> number generator. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Mersenne Twister random number generator <ndash/> a C++ class <ref refid="classhermes_1_1Random" kindref="compound">Random</ref> Based on code by Makoto Matsumoto, Takuji Nishimura, and Shawn Cokus Richard J. Wagner v1.0 15 May 2003 <ulink url="mailto:rjwagner@writeme.com">rjwagner@writeme.com</ulink> </para>
+    </detaileddescription>
+    <location file="include/hermes/Random.h" line="96" column="13" bodyfile="include/hermes/Random.h" bodystart="96" bodyend="234"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1Random_1ab49863f98f4b310ace4c6c869573089c" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>hash</name></member>
+      <member refid="classhermes_1_1Random_1ab56c28c7f78d2364195460a8f746c4e1" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>hiBit</name></member>
+      <member refid="classhermes_1_1Random_1a62b212a5fa25790b0e3c102cea847228" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>initialize</name></member>
+      <member refid="classhermes_1_1Random_1aec024bcb4b3e84f664f198329b51e050" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>instance</name></member>
+      <member refid="classhermes_1_1Random_1ad8f5e19e19f12974c9713e920ec54331" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>left</name></member>
+      <member refid="classhermes_1_1Random_1a740a03e0a7c519b32e1e0d027038d7b4" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>load</name></member>
+      <member refid="classhermes_1_1Random_1a4abe80c8ce9b7eb9894159f554aa159b" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>loBit</name></member>
+      <member refid="classhermes_1_1Random_1a56d38cfb9b426867e3e754c0aea846d9" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>loBits</name></member>
+      <member refid="classhermes_1_1Random_1adc29c2ff13d900c2f185ee95427fb06ca51ca6c63d97347ee58cc7da59ab6994b" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>M</name></member>
+      <member refid="classhermes_1_1Random_1a1864231c6fcc1e4eddbbeb664cb58bd2" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>mixBits</name></member>
+      <member refid="classhermes_1_1Random_1a99fb83031ce9923c84392b4e92f956b5a2c63acbe79d9f41ba6bb7766e9c37702" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>N</name></member>
+      <member refid="classhermes_1_1Random_1a350d627aeb66bc5b822c5a17b6a27827" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classhermes_1_1Random_1a3f3449854b004c8d90c8a2a09f190997" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classhermes_1_1Random_1a825b8792d2c478ca40b94a1879f076f1" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>pNext</name></member>
+      <member refid="classhermes_1_1Random_1a78309d923f245b6acf167260194ba6e1" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>rand</name></member>
+      <member refid="classhermes_1_1Random_1a6b54c1bfd54a46e292478870554eb4d0" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>rand</name></member>
+      <member refid="classhermes_1_1Random_1ae021627627a0dbdbd19b503a3955dcc9" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>rand53</name></member>
+      <member refid="classhermes_1_1Random_1ab70ffcf4477320f22f8c4b70756f60ed" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randBin</name></member>
+      <member refid="classhermes_1_1Random_1ab4e6c23c7c183cf426ab1fc941d641ed" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randBin</name></member>
+      <member refid="classhermes_1_1Random_1abb08d2082cd8525b8968d45ba6b06378" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randBrokenPowerLaw</name></member>
+      <member refid="classhermes_1_1Random_1a81c75a710fe75ed3ea662b23591dd171" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randConeVector</name></member>
+      <member refid="classhermes_1_1Random_1a540919a8c8868928fffce58c66d1b91e" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randDblExc</name></member>
+      <member refid="classhermes_1_1Random_1a680cbcf457bdc668d1a4d9a1c8bb882b" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randDblExc</name></member>
+      <member refid="classhermes_1_1Random_1adfd027765dc6de35f4305204edf51622" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randExc</name></member>
+      <member refid="classhermes_1_1Random_1ad9888d54bf71c0c6bb5941394a0e5651" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randExc</name></member>
+      <member refid="classhermes_1_1Random_1a4b16357aa8da99122fa67aaba2653d68" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randExponential</name></member>
+      <member refid="classhermes_1_1Random_1a0ef89b01dbab3b7af11d83ebbb088caf" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randFisher</name></member>
+      <member refid="classhermes_1_1Random_1a59845772e010c85222696da08143282d" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randFisherVector</name></member>
+      <member refid="classhermes_1_1Random_1ab6ceb5ccc93f49f4e2dccf63fd63e774" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randInt</name></member>
+      <member refid="classhermes_1_1Random_1acce4316f2530cab99b6cc4d75ac398b6" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randInt</name></member>
+      <member refid="classhermes_1_1Random_1a957487771e79552480efa2f2ed887261" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randInt64</name></member>
+      <member refid="classhermes_1_1Random_1a87c673ee0416521c657d34434ea4bfeb" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randInt64</name></member>
+      <member refid="classhermes_1_1Random_1aa9ff74123d4d205b49c9c8c44b2b3af3" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randNorm</name></member>
+      <member refid="classhermes_1_1Random_1a01ab10f1ae5e9e2c8aaf5d7b3ceb32e6" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>Random</name></member>
+      <member refid="classhermes_1_1Random_1a68d2d4852cf4842fd7d3ca454a20e340" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>Random</name></member>
+      <member refid="classhermes_1_1Random_1aa0cd23a16025cfeef7b8810eeb2a5d36" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>Random</name></member>
+      <member refid="classhermes_1_1Random_1abcd421d6ac5d8720014afa6e6e9ec9af" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randomInterpolatedPosition</name></member>
+      <member refid="classhermes_1_1Random_1a0cd29fd1c9f315dbd0630fc3462d9831" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randPowerLaw</name></member>
+      <member refid="classhermes_1_1Random_1a22b7848147a9fecaa227fe4170ae6c6f" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randRayleigh</name></member>
+      <member refid="classhermes_1_1Random_1a676ea228bb8be981a245f243599be2ba" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randUniform</name></member>
+      <member refid="classhermes_1_1Random_1a72fcc3b309bcab75050c60ffa2659e3e" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randVector</name></member>
+      <member refid="classhermes_1_1Random_1a61c9eacb9b10051428e5302d47b43c6f" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>randVectorAroundMean</name></member>
+      <member refid="classhermes_1_1Random_1af0de4b4127be745f3a835f316c6d2d03" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>reload</name></member>
+      <member refid="classhermes_1_1Random_1abc6126af1d45847bc59afa0aa3216b04a793562cbf5bffacba71303cee907ef7d" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>SAVE</name></member>
+      <member refid="classhermes_1_1Random_1a29428ae92bee4d3725f596d960b7b4cc" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>save</name></member>
+      <member refid="classhermes_1_1Random_1ab5ce969c6442850460e63f7140b15643" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>seed</name></member>
+      <member refid="classhermes_1_1Random_1a71165679ffe6b9e1d1e53e2acdd5b1f8" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>seed</name></member>
+      <member refid="classhermes_1_1Random_1a78c8e327d0192e2a6c1df70828a86ec6" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>seed</name></member>
+      <member refid="classhermes_1_1Random_1a3b78230fb4ddf186ab06b573a87d9d02" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>seedThreads</name></member>
+      <member refid="classhermes_1_1Random_1a4a74b6534461b0dde4f9709d6516ea3a" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>state</name></member>
+      <member refid="classhermes_1_1Random_1a1421ab3c2d14deac773a46afe8557d48" prot="protected" virt="non-virtual"><scope>hermes::Random</scope><name>twist</name></member>
+      <member refid="classhermes_1_1Random_1a4b435a49c74bb91f284f075e63416cb6" prot="public" virt="non-virtual"><scope>hermes::Random</scope><name>uint32</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

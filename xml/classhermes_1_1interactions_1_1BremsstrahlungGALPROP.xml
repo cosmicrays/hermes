@@ -1,0 +1,694 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP" kind="class" language="C++" prot="public">
+    <compoundname>hermes::interactions::BremsstrahlungGALPROP</compoundname>
+    <basecompoundref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract" prot="public" virt="non-virtual">BremsstrahlungAbstract</basecompoundref>
+    <includes refid="BremsstrahlungGALPROP_8h" local="no">include/hermes/interactions/BremsstrahlungGALPROP.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a7f9dc31ea17a0d28e0dee7ed98c7815c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool cachingEnabled</definition>
+        <argsstring></argsstring>
+        <name>cachingEnabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="18" column="6" bodyfile="include/hermes/interactions/BremsstrahlungGALPROP.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a8b7fd1c07982905f8532d2d16073e057" prot="private" static="no" mutable="no">
+        <type>std::array&lt; std::unique_ptr&lt; <ref refid="namespacehermes_1ac1e97935e75d13cb8138971d06fa8672" kindref="member">CacheStorageCrossSection</ref> &gt;, <ref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a6960e8bbbd308b7dc179802675d85457" kindref="member">Ntargets</ref> &gt;</type>
+        <definition>std::array&lt;std::unique_ptr&lt;CacheStorageCrossSection&gt;, Ntargets&gt; cache</definition>
+        <argsstring></argsstring>
+        <name>cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="19" column="12" bodyfile="include/hermes/interactions/BremsstrahlungGALPROP.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a7a84e495c86f3fa8f4a048bc9f61ec5f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber ElwertFactor</definition>
+        <argsstring>(const QNumber &amp;beta_i, const QNumber &amp;beta_f, int Z) const</argsstring>
+        <name>ElwertFactor</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>beta_i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>beta_f</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="21" column="9" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="47" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1abf88a4d4b4f01e0c2084a9cd48be23aa" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber xiFunc</definition>
+        <argsstring>(const QNumber &amp;T_electron_i, const QNumber &amp;k, int Z, int N) const</argsstring>
+        <name>xiFunc</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>T_electron_i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="23" column="9" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a560036ddd02192ae5dfdb4752146cf7b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber Phi_u</definition>
+        <argsstring>(const QNumber &amp;gamma_i, const QNumber &amp;gamma_f, const QNumber &amp;k) const</argsstring>
+        <name>Phi_u</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="25" column="9" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="62" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a3664f56915daaab0a72af3af7543f9f6" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double R_1</definition>
+        <argsstring>(double q, double Z) const</argsstring>
+        <name>R_1</name>
+        <param>
+          <type>double</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="28" column="15" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="68" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a0a3a79661ac1660b5074f1d1d26b4bca" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double R_2</definition>
+        <argsstring>(double q, double Z) const</argsstring>
+        <name>R_2</name>
+        <param>
+          <type>double</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="29" column="15" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="75" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a9540c000ef01288bca6d03220e2ec9b3" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber I_Phi_1</definition>
+        <argsstring>(const QNumber &amp;delta, int Z, int N) const</argsstring>
+        <name>I_Phi_1</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="30" column="9" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="83" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1ae00a933a3e854512822713489b7fd7ff" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber I_Phi_2</definition>
+        <argsstring>(const QNumber &amp;delta, int Z, int N) const</argsstring>
+        <name>I_Phi_2</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="31" column="9" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="103" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a80548838dc10ec7f0488506fcd868546" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber Phi_1</definition>
+        <argsstring>(const QNumber &amp;gamma_i, const QNumber &amp;gamma_f, const QNumber &amp;k, const QNumber &amp;delta, int Z, int N) const</argsstring>
+        <name>Phi_1</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="32" column="9" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="124" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1abbce29e5635dc8ef4732d147f760c451" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber Phi_2</definition>
+        <argsstring>(const QNumber &amp;gamma_i, const QNumber &amp;gamma_f, const QNumber &amp;k, const QNumber &amp;delta, int Z, int N) const</argsstring>
+        <name>Phi_2</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="34" column="9" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="132" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a536b63f601f3ee5205cd9fdaed35d820" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c" kindref="member">QArea</ref></type>
+        <definition>QArea dsdk_LowEnergy</definition>
+        <argsstring>(const QNumber &amp;p_i, const QNumber &amp;p_f, QNumber k, int Z) const</argsstring>
+        <name>dsdk_LowEnergy</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>p_i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>p_f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="37" column="7" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="140" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1abc8f26a9f0940581eaa317d6686763e6" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c" kindref="member">QArea</ref></type>
+        <definition>QArea dsdk_IntermediateEnergy</definition>
+        <argsstring>(const QNumber &amp;gamma_i, const QNumber &amp;gamma_f, const QNumber &amp;p_i, const QNumber &amp;p_f, const QNumber &amp;k, int Z) const</argsstring>
+        <name>dsdk_IntermediateEnergy</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>p_i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>p_f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="39" column="7" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="147" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1ad95eb112e61f3333db52454b87774668" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c" kindref="member">QArea</ref></type>
+        <definition>QArea dsdk_HighEnergy</definition>
+        <argsstring>(const QNumber &amp;gamma_i, const QNumber &amp;gamma_f, const QNumber &amp;k, int Z, int N) const</argsstring>
+        <name>dsdk_HighEnergy</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_i</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>gamma_f</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="43" column="7" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="177" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a6084cfa47a3c0f2204702272992d34b0" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kindref="member">QDiffCrossSection</ref></type>
+        <definition>QDiffCrossSection getDiffCrossSectionForTargetDirectly</definition>
+        <argsstring>(Target t, const QEnergy &amp;T_electron, const QEnergy &amp;E_gamma) const</argsstring>
+        <name>getDiffCrossSectionForTargetDirectly</name>
+        <param>
+          <type><ref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35d" kindref="member">Target</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>T_electron</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_gamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="46" column="19" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="197" bodyend="244"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a409e4d1fc9575d1f897b1b95e0868dd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BremsstrahlungGALPROP</definition>
+        <argsstring>()</argsstring>
+        <name>BremsstrahlungGALPROP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="50" column="1" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="20" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a16a637c873b9025b67482f06177aa56a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void enableCaching</definition>
+        <argsstring>()</argsstring>
+        <name>enableCaching</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="52" column="6" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a7ddb68358d18375bbb73931dd7765319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void disableCaching</definition>
+        <argsstring>()</argsstring>
+        <name>disableCaching</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="53" column="6" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1acc551ec4fb0f1c7885a9869488bdcc89" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kindref="member">QDiffCrossSection</ref></type>
+        <definition>QDiffCrossSection getDiffCrossSectionForTarget</definition>
+        <argsstring>(Target t, const QEnergy &amp;T_electron, const QEnergy &amp;E_gamma) const override</argsstring>
+        <name>getDiffCrossSectionForTarget</name>
+        <reimplements refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a86c96ff2ac250b7082d438e16ac85e67">getDiffCrossSectionForTarget</reimplements>
+        <param>
+          <type><ref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35d" kindref="member">Target</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>T_electron</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_gamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="55" column="19" bodyfile="src/interactions/BremsstrahlungGALPROP.cpp" bodystart="40" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1DifferentialCrossSection_1abc0105eca61f85ea18d810a56ad49b72" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kindref="member">QDiffCrossSection</ref></type>
+        <definition>QDiffCrossSection getDiffCrossSection</definition>
+        <argsstring>(const QEnergy &amp;E_proton, const QEnergy &amp;E_gamma) const</argsstring>
+        <name>getDiffCrossSection</name>
+        <reimplementedby refid="classhermes_1_1interactions_1_1DummyCrossSection_1a3991be7a30a19dd98ff2f5353500b1b4">getDiffCrossSection</reimplementedby>
+        <reimplementedby refid="classhermes_1_1interactions_1_1KelnerAharonianGamma_1a5de17d8828333f4e07af67c09a5b128c">getDiffCrossSection</reimplementedby>
+        <reimplementedby refid="classhermes_1_1interactions_1_1Kamae06Gamma_1a5de17d8828333f4e07af67c09a5b128c">getDiffCrossSection</reimplementedby>
+        <reimplementedby refid="classhermes_1_1interactions_1_1KelnerAharonianNeutrino_1af2b74e73674a1ba25a0afaa632b38faa">getDiffCrossSection</reimplementedby>
+        <reimplementedby refid="classhermes_1_1interactions_1_1Kamae06Neutrino_1af2b74e73674a1ba25a0afaa632b38faa">getDiffCrossSection</reimplementedby>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_proton</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_gamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/DiffCrossSection.h" line="26" column="27" bodyfile="src/interactions/DifferentialCrossSection.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1DifferentialCrossSection_1ae7f68eb522af702261e5dbbd54727518" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kindref="member">QDiffCrossSection</ref></type>
+        <definition>QDiffCrossSection getDiffCrossSection</definition>
+        <argsstring>(const QEnergy &amp;E_electron, const QEnergy &amp;E_photon, const QEnergy &amp;E_gamma) const</argsstring>
+        <name>getDiffCrossSection</name>
+        <reimplementedby refid="classhermes_1_1interactions_1_1DummyCrossSection_1ae7f68eb522af702261e5dbbd54727518">getDiffCrossSection</reimplementedby>
+        <reimplementedby refid="classhermes_1_1interactions_1_1KleinNishina_1a48ce8065a855dca3fb42b0e1f15ecba3">getDiffCrossSection</reimplementedby>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_electron</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_photon</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_gamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/DiffCrossSection.h" line="28" column="27" bodyfile="src/interactions/DifferentialCrossSection.cpp" bodystart="19" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1DifferentialCrossSection_1a2cac288a0af520fdf4c67b9c425aab6e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber getSigma</definition>
+        <argsstring>(const PID &amp;projectile, const PID &amp;target) const</argsstring>
+        <name>getSigma</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>projectile</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/DiffCrossSection.h" line="31" column="17" bodyfile="src/interactions/DifferentialCrossSection.cpp" bodystart="25" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35d" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Target</name>
+        <enumvalue id="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35daecffb2b0d1b1cb4bb04a7e9fb1d466e6" prot="public">
+          <name>HII</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35dabf8c144140b15befb8ce662632a7b76e" prot="public">
+          <name>HI</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35daa64cf5823262686e1a28b2245be34ce0" prot="public">
+          <name>He</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungAbstract.h" line="15" column="18" bodyfile="include/hermes/interactions/BremsstrahlungAbstract.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a6960e8bbbd308b7dc179802675d85457" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr static std::size_t</type>
+        <definition>constexpr static std::size_t Ntargets</definition>
+        <argsstring></argsstring>
+        <name>Ntargets</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungAbstract.h" line="14" column="30" bodyfile="include/hermes/interactions/BremsstrahlungAbstract.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a9dedd234cd3afd2d62cd2973babc7721" prot="public" static="no" mutable="no">
+        <type>const std::array&lt; <ref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35d" kindref="member">Target</ref>, <ref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a6960e8bbbd308b7dc179802675d85457" kindref="member">Ntargets</ref> &gt;</type>
+        <definition>const std::array&lt;Target, Ntargets&gt; allTargets</definition>
+        <argsstring></argsstring>
+        <name>allTargets</name>
+        <initializer>= {
+	    
+	    <ref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35daecffb2b0d1b1cb4bb04a7e9fb1d466e6" kindref="member">Target::HII</ref>, <ref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35dabf8c144140b15befb8ce662632a7b76e" kindref="member">Target::HI</ref>, <ref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35daa64cf5823262686e1a28b2245be34ce0" kindref="member">Target::He</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BremsstrahlungAbstract.h" line="16" column="18" bodyfile="include/hermes/interactions/BremsstrahlungAbstract.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BremsstrahlungAbstract</label>
+        <link refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>DifferentialCrossSection</label>
+        <link refid="classhermes_1_1interactions_1_1DifferentialCrossSection"/>
+      </node>
+      <node id="1">
+        <label>BremsstrahlungGALPROP</label>
+        <link refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BremsstrahlungAbstract</label>
+        <link refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>allTargets</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>DifferentialCrossSection</label>
+        <link refid="classhermes_1_1interactions_1_1DifferentialCrossSection"/>
+      </node>
+      <node id="1">
+        <label>BremsstrahlungGALPROP</label>
+        <link refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>array&lt; Target, Ntargets &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/interactions/BremsstrahlungGALPROP.h" line="16" column="58" bodyfile="include/hermes/interactions/BremsstrahlungGALPROP.h" bodystart="16" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a9dedd234cd3afd2d62cd2973babc7721" prot="public" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>allTargets</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a5b3f5dd4ce4ff3db4c8ba089d78c8357" prot="public" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>BremsstrahlungAbstract</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a409e4d1fc9575d1f897b1b95e0868dd9" prot="public" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>BremsstrahlungGALPROP</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a8b7fd1c07982905f8532d2d16073e057" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>cache</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a7f9dc31ea17a0d28e0dee7ed98c7815c" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>cachingEnabled</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1ae2b31753f407c7a9960c4dc89fd1b190" prot="public" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>DifferentialCrossSection</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a7ddb68358d18375bbb73931dd7765319" prot="public" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>disableCaching</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1ad95eb112e61f3333db52454b87774668" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>dsdk_HighEnergy</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1abc8f26a9f0940581eaa317d6686763e6" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>dsdk_IntermediateEnergy</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a536b63f601f3ee5205cd9fdaed35d820" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>dsdk_LowEnergy</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a7a84e495c86f3fa8f4a048bc9f61ec5f" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>ElwertFactor</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a16a637c873b9025b67482f06177aa56a" prot="public" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>enableCaching</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1abc0105eca61f85ea18d810a56ad49b72" prot="public" virt="virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>getDiffCrossSection</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1ae7f68eb522af702261e5dbbd54727518" prot="public" virt="virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>getDiffCrossSection</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1acc551ec4fb0f1c7885a9869488bdcc89" prot="public" virt="virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>getDiffCrossSectionForTarget</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a6084cfa47a3c0f2204702272992d34b0" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>getDiffCrossSectionForTargetDirectly</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1a2cac288a0af520fdf4c67b9c425aab6e" prot="public" virt="virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>getSigma</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a9540c000ef01288bca6d03220e2ec9b3" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>I_Phi_1</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1ae00a933a3e854512822713489b7fd7ff" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>I_Phi_2</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a6960e8bbbd308b7dc179802675d85457" prot="public" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>Ntargets</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a80548838dc10ec7f0488506fcd868546" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>Phi_1</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1abbce29e5635dc8ef4732d147f760c451" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>Phi_2</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a560036ddd02192ae5dfdb4752146cf7b" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>Phi_u</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a3664f56915daaab0a72af3af7543f9f6" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>R_1</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a0a3a79661ac1660b5074f1d1d26b4bca" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>R_2</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35d" prot="public" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>Target</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1abf88a4d4b4f01e0c2084a9cd48be23aa" prot="private" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>xiFunc</name></member>
+      <member refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a95c1a518e5174ae6d31151910af2f77c" prot="public" virt="virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>~BremsstrahlungAbstract</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1a3dafc0fa79cbf803bcc968c422dd2342" prot="public" virt="non-virtual"><scope>hermes::interactions::BremsstrahlungGALPROP</scope><name>~DifferentialCrossSection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

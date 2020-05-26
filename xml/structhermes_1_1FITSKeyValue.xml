@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1FITSKeyValue" kind="struct" language="C++" prot="public">
+    <compoundname>hermes::FITSKeyValue</compoundname>
+    <includes refid="FITSWrapper_8h" local="no">include/hermes/FITSWrapper.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1aa4cdb693ee7f3d1d131bb328468184b7" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="35" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1adb6e5f36bdec00137c7cc4afef27aae3" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6" kindref="member">FITS::DataType</ref></type>
+        <definition>FITS::DataType type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="36" column="16" bodyfile="include/hermes/FITSWrapper.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1acb559820d9ca11295b4500f179ef6392" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int i</definition>
+        <argsstring></argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="39" column="5" bodyfile="include/hermes/FITSWrapper.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1adbef46858e30c0fab02bb4bd74e6e593" prot="public" static="no" mutable="no">
+        <type>long int</type>
+        <definition>long int l</definition>
+        <argsstring></argsstring>
+        <name>l</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="40" column="10" bodyfile="include/hermes/FITSWrapper.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1af900396d7b72ff2a7002e8befe8cf8f1" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="41" column="7" bodyfile="include/hermes/FITSWrapper.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1a873684cefeb665f3d5e6b495de57fc0d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="42" column="8" bodyfile="include/hermes/FITSWrapper.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1aa4552517be507d79e286a47269c216fa" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char s[80]</definition>
+        <argsstring>[80]</argsstring>
+        <name>s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="43" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1af419227df2d80bd64d315ae58636162e" prot="public" static="no" mutable="no">
+        <type>union hermes::FITSKeyValue::@0</type>
+        <definition>union hermes::FITSKeyValue::@0 @1</definition>
+        <argsstring></argsstring>
+        <name>@1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="44" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1aa8acbaf0912936aaf36419c538469b70" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* value_ptr</definition>
+        <argsstring></argsstring>
+        <name>value_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="45" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1afc385072956e91fffaac5fec900fbb05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6" kindref="member">FITS::DataType</ref></type>
+        <definition>FITS::DataType getType</definition>
+        <argsstring>()</argsstring>
+        <name>getType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="48" column="16" bodyfile="include/hermes/FITSWrapper.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a70d0d77573294ab257b988d9cc9e98a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setType</definition>
+        <argsstring>(FITS::DataType type_)</argsstring>
+        <name>setType</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6" kindref="member">FITS::DataType</ref></type>
+          <declname>type_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="49" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a8ee08b13ee0d8fd7e2563bd4ce1e6151" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTypeAsInt</definition>
+        <argsstring>(int type_)</argsstring>
+        <name>setTypeAsInt</name>
+        <param>
+          <type>int</type>
+          <declname>type_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="50" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="50" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1af526f5a87d38bf9f80392e3472f2820a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* getKey</definition>
+        <argsstring>()</argsstring>
+        <name>getKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="69" column="12" bodyfile="include/hermes/FITSWrapper.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a493eeef6c08cd6bcfc92871ec84c4d17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* getValueAsVoid</definition>
+        <argsstring>()</argsstring>
+        <name>getValueAsVoid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="70" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1aa1deea04b774d9057a1cfd86b3b5a823" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getValueAsString</definition>
+        <argsstring>()</argsstring>
+        <name>getValueAsString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="71" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a92e6efbca663b6d446705696d3e5c73b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getValueAsInt</definition>
+        <argsstring>()</argsstring>
+        <name>getValueAsInt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="72" column="5" bodyfile="include/hermes/FITSWrapper.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1ac4e05041e66371a2e48597fb1faa00d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double getValueAsDouble</definition>
+        <argsstring>()</argsstring>
+        <name>getValueAsDouble</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="73" column="8" bodyfile="include/hermes/FITSWrapper.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a1b2d6c6e47a662bd9857a1a31315b16e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FITSKeyValue</definition>
+        <argsstring>(const std::string &amp;key_, const std::string &amp;value_)</argsstring>
+        <name>FITSKeyValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key_</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="75" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="75" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1af3bad2214a27e773c9b64b345ed1b0ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FITSKeyValue</definition>
+        <argsstring>(const std::string &amp;key_, int value_)</argsstring>
+        <name>FITSKeyValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="82" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="82" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a50bc05a902e35f959f0f99ee5a42f7a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FITSKeyValue</definition>
+        <argsstring>(const std::string &amp;key_, std::size_t value_)</argsstring>
+        <name>FITSKeyValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key_</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>value_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="87" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a9d311b87e7119b689969d4a7931df02b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FITSKeyValue</definition>
+        <argsstring>(const std::string &amp;key_, long int value_)</argsstring>
+        <name>FITSKeyValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key_</declname>
+        </param>
+        <param>
+          <type>long int</type>
+          <declname>value_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="92" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="92" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a13df0d4492199d6148ae173fb81b8e66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FITSKeyValue</definition>
+        <argsstring>(const std::string &amp;key_, float value_)</argsstring>
+        <name>FITSKeyValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key_</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="97" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="97" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a0edc8e14a6be7cfc70034298225ccfe3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FITSKeyValue</definition>
+        <argsstring>(const std::string &amp;key_, double value_)</argsstring>
+        <name>FITSKeyValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="102" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="102" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1ae0dddbbf9131e36c4150ac4a6aa41a41" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FITSKeyValue</definition>
+        <argsstring>(const std::string &amp;key_)</argsstring>
+        <name>FITSKeyValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/FITSWrapper.h" line="107" column="10" bodyfile="include/hermes/FITSWrapper.h" bodystart="107" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>FITSKeyValue</label>
+        <link refid="structhermes_1_1FITSKeyValue"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>key</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>string</label>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>basic_string&lt; char &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/FITSWrapper.h" line="34" column="19" bodyfile="include/hermes/FITSWrapper.h" bodystart="34" bodyend="108"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1FITSKeyValue_1a873684cefeb665f3d5e6b495de57fc0d" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>d</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1af900396d7b72ff2a7002e8befe8cf8f1" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>f</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1a1b2d6c6e47a662bd9857a1a31315b16e" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>FITSKeyValue</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1af3bad2214a27e773c9b64b345ed1b0ce" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>FITSKeyValue</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1a50bc05a902e35f959f0f99ee5a42f7a3" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>FITSKeyValue</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1a9d311b87e7119b689969d4a7931df02b" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>FITSKeyValue</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1a13df0d4492199d6148ae173fb81b8e66" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>FITSKeyValue</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1a0edc8e14a6be7cfc70034298225ccfe3" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>FITSKeyValue</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1ae0dddbbf9131e36c4150ac4a6aa41a41" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>FITSKeyValue</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1af526f5a87d38bf9f80392e3472f2820a" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>getKey</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1afc385072956e91fffaac5fec900fbb05" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>getType</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1ac4e05041e66371a2e48597fb1faa00d1" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>getValueAsDouble</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1a92e6efbca663b6d446705696d3e5c73b" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>getValueAsInt</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1aa1deea04b774d9057a1cfd86b3b5a823" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>getValueAsString</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1a493eeef6c08cd6bcfc92871ec84c4d17" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>getValueAsVoid</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1acb559820d9ca11295b4500f179ef6392" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>i</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1aa4cdb693ee7f3d1d131bb328468184b7" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>key</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1adbef46858e30c0fab02bb4bd74e6e593" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>l</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1aa4552517be507d79e286a47269c216fa" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>s</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1a70d0d77573294ab257b988d9cc9e98a2" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>setType</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1a8ee08b13ee0d8fd7e2563bd4ce1e6151" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>setTypeAsInt</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1adb6e5f36bdec00137c7cc4afef27aae3" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>type</name></member>
+      <member refid="structhermes_1_1FITSKeyValue_1aa8acbaf0912936aaf36419c538469b70" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>value_ptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

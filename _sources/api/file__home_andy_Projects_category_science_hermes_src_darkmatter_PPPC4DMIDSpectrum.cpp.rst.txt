@@ -1,0 +1,35 @@
+
+.. _file__home_andy_Projects_category_science_hermes_src_darkmatter_PPPC4DMIDSpectrum.cpp:
+
+File PPPC4DMIDSpectrum.cpp
+==========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src_darkmatter>` (``/home/andy/Projects/category_science/hermes/src/darkmatter``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/src/darkmatter/PPPC4DMIDSpectrum.cpp``)
+-------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__darkmatter`
+

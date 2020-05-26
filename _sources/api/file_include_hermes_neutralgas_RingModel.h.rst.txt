@@ -4,6 +4,10 @@
 File RingModel.h
 ================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes_neutralgas>` (``include/hermes/neutralgas``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none
@@ -39,4 +43,11 @@ Classes
 - :ref:`exhale_class_classhermes_1_1neutralgas_1_1RingData`
 
 - :ref:`exhale_class_classhermes_1_1neutralgas_1_1RingModel`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7`
 

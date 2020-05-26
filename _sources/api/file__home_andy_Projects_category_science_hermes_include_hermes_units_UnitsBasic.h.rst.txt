@@ -1,0 +1,75 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_units_UnitsBasic.h:
+
+File UnitsBasic.h
+=================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes_units>` (``/home/andy/Projects/category_science/hermes/include/hermes/units``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/units/UnitsBasic.h``)
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__units`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_group__Units_1ga5914569a17ae4bdba86e36b6be658e2e`
+
+- :ref:`exhale_function_group__Units_1gafdec74d2baa915d21f660af93e45e014`
+
+- :ref:`exhale_function_group__Units_1ga946bb5e7635f73028d10a3e3283de38e`
+
+- :ref:`exhale_function_group__Units_1gae871d03fe67ab9667b9a21c776044401`
+
+- :ref:`exhale_function_group__Units_1gab980d95163be7a0fe3b1c36b4ca4346c`
+
+- :ref:`exhale_function_group__Units_1gaf448360ef5aa0f4f7f1550b210b09475`
+
+- :ref:`exhale_function_group__Units_1ga2be714fc2332c1da94c90bd0cebd45d2`
+
+- :ref:`exhale_function_group__Units_1gac4512956a68f6b74a865ed0de99505e2`
+
+- :ref:`exhale_function_group__Units_1ga4f15430e1fed155bcfdbb7c77c73dfff`
+
+- :ref:`exhale_function_group__Units_1gaecd84f631c95b59abccc215e9092a631`
+
+- :ref:`exhale_function_group__Units_1ga3124f5546f892523baf376f0c3f5ec4a`
+
+- :ref:`exhale_function_group__Units_1gab57a92b9ef895b8aef0845806b8f4389`
+
+- :ref:`exhale_function_group__Units_1ga240fe2483689ae056e5fda2803a0346a`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_group__Units_1ga124e672a37e29350060706a4e2efd8cb`
+
+- :ref:`exhale_variable_group__Units_1gad172e8d1a294401209781f9aeaa77410`
+

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__MagneticFields" kind="group">
+    <compoundname>MagneticFields</compoundname>
+    <title>MagneticFields</title>
+    <innerclass refid="classhermes_1_1magneticfields_1_1TorroidalHaloField" prot="public">hermes::magneticfields::TorroidalHaloField</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1LogarithmicSpiralField" prot="public">hermes::magneticfields::LogarithmicSpiralField</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1JF12Field" prot="public">hermes::magneticfields::JF12Field</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public">hermes::magneticfields::MagneticField</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField" prot="public">hermes::magneticfields::PeriodicMagneticField</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1MagneticFieldList" prot="public">hermes::magneticfields::MagneticFieldList</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1UniformMagneticField" prot="public">hermes::magneticfields::UniformMagneticField</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1MagneticFieldGrid" prot="public">hermes::magneticfields::MagneticFieldGrid</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid" prot="public">hermes::magneticfields::ModulatedMagneticFieldGrid</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1PT11Field" prot="public">hermes::magneticfields::PT11Field</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1Sun08Field" prot="public">hermes::magneticfields::Sun08Field</innerclass>
+    <innerclass refid="classhermes_1_1magneticfields_1_1WMAP07Field" prot="public">hermes::magneticfields::WMAP07Field</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

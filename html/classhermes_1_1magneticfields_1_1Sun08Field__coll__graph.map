@@ -1,0 +1,4 @@
+<map id="Sun08Field" name="Sun08Field">
+<area shape="rect" id="node1" title="Implemented the galactic magnetic field model used in 3&#45;year WMAP analyses." alt="" coords="15,80,109,107"/>
+<area shape="rect" id="node2" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1MagneticField" title="Abstract base class for magnetic fields." alt="" coords="5,5,119,32"/>
+</map>

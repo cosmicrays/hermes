@@ -1,0 +1,35 @@
+
+.. _file__home_andy_Projects_category_science_hermes_src_neutralgas_RingModel.cpp:
+
+File RingModel.cpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src_neutralgas>` (``/home/andy/Projects/category_science/hermes/src/neutralgas``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/src/neutralgas/RingModel.cpp``)
+-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__neutralgas`
+

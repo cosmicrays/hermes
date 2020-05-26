@@ -1,0 +1,42 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_chargedgas_ChargedGasDensity.h:
+
+File ChargedGasDensity.h
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes_chargedgas>` (``/home/andy/Projects/category_science/hermes/include/hermes/chargedgas``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/chargedgas/ChargedGasDensity.h``)
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__chargedgas`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1chargedgas_1_1ChargedGasDensity`
+

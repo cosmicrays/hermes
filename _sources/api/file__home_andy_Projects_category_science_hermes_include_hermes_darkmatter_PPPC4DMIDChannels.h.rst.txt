@@ -1,0 +1,44 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_darkmatter_PPPC4DMIDChannels.h:
+
+File PPPC4DMIDChannels.h
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes_darkmatter>` (``/home/andy/Projects/category_science/hermes/include/hermes/darkmatter``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/darkmatter/PPPC4DMIDChannels.h``)
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__darkmatter`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_group__DarkMatter_1ga1ce9b523fd4f3b5bbcadcd796183455a`
+
+- :ref:`exhale_enum_group__DarkMatter_1ga4b82e49d40fec5c282ce4115db150889`
+

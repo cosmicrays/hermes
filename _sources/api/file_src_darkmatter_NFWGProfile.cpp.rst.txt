@@ -4,6 +4,10 @@
 File NFWGProfile.cpp
 ====================
 
+|exhale_lsh| :ref:`Parent directory <dir_src_darkmatter>` (``src/darkmatter``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none
@@ -28,4 +32,15 @@ Namespaces
 - :ref:`namespace_hermes`
 
 - :ref:`namespace_hermes__darkmatter`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1_1darkmatter_1ab61b1577fd0ecb1fd77588ee1b2c7466`
+
+- :ref:`exhale_function_namespacehermes_1_1darkmatter_1aa93df710db997cf0dc306709efb0e491`
+
+- :ref:`exhale_function_namespacehermes_1_1darkmatter_1ad686df245a8f4306de4b937d26523978`
 

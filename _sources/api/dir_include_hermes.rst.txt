@@ -1,0 +1,45 @@
+.. _dir_include_hermes:
+
+
+Directory hermes
+================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include>` (``include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/hermes``
+
+Subdirectories
+--------------
+
+- :ref:`dir_include_hermes_chargedgas`
+- :ref:`dir_include_hermes_cosmicrays`
+- :ref:`dir_include_hermes_darkmatter`
+- :ref:`dir_include_hermes_integrators`
+- :ref:`dir_include_hermes_interactions`
+- :ref:`dir_include_hermes_magneticfields`
+- :ref:`dir_include_hermes_neutralgas`
+- :ref:`dir_include_hermes_outputs`
+- :ref:`dir_include_hermes_photonfields`
+- :ref:`dir_include_hermes_skymaps`
+- :ref:`dir_include_hermes_units`
+
+
+Files
+-----
+
+- :ref:`file_include_hermes_CacheTools.h`
+- :ref:`file_include_hermes_Common.h`
+- :ref:`file_include_hermes_FITSWrapper.h`
+- :ref:`file_include_hermes_Grid.h`
+- :ref:`file_include_hermes_GridTools.h`
+- :ref:`file_include_hermes_HEALPixBits.h`
+- :ref:`file_include_hermes_ParticleID.h`
+- :ref:`file_include_hermes_Random.h`
+- :ref:`file_include_hermes_Signals.h`
+- :ref:`file_include_hermes_Vector3.h`
+- :ref:`file_include_hermes_Vector3Quantity.h`
+
+

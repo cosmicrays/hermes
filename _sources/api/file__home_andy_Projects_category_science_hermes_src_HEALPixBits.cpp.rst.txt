@@ -1,0 +1,52 @@
+
+.. _file__home_andy_Projects_category_science_hermes_src_HEALPixBits.cpp:
+
+File HEALPixBits.cpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src>` (``/home/andy/Projects/category_science/hermes/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/src/HEALPixBits.cpp``)
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1adca7018746886af2b19439d66a07f152`
+
+- :ref:`exhale_function_namespacehermes_1aea7081362703f3c323f5b783ba23c282`
+
+- :ref:`exhale_function_namespacehermes_1aeda6358b7ac7eac3abac2bfaa564e516`
+
+- :ref:`exhale_function_namespacehermes_1a45b99e0ca17bd99e0c8fded860f86d69`
+
+- :ref:`exhale_function_namespacehermes_1af3dd2ca8dc8acd57a6dd923a085ea9cb`
+
+- :ref:`exhale_function_namespacehermes_1a25b2e7fa94f0fd4e105db8a20680c056`
+
+- :ref:`exhale_function_namespacehermes_1a09f25fdd0b7fcfa44a364e4f18c2aaba`
+

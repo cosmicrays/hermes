@@ -4,6 +4,10 @@
 File Vector3Quantity.h
 ======================
 
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none
@@ -33,4 +37,34 @@ Classes
 
 
 - :ref:`exhale_class_classhermes_1_1Vector3Quantity`
+
+- :ref:`exhale_class_classVector3Qunatity`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_group__Core_1gae75dab5b04f7983e5fca74359e452597`
+
+- :ref:`exhale_function_group__Core_1gad744b0b61f9f9d3c010bb33b7fc66517`
+
+- :ref:`exhale_function_group__Core_1ga3885df4723d99c2f118f9cce136beb61`
+
+- :ref:`exhale_function_group__Core_1gac0738d2887b147eee1100671e7b5be2a`
+
+- :ref:`exhale_function_group__Core_1ga4f33e9180938be7d97bc55d0e0dd2930`
+
+- :ref:`exhale_function_group__Core_1ga92f2fdfa289f52d0f0d6bb7e516c183f`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad`
+
+- :ref:`exhale_typedef_group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5`
+
+- :ref:`exhale_typedef_group__Core_1gadd65e2dc0cf047a5e27e5879ec68cd8f`
 

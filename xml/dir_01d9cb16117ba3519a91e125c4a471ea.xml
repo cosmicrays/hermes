@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_01d9cb16117ba3519a91e125c4a471ea" kind="dir">
+    <compoundname>include/hermes/cosmicrays</compoundname>
+    <innerfile refid="CosmicRayDensity_8h">CosmicRayDensity.h</innerfile>
+    <innerfile refid="Dragon2D_8h">Dragon2D.h</innerfile>
+    <innerfile refid="Dragon3D_8h">Dragon3D.h</innerfile>
+    <innerfile refid="DummyCRDensity_8h">DummyCRDensity.h</innerfile>
+    <innerfile refid="SimpleCRDensity_8h">SimpleCRDensity.h</innerfile>
+    <innerfile refid="Sun08CRDensity_8h">Sun08CRDensity.h</innerfile>
+    <innerfile refid="WMAP07CRDensity_8h">WMAP07CRDensity.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/cosmicrays/"/>
+  </compounddef>
+</doxygen>

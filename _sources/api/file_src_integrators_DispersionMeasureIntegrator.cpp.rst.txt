@@ -4,6 +4,10 @@
 File DispersionMeasureIntegrator.cpp
 ====================================
 
+|exhale_lsh| :ref:`Parent directory <dir_src_integrators>` (``src/integrators``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none

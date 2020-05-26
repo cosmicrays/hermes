@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_57bd64d006df85e4243c6f5cce4326ee" kind="dir">
+    <compoundname>include/hermes</compoundname>
+    <innerdir refid="dir_49f588020cdc122655ea3e17ace8f834">include/hermes/chargedgas</innerdir>
+    <innerdir refid="dir_01d9cb16117ba3519a91e125c4a471ea">include/hermes/cosmicrays</innerdir>
+    <innerdir refid="dir_dd1e8c18b5dfe63d610f68da14fd38ac">include/hermes/darkmatter</innerdir>
+    <innerdir refid="dir_608f2298d0b25a339fcfa86fe6bedde7">include/hermes/integrators</innerdir>
+    <innerdir refid="dir_797612f08ff3fffd2509f84148601e1e">include/hermes/interactions</innerdir>
+    <innerdir refid="dir_7deae8f8c83300afa0f0bb07006d4f9e">include/hermes/magneticfields</innerdir>
+    <innerdir refid="dir_418e92a9d18b3ee576040758adb043d8">include/hermes/neutralgas</innerdir>
+    <innerdir refid="dir_d3c0c38ad263a7104898816de74c323c">include/hermes/outputs</innerdir>
+    <innerdir refid="dir_103bfd87e7b632590891bdff774c3ec0">include/hermes/photonfields</innerdir>
+    <innerdir refid="dir_7b5f7dfcc53a3fccf0164e34282747ab">include/hermes/skymaps</innerdir>
+    <innerdir refid="dir_9f7bfb3ff3dc261789317b052a1828ea">include/hermes/units</innerdir>
+    <innerfile refid="CacheTools_8h">CacheTools.h</innerfile>
+    <innerfile refid="Common_8h">Common.h</innerfile>
+    <innerfile refid="FITSWrapper_8h">FITSWrapper.h</innerfile>
+    <innerfile refid="Grid_8h">Grid.h</innerfile>
+    <innerfile refid="GridTools_8h">GridTools.h</innerfile>
+    <innerfile refid="HEALPixBits_8h">HEALPixBits.h</innerfile>
+    <innerfile refid="ParticleID_8h">ParticleID.h</innerfile>
+    <innerfile refid="Random_8h">Random.h</innerfile>
+    <innerfile refid="Signals_8h">Signals.h</innerfile>
+    <innerfile refid="Vector3_8h">Vector3.h</innerfile>
+    <innerfile refid="Vector3Quantity_8h">Vector3Quantity.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/"/>
+  </compounddef>
+</doxygen>

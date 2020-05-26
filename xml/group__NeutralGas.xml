@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__NeutralGas" kind="group">
+    <compoundname>NeutralGas</compoundname>
+    <title>NeutralGas</title>
+    <innerclass refid="classhermes_1_1neutralgas_1_1NeutralGasDensity" prot="public">hermes::neutralgas::NeutralGasDensity</innerclass>
+    <innerclass refid="classhermes_1_1neutralgas_1_1RingData" prot="public">hermes::neutralgas::RingData</innerclass>
+    <innerclass refid="classhermes_1_1neutralgas_1_1Ring" prot="public">hermes::neutralgas::Ring</innerclass>
+    <innerclass refid="classhermes_1_1neutralgas_1_1RingModel" prot="public">hermes::neutralgas::RingModel</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>RingType</name>
+        <enumvalue id="group__NeutralGas_1gga6e6e8dec15851f2136618b418cf844f7abf8c144140b15befb8ce662632a7b76e" prot="public">
+          <name>HI</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__NeutralGas_1gga6e6e8dec15851f2136618b418cf844f7a42983b05e2f2cc22822e30beb7bdd668" prot="public">
+          <name>CO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/neutralgas/RingModel.h" line="21" column="20" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

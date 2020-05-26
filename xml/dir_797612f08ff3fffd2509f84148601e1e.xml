@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_797612f08ff3fffd2509f84148601e1e" kind="dir">
+    <compoundname>include/hermes/interactions</compoundname>
+    <innerfile refid="BreitWheeler_8h">BreitWheeler.h</innerfile>
+    <innerfile refid="BremsstrahlungAbstract_8h">BremsstrahlungAbstract.h</innerfile>
+    <innerfile refid="BremsstrahlungGALPROP_8h">BremsstrahlungGALPROP.h</innerfile>
+    <innerfile refid="BremsstrahlungTsai74_8h">BremsstrahlungTsai74.h</innerfile>
+    <innerfile refid="DiffCrossSection_8h">DiffCrossSection.h</innerfile>
+    <innerfile refid="DummyCrossSection_8h">DummyCrossSection.h</innerfile>
+    <innerfile refid="Kamae06Gamma_8h">Kamae06Gamma.h</innerfile>
+    <innerfile refid="Kamae06Neutrino_8h">Kamae06Neutrino.h</innerfile>
+    <innerfile refid="KelnerAharonianGamma_8h">KelnerAharonianGamma.h</innerfile>
+    <innerfile refid="KelnerAharonianNeutrino_8h">KelnerAharonianNeutrino.h</innerfile>
+    <innerfile refid="KleinNishina_8h">KleinNishina.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/interactions/"/>
+  </compounddef>
+</doxygen>

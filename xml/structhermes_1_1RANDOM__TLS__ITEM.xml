@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1RANDOM__TLS__ITEM" kind="struct" language="C++" prot="public">
+    <compoundname>hermes::RANDOM_TLS_ITEM</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1RANDOM__TLS__ITEM_1a9522436dbddb5e74c8ba2174891c4e27" prot="public" static="no" mutable="no">
+        <type><ref refid="classhermes_1_1Random" kindref="compound">Random</ref></type>
+        <definition>Random r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Random.cpp" line="413" column="8" bodyfile="src/Random.cpp" bodystart="413" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1RANDOM__TLS__ITEM_1a90ec515d0c0bb620759fd0cba5954627" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char padding[(sizeof(Random)/64+1) *64 - sizeof(Random)]</definition>
+        <argsstring>[(sizeof(Random)/64+1) *64 - sizeof(Random)]</argsstring>
+        <name>padding</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Random.cpp" line="414" column="6" bodyfile="src/Random.cpp" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Random</label>
+        <link refid="classhermes_1_1Random"/>
+      </node>
+      <node id="1">
+        <label>RANDOM_TLS_ITEM</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>r</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/Random.cpp" line="412" column="22" bodyfile="src/Random.cpp" bodystart="412" bodyend="415"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1RANDOM__TLS__ITEM_1a90ec515d0c0bb620759fd0cba5954627" prot="public" virt="non-virtual"><scope>hermes::RANDOM_TLS_ITEM</scope><name>padding</name></member>
+      <member refid="structhermes_1_1RANDOM__TLS__ITEM_1a9522436dbddb5e74c8ba2174891c4e27" prot="public" virt="non-virtual"><scope>hermes::RANDOM_TLS_ITEM</scope><name>r</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

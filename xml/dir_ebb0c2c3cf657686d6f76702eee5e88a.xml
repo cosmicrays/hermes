@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_ebb0c2c3cf657686d6f76702eee5e88a" kind="dir">
+    <compoundname>src/magneticfields</compoundname>
+    <innerfile refid="JF12Field_8cpp">JF12Field.cpp</innerfile>
+    <innerfile refid="MagneticField_8cpp">MagneticField.cpp</innerfile>
+    <innerfile refid="MagneticFieldGrid_8cpp">MagneticFieldGrid.cpp</innerfile>
+    <innerfile refid="PT11Field_8cpp">PT11Field.cpp</innerfile>
+    <innerfile refid="Sun08Field_8cpp">Sun08Field.cpp</innerfile>
+    <innerfile refid="WMAP07Field_8cpp">WMAP07Field.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/magneticfields/"/>
+  </compounddef>
+</doxygen>

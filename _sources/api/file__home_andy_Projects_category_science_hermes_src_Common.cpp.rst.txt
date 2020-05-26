@@ -1,0 +1,62 @@
+
+.. _file__home_andy_Projects_category_science_hermes_src_Common.cpp:
+
+File Common.cpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src>` (``/home/andy/Projects/category_science/hermes/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/src/Common.cpp``)
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1aefeac1d50b6dfe2bafea892a9c560370`
+
+- :ref:`exhale_function_namespacehermes_1a26cf6e5a6eb42fca7df65a4057f4c36d`
+
+- :ref:`exhale_function_namespacehermes_1a6be8ab078bdc80be66f151ea9e1eaae1`
+
+- :ref:`exhale_function_namespacehermes_1a012863a22000a2f0a01821cf7d3fc8c5`
+
+- :ref:`exhale_function_namespacehermes_1ade041a25f94a13ce9c3697d51b7f06b0`
+
+- :ref:`exhale_function_namespacehermes_1a11111cff32514fdc9229ffa19445b358`
+
+- :ref:`exhale_function_namespacehermes_1a0b8bf796a4d1bbefab10928fab4eae77`
+
+- :ref:`exhale_function_namespacehermes_1adacda698829badafef87b0b51e705043`
+
+- :ref:`exhale_function_namespacehermes_1a2fc00b3aa62d6ff8390048c22edb4120`
+
+- :ref:`exhale_function_namespacehermes_1a7caf30b5720f27d1b744a7c7eaa786a8`
+
+- :ref:`exhale_function_namespacehermes_1a2fac14165a26f3fcaf84bbed5460558f`
+
+- :ref:`exhale_function_namespacehermes_1a1564a0a913257b84fea302bb6f4984cc`
+

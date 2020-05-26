@@ -1,0 +1,28 @@
+.. _dir_include_hermes_skymaps:
+
+
+Directory skymaps
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/hermes/skymaps``
+
+
+Files
+-----
+
+- :ref:`file_include_hermes_skymaps_DispersionMeasureSkymap.h`
+- :ref:`file_include_hermes_skymaps_GammaSkymap.h`
+- :ref:`file_include_hermes_skymaps_GammaSkymapRange.h`
+- :ref:`file_include_hermes_skymaps_RadioSkymap.h`
+- :ref:`file_include_hermes_skymaps_RadioSkymapRange.h`
+- :ref:`file_include_hermes_skymaps_RotationMeasureSkymap.h`
+- :ref:`file_include_hermes_skymaps_Skymap.h`
+- :ref:`file_include_hermes_skymaps_SkymapMask.h`
+- :ref:`file_include_hermes_skymaps_SkymapTemplate.h`
+
+

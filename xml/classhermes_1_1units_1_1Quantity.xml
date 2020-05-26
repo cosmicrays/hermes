@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1units_1_1Quantity" kind="class" language="C++" prot="public">
+    <compoundname>hermes::units::Quantity</compoundname>
+    <includes refid="UnitsQClass_8h" local="no">include/hermes/units/UnitsQClass.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename LengthDim</type>
+      </param>
+      <param>
+        <type>typename TimeDim</type>
+      </param>
+      <param>
+        <type>typename MassDim</type>
+      </param>
+      <param>
+        <type>typename ECurrentDim</type>
+      </param>
+      <param>
+        <type>typename TemperatureDim</type>
+      </param>
+      <param>
+        <type>typename SubstanceDim</type>
+      </param>
+      <param>
+        <type>typename LIntensityDim</type>
+      </param>
+      <param>
+        <type>typename AngleDim</type>
+      </param>
+      <param>
+        <type>typename SolidAngleDim</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1units_1_1Quantity_1aee90379adb0307effb138f4871edbc5c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="23" column="8" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1af74b16f2f0baaf7493294201ea335eda" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr Quantity</definition>
+        <argsstring>()</argsstring>
+        <name>Quantity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="26" column="11" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1a003801d85bc129bdc47c49002b76c43f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr Quantity</definition>
+        <argsstring>(int val)</argsstring>
+        <name>Quantity</name>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="27" column="11" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1a1f6b7d6dda91779d0ee12b872cd71fdb" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr Quantity</definition>
+        <argsstring>(double val)</argsstring>
+        <name>Quantity</name>
+        <param>
+          <type>double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="28" column="11" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1aa8967344dd57900872cb0bd89b0a635a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr Quantity</definition>
+        <argsstring>(long double val)</argsstring>
+        <name>Quantity</name>
+        <param>
+          <type>long double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="29" column="11" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1a7835f2d40f96e9fd341db3f37dd15250" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr const <ref refid="classhermes_1_1units_1_1Quantity" kindref="compound">Quantity</ref> &amp;</type>
+        <definition>constexpr const Quantity&amp; operator+=</definition>
+        <argsstring>(const Quantity &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1units_1_1Quantity" kindref="compound">Quantity</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="33" column="26" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1a7d996d385a9cf6bb53ddb12dfecb502d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr const <ref refid="classhermes_1_1units_1_1Quantity" kindref="compound">Quantity</ref> &amp;</type>
+        <definition>constexpr const Quantity&amp; operator-=</definition>
+        <argsstring>(const Quantity &amp;rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1units_1_1Quantity" kindref="compound">Quantity</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="37" column="26" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1a0d2640420b07ca7eb21262ff458f2d46" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr double</type>
+        <definition>constexpr double convertTo</definition>
+        <argsstring>(const Quantity &amp;rhs) const</argsstring>
+        <name>convertTo</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1units_1_1Quantity" kindref="compound">Quantity</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="43" column="18" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="43" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1a4454b186585923ab4514e9318ddb38c3" prot="public" static="no" constexpr="yes" const="yes" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr operator double</definition>
+        <argsstring>() const</argsstring>
+        <name>operator double</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="48" column="20" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1a229a126fc754e6d0ae2b784abbb079d2" prot="public" static="no" constexpr="yes" const="yes" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr operator float</definition>
+        <argsstring>() const</argsstring>
+        <name>operator float</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="49" column="20" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1units_1_1Quantity_1adcbd2a6a43783002f0a68361868f97d4" prot="public" static="no" constexpr="yes" const="yes" explicit="yes" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr operator int</definition>
+        <argsstring>() const</argsstring>
+        <name>operator int</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsQClass.h" line="52" column="20" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/units/UnitsQClass.h" line="21" column="15" bodyfile="include/hermes/units/UnitsQClass.h" bodystart="21" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1units_1_1Quantity_1a0d2640420b07ca7eb21262ff458f2d46" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>convertTo</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1a4454b186585923ab4514e9318ddb38c3" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>operator double</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1a229a126fc754e6d0ae2b784abbb079d2" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>operator float</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1adcbd2a6a43783002f0a68361868f97d4" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>operator int</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1a7835f2d40f96e9fd341db3f37dd15250" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>operator+=</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1a7d996d385a9cf6bb53ddb12dfecb502d" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>operator-=</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1af74b16f2f0baaf7493294201ea335eda" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>Quantity</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1a003801d85bc129bdc47c49002b76c43f" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>Quantity</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1a1f6b7d6dda91779d0ee12b872cd71fdb" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>Quantity</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1aa8967344dd57900872cb0bd89b0a635a" prot="public" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>Quantity</name></member>
+      <member refid="classhermes_1_1units_1_1Quantity_1aee90379adb0307effb138f4871edbc5c" prot="private" virt="non-virtual"><scope>hermes::units::Quantity</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

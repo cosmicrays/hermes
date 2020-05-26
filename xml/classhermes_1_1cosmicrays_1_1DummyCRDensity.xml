@@ -1,0 +1,552 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1cosmicrays_1_1DummyCRDensity" kind="class" language="C++" prot="public">
+    <compoundname>hermes::cosmicrays::DummyCRDensity</compoundname>
+    <basecompoundref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity" prot="public" virt="non-virtual">CosmicRayDensity</basecompoundref>
+    <includes refid="DummyCRDensity_8h" local="no">include/hermes/cosmicrays/DummyCRDensity.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a30ae4524ed4ae18d2df6fd7658685554" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy minE</definition>
+        <argsstring></argsstring>
+        <name>minE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/DummyCRDensity.h" line="14" column="9" bodyfile="include/hermes/cosmicrays/DummyCRDensity.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a38f4689643679a61ae15fe2720ace9ef" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy maxE</definition>
+        <argsstring></argsstring>
+        <name>maxE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/DummyCRDensity.h" line="14" column="14" bodyfile="include/hermes/cosmicrays/DummyCRDensity.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1cosmicrays_1_1DummyCRDensity_1ab4ae7205573977222eadd0795db193e2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int steps</definition>
+        <argsstring></argsstring>
+        <name>steps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/DummyCRDensity.h" line="15" column="5" bodyfile="include/hermes/cosmicrays/DummyCRDensity.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a0343fbc9275805a0f80e97800d8ee2a2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void makeEnergyRange</definition>
+        <argsstring>()</argsstring>
+        <name>makeEnergyRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/DummyCRDensity.h" line="16" column="6" bodyfile="src/cosmicrays/DummyCRDensity.cpp" bodystart="21" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a17b7a97f4811aa655d591e06fe6c4dd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DummyCRDensity</definition>
+        <argsstring>()</argsstring>
+        <name>DummyCRDensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/DummyCRDensity.h" line="19" column="1" bodyfile="src/cosmicrays/DummyCRDensity.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1DummyCRDensity_1ac9295571ad0f247387b9a212b0ba72ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DummyCRDensity</definition>
+        <argsstring>(const PID &amp;pid)</argsstring>
+        <name>DummyCRDensity</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>pid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/DummyCRDensity.h" line="20" column="1" bodyfile="src/cosmicrays/DummyCRDensity.cpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1DummyCRDensity_1aaad04ea8d24ef37a4f4dfd4d059f1253" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DummyCRDensity</definition>
+        <argsstring>(const PID &amp;pid, const QEnergy &amp;minE, const QEnergy &amp;maxE, int steps)</argsstring>
+        <name>DummyCRDensity</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>pid</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>minE</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>maxE</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>steps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/DummyCRDensity.h" line="21" column="1" bodyfile="src/cosmicrays/DummyCRDensity.cpp" bodystart="15" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a34f7c51bc771e70840f5484a0a9d910d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1ad065263541ca8902f903e26e57dc33cf" kindref="member">QPDensityPerEnergy</ref></type>
+        <definition>QPDensityPerEnergy getDensityPerEnergy</definition>
+        <argsstring>(const QEnergy &amp;E_, const Vector3QLength &amp;pos_) const override</argsstring>
+        <name>getDensityPerEnergy</name>
+        <reimplements refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a18c8f08cb8785ee7b346df24e861d98c">getDensityPerEnergy</reimplements>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/DummyCRDensity.h" line="23" column="20" bodyfile="src/cosmicrays/DummyCRDensity.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1ab1b6308be1a29d1a37587245fcb46b9e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getIndexOfE</definition>
+        <argsstring>(const QEnergy &amp;E_) const</argsstring>
+        <name>getIndexOfE</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="46" column="13" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="46" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1acce820972e14fed48b321ddb08ab807a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool existsScaleFactor</definition>
+        <argsstring>() const</argsstring>
+        <name>existsScaleFactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="51" column="6" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1aefe39fb4eecbc26f7ffac7ca00d082fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setScaleFactor</definition>
+        <argsstring>(bool b)</argsstring>
+        <name>setScaleFactor</name>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="52" column="6" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a32a1bd1740480c4569eb385789d8b16e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double getEnergyScaleFactor</definition>
+        <argsstring>() const</argsstring>
+        <name>getEnergyScaleFactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="53" column="8" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a744a3a7b79f25648a2529de5ddb999b0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1afe417b0dce3c177f9834e269e2dfa019" kindref="member">tEnergyRange</ref></type>
+        <definition>tEnergyRange getEnergyAxis</definition>
+        <argsstring>() const</argsstring>
+        <name>getEnergyAxis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="55" column="14" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1afce072794b9c157f609bf3282e806456" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1PID" kindref="compound">PID</ref></type>
+        <definition>PID getPID</definition>
+        <argsstring>() const</argsstring>
+        <name>getPID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="57" column="5" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a1da816e745ab69c665856b653fc22428" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a9e56c47cfffc7f9139e5a1e724e39317" kindref="member">iterator</ref></type>
+        <definition>iterator beginAfterEnergy</definition>
+        <argsstring>(const QEnergy &amp;E_)</argsstring>
+        <name>beginAfterEnergy</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="59" column="10" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a527f8fdb6a875b8592b4319e9e3158cc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a0b727ee5668ba659c422fc1803b03c0f" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator beginAfterEnergy</definition>
+        <argsstring>(const QEnergy &amp;E_) const</argsstring>
+        <name>beginAfterEnergy</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="62" column="16" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="62" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1ad69bd11391be1a1dba5c8202259664f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a9e56c47cfffc7f9139e5a1e724e39317" kindref="member">iterator</ref></type>
+        <definition>iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="65" column="10" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a29305669b60ca1680752e2fc3592ba99" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a0b727ee5668ba659c422fc1803b03c0f" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="66" column="16" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1acad38d52497a975bfb6f2f6acd76631f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a9e56c47cfffc7f9139e5a1e724e39317" kindref="member">iterator</ref></type>
+        <definition>iterator end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="67" column="10" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a0b727ee5668ba659c422fc1803b03c0f" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="68" column="16" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-type">
+      <memberdef kind="typedef" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1afe417b0dce3c177f9834e269e2dfa019" prot="protected" static="no">
+        <type>std::vector&lt; <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &gt;</type>
+        <definition>typedef std::vector&lt;QEnergy&gt; tEnergyRange</definition>
+        <argsstring></argsstring>
+        <name>tEnergyRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="20" column="21" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a9e56c47cfffc7f9139e5a1e724e39317" prot="public" static="no">
+        <type>tEnergyRange::iterator</type>
+        <definition>typedef tEnergyRange::iterator iterator</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="33" column="32" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a0b727ee5668ba659c422fc1803b03c0f" prot="public" static="no">
+        <type>tEnergyRange::const_iterator</type>
+        <definition>typedef tEnergyRange::const_iterator const_iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="34" column="38" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a72c7eb56a7feb5d9feaa11f644ae9f64" prot="protected" static="no" mutable="yes">
+        <type><ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1afe417b0dce3c177f9834e269e2dfa019" kindref="member">tEnergyRange</ref></type>
+        <definition>tEnergyRange energyRange</definition>
+        <argsstring></argsstring>
+        <name>energyRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="21" column="22" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a65cb6d3a3d6b640b0836b4c389d8ce44" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool scaleFactorFlag</definition>
+        <argsstring></argsstring>
+        <name>scaleFactorFlag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="22" column="6" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a59da8bbe440161ef087c890f58316efd" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double energyScaleFactor</definition>
+        <argsstring></argsstring>
+        <name>energyScaleFactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="23" column="8" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1aa65be8ff3f2144be74dd38ba694f49bd" prot="protected" static="no" mutable="no">
+        <type>std::set&lt; <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &gt;</type>
+        <definition>std::set&lt;PID&gt; setOfPIDs</definition>
+        <argsstring></argsstring>
+        <name>setOfPIDs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="24" column="10" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1af9057e101bbbc81a8ad10bf4467fcaf6" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void enablePID</definition>
+        <argsstring>(const PID &amp;pid_)</argsstring>
+        <name>enablePID</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>pid_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="26" column="6" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a7d379e557497bfbd9d266b7a45357b55" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void disablePID</definition>
+        <argsstring>(const PID &amp;pid_)</argsstring>
+        <name>disablePID</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>pid_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="27" column="6" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a75ba01d51a4426c165f409c5e4f95a8f" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isPIDEnabled</definition>
+        <argsstring>(const PID &amp;pid_) const</argsstring>
+        <name>isPIDEnabled</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>pid_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/cosmicrays/CosmicRayDensity.h" line="28" column="6" bodyfile="include/hermes/cosmicrays/CosmicRayDensity.h" bodystart="28" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CosmicRayDensity</label>
+        <link refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity"/>
+      </node>
+      <node id="1">
+        <label>DummyCRDensity</label>
+        <link refid="classhermes_1_1cosmicrays_1_1DummyCRDensity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>set&lt; hermes::PID &gt;</label>
+        <childnode refid="4" relation="usage">
+          <edgelabel>keys</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CosmicRayDensity</label>
+        <link refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>setOfPIDs</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>energyRange</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>DummyCRDensity</label>
+        <link refid="classhermes_1_1cosmicrays_1_1DummyCRDensity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>PID</label>
+        <link refid="classhermes_1_1PID"/>
+      </node>
+      <node id="5">
+        <label>vector&lt; QEnergy &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/cosmicrays/DummyCRDensity.h" line="12" column="45" bodyfile="include/hermes/cosmicrays/DummyCRDensity.h" bodystart="12" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1ad69bd11391be1a1dba5c8202259664f8" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>begin</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a29305669b60ca1680752e2fc3592ba99" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>begin</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a1da816e745ab69c665856b653fc22428" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>beginAfterEnergy</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a527f8fdb6a875b8592b4319e9e3158cc" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>beginAfterEnergy</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a0b727ee5668ba659c422fc1803b03c0f" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>const_iterator</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a9756c051c73cb326b79654be29cd3474" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>CosmicRayDensity</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a14a48d673d003522bf6539c7df4b206a" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>CosmicRayDensity</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a7d379e557497bfbd9d266b7a45357b55" prot="protected" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>disablePID</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a17b7a97f4811aa655d591e06fe6c4dd9" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>DummyCRDensity</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1DummyCRDensity_1ac9295571ad0f247387b9a212b0ba72ed" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>DummyCRDensity</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1DummyCRDensity_1aaad04ea8d24ef37a4f4dfd4d059f1253" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>DummyCRDensity</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1af9057e101bbbc81a8ad10bf4467fcaf6" prot="protected" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>enablePID</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1acad38d52497a975bfb6f2f6acd76631f" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>end</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>end</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a72c7eb56a7feb5d9feaa11f644ae9f64" prot="protected" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>energyRange</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a59da8bbe440161ef087c890f58316efd" prot="protected" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>energyScaleFactor</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1acce820972e14fed48b321ddb08ab807a" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>existsScaleFactor</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a34f7c51bc771e70840f5484a0a9d910d" prot="public" virt="virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>getDensityPerEnergy</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a744a3a7b79f25648a2529de5ddb999b0" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>getEnergyAxis</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a32a1bd1740480c4569eb385789d8b16e" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>getEnergyScaleFactor</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1ab1b6308be1a29d1a37587245fcb46b9e" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>getIndexOfE</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1afce072794b9c157f609bf3282e806456" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>getPID</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a75ba01d51a4426c165f409c5e4f95a8f" prot="protected" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>isPIDEnabled</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a9e56c47cfffc7f9139e5a1e724e39317" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>iterator</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a0343fbc9275805a0f80e97800d8ee2a2" prot="private" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>makeEnergyRange</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a38f4689643679a61ae15fe2720ace9ef" prot="private" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>maxE</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1DummyCRDensity_1a30ae4524ed4ae18d2df6fd7658685554" prot="private" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>minE</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a65cb6d3a3d6b640b0836b4c389d8ce44" prot="protected" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>scaleFactorFlag</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1aa65be8ff3f2144be74dd38ba694f49bd" prot="protected" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>setOfPIDs</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1aefe39fb4eecbc26f7ffac7ca00d082fe" prot="public" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>setScaleFactor</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1DummyCRDensity_1ab4ae7205573977222eadd0795db193e2" prot="private" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>steps</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1afe417b0dce3c177f9834e269e2dfa019" prot="protected" virt="non-virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>tEnergyRange</name></member>
+      <member refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1a628a4c6e3edf63d78954194b2e8f8a82" prot="public" virt="virtual"><scope>hermes::cosmicrays::DummyCRDensity</scope><name>~CosmicRayDensity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

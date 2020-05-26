@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1Dora" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::Dora</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1Dora_1a6297291e32047dda987338fef24db776" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double n30D</definition>
+        <argsstring></argsstring>
+        <name>n30D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="245" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="244" column="11" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="244" bodyend="246"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Dora_1a6297291e32047dda987338fef24db776" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::Dora</scope><name>n30D</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

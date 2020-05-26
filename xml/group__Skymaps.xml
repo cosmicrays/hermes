@@ -1,0 +1,515 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__Skymaps" kind="group">
+    <compoundname>Skymaps</compoundname>
+    <title>Skymaps</title>
+    <innerclass refid="classhermes_1_1DispersionMeasureSkymap" prot="public">hermes::DispersionMeasureSkymap</innerclass>
+    <innerclass refid="classhermes_1_1GammaSkymap" prot="public">hermes::GammaSkymap</innerclass>
+    <innerclass refid="classhermes_1_1GammaSkymapRange" prot="public">hermes::GammaSkymapRange</innerclass>
+    <innerclass refid="classhermes_1_1RadioSkymap" prot="public">hermes::RadioSkymap</innerclass>
+    <innerclass refid="classhermes_1_1RadioSkymapRange" prot="public">hermes::RadioSkymapRange</innerclass>
+    <innerclass refid="classhermes_1_1RotationMeasureSkymap" prot="public">hermes::RotationMeasureSkymap</innerclass>
+    <innerclass refid="classhermes_1_1Skymap" prot="public">hermes::Skymap</innerclass>
+    <innerclass refid="classhermes_1_1SkymapTemplate" prot="public">hermes::SkymapTemplate</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Skymaps_1ga4fdeabc4b74ae6e5073babe8aa57d64c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SkymapTemplate</definition>
+        <argsstring>(std::size_t nside=64, const QSTEP &amp;p=QSTEP(0))</argsstring>
+        <name>SkymapTemplate</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside</declname>
+          <defval>64</defval>
+        </param>
+        <param>
+          <type>const QSTEP &amp;</type>
+          <declname>p</declname>
+          <defval>QSTEP(0)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructors </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="65" column="1" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="127" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga0137a2637c65a42d91e15504bd3e6b9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SkymapTemplate</definition>
+        <argsstring>(std::size_t nside, const std::shared_ptr&lt; SkymapMask &gt; mask_)</argsstring>
+        <name>SkymapTemplate</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; SkymapMask &gt;</type>
+          <declname>mask_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="66" column="1" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="136" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga6a287e000c20a2771839cd638397333c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SkymapTemplate</definition>
+        <argsstring>(std::size_t nside, const QSTEP &amp;p, const std::shared_ptr&lt; SkymapMask &gt; mask_)</argsstring>
+        <name>SkymapTemplate</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside</declname>
+        </param>
+        <param>
+          <type>const QSTEP &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; SkymapMask &gt;</type>
+          <declname>mask_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="67" column="1" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="147" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga762d20725f066f424b3d42d1796ba80b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~SkymapTemplate</definition>
+        <argsstring>()</argsstring>
+        <name>~SkymapTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="69" column="1" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="160" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga3c9b9e7b084b323c64caf7b027cf713b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initContainer</definition>
+        <argsstring>()</argsstring>
+        <name>initContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="58" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="166" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga1480e0a77dbbb0edda9d9a9760230bdf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initMask</definition>
+        <argsstring>()</argsstring>
+        <name>initMask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="59" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="171" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gade1601ccf1fa3bcf050867f0852ca4e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="80" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="178" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gabd2739ed77df833d30b72f2140e59c40" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t getUnmaskedPixelCount</definition>
+        <argsstring>() const</argsstring>
+        <name>getUnmaskedPixelCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="81" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="183" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPXL</type>
+        <definition>QPXL getPixel</definition>
+        <argsstring>(std::size_t ipix) const</argsstring>
+        <name>getPixel</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>ipix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="82" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="188" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double getPixelAsDouble</definition>
+        <argsstring>(std::size_t i) const</argsstring>
+        <name>getPixelAsDouble</name>
+        <reimplements refid="classhermes_1_1Skymap_1a76d10b4d7bacfe1717a28e73a940a6a5">getPixelAsDouble</reimplements>
+        <param>
+          <type>std::size_t</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="83" column="8" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="193" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPXL</type>
+        <definition>QPXL getMean</definition>
+        <argsstring>() const</argsstring>
+        <name>getMean</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="84" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="198" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPXL</type>
+        <definition>QPXL operator[]</definition>
+        <argsstring>(std::size_t ipix) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>ipix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="85" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="210" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gabef15a424c177135fd05df19875b799f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printPixels</definition>
+        <argsstring>() const</argsstring>
+        <name>printPixels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="92" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="215" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setIntegrator</definition>
+        <argsstring>(std::shared_ptr&lt; IntegratorTemplate&lt; QPXL, QSTEP &gt;&gt; integrator_)</argsstring>
+        <name>setIntegrator</name>
+        <param>
+          <type>std::shared_ptr&lt; IntegratorTemplate&lt; QPXL, QSTEP &gt;&gt;</type>
+          <declname>integrator_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="88" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="220" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga266bd5fe2c64c74ab1f080adf87ff698" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void computePixel</definition>
+        <argsstring>(std::size_t ipix, const std::shared_ptr&lt; IntegratorTemplate&lt; QPXL, QSTEP &gt;&gt; &amp;integrator_)</argsstring>
+        <name>computePixel</name>
+        <reimplementedby refid="classhermes_1_1GammaSkymap_1a8a4a1356aefc3a9a97fa5a46bd582c35">computePixel</reimplementedby>
+        <reimplementedby refid="classhermes_1_1RadioSkymap_1a6f95ebbf9e01616dc69f3719dea45a84">computePixel</reimplementedby>
+        <param>
+          <type>std::size_t</type>
+          <declname>ipix</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; IntegratorTemplate&lt; QPXL, QSTEP &gt;&gt; &amp;</type>
+          <declname>integrator_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="97" column="14" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="226" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga03461b98b27eb60d2af5220579acf5bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void computePixelRange</definition>
+        <argsstring>(std::size_t start, std::size_t end, const std::shared_ptr&lt; IntegratorTemplate&lt; QPXL, QSTEP &gt;&gt; &amp;integrator_)</argsstring>
+        <name>computePixelRange</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>end</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; IntegratorTemplate&lt; QPXL, QSTEP &gt;&gt; &amp;</type>
+          <declname>integrator_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="100" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="234" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga4993c97a669fa259c6574a18d547c117" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void compute</definition>
+        <argsstring>()</argsstring>
+        <name>compute</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="103" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="248" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gac1f1ef686abb10ce34a22e8f813be29c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initDefaultOutputUnits</definition>
+        <argsstring>(QPXL units, const std::string &amp;unitsString)</argsstring>
+        <name>initDefaultOutputUnits</name>
+        <param>
+          <type>QPXL</type>
+          <declname>units</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unitsString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="57" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="282" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga169e6c7645d6ac3a035793e5acfe3c77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QNumber</type>
+        <definition>QNumber toSkymapDefaultUnits</definition>
+        <argsstring>(const QPXL pixel) const</argsstring>
+        <name>toSkymapDefaultUnits</name>
+        <param>
+          <type>const QPXL</type>
+          <declname>pixel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="107" column="9" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="289" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gade7d320408689e59a231ec1e0fb7bc95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void convertToUnits</definition>
+        <argsstring>(QPXL units_, const std::string &amp;defaultUnitsString)</argsstring>
+        <name>convertToUnits</name>
+        <param>
+          <type>QPXL</type>
+          <declname>units_</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>defaultUnitsString</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>output </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="106" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="295" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga8a1d7738e3481a250fb4a695ee566f9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QPXL</type>
+        <definition>QPXL getOutputUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>getOutputUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="108" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="309" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gaafaf4af3194121a33d722c46d8f26e38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getOutputUnitsAsString</definition>
+        <argsstring>() const</argsstring>
+        <name>getOutputUnitsAsString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="109" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="314" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gaf7075f797d48da89d03eabf940f9d6b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getUnits</definition>
+        <argsstring>() const</argsstring>
+        <name>getUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="110" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="319" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga0e464850f1102fd6698d3dc5e2681b98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt; float &gt; containerToRawVector</definition>
+        <argsstring>() const</argsstring>
+        <name>containerToRawVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="111" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="324" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gab3a090f0c95948ea8a13308317aa8d53" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void save</definition>
+        <argsstring>(std::shared_ptr&lt; outputs::Output &gt; output) const</argsstring>
+        <name>save</name>
+        <reimplements refid="classhermes_1_1Skymap_1a0a91d18671e2094c35e1853627d29252">save</reimplements>
+        <param>
+          <type>std::shared_ptr&lt; outputs::Output &gt;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="112" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="336" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga5c8a2243928153f37fdeaa10c0d87b8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setMask</definition>
+        <argsstring>(std::shared_ptr&lt; SkymapMask &gt; mask_)</argsstring>
+        <name>setMask</name>
+        <param>
+          <type>std::shared_ptr&lt; SkymapMask &gt;</type>
+          <declname>mask_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="93" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="348" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga249a66ed61d77fb85beee37b465252ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; bool &gt;</type>
+        <definition>std::vector&lt; bool &gt; getMask</definition>
+        <argsstring>() const</argsstring>
+        <name>getMask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="94" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="354" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga53ac253e25a531e5343704376e95c3f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isMasked</definition>
+        <argsstring>(std::size_t pixel) const</argsstring>
+        <name>isMasked</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>pixel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="95" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="359" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga8a4a270f1b9a794e342c07263f39fd72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>iterator</type>
+        <definition>SkymapTemplate&lt; QPXL, QSTEP &gt;::const_iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="117" column="10" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="365" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1gabbe2e707d37e7e53f03f1a7501c73093" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>iterator</type>
+        <definition>SkymapTemplate&lt; QPXL, QSTEP &gt;::const_iterator end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="119" column="10" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="377" bodyend="379"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

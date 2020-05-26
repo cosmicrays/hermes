@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1GC" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::GC</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1GC_1ae8cf06e1a7e2fcc985c247845cf2d222" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ngc</definition>
+        <argsstring></argsstring>
+        <name>ngc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="202" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1GC_1a262cf0a5f0817c1def758e57f2c5bbd2" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Agc</definition>
+        <argsstring></argsstring>
+        <name>Agc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="203" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1GC_1af205b60569a84b689879eae2abfccf51" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Hgc</definition>
+        <argsstring></argsstring>
+        <name>Hgc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="204" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="201" column="9" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="201" bodyend="205"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1GC_1a262cf0a5f0817c1def758e57f2c5bbd2" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::GC</scope><name>Agc</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1GC_1af205b60569a84b689879eae2abfccf51" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::GC</scope><name>Hgc</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1GC_1ae8cf06e1a7e2fcc985c247845cf2d222" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::GC</scope><name>ngc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

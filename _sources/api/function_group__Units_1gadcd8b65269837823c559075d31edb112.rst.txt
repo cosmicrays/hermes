@@ -3,7 +3,7 @@
 Function hermes::units::BASELITERAL(QAcceleration, _mps2)
 =========================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_units_UnitsLiterals.h`
 
 
 Function Documentation

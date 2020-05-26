@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="SkymapTemplate_8h" kind="file" language="C++">
+    <compoundname>SkymapTemplate.h</compoundname>
+    <innerclass refid="classhermes_1_1SkymapTemplate" prot="public">hermes::SkymapTemplate</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <briefdescription>
+<para>Contains <computeroutput>SkymapTemplate</computeroutput> definition used in all skymaps. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/skymaps/SkymapTemplate.h"/>
+  </compounddef>
+</doxygen>

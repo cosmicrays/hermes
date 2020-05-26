@@ -1,0 +1,26 @@
+.. _dir_include_hermes_magneticfields:
+
+
+Directory magneticfields
+========================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/hermes/magneticfields``
+
+
+Files
+-----
+
+- :ref:`file_include_hermes_magneticfields_GalacticMagneticField.h`
+- :ref:`file_include_hermes_magneticfields_JF12Field.h`
+- :ref:`file_include_hermes_magneticfields_MagneticField.h`
+- :ref:`file_include_hermes_magneticfields_MagneticFieldGrid.h`
+- :ref:`file_include_hermes_magneticfields_PT11Field.h`
+- :ref:`file_include_hermes_magneticfields_Sun08Field.h`
+- :ref:`file_include_hermes_magneticfields_WMAP07Field.h`
+
+

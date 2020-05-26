@@ -3,7 +3,7 @@
 Template Function hermes::operator\*(const Vector3<T>&, const QMField&)
 =======================================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_Vector3Quantity.h`
 
 
 Function Documentation

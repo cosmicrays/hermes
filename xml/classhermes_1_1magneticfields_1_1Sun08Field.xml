@@ -1,0 +1,506 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1magneticfields_1_1Sun08Field" kind="class" language="C++" prot="public">
+    <compoundname>hermes::magneticfields::Sun08Field</compoundname>
+    <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
+    <includes refid="Sun08Field_8h" local="no">include/hermes/magneticfields/Sun08Field.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a0c00f428856f40fcbbd13896722393ca" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool useTurbulent</definition>
+        <argsstring></argsstring>
+        <name>useTurbulent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="26" column="6" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a585a69c327dd9c83508592645b327f5f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool useHalo</definition>
+        <argsstring></argsstring>
+        <name>useHalo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="27" column="6" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1ae1856517c9fcc6d4bf14c9e076a4d523" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;VectorGrid&gt; turbulentGrid</definition>
+        <argsstring></argsstring>
+        <name>turbulentGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="28" column="17" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1aa0ad1ff76943951601ec198927b9284a" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength R_Sun</definition>
+        <argsstring></argsstring>
+        <name>R_Sun</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="30" column="9" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1afce856ee21e72175c34912d99f425ad0" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength disk_z_0</definition>
+        <argsstring></argsstring>
+        <name>disk_z_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="32" column="9" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1af685751ece0a5ab325b9b7e37962f680" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength disk_R_c</definition>
+        <argsstring></argsstring>
+        <name>disk_R_c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="32" column="18" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a429548283052fb6f681a11289af19719" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength disk_R_0</definition>
+        <argsstring></argsstring>
+        <name>disk_R_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="33" column="9" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a5e5b20284dc654edb8c2947ecaee53cb" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength disk_R_1</definition>
+        <argsstring></argsstring>
+        <name>disk_R_1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="33" column="18" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a628d448595f74540fb72559c7c94f87e" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength disk_R_2</definition>
+        <argsstring></argsstring>
+        <name>disk_R_2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="33" column="27" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1ac8d0d8fd9db0ff308c12f6f080bcf61e" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength disk_R_3</definition>
+        <argsstring></argsstring>
+        <name>disk_R_3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="33" column="36" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1abe77b22cc39e92858c152857e757b1c7" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField disk_B_0</definition>
+        <argsstring></argsstring>
+        <name>disk_B_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="34" column="9" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1adea67b79e7b632be75676f5e7bfe1678" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField disk_B_c</definition>
+        <argsstring></argsstring>
+        <name>disk_B_c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="34" column="18" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a0ab4be7d35c4221ec52319f8a910b0bb" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField disk_B_turbulent</definition>
+        <argsstring></argsstring>
+        <name>disk_B_turbulent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="34" column="27" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1aeab78deece595bbfe1dbbf8e656d5dd7" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength halo_z_0</definition>
+        <argsstring></argsstring>
+        <name>halo_z_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="36" column="9" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a137789dbfbf11ea8fc48c95348847b20" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength halo_z_1</definition>
+        <argsstring></argsstring>
+        <name>halo_z_1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="36" column="18" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a2fe12b170409b6720a2f1613518c903f" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength halo_R_0</definition>
+        <argsstring></argsstring>
+        <name>halo_R_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="36" column="27" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a4da2c8aac27c3ba4874b48271932b050" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField halo_B_0</definition>
+        <argsstring></argsstring>
+        <name>halo_B_0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="37" column="9" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a60129bec2c79b6e00bcecfa91c8d01e4" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="38" column="8" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1Sun08Field_1a5ce21a1dd48f02861141359c48e1a7b2" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField B_turbulent</definition>
+        <argsstring></argsstring>
+        <name>B_turbulent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="39" column="9" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1ae5c2d3e42a9fc9183dfd42d8aca3cab5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Sun08Field</definition>
+        <argsstring>()</argsstring>
+        <name>Sun08Field</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="42" column="1" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="9" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1a8e5cd5b7537e4880f44db79547371e5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void randomTurbulent</definition>
+        <argsstring>(int seed=0)</argsstring>
+        <name>randomTurbulent</name>
+        <param>
+          <type>int</type>
+          <declname>seed</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="46" column="6" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="35" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1a62455594d5d0115d246aad32897cecb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTurbulentGrid</definition>
+        <argsstring>(std::shared_ptr&lt; VectorGrid &gt; grid)</argsstring>
+        <name>setTurbulentGrid</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+          <declname>grid</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set a turbulent grid and activate the turbulent field component <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>grid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector grid containing a random field of Brms = 1 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="53" column="6" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1a60710b2f529aee5b8df5996b4e0f4ed6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="group__Core_1ga4b91c7c5257383886e740336452f40ab" kindref="member">VectorGrid</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;VectorGrid&gt; getTurbulentGrid</definition>
+        <argsstring>()</argsstring>
+        <name>getTurbulentGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="55" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1aa80d210302a5a3a86346db03fb0c92e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUseTurbulent</definition>
+        <argsstring>(bool use)</argsstring>
+        <name>setUseTurbulent</name>
+        <param>
+          <type>bool</type>
+          <declname>use</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="57" column="6" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="51" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1ae58c536228a1ca993ee273b9c3684156" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUseHalo</definition>
+        <argsstring>(bool use)</argsstring>
+        <name>setUseHalo</name>
+        <param>
+          <type>bool</type>
+          <declname>use</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="58" column="6" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1a983ce997ebc4f63966375cbb4f3ac01b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isUsingTurbulent</definition>
+        <argsstring>() const</argsstring>
+        <name>isUsingTurbulent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="59" column="6" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1a3692f96e0268fb4a3492070e5f8c3b0a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isUsingHalo</definition>
+        <argsstring>() const</argsstring>
+        <name>isUsingHalo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="60" column="6" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1af8e8681f2335f9b972d8c39802fa3f1a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getRegularField</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getRegularField</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="63" column="16" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="65" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1a1d18943e91f3c73c0bf690375d81741b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getTurbulentField</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getTurbulentField</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="66" column="16" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="109" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1Sun08Field_1ac0dae9109932406f2020365815e0de79" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getField</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const override</argsstring>
+        <name>getField</name>
+        <reimplements refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe">getField</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/Sun08Field.h" line="69" column="16" bodyfile="src/magneticfields/Sun08Field.cpp" bodystart="113" bodyend="120"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implemented the galactic magnetic field model used in 3-year WMAP analyses. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>See: L. Page et al 2007 ApJS 170 335, <ulink url="https://iopscience.iop.org/article/10.1086/513699">https://iopscience.iop.org/article/10.1086/513699</ulink> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Sun08Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1Sun08Field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Sun08Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1Sun08Field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/magneticfields/Sun08Field.h" line="24" column="38" bodyfile="include/hermes/magneticfields/Sun08Field.h" bodystart="24" bodyend="70"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a5ce21a1dd48f02861141359c48e1a7b2" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>B_turbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1abe77b22cc39e92858c152857e757b1c7" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>disk_B_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1adea67b79e7b632be75676f5e7bfe1678" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>disk_B_c</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a0ab4be7d35c4221ec52319f8a910b0bb" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>disk_B_turbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a429548283052fb6f681a11289af19719" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>disk_R_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a5e5b20284dc654edb8c2947ecaee53cb" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>disk_R_1</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a628d448595f74540fb72559c7c94f87e" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>disk_R_2</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1ac8d0d8fd9db0ff308c12f6f080bcf61e" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>disk_R_3</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1af685751ece0a5ab325b9b7e37962f680" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>disk_R_c</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1afce856ee21e72175c34912d99f425ad0" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>disk_z_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1ac0dae9109932406f2020365815e0de79" prot="public" virt="virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1af8e8681f2335f9b972d8c39802fa3f1a" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>getRegularField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a1d18943e91f3c73c0bf690375d81741b" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>getTurbulentField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a60710b2f529aee5b8df5996b4e0f4ed6" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>getTurbulentGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a4da2c8aac27c3ba4874b48271932b050" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>halo_B_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a2fe12b170409b6720a2f1613518c903f" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>halo_R_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1aeab78deece595bbfe1dbbf8e656d5dd7" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>halo_z_0</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a137789dbfbf11ea8fc48c95348847b20" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>halo_z_1</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a3692f96e0268fb4a3492070e5f8c3b0a" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>isUsingHalo</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a983ce997ebc4f63966375cbb4f3ac01b" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>isUsingTurbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a60129bec2c79b6e00bcecfa91c8d01e4" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>pitch</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1aa0ad1ff76943951601ec198927b9284a" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>R_Sun</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a8e5cd5b7537e4880f44db79547371e5a" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>randomTurbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a62455594d5d0115d246aad32897cecb6" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>setTurbulentGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1ae58c536228a1ca993ee273b9c3684156" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>setUseHalo</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1aa80d210302a5a3a86346db03fb0c92e2" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>setUseTurbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1ae5c2d3e42a9fc9183dfd42d8aca3cab5" prot="public" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>Sun08Field</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1ae1856517c9fcc6d4bf14c9e076a4d523" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>turbulentGrid</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a585a69c327dd9c83508592645b327f5f" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>useHalo</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1Sun08Field_1a0c00f428856f40fcbbd13896722393ca" prot="private" virt="non-virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>useTurbulent</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" virt="virtual"><scope>hermes::magneticfields::Sun08Field</scope><name>~MagneticField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

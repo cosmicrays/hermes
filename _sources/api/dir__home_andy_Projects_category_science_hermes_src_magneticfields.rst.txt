@@ -1,0 +1,25 @@
+.. _dir__home_andy_Projects_category_science_hermes_src_magneticfields:
+
+
+Directory magneticfields
+========================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src>` (``/home/andy/Projects/category_science/hermes/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``/home/andy/Projects/category_science/hermes/src/magneticfields``
+
+
+Files
+-----
+
+- :ref:`file__home_andy_Projects_category_science_hermes_src_magneticfields_JF12Field.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_magneticfields_MagneticField.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_magneticfields_MagneticFieldGrid.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_magneticfields_PT11Field.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_magneticfields_Sun08Field.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_magneticfields_WMAP07Field.cpp`
+
+

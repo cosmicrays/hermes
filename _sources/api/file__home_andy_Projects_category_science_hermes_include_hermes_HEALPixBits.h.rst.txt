@@ -1,0 +1,40 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_HEALPixBits.h:
+
+File HEALPixBits.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes>` (``/home/andy/Projects/category_science/hermes/include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/HEALPixBits.h``)
+-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespacehermes_1af17f037ff39603cfe4208a43bfcfb8f6`
+

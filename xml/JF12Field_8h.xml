@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="JF12Field_8h" kind="file" language="C++">
+    <compoundname>JF12Field.h</compoundname>
+    <innerclass refid="classhermes_1_1magneticfields_1_1JF12Field" prot="public">hermes::magneticfields::JF12Field</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <innernamespace refid="namespacehermes_1_1magneticfields">hermes::magneticfields</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/magneticfields/JF12Field.h"/>
+  </compounddef>
+</doxygen>

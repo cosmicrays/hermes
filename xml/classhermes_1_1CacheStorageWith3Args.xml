@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1CacheStorageWith3Args" kind="class" language="C++" prot="public">
+    <compoundname>hermes::CacheStorageWith3Args</compoundname>
+    <includes refid="CacheTools_8h" local="no">include/hermes/CacheTools.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Q1</type>
+      </param>
+      <param>
+        <type>typename Q2</type>
+      </param>
+      <param>
+        <type>typename Q3</type>
+      </param>
+      <param>
+        <type>typename V</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classhermes_1_1CacheStorageWith3Args_1a7898306aac425d41b5a5f7f83f97aada" prot="private" static="no">
+        <type>std::mutex</type>
+        <definition>using MutexType =  std::mutex</definition>
+        <argsstring></argsstring>
+        <name>MutexType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="161" column="1" bodyfile="include/hermes/CacheTools.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhermes_1_1CacheStorageWith3Args_1ac881a4c9862ff0822d01c780848baafc" prot="private" static="no">
+        <type>std::array&lt; double, 3 &gt;</type>
+        <definition>typedef std::array&lt;double, 3&gt; tTupleKey</definition>
+        <argsstring></argsstring>
+        <name>tTupleKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="163" column="20" bodyfile="include/hermes/CacheTools.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1CacheStorageWith3Args_1a0abaa6575ff063b9530ebbf2dcddc678" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; tTupleKey, V, <ref refid="structhermes_1_1array__hash" kindref="compound">array_hash</ref>, <ref refid="structhermes_1_1array__equal" kindref="compound">array_equal</ref> &gt;</type>
+        <definition>std::unordered_map&lt;tTupleKey, V, array_hash, array_equal&gt; cachedValues</definition>
+        <argsstring></argsstring>
+        <name>cachedValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="167" column="20" bodyfile="include/hermes/CacheTools.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1CacheStorageWith3Args_1a75d444ef486aba681f7069651bc30ba5" prot="private" static="no" mutable="no">
+        <type>std::function&lt; V(Q1, Q2, Q3)&gt;</type>
+        <definition>std::function&lt;V(Q1, Q2, Q3)&gt; f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="168" column="15" bodyfile="include/hermes/CacheTools.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1CacheStorageWith3Args_1af6e57e6ef99bad4d83ed19592ecdfb65" prot="private" static="no" mutable="yes">
+        <type>MutexType</type>
+        <definition>MutexType mtx</definition>
+        <argsstring></argsstring>
+        <name>mtx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="169" column="19" bodyfile="include/hermes/CacheTools.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith3Args_1a542050367db3ec47dd6947e6a80e5328" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CacheStorageWith3Args</definition>
+        <argsstring>()</argsstring>
+        <name>CacheStorageWith3Args</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="172" column="1" bodyfile="include/hermes/CacheTools.h" bodystart="172" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith3Args_1ad1b40390790c0078e3ad2ef5eb10eecd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~CacheStorageWith3Args</definition>
+        <argsstring>()</argsstring>
+        <name>~CacheStorageWith3Args</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="173" column="1" bodyfile="include/hermes/CacheTools.h" bodystart="173" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith3Args_1ab1a7b9699988aca5986f12193d273af7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CacheStorageWith3Args</definition>
+        <argsstring>(CacheStorageWith3Args &amp;&amp;other)</argsstring>
+        <name>CacheStorageWith3Args</name>
+        <param>
+          <type><ref refid="classhermes_1_1CacheStorageWith3Args" kindref="compound">CacheStorageWith3Args</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="174" column="1" bodyfile="include/hermes/CacheTools.h" bodystart="174" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith3Args_1a20b53eb315c12d1b7aa3bea241923eff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1CacheStorageWith3Args" kindref="compound">CacheStorageWith3Args</ref> &amp;</type>
+        <definition>CacheStorageWith3Args&amp; operator=</definition>
+        <argsstring>(CacheStorageWith3Args &amp;&amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classhermes_1_1CacheStorageWith3Args" kindref="compound">CacheStorageWith3Args</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="177" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith3Args_1a28d6fe5bc53be63376984b98d4cc7711" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CacheStorageWith3Args</definition>
+        <argsstring>(const CacheStorageWith3Args &amp;other)=delete</argsstring>
+        <name>CacheStorageWith3Args</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1CacheStorageWith3Args" kindref="compound">CacheStorageWith3Args</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="179" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith3Args_1a7a791dfd3d69e01daef1895e7823d455" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1CacheStorageWith3Args" kindref="compound">CacheStorageWith3Args</ref> &amp;</type>
+        <definition>CacheStorageWith3Args&amp; operator=</definition>
+        <argsstring>(const CacheStorageWith3Args &amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1CacheStorageWith3Args" kindref="compound">CacheStorageWith3Args</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="181" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith3Args_1a9c16f651237b3acfe5a3ef322a3dbc2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setFunction</definition>
+        <argsstring>(std::function&lt; V(Q1, Q2, Q3)&gt; f_)</argsstring>
+        <name>setFunction</name>
+        <param>
+          <type>std::function&lt; V(Q1, Q2, Q3)&gt;</type>
+          <declname>f_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="184" column="6" bodyfile="include/hermes/CacheTools.h" bodystart="184" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith3Args_1ad95b736510aa6427cb65fbb9ee59f63f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void cacheValue</definition>
+        <argsstring>(const tTupleKey &amp;key, V value)</argsstring>
+        <name>cacheValue</name>
+        <param>
+          <type>const tTupleKey &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>V</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="186" column="6" bodyfile="include/hermes/CacheTools.h" bodystart="186" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageWith3Args_1a5d0ab9c2f4960af0805d2f3203ead5f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V</type>
+        <definition>V getValue</definition>
+        <argsstring>(Q1 q1, Q2 q2, Q3 q3)</argsstring>
+        <name>getValue</name>
+        <param>
+          <type>Q1</type>
+          <declname>q1</declname>
+        </param>
+        <param>
+          <type>Q2</type>
+          <declname>q2</declname>
+        </param>
+        <param>
+          <type>Q3</type>
+          <declname>q3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="190" column="3" bodyfile="include/hermes/CacheTools.h" bodystart="190" bodyend="204"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/CacheTools.h" line="159" column="28" bodyfile="include/hermes/CacheTools.h" bodystart="159" bodyend="205"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1a0abaa6575ff063b9530ebbf2dcddc678" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>cachedValues</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1a542050367db3ec47dd6947e6a80e5328" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>CacheStorageWith3Args</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1ab1a7b9699988aca5986f12193d273af7" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>CacheStorageWith3Args</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1a28d6fe5bc53be63376984b98d4cc7711" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>CacheStorageWith3Args</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1ad95b736510aa6427cb65fbb9ee59f63f" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>cacheValue</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1a75d444ef486aba681f7069651bc30ba5" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>f</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1a5d0ab9c2f4960af0805d2f3203ead5f1" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>getValue</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1af6e57e6ef99bad4d83ed19592ecdfb65" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>mtx</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1a7898306aac425d41b5a5f7f83f97aada" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>MutexType</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1a20b53eb315c12d1b7aa3bea241923eff" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>operator=</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1a7a791dfd3d69e01daef1895e7823d455" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>operator=</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1a9c16f651237b3acfe5a3ef322a3dbc2d" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>setFunction</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1ac881a4c9862ff0822d01c780848baafc" prot="private" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>tTupleKey</name></member>
+      <member refid="classhermes_1_1CacheStorageWith3Args_1ad1b40390790c0078e3ad2ef5eb10eecd" prot="public" virt="non-virtual"><scope>hermes::CacheStorageWith3Args</scope><name>~CacheStorageWith3Args</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

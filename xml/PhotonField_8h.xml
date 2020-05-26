@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="PhotonField_8h" kind="file" language="C++">
+    <compoundname>PhotonField.h</compoundname>
+    <innerclass refid="classhermes_1_1photonfields_1_1PhotonField" prot="public">hermes::photonfields::PhotonField</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <innernamespace refid="namespacehermes_1_1photonfields">hermes::photonfields</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/photonfields/PhotonField.h"/>
+  </compounddef>
+</doxygen>

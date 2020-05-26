@@ -1,0 +1,607 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1InverseComptonIntegrator" kind="class" language="C++" prot="public">
+    <compoundname>hermes::InverseComptonIntegrator</compoundname>
+    <basecompoundref refid="classhermes_1_1IntegratorTemplate" prot="public" virt="non-virtual">IntegratorTemplate&lt; QDiffIntensity, QEnergy &gt;</basecompoundref>
+    <includes refid="InverseComptonIntegrator_8h" local="no">include/hermes/integrators/InverseComptonIntegrator.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classhermes_1_1InverseComptonIntegrator_1a8118a4f738c5a35ebe1ae62874d30a5d" prot="private" static="no">
+        <type><ref refid="classhermes_1_1Grid" kindref="compound">Grid</ref>&lt; <ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref> &gt;</type>
+        <definition>typedef Grid&lt;QGREmissivity&gt; ICCacheTable</definition>
+        <argsstring></argsstring>
+        <name>ICCacheTable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="27" column="14" bodyfile="include/hermes/integrators/InverseComptonIntegrator.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1InverseComptonIntegrator_1a36d8ffdffaeffa9612e22608074448cc" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity" kindref="compound">cosmicrays::CosmicRayDensity</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;cosmicrays::CosmicRayDensity&gt; crdensity</definition>
+        <argsstring></argsstring>
+        <name>crdensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="23" column="17" bodyfile="include/hermes/integrators/InverseComptonIntegrator.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1InverseComptonIntegrator_1a932afc690b8470dd65a77c97528b3838" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classhermes_1_1photonfields_1_1PhotonField" kindref="compound">photonfields::PhotonField</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;photonfields::PhotonField&gt; phdensity</definition>
+        <argsstring></argsstring>
+        <name>phdensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="24" column="17" bodyfile="include/hermes/integrators/InverseComptonIntegrator.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1InverseComptonIntegrator_1a5961dc0312b13f2aefce5aa71ff3052a" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" kindref="compound">interactions::DifferentialCrossSection</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;interactions::DifferentialCrossSection&gt; crossSec</definition>
+        <argsstring></argsstring>
+        <name>crossSec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="25" column="17" bodyfile="include/hermes/integrators/InverseComptonIntegrator.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1InverseComptonIntegrator_1a77f97b6440a503bd579fee351869f0eb" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classhermes_1_1Grid" kindref="compound">ICCacheTable</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;ICCacheTable&gt; cacheTable</definition>
+        <argsstring></argsstring>
+        <name>cacheTable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="28" column="17" bodyfile="include/hermes/integrators/InverseComptonIntegrator.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1aee6e94d17ae247a3a87c073ab083c52c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref></type>
+        <definition>QGREmissivity getIOEfromCache</definition>
+        <argsstring>(const Vector3QLength &amp;, const QEnergy &amp;) const</argsstring>
+        <name>getIOEfromCache</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <defname>pos_</defname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <defname>Egamma_</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="29" column="15" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1aebb19733e373fed003938abfdcf19c24" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void computeCacheInThread</definition>
+        <argsstring>(std::size_t start, std::size_t end, const QEnergy &amp;Egamma, std::shared_ptr&lt; ProgressBar &gt; &amp;p)</argsstring>
+        <name>computeCacheInThread</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>end</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Egamma</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; ProgressBar &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="31" column="6" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="27" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1ae8908500708aad18766244cc26dcdc86" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref></type>
+        <definition>QGREmissivity integrateOverSumEnergy</definition>
+        <argsstring>(const Vector3QLength &amp;pos, const QEnergy &amp;Egamma) const</argsstring>
+        <name>integrateOverSumEnergy</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Egamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="35" column="15" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="121" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1a7882abe820a9ec30fcc8d1cb2c75a66f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref></type>
+        <definition>QGREmissivity integrateOverLogEnergy</definition>
+        <argsstring>(const Vector3QLength &amp;pos, const QEnergy &amp;Egamma) const</argsstring>
+        <name>integrateOverLogEnergy</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Egamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="37" column="15" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="137" bodyend="148"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1a2b64581c919326c12b2508d7f96d4bfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>InverseComptonIntegrator</definition>
+        <argsstring>(const std::shared_ptr&lt; cosmicrays::CosmicRayDensity &gt; &amp;, const std::shared_ptr&lt; photonfields::PhotonField &gt; &amp;, const std::shared_ptr&lt; interactions::DifferentialCrossSection &gt; &amp;)</argsstring>
+        <name>InverseComptonIntegrator</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity" kindref="compound">cosmicrays::CosmicRayDensity</ref> &gt; &amp;</type>
+          <defname>crdensity_</defname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1photonfields_1_1PhotonField" kindref="compound">photonfields::PhotonField</ref> &gt; &amp;</type>
+          <defname>phdensity_</defname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" kindref="compound">interactions::DifferentialCrossSection</ref> &gt; &amp;</type>
+          <defname>crossSec_</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="41" column="1" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="16" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1a8a02fcb39bbdb215b46185b692292174" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~InverseComptonIntegrator</definition>
+        <argsstring>()</argsstring>
+        <name>~InverseComptonIntegrator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="45" column="1" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1acd5caffa87c9f060391c16b245d6a5cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setEnergy</definition>
+        <argsstring>(const QEnergy &amp;Egamma)</argsstring>
+        <name>setEnergy</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Egamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="47" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1aba7a9a7b36639db4b42253b4f5196627" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy getEnergy</definition>
+        <argsstring>() const</argsstring>
+        <name>getEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="48" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1a0135b3e3f31a935ce828cfd10d356d31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" kindref="member">QDiffIntensity</ref></type>
+        <definition>QDiffIntensity integrateOverLOS</definition>
+        <argsstring>(const QDirection &amp;iterdir) const</argsstring>
+        <name>integrateOverLOS</name>
+        <reimplements refid="classhermes_1_1IntegratorTemplate_1a793c8feb6e5546bd54fa469e191c1e9d">integrateOverLOS</reimplements>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Every instantiation/derived class must implement this method which represents an integral over the line of sight of an accumulated quantity <formula id="0">$ f(s)$</formula> for a given <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">units::QDirection</ref> <computeroutput>dir</computeroutput>. When multiplied with <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">units::QLength</ref> gives the pixel type, <computeroutput>QPXL</computeroutput> <formula id="1">\[ I(\mathrm{dir}) \sim \int_0^\infty \mathrm{d}s f(s) \]</formula> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="50" column="16" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1accb95016ba45d1c80defe9f2aab94b00" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" kindref="member">QDiffIntensity</ref></type>
+        <definition>QDiffIntensity integrateOverLOS</definition>
+        <argsstring>(const QDirection &amp;iterdir, const QEnergy &amp;Egamma) const</argsstring>
+        <name>integrateOverLOS</name>
+        <reimplements refid="classhermes_1_1IntegratorTemplate_1a16d6c89aa4ffa980f4a54b6aa8306ead">integrateOverLOS</reimplements>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>iterdir</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Additionally, for a frequency or energy dependent integrals one should implement the following method too. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="51" column="16" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="97" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1adafd8dc42a6073836930f350e165fec1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref></type>
+        <definition>QGREmissivity integrateOverEnergy</definition>
+        <argsstring>(const Vector3QLength &amp;pos, const QEnergy &amp;Egamma) const</argsstring>
+        <name>integrateOverEnergy</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Egamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="53" column="15" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="110" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1a24db99a5dac4ae66eac07d78ffb151a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a9970527ffabff2dd35c43fb96f45cda7" kindref="member">QICInnerIntegral</ref></type>
+        <definition>QICInnerIntegral integrateOverPhotonEnergy</definition>
+        <argsstring>(const Vector3QLength &amp;pos, const QEnergy &amp;Egamma, const QEnergy &amp;Eelectron) const</argsstring>
+        <name>integrateOverPhotonEnergy</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Egamma</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Eelectron</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="55" column="18" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="150" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1a2a4fbd5d19983a3e2d6d7d2c50f5cdcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void setupCacheTable</definition>
+        <argsstring>(int N_x, int N_y, int N_z)</argsstring>
+        <name>setupCacheTable</name>
+        <reimplements refid="classhermes_1_1IntegratorTemplate_1ab4e3b598849bf32d6fa6dca2abc2d5fc">setupCacheTable</reimplements>
+        <param>
+          <type>int</type>
+          <declname>N_x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N_y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N_z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Caching helpers </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="59" column="6" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="38" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1InverseComptonIntegrator_1a95b9876e1a40dc5558a2e64ce5fe4179" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void initCacheTable</definition>
+        <argsstring>()</argsstring>
+        <name>initCacheTable</name>
+        <reimplements refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727">initCacheTable</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="60" column="6" bodyfile="src/integrators/InverseComptonIntegrator.cpp" bodystart="50" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setSkymapParameter</definition>
+        <argsstring>(const QEnergy &amp;p)</argsstring>
+        <name>setSkymapParameter</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Setter for the skymap parameter (requires for the cacheTable, if enabled, to be re-initialized) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="54" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy  setSkymapParameter</definition>
+        <argsstring>() const</argsstring>
+        <name>setSkymapParameter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Getter for the skymap parameter </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="63" column="7" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setSunPosition</definition>
+        <argsstring>(const Vector3QLength &amp;pos)</argsstring>
+        <name>setSunPosition</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the position of the Sun in the galaxy as a vector (x, y, z) from which the LOS integration starts, default: (8.5_kpc, 0, 0) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="86" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref></type>
+        <definition>Vector3QLength getSunPosition</definition>
+        <argsstring>() const</argsstring>
+        <name>getSunPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the position of the Sun in the galaxy as a vector (x, y, z) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="90" column="23" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength getMaxDistance</definition>
+        <argsstring>(const QDirection &amp;direction) const</argsstring>
+        <name>getMaxDistance</name>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrapper within the class for distanceToGalBorder(positionSun, direction) becomes getMaxDistance(direction) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="95" column="16" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isCacheTableEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>isCacheTableEnabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="103" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isCacheTableInitialized</definition>
+        <argsstring>() const</argsstring>
+        <name>isCacheTableInitialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="104" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="104" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" prot="protected" static="no" mutable="no">
+        <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref></type>
+        <definition>Vector3QLength positionSun</definition>
+        <argsstring></argsstring>
+        <name>positionSun</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="38" column="16" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" prot="protected" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy  skymapParameter</definition>
+        <argsstring></argsstring>
+        <name>skymapParameter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="39" column="7" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool cacheEnabled</definition>
+        <argsstring></argsstring>
+        <name>cacheEnabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="40" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool cacheTableInitialized</definition>
+        <argsstring></argsstring>
+        <name>cacheTableInitialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="41" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>InverseComptonIntegrator</label>
+        <link refid="classhermes_1_1InverseComptonIntegrator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GammaIntegratorTemplate</label>
+        <link refid="classhermes_1_1IntegratorTemplate"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>InverseComptonIntegrator</label>
+        <link refid="classhermes_1_1InverseComptonIntegrator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Vector3&lt; QLength &gt;</label>
+        <link refid="classhermes_1_1Vector3"/>
+      </node>
+      <node id="2">
+        <label>GammaIntegratorTemplate</label>
+        <link refid="classhermes_1_1IntegratorTemplate"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>positionSun</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Vector3Quantity&lt; QLength &gt;</label>
+        <link refid="classhermes_1_1Vector3Quantity"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/integrators/InverseComptonIntegrator.h" line="21" column="62" bodyfile="include/hermes/integrators/InverseComptonIntegrator.h" bodystart="21" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" prot="protected" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>cacheEnabled</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a77f97b6440a503bd579fee351869f0eb" prot="private" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>cacheTable</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" prot="protected" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>cacheTableInitialized</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1aebb19733e373fed003938abfdcf19c24" prot="private" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>computeCacheInThread</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a36d8ffdffaeffa9612e22608074448cc" prot="private" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>crdensity</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a5961dc0312b13f2aefce5aa71ff3052a" prot="private" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>crossSec</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1aba7a9a7b36639db4b42253b4f5196627" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>getEnergy</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1aee6e94d17ae247a3a87c073ab083c52c" prot="private" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>getIOEfromCache</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>getMaxDistance</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>getSunPosition</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a8118a4f738c5a35ebe1ae62874d30a5d" prot="private" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>ICCacheTable</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a95b9876e1a40dc5558a2e64ce5fe4179" prot="public" virt="virtual"><scope>hermes::InverseComptonIntegrator</scope><name>initCacheTable</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1adafd8dc42a6073836930f350e165fec1" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>integrateOverEnergy</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a7882abe820a9ec30fcc8d1cb2c75a66f" prot="private" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>integrateOverLogEnergy</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a0135b3e3f31a935ce828cfd10d356d31" prot="public" virt="virtual"><scope>hermes::InverseComptonIntegrator</scope><name>integrateOverLOS</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1accb95016ba45d1c80defe9f2aab94b00" prot="public" virt="virtual"><scope>hermes::InverseComptonIntegrator</scope><name>integrateOverLOS</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a24db99a5dac4ae66eac07d78ffb151a7" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>integrateOverPhotonEnergy</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1ae8908500708aad18766244cc26dcdc86" prot="private" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>integrateOverSumEnergy</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a379d6e97c4be0ac5d82c1d7ea76a7b3a" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>IntegratorTemplate</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a2b64581c919326c12b2508d7f96d4bfc" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>InverseComptonIntegrator</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>isCacheTableEnabled</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>isCacheTableInitialized</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a932afc690b8470dd65a77c97528b3838" prot="private" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>phdensity</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" prot="protected" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>positionSun</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1acd5caffa87c9f060391c16b245d6a5cf" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>setEnergy</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>setSkymapParameter</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>setSkymapParameter</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>setSunPosition</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a2a4fbd5d19983a3e2d6d7d2c50f5cdcb" prot="public" virt="virtual"><scope>hermes::InverseComptonIntegrator</scope><name>setupCacheTable</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" prot="protected" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>skymapParameter</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1ad705532d91a47b4bfd2c36a6eedd9051" prot="public" virt="virtual"><scope>hermes::InverseComptonIntegrator</scope><name>~IntegratorTemplate</name></member>
+      <member refid="classhermes_1_1InverseComptonIntegrator_1a8a02fcb39bbdb215b46185b692292174" prot="public" virt="non-virtual"><scope>hermes::InverseComptonIntegrator</scope><name>~InverseComptonIntegrator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

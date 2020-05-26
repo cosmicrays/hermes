@@ -1,0 +1,4 @@
+<map id="ModulatedMagneticFieldGrid" name="ModulatedMagneticFieldGrid">
+<area shape="rect" id="node1" title="Modulated magnetic field on a periodic grid." alt="" coords="5,80,215,107"/>
+<area shape="rect" id="node2" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1MagneticField" title="Abstract base class for magnetic fields." alt="" coords="53,5,167,32"/>
+</map>

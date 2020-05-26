@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_dd1e8c18b5dfe63d610f68da14fd38ac" kind="dir">
+    <compoundname>include/hermes/darkmatter</compoundname>
+    <innerfile refid="DarkMatterSpectrum_8h">DarkMatterSpectrum.h</innerfile>
+    <innerfile refid="GalacticProfile_8h">GalacticProfile.h</innerfile>
+    <innerfile refid="NFWGProfile_8h">NFWGProfile.h</innerfile>
+    <innerfile refid="PPPC4DMIDChannels_8h">PPPC4DMIDChannels.h</innerfile>
+    <innerfile refid="PPPC4DMIDSpectrum_8h">PPPC4DMIDSpectrum.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/darkmatter/"/>
+  </compounddef>
+</doxygen>

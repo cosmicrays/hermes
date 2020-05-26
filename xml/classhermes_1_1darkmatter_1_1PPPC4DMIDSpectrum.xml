@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum" kind="class" language="C++" prot="public">
+    <compoundname>hermes::darkmatter::PPPC4DMIDSpectrum</compoundname>
+    <basecompoundref refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum" prot="public" virt="non-virtual">DarkMatterSpectrum</basecompoundref>
+    <includes refid="PPPC4DMIDSpectrum_8h" local="no">include/hermes/darkmatter/PPPC4DMIDSpectrum.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a42a21beb8018ac623f4d09db1343b9cf" prot="private" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string filename</definition>
+        <argsstring></argsstring>
+        <name>filename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="26" column="19" bodyfile="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a16e5a48747175af6380ed713a06f2879" prot="private" static="no" mutable="no">
+        <type>const <ref refid="group__DarkMatter_1ga1ce9b523fd4f3b5bbcadcd796183455a" kindref="member">Channel</ref></type>
+        <definition>const Channel channel</definition>
+        <argsstring></argsstring>
+        <name>channel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="27" column="15" bodyfile="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a508e3fff3b8c5aaa9ea24add13155d93" prot="private" static="no" mutable="no">
+        <type>const <ref refid="group__DarkMatter_1ga4b82e49d40fec5c282ce4115db150889" kindref="member">Mass</ref></type>
+        <definition>const Mass mass</definition>
+        <argsstring></argsstring>
+        <name>mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="28" column="12" bodyfile="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1acba0fe731f0a8d7d22b2f405af87b5c5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; double, double &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;double, double&gt; &gt; spectrum</definition>
+        <argsstring></argsstring>
+        <name>spectrum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="29" column="13" bodyfile="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a3ba779451a386238417fbab60f0d4db0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void loadData</definition>
+        <argsstring>()</argsstring>
+        <name>loadData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="30" column="6" bodyfile="src/darkmatter/PPPC4DMIDSpectrum.cpp" bodystart="29" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1afeb8a187bc75ebbca617d5b0189aa00f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PPPC4DMIDSpectrum</definition>
+        <argsstring>(Channel c, Mass m)</argsstring>
+        <name>PPPC4DMIDSpectrum</name>
+        <param>
+          <type><ref refid="group__DarkMatter_1ga1ce9b523fd4f3b5bbcadcd796183455a" kindref="member">Channel</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="group__DarkMatter_1ga4b82e49d40fec5c282ce4115db150889" kindref="member">Mass</ref></type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="33" column="1" bodyfile="src/darkmatter/PPPC4DMIDSpectrum.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1ab7b840ed3772c89cd67141f1bff5bc6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PPPC4DMIDSpectrum</definition>
+        <argsstring>(Channel c, Mass m, const std::string &amp;filename)</argsstring>
+        <name>PPPC4DMIDSpectrum</name>
+        <param>
+          <type><ref refid="group__DarkMatter_1ga1ce9b523fd4f3b5bbcadcd796183455a" kindref="member">Channel</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="group__DarkMatter_1ga4b82e49d40fec5c282ce4115db150889" kindref="member">Mass</ref></type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="34" column="1" bodyfile="src/darkmatter/PPPC4DMIDSpectrum.cpp" bodystart="19" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a060a52a8dd70d4e4c9f8a6135c625180" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+        <definition>QEnergy getRestMassEnergy</definition>
+        <argsstring>() const override</argsstring>
+        <name>getRestMassEnergy</name>
+        <reimplements refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum_1ab29d8b7d58c48f737c36883d9d472e59">getRestMassEnergy</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="36" column="9" bodyfile="src/darkmatter/PPPC4DMIDSpectrum.cpp" bodystart="25" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1acaff3ec30e04e3ccb0d408f9f73eee5d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>QInverseEnergy</type>
+        <definition>QInverseEnergy getParticlesPerEnergy</definition>
+        <argsstring>(QEnergy Egamma) const override</argsstring>
+        <name>getParticlesPerEnergy</name>
+        <reimplements refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum_1a7d3eec74d359e5412500bb8fda24f9d6">getParticlesPerEnergy</reimplements>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+          <declname>Egamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="37" column="16" bodyfile="src/darkmatter/PPPC4DMIDSpectrum.cpp" bodystart="61" bodyend="83"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PPPC4DMIDSpectrum</label>
+        <link refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DarkMatterSpectrum</label>
+        <link refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PPPC4DMIDSpectrum</label>
+        <link refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DarkMatterSpectrum</label>
+        <link refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="24" column="50" bodyfile="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" bodystart="24" bodyend="38"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a16e5a48747175af6380ed713a06f2879" prot="private" virt="non-virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>channel</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum_1af051dd64366b5b556967a94def719e6f" prot="public" virt="non-virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>DarkMatterSpectrum</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a42a21beb8018ac623f4d09db1343b9cf" prot="private" virt="non-virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>filename</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1acaff3ec30e04e3ccb0d408f9f73eee5d" prot="public" virt="virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>getParticlesPerEnergy</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a060a52a8dd70d4e4c9f8a6135c625180" prot="public" virt="virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>getRestMassEnergy</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a3ba779451a386238417fbab60f0d4db0" prot="private" virt="non-virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>loadData</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a508e3fff3b8c5aaa9ea24add13155d93" prot="private" virt="non-virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>mass</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1afeb8a187bc75ebbca617d5b0189aa00f" prot="public" virt="non-virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>PPPC4DMIDSpectrum</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1ab7b840ed3772c89cd67141f1bff5bc6e" prot="public" virt="non-virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>PPPC4DMIDSpectrum</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1acba0fe731f0a8d7d22b2f405af87b5c5" prot="private" virt="non-virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>spectrum</name></member>
+      <member refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum_1a6d4da5c6a8c6907489d927e655d406de" prot="public" virt="virtual"><scope>hermes::darkmatter::PPPC4DMIDSpectrum</scope><name>~DarkMatterSpectrum</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_d3c0c38ad263a7104898816de74c323c" kind="dir">
+    <compoundname>include/hermes/outputs</compoundname>
+    <innerfile refid="HEALPixFormat_8h">HEALPixFormat.h</innerfile>
+    <innerfile refid="Output_8h">Output.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/outputs/"/>
+  </compounddef>
+</doxygen>

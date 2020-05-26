@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerdir refid="dir_fdef54d5497d6818cf2e4d80e9a4b4e2">src/chargedgas</innerdir>
+    <innerdir refid="dir_4cbd02b7865b135ccc7d4a226487193b">src/cosmicrays</innerdir>
+    <innerdir refid="dir_0a03782ace7cb51710996c31f1312305">src/darkmatter</innerdir>
+    <innerdir refid="dir_05f662742734ae5b4756600b03cf1828">src/integrators</innerdir>
+    <innerdir refid="dir_b043e16d2c62cd1d8049c4839258bf02">src/interactions</innerdir>
+    <innerdir refid="dir_ebb0c2c3cf657686d6f76702eee5e88a">src/magneticfields</innerdir>
+    <innerdir refid="dir_574a30844959d0dc5701a8530a5428f8">src/neutralgas</innerdir>
+    <innerdir refid="dir_f2de5a5f3578ed4d58369498c32e6b57">src/outputs</innerdir>
+    <innerdir refid="dir_1d4aab99f2d89ae4a2e7b4894c077514">src/photonfields</innerdir>
+    <innerdir refid="dir_e7722a061f4dc1288ec17d3c6b18f4a5">src/skymaps</innerdir>
+    <innerfile refid="Common_8cpp">Common.cpp</innerfile>
+    <innerfile refid="FITSWrapper_8cpp">FITSWrapper.cpp</innerfile>
+    <innerfile refid="GridTools_8cpp">GridTools.cpp</innerfile>
+    <innerfile refid="HEALPixBits_8cpp">HEALPixBits.cpp</innerfile>
+    <innerfile refid="Random_8cpp">Random.cpp</innerfile>
+    <innerfile refid="Signals_8cpp">Signals.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

@@ -4,6 +4,10 @@
 File JF12Field.cpp
 ==================
 
+|exhale_lsh| :ref:`Parent directory <dir_src_magneticfields>` (``src/magneticfields``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
 .. contents:: Contents
    :local:
    :backlinks: none
@@ -28,4 +32,11 @@ Namespaces
 - :ref:`namespace_hermes`
 
 - :ref:`namespace_hermes__magneticfields`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1_1magneticfields_1a0d6b7018ba839b009cc6fc757b3e7605`
 

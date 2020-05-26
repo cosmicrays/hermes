@@ -38,3 +38,25 @@ Classes
 
 - :ref:`exhale_struct_structhermes_1_1RANDOM__TLS__ITEM`
 
+
+Functions
+---------
+
+
+- :ref:`exhale_function_namespacehermes_1a8595384c9be525c15b4d15a2b66b385f`
+
+- :ref:`exhale_function_namespacehermes_1ab48f80ec6a4725ec9387e1dab8c08da7`
+
+- :ref:`exhale_function_namespacehermes_1ae3fa6e6b0d54e1dbb1a768a266e4649b`
+
+- :ref:`exhale_function_namespacehermes_1a74c291278f81519f2153f730ffacd360`
+
+
+Variables
+---------
+
+
+- :ref:`exhale_variable_namespacehermes_1a660441872cddfe877ad1c1b4cef8d164`
+
+- :ref:`exhale_variable_namespacehermes_1a6534aea88ad941c2ee2ea1bffb759652`
+

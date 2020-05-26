@@ -1,0 +1,12 @@
+<map id="DifferentialCrossSection" name="DifferentialCrossSection">
+<area shape="rect" id="node1" title=" " alt="" coords="5,183,184,209"/>
+<area shape="rect" id="node2" href="$group__Interactions.html#classhermes_1_1interactions_1_1BremsstrahlungAbstract" title=" " alt="" coords="235,31,414,57"/>
+<area shape="rect" id="node5" href="$group__Interactions.html#classhermes_1_1interactions_1_1DummyCrossSection" title=" " alt="" coords="245,81,404,108"/>
+<area shape="rect" id="node6" href="$group__Interactions.html#classhermes_1_1interactions_1_1Kamae06Gamma" title=" " alt="" coords="257,132,393,159"/>
+<area shape="rect" id="node7" href="$group__Interactions.html#classhermes_1_1interactions_1_1Kamae06Neutrino" title=" " alt="" coords="255,183,395,209"/>
+<area shape="rect" id="node8" href="$group__Interactions.html#classhermes_1_1interactions_1_1KelnerAharonianGamma" title=" " alt="" coords="234,233,415,260"/>
+<area shape="rect" id="node9" href="$group__Interactions.html#classhermes_1_1interactions_1_1KelnerAharonianNeutrino" title=" " alt="" coords="232,284,417,311"/>
+<area shape="rect" id="node10" href="$group__Interactions.html#classhermes_1_1interactions_1_1KleinNishina" title=" " alt="" coords="273,335,377,361"/>
+<area shape="rect" id="node3" href="$group__Interactions.html#classhermes_1_1interactions_1_1BremsstrahlungGALPROP" title=" " alt="" coords="465,5,652,32"/>
+<area shape="rect" id="node4" href="$group__Interactions.html#classhermes_1_1interactions_1_1BremsstrahlungTsai74" title=" " alt="" coords="475,56,642,83"/>
+</map>

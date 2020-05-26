@@ -1,0 +1,5 @@
+<map id="RadioSkymap" name="RadioSkymap">
+<area shape="rect" id="node1" title="A skymap container suitable for radio emissions; saves pixels in units of temperature (K),..." alt="" coords="73,169,183,196"/>
+<area shape="rect" id="node2" href="$group__Skymaps.html" title=" " alt="" coords="5,80,251,121"/>
+<area shape="rect" id="node3" href="$group__Skymaps.html#classhermes_1_1Skymap" title="Base abstract class for all Skymaps; provides elementary HEALPix functions." alt="" coords="91,5,165,32"/>
+</map>

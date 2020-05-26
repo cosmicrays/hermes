@@ -1,0 +1,5 @@
+<map id="Skymap" name="Skymap">
+<area shape="rect" id="node1" title="Base abstract class for all Skymaps; provides elementary HEALPix functions." alt="" coords="47,171,122,197"/>
+<area shape="rect" id="node2" title="STL class." alt="" coords="55,81,114,108"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="5,5,164,32"/>
+</map>

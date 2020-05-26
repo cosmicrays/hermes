@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="HII__Cordes91_8h" kind="file" language="C++">
+    <compoundname>HII_Cordes91.h</compoundname>
+    <innerclass refid="classhermes_1_1chargedgas_1_1HII__Cordes91" prot="public">hermes::chargedgas::HII_Cordes91</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <innernamespace refid="namespacehermes_1_1chargedgas">hermes::chargedgas</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/HII_Cordes91.h"/>
+  </compounddef>
+</doxygen>

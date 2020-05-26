@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1CacheStorageIC2" kind="class" language="C++" prot="public">
+    <compoundname>hermes::CacheStorageIC2</compoundname>
+    <includes refid="CacheTools_8h" local="no">include/hermes/CacheTools.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classhermes_1_1CacheStorageIC2_1a20991e733aed18d347c855020f0345ae" prot="private" static="no">
+        <type>std::array&lt; int, 2 &gt;</type>
+        <definition>typedef std::array&lt;int, 2&gt; tArray2Key</definition>
+        <argsstring></argsstring>
+        <name>tArray2Key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="209" column="20" bodyfile="include/hermes/CacheTools.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1CacheStorageIC2_1aeb733967140f7ab89a01ba61c63bfac6" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; tArray2Key, <ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref>, <ref refid="structhermes_1_1array2__hash" kindref="compound">array2_hash</ref>, <ref refid="structhermes_1_1array2__equal" kindref="compound">array2_equal</ref> &gt;</type>
+        <definition>std::unordered_map&lt;tArray2Key, QGREmissivity, array2_hash, array2_equal&gt; cachedValues</definition>
+        <argsstring></argsstring>
+        <name>cachedValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="211" column="5" bodyfile="include/hermes/CacheTools.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1CacheStorageIC2_1ae395cbbd824010237eecd032a5048ee1" prot="private" static="no" mutable="no">
+        <type>std::function&lt; <ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref>(int, int, <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref>)&gt;</type>
+        <definition>std::function&lt;QGREmissivity(int, int, QEnergy)&gt; f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="212" column="15" bodyfile="include/hermes/CacheTools.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1CacheStorageIC2_1a8ce977a35722f72adc72d97fefc39ef5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setFunction</definition>
+        <argsstring>(std::function&lt; QGREmissivity(int, int, QEnergy)&gt; f_)</argsstring>
+        <name>setFunction</name>
+        <param>
+          <type>std::function&lt; <ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref>(int, int, <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref>)&gt;</type>
+          <declname>f_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="215" column="6" bodyfile="include/hermes/CacheTools.h" bodystart="215" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageIC2_1ab831f7d7635255600f1a4a6fa020f858" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void cacheValue</definition>
+        <argsstring>(const tArray2Key &amp;key, QGREmissivity value)</argsstring>
+        <name>cacheValue</name>
+        <param>
+          <type>const tArray2Key &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="219" column="6" bodyfile="include/hermes/CacheTools.h" bodystart="219" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1CacheStorageIC2_1ae29fd731bba9feafe09bb288a82f3f7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kindref="member">QGREmissivity</ref></type>
+        <definition>QGREmissivity getValue</definition>
+        <argsstring>(int q1, int q2, QEnergy q3)</argsstring>
+        <name>getValue</name>
+        <param>
+          <type>int</type>
+          <declname>q1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>q2</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
+          <declname>q3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/CacheTools.h" line="223" column="15" bodyfile="include/hermes/CacheTools.h" bodystart="223" bodyend="232"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/CacheTools.h" line="207" column="22" bodyfile="include/hermes/CacheTools.h" bodystart="207" bodyend="233"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1CacheStorageIC2_1aeb733967140f7ab89a01ba61c63bfac6" prot="private" virt="non-virtual"><scope>hermes::CacheStorageIC2</scope><name>cachedValues</name></member>
+      <member refid="classhermes_1_1CacheStorageIC2_1ab831f7d7635255600f1a4a6fa020f858" prot="public" virt="non-virtual"><scope>hermes::CacheStorageIC2</scope><name>cacheValue</name></member>
+      <member refid="classhermes_1_1CacheStorageIC2_1ae395cbbd824010237eecd032a5048ee1" prot="private" virt="non-virtual"><scope>hermes::CacheStorageIC2</scope><name>f</name></member>
+      <member refid="classhermes_1_1CacheStorageIC2_1ae29fd731bba9feafe09bb288a82f3f7e" prot="public" virt="non-virtual"><scope>hermes::CacheStorageIC2</scope><name>getValue</name></member>
+      <member refid="classhermes_1_1CacheStorageIC2_1a8ce977a35722f72adc72d97fefc39ef5" prot="public" virt="non-virtual"><scope>hermes::CacheStorageIC2</scope><name>setFunction</name></member>
+      <member refid="classhermes_1_1CacheStorageIC2_1a20991e733aed18d347c855020f0345ae" prot="private" virt="non-virtual"><scope>hermes::CacheStorageIC2</scope><name>tArray2Key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -3,7 +3,7 @@
 Typedef hermes::Vector3d
 ========================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_Vector3.h`
 
 
 Typedef Documentation

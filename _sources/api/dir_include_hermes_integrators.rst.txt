@@ -1,0 +1,31 @@
+.. _dir_include_hermes_integrators:
+
+
+Directory integrators
+=====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/hermes/integrators``
+
+
+Files
+-----
+
+- :ref:`file_include_hermes_integrators_BremsstrahlungIntegrator.h`
+- :ref:`file_include_hermes_integrators_DarkMatterIntegrator.h`
+- :ref:`file_include_hermes_integrators_DispersionMeasureIntegrator.h`
+- :ref:`file_include_hermes_integrators_FreeFreeIntegrator.h`
+- :ref:`file_include_hermes_integrators_IntegratorTemplate.h`
+- :ref:`file_include_hermes_integrators_InverseComptonIntegrator.h`
+- :ref:`file_include_hermes_integrators_LOSIntegrationMethods.h`
+- :ref:`file_include_hermes_integrators_PiZeroAbsorptionIntegrator.h`
+- :ref:`file_include_hermes_integrators_PiZeroIntegrator.h`
+- :ref:`file_include_hermes_integrators_RotationMeasureIntegrator.h`
+- :ref:`file_include_hermes_integrators_SynchroAbsorptionIntegrator.h`
+- :ref:`file_include_hermes_integrators_SynchroIntegrator.h`
+
+

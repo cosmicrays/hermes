@@ -1,0 +1,25 @@
+.. _dir_src_cosmicrays:
+
+
+Directory cosmicrays
+====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``src/cosmicrays``
+
+
+Files
+-----
+
+- :ref:`file_src_cosmicrays_Dragon2D.cpp`
+- :ref:`file_src_cosmicrays_Dragon3D.cpp`
+- :ref:`file_src_cosmicrays_DummyCRDensity.cpp`
+- :ref:`file_src_cosmicrays_SimpleCRDensity.cpp`
+- :ref:`file_src_cosmicrays_Sun08CRDensity.cpp`
+- :ref:`file_src_cosmicrays_WMAP07CRDensity.cpp`
+
+

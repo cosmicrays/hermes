@@ -1,0 +1,35 @@
+.. _dir__home_andy_Projects_category_science_hermes_src:
+
+
+Directory src
+=============
+
+
+*Directory path:* ``/home/andy/Projects/category_science/hermes/src``
+
+Subdirectories
+--------------
+
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_chargedgas`
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_cosmicrays`
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_darkmatter`
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_integrators`
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_interactions`
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_magneticfields`
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_neutralgas`
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_outputs`
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_photonfields`
+- :ref:`dir__home_andy_Projects_category_science_hermes_src_skymaps`
+
+
+Files
+-----
+
+- :ref:`file__home_andy_Projects_category_science_hermes_src_Common.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_FITSWrapper.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_GridTools.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_HEALPixBits.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_Random.cpp`
+- :ref:`file__home_andy_Projects_category_science_hermes_src_Signals.cpp`
+
+

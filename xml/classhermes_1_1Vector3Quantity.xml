@@ -1,0 +1,1425 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1Vector3Quantity" kind="class" language="C++" prot="public">
+    <compoundname>hermes::Vector3Quantity</compoundname>
+    <basecompoundref refid="classhermes_1_1Vector3" prot="public" virt="non-virtual">hermes::Vector3&lt; T &gt;</basecompoundref>
+    <includes refid="Vector3Quantity_8h" local="no">include/hermes/Vector3Quantity.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a4d24997914d3e64f78d45a6bd4629c11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector3Quantity</definition>
+        <argsstring>()</argsstring>
+        <name>Vector3Quantity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="35" column="1" bodyfile="include/hermes/Vector3Quantity.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a55edd5a7b62b438cc2ae37f9b9d4921d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector3Quantity</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v)</argsstring>
+        <name>Vector3Quantity</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="38" column="1" bodyfile="include/hermes/Vector3Quantity.h" bodystart="38" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a0a0dd95b27029a984b247368b3a95cac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>Vector3Quantity</definition>
+        <argsstring>(const Vector3Quantity&lt; U &gt; &amp;v)</argsstring>
+        <name>Vector3Quantity</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; U &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="42" column="1" bodyfile="include/hermes/Vector3Quantity.h" bodystart="42" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a38fed4f08bee72591885ccafcece877a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>Vector3Quantity</definition>
+        <argsstring>(const Vector3&lt; U &gt; &amp;v)</argsstring>
+        <name>Vector3Quantity</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; U &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="47" column="10" bodyfile="include/hermes/Vector3Quantity.h" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a77298a3d670b2e11025cafd8fcebf5bf" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector3Quantity</definition>
+        <argsstring>(const T &amp;X)</argsstring>
+        <name>Vector3Quantity</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>X</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="51" column="10" bodyfile="include/hermes/Vector3Quantity.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a932a8f46da6d354b19b18d95e1b70886" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Vector3Quantity</definition>
+        <argsstring>(const T &amp;X, const T &amp;Y, const T &amp;Z)</argsstring>
+        <name>Vector3Quantity</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="53" column="10" bodyfile="include/hermes/Vector3Quantity.h" bodystart="53" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1ae9025f0ca245ff346c91ffef96d93f43" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kindref="member">Vector3d</ref></type>
+        <definition>Vector3d getValue</definition>
+        <argsstring>() const</argsstring>
+        <name>getValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="72" column="10" bodyfile="include/hermes/Vector3Quantity.h" bodystart="72" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a3303b4f29fdfbdf39d1791e62b00337b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle getPhi</definition>
+        <argsstring>() const</argsstring>
+        <name>getPhi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="79" column="8" bodyfile="include/hermes/Vector3Quantity.h" bodystart="79" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1abd9a0342bed932370f307629a5b5e845" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle getTheta</definition>
+        <argsstring>() const</argsstring>
+        <name>getTheta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="88" column="8" bodyfile="include/hermes/Vector3Quantity.h" bodystart="88" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a749b04d479b454016024f9b33aca3660" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; getUnitVectorTheta</definition>
+        <argsstring>() const</argsstring>
+        <name>getUnitVectorTheta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="99" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="99" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1abf64e7b4eb27e5e03c48c63e5fcdb923" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; getUnitVectorPhi</definition>
+        <argsstring>() const</argsstring>
+        <name>getUnitVectorPhi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="107" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="107" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a28c20c996a6c2bb514bb783f7a76570b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle getAngleTo</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v) const</argsstring>
+        <name>getAngleTo</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="112" column="8" bodyfile="include/hermes/Vector3Quantity.h" bodystart="112" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a694463387f1031532c0938a904cf2913" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; getRotated</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;axis, T angle) const</argsstring>
+        <name>getRotated</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="126" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="126" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a5749e61cdedf4345d8a7a969bb1f63b7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; clip</definition>
+        <argsstring>(T lower, T upper) const</argsstring>
+        <name>clip</name>
+        <param>
+          <type>T</type>
+          <declname>lower</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>upper</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="144" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="144" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1af19ddfe7a3cea69a8476ae703a5dcbc5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; abs</definition>
+        <argsstring>() const</argsstring>
+        <name>abs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="153" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a84931450525c4b8b5149030440183a6d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; floor</definition>
+        <argsstring>() const</argsstring>
+        <name>floor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="159" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a865269adb7f6db3fba9883566bcc1934" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; ceil</definition>
+        <argsstring>() const</argsstring>
+        <name>ceil</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="165" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="165" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a52096cb9257a0011ce7beffd06a0c994" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto dot</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v) const</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="172" column="6" bodyfile="include/hermes/Vector3Quantity.h" bodystart="172" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1aa6d2c5610df6bc3d5bcb65967ee63e9f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; cross</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v) const</argsstring>
+        <name>cross</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="177" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="177" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a5a2201f0575d37a60f8856e20520f9a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="184" column="6" bodyfile="include/hermes/Vector3Quantity.h" bodystart="184" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a4deb541013af1d4e3591153bd7aac228" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; operator+</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="191" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="191" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1ae717cafe0feaff30f248dc4be14dd6f9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; operator+</definition>
+        <argsstring>(const T &amp;f) const</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="195" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="195" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a8185c7233b608cf64bb640d7ecfafbd9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; operator-</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="199" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="199" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1acca061afbbeafa260a546afdfa84e1d5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; operator-</definition>
+        <argsstring>(const T &amp;f) const</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="203" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="203" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a7aff3088f1d0c3a52cfda7a7e99dfc2e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; operator/</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="208" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="208" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1afb56a12515662cc243857a535cfd06c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; operator/</definition>
+        <argsstring>(const T &amp;f) const</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="212" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="212" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1afba07a42112265635c75e1af0df6b0f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; operator%</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator%</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="217" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="217" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a27d08b3f40508ef541c5cd1a634b5f77" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt;</type>
+        <definition>Vector3Quantity&lt;T&gt; operator%</definition>
+        <argsstring>(const T &amp;f) const</argsstring>
+        <name>operator%</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="222" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="222" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1ae08d91de3aa70ee1effd78d8669038ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator-=</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="227" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="227" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1af6898afd2fb913d40c3e1898300221e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator-=</definition>
+        <argsstring>(const T &amp;f)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="234" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="234" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a80d511b512cbde286879880416e4c52c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator+=</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="241" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="241" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1ad5c5746cf13b5c5981ab1e184eb1ff7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator+=</definition>
+        <argsstring>(const T &amp;f)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="248" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="248" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1aae1884a5c33e7b8cffcb101e4312f31e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator*=</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="256" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="256" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a9c2b9264c4b386dc203541db289f2bf0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator*=</definition>
+        <argsstring>(const T &amp;f)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="263" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="263" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1ad7600f980147fd0842cf6d340081a6a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator/=</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v)</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="271" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="271" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a2d9151b1f8adfb07375661c1634d7814" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator/=</definition>
+        <argsstring>(const T &amp;f)</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="278" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="278" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a0ea76cf270e35f5d868acb6d8654a7d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator%=</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v)</argsstring>
+        <name>operator%=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="286" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="286" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1a8e7218c3e5b3b13c2050aba359f50c2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator%=</definition>
+        <argsstring>(const T &amp;f)</argsstring>
+        <name>operator%=</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="293" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="293" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1aef685f133626e500f80137786ef524f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator=</definition>
+        <argsstring>(const Vector3Quantity&lt; T &gt; &amp;v)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="300" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="300" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3Quantity_1aca73ce9372eae068dbe5b6ad63112b68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3Quantity&lt;T&gt;&amp; operator=</definition>
+        <argsstring>(const T &amp;f)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3Quantity.h" line="307" column="17" bodyfile="include/hermes/Vector3Quantity.h" bodystart="307" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a153a1fb09ed13dcce06a10cd3b7beeba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void setX</definition>
+        <argsstring>(const T X)</argsstring>
+        <name>setX</name>
+        <param>
+          <type>const T</type>
+          <declname>X</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="50" column="14" bodyfile="include/hermes/Vector3.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1aed5390936e9bb337bc3065857ab14e44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void setY</definition>
+        <argsstring>(const T Y)</argsstring>
+        <name>setY</name>
+        <param>
+          <type>const T</type>
+          <declname>Y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="52" column="14" bodyfile="include/hermes/Vector3.h" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a3ab3d5a5a1cf8238684ebbefb85d9d0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void setZ</definition>
+        <argsstring>(const T Z)</argsstring>
+        <name>setZ</name>
+        <param>
+          <type>const T</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="54" column="14" bodyfile="include/hermes/Vector3.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1abab70462d94a1c286ed847b670fbd4ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void setXYZ</definition>
+        <argsstring>(const T X, const T Y, const T Z)</argsstring>
+        <name>setXYZ</name>
+        <param>
+          <type>const T</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>const T</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type>const T</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="56" column="14" bodyfile="include/hermes/Vector3.h" bodystart="56" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a15e1e106e705d468ef583b9949cf6eb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void setR</definition>
+        <argsstring>(const T r)</argsstring>
+        <name>setR</name>
+        <param>
+          <type>const T</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="62" column="14" bodyfile="include/hermes/Vector3.h" bodystart="62" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1ada7f26da45a0d7ea09877dac7dc7737e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setRThetaPhi</definition>
+        <argsstring>(const T r, const QAngle theta, const QAngle phi)</argsstring>
+        <name>setRThetaPhi</name>
+        <param>
+          <type>const T</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+          <declname>theta</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+          <declname>phi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="68" column="6" bodyfile="include/hermes/Vector3.h" bodystart="68" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1adf2f99da90afb3437aedde8cd7eed840" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T getX</definition>
+        <argsstring>() const</argsstring>
+        <name>getX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="74" column="3" bodyfile="include/hermes/Vector3.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a482cf1611ceafdedc1562a481d245634" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T getY</definition>
+        <argsstring>() const</argsstring>
+        <name>getY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="76" column="3" bodyfile="include/hermes/Vector3.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a573409a1444c03213418c57e7687ab92" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T getZ</definition>
+        <argsstring>() const</argsstring>
+        <name>getZ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="78" column="3" bodyfile="include/hermes/Vector3.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a7bd493142f998ab21fc3f5f92a897e48" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T getR</definition>
+        <argsstring>() const</argsstring>
+        <name>getR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="81" column="3" bodyfile="include/hermes/Vector3.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1ace8d107361a8c2b9e84bbbb4939bb721" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T getR2</definition>
+        <argsstring>() const</argsstring>
+        <name>getR2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="84" column="3" bodyfile="include/hermes/Vector3.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a258ddf29b41d80b68f1e7a420c16b15e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T getRho</definition>
+        <argsstring>() const</argsstring>
+        <name>getRho</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="86" column="3" bodyfile="include/hermes/Vector3.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a43e9613d2713ef4f646dcfefcb8c9f36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; getUnitVector</definition>
+        <argsstring>() const</argsstring>
+        <name>getUnitVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="107" column="9" bodyfile="include/hermes/Vector3.h" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1ab3e80f13e1fdb2d7c64f388052879d01" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle getAngleTo</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>getAngleTo</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="123" column="8" bodyfile="include/hermes/Vector3.h" bodystart="123" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a3a34e398a5f4e79903b52f5614e38c36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isParallelTo</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v, QAngle maxAngle) const</argsstring>
+        <name>isParallelTo</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+          <declname>maxAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="137" column="6" bodyfile="include/hermes/Vector3.h" bodystart="137" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a95adaea667f7e8001705b616b850c4e4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T getDistanceTo</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;point) const</argsstring>
+        <name>getDistanceTo</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="142" column="3" bodyfile="include/hermes/Vector3.h" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1ad54610a507023d3701395a2065d12227" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; getParallelTo</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>getParallelTo</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="149" column="9" bodyfile="include/hermes/Vector3.h" bodystart="149" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1afd1e615641128549e73ec8db505a4842" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; getPerpendicularTo</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>getPerpendicularTo</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="157" column="9" bodyfile="include/hermes/Vector3.h" bodystart="157" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a3ec656a746b7889c8dfc186d36033523" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; getRotated</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;axis, T angle) const</argsstring>
+        <name>getRotated</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="163" column="9" bodyfile="include/hermes/Vector3.h" bodystart="163" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1aba0c82b2b19f36bc196f6192e9d93b10" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T min</definition>
+        <argsstring>() const</argsstring>
+        <name>min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="201" column="3" bodyfile="include/hermes/Vector3.h" bodystart="201" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1ac8a2015ba65ce6e14ca1a3541eb6fb5c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T max</definition>
+        <argsstring>() const</argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="204" column="3" bodyfile="include/hermes/Vector3.h" bodystart="204" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a8294bc60a295c5a1db9b616dd5641b65" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T dot</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="207" column="3" bodyfile="include/hermes/Vector3.h" bodystart="207" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a4ade57accbadeae4dcfe2fa0527bbd92" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; cross</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>cross</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="210" column="9" bodyfile="include/hermes/Vector3.h" bodystart="210" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a14fa3f4b6901e6527c1c06ab8f5a41a1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="216" column="6" bodyfile="include/hermes/Vector3.h" bodystart="216" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1aae8c58d16e161033e0aa7d51fb49ba0c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; operator+</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="223" column="9" bodyfile="include/hermes/Vector3.h" bodystart="223" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a77798bc220a5645dfe5339c8f05431ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; operator-</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="231" column="9" bodyfile="include/hermes/Vector3.h" bodystart="231" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a0fc8d7c964ca22cb2070e9506a3c6719" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; operator*</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="240" column="9" bodyfile="include/hermes/Vector3.h" bodystart="240" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a7896fe3ebc9ca649edbe287c4a74719f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; operator*</definition>
+        <argsstring>(const T &amp;v) const</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="244" column="9" bodyfile="include/hermes/Vector3.h" bodystart="244" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a6020630509bc3e6b54f76281ddea908b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; operator/</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="249" column="9" bodyfile="include/hermes/Vector3.h" bodystart="249" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1af4edc8bf5fa02e56c7a81df1744285ec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt;</type>
+        <definition>Vector3&lt;T&gt; operator%</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v) const</argsstring>
+        <name>operator%</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="258" column="9" bodyfile="include/hermes/Vector3.h" bodystart="258" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a9f3c389e7cf95a18197570b79a3da715" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3&lt;T&gt;&amp; operator-=</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="266" column="9" bodyfile="include/hermes/Vector3.h" bodystart="266" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a965818eecfc2c98ea8c2ee94b706955b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3&lt;T&gt;&amp; operator+=</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="280" column="9" bodyfile="include/hermes/Vector3.h" bodystart="280" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a32d25719468b31d8a22593b7f455e7ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3&lt;T&gt;&amp; operator*=</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="295" column="9" bodyfile="include/hermes/Vector3.h" bodystart="295" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a9764f7440c06f57db2b55f04dc5237bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3&lt;T&gt;&amp; operator/=</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v)</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="310" column="9" bodyfile="include/hermes/Vector3.h" bodystart="310" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1Vector3_1a279d4d576d6cdde1772483178a313ced" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+        <definition>Vector3&lt;T&gt;&amp; operator%=</definition>
+        <argsstring>(const Vector3&lt; T &gt; &amp;v)</argsstring>
+        <name>operator%=</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="325" column="9" bodyfile="include/hermes/Vector3.h" bodystart="325" bodyend="330"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classhermes_1_1Vector3_1a9a4f74af87a76a4c3dcb729cb0e68f8d" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="34" column="3" bodyfile="include/hermes/Vector3.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Vector3_1a1cb2b5ea04251d543e49356ef54eb853" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="34" column="5" bodyfile="include/hermes/Vector3.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1Vector3_1aa37b7ae12b900daed71297a80053aacf" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/Vector3.h" line="34" column="7" bodyfile="include/hermes/Vector3.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Vector3Quantity&lt; T &gt;</label>
+        <link refid="classhermes_1_1Vector3Quantity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Vector3&lt; T &gt;</label>
+        <link refid="classhermes_1_1Vector3"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Vector3Quantity&lt; T &gt;</label>
+        <link refid="classhermes_1_1Vector3Quantity"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Vector3&lt; T &gt;</label>
+        <link refid="classhermes_1_1Vector3"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/Vector3Quantity.h" line="33" column="38" bodyfile="include/hermes/Vector3Quantity.h" bodystart="33" bodyend="313"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1Vector3Quantity_1af19ddfe7a3cea69a8476ae703a5dcbc5" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>abs</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a865269adb7f6db3fba9883566bcc1934" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>ceil</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a5749e61cdedf4345d8a7a969bb1f63b7" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>clip</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1aa6d2c5610df6bc3d5bcb65967ee63e9f" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>cross</name></member>
+      <member refid="classhermes_1_1Vector3_1a4ade57accbadeae4dcfe2fa0527bbd92" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>cross</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a52096cb9257a0011ce7beffd06a0c994" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>dot</name></member>
+      <member refid="classhermes_1_1Vector3_1a8294bc60a295c5a1db9b616dd5641b65" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>dot</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a84931450525c4b8b5149030440183a6d" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>floor</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a28c20c996a6c2bb514bb783f7a76570b" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getAngleTo</name></member>
+      <member refid="classhermes_1_1Vector3_1ab3e80f13e1fdb2d7c64f388052879d01" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>getAngleTo</name></member>
+      <member refid="classhermes_1_1Vector3_1a95adaea667f7e8001705b616b850c4e4" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getDistanceTo</name></member>
+      <member refid="classhermes_1_1Vector3_1ad54610a507023d3701395a2065d12227" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getParallelTo</name></member>
+      <member refid="classhermes_1_1Vector3_1afd1e615641128549e73ec8db505a4842" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getPerpendicularTo</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a3303b4f29fdfbdf39d1791e62b00337b" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getPhi</name></member>
+      <member refid="classhermes_1_1Vector3_1a7bd493142f998ab21fc3f5f92a897e48" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getR</name></member>
+      <member refid="classhermes_1_1Vector3_1ace8d107361a8c2b9e84bbbb4939bb721" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getR2</name></member>
+      <member refid="classhermes_1_1Vector3_1a258ddf29b41d80b68f1e7a420c16b15e" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getRho</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a694463387f1031532c0938a904cf2913" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getRotated</name></member>
+      <member refid="classhermes_1_1Vector3_1a3ec656a746b7889c8dfc186d36033523" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>getRotated</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1abd9a0342bed932370f307629a5b5e845" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getTheta</name></member>
+      <member refid="classhermes_1_1Vector3_1a43e9613d2713ef4f646dcfefcb8c9f36" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getUnitVector</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1abf64e7b4eb27e5e03c48c63e5fcdb923" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getUnitVectorPhi</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a749b04d479b454016024f9b33aca3660" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getUnitVectorTheta</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1ae9025f0ca245ff346c91ffef96d93f43" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getValue</name></member>
+      <member refid="classhermes_1_1Vector3_1adf2f99da90afb3437aedde8cd7eed840" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getX</name></member>
+      <member refid="classhermes_1_1Vector3_1a482cf1611ceafdedc1562a481d245634" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getY</name></member>
+      <member refid="classhermes_1_1Vector3_1a573409a1444c03213418c57e7687ab92" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>getZ</name></member>
+      <member refid="classhermes_1_1Vector3_1a3a34e398a5f4e79903b52f5614e38c36" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>isParallelTo</name></member>
+      <member refid="classhermes_1_1Vector3_1ac8a2015ba65ce6e14ca1a3541eb6fb5c" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>max</name></member>
+      <member refid="classhermes_1_1Vector3_1aba0c82b2b19f36bc196f6192e9d93b10" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>min</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1afba07a42112265635c75e1af0df6b0f4" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator%</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a27d08b3f40508ef541c5cd1a634b5f77" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator%</name></member>
+      <member refid="classhermes_1_1Vector3_1af4edc8bf5fa02e56c7a81df1744285ec" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator%</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a0ea76cf270e35f5d868acb6d8654a7d1" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator%=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a8e7218c3e5b3b13c2050aba359f50c2a" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator%=</name></member>
+      <member refid="classhermes_1_1Vector3_1a279d4d576d6cdde1772483178a313ced" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator%=</name></member>
+      <member refid="classhermes_1_1Vector3_1a0fc8d7c964ca22cb2070e9506a3c6719" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator*</name></member>
+      <member refid="classhermes_1_1Vector3_1a7896fe3ebc9ca649edbe287c4a74719f" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator*</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1aae1884a5c33e7b8cffcb101e4312f31e" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator*=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a9c2b9264c4b386dc203541db289f2bf0" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator*=</name></member>
+      <member refid="classhermes_1_1Vector3_1a32d25719468b31d8a22593b7f455e7ba" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator*=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a4deb541013af1d4e3591153bd7aac228" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator+</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1ae717cafe0feaff30f248dc4be14dd6f9" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator+</name></member>
+      <member refid="classhermes_1_1Vector3_1aae8c58d16e161033e0aa7d51fb49ba0c" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator+</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a80d511b512cbde286879880416e4c52c" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator+=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1ad5c5746cf13b5c5981ab1e184eb1ff7e" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator+=</name></member>
+      <member refid="classhermes_1_1Vector3_1a965818eecfc2c98ea8c2ee94b706955b" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator+=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a8185c7233b608cf64bb640d7ecfafbd9" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator-</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1acca061afbbeafa260a546afdfa84e1d5" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator-</name></member>
+      <member refid="classhermes_1_1Vector3_1a77798bc220a5645dfe5339c8f05431ba" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator-</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1ae08d91de3aa70ee1effd78d8669038ce" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator-=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1af6898afd2fb913d40c3e1898300221e1" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator-=</name></member>
+      <member refid="classhermes_1_1Vector3_1a9f3c389e7cf95a18197570b79a3da715" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator-=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a7aff3088f1d0c3a52cfda7a7e99dfc2e" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator/</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1afb56a12515662cc243857a535cfd06c5" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator/</name></member>
+      <member refid="classhermes_1_1Vector3_1a6020630509bc3e6b54f76281ddea908b" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator/</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1ad7600f980147fd0842cf6d340081a6a8" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator/=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a2d9151b1f8adfb07375661c1634d7814" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator/=</name></member>
+      <member refid="classhermes_1_1Vector3_1a9764f7440c06f57db2b55f04dc5237bb" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator/=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1aef685f133626e500f80137786ef524f6" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1aca73ce9372eae068dbe5b6ad63112b68" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator=</name></member>
+      <member refid="classhermes_1_1Vector3_1a123fc2a5b1b816a66772db09ccd550d5" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator=</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a5a2201f0575d37a60f8856e20520f9a7" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>operator==</name></member>
+      <member refid="classhermes_1_1Vector3_1a14fa3f4b6901e6527c1c06ab8f5a41a1" prot="public" virt="non-virtual" ambiguityscope="hermes::Vector3::"><scope>hermes::Vector3Quantity</scope><name>operator==</name></member>
+      <member refid="classhermes_1_1Vector3_1a15e1e106e705d468ef583b9949cf6eb7" prot="public" virt="virtual"><scope>hermes::Vector3Quantity</scope><name>setR</name></member>
+      <member refid="classhermes_1_1Vector3_1ada7f26da45a0d7ea09877dac7dc7737e" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>setRThetaPhi</name></member>
+      <member refid="classhermes_1_1Vector3_1a153a1fb09ed13dcce06a10cd3b7beeba" prot="public" virt="virtual"><scope>hermes::Vector3Quantity</scope><name>setX</name></member>
+      <member refid="classhermes_1_1Vector3_1abab70462d94a1c286ed847b670fbd4ba" prot="public" virt="virtual"><scope>hermes::Vector3Quantity</scope><name>setXYZ</name></member>
+      <member refid="classhermes_1_1Vector3_1aed5390936e9bb337bc3065857ab14e44" prot="public" virt="virtual"><scope>hermes::Vector3Quantity</scope><name>setY</name></member>
+      <member refid="classhermes_1_1Vector3_1a3ab3d5a5a1cf8238684ebbefb85d9d0a" prot="public" virt="virtual"><scope>hermes::Vector3Quantity</scope><name>setZ</name></member>
+      <member refid="classhermes_1_1Vector3_1ac40804b7686a1152bcba217dfe5dde6f" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3</name></member>
+      <member refid="classhermes_1_1Vector3_1a1a9b03f3f26eb96dd218f6af2666dc2d" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3</name></member>
+      <member refid="classhermes_1_1Vector3_1a001f5ea840d3559b1be051d24feb8d2b" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3</name></member>
+      <member refid="classhermes_1_1Vector3_1aa4525619eba549ad564236d282854d46" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3</name></member>
+      <member refid="classhermes_1_1Vector3_1ac020e952cdb22f27b3a8ee41b4d11391" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3</name></member>
+      <member refid="classhermes_1_1Vector3_1a2279d31428b5d6b93a83bf4c9f68e564" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a4d24997914d3e64f78d45a6bd4629c11" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3Quantity</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a55edd5a7b62b438cc2ae37f9b9d4921d" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3Quantity</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a0a0dd95b27029a984b247368b3a95cac" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3Quantity</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a38fed4f08bee72591885ccafcece877a" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3Quantity</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a77298a3d670b2e11025cafd8fcebf5bf" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3Quantity</name></member>
+      <member refid="classhermes_1_1Vector3Quantity_1a932a8f46da6d354b19b18d95e1b70886" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>Vector3Quantity</name></member>
+      <member refid="classhermes_1_1Vector3_1a9a4f74af87a76a4c3dcb729cb0e68f8d" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>x</name></member>
+      <member refid="classhermes_1_1Vector3_1a1cb2b5ea04251d543e49356ef54eb853" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>y</name></member>
+      <member refid="classhermes_1_1Vector3_1aa37b7ae12b900daed71297a80053aacf" prot="public" virt="non-virtual"><scope>hermes::Vector3Quantity</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

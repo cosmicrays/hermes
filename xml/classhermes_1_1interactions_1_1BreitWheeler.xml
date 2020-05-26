@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1interactions_1_1BreitWheeler" kind="class" language="C++" prot="public">
+    <compoundname>hermes::interactions::BreitWheeler</compoundname>
+    <includes refid="BreitWheeler_8h" local="no">include/hermes/interactions/BreitWheeler.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BreitWheeler_1a7b8da88901627b9fae1f05d26555fbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BreitWheeler</definition>
+        <argsstring>()</argsstring>
+        <name>BreitWheeler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BreitWheeler.h" line="16" column="1" bodyfile="src/interactions/BreitWheeler.cpp" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BreitWheeler_1ac549e2dcc5bfdaf063487b160858d980" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c" kindref="member">QArea</ref></type>
+        <definition>QArea getCrossSection</definition>
+        <argsstring>(const QEnergy &amp;Egamma, const QEnergy &amp;Eph, const QAngle &amp;theta) const</argsstring>
+        <name>getCrossSection</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Egamma</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Eph</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref> &amp;</type>
+          <declname>theta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BreitWheeler.h" line="18" column="7" bodyfile="src/interactions/BreitWheeler.cpp" bodystart="17" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1BreitWheeler_1ab08607dd876cd51e008e3c859289cec8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c" kindref="member">QArea</ref></type>
+        <definition>QArea integratedOverTheta</definition>
+        <argsstring>(const QEnergy &amp;Egamma, const QEnergy &amp;Eph) const</argsstring>
+        <name>integratedOverTheta</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Egamma</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>Eph</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/BreitWheeler.h" line="20" column="7" bodyfile="src/interactions/BreitWheeler.cpp" bodystart="32" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/interactions/BreitWheeler.h" line="14" column="19" bodyfile="include/hermes/interactions/BreitWheeler.h" bodystart="14" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1interactions_1_1BreitWheeler_1a7b8da88901627b9fae1f05d26555fbe3" prot="public" virt="non-virtual"><scope>hermes::interactions::BreitWheeler</scope><name>BreitWheeler</name></member>
+      <member refid="classhermes_1_1interactions_1_1BreitWheeler_1ac549e2dcc5bfdaf063487b160858d980" prot="public" virt="non-virtual"><scope>hermes::interactions::BreitWheeler</scope><name>getCrossSection</name></member>
+      <member refid="classhermes_1_1interactions_1_1BreitWheeler_1ab08607dd876cd51e008e3c859289cec8" prot="public" virt="non-virtual"><scope>hermes::interactions::BreitWheeler</scope><name>integratedOverTheta</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

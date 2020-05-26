@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1FB" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::FB</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1FB_1aebbe9c0d75ac2a2cdbfddc291d302b53" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double J_FB</definition>
+        <argsstring></argsstring>
+        <name>J_FB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="237" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="236" column="9" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="236" bodyend="238"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1FB_1aebbe9c0d75ac2a2cdbfddc291d302b53" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::FB</scope><name>J_FB</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,22 @@
+.. _dir_include_hermes_photonfields:
+
+
+Directory photonfields
+======================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/hermes/photonfields``
+
+
+Files
+-----
+
+- :ref:`file_include_hermes_photonfields_CMB.h`
+- :ref:`file_include_hermes_photonfields_ISRF.h`
+- :ref:`file_include_hermes_photonfields_PhotonField.h`
+
+

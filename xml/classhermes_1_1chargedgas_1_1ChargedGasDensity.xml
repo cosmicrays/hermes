@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1chargedgas_1_1ChargedGasDensity" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>hermes::chargedgas::ChargedGasDensity</compoundname>
+    <derivedcompoundref refid="classhermes_1_1chargedgas_1_1HII__Cordes91" prot="public" virt="non-virtual">HII_Cordes91</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1chargedgas_1_1NE2001Simple" prot="public" virt="non-virtual">NE2001Simple</derivedcompoundref>
+    <derivedcompoundref refid="classhermes_1_1chargedgas_1_1YMW16" prot="public" virt="non-virtual">YMW16</derivedcompoundref>
+    <includes refid="ChargedGasDensity_8h" local="no">include/hermes/chargedgas/ChargedGasDensity.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5e9d7b5e28dba6845c36818c59e3d709" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
+        <definition>QTemperature gasTemp</definition>
+        <argsstring></argsstring>
+        <name>gasTemp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="15" column="14" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a83a93f6ad78924514a1892cdfa1b1286" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ChargedGasDensity</definition>
+        <argsstring>()</argsstring>
+        <name>ChargedGasDensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="18" column="1" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1ad6013ff2c4550f79d98d4900a54b70e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ChargedGasDensity</definition>
+        <argsstring>(QTemperature T)</argsstring>
+        <name>ChargedGasDensity</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
+          <declname>T</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="19" column="1" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a65e963440f2421ac4c116e612a2742ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~ChargedGasDensity</definition>
+        <argsstring>()</argsstring>
+        <name>~ChargedGasDensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="20" column="9" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1ae1f799534cf0279ab4a675acd5698e5e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>virtual QPDensity getDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const =0</argsstring>
+        <name>getDensity</name>
+        <reimplementedby refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1a87945484ed6f27930bd012cfea305bf0">getDensity</reimplementedby>
+        <reimplementedby refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a87945484ed6f27930bd012cfea305bf0">getDensity</reimplementedby>
+        <reimplementedby refid="classhermes_1_1chargedgas_1_1YMW16_1a87945484ed6f27930bd012cfea305bf0">getDensity</reimplementedby>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="21" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5de9235f87784061f062f59af8491b8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTemperature</definition>
+        <argsstring>(QTemperature T)</argsstring>
+        <name>setTemperature</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
+          <declname>T</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="23" column="13" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
+        <definition>QTemperature getTemperature</definition>
+        <argsstring>() const</argsstring>
+        <name>getTemperature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="24" column="21" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>YMW16</label>
+        <link refid="classhermes_1_1chargedgas_1_1YMW16"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>HII_Cordes91</label>
+        <link refid="classhermes_1_1chargedgas_1_1HII__Cordes91"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>NE2001Simple</label>
+        <link refid="classhermes_1_1chargedgas_1_1NE2001Simple"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ChargedGasDensity</label>
+        <link refid="classhermes_1_1chargedgas_1_1ChargedGasDensity"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="13" column="24" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="13" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a83a93f6ad78924514a1892cdfa1b1286" prot="public" virt="non-virtual"><scope>hermes::chargedgas::ChargedGasDensity</scope><name>ChargedGasDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1ad6013ff2c4550f79d98d4900a54b70e3" prot="public" virt="non-virtual"><scope>hermes::chargedgas::ChargedGasDensity</scope><name>ChargedGasDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5e9d7b5e28dba6845c36818c59e3d709" prot="private" virt="non-virtual"><scope>hermes::chargedgas::ChargedGasDensity</scope><name>gasTemp</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1ae1f799534cf0279ab4a675acd5698e5e" prot="public" virt="pure-virtual"><scope>hermes::chargedgas::ChargedGasDensity</scope><name>getDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" prot="public" virt="non-virtual"><scope>hermes::chargedgas::ChargedGasDensity</scope><name>getTemperature</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5de9235f87784061f062f59af8491b8d" prot="public" virt="non-virtual"><scope>hermes::chargedgas::ChargedGasDensity</scope><name>setTemperature</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a65e963440f2421ac4c116e612a2742ec" prot="public" virt="virtual"><scope>hermes::chargedgas::ChargedGasDensity</scope><name>~ChargedGasDensity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

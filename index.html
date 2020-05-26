@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pages/Installation.html#install-on-macos-os-x">Install on macOS (OS X)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="pages/Examples.html">Examples</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul>
@@ -110,6 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="components/CosmicRaysGroup.html">Cosmic Rays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/NeutralGasGroup.html">Neutral Gas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/PhotonFieldsGroup.html">Photon Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/InteractionsGroup.html">Interactions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api/library_root.html">Library API</a><ul>
@@ -745,7 +747,7 @@
 <div class="section" id="about">
 <h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
 <a class="reference external image-reference" href="https://github.com/cosmicrays/hermes/raw/master/doc/hermes-pizero-example.png"><img alt="gamma sky map from pi0" src="https://github.com/cosmicrays/hermes/raw/master/doc/hermes-pizero-example.png" /></a>
-<p><strong>HERMES</strong> is a publicly available computational framework for the line of sight integration which creates sky maps in the <a class="reference external" href="https://healpix.jpl.nasa.gov/">HEALPix</a>-compatibile format of various galactic radiative processes including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The name is an acronym for “High-Energy Radiative MESsengers”.</p>
+<p><strong>HERMES</strong> is a <a class="reference external" href="https://github.com/cosmicrays/hermes/">publicly available</a> computational framework for the line of sight integration which creates sky maps in the <a class="reference external" href="https://healpix.jpl.nasa.gov/">HEALPix</a>-compatibile format of various galactic radiative processes including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The name is an acronym for “High-Energy Radiative MESsengers”.</p>
 <p>The code is written in C++ relying on features of the language’s recent revisions (C++11, C++14). Once compiled, HERMES can optionally be used from Python thanks to <a class="reference external" href="https://github.com/pybind/pybind11">pybind11</a> (Python 2.X is not supported). Some components of the code (such as galactic magnetic field models, vector and grid classes) were adopted from <a class="reference external" href="https://crpropa.desy.de/">CRPropa 3</a>, a code for cosmic ray propagation.</p>
 <p>HERMES provides the following integrators:</p>
 <ul class="simple">
@@ -754,9 +756,11 @@
 <li>Free-Free emission</li>
 <li>Synchrotron emission (with absorption)</li>
 <li>Pion decay gamma-ray emission</li>
-<li>Inverse Compton</li>
+<li>Inverse Compton scattering</li>
 <li>Bremsstrahlung</li>
+<li>Gamma-ray emissions from Dark Matter annihilation</li>
 </ul>
+<p>The complete feature list is documented <a class="reference external" href="https://cosmicrays.github.io/hermes/components.html">here</a>.</p>
 </div>
 <div class="section" id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
@@ -797,7 +801,7 @@ make -j
 <span class="n">skymap</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>More examples can be found in <a class="reference external" href="https://github.com/cosmicrays/hermes-examples">the examples repository</a>. Doxygen documentation generated from the source code is available <a class="reference external" href="https://heat.gssi.it/hermes/doc/">here</a>.</p>
+<p>More examples can be found in <a class="reference external" href="https://github.com/cosmicrays/hermes-examples">the examples repository</a>. Full documentation of the code is available <a class="reference external" href="https://cosmicrays.github.io/hermes/">here</a>.</p>
 </div>
 <div class="section" id="credits">
 <h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
@@ -837,6 +841,7 @@ make -j
 <li class="toctree-l2"><a class="reference internal" href="pages/Installation.html#install-on-macos-os-x">Install on macOS (OS X)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="pages/Examples.html">Examples</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -849,6 +854,7 @@ make -j
 <li class="toctree-l2"><a class="reference internal" href="components/CosmicRaysGroup.html">Cosmic Rays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/NeutralGasGroup.html">Neutral Gas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/PhotonFieldsGroup.html">Photon Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/InteractionsGroup.html">Interactions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api/library_root.html">Library API</a><ul>

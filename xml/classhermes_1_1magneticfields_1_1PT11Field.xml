@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1magneticfields_1_1PT11Field" kind="class" language="C++" prot="public">
+    <compoundname>hermes::magneticfields::PT11Field</compoundname>
+    <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
+    <includes refid="PT11Field_8h" local="no">include/hermes/magneticfields/PT11Field.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a06a435ffb6bc2cfd37e295dbbf454ab1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool useASS</definition>
+        <argsstring></argsstring>
+        <name>useASS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="33" column="6" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1aa4a95e4417550b390851a07e210d24c1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool useBSS</definition>
+        <argsstring></argsstring>
+        <name>useBSS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="34" column="6" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a585a69c327dd9c83508592645b327f5f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool useHalo</definition>
+        <argsstring></argsstring>
+        <name>useHalo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="35" column="6" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a60129bec2c79b6e00bcecfa91c8d01e4" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="38" column="8" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a7ec34575e38cc89ad5b23546192ec633" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kindref="member">QAngle</ref></type>
+        <definition>QAngle PHI</definition>
+        <argsstring></argsstring>
+        <name>PHI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="38" column="14" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1ab3698af69efa0b6741f5a3009c208c0a" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber cos_pitch</definition>
+        <argsstring></argsstring>
+        <name>cos_pitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="39" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a8be29a590978df6be0268df87ccaac3b" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber sin_pitch</definition>
+        <argsstring></argsstring>
+        <name>sin_pitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="39" column="19" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a38dab8e7e67dce1a9e92c8ce4f683264" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber cos_PHI</definition>
+        <argsstring></argsstring>
+        <name>cos_PHI</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="39" column="29" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1aada2872194d3d2bd289dfdc3c1198930" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="40" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a4da38d1dda305bd3b76297a0fbf1e083" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength R_sun</definition>
+        <argsstring></argsstring>
+        <name>R_sun</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="41" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a305d112a47fc68bbccf1b8aebbe9b1b2" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength R_c</definition>
+        <argsstring></argsstring>
+        <name>R_c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="42" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1acb84a6c1d3fde87180cbeca1b24d7d14" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength z0_D</definition>
+        <argsstring></argsstring>
+        <name>z0_D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="43" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1ac2ba2a968866943ee615058d5fa0cffe" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField B0_D</definition>
+        <argsstring></argsstring>
+        <name>B0_D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="44" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a6285f28fe8a293564bd1b445ab7d7cd5" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength z0_H</definition>
+        <argsstring></argsstring>
+        <name>z0_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="47" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a8dd2a8eda4f56c5c9b058e36a0578625" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength R0_H</definition>
+        <argsstring></argsstring>
+        <name>R0_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="48" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a55443c61a877f49917a2a5fd3b822dfc" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField B0_Hn</definition>
+        <argsstring></argsstring>
+        <name>B0_Hn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="49" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1a2f92b64d3b698c81b5412f600897ecd0" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref></type>
+        <definition>QMField B0_Hs</definition>
+        <argsstring></argsstring>
+        <name>B0_Hs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="50" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1af4d01af1185ba4c13ee0a8de400c7ae9" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength z11_H</definition>
+        <argsstring></argsstring>
+        <name>z11_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="51" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PT11Field_1ac5ae0cab65b6eb83d33018639c6f5100" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength z12_H</definition>
+        <argsstring></argsstring>
+        <name>z12_H</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="52" column="9" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PT11Field_1a2f3d5a9ef197230e6e5ee9d2b06da8d6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SetParams</definition>
+        <argsstring>()</argsstring>
+        <name>SetParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="54" column="6" bodyfile="src/magneticfields/PT11Field.cpp" bodystart="29" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PT11Field_1ab39fcd0b83ed71fa3f83aab268b3f1d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PT11Field</definition>
+        <argsstring>()</argsstring>
+        <name>PT11Field</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="57" column="1" bodyfile="src/magneticfields/PT11Field.cpp" bodystart="9" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PT11Field_1acc42e477ca19b5bb2449c701bb07889f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUseASS</definition>
+        <argsstring>(bool use)</argsstring>
+        <name>setUseASS</name>
+        <param>
+          <type>bool</type>
+          <declname>use</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="59" column="6" bodyfile="src/magneticfields/PT11Field.cpp" bodystart="37" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PT11Field_1a11f8939ffc26434f1286bd5c5aec7329" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUseBSS</definition>
+        <argsstring>(bool use)</argsstring>
+        <name>setUseBSS</name>
+        <param>
+          <type>bool</type>
+          <declname>use</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="60" column="6" bodyfile="src/magneticfields/PT11Field.cpp" bodystart="51" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PT11Field_1ae58c536228a1ca993ee273b9c3684156" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUseHalo</definition>
+        <argsstring>(bool use)</argsstring>
+        <name>setUseHalo</name>
+        <param>
+          <type>bool</type>
+          <declname>use</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="61" column="6" bodyfile="src/magneticfields/PT11Field.cpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PT11Field_1a082261e60ef4b9cd36ee55db9a49c853" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isUsingASS</definition>
+        <argsstring>()</argsstring>
+        <name>isUsingASS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="63" column="6" bodyfile="src/magneticfields/PT11Field.cpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PT11Field_1a271b1d984f39d757accb141b497dd787" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isUsingBSS</definition>
+        <argsstring>()</argsstring>
+        <name>isUsingBSS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="64" column="6" bodyfile="src/magneticfields/PT11Field.cpp" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PT11Field_1a17f06bf13c88a1272cc1bbf1a63583cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isUsingHalo</definition>
+        <argsstring>()</argsstring>
+        <name>isUsingHalo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="65" column="6" bodyfile="src/magneticfields/PT11Field.cpp" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PT11Field_1ac0dae9109932406f2020365815e0de79" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getField</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const override</argsstring>
+        <name>getField</name>
+        <reimplements refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe">getField</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/PT11Field.h" line="67" column="16" bodyfile="src/magneticfields/PT11Field.cpp" bodystart="73" bodyend="141"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Pshirkov2011 galactic magnetic field model. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Implements the Pshirkov2011 galactic magnetic field model, consisting of large-scale regular disk and halo fields. For the disk field an axisymmetric (ASS) and the bisymmetric (BSS, default) model can be chosen. For the halo field the BHM Halo field model (Sun et al. 2008) is considered.</para>
+<para>Currently only best fit values of the field parameters are implemented. The field is defined in the usual galactocentric coordinate system with the Galactic center at the origin, the x-axis pointing in the opposite direction of the Sun, and the z-axis pointing towards Galactic north.</para>
+<para>See: Pshirkov, Tinyakov, Kronberg Newton-McGee 2011 - Deriving global structure of the Galactic Magnetic Field from Faraday Rotation Measures of extragalactic sources, DOI: 10.1088/0004-637X/738/2/192, arXiv:1103.0814 </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>PT11Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1PT11Field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>PT11Field</label>
+        <link refid="classhermes_1_1magneticfields_1_1PT11Field"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/magneticfields/PT11Field.h" line="31" column="37" bodyfile="include/hermes/magneticfields/PT11Field.h" bodystart="31" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1ac2ba2a968866943ee615058d5fa0cffe" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>B0_D</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a55443c61a877f49917a2a5fd3b822dfc" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>B0_Hn</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a2f92b64d3b698c81b5412f600897ecd0" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>B0_Hs</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a38dab8e7e67dce1a9e92c8ce4f683264" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>cos_PHI</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1ab3698af69efa0b6741f5a3009c208c0a" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>cos_pitch</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1aada2872194d3d2bd289dfdc3c1198930" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>d</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1ac0dae9109932406f2020365815e0de79" prot="public" virt="virtual"><scope>hermes::magneticfields::PT11Field</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a082261e60ef4b9cd36ee55db9a49c853" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>isUsingASS</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a271b1d984f39d757accb141b497dd787" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>isUsingBSS</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a17f06bf13c88a1272cc1bbf1a63583cf" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>isUsingHalo</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a7ec34575e38cc89ad5b23546192ec633" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>PHI</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a60129bec2c79b6e00bcecfa91c8d01e4" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>pitch</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1ab39fcd0b83ed71fa3f83aab268b3f1d9" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>PT11Field</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a8dd2a8eda4f56c5c9b058e36a0578625" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>R0_H</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a305d112a47fc68bbccf1b8aebbe9b1b2" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>R_c</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a4da38d1dda305bd3b76297a0fbf1e083" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>R_sun</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a2f3d5a9ef197230e6e5ee9d2b06da8d6" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>SetParams</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1acc42e477ca19b5bb2449c701bb07889f" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>setUseASS</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a11f8939ffc26434f1286bd5c5aec7329" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>setUseBSS</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1ae58c536228a1ca993ee273b9c3684156" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>setUseHalo</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a8be29a590978df6be0268df87ccaac3b" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>sin_pitch</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a06a435ffb6bc2cfd37e295dbbf454ab1" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>useASS</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1aa4a95e4417550b390851a07e210d24c1" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>useBSS</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a585a69c327dd9c83508592645b327f5f" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>useHalo</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1acb84a6c1d3fde87180cbeca1b24d7d14" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>z0_D</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a6285f28fe8a293564bd1b445ab7d7cd5" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>z0_H</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1af4d01af1185ba4c13ee0a8de400c7ae9" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>z11_H</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PT11Field_1ac5ae0cab65b6eb83d33018639c6f5100" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PT11Field</scope><name>z12_H</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" virt="virtual"><scope>hermes::magneticfields::PT11Field</scope><name>~MagneticField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

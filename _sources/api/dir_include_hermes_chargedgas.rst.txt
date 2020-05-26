@@ -1,0 +1,23 @@
+.. _dir_include_hermes_chargedgas:
+
+
+Directory chargedgas
+====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes>` (``include/hermes``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``include/hermes/chargedgas``
+
+
+Files
+-----
+
+- :ref:`file_include_hermes_chargedgas_ChargedGasDensity.h`
+- :ref:`file_include_hermes_chargedgas_HII_Cordes91.h`
+- :ref:`file_include_hermes_chargedgas_NE2001Simple.h`
+- :ref:`file_include_hermes_chargedgas_YMW16.h`
+
+

@@ -1,0 +1,33 @@
+
+.. _file__home_andy_Projects_category_science_hermes_src_FITSWrapper.cpp:
+
+File FITSWrapper.cpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src>` (``/home/andy/Projects/category_science/hermes/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/src/FITSWrapper.cpp``)
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+

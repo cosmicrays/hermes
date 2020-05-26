@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1RadioSkymapRange" kind="class" language="C++" prot="public">
+    <compoundname>hermes::RadioSkymapRange</compoundname>
+    <includes refid="RadioSkymapRange_8h" local="no">include/hermes/skymaps/RadioSkymapRange.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classhermes_1_1RadioSkymapRange_1ad780d5c700281af00b7672711d93aa46" prot="private" static="no">
+        <type>std::vector&lt; <ref refid="classhermes_1_1RadioSkymap" kindref="compound">RadioSkymap</ref> &gt;</type>
+        <definition>typedef std::vector&lt;RadioSkymap&gt; tSkymapsContainer</definition>
+        <argsstring></argsstring>
+        <name>tSkymapsContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="18" column="21" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhermes_1_1RadioSkymapRange_1a97b158222a8ee518fa12853cceb2d3a2" prot="public" static="no">
+        <type>tSkymapsContainer::iterator</type>
+        <definition>typedef tSkymapsContainer::iterator iterator</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>iterator goodies </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="43" column="46" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhermes_1_1RadioSkymapRange_1a9b06c8b9a8bd5236fc833ed0fad3ceb0" prot="public" static="no">
+        <type>tSkymapsContainer::const_iterator</type>
+        <definition>typedef tSkymapsContainer::const_iterator const_iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="44" column="52" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1RadioSkymapRange_1a226a1eedc07c34c79cd1ec465f0eeda3" prot="private" static="no" mutable="no">
+        <type>tSkymapsContainer</type>
+        <definition>tSkymapsContainer skymaps</definition>
+        <argsstring></argsstring>
+        <name>skymaps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="19" column="19" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1RadioSkymapRange_1a8bb34aa38089963c4d57c0061b0b2965" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref> &gt;</type>
+        <definition>std::vector&lt;QFrequency&gt; freqs</definition>
+        <argsstring></argsstring>
+        <name>freqs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="20" column="13" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1RadioSkymapRange_1aed7054f41317d46f9b8fcfd027fac413" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref></type>
+        <definition>QFrequency minFreq</definition>
+        <argsstring></argsstring>
+        <name>minFreq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="21" column="12" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1RadioSkymapRange_1ae2a4801cf58d6d1e17e1a08625099893" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref></type>
+        <definition>QFrequency maxFreq</definition>
+        <argsstring></argsstring>
+        <name>maxFreq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="21" column="20" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1RadioSkymapRange_1a3328ec22dec02cd6bd374ba8a13e4904" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t nside</definition>
+        <argsstring></argsstring>
+        <name>nside</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="22" column="13" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1RadioSkymapRange_1a031ebe252633fd57df3791ad7eee361a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int freqSteps</definition>
+        <argsstring></argsstring>
+        <name>freqSteps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="23" column="5" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1ac038ed815e9042d8fed216af4052c800" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initFrequencyRange</definition>
+        <argsstring>()</argsstring>
+        <name>initFrequencyRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="24" column="6" bodyfile="src/skymaps/RadioSkymapRange.cpp" bodystart="19" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1a0da2bd6e1a3815ffd10305b9396b4248" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RadioSkymapRange</definition>
+        <argsstring>(std::size_t nside_, QFrequency minFreq_, QFrequency maxFreq_, int freqSteps_)</argsstring>
+        <name>RadioSkymapRange</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>nside_</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref></type>
+          <declname>minFreq_</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref></type>
+          <declname>maxFreq_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>freqSteps_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="27" column="1" bodyfile="src/skymaps/RadioSkymapRange.cpp" bodystart="8" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1afd69ab249bdd4a6722005c6bb060e5c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~RadioSkymapRange</definition>
+        <argsstring>()</argsstring>
+        <name>~RadioSkymapRange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="29" column="1" bodyfile="src/skymaps/RadioSkymapRange.cpp" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1a28fcb8df14f7639d8533805fab96b241" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setIntegrator</definition>
+        <argsstring>(const std::shared_ptr&lt; IntegratorTemplate&lt; QTemperature, QFrequency &gt;&gt; &amp;integrator)</argsstring>
+        <name>setIntegrator</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref>, <ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref> &gt;&gt; &amp;</type>
+          <declname>integrator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="31" column="6" bodyfile="src/skymaps/RadioSkymapRange.cpp" bodystart="31" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1a6df8769a78c5d12efef5effb9d91dd3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setMask</definition>
+        <argsstring>(const std::shared_ptr&lt; SkymapMask &gt; &amp;mask)</argsstring>
+        <name>setMask</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1SkymapMask" kindref="compound">SkymapMask</ref> &gt; &amp;</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="34" column="6" bodyfile="src/skymaps/RadioSkymapRange.cpp" bodystart="39" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1aee37e9309344d91a82e996b2e7fb905e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="35" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1a4993c97a669fa259c6574a18d547c117" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void compute</definition>
+        <argsstring>()</argsstring>
+        <name>compute</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="37" column="6" bodyfile="src/skymaps/RadioSkymapRange.cpp" bodystart="45" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1ae8cb16564b4c560d3f62906b1ffef073" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void save</definition>
+        <argsstring>(const std::shared_ptr&lt; outputs::Output &gt; &amp;output) const</argsstring>
+        <name>save</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="classhermes_1_1outputs_1_1Output" kindref="compound">outputs::Output</ref> &gt; &amp;</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>output </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="40" column="6" bodyfile="src/skymaps/RadioSkymapRange.cpp" bodystart="54" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1a8d4b6dff5babb0c13efd2115c40fcf66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1RadioSkymapRange_1a97b158222a8ee518fa12853cceb2d3a2" kindref="member">iterator</ref></type>
+        <definition>RadioSkymapRange::const_iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="45" column="10" bodyfile="src/skymaps/RadioSkymapRange.cpp" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1a29305669b60ca1680752e2fc3592ba99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1RadioSkymapRange_1a9b06c8b9a8bd5236fc833ed0fad3ceb0" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="46" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1a5b16c55d96068698a3fb5d4abaf98087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1RadioSkymapRange_1a97b158222a8ee518fa12853cceb2d3a2" kindref="member">iterator</ref></type>
+        <definition>RadioSkymapRange::const_iterator end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="47" column="10" bodyfile="src/skymaps/RadioSkymapRange.cpp" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1RadioSkymapRange_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhermes_1_1RadioSkymapRange_1a9b06c8b9a8bd5236fc833ed0fad3ceb0" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/RadioSkymapRange.h" line="48" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A range of <ref refid="classhermes_1_1RadioSkymap" kindref="compound">RadioSkymap</ref> containers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/skymaps/RadioSkymapRange.h" line="16" column="23" bodyfile="include/hermes/skymaps/RadioSkymapRange.h" bodystart="16" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1RadioSkymapRange_1a8d4b6dff5babb0c13efd2115c40fcf66" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>begin</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a29305669b60ca1680752e2fc3592ba99" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>begin</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a4993c97a669fa259c6574a18d547c117" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>compute</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a9b06c8b9a8bd5236fc833ed0fad3ceb0" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>const_iterator</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a5b16c55d96068698a3fb5d4abaf98087" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>end</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>end</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a8bb34aa38089963c4d57c0061b0b2965" prot="private" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>freqs</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a031ebe252633fd57df3791ad7eee361a" prot="private" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>freqSteps</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1ac038ed815e9042d8fed216af4052c800" prot="private" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>initFrequencyRange</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a97b158222a8ee518fa12853cceb2d3a2" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>iterator</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1ae2a4801cf58d6d1e17e1a08625099893" prot="private" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>maxFreq</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1aed7054f41317d46f9b8fcfd027fac413" prot="private" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>minFreq</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a3328ec22dec02cd6bd374ba8a13e4904" prot="private" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>nside</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a0da2bd6e1a3815ffd10305b9396b4248" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>RadioSkymapRange</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1ae8cb16564b4c560d3f62906b1ffef073" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>save</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a28fcb8df14f7639d8533805fab96b241" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>setIntegrator</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a6df8769a78c5d12efef5effb9d91dd3c" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>setMask</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1aee37e9309344d91a82e996b2e7fb905e" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>size</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1a226a1eedc07c34c79cd1ec465f0eeda3" prot="private" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>skymaps</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1ad780d5c700281af00b7672711d93aa46" prot="private" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>tSkymapsContainer</name></member>
+      <member refid="classhermes_1_1RadioSkymapRange_1afd69ab249bdd4a6722005c6bb060e5c4" prot="public" virt="non-virtual"><scope>hermes::RadioSkymapRange</scope><name>~RadioSkymapRange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

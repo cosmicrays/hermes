@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1chargedgas_1_1HII__Cordes91" kind="class" language="C++" prot="public">
+    <compoundname>hermes::chargedgas::HII_Cordes91</compoundname>
+    <basecompoundref refid="classhermes_1_1chargedgas_1_1ChargedGasDensity" prot="public" virt="non-virtual">ChargedGasDensity</basecompoundref>
+    <includes refid="HII__Cordes91_8h" local="no">include/hermes/chargedgas/HII_Cordes91.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1ade40b0f956fd4bc76caf5a19e58b050f" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity fne1</definition>
+        <argsstring></argsstring>
+        <name>fne1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/HII_Cordes91.h" line="14" column="11" bodyfile="include/hermes/chargedgas/HII_Cordes91.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1a1b083f067878e1e27588da4384200730" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity fne2</definition>
+        <argsstring></argsstring>
+        <name>fne2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/HII_Cordes91.h" line="14" column="16" bodyfile="include/hermes/chargedgas/HII_Cordes91.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1ac122405e2eec379b8e6222dd4a48fc28" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength H1</definition>
+        <argsstring></argsstring>
+        <name>H1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/HII_Cordes91.h" line="15" column="9" bodyfile="include/hermes/chargedgas/HII_Cordes91.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1a896ce44b88b65d59883dca3dd6818a2d" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength A1</definition>
+        <argsstring></argsstring>
+        <name>A1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/HII_Cordes91.h" line="15" column="12" bodyfile="include/hermes/chargedgas/HII_Cordes91.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1a2f7c97313d0684816b4d57468603f495" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength H2</definition>
+        <argsstring></argsstring>
+        <name>H2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/HII_Cordes91.h" line="15" column="15" bodyfile="include/hermes/chargedgas/HII_Cordes91.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1a418ce09967b673bcdca2672e06164604" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength A2</definition>
+        <argsstring></argsstring>
+        <name>A2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/HII_Cordes91.h" line="15" column="18" bodyfile="include/hermes/chargedgas/HII_Cordes91.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1a6724138ef8b556a18a500abde402ba2a" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength R2</definition>
+        <argsstring></argsstring>
+        <name>R2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/HII_Cordes91.h" line="15" column="21" bodyfile="include/hermes/chargedgas/HII_Cordes91.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1a7216a0b9b5093532539f53eba8ed4404" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HII_Cordes91</definition>
+        <argsstring>()</argsstring>
+        <name>HII_Cordes91</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/HII_Cordes91.h" line="18" column="1" bodyfile="src/chargedgas/HII_Cordes91.cpp" bodystart="5" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1a87945484ed6f27930bd012cfea305bf0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity getDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const override</argsstring>
+        <name>getDensity</name>
+        <reimplements refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1ae1f799534cf0279ab4a675acd5698e5e">getDensity</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/HII_Cordes91.h" line="19" column="11" bodyfile="src/chargedgas/HII_Cordes91.cpp" bodystart="17" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5de9235f87784061f062f59af8491b8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTemperature</definition>
+        <argsstring>(QTemperature T)</argsstring>
+        <name>setTemperature</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
+          <declname>T</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="23" column="13" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
+        <definition>QTemperature getTemperature</definition>
+        <argsstring>() const</argsstring>
+        <name>getTemperature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="24" column="21" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>HII_Cordes91</label>
+        <link refid="classhermes_1_1chargedgas_1_1HII__Cordes91"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ChargedGasDensity</label>
+        <link refid="classhermes_1_1chargedgas_1_1ChargedGasDensity"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>HII_Cordes91</label>
+        <link refid="classhermes_1_1chargedgas_1_1HII__Cordes91"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ChargedGasDensity</label>
+        <link refid="classhermes_1_1chargedgas_1_1ChargedGasDensity"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/chargedgas/HII_Cordes91.h" line="12" column="44" bodyfile="include/hermes/chargedgas/HII_Cordes91.h" bodystart="12" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1a896ce44b88b65d59883dca3dd6818a2d" prot="private" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>A1</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1a418ce09967b673bcdca2672e06164604" prot="private" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>A2</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a83a93f6ad78924514a1892cdfa1b1286" prot="public" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>ChargedGasDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1ad6013ff2c4550f79d98d4900a54b70e3" prot="public" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>ChargedGasDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1ade40b0f956fd4bc76caf5a19e58b050f" prot="private" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>fne1</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1a1b083f067878e1e27588da4384200730" prot="private" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>fne2</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1a87945484ed6f27930bd012cfea305bf0" prot="public" virt="virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>getDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" prot="public" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>getTemperature</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1ac122405e2eec379b8e6222dd4a48fc28" prot="private" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>H1</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1a2f7c97313d0684816b4d57468603f495" prot="private" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>H2</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1a7216a0b9b5093532539f53eba8ed4404" prot="public" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>HII_Cordes91</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1HII__Cordes91_1a6724138ef8b556a18a500abde402ba2a" prot="private" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>R2</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5de9235f87784061f062f59af8491b8d" prot="public" virt="non-virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>setTemperature</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a65e963440f2421ac4c116e612a2742ec" prot="public" virt="virtual"><scope>hermes::chargedgas::HII_Cordes91</scope><name>~ChargedGasDensity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

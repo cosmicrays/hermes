@@ -3,7 +3,7 @@
 Function hermes::darkmatter::I
 ==============================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_src_darkmatter_NFWGProfile.cpp`
 
 
 Function Documentation

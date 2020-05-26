@@ -3,7 +3,7 @@
 Variable hermes::MAX_THREAD
 ===========================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_src_Random.cpp`
 
 
 Variable Documentation

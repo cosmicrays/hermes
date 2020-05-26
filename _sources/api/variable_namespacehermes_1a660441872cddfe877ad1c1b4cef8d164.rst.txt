@@ -3,7 +3,7 @@
 Variable hermes::_random
 ========================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_src_Random.cpp`
 
 
 Variable Documentation

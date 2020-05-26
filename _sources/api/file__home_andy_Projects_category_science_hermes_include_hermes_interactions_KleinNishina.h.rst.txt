@@ -1,0 +1,42 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_interactions_KleinNishina.h:
+
+File KleinNishina.h
+===================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes_interactions>` (``/home/andy/Projects/category_science/hermes/include/hermes/interactions``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/interactions/KleinNishina.h``)
+-------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__interactions`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1interactions_1_1KleinNishina`
+

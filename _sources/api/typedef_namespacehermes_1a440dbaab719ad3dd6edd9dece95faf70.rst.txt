@@ -3,7 +3,7 @@
 Typedef hermes::tTupleKey
 =========================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_include_hermes_CacheTools.h`
 
 
 Typedef Documentation

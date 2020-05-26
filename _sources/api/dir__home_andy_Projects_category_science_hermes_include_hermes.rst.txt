@@ -1,0 +1,45 @@
+.. _dir__home_andy_Projects_category_science_hermes_include_hermes:
+
+
+Directory hermes
+================
+
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include>` (``/home/andy/Projects/category_science/hermes/include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``/home/andy/Projects/category_science/hermes/include/hermes``
+
+Subdirectories
+--------------
+
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_chargedgas`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_cosmicrays`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_darkmatter`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_integrators`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_interactions`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_magneticfields`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_neutralgas`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_outputs`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_photonfields`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_skymaps`
+- :ref:`dir__home_andy_Projects_category_science_hermes_include_hermes_units`
+
+
+Files
+-----
+
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_CacheTools.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_Common.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_FITSWrapper.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_Grid.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_GridTools.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_HEALPixBits.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_ParticleID.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_Random.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_Signals.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_Vector3.h`
+- :ref:`file__home_andy_Projects_category_science_hermes_include_hermes_Vector3Quantity.h`
+
+

@@ -1,0 +1,23 @@
+.. _dir_src_skymaps:
+
+
+Directory skymaps
+=================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_src>` (``src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``src/skymaps``
+
+
+Files
+-----
+
+- :ref:`file_src_skymaps_GammaSkymapRange.cpp`
+- :ref:`file_src_skymaps_RadioSkymapRange.cpp`
+- :ref:`file_src_skymaps_Skymap.cpp`
+- :ref:`file_src_skymaps_SkymapMask.cpp`
+
+

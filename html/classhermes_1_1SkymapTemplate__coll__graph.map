@@ -1,0 +1,14 @@
+<map id="SkymapTemplate&lt; QPXL, QSTEP &gt;" name="SkymapTemplate&lt; QPXL, QSTEP &gt;">
+<area shape="rect" id="node1" title="Provides a HEALPix&#45;compatibile container template with undefined units of pixels; should be inherited..." alt="" coords="825,198,1012,239"/>
+<area shape="rect" id="node2" href="$group__Skymaps.html#classhermes_1_1Skymap" title="Base abstract class for all Skymaps; provides elementary HEALPix functions." alt="" coords="510,65,585,92"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="239,21,297,48"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="5,21,164,48"/>
+<area shape="rect" id="node5" title=" " alt="" coords="448,116,647,143"/>
+<area shape="rect" id="node6" title=" " alt="" coords="470,167,625,223"/>
+<area shape="rect" id="node7" title=" " alt="" coords="452,247,643,273"/>
+<area shape="rect" id="node8" title="STL class." alt="" coords="236,247,300,273"/>
+<area shape="rect" id="node9" title=" " alt="" coords="470,298,625,339"/>
+<area shape="rect" id="node10" href="$classhermes_1_1SkymapMask.html" title=" " alt="" coords="213,305,323,332"/>
+<area shape="rect" id="node11" title=" " alt="" coords="483,364,612,391"/>
+<area shape="rect" id="node12" title=" " alt="" coords="487,415,608,441"/>
+</map>

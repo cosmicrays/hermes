@@ -101,6 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../pages/Installation.html#install-on-macos-os-x">Install on macOS (OS X)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/Examples.html">Examples</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
 <ul class="current">
@@ -111,6 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../components/CosmicRaysGroup.html">Cosmic Rays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../components/NeutralGasGroup.html">Neutral Gas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../components/PhotonFieldsGroup.html">Photon Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/InteractionsGroup.html">Interactions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
@@ -741,11 +743,14 @@
             
   <div class="section" id="function-hermes-getthreadchunks">
 <span id="exhale-function-namespacehermes-1a0b8bf796a4d1bbefab10928fab4eae77"></span><h1>Function hermes::getThreadChunks<a class="headerlink" href="#function-hermes-getthreadchunks" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Defined in <a class="reference internal" href="file_src_Common.cpp.html#file-src-common-cpp"><span class="std std-ref">File Common.cpp</span></a></li>
+</ul>
 <div class="section" id="function-documentation">
 <h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="_CPPv315getThreadChunksj">
-<span id="_CPPv215getThreadChunksj"></span><span id="getThreadChunks__unsigned-i"></span><span class="target" id="namespacehermes_1a0b8bf796a4d1bbefab10928fab4eae77"></span>std::vector&lt;std::pair&lt;unsigned int, unsigned int&gt;&gt; <code class="descname">getThreadChunks</code><span class="sig-paren">(</span>unsigned int <em>queueSize</em><span class="sig-paren">)</span><br /></dt>
+<span id="_CPPv215getThreadChunksj"></span><span id="getThreadChunks__unsigned-i"></span><span class="target" id="namespacehermes_1a0b8bf796a4d1bbefab10928fab4eae77"></span>std::vector&lt;std::pair&lt;unsigned int, unsigned int&gt;&gt; <code class="descname">getThreadChunks</code><span class="sig-paren">(</span>unsigned int <em>queueSize</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv315getThreadChunksj" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>For a given number of tasks, split them over available system threads; returns a vector of [start, stop&gt; pairs </p>
 </dd></dl>
 

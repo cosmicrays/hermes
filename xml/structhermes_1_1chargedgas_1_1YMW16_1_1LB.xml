@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structhermes_1_1chargedgas_1_1YMW16_1_1LB" kind="struct" language="C++" prot="private">
+    <compoundname>hermes::chargedgas::YMW16::LB</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1ad134c1d832a3ec4af5d3b2294ac97c28" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double J_LB</definition>
+        <argsstring></argsstring>
+        <name>J_LB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="215" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a7ef6eabc7ae089a603bfc8f37539bb48" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nlb1</definition>
+        <argsstring></argsstring>
+        <name>nlb1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="216" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a4c6d0d47ae18f1063229326c3cd9587b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double detlb1</definition>
+        <argsstring></argsstring>
+        <name>detlb1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="217" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a10f20bcc4cd4b7af521397910fccfcd5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double wlb1</definition>
+        <argsstring></argsstring>
+        <name>wlb1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="218" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a3fa211dfa57db4e43cbb5179a5776aec" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double hlb1</definition>
+        <argsstring></argsstring>
+        <name>hlb1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="219" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1ab1a51037d45dcb7ba186841f993f20e7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double thetalb1</definition>
+        <argsstring></argsstring>
+        <name>thetalb1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="220" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a81b6043ec72e842086fadfeb4b75e0e5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nlb2</definition>
+        <argsstring></argsstring>
+        <name>nlb2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="221" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1ad361e577bc99add83c3214a7cb168adc" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double detlb2</definition>
+        <argsstring></argsstring>
+        <name>detlb2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="222" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1ac807cd4f3083641b17287121bbc8a671" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double wlb2</definition>
+        <argsstring></argsstring>
+        <name>wlb2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="223" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a21ef296ba3deb0b02956953955f4e0eb" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double hlb2</definition>
+        <argsstring></argsstring>
+        <name>hlb2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="224" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a577625a084f6f8411ffd47578e4e8534" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double thetalb2</definition>
+        <argsstring></argsstring>
+        <name>thetalb2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/YMW16.h" line="225" column="8" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/chargedgas/YMW16.h" line="214" column="9" bodyfile="include/hermes/chargedgas/YMW16.h" bodystart="214" bodyend="226"/>
+    <listofallmembers>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a4c6d0d47ae18f1063229326c3cd9587b" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>detlb1</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1ad361e577bc99add83c3214a7cb168adc" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>detlb2</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a3fa211dfa57db4e43cbb5179a5776aec" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>hlb1</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a21ef296ba3deb0b02956953955f4e0eb" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>hlb2</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1ad134c1d832a3ec4af5d3b2294ac97c28" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>J_LB</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a7ef6eabc7ae089a603bfc8f37539bb48" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>nlb1</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a81b6043ec72e842086fadfeb4b75e0e5" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>nlb2</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1ab1a51037d45dcb7ba186841f993f20e7" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>thetalb1</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a577625a084f6f8411ffd47578e4e8534" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>thetalb2</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1a10f20bcc4cd4b7af521397910fccfcd5" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>wlb1</name></member>
+      <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1LB_1ac807cd4f3083641b17287121bbc8a671" prot="public" virt="non-virtual"><scope>hermes::chargedgas::YMW16::LB</scope><name>wlb2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

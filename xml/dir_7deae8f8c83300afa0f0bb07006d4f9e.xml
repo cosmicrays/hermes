@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_7deae8f8c83300afa0f0bb07006d4f9e" kind="dir">
+    <compoundname>include/hermes/magneticfields</compoundname>
+    <innerfile refid="GalacticMagneticField_8h">GalacticMagneticField.h</innerfile>
+    <innerfile refid="JF12Field_8h">JF12Field.h</innerfile>
+    <innerfile refid="MagneticField_8h">MagneticField.h</innerfile>
+    <innerfile refid="MagneticFieldGrid_8h">MagneticFieldGrid.h</innerfile>
+    <innerfile refid="PT11Field_8h">PT11Field.h</innerfile>
+    <innerfile refid="Sun08Field_8h">Sun08Field.h</innerfile>
+    <innerfile refid="WMAP07Field_8h">WMAP07Field.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/magneticfields/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,47 @@
+
+.. _file__home_andy_Projects_category_science_hermes_include_hermes_integrators_RotationMeasureIntegrator.h:
+
+File RotationMeasureIntegrator.h
+================================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_include_hermes_integrators>` (``/home/andy/Projects/category_science/hermes/include/hermes/integrators``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/include/hermes/integrators/RotationMeasureIntegrator.h``)
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1RotationMeasureIntegrator`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971`
+

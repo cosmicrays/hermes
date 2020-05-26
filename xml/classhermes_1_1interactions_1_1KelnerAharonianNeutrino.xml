@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1interactions_1_1KelnerAharonianNeutrino" kind="class" language="C++" prot="public">
+    <compoundname>hermes::interactions::KelnerAharonianNeutrino</compoundname>
+    <basecompoundref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" prot="public" virt="non-virtual">DifferentialCrossSection</basecompoundref>
+    <includes refid="KelnerAharonianNeutrino_8h" local="no">include/hermes/interactions/KelnerAharonianNeutrino.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1KelnerAharonianNeutrino_1aca4a698629a90935764644e95262ccac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>KelnerAharonianNeutrino</definition>
+        <argsstring>()</argsstring>
+        <name>KelnerAharonianNeutrino</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/KelnerAharonianNeutrino.h" line="22" column="1" bodyfile="src/interactions/KelnerAharonianNeutrino.cpp" bodystart="7" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1KelnerAharonianNeutrino_1af2b74e73674a1ba25a0afaa632b38faa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kindref="member">QDiffCrossSection</ref></type>
+        <definition>QDiffCrossSection getDiffCrossSection</definition>
+        <argsstring>(const QEnergy &amp;E_proton, const QEnergy &amp;E_nu) const override</argsstring>
+        <name>getDiffCrossSection</name>
+        <reimplements refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1abc0105eca61f85ea18d810a56ad49b72">getDiffCrossSection</reimplements>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_proton</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_nu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/KelnerAharonianNeutrino.h" line="23" column="19" bodyfile="src/interactions/KelnerAharonianNeutrino.cpp" bodystart="10" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1DifferentialCrossSection_1a16a637c873b9025b67482f06177aa56a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void enableCaching</definition>
+        <argsstring>()</argsstring>
+        <name>enableCaching</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/DiffCrossSection.h" line="23" column="6" bodyfile="src/interactions/DifferentialCrossSection.cpp" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1DifferentialCrossSection_1a7ddb68358d18375bbb73931dd7765319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void disableCaching</definition>
+        <argsstring>()</argsstring>
+        <name>disableCaching</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/DiffCrossSection.h" line="24" column="6" bodyfile="src/interactions/DifferentialCrossSection.cpp" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1DifferentialCrossSection_1ae7f68eb522af702261e5dbbd54727518" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kindref="member">QDiffCrossSection</ref></type>
+        <definition>QDiffCrossSection getDiffCrossSection</definition>
+        <argsstring>(const QEnergy &amp;E_electron, const QEnergy &amp;E_photon, const QEnergy &amp;E_gamma) const</argsstring>
+        <name>getDiffCrossSection</name>
+        <reimplementedby refid="classhermes_1_1interactions_1_1DummyCrossSection_1ae7f68eb522af702261e5dbbd54727518">getDiffCrossSection</reimplementedby>
+        <reimplementedby refid="classhermes_1_1interactions_1_1KleinNishina_1a48ce8065a855dca3fb42b0e1f15ecba3">getDiffCrossSection</reimplementedby>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_electron</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_photon</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+          <declname>E_gamma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/DiffCrossSection.h" line="28" column="27" bodyfile="src/interactions/DifferentialCrossSection.cpp" bodystart="19" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1interactions_1_1DifferentialCrossSection_1a2cac288a0af520fdf4c67b9c425aab6e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber getSigma</definition>
+        <argsstring>(const PID &amp;projectile, const PID &amp;target) const</argsstring>
+        <name>getSigma</name>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>projectile</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classhermes_1_1PID" kindref="compound">PID</ref> &amp;</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/DiffCrossSection.h" line="31" column="17" bodyfile="src/interactions/DifferentialCrossSection.cpp" bodystart="25" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhermes_1_1interactions_1_1DifferentialCrossSection_1a7f9dc31ea17a0d28e0dee7ed98c7815c" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool cachingEnabled</definition>
+        <argsstring></argsstring>
+        <name>cachingEnabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/interactions/DiffCrossSection.h" line="17" column="6" bodyfile="include/hermes/interactions/DiffCrossSection.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>KelnerAharonianNeutrino</label>
+        <link refid="classhermes_1_1interactions_1_1KelnerAharonianNeutrino"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DifferentialCrossSection</label>
+        <link refid="classhermes_1_1interactions_1_1DifferentialCrossSection"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>KelnerAharonianNeutrino</label>
+        <link refid="classhermes_1_1interactions_1_1KelnerAharonianNeutrino"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DifferentialCrossSection</label>
+        <link refid="classhermes_1_1interactions_1_1DifferentialCrossSection"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/interactions/KelnerAharonianNeutrino.h" line="20" column="62" bodyfile="include/hermes/interactions/KelnerAharonianNeutrino.h" bodystart="20" bodyend="25"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1a7f9dc31ea17a0d28e0dee7ed98c7815c" prot="protected" virt="non-virtual"><scope>hermes::interactions::KelnerAharonianNeutrino</scope><name>cachingEnabled</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1ae2b31753f407c7a9960c4dc89fd1b190" prot="public" virt="non-virtual"><scope>hermes::interactions::KelnerAharonianNeutrino</scope><name>DifferentialCrossSection</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1a7ddb68358d18375bbb73931dd7765319" prot="public" virt="non-virtual"><scope>hermes::interactions::KelnerAharonianNeutrino</scope><name>disableCaching</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1a16a637c873b9025b67482f06177aa56a" prot="public" virt="non-virtual"><scope>hermes::interactions::KelnerAharonianNeutrino</scope><name>enableCaching</name></member>
+      <member refid="classhermes_1_1interactions_1_1KelnerAharonianNeutrino_1af2b74e73674a1ba25a0afaa632b38faa" prot="public" virt="virtual"><scope>hermes::interactions::KelnerAharonianNeutrino</scope><name>getDiffCrossSection</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1ae7f68eb522af702261e5dbbd54727518" prot="public" virt="virtual" ambiguityscope="hermes::interactions::DifferentialCrossSection::"><scope>hermes::interactions::KelnerAharonianNeutrino</scope><name>getDiffCrossSection</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1a2cac288a0af520fdf4c67b9c425aab6e" prot="public" virt="virtual"><scope>hermes::interactions::KelnerAharonianNeutrino</scope><name>getSigma</name></member>
+      <member refid="classhermes_1_1interactions_1_1KelnerAharonianNeutrino_1aca4a698629a90935764644e95262ccac" prot="public" virt="non-virtual"><scope>hermes::interactions::KelnerAharonianNeutrino</scope><name>KelnerAharonianNeutrino</name></member>
+      <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1a3dafc0fa79cbf803bcc968c422dd2342" prot="public" virt="non-virtual"><scope>hermes::interactions::KelnerAharonianNeutrino</scope><name>~DifferentialCrossSection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

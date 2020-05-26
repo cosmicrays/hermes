@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_b043e16d2c62cd1d8049c4839258bf02" kind="dir">
+    <compoundname>src/interactions</compoundname>
+    <innerfile refid="BreitWheeler_8cpp">BreitWheeler.cpp</innerfile>
+    <innerfile refid="BremsstrahlungGALPROP_8cpp">BremsstrahlungGALPROP.cpp</innerfile>
+    <innerfile refid="BremsstrahlungTsai74_8cpp">BremsstrahlungTsai74.cpp</innerfile>
+    <innerfile refid="DifferentialCrossSection_8cpp">DifferentialCrossSection.cpp</innerfile>
+    <innerfile refid="Kamae06Gamma_8cpp">Kamae06Gamma.cpp</innerfile>
+    <innerfile refid="Kamae06Neutrino_8cpp">Kamae06Neutrino.cpp</innerfile>
+    <innerfile refid="KelnerAharonianGamma_8cpp">KelnerAharonianGamma.cpp</innerfile>
+    <innerfile refid="KelnerAharonianNeutrino_8cpp">KelnerAharonianNeutrino.cpp</innerfile>
+    <innerfile refid="KleinNishina_8cpp">KleinNishina.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/interactions/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1magneticfields_1_1PeriodicMagneticField" kind="class" language="C++" prot="public">
+    <compoundname>hermes::magneticfields::PeriodicMagneticField</compoundname>
+    <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
+    <includes refid="MagneticField_8h" local="no">include/hermes/magneticfields/MagneticField.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a05f5dcec799d9a129d5e9ee91d349b31" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">MagneticField</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MagneticField&gt; field</definition>
+        <argsstring></argsstring>
+        <name>field</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="37" column="17" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a659ab0e306b22064d182a5ae8688c240" prot="private" static="no" mutable="no">
+        <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref></type>
+        <definition>Vector3QLength origin</definition>
+        <argsstring></argsstring>
+        <name>origin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="38" column="16" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a66669e02a1ca90b9ecccc5e8f233fea1" prot="private" static="no" mutable="no">
+        <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref></type>
+        <definition>Vector3QLength extends</definition>
+        <argsstring></argsstring>
+        <name>extends</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="38" column="23" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1aa7cde9ac05b784aa136cf0d7638f9df3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool reflective</definition>
+        <argsstring></argsstring>
+        <name>reflective</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="39" column="6" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1ac333f79bfdf171a40f20f4b15ed398c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PeriodicMagneticField</definition>
+        <argsstring>(std::shared_ptr&lt; MagneticField &gt; field, const Vector3QLength &amp;extends)</argsstring>
+        <name>PeriodicMagneticField</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">MagneticField</ref> &gt;</type>
+          <declname>field</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>extends</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="42" column="1" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="7" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a605ccc8034e65c81b1a3e420b8328ae5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PeriodicMagneticField</definition>
+        <argsstring>(std::shared_ptr&lt; MagneticField &gt; field, const Vector3QLength &amp;extends, const Vector3QLength &amp;origin, bool reflective)</argsstring>
+        <name>PeriodicMagneticField</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">MagneticField</ref> &gt;</type>
+          <declname>field</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>extends</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>reflective</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="44" column="1" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="14" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a7e4024a41b5fcf974e674b1948ddc319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+        <definition>Vector3QLength &amp; getOrigin</definition>
+        <argsstring>()</argsstring>
+        <name>getOrigin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="47" column="16" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a767b1e708374af8da6b68a46442876a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setOrigin</definition>
+        <argsstring>(const Vector3QLength &amp;origin)</argsstring>
+        <name>setOrigin</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="48" column="6" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1acd13ed650d719c342aecfbf0dc7c4ead" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+        <definition>Vector3QLength &amp; getExtends</definition>
+        <argsstring>()</argsstring>
+        <name>getExtends</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="49" column="16" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1ae1f8e9a2d37509653aeb949805448e97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setExtends</definition>
+        <argsstring>(const Vector3QLength &amp;origin)</argsstring>
+        <name>setExtends</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="50" column="6" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="30" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1af7bbb0b0574d59faca6091eb44fa2201" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isReflective</definition>
+        <argsstring>()</argsstring>
+        <name>isReflective</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="51" column="6" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1af422984f4124a819191043eed8889c12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setReflective</definition>
+        <argsstring>(bool reflective)</argsstring>
+        <name>setReflective</name>
+        <param>
+          <type>bool</type>
+          <declname>reflective</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="52" column="6" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="36" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" kindref="member">Vector3QMField</ref></type>
+        <definition>Vector3QMField getField</definition>
+        <argsstring>(const Vector3QLength &amp;position) const override</argsstring>
+        <name>getField</name>
+        <reimplements refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe">getField</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/magneticfields/MagneticField.h" line="53" column="16" bodyfile="src/magneticfields/MagneticField.cpp" bodystart="40" bodyend="56"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Magnetic field decorator implementing periodic fields. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+      <node id="1">
+        <label>PeriodicMagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1MagneticField"/>
+      </node>
+      <node id="1">
+        <label>PeriodicMagneticField</label>
+        <link refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/magneticfields/MagneticField.h" line="36" column="49" bodyfile="include/hermes/magneticfields/MagneticField.h" bodystart="36" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a66669e02a1ca90b9ecccc5e8f233fea1" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>extends</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a05f5dcec799d9a129d5e9ee91d349b31" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>field</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1acd13ed650d719c342aecfbf0dc7c4ead" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>getExtends</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a98c5fb81f31cd0fc4a5190dd9ccbdd9c" prot="public" virt="virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>getField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a7e4024a41b5fcf974e674b1948ddc319" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>getOrigin</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1af7bbb0b0574d59faca6091eb44fa2201" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>isReflective</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a659ab0e306b22064d182a5ae8688c240" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>origin</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1ac333f79bfdf171a40f20f4b15ed398c3" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>PeriodicMagneticField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a605ccc8034e65c81b1a3e420b8328ae5" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>PeriodicMagneticField</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1aa7cde9ac05b784aa136cf0d7638f9df3" prot="private" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>reflective</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1ae1f8e9a2d37509653aeb949805448e97" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>setExtends</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1a767b1e708374af8da6b68a46442876a2" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>setOrigin</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1PeriodicMagneticField_1af422984f4124a819191043eed8889c12" prot="public" virt="non-virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>setReflective</name></member>
+      <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" virt="virtual"><scope>hermes::magneticfields::PeriodicMagneticField</scope><name>~MagneticField</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

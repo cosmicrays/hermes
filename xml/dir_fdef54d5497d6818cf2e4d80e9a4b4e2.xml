@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_fdef54d5497d6818cf2e4d80e9a4b4e2" kind="dir">
+    <compoundname>src/chargedgas</compoundname>
+    <innerfile refid="HII__Cordes91_8cpp">HII_Cordes91.cpp</innerfile>
+    <innerfile refid="NE2001Simple_8cpp">NE2001Simple.cpp</innerfile>
+    <innerfile refid="YMW16_8cpp">YMW16.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/chargedgas/"/>
+  </compounddef>
+</doxygen>

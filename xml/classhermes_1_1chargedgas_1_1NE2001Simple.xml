@@ -1,0 +1,497 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1chargedgas_1_1NE2001Simple" kind="class" language="C++" prot="public">
+    <compoundname>hermes::chargedgas::NE2001Simple</compoundname>
+    <basecompoundref refid="classhermes_1_1chargedgas_1_1ChargedGasDensity" prot="public" virt="non-virtual">ChargedGasDensity</basecompoundref>
+    <includes refid="NE2001Simple_8h" local="no">include/hermes/chargedgas/NE2001Simple.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a596dfd97c52bac5beb72b326501fd69b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int N_arms</definition>
+        <argsstring></argsstring>
+        <name>N_arms</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="14" column="5" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a5bd76b66638dd45a4754c5c4c07bac44" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber F1</definition>
+        <argsstring></argsstring>
+        <name>F1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="15" column="9" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1ab1161768f1fa3d65b4cb84a46753a083" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
+        <definition>QNumber F2</definition>
+        <argsstring></argsstring>
+        <name>F2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="15" column="12" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1ac0c5e60ee94f8c9dedf7f2158dd3578d" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity n1</definition>
+        <argsstring></argsstring>
+        <name>n1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="16" column="11" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1ab42d4fc29665ecb6319dec0b138e16b6" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity n2</definition>
+        <argsstring></argsstring>
+        <name>n2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="16" column="14" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a9ff3b135d548ea0d2c4a02476540c63c" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity n_a</definition>
+        <argsstring></argsstring>
+        <name>n_a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="16" column="17" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a8e0cd1db781ce335fa34178df880c12d" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity n_GC</definition>
+        <argsstring></argsstring>
+        <name>n_GC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="16" column="21" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1ac122405e2eec379b8e6222dd4a48fc28" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength H1</definition>
+        <argsstring></argsstring>
+        <name>H1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="17" column="9" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a2f7c97313d0684816b4d57468603f495" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength H2</definition>
+        <argsstring></argsstring>
+        <name>H2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="17" column="12" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a6377d799813fc4a04d310ca24c5d2f28" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength H_a</definition>
+        <argsstring></argsstring>
+        <name>H_a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="17" column="15" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a896ce44b88b65d59883dca3dd6818a2d" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength A1</definition>
+        <argsstring></argsstring>
+        <name>A1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="17" column="19" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a418ce09967b673bcdca2672e06164604" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength A2</definition>
+        <argsstring></argsstring>
+        <name>A2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="17" column="22" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a65ea500ef03cba3143391ea7fb9e4393" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength A_a</definition>
+        <argsstring></argsstring>
+        <name>A_a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="17" column="25" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a6724138ef8b556a18a500abde402ba2a" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength R2</definition>
+        <argsstring></argsstring>
+        <name>R2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="17" column="29" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1aa0ad1ff76943951601ec198927b9284a" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength R_Sun</definition>
+        <argsstring></argsstring>
+        <name>R_Sun</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="17" column="32" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a4f25ee2da48ccfcabe815e2f41c9bede" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength x_GC</definition>
+        <argsstring></argsstring>
+        <name>x_GC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="18" column="9" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a623d522bac959ba890c7cc876289ad5b" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength y_GC</definition>
+        <argsstring></argsstring>
+        <name>y_GC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="18" column="14" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1ada9ca00e665ff10ca42b1081931e9ae0" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength z_GC</definition>
+        <argsstring></argsstring>
+        <name>z_GC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="18" column="19" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a18c67c28b7596b052e633b646837bc65" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength r_GC</definition>
+        <argsstring></argsstring>
+        <name>r_GC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="18" column="24" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1ad847a21946f86189588a52d52276acd1" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength h_GC</definition>
+        <argsstring></argsstring>
+        <name>h_GC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="18" column="29" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a9f4c4120dd4c6f6300d38bb360793e81" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
+        <definition>QLength H_GC</definition>
+        <argsstring></argsstring>
+        <name>H_GC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="18" column="34" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a3fc441695a62ef25097db3ada1495678" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double h</definition>
+        <argsstring>(const QNumber &amp;x) const</argsstring>
+        <name>h</name>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="20" column="8" bodyfile="src/chargedgas/NE2001Simple.cpp" bodystart="102" bodyend="106"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a661c53ed3298d6bc62ddd26da48d9256" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NE2001Simple</definition>
+        <argsstring>()</argsstring>
+        <name>NE2001Simple</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="23" column="1" bodyfile="src/chargedgas/NE2001Simple.cpp" bodystart="7" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a87945484ed6f27930bd012cfea305bf0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity getDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const override</argsstring>
+        <name>getDensity</name>
+        <reimplements refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1ae1f799534cf0279ab4a675acd5698e5e">getDensity</reimplements>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="24" column="11" bodyfile="src/chargedgas/NE2001Simple.cpp" bodystart="108" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1NE2001Simple_1acbb9fedb0960fee7285884a20eb4cfc6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity getThickDiskDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getThickDiskDensity</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="25" column="11" bodyfile="src/chargedgas/NE2001Simple.cpp" bodystart="118" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a8864ff83505bf903bb0b3a1ef8856b9c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity getThinDiskDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getThinDiskDensity</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="26" column="11" bodyfile="src/chargedgas/NE2001Simple.cpp" bodystart="125" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a2d08ea5637bbdd920a672c112a9d311d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity getSpiralArmsDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getSpiralArmsDensity</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="27" column="11" bodyfile="src/chargedgas/NE2001Simple.cpp" bodystart="134" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a9398d3ef69f92030f82c1ac7ad780d95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity getGalacticCentreDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getGalacticCentreDensity</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/NE2001Simple.h" line="28" column="11" bodyfile="src/chargedgas/NE2001Simple.cpp" bodystart="146" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5de9235f87784061f062f59af8491b8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTemperature</definition>
+        <argsstring>(QTemperature T)</argsstring>
+        <name>setTemperature</name>
+        <param>
+          <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
+          <declname>T</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="23" column="13" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
+        <definition>QTemperature getTemperature</definition>
+        <argsstring>() const</argsstring>
+        <name>getTemperature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/chargedgas/ChargedGasDensity.h" line="24" column="21" bodyfile="include/hermes/chargedgas/ChargedGasDensity.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NE2001Simple</label>
+        <link refid="classhermes_1_1chargedgas_1_1NE2001Simple"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ChargedGasDensity</label>
+        <link refid="classhermes_1_1chargedgas_1_1ChargedGasDensity"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NE2001Simple</label>
+        <link refid="classhermes_1_1chargedgas_1_1NE2001Simple"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ChargedGasDensity</label>
+        <link refid="classhermes_1_1chargedgas_1_1ChargedGasDensity"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/chargedgas/NE2001Simple.h" line="12" column="44" bodyfile="include/hermes/chargedgas/NE2001Simple.h" bodystart="12" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a896ce44b88b65d59883dca3dd6818a2d" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>A1</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a418ce09967b673bcdca2672e06164604" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>A2</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a65ea500ef03cba3143391ea7fb9e4393" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>A_a</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a83a93f6ad78924514a1892cdfa1b1286" prot="public" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>ChargedGasDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1ad6013ff2c4550f79d98d4900a54b70e3" prot="public" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>ChargedGasDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a5bd76b66638dd45a4754c5c4c07bac44" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>F1</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1ab1161768f1fa3d65b4cb84a46753a083" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>F2</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a87945484ed6f27930bd012cfea305bf0" prot="public" virt="virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>getDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a9398d3ef69f92030f82c1ac7ad780d95" prot="public" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>getGalacticCentreDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a2d08ea5637bbdd920a672c112a9d311d" prot="public" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>getSpiralArmsDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" prot="public" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>getTemperature</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1acbb9fedb0960fee7285884a20eb4cfc6" prot="public" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>getThickDiskDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a8864ff83505bf903bb0b3a1ef8856b9c" prot="public" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>getThinDiskDensity</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a3fc441695a62ef25097db3ada1495678" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>h</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1ac122405e2eec379b8e6222dd4a48fc28" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>H1</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a2f7c97313d0684816b4d57468603f495" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>H2</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a6377d799813fc4a04d310ca24c5d2f28" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>H_a</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1ad847a21946f86189588a52d52276acd1" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>h_GC</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a9f4c4120dd4c6f6300d38bb360793e81" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>H_GC</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1ac0c5e60ee94f8c9dedf7f2158dd3578d" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>n1</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1ab42d4fc29665ecb6319dec0b138e16b6" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>n2</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a9ff3b135d548ea0d2c4a02476540c63c" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>n_a</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a596dfd97c52bac5beb72b326501fd69b" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>N_arms</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a8e0cd1db781ce335fa34178df880c12d" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>n_GC</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a661c53ed3298d6bc62ddd26da48d9256" prot="public" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>NE2001Simple</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a6724138ef8b556a18a500abde402ba2a" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>R2</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a18c67c28b7596b052e633b646837bc65" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>r_GC</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1aa0ad1ff76943951601ec198927b9284a" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>R_Sun</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5de9235f87784061f062f59af8491b8d" prot="public" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>setTemperature</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a4f25ee2da48ccfcabe815e2f41c9bede" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>x_GC</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a623d522bac959ba890c7cc876289ad5b" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>y_GC</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1ada9ca00e665ff10ca42b1081931e9ae0" prot="private" virt="non-virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>z_GC</name></member>
+      <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a65e963440f2421ac4c116e612a2742ec" prot="public" virt="virtual"><scope>hermes::chargedgas::NE2001Simple</scope><name>~ChargedGasDensity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

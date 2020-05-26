@@ -1,0 +1,35 @@
+
+.. _file__home_andy_Projects_category_science_hermes_src_interactions_BremsstrahlungTsai74.cpp:
+
+File BremsstrahlungTsai74.cpp
+=============================
+
+|exhale_lsh| :ref:`Parent directory <dir__home_andy_Projects_category_science_hermes_src_interactions>` (``/home/andy/Projects/category_science/hermes/src/interactions``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/home/andy/Projects/category_science/hermes/src/interactions/BremsstrahlungTsai74.cpp``)
+------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__interactions`
+

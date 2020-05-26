@@ -3,7 +3,7 @@
 Function hermes::distanceFromGC(const QDirection&, const QLength&, const Vector3QLength&)
 =========================================================================================
 
-.. did not find file this was defined in
+- Defined in :ref:`file_src_Common.cpp`
 
 
 Function Documentation

@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$group__Integrators.html#classhermes_1_1IntegratorTemplate" title="Defines the main integrator interface and typical methods shared across all integrators." alt="" coords="5,5,152,47"/>
+<area shape="rect" id="node2" href="$group__Integrators.html#classhermes_1_1PiZeroIntegrator" title=" " alt="" coords="200,13,328,39"/>
+<area shape="rect" id="node3" href="$group__Integrators.html#classhermes_1_1BremsstrahlungIntegrator" title=" " alt="" coords="376,13,565,39"/>
+</map>

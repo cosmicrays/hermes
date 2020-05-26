@@ -1,0 +1,4 @@
+<map id="UniformMagneticField" name="UniformMagneticField">
+<area shape="rect" id="node1" title="Magnetic field with one B&#45;field vector." alt="" coords="5,80,172,107"/>
+<area shape="rect" id="node2" href="$group__MagneticFields.html#classhermes_1_1magneticfields_1_1MagneticField" title="Abstract base class for magnetic fields." alt="" coords="32,5,145,32"/>
+</map>
