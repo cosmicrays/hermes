@@ -157,7 +157,7 @@ QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
 	                     const QEnergy &deltaE) {
 		return crossSec->getDiffCrossSection(Eelectron_, (*itE), Egamma_) *
 		       phdensity->getEnergyDensity(
-		           pos_, static_cast<int>(itE - phdensity->begin())) /
+		           pos_, static_cast<std::size_t>(itE - phdensity->begin())) /
 		       pow<2>(*itE);
 	};
 

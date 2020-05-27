@@ -10,45 +10,48 @@
 
 namespace hermes { namespace units {
 
-typedef double QNumber;
-typedef double QAngle;
-typedef double QSolidAngle;
-typedef double QLength;
-typedef double QTime;
-typedef double QEnergy;
-typedef double QMField;
-typedef double QMass;
-typedef double QTemperature;
-typedef double QIntensity;
-typedef double QFrequency;
-typedef double QECurrent;
-typedef double QSubstance;
-typedef double QLIntensity;
-typedef double QArea;
-typedef double QVolume;
-typedef double QForce;
-typedef double QMomentum;
 typedef double QAMomentum;
-typedef double QPressure;
-typedef double QECharge;
-typedef double QPower;
-typedef double QEResistance;
-typedef double QECapacitance;
-typedef double QEPotential;
-typedef double QPDensityPerEnergy;
 typedef double QAcceleration;
-typedef double QSpeed;
+typedef double QAngle;
+typedef double QAngularMomentum;
+typedef double QArea;
+typedef double QColumnDensity;
+typedef double QMassDensity;
+typedef double QDiffCrossSection;
 typedef double QDiffFlux;
 typedef double QDiffIntensity;
-typedef double QEmissivity;
-typedef double QPDensity;
-typedef double QDensity;
-typedef double QInverseLength;
-typedef double QColumnDensity;
 typedef double QDispersionMeasure;
-typedef double QRotationMeasure;
-typedef double QDiffCrossSection;
+typedef double QECapacitance;
+typedef double QECharge;
+typedef double QECurrent;
+typedef double QEPotential;
+typedef double QEResistance;
+typedef double QEmissivity;
+typedef double QEnergy;
 typedef double QEnergyDensity;
+typedef double QForce;
+typedef double QFrequency;
+typedef double QIntensity;
+typedef double QInverseEnergy;
+typedef double QInverseLength;
+typedef double QLIntensity;
+typedef double QLength;
+typedef double QMField;
+typedef double QMass;
+typedef double QMomentum;
+typedef double QNumber;
+typedef double QPDensity;
+typedef double QPDensityPerEnergy;
+typedef double QPower;
+typedef double QPressure;
+typedef double QRotationMeasure;
+typedef double QSolidAngle;
+typedef double QSpectralEnergyDensity;
+typedef double QSpeed;
+typedef double QSubstance;
+typedef double QTemperature;
+typedef double QTime;
+typedef double QVolume;
 
 typedef double QRMIntegral;
 typedef double QSynchroConstant;
@@ -57,11 +60,8 @@ typedef double QRingCOIntensity;
 typedef double QRingX0Unit;
 typedef double QICInnerIntegral;
 typedef double QGREmissivity;
+typedef double QEnergyOverTemperature;
 
-template <int power>
-constexpr double pow(const QNumber &num) {
-	return std::pow(static_cast<double>(num), power);
-}
 constexpr double squared(const QNumber &num) { return num * num; }
 
 }}  // namespace hermes::units

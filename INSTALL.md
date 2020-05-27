@@ -27,7 +27,7 @@ Provided with the source:
 
 ## Obtaining HERMES source
 
-The preferred way is to clone the source from the git repository (for what [`git`](https://git-scm.com/book/en/v2) is required):
+The preferred way is to clone the source from the git repository (for what [git](https://git-scm.com/book/en/v2) is required):
 
 ```sh
 git clone https://github.com/cosmicrays/hermes.git

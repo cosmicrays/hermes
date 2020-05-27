@@ -17,7 +17,6 @@ namespace hermes {
  */
 
 /**
- @class Vector3Qunatity
  @brief Template class for 3-vectors of type Quantity.
 
  Allows accessing and changing the elements x, y, z directly or  through the

@@ -43,7 +43,7 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
-    #'sphinx.ext.viewcode',
+    'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
     #'sphinx.ext.linkcode',
     "breathe",
@@ -105,7 +105,7 @@ html_theme_options = {
         'logo_only': False,
         'display_version': False,
         }
-html_show_sourcelink = True
+html_show_sourcelink = False
 
 html_logo = ""
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -186,18 +186,17 @@ texinfo_documents = [
 
 # -- Extension configuration -------------------------------------------------
 
-def linkcode_resolve(domain, info):
-    if domain != 'cpp':
-        return None
-    if not info['names']:
-        return None
-    filename = info['names'].replace('.', '/')
-    return "https://github.com/cosmicrays/hermes/tree/master/src/%s.cpp".format(filename)
+#def linkcode_resolve(domain, info):
+#    if domain != 'cpp':
+#        return None
+#    if not info['names']:
+#        return None
+#    filename = info['names'].replace('.', '/')
+#    return "https://github.com/cosmicrays/hermes/tree/master/src/%s.cpp".format(filename)
 
 #nbsphinx_kernel_name = 'python'
 #nbsphinx_allow_errors = True
 #nbsphinx_execute = 'never'
-
 
 exhale_args = {
     # These arguments are required

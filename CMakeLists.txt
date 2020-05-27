@@ -354,8 +354,9 @@ if(DOXYGEN_FOUND AND SPHINX_EXECUTABLE)
 	find_package_handle_standard_args(Sphinx
 	                                  "Failed to find sphinx-build executable"
 	                                  SPHINX_EXECUTABLE)
-	set(SPHINX_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/doc)
+	file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/doc/sphinx DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 	set(SPHINX_BUILD ${CMAKE_CURRENT_BINARY_DIR}/doc)
+	set(SPHINX_SOURCE ${CMAKE_CURRENT_BINARY_DIR}/sphinx)
 	add_custom_target(doc
 	                  ${SPHINX_EXECUTABLE} -b html -j auto
 										-Dbreathe_projects.hermes=${CMAKE_CURRENT_BINARY_DIR}/doc/xml
