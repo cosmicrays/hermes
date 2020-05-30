@@ -26,7 +26,7 @@ void init(py::module &m) {
 		.def("getBoundaries", &Ring::getBoundaries)
 		.def("isInside", &Ring::isInside)
 		.def("getHIColumnDensity", &Ring::getHIColumnDensity)
-		.def("getCOIntensity", &Ring::getCOIntensity);
+		.def("getH2ColumnDensity", &Ring::getH2ColumnDensity);
 	// NOLINTNEXTLINE(bugprone-unused-raii)
 	py::class_<NeutralGasAbstract, std::shared_ptr<NeutralGasAbstract>>(
 	    subm, "NeutralGasAbstract");

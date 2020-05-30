@@ -56,7 +56,6 @@ class PiZeroAbsorptionIntegrator : public GammaIntegratorTemplate {
 	QEnergy getEnergy() const;
 
 	QPDensity densityProfile(const Vector3QLength &) const;
-	QRingX0Unit X0Function(const Vector3QLength &) const;
 
 	QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;
 	QDiffIntensity integrateOverLOS(const QDirection &iterdir,

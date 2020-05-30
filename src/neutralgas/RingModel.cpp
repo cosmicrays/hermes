@@ -81,6 +81,8 @@ Ring::Ring(std::size_t index_, std::shared_ptr<RingData> dataPtr_,
       innerR(innerR_),
       outerR(outerR_) {}
 
+Ring::~Ring() {}
+
 std::size_t Ring::getIndex() const { return index; }
 
 std::pair<QLength, QLength> Ring::getBoundaries() const {
@@ -92,12 +94,26 @@ bool Ring::isInside(const Vector3QLength &pos) const {
 	return (rho > innerR && rho < outerR);
 }
 
+QRingX0Unit Ring::X0Function(const QDirection &dir_) const {
+	return 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s;
+}
+
+RingType Ring::getRingType() const { return dataPtr->getRingType(); }
+
 QColumnDensity Ring::getHIColumnDensity(const QDirection &dir_) const {
 	return dataPtr->getHIColumnDensityInRing(index, dir_);
 }
 
-QRingCOIntensity Ring::getCOIntensity(const QDirection &dir_) const {
-	return dataPtr->getCOIntensityInRing(index, dir_);
+QColumnDensity Ring::getH2ColumnDensity(const QDirection &dir_) const {
+	return 2 * X0Function(dir_) * dataPtr->getCOIntensityInRing(index, dir_);
+}
+
+QColumnDensity Ring::getColumnDensity(const QDirection &dir_) const {
+	if (getRingType() == RingType::HI)
+		return getHIColumnDensity(dir_);
+	if (getRingType() == RingType::CO)
+		return getH2ColumnDensity(dir_);
+	return QColumnDensity(0);
 }
 
 RingModel::RingModel(RingType gas)

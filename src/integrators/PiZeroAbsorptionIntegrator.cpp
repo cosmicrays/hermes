@@ -192,12 +192,11 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
 
 		// Finally, normalize LOS integrals, separatelly for HI and CO
 		if (ngdensity->getRingType() == neutralgas::RingType::HI) {
-			total_diff_flux += (ring->getHIColumnDensity(direction_)) /
+			total_diff_flux += ring->getHIColumnDensity(direction_) /
 			                   normIntegrals * losIntegrals;
 		}
 		if (ngdensity->getRingType() == neutralgas::RingType::CO) {
-			total_diff_flux += (2 * X0Function(Vector3QLength(0)) *
-			                    ring->getCOIntensity(direction_)) /
+			total_diff_flux += ring->getH2ColumnDensity(direction_) /
 			                   normIntegrals * losIntegrals;
 		}
 	}
@@ -208,11 +207,6 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
 QPDensity PiZeroAbsorptionIntegrator::densityProfile(
     const Vector3QLength &pos) const {
 	return QPDensity(1);
-}
-
-QRingX0Unit PiZeroAbsorptionIntegrator::X0Function(
-    const Vector3QLength &pos) const {
-	return 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s;
 }
 
 QPiZeroIntegral PiZeroAbsorptionIntegrator::integrateOverEnergy(

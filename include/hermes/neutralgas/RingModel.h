@@ -52,11 +52,18 @@ class Ring {
   public:
 	Ring(std::size_t index_, std::shared_ptr<RingData> RingModelPtr_,
 	     QLength innerR_, QLength outerR_);
+	~Ring();
+
 	std::size_t getIndex() const;
 	std::pair<QLength, QLength> getBoundaries() const;
-	bool isInside(const Vector3QLength &pos) const;
-	QColumnDensity getHIColumnDensity(const QDirection &dir_) const;
-	QRingCOIntensity getCOIntensity(const QDirection &dir) const;
+	bool isInside(const Vector3QLength &) const;
+	RingType getRingType() const;
+
+	QRingX0Unit X0Function(const QDirection &) const;
+
+	QColumnDensity getHIColumnDensity(const QDirection &) const;
+	QColumnDensity getH2ColumnDensity(const QDirection &) const;
+	QColumnDensity getColumnDensity(const QDirection &) const;
 };
 
 class RingModel : public NeutralGasAbstract {

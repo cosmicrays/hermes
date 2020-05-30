@@ -110,12 +110,12 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(
     const QDirection &direction_, const QEnergy &Egamma_) const {
 	QDiffIntensity total_diff_flux(0.0);
 
+	//auto ringType = ngdensity->getRingType();
+
 	// Sum over rings
 	for (const auto &ring : *ngdensity) {
 		// TODO(adundovi): this could be checked better
 		if (!ngdensity->isRingEnabled(ring->getIndex())) continue;
-
-		auto ringType = ngdensity->getRingType();
 
 		/** Normalization-part **/
 		// p_Theta_f(r) = profile(r) * Theta_in(r)
@@ -128,7 +128,7 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(
 		};
 		QColumnDensity normIntegral =
 		    gslQAGIntegration<QColumnDensity, QPDensity>(
-		        normIntegrand, 0_pc, 60_kpc, 500);
+		        normIntegrand, 0_pc, getMaxDistance(direction_), 200);
 
 		// LOS is not crossing the current ring at all, skip
 		if (normIntegral == QColumnDensity(0)) continue;
@@ -150,26 +150,15 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(
 		};
 		QDiffIntensity losIntegral =
 		    simpsonIntegration<QDiffFlux, QGREmissivity>(
-		        losIntegrand, 0_pc, 30_kpc, 500) /
+		        losIntegrand, 0_pc, getMaxDistance(direction_), 500) /
 		    (4_pi * 1_sr);
 
 		// Finally, normalize LOS integrals, separatelly for HI and CO
-		if (ringType == neutralgas::RingType::HI) {
-			total_diff_flux += (ring->getHIColumnDensity(direction_)) /
+		total_diff_flux += ring->getColumnDensity(direction_) /
 			                   normIntegral * losIntegral;
-		}
-		if (ringType == neutralgas::RingType::CO) {
-			total_diff_flux += (2 * X0Function(Vector3QLength(0)) *
-			                    ring->getCOIntensity(direction_)) /
-			                   normIntegral * losIntegral;
-		}
 	}
 
 	return total_diff_flux;
-}
-
-QRingX0Unit PiZeroIntegrator::X0Function(const Vector3QLength &pos) const {
-	return 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s;
 }
 
 QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(

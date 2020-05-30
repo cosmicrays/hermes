@@ -68,7 +68,6 @@ TEST_F(RingModel, RingValues) {
 	    neutralgas::RingModel(neutralgas::RingType::CO);
 
 	QDirection dir = {90_deg, 5_deg};
-	auto X0 = 1.8e20 / 1_cm2 / 1_K / 1_km * 1_s;
 	QColumnDensity col_HI(0);
 	QColumnDensity col_H2(0);
 
@@ -76,10 +75,10 @@ TEST_F(RingModel, RingValues) {
 		col_HI += ring->getHIColumnDensity(dir);
 
 	for (const auto &ring : ringModel_CO)
-		col_H2 += X0 * ring->getCOIntensity(dir);
+		col_H2 += ring->getH2ColumnDensity(dir);
 
 	EXPECT_NEAR(static_cast<double>(col_HI), 2e26, 5e25);
-	EXPECT_NEAR(static_cast<double>(col_H2), 3e26, 5e25);
+	EXPECT_NEAR(static_cast<double>(col_H2), 6.5e26, 5e25);
 }
 
 int main(int argc, char **argv) {
