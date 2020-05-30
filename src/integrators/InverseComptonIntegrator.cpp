@@ -172,4 +172,27 @@ QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
 	return integral;
 }
 
+InverseComptonIntegrator::tLOSProfile
+InverseComptonIntegrator::getLOSProfile(const QDirection &direction,
+										const QEnergy &Egamma,
+                                        int Nsteps) const {
+	auto integrand = [this, direction, Egamma](const QLength &dist) {
+		return this->integrateOverEnergy(
+		    getGalacticPosition(getSunPosition(), dist, direction), Egamma);
+	};
+
+	QLength start = 0_m;
+	QLength stop = getMaxDistance(direction);
+	QLength delta_d = (stop - start) / Nsteps;
+
+	tLOSProfile profile;
+
+	for (QLength dist = start; dist <= stop; dist += delta_d) {
+		profile.first.push_back(dist);
+		profile.second.push_back(static_cast<double>(integrand(dist)));
+	}
+
+	return profile;
+}
+
 }  // namespace hermes

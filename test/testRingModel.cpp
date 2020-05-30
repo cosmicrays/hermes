@@ -29,6 +29,9 @@ TEST_F(RingModel, RingBoundaries) {
 	EXPECT_EQ(static_cast<double>(result[1].second), static_cast<double>(b[2]));
 	EXPECT_EQ(static_cast<double>(result[11].first),
 	          static_cast<double>(b[11]));
+
+	EXPECT_TRUE(ringModel_HI[3]->isInside(Vector3QLength(0, 4.5_kpc, 3.0_kpc)));
+	EXPECT_FALSE(ringModel_HI[3]->isInside(Vector3QLength(1.5_kpc, 2.5_kpc, 3.0_kpc)));
 }
 
 TEST_F(RingModel, RingSelection) {

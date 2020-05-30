@@ -29,9 +29,9 @@ class SynchroAbsorptionIntegrator : public RadioIntegratorTemplate {
 	void setFrequency(const QFrequency &freq);
 	QFrequency getFrequency() const;
 
-	QTemperature integrateOverLOS(const QDirection &iterdir_) const;
+	QTemperature integrateOverLOS(const QDirection &iterdir_) const override;
 	QTemperature integrateOverLOS(const QDirection &iterdir,
-	                              const QFrequency &freq) const;
+	                              const QFrequency &freq) const override;
 };
 
 /** @}*/

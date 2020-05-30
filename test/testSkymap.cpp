@@ -21,6 +21,10 @@ class DummyIntegrator : public SimpleIntegrator {
 	                         const QFrequency &f) const override {
 		return QNumber(0);
 	}
+	
+	tLOSProfile getLOSProfile(const QDirection &direction, int Nsteps) const override {
+		return tLOSProfile();
+	}
 };
 
 TEST(Skymap, resNsideNpixelsConvert) {

@@ -76,7 +76,7 @@ class IntegratorTemplate {
 	 *  Additionally, for a frequency or energy dependent integrals one
 	 *  should implement the following method too.
 	 */
-	virtual QPXL integrateOverLOS(const QDirection &iterdir,
+	virtual QPXL integrateOverLOS(const QDirection &dir,
 	                              const QSTEP &) const = 0;
 
 	/**
@@ -102,10 +102,29 @@ class IntegratorTemplate {
 	virtual void initCacheTable(){};
 	bool isCacheTableEnabled() const { return cacheEnabled; };
 	bool isCacheTableInitialized() const { return cacheTableInitialized; };
+	
+	/**
+	   Get the line of sight profile (integrand of integrateOverLOS) of
+	   a direction where N is equidistant number of steps from the Sun's
+	   position to the galactic border
+	*/
+	typedef std::pair<std::vector<QLength>, std::vector<double>> tLOSProfile;
+	virtual tLOSProfile getLOSProfile(const QDirection &dir, int Nsteps) const {
+		return tLOSProfile();
+	}
+	virtual tLOSProfile getLOSProfile(const QDirection &dir, const QSTEP &, int Nsteps) const {
+		return tLOSProfile();
+	}
+	
 };
 
+typedef IntegratorTemplate<QDispersionMeasure, QNumber>
+    DispersionMeasureIntegratorTemplate;
+typedef IntegratorTemplate<QRotationMeasure, QNumber>
+    RotationMeasureIntegratorTemplate;
 typedef IntegratorTemplate<QTemperature, QFrequency> RadioIntegratorTemplate;
 typedef IntegratorTemplate<QDiffIntensity, QEnergy> GammaIntegratorTemplate;
+
 
 /** @}*/
 }  // namespace hermes

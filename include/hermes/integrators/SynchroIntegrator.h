@@ -37,9 +37,9 @@ class SynchroIntegrator : public RadioIntegratorTemplate {
 	void setFrequency(const QFrequency &freq);
 	QFrequency getFrequency() const;
 
-	QTemperature integrateOverLOS(const QDirection &iterdir) const;
+	QTemperature integrateOverLOS(const QDirection &iterdir) const override;
 	QTemperature integrateOverLOS(const QDirection &iterdir,
-	                              const QFrequency &freq) const;
+	                              const QFrequency &freq) const override;
 
 	QEnergy singleElectronEmission(const QFrequency &freq, const QEnergy &E,
 	                               const QMField &B_perp) const;

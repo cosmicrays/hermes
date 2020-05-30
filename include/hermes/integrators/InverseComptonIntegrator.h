@@ -47,17 +47,19 @@ class InverseComptonIntegrator : public GammaIntegratorTemplate {
 	void setEnergy(const QEnergy &Egamma);
 	QEnergy getEnergy() const;
 
-	QDiffIntensity integrateOverLOS(const QDirection &iterdir) const;
+	QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;
 	QDiffIntensity integrateOverLOS(const QDirection &iterdir,
-	                                const QEnergy &Egamma) const;
+	                                const QEnergy &Egamma) const override;
 	QGREmissivity integrateOverEnergy(const Vector3QLength &pos,
 	                                  const QEnergy &Egamma) const;
 	QICInnerIntegral integrateOverPhotonEnergy(const Vector3QLength &pos,
 	                                           const QEnergy &Egamma,
 	                                           const QEnergy &Eelectron) const;
 
-	void setupCacheTable(int N_x, int N_y, int N_z);
-	void initCacheTable();
+	void setupCacheTable(int N_x, int N_y, int N_z) override;
+	void initCacheTable() override;
+	
+	tLOSProfile getLOSProfile(const QDirection &direction, const QEnergy &Egamma, int Nsteps) const override;
 };
 
 /** @}*/

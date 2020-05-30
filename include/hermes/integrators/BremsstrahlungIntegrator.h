@@ -16,7 +16,7 @@ namespace hermes {
 
 class BremsstrahlungIntegrator : public PiZeroIntegrator {
   private:
-	std::shared_ptr<interactions::BremsstrahlungAbstract> crossSec;
+	std::shared_ptr<interactions::BremsstrahlungAbstract> crossSecBrem;
 
   public:
 	BremsstrahlungIntegrator(

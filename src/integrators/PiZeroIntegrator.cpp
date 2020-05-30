@@ -21,7 +21,8 @@ PiZeroIntegrator::PiZeroIntegrator(
       crList(std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>{
           crDensity_}),
       ngdensity(ngdensity_),
-      crossSec(crossSec_) {}
+      crossSec(crossSec_),
+	  dProfile(std::make_unique<neutralgas::Nakanishi06>()) {}
 
 PiZeroIntegrator::PiZeroIntegrator(
     const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &crList_,
@@ -30,7 +31,8 @@ PiZeroIntegrator::PiZeroIntegrator(
     : GammaIntegratorTemplate(),
       crList(crList_),
       ngdensity(ngdensity_),
-      crossSec(crossSec_) {}
+      crossSec(crossSec_),
+	  dProfile(std::make_shared<neutralgas::Nakanishi06>()) {}
 
 PiZeroIntegrator::~PiZeroIntegrator() {}
 
@@ -113,57 +115,57 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(
 		// TODO(adundovi): this could be checked better
 		if (!ngdensity->isRingEnabled(ring->getIndex())) continue;
 
-		// Normalization-part
-		auto normI_f = [ring, this](const Vector3QLength &pos) {
-			return (ring->isInside(pos)) ? this->densityProfile(pos) : 0;
+		auto ringType = ngdensity->getRingType();
+
+		/** Normalization-part **/
+		// p_Theta_f(r) = profile(r) * Theta_in(r)
+		auto p_Theta_f = [ring, this](const Vector3QLength &pos) {
+			return (ring->isInside(pos)) ? dProfile->getPDensity(pos) : 0;
 		};
-		auto normIntegrand = [this, normI_f, direction_](const QLength &dist) {
-			return normI_f(
+		auto normIntegrand = [this, p_Theta_f, direction_](const QLength &dist) {
+			return p_Theta_f(
 			    getGalacticPosition(this->positionSun, dist, direction_));
 		};
-		QColumnDensity normIntegrals =
+		QColumnDensity normIntegral =
 		    gslQAGIntegration<QColumnDensity, QPDensity>(
-		        normIntegrand, 0, getMaxDistance(direction_), 500);
+		        normIntegrand, 0_pc, 60_kpc, 500);
 
-		// LOS is not crossing the current ring at all
-		if (normIntegrals == QColumnDensity(0)) continue;
+		// LOS is not crossing the current ring at all, skip
+		if (normIntegral == QColumnDensity(0)) continue;
 
-		// Integral over emissivity
-		auto losI_f = [ring, this](const Vector3QLength &pos,
+		/** LOS integral over emissivity **/
+		// los_f = emissivity(r) * profile(r) * Theta_in(r)
+		auto los_f = [ring, this](const Vector3QLength &pos,
 		                           const QEnergy &Egamma_) {
 			return (ring->isInside(pos))
-			           ? this->densityProfile(pos) *
+			           ? dProfile->getPDensity(pos) *
 			                 this->integrateOverEnergy(pos, Egamma_)
 			           : 0;
 		};
-		auto losIntegrand = [this, losI_f, direction_,
+		auto losIntegrand = [this, los_f, direction_,
 		                     Egamma_](const QLength &dist) {
-			return losI_f(
+			return los_f(
 			    getGalacticPosition(this->positionSun, dist, direction_),
 			    Egamma_);
 		};
-		QDiffIntensity losIntegrals =
+		QDiffIntensity losIntegral =
 		    simpsonIntegration<QDiffFlux, QGREmissivity>(
-		        losIntegrand, 0, getMaxDistance(direction_), 500) /
+		        losIntegrand, 0_pc, 30_kpc, 500) /
 		    (4_pi * 1_sr);
 
 		// Finally, normalize LOS integrals, separatelly for HI and CO
-		if (ngdensity->getRingType() == neutralgas::RingType::HI) {
+		if (ringType == neutralgas::RingType::HI) {
 			total_diff_flux += (ring->getHIColumnDensity(direction_)) /
-			                   normIntegrals * losIntegrals;
+			                   normIntegral * losIntegral;
 		}
-		if (ngdensity->getRingType() == neutralgas::RingType::CO) {
+		if (ringType == neutralgas::RingType::CO) {
 			total_diff_flux += (2 * X0Function(Vector3QLength(0)) *
 			                    ring->getCOIntensity(direction_)) /
-			                   normIntegrals * losIntegrals;
+			                   normIntegral * losIntegral;
 		}
 	}
 
 	return total_diff_flux;
-}
-
-QPDensity PiZeroIntegrator::densityProfile(const Vector3QLength &pos) const {
-	return QPDensity(1);
 }
 
 QRingX0Unit PiZeroIntegrator::X0Function(const Vector3QLength &pos) const {

@@ -10,15 +10,14 @@
 #include "hermes/Grid.h"
 #include "hermes/ParticleID.h"
 #include "hermes/Units.h"
-#include "hermes/neutralgas/NeutralGasDensity.h"
+#include "hermes/neutralgas/NeutralGasAbstract.h"
+#include "hermes/neutralgas/RingType.h"
 
 namespace hermes { namespace neutralgas {
 /**
  * \addtogroup NeutralGas
  * @{
  */
-
-enum class RingType { HI, CO };
 
 class RingData {
   private:
@@ -60,7 +59,7 @@ class Ring {
 	QRingCOIntensity getCOIntensity(const QDirection &dir) const;
 };
 
-class RingModel : public NeutralGasDensity {
+class RingModel : public NeutralGasAbstract {
   private:
 	std::shared_ptr<RingData> dataPtr;
 	std::array<QLength, 12> boundaries = {0_kpc,  2_kpc,  3_kpc,  4_kpc,
@@ -90,6 +89,7 @@ class RingModel : public NeutralGasDensity {
 	std::vector<std::pair<PID, double>> getAbundanceFractions() const;
 
 	/** iterator goodies */
+	std::size_t size() const;
 	std::shared_ptr<Ring> operator[](const std::size_t i) const;
 	typedef tRingContainer::iterator iterator;
 	typedef tRingContainer::const_iterator const_iterator;
@@ -102,5 +102,5 @@ class RingModel : public NeutralGasDensity {
 /** @}*/
 }}  // namespace hermes::neutralgas
 
-#endif  // HERMES_RINGMODELDENSITY_H
+#endif  // HERMES_RINGMODEL_H
 #endif  // HERMES_HAVE_CFITSIO

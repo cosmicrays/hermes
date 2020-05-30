@@ -8,22 +8,27 @@
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/skymaps/DispersionMeasureSkymap.h"
 
+/** \file DispersionMeasureIntegrator.h 
+ *  Declares DispersionMeasureIntegrator
+ */
+
 namespace hermes {
 /**
  * \addtogroup Integrators
  * @{
  */
 
-typedef IntegratorTemplate<QDispersionMeasure, QNumber>
-    DispersionMeasureIntegratorTemplate;
-
+/**
+ * \class DispersionMeasureIntegrator
+ * \brief Calculates dispersion measure (DM) over the LOS
+ *
+ * The integrators depends only on a charged gas density model, such as chargedgas::YMW16
+ */
 class DispersionMeasureIntegrator : public DispersionMeasureIntegratorTemplate {
   private:
 	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
 
   public:
-	typedef std::pair<std::vector<QLength>, std::vector<double>> tLOSProfile;
-
 	DispersionMeasureIntegrator(
 	    const std::shared_ptr<chargedgas::ChargedGasDensity> &gdensity);
 	~DispersionMeasureIntegrator();
@@ -35,12 +40,7 @@ class DispersionMeasureIntegrator : public DispersionMeasureIntegratorTemplate {
 		return QDispersionMeasure(0);
 	}
 
-	/**
-	    Get the line of sight profile (integrand of integrateOverLOS) of
-	   a direction where N is equidistant number of steps from the Sun's
-	   position to the galactic border
-	*/
-	tLOSProfile getLOSProfile(const QDirection &direction, int Nsteps) const;
+	tLOSProfile getLOSProfile(const QDirection &direction, int Nsteps) const override;
 };
 
 /** @}*/

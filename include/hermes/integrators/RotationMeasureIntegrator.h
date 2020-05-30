@@ -10,15 +10,23 @@
 #include "hermes/magneticfields/MagneticField.h"
 #include "hermes/skymaps/RotationMeasureSkymap.h"
 
+/** \file RotationMeasureIntegrator.h 
+ *  Declares RotationMeasureIntegrator
+ */
+
 namespace hermes {
 /**
  * \addtogroup Integrators
  * @{
  */
 
-typedef IntegratorTemplate<QRotationMeasure, QNumber>
-    RotationMeasureIntegratorTemplate;
-
+/**
+ * \class RotationMeasureIntegrator
+ * \brief Calculates rotation measure (RM) over the LOS
+ *
+ * The integrators depends on a charged gas density and galactic magnetic field,
+ * for example, chargedgas::YMW16 and magneticfields::JF12Field
+ */
 class RotationMeasureIntegrator
     : public IntegratorTemplate<QRotationMeasure, QNumber> {
   private:

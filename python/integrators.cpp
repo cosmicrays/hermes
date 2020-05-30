@@ -94,6 +94,8 @@ void init_integrators(py::module &m) {
 	                 &InverseComptonIntegrator::integrateOverEnergy);
 	icintegrator.def("integrateOverPhotonEnergy",
 	                 &InverseComptonIntegrator::integrateOverPhotonEnergy);
+	icintegrator.def("getLOSProfile",
+	                 &InverseComptonIntegrator::getLOSProfile);
 
 	// PiZeroIntegrator
 	py::class_<PiZeroIntegrator, InverseComptonIntegratorParentClass,

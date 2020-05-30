@@ -281,6 +281,7 @@ add_library(hermes SHARED
 	src/magneticfields/PT11Field.cpp
 	src/magneticfields/Sun08Field.cpp
 	src/magneticfields/WMAP07Field.cpp
+	src/neutralgas/Nakanishi06.cpp
 	src/neutralgas/RingModel.cpp
 	src/outputs/HEALPixFormat.cpp
 	src/photonfields/ISRF.cpp

@@ -11,7 +11,6 @@
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/interactions/BreitWheeler.h"
 #include "hermes/interactions/DiffCrossSection.h"
-#include "hermes/neutralgas/NeutralGasDensity.h"
 #include "hermes/neutralgas/RingModel.h"
 #include "hermes/photonfields/PhotonField.h"
 

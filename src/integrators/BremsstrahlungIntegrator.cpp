@@ -18,7 +18,7 @@ BremsstrahlungIntegrator::BremsstrahlungIntegrator(
     const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
     const std::shared_ptr<interactions::BremsstrahlungAbstract> &crossSec_)
     : PiZeroIntegrator(crDensity_, ngdensity_, crossSec_),
-      crossSec(crossSec_) {}
+      crossSecBrem(crossSec_) {}
 
 BremsstrahlungIntegrator::~BremsstrahlungIntegrator() {}
 
@@ -39,10 +39,10 @@ QPiZeroIntegral BremsstrahlungIntegrator::integrateOverEnergy(
 	    crDensity->beginAfterEnergy(Egamma_), crDensity->end(),
 	    std::back_inserter(diffCrossSectionVector),
 	    [this, Egamma_](const QEnergy &E) -> QDiffCrossSection {
-		    return (crossSec->getDiffCrossSectionForTarget(
+		    return (crossSecBrem->getDiffCrossSectionForTarget(
 		                interactions::BremsstrahlungAbstract::Target::HI, E,
 		                Egamma_) +
-		            0.1 * crossSec->getDiffCrossSectionForTarget(
+		            0.1 * crossSecBrem->getDiffCrossSectionForTarget(
 		                      interactions::BremsstrahlungAbstract::Target::He,
 		                      E, Egamma_));
 	    });

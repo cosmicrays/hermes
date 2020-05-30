@@ -10,8 +10,9 @@
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/interactions/DiffCrossSection.h"
-#include "hermes/neutralgas/NeutralGasDensity.h"
 #include "hermes/neutralgas/RingModel.h"
+#include "hermes/neutralgas/ProfileAbstract.h"
+#include "hermes/neutralgas/Nakanishi06.h"
 
 namespace hermes {
 /**
@@ -24,6 +25,8 @@ class PiZeroIntegrator : public GammaIntegratorTemplate {
 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList;
 	std::shared_ptr<neutralgas::RingModel> ngdensity;
 	std::shared_ptr<interactions::DifferentialCrossSection> crossSec;
+
+	std::shared_ptr<neutralgas::ProfileAbstract> dProfile;
 
 	typedef Grid<QPiZeroIntegral> ICCacheTable;
 	std::shared_ptr<ICCacheTable> cacheTable;
@@ -48,7 +51,6 @@ class PiZeroIntegrator : public GammaIntegratorTemplate {
 	void setEnergy(const QEnergy &Egamma);
 	QEnergy getEnergy() const;
 
-	QPDensity densityProfile(const Vector3QLength &) const;
 	QRingX0Unit X0Function(const Vector3QLength &) const;
 
 	QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;

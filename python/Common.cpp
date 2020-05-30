@@ -19,6 +19,9 @@ void init_common(py::module &m) {
 	m.attr("UNSEEN") = UNSEEN;
 	m.def("ang2pix_ring", &ang2pix_ring);
 	m.def("pix2ang_ring", &pix2ang_ring);
+	m.def("nside2npix", &nside2npix);
+	m.def("nside2order", &nside2order);
+	m.def("loc2pix", &loc2pix);	
 }
 
 }  // namespace hermes

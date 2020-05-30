@@ -101,7 +101,8 @@ QRingCOIntensity Ring::getCOIntensity(const QDirection &dir_) const {
 }
 
 RingModel::RingModel(RingType gas)
-    : dataPtr(std::make_shared<RingData>(RingData(gas))) {
+    : NeutralGasAbstract(),
+	dataPtr(std::make_shared<RingData>(RingData(gas))) {
 	std::fill(enabledRings.begin(), enabledRings.end(),
 	          true);  // enable all by default
 	fillRingContainer();
@@ -156,6 +157,8 @@ std::vector<std::pair<PID, double>> RingModel::getAbundanceFractions() const {
 std::shared_ptr<Ring> RingModel::operator[](const std::size_t i) const {
 	return ringContainer[i];
 }
+
+std::size_t RingModel::size() const { return ringContainer.size(); }
 
 RingModel::iterator RingModel::begin() { return ringContainer.begin(); }
 
