@@ -74,6 +74,8 @@ TEST(SkymapMask, RectangularWindow) {
 	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
 	auto integrator = std::make_shared<DummyIntegrator>(DummyIntegrator());
 	skymap->setIntegrator(integrator);
+	
+	EXPECT_FALSE(skymap->hasMask());
 
 	auto GC_mask = std::make_shared<RectangularWindow>(
 	    RectangularWindow({5_deg, -5_deg}, {355_deg, 5_deg}));
@@ -120,6 +122,8 @@ TEST(SkymapMask, RectangularWindow) {
 
 	EXPECT_NE(static_cast<double>(skymap->getPixel(pixel_1)), UNSEEN);
 	EXPECT_EQ(static_cast<double>(skymap->getPixel(pixel_2)), UNSEEN);
+
+	EXPECT_TRUE(skymap->hasMask());
 }
 
 TEST(SkymapMask, CircularWindow) {

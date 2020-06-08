@@ -82,6 +82,7 @@ class SkymapTemplate : public Skymap {
 	QPXL getPixel(std::size_t ipix) const;
 	double getPixelAsDouble(std::size_t i) const;
 	QPXL getMean() const;
+	bool hasMask() const;
 	QPXL operator[](std::size_t ipix) const;
 	QPXL *data() { return fluxContainer.data(); }
 
@@ -207,6 +208,14 @@ QPXL SkymapTemplate<QPXL, QSTEP>::getMean() const {
 		count++;
 	}
 	return accum / count;
+}
+
+template <typename QPXL, typename QSTEP>
+bool SkymapTemplate<QPXL, QSTEP>::hasMask() const {
+    if (getUnmaskedPixelCount() < getNpix()) {
+		return true;
+	}
+    return false;
 }
 
 template <typename QPXL, typename QSTEP>
