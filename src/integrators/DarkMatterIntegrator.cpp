@@ -7,7 +7,7 @@ namespace hermes {
 DarkMatterIntegrator::DarkMatterIntegrator(
     const std::shared_ptr<darkmatter::DarkMatterSpectrum> &spectrum,
     const std::shared_ptr<darkmatter::GalacticProfile> &profile)
-    : spectrum(spectrum), profile(profile) {}
+    : GammaIntegratorTemplate("DarkMatter"), spectrum(spectrum), profile(profile) {}
 
 DarkMatterIntegrator::~DarkMatterIntegrator() {}
 

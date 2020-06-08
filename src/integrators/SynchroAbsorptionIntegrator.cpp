@@ -10,7 +10,7 @@ SynchroAbsorptionIntegrator::SynchroAbsorptionIntegrator(
     const std::shared_ptr<magneticfields::MagneticField>& mfield_,
     const std::shared_ptr<cosmicrays::CosmicRayDensity>& crdensity_,
     const std::shared_ptr<chargedgas::ChargedGasDensity>& gdensity_)
-    : RadioIntegratorTemplate(),
+    : RadioIntegratorTemplate("SynchroAbsorption"),
       mfield(mfield_),
       crdensity(crdensity_),
       gdensity(gdensity_) {

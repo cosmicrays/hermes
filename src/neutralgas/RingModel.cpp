@@ -14,11 +14,11 @@
 
 namespace hermes { namespace neutralgas {
 
-RingData::RingData(RingType gas) : type(gas) {
-	if (gas == RingType::HI) {
+RingData::RingData(GasType gas) : type(gas) {
+	if (gas == GasType::HI) {
 		readDataFile("NHrings_Ts300K.fits.gz");
 	}
-	if (gas == RingType::CO) {
+	if (gas == GasType::H2) {
 		readDataFile("WCOrings_COGAL.fits.gz");
 	}
 }
@@ -44,7 +44,7 @@ void RingData::readDataFile(const std::string &filename) {
 	dataVector = ffile->readImageAsFloat(firstElement, nElements);
 }
 
-RingType RingData::getRingType() const { return type; }
+GasType RingData::getGasType() const { return type; }
 
 int RingData::getRingNumber() const { return n_rings; }
 
@@ -90,7 +90,7 @@ std::pair<QLength, QLength> Ring::getBoundaries() const {
 }
 
 bool Ring::isInside(const Vector3QLength &pos) const {
-	QLength rho = sqrt(pos.x * pos.x + pos.y * pos.y);
+	QLength rho = pos.getRho();
 	return (rho > innerR && rho < outerR);
 }
 
@@ -98,7 +98,7 @@ QRingX0Unit Ring::X0Function(const QDirection &dir_) const {
 	return 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s;
 }
 
-RingType Ring::getRingType() const { return dataPtr->getRingType(); }
+GasType Ring::getGasType() const { return dataPtr->getGasType(); }
 
 QColumnDensity Ring::getHIColumnDensity(const QDirection &dir_) const {
 	return dataPtr->getHIColumnDensityInRing(index, dir_);
@@ -109,14 +109,14 @@ QColumnDensity Ring::getH2ColumnDensity(const QDirection &dir_) const {
 }
 
 QColumnDensity Ring::getColumnDensity(const QDirection &dir_) const {
-	if (getRingType() == RingType::HI)
+	if (getGasType() == GasType::HI)
 		return getHIColumnDensity(dir_);
-	if (getRingType() == RingType::CO)
+	if (getGasType() == GasType::H2)
 		return getH2ColumnDensity(dir_);
 	return QColumnDensity(0);
 }
 
-RingModel::RingModel(RingType gas)
+RingModel::RingModel(GasType gas)
     : NeutralGasAbstract(),
 	dataPtr(std::make_shared<RingData>(RingData(gas))) {
 	std::fill(enabledRings.begin(), enabledRings.end(),
@@ -155,7 +155,7 @@ bool RingModel::isRingEnabled(int i) const {
 	return enabledRings[i];
 }
 
-RingType RingModel::getRingType() const { return dataPtr->getRingType(); }
+GasType RingModel::getGasType() const { return dataPtr->getGasType(); }
 
 void RingModel::fillRingContainer() {
 	for (std::size_t i = 0; i < dataPtr->getRingNumber(); ++i) {

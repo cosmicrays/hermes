@@ -39,14 +39,25 @@ class IntegratorTemplate {
 	QSTEP skymapParameter;
 	bool cacheEnabled;
 	bool cacheTableInitialized;
+	std::string description;
 
   public:
-	IntegratorTemplate()
+	IntegratorTemplate(const std::string &description)
 	    : positionSun(Vector3QLength(8.5_kpc, 0, 0)),
 	      cacheEnabled(false),
-	      cacheTableInitialized(false){};
+	      cacheTableInitialized(false),
+		  description(description){};
 	virtual ~IntegratorTemplate() {}
-
+	
+	/** Get Description of the integrator */
+	std::string getDescription() const {
+		return description;
+	}
+	/** Set Description of the integrator */
+	void setDescription(const std::string &description) {
+		this->description = description;
+	}
+	
 	/**
 	    Setter for the skymap parameter
 	    (requires for the cacheTable, if enabled, to be re-initialized)

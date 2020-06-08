@@ -11,7 +11,7 @@
 #include "hermes/ParticleID.h"
 #include "hermes/Units.h"
 #include "hermes/neutralgas/NeutralGasAbstract.h"
-#include "hermes/neutralgas/RingType.h"
+#include "hermes/neutralgas/GasType.h"
 
 namespace hermes { namespace neutralgas {
 /**
@@ -23,7 +23,7 @@ class RingData {
   private:
 	std::unique_ptr<FITSFile> ffile;
 
-	const RingType type;
+	const GasType type;
 	int n_lon, n_lat, n_rings;
 	double min_lon, min_lat;
 	double delta_lon, delta_lat;
@@ -33,13 +33,13 @@ class RingData {
 	double getRawValue(int ring, const QDirection &dir) const;
 
   public:
-	RingData(RingType gas);
+	RingData(GasType gas);
 	QColumnDensity getHIColumnDensityInRing(int ring,
 	                                        const QDirection &dir) const;
 	QRingCOIntensity getCOIntensityInRing(int ring,
 	                                      const QDirection &dir) const;
 
-	RingType getRingType() const;
+	GasType getGasType() const;
 	int getRingNumber() const;
 };
 
@@ -57,7 +57,7 @@ class Ring {
 	std::size_t getIndex() const;
 	std::pair<QLength, QLength> getBoundaries() const;
 	bool isInside(const Vector3QLength &) const;
-	RingType getRingType() const;
+	GasType getGasType() const;
 
 	QRingX0Unit X0Function(const QDirection &) const;
 
@@ -82,7 +82,7 @@ class RingModel : public NeutralGasAbstract {
 	void fillRingContainer();
 
   public:
-	RingModel(RingType gas);
+	RingModel(GasType gas);
 	~RingModel() {}
 
 	std::array<bool, 12> getEnabledRings() const;
@@ -91,7 +91,7 @@ class RingModel : public NeutralGasAbstract {
 	void enableRingNo(int i);
 	bool isRingEnabled(int i) const;
 
-	RingType getRingType() const;
+	GasType getGasType() const;
 	int getRingNumber() const override;
 	std::vector<std::pair<PID, double>> getAbundanceFractions() const;
 

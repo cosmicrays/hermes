@@ -47,7 +47,7 @@ TEST(BremsstrahlungIntegrator, integrateOverEnergy) {
 	        interactions::BremsstrahlungGALPROP());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
-	    neutralgas::RingModel(neutralgas::RingType::HI));
+	    neutralgas::RingModel(neutralgas::GasType::HI));
 	// integrator
 	auto intBremsstrahlung = std::make_shared<BremsstrahlungIntegrator>(
 	    BremsstrahlungIntegrator(simpleModel, ringModel, bremsstrahlungCS));
@@ -67,7 +67,7 @@ TEST(BremsstrahlungIntegrator, LOS) {
 	    interactions::BremsstrahlungTsai74());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
-	    neutralgas::RingModel(neutralgas::RingType::HI));
+	    neutralgas::RingModel(neutralgas::GasType::HI));
 	// integrator
 	auto intBremsstrahlung = std::make_shared<BremsstrahlungIntegrator>(
 	    BremsstrahlungIntegrator(simpleModel, ringModel, bremsstrahlung));

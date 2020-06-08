@@ -1,5 +1,6 @@
 cmake_minimum_required (VERSION 3.1)
 project(hermes C CXX)
+set(HERMES_RELEASE_VERSION 0.9)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
@@ -142,6 +143,28 @@ list(APPEND HERMES_EXTRA_INCLUDES lib/cparamlib)
 list(APPEND HERMES_EXTRA_LIBRARIES cparamlib)
 
 # ----------------------------------------------------------------------------
+# Version info from Git
+# ----------------------------------------------------------------------------
+# Embed the information about HERMES version into the binaries for easier
+# debugging (with a reproducibility in mind)
+option(ENABLE_GIT "Embedding information about Hermes version from git" ON)
+
+if(ENABLE_GIT)
+    include(GetGitRevisionDescription)
+    get_git_head_revision(GIT_REFSPEC GIT_SHA1)
+    git_describe(GIT_DESC --tags)
+endif(ENABLE_GIT)
+IF(NOT ENABLE_GIT OR (${GIT_SHA1} STREQUAL "GITDIR-NOTFOUND"))
+    set(GIT_REFSPEC "")
+    set(GIT_SHA1 "")
+    set(GIT_DESC "${HERMES_RELEASE_VERSION}-no-git")
+endif()
+
+message(STATUS "Hermes version: ${GIT_DESC} ${GIT_SHA1} ${GIT_REFSPEC}")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/Version.cpp.in" "${CMAKE_CURRENT_BINARY_DIR}/src/Version.cpp" @ONLY)
+list(APPEND HERMES_EXTRA_SOURCES "${CMAKE_CURRENT_BINARY_DIR}/src/Version.cpp")
+
+# ----------------------------------------------------------------------------
 # Lint and Covarage 
 # ----------------------------------------------------------------------------
 
@@ -187,8 +210,8 @@ if(ENABLE_COVERAGE)
         if(LCOV_PATH AND GENHTML_PATH)
                 message("Enabling coverage report via $make coverage")
                 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
-                list(APPEND CRPROPA_EXTRA_LIBRARIES "-lgcov")
-                list(APPEND CRPROPA_EXTRA_LIBRARIES "-fprofile-arcs")
+                list(APPEND HERMES_EXTRA_LIBRARIES "-lgcov")
+                list(APPEND HERMES_EXTRA_LIBRARIES "-fprofile-arcs")
 
                 if(ENABLE_TESTING)
                         SET(COVERAGE_LIBS "-coverage -lgcov")

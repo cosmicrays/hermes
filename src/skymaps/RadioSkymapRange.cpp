@@ -58,13 +58,12 @@ void RadioSkymapRange::save(
 	for (const_iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		int npix = static_cast<int>((it)->getNpix());
 
-		output->createTable(npix);
+		output->createTable(npix, it->getOutputUnitsAsString());
 		output->writeMetadata(it->getNside(), it->getRes(),
 		                      it->getDescription());
 		output->writeKeyValueAsDouble(
 		    std::string("FREQ"), static_cast<double>(it->getFrequency()),
 		    std::string("The skymap radio frequency in Hz."));
-
 		auto tempArray = it->containerToRawVector();
 		output->writeColumn(npix, tempArray.data());
 	}

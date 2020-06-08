@@ -33,7 +33,7 @@ QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
 */
 QLength distanceToGalBorder(const Vector3QLength &positionSun,
                             const QDirection &direction,
-                            const QLength &galacticBorder = 30_kpc,
+                            const QLength &galacticBorder = 35_kpc,
                             const QLength &zBorder = 5_kpc);
 
 /**

@@ -8,7 +8,7 @@ typedef IntegratorTemplate<QNumber, QFrequency> SimpleIntegrator;
 
 class DummyIntegrator : public SimpleIntegrator {
   public:
-	DummyIntegrator(){};
+	DummyIntegrator() : SimpleIntegrator("DummyIntegrator") {};
 	~DummyIntegrator(){};
 	QNumber integrateOverLOS(const QDirection &direction) const override {
 		QDirection galacticCentre = {90_deg, 0};

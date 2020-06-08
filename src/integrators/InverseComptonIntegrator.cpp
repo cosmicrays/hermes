@@ -17,7 +17,7 @@ InverseComptonIntegrator::InverseComptonIntegrator(
     const std::shared_ptr<cosmicrays::CosmicRayDensity> &crdensity_,
     const std::shared_ptr<photonfields::PhotonField> &phdensity_,
     const std::shared_ptr<interactions::DifferentialCrossSection> &crossSec_)
-    : GammaIntegratorTemplate(),
+    : GammaIntegratorTemplate("InverseCompton"),
       crdensity(crdensity_),
       phdensity(phdensity_),
       crossSec(crossSec_) {}

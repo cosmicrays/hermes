@@ -16,7 +16,9 @@ class Nakanishi06 : public ProfileAbstract {
 	Nakanishi06();
 	~Nakanishi06();
 
-	QPDensity getPDensity(const Vector3QLength &pos) const override;
+	QPDensity getHIDensity(const Vector3QLength &pos) const;
+	QPDensity getH2Density(const Vector3QLength &pos) const;
+	QPDensity getPDensity(GasType gas, const Vector3QLength &pos) const override;
 };
 
 /** @}*/

@@ -6,7 +6,7 @@ namespace hermes {
 
 DispersionMeasureIntegrator::DispersionMeasureIntegrator(
     const std::shared_ptr<chargedgas::ChargedGasDensity> &gdensity)
-    : DispersionMeasureIntegratorTemplate(), gdensity(gdensity) {}
+    : DispersionMeasureIntegratorTemplate("DispersionMeasure"), gdensity(gdensity) {}
 
 DispersionMeasureIntegrator::~DispersionMeasureIntegrator() {}
 

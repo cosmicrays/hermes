@@ -8,7 +8,7 @@ namespace hermes {
 
 FreeFreeIntegrator::FreeFreeIntegrator(
     const std::shared_ptr<chargedgas::ChargedGasDensity> &gdensity_)
-    : RadioIntegratorTemplate(), gdensity(gdensity_) {}
+    : RadioIntegratorTemplate("FreeFree"), gdensity(gdensity_) {}
 
 FreeFreeIntegrator::~FreeFreeIntegrator() {}
 

@@ -41,23 +41,31 @@ class TestCRDensity : public cosmicrays::CosmicRayDensity {
 TEST(PiZeroIntegrator, integrateOverEnergy) {
 	auto cr_proton = std::make_shared<cosmicrays::SimpleCRDensity>(
 	    cosmicrays::SimpleCRDensity());
+    //std::vector<PID> particletypes = {Proton};
+    //auto cr_proton = std::make_shared<cosmicrays::Dragon2D>(
+    //    cosmicrays::Dragon2D(particletypes));
 
 	// interaction
 	auto kamae = std::make_shared<interactions::Kamae06Gamma>(
 	    interactions::Kamae06Gamma());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
-	    neutralgas::RingModel(neutralgas::RingType::HI));
+	    neutralgas::RingModel(neutralgas::GasType::HI));
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(
 	    PiZeroIntegrator(cr_proton, ringModel, kamae));
 
-	auto res = intPiZero->integrateOverEnergy(Vector3QLength(0, 0, 0), 10_TeV);
+	auto res = intPiZero->integrateOverEnergy(Vector3QLength(1_kpc, 0, 0), 10_TeV);
 
-	EXPECT_NEAR(static_cast<double>(res), 5.764712874625404e-33, 1e-35);
+	EXPECT_NEAR(static_cast<double>(res), 5.7647e-33, 1e-35);
 
-	// sqrt(3)*e_charge^3/(8*pi^2*epsilon_0*c*electron_mass)*0.655*1*microGauss*1/(m^3*J)*1_eV
-	// EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
+	// test cache	
+	intPiZero->setupCacheTable(50, 50, 10);
+	intPiZero->initCacheTable();
+	auto res_cache = intPiZero->integrateOverEnergy(Vector3QLength(1_kpc, 0, 0), 10_TeV);
+
+	//EXPECT_GT(static_cast<double>(res_cache), 0);
+	//EXPECT_NEAR(static_cast<double>(res), static_cast<double>(res_cache), 1e-36);
 }
 
 TEST(PiZeroIntegrator, ChannelsRatio) {
@@ -73,7 +81,7 @@ TEST(PiZeroIntegrator, ChannelsRatio) {
 	    interactions::Kamae06Gamma());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
-	    neutralgas::RingModel(neutralgas::RingType::HI));
+	    neutralgas::RingModel(neutralgas::GasType::HI));
 	// integrators
 	auto intPiZero_proton = std::make_shared<PiZeroIntegrator>(
 	    PiZeroIntegrator(cr_proton, ringModel, kamae));
@@ -104,7 +112,7 @@ TEST(PiZeroIntegrator, PiZeroLOS) {
 	    interactions::Kamae06Gamma());
 	// HI model
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
-	    neutralgas::RingModel(neutralgas::RingType::HI));
+	    neutralgas::RingModel(neutralgas::GasType::HI));
 	// integrator
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(
 	    PiZeroIntegrator(dragonModel, ringModel, kamae));
@@ -139,7 +147,7 @@ TEST(PiZeroIntegrator, PerformanceTest) {
 	    interactions::Kamae06Gamma());
 
 	auto ringModel = std::make_shared<neutralgas::RingModel>(
-	    neutralgas::RingModel(neutralgas::RingType::CO));
+	    neutralgas::RingModel(neutralgas::GasType::H2));
 	auto in = std::make_shared<PiZeroIntegrator>(
 	    PiZeroIntegrator(dragonModel, ringModel, kamae));
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, 1_GeV));

@@ -26,8 +26,8 @@ namespace hermes {
  */
 
 /**
- @class SkymapTemplate
- @brief Provides a HEALPix-compatibile container template with undefined units
+ \class SkymapTemplate
+ \brief Provides a HEALPix-compatibile container template with undefined units
  of pixels; should be inherited in every process-specific skymap.
  \tparam QPXL A type of pixel which a skymap contains (e.g.,
  units::QTemperature, units::QRotationMeasure)
@@ -85,6 +85,9 @@ class SkymapTemplate : public Skymap {
 	QPXL operator[](std::size_t ipix) const;
 	QPXL *data() { return fluxContainer.data(); }
 
+	/**
+ 		Set the line of sight integrator
+	*/
 	void setIntegrator(
 	    std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> integrator_);
 	void setOutput();
@@ -220,6 +223,7 @@ template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::setIntegrator(
     std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> integrator_) {
 	integrator = integrator_;
+	setDescription(integrator->getDescription());
 }
 
 template <typename QPXL, typename QSTEP>
@@ -336,10 +340,8 @@ template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::save(
     std::shared_ptr<outputs::Output> output) const {
 	output->initOutput();
-	output->createTable(static_cast<int>(npix));
+	output->createTable(static_cast<int>(npix), getOutputUnitsAsString());
 	output->writeMetadata(nside, res, description);
-	output->writeKeyValueAsString("PIXUNITS", getOutputUnitsAsString(),
-	                              "Physical units of the skymap pixels");
 	auto tempArray = containerToRawVector();
 	output->writeColumn(npix, tempArray.data());
 }

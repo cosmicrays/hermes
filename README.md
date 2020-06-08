@@ -52,7 +52,7 @@ skymap = GammaSkymap(nside, Egamma)
 mask = RectangularWindow([5*deg, 40*deg], [-5*deg, 90*deg]);
 skymap.setMask(mask)
 
-neutral_gas = neutralgas.RingModel(neutralgas.RingType.HI)
+neutral_gas = neutralgas.RingModel(neutralgas.GasType.HI)
 cosmicray_protons = cosmicrays.Dragon2D(Proton)
 pp_crosssection = interactions.Kamae06Gamma()
 

@@ -18,7 +18,9 @@ BremsstrahlungIntegrator::BremsstrahlungIntegrator(
     const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
     const std::shared_ptr<interactions::BremsstrahlungAbstract> &crossSec_)
     : PiZeroIntegrator(crDensity_, ngdensity_, crossSec_),
-      crossSecBrem(crossSec_) {}
+      crossSecBrem(crossSec_) {
+	setDescription("Bremsstrahlung");
+}
 
 BremsstrahlungIntegrator::~BremsstrahlungIntegrator() {}
 

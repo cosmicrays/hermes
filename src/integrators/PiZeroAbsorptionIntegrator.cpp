@@ -19,7 +19,7 @@ PiZeroAbsorptionIntegrator::PiZeroAbsorptionIntegrator(
     const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
     const std::shared_ptr<photonfields::PhotonField> &phdensity_,
     const std::shared_ptr<interactions::DifferentialCrossSection> &crossSec_)
-    : GammaIntegratorTemplate(),
+    : GammaIntegratorTemplate("PiZeroAbsorption"),
       crList(std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>{
           crDensity_}),
       ngdensity(ngdensity_),
@@ -31,7 +31,7 @@ PiZeroAbsorptionIntegrator::PiZeroAbsorptionIntegrator(
     const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
     const std::shared_ptr<photonfields::PhotonField> &phdensity_,
     const std::shared_ptr<interactions::DifferentialCrossSection> &crossSec_)
-    : GammaIntegratorTemplate(),
+    : GammaIntegratorTemplate("PiZeroAbsorption"),
       crList(crList_),
       ngdensity(ngdensity_),
       phdensity(phdensity_),
@@ -191,11 +191,11 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
 		    (4_pi * 1_sr);
 
 		// Finally, normalize LOS integrals, separatelly for HI and CO
-		if (ngdensity->getRingType() == neutralgas::RingType::HI) {
+		if (ngdensity->getGasType() == neutralgas::GasType::HI) {
 			total_diff_flux += ring->getHIColumnDensity(direction_) /
 			                   normIntegrals * losIntegrals;
 		}
-		if (ngdensity->getRingType() == neutralgas::RingType::CO) {
+		if (ngdensity->getGasType() == neutralgas::GasType::H2) {
 			total_diff_flux += ring->getH2ColumnDensity(direction_) /
 			                   normIntegrals * losIntegrals;
 		}

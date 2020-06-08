@@ -17,7 +17,7 @@ PiZeroIntegrator::PiZeroIntegrator(
     const std::shared_ptr<cosmicrays::CosmicRayDensity> &crDensity_,
     const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
     const std::shared_ptr<interactions::DifferentialCrossSection> &crossSec_)
-    : GammaIntegratorTemplate(),
+    : GammaIntegratorTemplate("PiZero"),
       crList(std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>{
           crDensity_}),
       ngdensity(ngdensity_),
@@ -28,7 +28,7 @@ PiZeroIntegrator::PiZeroIntegrator(
     const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &crList_,
     const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
     const std::shared_ptr<interactions::DifferentialCrossSection> &crossSec_)
-    : GammaIntegratorTemplate(),
+    : GammaIntegratorTemplate("PiZero"),
       crList(crList_),
       ngdensity(ngdensity_),
       crossSec(crossSec_),
@@ -36,38 +36,39 @@ PiZeroIntegrator::PiZeroIntegrator(
 
 PiZeroIntegrator::~PiZeroIntegrator() {}
 
+void PiZeroIntegrator::setupCacheTable(int N_x, int N_y, int N_z) {
+	const QLength rBorder = 35_kpc;
+	const QLength zBorder = 5_kpc;
+	Vector3QLength spacing =
+	    Vector3QLength(2 * rBorder / N_x, 2 * rBorder / N_y, 2 * zBorder / N_z);
+
+	// setup table
+	cacheTable = std::make_shared<tCacheTable>(tCacheTable(
+	    Vector3QLength(-rBorder, -rBorder, -zBorder), N_x, N_y, N_z, spacing));
+	cacheEnabled = true;
+}
+
 void PiZeroIntegrator::computeCacheInThread(std::size_t start, std::size_t end,
                                             const QEnergy &Egamma,
                                             std::shared_ptr<ProgressBar> &p) {
 	for (std::size_t i = start; i < end; ++i) {
 		auto pos =
 		    static_cast<Vector3QLength>(cacheTable->positionFromIndex(i));
+		//TODO: remove std::cerr << "pos = " << pos.x / 1_kpc << ", " << pos.y / 1_kpc << ", " << pos.z / 1_kpc << std::endl;
 		cacheTable->get(i) = this->integrateOverEnergy(pos, Egamma);
 		p->update();
 	}
 }
 
-void PiZeroIntegrator::setupCacheTable(int N_x, int N_y, int N_z) {
-	const QLength rBorder = 30_kpc;
-	const QLength zBorder = 5_kpc;
-	Vector3QLength spacing =
-	    Vector3QLength(2 * rBorder / N_x, 2 * rBorder / N_y, 2 * zBorder / N_z);
-
-	// setup table
-	cacheTable = std::make_shared<ICCacheTable>(ICCacheTable(
-	    Vector3QLength(-rBorder, -rBorder, -zBorder), N_x, N_y, N_z, spacing));
-	cacheEnabled = true;
-}
-
 void PiZeroIntegrator::initCacheTable() {
+	cacheTableInitialized = false;
+
 	if (!cacheEnabled) {
 		std::cout << "hermes::Integrator::initCacheTable: No cache table "
 		             "present: use setupCacheTable"
 		          << std::endl;
 		return;
 	}
-
-	if (cacheTableInitialized) cacheTableInitialized = false;
 
 	std::cout << "hermes::Integrator::initCacheTable: Number of Threads: "
 	          << getThreadsNumber() << std::endl;
@@ -110,7 +111,7 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(
     const QDirection &direction_, const QEnergy &Egamma_) const {
 	QDiffIntensity total_diff_flux(0.0);
 
-	//auto ringType = ngdensity->getRingType();
+	auto gasType = ngdensity->getGasType();
 
 	// Sum over rings
 	for (const auto &ring : *ngdensity) {
@@ -119,26 +120,40 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(
 
 		/** Normalization-part **/
 		// p_Theta_f(r) = profile(r) * Theta_in(r)
-		auto p_Theta_f = [ring, this](const Vector3QLength &pos) {
-			return (ring->isInside(pos)) ? dProfile->getPDensity(pos) : 0;
+		auto p_Theta_f = [ring, gasType, this](const Vector3QLength &pos) {
+			return (ring->isInside(pos)) ? dProfile->getPDensity(gasType, pos) : 0;
 		};
 		auto normIntegrand = [this, p_Theta_f, direction_](const QLength &dist) {
 			return p_Theta_f(
 			    getGalacticPosition(this->positionSun, dist, direction_));
 		};
+
+		// optimize LOS integration limits:
+		// instead of 0 and getMaxDistance(dir)
+		auto b = ring->getBoundaries();
+		auto rho = positionSun.getRho();
+		QLength r_min = rho - b.second;
+		if (r_min < 0_m)
+			r_min = 0_m;
+		QLength r_max = rho + b.second;
+		if (r_max > getMaxDistance(direction_))
+			r_max = getMaxDistance(direction_);
+
 		QColumnDensity normIntegral =
 		    gslQAGIntegration<QColumnDensity, QPDensity>(
-		        normIntegrand, 0_pc, getMaxDistance(direction_), 200);
+		        normIntegrand, r_min, r_max, 200);
 
 		// LOS is not crossing the current ring at all, skip
 		if (normIntegral == QColumnDensity(0)) continue;
 
+		//std::cerr << "normIntegral" << normIntegral << std::endl;
+
 		/** LOS integral over emissivity **/
 		// los_f = emissivity(r) * profile(r) * Theta_in(r)
-		auto los_f = [ring, this](const Vector3QLength &pos,
+		auto los_f = [ring, gasType, this](const Vector3QLength &pos,
 		                           const QEnergy &Egamma_) {
 			return (ring->isInside(pos))
-			           ? dProfile->getPDensity(pos) *
+			           ? dProfile->getPDensity(gasType, pos) *
 			                 this->integrateOverEnergy(pos, Egamma_)
 			           : 0;
 		};
@@ -150,7 +165,7 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(
 		};
 		QDiffIntensity losIntegral =
 		    simpsonIntegration<QDiffFlux, QGREmissivity>(
-		        losIntegrand, 0_pc, getMaxDistance(direction_), 500) /
+		        losIntegrand, r_min, r_max, 500) /
 		    (4_pi * 1_sr);
 
 		// Finally, normalize LOS integrals, separatelly for HI and CO
@@ -163,7 +178,9 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(
 
 QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(
     const Vector3QLength &pos_, const QEnergy &Egamma_) const {
-	if (cacheTableInitialized) return getIOEfromCache(pos_, Egamma_);
+	if (cacheTableInitialized) {
+		return getIOEfromCache(pos_, Egamma_);
+	}
 
 	QPiZeroIntegral total(0);
 
@@ -198,6 +215,8 @@ QPiZeroIntegral PiZeroIntegrator::integrateOverEnergy(
 		    std::log(crDensity->getEnergyScaleFactor()) *
 		    std::accumulate(integral.begin(), integral.end(),
 		                    QPiZeroIntegral(0));
+	
+		//std::cerr << "IOE = " << crossSec->getDiffCrossSection(*crDensity->beginAfterEnergy(Egamma_), Egamma_) << std::endl;
 
 		for (const auto &neutralGas : ngdensity->getAbundanceFractions()) {
 			auto pid_target = neutralGas.first;

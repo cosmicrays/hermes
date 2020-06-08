@@ -28,8 +28,8 @@ class PiZeroIntegrator : public GammaIntegratorTemplate {
 
 	std::shared_ptr<neutralgas::ProfileAbstract> dProfile;
 
-	typedef Grid<QPiZeroIntegral> ICCacheTable;
-	std::shared_ptr<ICCacheTable> cacheTable;
+	typedef Grid<QPiZeroIntegral> tCacheTable;
+	std::shared_ptr<tCacheTable> cacheTable;
 
 	QPiZeroIntegral getIOEfromCache(const Vector3QLength &,
 	                                const QEnergy &) const;

@@ -12,7 +12,7 @@ class RingModel : public ::testing::Test {
 	// void TearDown() override {}
 
 	neutralgas::RingModel ringModel_HI =
-	    neutralgas::RingModel(neutralgas::RingType::HI);
+	    neutralgas::RingModel(neutralgas::GasType::HI);
 };
 
 TEST_F(RingModel, RingBoundaries) {
@@ -64,8 +64,8 @@ TEST_F(RingModel, isInside) {
 }
 
 TEST_F(RingModel, RingValues) {
-	neutralgas::RingModel ringModel_CO =
-	    neutralgas::RingModel(neutralgas::RingType::CO);
+	neutralgas::RingModel ringModel_H2 =
+	    neutralgas::RingModel(neutralgas::GasType::H2);
 
 	QDirection dir = {90_deg, 5_deg};
 	QColumnDensity col_HI(0);
@@ -74,7 +74,7 @@ TEST_F(RingModel, RingValues) {
 	for (const auto &ring : ringModel_HI)
 		col_HI += ring->getHIColumnDensity(dir);
 
-	for (const auto &ring : ringModel_CO)
+	for (const auto &ring : ringModel_H2)
 		col_H2 += ring->getH2ColumnDensity(dir);
 
 	EXPECT_NEAR(static_cast<double>(col_HI), 2e26, 5e25);
