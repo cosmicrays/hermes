@@ -9,7 +9,7 @@ extern const char g_GIT_DESC[];
  @brief A helper function to track the steering card version
 
  Use at the beginning of the (python) code by putting the string of
- the current version, e.g., declare_version("3.1-135-g9ec850f").
+ the current version, e.g., declare_version("v0.9-1-ga343b23").
  If there is a mismatch a warning message is shown.
  The current version number can be obtained through git:
 	git describe --tags

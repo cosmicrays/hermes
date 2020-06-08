@@ -1,7 +1,9 @@
 #ifdef HERMES_HAVE_CFITSIO
 
-#include "hermes/HEALPixBits.h"
 #include "hermes/outputs/HEALPixFormat.h"
+
+#include "hermes/HEALPixBits.h"
+#include "hermes/Version.h"
 
 namespace hermes { namespace outputs {
 
@@ -19,6 +21,11 @@ void HEALPixFormat::initOutput() {
 
 	ffile->createImage(FITS::IMGLONG, 0, nullnaxes);
 	ffile->writeDate();
+	
+	auto createdby = FITSKeyValue("SOFTWARE", "HERMES");
+	ffile->writeKeyValue(createdby, "Created by Hermes, cosmicrays.github.io/hermes");
+	auto version = FITSKeyValue("VERSION", g_GIT_DESC);
+	ffile->writeKeyValue(version, "Hermes ver. [GIT_DESC]");
 }
 
 void HEALPixFormat::createTable(int nrows, const std::string &unit) {
