@@ -86,7 +86,8 @@ class SkymapTemplate : public Skymap {
 	std::size_t getUnmaskedPixelCount() const;
 	QPXL getPixel(std::size_t ipix) const;
 	/**
-	    Retrieve ith (\t ipix) pixel as naked double
+	    Retrieve ith pixel as naked double
+		\par i	ith pixel (starting from 0)
 	*/
 	double getPixelAsDouble(std::size_t i) const;
 	/**

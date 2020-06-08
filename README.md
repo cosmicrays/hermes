@@ -24,7 +24,7 @@ HERMES provides the following integrators:
 - Bremsstrahlung
 - Gamma-ray emissions from Dark Matter annihilation
 
-The complete feature list is documented [here](https://cosmicrays.github.io/hermes/components.html).
+The complete feature list is documented on [github.io](https://cosmicrays.github.io/hermes/components.html).
 
 ## Install
 

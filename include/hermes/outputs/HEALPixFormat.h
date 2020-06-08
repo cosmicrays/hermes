@@ -38,7 +38,7 @@ class HEALPixFormat : public Output {
 	void initOutput() override;
 	/** Creates binary table
 	 \param nrows	Number of rows in the table
-	 \param tunit1	Physical unit of data in the table
+	 \param unit	Physical unit of data in the table
 	*/
 	void createTable(int nrows, const std::string &unit) override;
 	/** The healpix HDU header
