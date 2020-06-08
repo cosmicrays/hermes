@@ -15,7 +15,10 @@ Directory neutralgas
 Files
 -----
 
-- :ref:`file_include_hermes_neutralgas_NeutralGasDensity.h`
+- :ref:`file_include_hermes_neutralgas_GasType.h`
+- :ref:`file_include_hermes_neutralgas_Nakanishi06.h`
+- :ref:`file_include_hermes_neutralgas_NeutralGasAbstract.h`
+- :ref:`file_include_hermes_neutralgas_ProfileAbstract.h`
 - :ref:`file_include_hermes_neutralgas_RingModel.h`
 
 

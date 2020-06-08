@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1a05b6d6f0546f9bd87fd641c9e8502365:
+
+Typedef hermes::units::QEnergyOverTemperature
+=============================================
+
+- Defined in :ref:`file_include_hermes_units_UnitsSimple.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QEnergyOverTemperature

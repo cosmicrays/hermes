@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classhermes_1_1neutralgas_1_1RingData" kind="class" language="C++" prot="public">
     <compoundname>hermes::neutralgas::RingData</compoundname>
-    <includes refid="RingModel_8h" local="no">include/hermes/neutralgas/RingModel.h</includes>
+    <includes refid="RingModel_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/neutralgas/RingModel.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1a14a88cd00c024af930ea8ef3181519e8" prot="private" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="classhermes_1_1FITSFile" kindref="compound">FITSFile</ref> &gt;</type>
@@ -15,11 +15,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="25" column="17" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="25" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="24" column="17" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="24" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1ac20169f9948164efe3249e61fcfc22a8" prot="private" static="no" mutable="no">
-        <type>const <ref refid="group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7" kindref="member">RingType</ref></type>
-        <definition>const RingType type</definition>
+      <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1a9ceea445666a8a9411788b1f28af6f7c" prot="private" static="no" mutable="no">
+        <type>const <ref refid="group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c" kindref="member">GasType</ref></type>
+        <definition>const GasType type</definition>
         <argsstring></argsstring>
         <name>type</name>
         <briefdescription>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="27" column="16" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="27" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="26" column="15" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1abb198d8280f2162ece26732f2081d32e" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="28" column="5" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="28" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="27" column="5" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1aac43ca2cafe06ce0b44d3228575e3623" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="28" column="11" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="28" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="27" column="11" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1a1cd7c270a22d9a1cddb7d852f1dfbba9" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="28" column="17" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="28" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="27" column="17" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1a365507e654696b68332ad6957538e27f" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="29" column="8" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="29" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="28" column="8" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1a4baaaaa2c0a0ab810af1080360d100cd" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="29" column="16" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="29" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="28" column="16" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1abc1cfd9b5972368d50abc6b0a5ef5bd8" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="30" column="8" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="30" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="29" column="8" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1a4211c2d78915cd12d03e79f8ba03c2a7" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="30" column="18" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="30" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="29" column="18" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1neutralgas_1_1RingData_1a44e8510f4a4386395ad02e1b090fb92d" prot="private" static="no" mutable="no">
         <type>std::vector&lt; float &gt;</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="31" column="13" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="31" bodyend="-1"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="30" column="13" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="33" column="6" bodyfile="src/neutralgas/RingModel.cpp" bodystart="26" bodyend="45"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="32" column="6" bodyfile="src/neutralgas/RingModel.cpp" bodystart="26" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1neutralgas_1_1RingData_1a721a9201c5b5b2e5f12271fefe31c3e9" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -172,17 +172,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="34" column="8" bodyfile="src/neutralgas/RingModel.cpp" bodystart="51" bodyend="62"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="33" column="8" bodyfile="src/neutralgas/RingModel.cpp" bodystart="51" bodyend="62"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classhermes_1_1neutralgas_1_1RingData_1a8d48c44ab5f770efa2689b1d42060a7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classhermes_1_1neutralgas_1_1RingData_1a95a7839d41c98ef5d1a8ad39c3254880" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>RingData</definition>
-        <argsstring>(RingType gas)</argsstring>
+        <argsstring>(GasType gas)</argsstring>
         <name>RingData</name>
         <param>
-          <type><ref refid="group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7" kindref="member">RingType</ref></type>
+          <type><ref refid="group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c" kindref="member">GasType</ref></type>
           <declname>gas</declname>
         </param>
         <briefdescription>
@@ -191,7 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="37" column="1" bodyfile="src/neutralgas/RingModel.cpp" bodystart="17" bodyend="24"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="36" column="1" bodyfile="src/neutralgas/RingModel.cpp" bodystart="17" bodyend="24"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1neutralgas_1_1RingData_1a0ae4cfdb0d8f63e80cb5ad7d0e16a4e8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf" kindref="member">QColumnDensity</ref></type>
@@ -212,7 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="38" column="16" bodyfile="src/neutralgas/RingModel.cpp" bodystart="64" bodyend="68"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="37" column="16" bodyfile="src/neutralgas/RingModel.cpp" bodystart="64" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1neutralgas_1_1RingData_1a5d958356f7e3657c793f0f5355685f07" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a6fa6e2566d07746568b0ab61b4f0e491" kindref="member">QRingCOIntensity</ref></type>
@@ -233,20 +233,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="40" column="18" bodyfile="src/neutralgas/RingModel.cpp" bodystart="70" bodyend="75"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="39" column="18" bodyfile="src/neutralgas/RingModel.cpp" bodystart="70" bodyend="75"/>
       </memberdef>
-      <memberdef kind="function" id="classhermes_1_1neutralgas_1_1RingData_1acb7ae11e344b5cdaf9c49bc143fa780e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7" kindref="member">RingType</ref></type>
-        <definition>RingType getRingType</definition>
+      <memberdef kind="function" id="classhermes_1_1neutralgas_1_1RingData_1a5afa2fd9e40192fa392b67532412cbc3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c" kindref="member">GasType</ref></type>
+        <definition>GasType getGasType</definition>
         <argsstring>() const</argsstring>
-        <name>getRingType</name>
+        <name>getGasType</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="43" column="10" bodyfile="src/neutralgas/RingModel.cpp" bodystart="47" bodyend="47"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="42" column="9" bodyfile="src/neutralgas/RingModel.cpp" bodystart="47" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1neutralgas_1_1RingData_1af5a21caa3e9135b39fcfa18517f9e7ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -259,32 +259,32 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="44" column="5" bodyfile="src/neutralgas/RingModel.cpp" bodystart="49" bodyend="49"/>
+        <location file="include/hermes/neutralgas/RingModel.h" line="43" column="5" bodyfile="src/neutralgas/RingModel.cpp" bodystart="49" bodyend="49"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/hermes/neutralgas/RingModel.h" line="23" column="15" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="23" bodyend="45"/>
+    <location file="include/hermes/neutralgas/RingModel.h" line="22" column="15" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="22" bodyend="44"/>
     <listofallmembers>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a44e8510f4a4386395ad02e1b090fb92d" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>dataVector</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a4211c2d78915cd12d03e79f8ba03c2a7" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>delta_lat</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1abc1cfd9b5972368d50abc6b0a5ef5bd8" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>delta_lon</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a14a88cd00c024af930ea8ef3181519e8" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>ffile</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a5d958356f7e3657c793f0f5355685f07" prot="public" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>getCOIntensityInRing</name></member>
+      <member refid="classhermes_1_1neutralgas_1_1RingData_1a5afa2fd9e40192fa392b67532412cbc3" prot="public" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>getGasType</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a0ae4cfdb0d8f63e80cb5ad7d0e16a4e8" prot="public" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>getHIColumnDensityInRing</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a721a9201c5b5b2e5f12271fefe31c3e9" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>getRawValue</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1af5a21caa3e9135b39fcfa18517f9e7ca" prot="public" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>getRingNumber</name></member>
-      <member refid="classhermes_1_1neutralgas_1_1RingData_1acb7ae11e344b5cdaf9c49bc143fa780e" prot="public" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>getRingType</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a4baaaaa2c0a0ab810af1080360d100cd" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>min_lat</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a365507e654696b68332ad6957538e27f" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>min_lon</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1aac43ca2cafe06ce0b44d3228575e3623" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>n_lat</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1abb198d8280f2162ece26732f2081d32e" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>n_lon</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a1cd7c270a22d9a1cddb7d852f1dfbba9" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>n_rings</name></member>
       <member refid="classhermes_1_1neutralgas_1_1RingData_1a8d12f0655b5551096edae99eafa6e803" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>readDataFile</name></member>
-      <member refid="classhermes_1_1neutralgas_1_1RingData_1a8d48c44ab5f770efa2689b1d42060a7b" prot="public" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>RingData</name></member>
-      <member refid="classhermes_1_1neutralgas_1_1RingData_1ac20169f9948164efe3249e61fcfc22a8" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>type</name></member>
+      <member refid="classhermes_1_1neutralgas_1_1RingData_1a95a7839d41c98ef5d1a8ad39c3254880" prot="public" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>RingData</name></member>
+      <member refid="classhermes_1_1neutralgas_1_1RingData_1a9ceea445666a8a9411788b1f28af6f7c" prot="private" virt="non-virtual"><scope>hermes::neutralgas::RingData</scope><name>type</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

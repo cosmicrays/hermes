@@ -62,29 +62,29 @@ Functions
 
 - :ref:`exhale_function_group__Units_1ga7699e1e955a3b24accf3cba555ff1472`
 
-- :ref:`exhale_function_group__Units_1ga7763b5f64de8f48ae1f85dfe776cafdb`
-
 - :ref:`exhale_function_group__Units_1ga44936d6068e538b77a2a139ee271afee`
+
+- :ref:`exhale_function_group__Units_1ga7763b5f64de8f48ae1f85dfe776cafdb`
 
 - :ref:`exhale_function_group__Units_1ga215f23dcb96f83177c10dcedf0bc09de`
 
-- :ref:`exhale_function_group__Units_1gaaeed5846ce0c828bdec0a32c08d19b75`
-
 - :ref:`exhale_function_group__Units_1ga007cb3570f99c733cafdf8d1b8f80335`
+
+- :ref:`exhale_function_group__Units_1gaaeed5846ce0c828bdec0a32c08d19b75`
 
 - :ref:`exhale_function_group__Units_1gaeb7aaa87e7cfa30efe38d33dedf69781`
 
 - :ref:`exhale_function_group__Units_1ga99e6101cb162b8ba4f777ab3bd6b922d`
+
+- :ref:`exhale_function_group__Units_1ga3a3976369fb52b8e75fa8b2cc30a7930`
+
+- :ref:`exhale_function_group__Units_1ga317c864aeb334cbae64716fabb27eda1`
 
 - :ref:`exhale_function_group__Units_1ga946bb5e7635f73028d10a3e3283de38e`
 
 - :ref:`exhale_function_group__Units_1ga336dce08e89f40fb5ac1971a7ced411a`
 
 - :ref:`exhale_function_group__Units_1ga3e62cba209edd7385b67a753d3577596`
-
-- :ref:`exhale_function_group__Units_1ga317c864aeb334cbae64716fabb27eda1`
-
-- :ref:`exhale_function_group__Units_1ga3a3976369fb52b8e75fa8b2cc30a7930`
 
 - :ref:`exhale_function_group__Units_1gab980d95163be7a0fe3b1c36b4ca4346c`
 
@@ -200,85 +200,77 @@ Functions
 
 - :ref:`exhale_function_group__Units_1gaaff8a36efc24c485f8af8bb33ae62255`
 
-- :ref:`exhale_function_namespacehermes_1_1units_1a0709379f89073a1d6e125682f9c0830e`
-
-- :ref:`exhale_function_group__Units_1gada042fe2f1a28b710ea03c829f0c9ce1`
-
-- :ref:`exhale_function_group__Units_1ga06d74ca59a40e2132530a72f422ce3d3`
-
-- :ref:`exhale_function_group__Units_1ga4121abd29541a43a06b9dd4c621238b3`
-
-- :ref:`exhale_function_group__Units_1ga4aeddfd7922cdd5c275918a91cf51175`
-
-- :ref:`exhale_function_group__Units_1ga09e365c164bc792d483a843cfe0f3b7e`
-
-- :ref:`exhale_function_group__Units_1ga228f165ff11dda813ff406493cf5451d`
-
-- :ref:`exhale_function_namespacehermes_1_1units_1abc4316024c8b735f6ae822eeea7d157e`
-
-- :ref:`exhale_function_namespacehermes_1_1units_1a0d858fd0da3b2a2f1f21233b0504c479`
-
-- :ref:`exhale_function_group__Units_1ga785427355e264e9677f6cd1980c5a7b0`
-
-- :ref:`exhale_function_group__Units_1gaccef8d9b262e892b63dbb73d29fbdbf2`
-
-- :ref:`exhale_function_namespacehermes_1_1units_1ac2ef5e32c6c49910a12e1d2bd6397e20`
-
-- :ref:`exhale_function_group__Units_1ga75bd6af29b4260f0d25a24f568adc221`
+- :ref:`exhale_function_group__Units_1ga54d70cbf7b0fd44d5b76802dddc84d12`
 
 - :ref:`exhale_function_group__Units_1gad8919f32cfea5391894c52778cbbd2d5`
 
+- :ref:`exhale_function_group__Units_1gab96bf9948df5759d9acf8572d5559eb9`
+
 - :ref:`exhale_function_group__Units_1gaf21624c3161141c26d2ffd217f33f315`
-
-- :ref:`exhale_function_group__Units_1ga5bd9d6f7a9b1adb3707a2cabf206f72b`
-
-- :ref:`exhale_function_group__Units_1ga10b48d8bd1310040ee6775f0a2af7db6`
 
 - :ref:`exhale_function_group__Units_1ga692f09b5dfe2d45a0c99c0651f632348`
 
-- :ref:`exhale_function_group__Units_1ga54d70cbf7b0fd44d5b76802dddc84d12`
-
-- :ref:`exhale_function_group__Units_1gab96bf9948df5759d9acf8572d5559eb9`
+- :ref:`exhale_function_group__Units_1ga10b48d8bd1310040ee6775f0a2af7db6`
 
 - :ref:`exhale_function_group__Units_1ga46fd1289382a32171533dca145ae8bcb`
 
 - :ref:`exhale_function_group__Units_1ga21578ddadbc1c8c68766a82487e7efe7`
 
+- :ref:`exhale_function_group__Units_1ga4121abd29541a43a06b9dd4c621238b3`
+
+- :ref:`exhale_function_group__Units_1gada042fe2f1a28b710ea03c829f0c9ce1`
+
+- :ref:`exhale_function_group__Units_1ga4aeddfd7922cdd5c275918a91cf51175`
+
 - :ref:`exhale_function_group__Units_1gab4eb84f0483d0892fd6b87be69804448`
 
-- :ref:`exhale_function_group__Units_1ga716727b4100245ce1befdf61077da784`
+- :ref:`exhale_function_group__Units_1ga228f165ff11dda813ff406493cf5451d`
 
-- :ref:`exhale_function_group__Units_1ga207fd5b83767ded94f07dfbdc5ffa984`
+- :ref:`exhale_function_group__Units_1ga09e365c164bc792d483a843cfe0f3b7e`
 
-- :ref:`exhale_function_group__Units_1gaceba2eeeeae714a94dcb0500b05a0717`
-
-- :ref:`exhale_function_group__Units_1gae31025b8390e75e42a0f969317eb35a1`
-
-- :ref:`exhale_function_group__Units_1ga7d4b2cbfe6684ff453459b2797c40b1e`
-
-- :ref:`exhale_function_group__Units_1ga611a6f976b78c40f628f130adda54a79`
-
-- :ref:`exhale_function_group__Units_1gad86e3b73d91067c41a70c016c7130e82`
-
-- :ref:`exhale_function_group__Units_1ga7a9cb6a55e54afcafa707b102c8c96ce`
-
-- :ref:`exhale_function_group__Units_1gae5e3d3a405b4d112ed4a9278b180c0ab`
-
-- :ref:`exhale_function_group__Units_1ga49fb0afd994e8bfd439e9090147312b7`
-
-- :ref:`exhale_function_group__Units_1ga87fa2f8162fbe8e86d23ac6cb6c0280d`
-
-- :ref:`exhale_function_group__Units_1gab34690bf248225df416e7c8a77305e10`
-
-- :ref:`exhale_function_group__Units_1ga5fdbd549fe45ae7d6a9d0bb1cde32022`
+- :ref:`exhale_function_group__Units_1ga06d74ca59a40e2132530a72f422ce3d3`
 
 - :ref:`exhale_function_group__Units_1ga549c5ddef19b931b3d6c6eefe875ce00`
 
-- :ref:`exhale_function_group__Units_1ga6d4b43eccbdc8cb2d3bd577f1213e384`
+- :ref:`exhale_function_group__Units_1ga611a6f976b78c40f628f130adda54a79`
 
-- :ref:`exhale_function_group__Units_1gaaaf6ef71d45fb71779f26fdea4390702`
+- :ref:`exhale_function_group__Units_1ga87fa2f8162fbe8e86d23ac6cb6c0280d`
+
+- :ref:`exhale_function_namespacehermes_1_1units_1abc4316024c8b735f6ae822eeea7d157e`
 
 - :ref:`exhale_function_group__Units_1gacd0394e2555b5ce373809568e93f8580`
+
+- :ref:`exhale_function_namespacehermes_1_1units_1a0d858fd0da3b2a2f1f21233b0504c479`
+
+- :ref:`exhale_function_group__Units_1ga008273bc64c1712fd2f6f12bc7b6dc3a`
+
+- :ref:`exhale_function_group__Units_1ga785427355e264e9677f6cd1980c5a7b0`
+
+- :ref:`exhale_function_group__Units_1ga7a9cb6a55e54afcafa707b102c8c96ce`
+
+- :ref:`exhale_function_group__Units_1gaccef8d9b262e892b63dbb73d29fbdbf2`
+
+- :ref:`exhale_function_group__Units_1ga716727b4100245ce1befdf61077da784`
+
+- :ref:`exhale_function_namespacehermes_1_1units_1ac2ef5e32c6c49910a12e1d2bd6397e20`
+
+- :ref:`exhale_function_group__Units_1gad86e3b73d91067c41a70c016c7130e82`
+
+- :ref:`exhale_function_group__Units_1ga75bd6af29b4260f0d25a24f568adc221`
+
+- :ref:`exhale_function_group__Units_1gab34690bf248225df416e7c8a77305e10`
+
+- :ref:`exhale_function_group__Units_1gaf43bf1aa4ff555dfa74e7659437b1d34`
+
+- :ref:`exhale_function_group__Units_1ga5fdbd549fe45ae7d6a9d0bb1cde32022`
+
+- :ref:`exhale_function_group__Units_1ga207fd5b83767ded94f07dfbdc5ffa984`
+
+- :ref:`exhale_function_group__Units_1gae5e3d3a405b4d112ed4a9278b180c0ab`
+
+- :ref:`exhale_function_group__Units_1ga6d4b43eccbdc8cb2d3bd577f1213e384`
+
+- :ref:`exhale_function_group__Units_1ga5bd9d6f7a9b1adb3707a2cabf206f72b`
 
 - :ref:`exhale_function_group__Units_1ga3124f5546f892523baf376f0c3f5ec4a`
 
@@ -325,11 +317,11 @@ Typedefs
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40`
 
+- :ref:`exhale_typedef_namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f`
+
 - :ref:`exhale_typedef_namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf`
-
-- :ref:`exhale_typedef_namespacehermes_1_1units_1abfd2d95d5ad24fefdc11b58460cdef65`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c`
 
@@ -353,6 +345,8 @@ Typedefs
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c`
 
+- :ref:`exhale_typedef_namespacehermes_1_1units_1a05b6d6f0546f9bd87fd641c9e8502365`
+
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a5e81348dd8e9c30ddd626f52910a24a1`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f`
@@ -367,6 +361,8 @@ Typedefs
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f`
 
+- :ref:`exhale_typedef_namespacehermes_1_1units_1acf3d4a11ac9a813c482bd3f885e43fc7`
+
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909`
@@ -374,6 +370,8 @@ Typedefs
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a7fafd935f08d30262bfba7261e8f76f3`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59`
+
+- :ref:`exhale_typedef_namespacehermes_1_1units_1ace62e7f5cd9628fd2a9971b4f3657d37`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a72b849b5230560167419622406054305`
 
@@ -400,6 +398,8 @@ Typedefs
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a30f5a6207bff5e9e3503d039f5485439`
+
+- :ref:`exhale_typedef_namespacehermes_1_1units_1a93ce8b37e79297f83eee561b10d38502`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1ada6d27e18c6b882bd684cb05c2fea781`
 

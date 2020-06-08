@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1SynchroIntegrator" kind="class" language="C++" prot="public">
     <compoundname>hermes::SynchroIntegrator</compoundname>
     <basecompoundref refid="classhermes_1_1IntegratorTemplate" prot="public" virt="non-virtual">IntegratorTemplate&lt; QTemperature, QFrequency &gt;</basecompoundref>
-    <includes refid="SynchroIntegrator_8h" local="no">include/hermes/integrators/SynchroIntegrator.h</includes>
+    <includes refid="SynchroIntegrator_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/integrators/SynchroIntegrator.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1SynchroIntegrator_1a213d6ffe2b3c48e6809d4a4bb0396590" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">magneticfields::MagneticField</ref> &gt;</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="26" column="13" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="70" bodyend="92"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="26" column="13" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="72" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1a4b4b5553afc1813875bf5d4ffe86c683" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1" kindref="member">QEmissivity</ref></type>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="28" column="13" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="94" bodyend="112"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="28" column="13" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="96" bodyend="114"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="32" column="1" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="12" bodyend="15"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="32" column="1" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="12" bodyend="17"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1a70cbf3b1fa125109c64b66ae5727d01e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="35" column="1" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="17" bodyend="17"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="35" column="1" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="19" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1a1d34fe64eda9b4cb480b07d553fdaf11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="37" column="6" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="19" bodyend="21"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="37" column="6" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="21" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1ae0f3946aef9eca1173543ebbd325c913" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref></type>
@@ -155,12 +155,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="38" column="12" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="23" bodyend="23"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="38" column="12" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="25" bodyend="25"/>
       </memberdef>
-      <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1af8a8743be2c993c96fa67c5c58325ca4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1a4f9e9dd55d67602fa0f3087ae717ad38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
         <definition>QTemperature integrateOverLOS</definition>
-        <argsstring>(const QDirection &amp;iterdir) const</argsstring>
+        <argsstring>(const QDirection &amp;iterdir) const override</argsstring>
         <name>integrateOverLOS</name>
         <reimplements refid="classhermes_1_1IntegratorTemplate_1a793c8feb6e5546bd54fa469e191c1e9d">integrateOverLOS</reimplements>
         <param>
@@ -174,17 +174,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="40" column="14" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="25" bodyend="28"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="40" column="14" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="27" bodyend="30"/>
       </memberdef>
-      <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1a91954f979bfab0814e7d2025f201fbc1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1ae9ac0950f4b97af77139c0182b50f776" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
         <definition>QTemperature integrateOverLOS</definition>
-        <argsstring>(const QDirection &amp;iterdir, const QFrequency &amp;freq) const</argsstring>
+        <argsstring>(const QDirection &amp;iterdir, const QFrequency &amp;freq) const override</argsstring>
         <name>integrateOverLOS</name>
-        <reimplements refid="classhermes_1_1IntegratorTemplate_1a16d6c89aa4ffa980f4a54b6aa8306ead">integrateOverLOS</reimplements>
+        <reimplements refid="classhermes_1_1IntegratorTemplate_1a14afcc42b91497aa1d824a0c50a5ff89">integrateOverLOS</reimplements>
         <param>
           <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
-          <declname>iterdir</declname>
+          <declname>dir</declname>
         </param>
         <param>
           <type>const <ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref> &amp;</type>
@@ -196,7 +196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="41" column="14" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="30" bodyend="42"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="41" column="14" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="32" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1a754af28f5126fc40d0ef3e96051fa184" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
@@ -221,7 +221,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="44" column="9" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="44" bodyend="59"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="44" column="9" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="46" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SynchroIntegrator_1a62d586c17b1abfa5be07ec75b9a63b31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1" kindref="member">QEmissivity</ref></type>
@@ -242,7 +242,39 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/SynchroIntegrator.h" line="46" column="13" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="61" bodyend="68"/>
+        <location file="include/hermes/integrators/SynchroIntegrator.h" line="46" column="13" bodyfile="src/integrators/SynchroIntegrator.cpp" bodystart="63" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>getDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get Description of the integrator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="53" column="13" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setDescription</definition>
+        <argsstring>(const std::string &amp;description)</argsstring>
+        <name>setDescription</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set Description of the integrator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="55" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="55" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -260,7 +292,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="54" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="54" bodyend="59"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="63" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="63" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref></type>
@@ -274,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="63" column="7" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="63" bodyend="63"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="72" column="7" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="72" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -292,7 +324,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="86" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="86" bodyend="86"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="95" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="95" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref></type>
@@ -306,7 +338,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="90" column="23" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="90" bodyend="90"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="99" column="23" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="99" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
@@ -324,7 +356,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="95" column="16" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="95" bodyend="97"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="104" column="16" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="104" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ab4e3b598849bf32d6fa6dca2abc2d5fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -350,7 +382,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="101" column="14" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="101" bodyend="101"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="110" column="14" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="110" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -363,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="102" column="14" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="102" bodyend="102"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="111" column="14" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="111" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -376,7 +408,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="103" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="103" bodyend="103"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="112" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="112" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -389,7 +421,68 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="104" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="104" bodyend="104"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="113" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kindref="member">tLOSProfile</ref></type>
+        <definition>virtual tLOSProfile getLOSProfile</definition>
+        <argsstring>(const QDirection &amp;dir, int Nsteps) const</argsstring>
+        <name>getLOSProfile</name>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Nsteps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="121" column="21" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="121" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kindref="member">tLOSProfile</ref></type>
+        <definition>virtual tLOSProfile getLOSProfile</definition>
+        <argsstring>(const QDirection &amp;dir, const QFrequency &amp;, int Nsteps) const</argsstring>
+        <name>getLOSProfile</name>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref> &amp;</type>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Nsteps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="124" column="21" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="124" bodyend="127"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" prot="public" static="no">
+        <type>std::pair&lt; std::vector&lt; <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &gt;, std::vector&lt; double &gt; &gt;</type>
+        <definition>typedef std::pair&lt;std::vector&lt;QLength&gt;, std::vector&lt;double&gt; &gt; tLOSProfile</definition>
+        <argsstring></argsstring>
+        <name>tLOSProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the line of sight profile (integrand of integrateOverLOS) of a direction where N is equidistant number of steps from the Sun&apos;s position to the galactic border </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="120" column="19" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -445,6 +538,19 @@
         </inbodydescription>
         <location file="include/hermes/integrators/IntegratorTemplate.h" line="41" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="41" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="42" column="13" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
@@ -463,14 +569,22 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="4">
+      <node id="6">
         <label>Vector3&lt; QLength &gt;</label>
         <link refid="classhermes_1_1Vector3"/>
       </node>
       <node id="3">
+        <label>string</label>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>basic_string&lt; char &gt;</label>
+      </node>
+      <node id="5">
         <label>Vector3Quantity&lt; QLength &gt;</label>
         <link refid="classhermes_1_1Vector3Quantity"/>
-        <childnode refid="4" relation="public-inheritance">
+        <childnode refid="6" relation="public-inheritance">
         </childnode>
       </node>
       <node id="1">
@@ -483,6 +597,9 @@
         <label>RadioIntegratorTemplate</label>
         <link refid="classhermes_1_1IntegratorTemplate"/>
         <childnode refid="3" relation="usage">
+          <edgelabel>description</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
           <edgelabel>positionSun</edgelabel>
         </childnode>
       </node>
@@ -493,20 +610,25 @@
       <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" prot="protected" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>cacheTableInitialized</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1aae0204c4b20cc282cdfb31f2e8983e3a" prot="private" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>const_synchro</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1a36d8ffdffaeffa9612e22608074448cc" prot="private" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>crdensity</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" prot="protected" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>description</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>getDescription</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1ae0f3946aef9eca1173543ebbd325c913" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>getFrequency</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" prot="public" virt="virtual"><scope>hermes::SynchroIntegrator</scope><name>getLOSProfile</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" prot="public" virt="virtual"><scope>hermes::SynchroIntegrator</scope><name>getLOSProfile</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>getMaxDistance</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>getSunPosition</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" prot="public" virt="virtual"><scope>hermes::SynchroIntegrator</scope><name>initCacheTable</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1a62d586c17b1abfa5be07ec75b9a63b31" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>integrateOverEnergy</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1a4b4b5553afc1813875bf5d4ffe86c683" prot="private" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>integrateOverLogEnergy</name></member>
-      <member refid="classhermes_1_1SynchroIntegrator_1af8a8743be2c993c96fa67c5c58325ca4" prot="public" virt="virtual"><scope>hermes::SynchroIntegrator</scope><name>integrateOverLOS</name></member>
-      <member refid="classhermes_1_1SynchroIntegrator_1a91954f979bfab0814e7d2025f201fbc1" prot="public" virt="virtual"><scope>hermes::SynchroIntegrator</scope><name>integrateOverLOS</name></member>
+      <member refid="classhermes_1_1SynchroIntegrator_1a4f9e9dd55d67602fa0f3087ae717ad38" prot="public" virt="virtual"><scope>hermes::SynchroIntegrator</scope><name>integrateOverLOS</name></member>
+      <member refid="classhermes_1_1SynchroIntegrator_1ae9ac0950f4b97af77139c0182b50f776" prot="public" virt="virtual"><scope>hermes::SynchroIntegrator</scope><name>integrateOverLOS</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1ad7e8f8bce9cce9f2ddc8869a9a697d86" prot="private" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>integrateOverSumEnergy</name></member>
-      <member refid="classhermes_1_1IntegratorTemplate_1a379d6e97c4be0ac5d82c1d7ea76a7b3a" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>IntegratorTemplate</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1acc14d2e2cb6476d26717c80d6a2a8859" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>IntegratorTemplate</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>isCacheTableEnabled</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>isCacheTableInitialized</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1a213d6ffe2b3c48e6809d4a4bb0396590" prot="private" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>mfield</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" prot="protected" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>positionSun</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>setDescription</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1a1d34fe64eda9b4cb480b07d553fdaf11" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>setFrequency</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>setSkymapParameter</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>setSkymapParameter</name></member>
@@ -515,6 +637,7 @@
       <member refid="classhermes_1_1SynchroIntegrator_1a754af28f5126fc40d0ef3e96051fa184" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>singleElectronEmission</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" prot="protected" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>skymapParameter</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1ae10b7e7858396ee9f0d4b441ee718683" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>SynchroIntegrator</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>tLOSProfile</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ad705532d91a47b4bfd2c36a6eedd9051" prot="public" virt="virtual"><scope>hermes::SynchroIntegrator</scope><name>~IntegratorTemplate</name></member>
       <member refid="classhermes_1_1SynchroIntegrator_1a70cbf3b1fa125109c64b66ae5727d01e" prot="public" virt="non-virtual"><scope>hermes::SynchroIntegrator</scope><name>~SynchroIntegrator</name></member>
     </listofallmembers>

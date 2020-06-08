@@ -1,4 +1,4 @@
 <map id="RingModel" name="RingModel">
-<area shape="rect" id="node1" title=" " alt="" coords="33,80,123,107"/>
-<area shape="rect" id="node2" href="$group__NeutralGas.html#classhermes_1_1neutralgas_1_1NeutralGasDensity" title=" " alt="" coords="5,5,151,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="35,80,125,107"/>
+<area shape="rect" id="node2" href="$group__NeutralGas.html#classhermes_1_1neutralgas_1_1NeutralGasAbstract" title=" " alt="" coords="5,5,155,32"/>
 </map>

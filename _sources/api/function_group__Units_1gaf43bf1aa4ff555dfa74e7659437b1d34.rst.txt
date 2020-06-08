@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1gaf43bf1aa4ff555dfa74e7659437b1d34:
+
+Function hermes::units::QUANTITY_TYPE(-, -, 1, 0, 0, 0, 0, 0, 0, QSpectralEnergyDensity)
+========================================================================================
+
+- Defined in :ref:`file_include_hermes_units_UnitsQClass.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::QUANTITY_TYPE(-, -, 1, 0, 0, 0, 0, 0, 0, QSpectralEnergyDensity)

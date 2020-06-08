@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1a93ce8b37e79297f83eee561b10d38502:
+
+Typedef hermes::units::QSpectralEnergyDensity
+=============================================
+
+- Defined in :ref:`file_include_hermes_units_UnitsSimple.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QSpectralEnergyDensity

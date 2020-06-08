@@ -38,14 +38,10 @@ Classes
 
 - :ref:`exhale_class_classhermes_1_1Vector3Quantity`
 
-- :ref:`exhale_class_classVector3Qunatity`
-
 
 Functions
 ---------
 
-
-- :ref:`exhale_function_group__Core_1gae75dab5b04f7983e5fca74359e452597`
 
 - :ref:`exhale_function_group__Core_1gad744b0b61f9f9d3c010bb33b7fc66517`
 
@@ -56,6 +52,8 @@ Functions
 - :ref:`exhale_function_group__Core_1ga4f33e9180938be7d97bc55d0e0dd2930`
 
 - :ref:`exhale_function_group__Core_1ga92f2fdfa289f52d0f0d6bb7e516c183f`
+
+- :ref:`exhale_function_group__Core_1gae75dab5b04f7983e5fca74359e452597`
 
 
 Typedefs

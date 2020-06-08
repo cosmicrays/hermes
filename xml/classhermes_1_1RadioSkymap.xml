@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1RadioSkymap" kind="class" language="C++" prot="public">
     <compoundname>hermes::RadioSkymap</compoundname>
     <basecompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QTemperature, QFrequency &gt;</basecompoundref>
-    <includes refid="RadioSkymap_8h" local="no">include/hermes/skymaps/RadioSkymap.h</includes>
+    <includes refid="RadioSkymap_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/skymaps/RadioSkymap.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classhermes_1_1RadioSkymap_1a657a1223e79d839fe4df774671db66ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -118,10 +118,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Size of the skymap container (same as getNPix()) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="80" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="178" bodyend="180"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="82" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="201" bodyend="203"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gabd2739ed77df833d30b72f2140e59c40" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::size_t</type>
@@ -131,10 +132,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculate the total number of unmasked pixels </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="81" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="183" bodyend="185"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="86" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="206" bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
@@ -151,7 +153,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="82" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="188" bodyend="190"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="87" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="211" bodyend="213"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>double</type>
@@ -166,10 +168,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Retrieve ith (<simplesect kind="par"><title>ipix) pixel as naked double</title><para></para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="83" column="8" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="193" bodyend="195"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="91" column="8" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="216" bodyend="218"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
@@ -179,10 +184,25 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Calculate the mean value of unmasked pixels </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="84" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="198" bodyend="207"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="95" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="221" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Skymaps_1ga43328b62b3d65924b0fd4c70b43c4fe2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool hasMask</definition>
+        <argsstring>() const</argsstring>
+        <name>hasMask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the skymap is masked </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="99" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="233" bodyend="238"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
@@ -196,10 +216,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Pixel accessor [] (same as getPixel) </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="85" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="210" bodyend="212"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="103" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="241" bodyend="243"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1a3941e9e06332ecd9878d91c28cb95914" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref> *</type>
@@ -209,10 +230,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Returns a pointer to the pixel container </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="86" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="86" bodyend="86"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="107" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="107" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -226,10 +248,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Set the line of sight integrator </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="88" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="220" bodyend="223"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="111" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="251" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1a37aa9080345c10402de7268293497f2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -242,7 +265,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="90" column="6"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="113" column="6"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gabef15a424c177135fd05df19875b799f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -255,7 +278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="92" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="215" bodyend="217"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="115" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="246" bodyend="248"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga5c8a2243928153f37fdeaa10c0d87b8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -272,7 +295,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="93" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="348" bodyend="351"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="116" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="378" bodyend="381"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga249a66ed61d77fb85beee37b465252ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; bool &gt;</type>
@@ -285,7 +308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="94" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="354" bodyend="356"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="117" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="384" bodyend="386"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga53ac253e25a531e5343704376e95c3f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -302,7 +325,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="95" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="359" bodyend="361"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="118" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="389" bodyend="391"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga03461b98b27eb60d2af5220579acf5bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -327,7 +350,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="100" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="234" bodyend="245"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="123" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="266" bodyend="277"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga4993c97a669fa259c6574a18d547c117" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -340,7 +363,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="103" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="248" bodyend="279"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="126" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="280" bodyend="311"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gade7d320408689e59a231ec1e0fb7bc95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -362,7 +385,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="106" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="295" bodyend="306"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="129" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="327" bodyend="338"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga169e6c7645d6ac3a035793e5acfe3c77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref></type>
@@ -379,7 +402,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="107" column="9" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="289" bodyend="292"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="130" column="9" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="321" bodyend="324"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga8a1d7738e3481a250fb4a695ee566f9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>
@@ -392,7 +415,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="108" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="309" bodyend="311"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="131" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="341" bodyend="343"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gaafaf4af3194121a33d722c46d8f26e38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -405,7 +428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="109" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="314" bodyend="316"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="132" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="346" bodyend="348"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gaf7075f797d48da89d03eabf940f9d6b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -418,7 +441,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="110" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="319" bodyend="321"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="133" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="351" bodyend="353"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga0e464850f1102fd6698d3dc5e2681b98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; float &gt;</type>
@@ -431,7 +454,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="111" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="324" bodyend="333"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="134" column="13" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="356" bodyend="365"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gab3a090f0c95948ea8a13308317aa8d53" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -449,7 +472,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="112" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="336" bodyend="345"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="135" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="368" bodyend="375"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga8a4a270f1b9a794e342c07263f39fd72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classhermes_1_1SkymapTemplate_1ab2f907e1700415a320e23d727c8feeb1" kindref="member">iterator</ref></type>
@@ -462,7 +485,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="117" column="10" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="365" bodyend="367"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="140" column="10" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="395" bodyend="397"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1a29305669b60ca1680752e2fc3592ba99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classhermes_1_1SkymapTemplate_1abdb5a0210356a580b39042483c0ef491" kindref="member">const_iterator</ref></type>
@@ -475,7 +498,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="118" column="16"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="141" column="16"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1gabbe2e707d37e7e53f03f1a7501c73093" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classhermes_1_1SkymapTemplate_1ab2f907e1700415a320e23d727c8feeb1" kindref="member">iterator</ref></type>
@@ -488,7 +511,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="119" column="10" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="377" bodyend="379"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="142" column="10" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="407" bodyend="409"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1SkymapTemplate_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classhermes_1_1SkymapTemplate_1abdb5a0210356a580b39042483c0ef491" kindref="member">const_iterator</ref></type>
@@ -501,7 +524,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="120" column="16"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="143" column="16"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1Skymap_1a4c9dd9660b26bc53339d7a8acdde7069" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -648,7 +671,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="115" column="43" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="115" bodyend="-1"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="138" column="43" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="classhermes_1_1SkymapTemplate_1abdb5a0210356a580b39042483c0ef491" prot="public" static="no">
         <type>tFluxContainer::const_iterator</type>
@@ -661,7 +684,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="116" column="49" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="116" bodyend="-1"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="139" column="49" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="139" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -855,7 +878,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="57" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="282" bodyend="286"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="57" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="314" bodyend="318"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga3c9b9e7b084b323c64caf7b027cf713b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -868,7 +891,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="58" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="166" bodyend="169"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="58" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="189" bodyend="192"/>
       </memberdef>
       <memberdef kind="function" id="group__Skymaps_1ga1480e0a77dbbb0edda9d9a9760230bdf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -881,7 +904,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/SkymapTemplate.h" line="59" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="171" bodyend="174"/>
+        <location file="include/hermes/skymaps/SkymapTemplate.h" line="59" column="6" bodyfile="include/hermes/skymaps/SkymapTemplate.h" bodystart="194" bodyend="197"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -947,6 +970,9 @@
       <node id="10">
         <label>IntegratorTemplate&lt; QTemperature, QFrequency &gt;</label>
         <link refid="classhermes_1_1IntegratorTemplate"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>description</edgelabel>
+        </childnode>
         <childnode refid="11" relation="usage">
           <edgelabel>positionSun</edgelabel>
         </childnode>
@@ -1038,6 +1064,7 @@
       <member refid="classhermes_1_1Skymap_1a3eac88a40358035b1df3a9a5bc1ab015" prot="public" virt="non-virtual"><scope>hermes::RadioSkymap</scope><name>getRes</name></member>
       <member refid="group__Skymaps_1gaf7075f797d48da89d03eabf940f9d6b8" prot="public" virt="non-virtual"><scope>hermes::RadioSkymap</scope><name>getUnits</name></member>
       <member refid="group__Skymaps_1gabd2739ed77df833d30b72f2140e59c40" prot="public" virt="non-virtual"><scope>hermes::RadioSkymap</scope><name>getUnmaskedPixelCount</name></member>
+      <member refid="group__Skymaps_1ga43328b62b3d65924b0fd4c70b43c4fe2" prot="public" virt="non-virtual"><scope>hermes::RadioSkymap</scope><name>hasMask</name></member>
       <member refid="group__Skymaps_1ga3c9b9e7b084b323c64caf7b027cf713b" prot="protected" virt="non-virtual"><scope>hermes::RadioSkymap</scope><name>initContainer</name></member>
       <member refid="group__Skymaps_1gac1f1ef686abb10ce34a22e8f813be29c" prot="protected" virt="non-virtual"><scope>hermes::RadioSkymap</scope><name>initDefaultOutputUnits</name></member>
       <member refid="group__Skymaps_1ga1480e0a77dbbb0edda9d9a9760230bdf" prot="protected" virt="non-virtual"><scope>hermes::RadioSkymap</scope><name>initMask</name></member>

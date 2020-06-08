@@ -2,7 +2,10 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="dir_418e92a9d18b3ee576040758adb043d8" kind="dir">
     <compoundname>include/hermes/neutralgas</compoundname>
-    <innerfile refid="NeutralGasDensity_8h">NeutralGasDensity.h</innerfile>
+    <innerfile refid="GasType_8h">GasType.h</innerfile>
+    <innerfile refid="Nakanishi06_8h">Nakanishi06.h</innerfile>
+    <innerfile refid="NeutralGasAbstract_8h">NeutralGasAbstract.h</innerfile>
+    <innerfile refid="ProfileAbstract_8h">ProfileAbstract.h</innerfile>
     <innerfile refid="RingModel_8h">RingModel.h</innerfile>
     <briefdescription>
     </briefdescription>

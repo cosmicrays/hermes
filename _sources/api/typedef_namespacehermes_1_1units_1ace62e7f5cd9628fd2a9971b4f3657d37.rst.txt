@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1ace62e7f5cd9628fd2a9971b4f3657d37:
+
+Typedef hermes::units::QMassDensity
+===================================
+
+- Defined in :ref:`file_include_hermes_units_UnitsSimple.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QMassDensity

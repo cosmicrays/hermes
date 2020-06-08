@@ -40,9 +40,9 @@ Functions
 
 - :ref:`exhale_function_namespacehermes_1a11f622cfa477f5d94f5cedd52a5d6ac5`
 
-- :ref:`exhale_function_namespacehermes_1aa72d8a7d7169c7140afb5574140b40bd`
-
 - :ref:`exhale_function_namespacehermes_1a002ec613d1cbae33f809a462a3b1bad2`
+
+- :ref:`exhale_function_namespacehermes_1aa72d8a7d7169c7140afb5574140b40bd`
 
 - :ref:`exhale_function_namespacehermes_1a3aff1a45fe5aa42baf22b3b4f16f741f`
 

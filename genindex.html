@@ -213,7 +213,9 @@
 <li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1magneticfields_1_1UniformMagneticField.html">Class UniformMagneticField</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1magneticfields_1_1WMAP07Field.html">Class WMAP07Field</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1MaskList.html">Class MaskList</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1neutralgas_1_1NeutralGasDensity.html">Class NeutralGasDensity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1neutralgas_1_1Nakanishi06.html">Class Nakanishi06</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1neutralgas_1_1NeutralGasAbstract.html">Class NeutralGasAbstract</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1neutralgas_1_1ProfileAbstract.html">Class ProfileAbstract</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1neutralgas_1_1Ring.html">Class Ring</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1neutralgas_1_1RingData.html">Class RingData</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1neutralgas_1_1RingModel.html">Class RingModel</a></li>
@@ -239,7 +241,6 @@
 <li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1units_1_1Quantity.html">Template Class Quantity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1Vector3.html">Template Class Vector3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/classhermes_1_1Vector3Quantity.html">Template Class Vector3Quantity</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/classVector3Qunatity.html">Class Vector3Qunatity</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/library_root.html#enums">Enums</a><ul>
@@ -249,10 +250,11 @@
 <li class="toctree-l4"><a class="reference internal" href="api/enum_namespacehermes_1_1FITS_1ae3cad0012491f6b195d44b53e67a6f37.html">Enum HDUType</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/enum_namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8.html">Enum ImgType</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/enum_namespacehermes_1_1FITS_1a6920ce5d7f5c06c676fe801e538aed49.html">Enum IOMode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/enum_group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7.html">Enum RingType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/enum_group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c.html">Enum GasType</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/library_root.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/function_Version_8h_1ae07054153f2b6877a8acf6fbf1ee7090.html">Function declare_version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1a8595384c9be525c15b4d15a2b66b385f.html">Function hermes::__attribute__</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1ab48f80ec6a4725ec9387e1dab8c08da7.html">Function hermes::__declspec</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1aab83269110d53cbcf531a12843ffdf73.html">Template Function hermes::adaptiveSimpsonIntegration</a></li>
@@ -262,7 +264,7 @@
 <li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1_1darkmatter_1ad686df245a8f4306de4b937d26523978.html">Function hermes::darkmatter::I_func</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1a8238e5ea84755ca291f5fe33eabc4e07.html">Function hermes::distanceFromGC(QDirection, QLength, const Vector3QLength&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1aefeac1d50b6dfe2bafea892a9c560370.html">Function hermes::distanceFromGC(const QDirection&amp;, const QLength&amp;, const Vector3QLength&amp;)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1a26cf6e5a6eb42fca7df65a4057f4c36d.html">Function hermes::distanceToGalBorder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1ac91611f6d89210b3b3353cc2b3fdc1fb.html">Function hermes::distanceToGalBorder</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Core_1gabc931910e8c034ccaec9fe10dcc37e0a.html">Function hermes::dumpGrid(std::unique_ptr&lt;VectorGrid&gt;, std::string, double)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Core_1gaa523e8e1f4238bc94aeb41646356cd4e.html">Function hermes::dumpGrid(std::unique_ptr&lt;ScalarGrid&gt;, std::string, double)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1adbace0895ffceceba9f7e835c50729e6.html">Function hermes::dumpGrid(const std::shared_ptr&lt;VectorGrid&gt;&amp;, const std::string&amp;, double)</a></li>
@@ -431,7 +433,6 @@
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga84ef92feef6099af8083efeab01ce82f.html">Template Function hermes::units::pow(double)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga47acc6023b05d3991d472c57181f3ba0.html">Template Function hermes::units::pow(const Quantity&lt;l, t, m, I, T, N, J, A, SA&gt;&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1gaaff8a36efc24c485f8af8bb33ae62255.html">Template Function hermes::units::pow(const Quantity&lt;l, t, m, I, T, N, J, A, SA&gt;&amp;)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1_1units_1a0709379f89073a1d6e125682f9c0830e.html">Template Function hermes::units::pow(const QNumber&amp;)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1_1units_1abc4316024c8b735f6ae822eeea7d157e.html">Function hermes::units::QUANTITY_TYPE(1, -, 0, 0, 1, 0, 0, 0, 0, QRingCOIntensity)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_namespacehermes_1_1units_1a0d858fd0da3b2a2f1f21233b0504c479.html">Function hermes::units::QUANTITY_TYPE(2, 0, 0, 1, 0, 0, 0, 0, 0, QSynchroConstant)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga785427355e264e9677f6cd1980c5a7b0.html">Function hermes::units::QUANTITY_TYPE(-, 1, -, 0, 0, 0, 0, 0, 0, QPiZeroIntegral)</a></li>
@@ -458,15 +459,12 @@
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga611a6f976b78c40f628f130adda54a79.html">Function hermes::units::QUANTITY_TYPE(1, -, 1, 0, 0, 0, 0, 0, 0, QStoppingPower)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga87fa2f8162fbe8e86d23ac6cb6c0280d.html">Function hermes::units::QUANTITY_TYPE(1, -, 1, 0, 0, 0, 0, 0, 0, QSpectralRadiance)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1gacd0394e2555b5ce373809568e93f8580.html">Function hermes::units::QUANTITY_TYPE(2, 0, 0, 0, 0, 0, 0, 0, 0, QArea)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1gaaaf6ef71d45fb71779f26fdea4390702.html">Function hermes::units::QUANTITY_TYPE(2, -, 1, 0, 0, 0, 0, 0, 0, QAngularMomentum)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1gae31025b8390e75e42a0f969317eb35a1.html">Function hermes::units::QUANTITY_TYPE(2, -, 1, 0, 0, 0, 0, 0, 0, QEnergy)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga008273bc64c1712fd2f6f12bc7b6dc3a.html">Function hermes::units::QUANTITY_TYPE(2, -, 1, 0, 0, 0, 0, 0, 0, QAngularMomentum)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga7a9cb6a55e54afcafa707b102c8c96ce.html">Function hermes::units::QUANTITY_TYPE(2, -, 1, 0, 0, 0, 0, 0, 0, QTorque)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga716727b4100245ce1befdf61077da784.html">Function hermes::units::QUANTITY_TYPE(2, -, 1, -, 0, 0, 0, 0, 0, QEResistance)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1gad86e3b73d91067c41a70c016c7130e82.html">Function hermes::units::QUANTITY_TYPE(3, 0, 0, 0, 0, 0, 0, 0, 0, QVolume)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1gab34690bf248225df416e7c8a77305e10.html">Function hermes::units::QUANTITY_TYPE(-, 0, 0, 0, 0, 0, 0, 0, 0, QInverseLength)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga7d4b2cbfe6684ff453459b2797c40b1e.html">Function hermes::units::QUANTITY_TYPE(-, -, 1, 0, 0, 0, 0, 0, 0, QSpectralEnergyDensity)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1gaceba2eeeeae714a94dcb0500b05a0717.html">Function hermes::units::QUANTITY_TYPE(-, -, 1, 0, 0, 0, 0, 0, 0, QEmissivity)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga49fb0afd994e8bfd439e9090147312b7.html">Function hermes::units::QUANTITY_TYPE(-, 2, -, 0, 0, 0, 0, 0, 0, QInverseEnergy)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1gaf43bf1aa4ff555dfa74e7659437b1d34.html">Function hermes::units::QUANTITY_TYPE(-, -, 1, 0, 0, 0, 0, 0, 0, QSpectralEnergyDensity)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga5fdbd549fe45ae7d6a9d0bb1cde32022.html">Function hermes::units::QUANTITY_TYPE(-, 4, -, 2, 0, 0, 0, 0, 0, QECapacitance)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1ga207fd5b83767ded94f07dfbdc5ffa984.html">Function hermes::units::QUANTITY_TYPE(-, 0, 1, 0, 0, 0, 0, 0, 0, QMassDensity)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/function_group__Units_1gae5e3d3a405b4d112ed4a9278b180c0ab.html">Function hermes::units::QUANTITY_TYPE(-, 1, -, 0, 0, 0, 0, 0, -, QDiffIntensity)</a></li>
@@ -491,6 +489,9 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/library_root.html#variables">Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/variable_Version_8h_1a6834134ebcf1a7fadc2562fc74544f46.html">Variable g_GIT_DESC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/variable_Version_8h_1a36b71113647c58eb81b6f6faf06f784b.html">Variable g_GIT_REFSPEC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/variable_Version_8h_1a6e70968528819ece37e7d5f722c53efc.html">Variable g_GIT_SHA1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/variable_namespacehermes_1a660441872cddfe877ad1c1b4cef8d164.html">Variable hermes::_random</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/variable_namespacehermes_1adebadb30598d3cf64fe91485c3049ced.html">Variable hermes::g_cancel_signal_flag</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/variable_namespacehermes_1a6534aea88ad941c2ee2ea1bffb759652.html">Variable hermes::MAX_THREAD</a></li>
@@ -617,9 +618,9 @@
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a90796c8083e0e96d3fd6ba1266a3ddd0.html">Typedef hermes::units::QAcceleration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1acc4e548474922dd119e8c9bf9492bace.html">Typedef hermes::units::QAMomentum</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40.html">Typedef hermes::units::QAngle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f.html">Typedef hermes::units::QAngularMomentum</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c.html">Typedef hermes::units::QArea</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf.html">Typedef hermes::units::QColumnDensity</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1abfd2d95d5ad24fefdc11b58460cdef65.html">Typedef hermes::units::QDensity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c.html">Typedef hermes::units::QDiffCrossSection</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a93760358a2f865d72e4c32104285f35a.html">Typedef hermes::units::QDiffFlux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5.html">Typedef hermes::units::QDiffIntensity</a></li>
@@ -631,6 +632,7 @@
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1.html">Typedef hermes::units::QEmissivity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167.html">Typedef hermes::units::QEnergy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c.html">Typedef hermes::units::QEnergyDensity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a05b6d6f0546f9bd87fd641c9e8502365.html">Typedef hermes::units::QEnergyOverTemperature</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a5e81348dd8e9c30ddd626f52910a24a1.html">Typedef hermes::units::QEPotential</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f.html">Typedef hermes::units::QEResistance</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1aa5aca56b7d2fd0c4824c1ac399f2a8fc.html">Typedef hermes::units::QForce</a></li>
@@ -638,10 +640,12 @@
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3.html">Typedef hermes::units::QGREmissivity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a9970527ffabff2dd35c43fb96f45cda7.html">Typedef hermes::units::QICInnerIntegral</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f.html">Typedef hermes::units::QIntensity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1acf3d4a11ac9a813c482bd3f885e43fc7.html">Typedef hermes::units::QInverseEnergy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0.html">Typedef hermes::units::QInverseLength</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909.html">Typedef hermes::units::QLength</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a7fafd935f08d30262bfba7261e8f76f3.html">Typedef hermes::units::QLIntensity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59.html">Typedef hermes::units::QMass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1ace62e7f5cd9628fd2a9971b4f3657d37.html">Typedef hermes::units::QMassDensity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a72b849b5230560167419622406054305.html">Typedef hermes::units::QMField</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a6a7ff69b5d0f535262f7981fc5f3a3e1.html">Typedef hermes::units::QMomentum</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780.html">Typedef hermes::units::QNumber</a></li>
@@ -655,6 +659,7 @@
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a882108de6a7baeb179ec278907e91489.html">Typedef hermes::units::QRMIntegral</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65.html">Typedef hermes::units::QRotationMeasure</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a30f5a6207bff5e9e3503d039f5485439.html">Typedef hermes::units::QSolidAngle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a93ce8b37e79297f83eee561b10d38502.html">Typedef hermes::units::QSpectralEnergyDensity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1ada6d27e18c6b882bd684cb05c2fea781.html">Typedef hermes::units::QSpeed</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1a4240d354c79517ce51fbc34f6a7e791a.html">Typedef hermes::units::QSubstance</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/typedef_namespacehermes_1_1units_1af1f97c9b0b9bdd6cc6b1ae114f535785.html">Typedef hermes::units::QSynchroConstant</a></li>
@@ -674,6 +679,13 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/Developers.html">Developers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pages/Developers.html#general-guidelines">General Guidelines</a></li>
 </ul>
 </li>
 </ul>
@@ -805,13 +817,15 @@
 </li>
       <li><a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv3D0v">~IntegratorTemplate (C++ function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classhermes_1_1InverseComptonIntegrator.html#_CPPv3D0v">~InverseComptonIntegrator (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1magneticfields_1_1MagneticField.html#_CPPv3D0v">~MagneticField (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1neutralgas_1_1NeutralGasDensity.html#_CPPv3D0v">~NeutralGasDensity (C++ function)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Nakanishi06.html#_CPPv3D0v">~Nakanishi06 (C++ function)</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1NeutralGasAbstract.html#_CPPv3D0v">~NeutralGasAbstract (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1darkmatter_1_1NFWGProfile.html#_CPPv3D0v">~NFWGProfile (C++ function)</a>
 </li>
@@ -825,7 +839,11 @@
 </li>
       <li><a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv3D0v">~PiZeroIntegrator (C++ function)</a>
 </li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1ProfileAbstract.html#_CPPv3D0v">~ProfileAbstract (C++ function)</a>
+</li>
       <li><a href="api/classhermes_1_1RadioSkymapRange.html#_CPPv3D0v">~RadioSkymapRange (C++ function)</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv3D0v">~Ring (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv3D0v">~RingModel (C++ function)</a>
 </li>
@@ -1005,13 +1023,13 @@
 </li>
       <li><a href="api/classhermes_1_1FITSFile.html#_CPPv311createImageN4FITS7ImgTypeEiPl">createImage (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1FITSFile.html#_CPPv311createTableN4FITS7HDUTypeEliA_PcA_PcA_PcPKc">createTable (C++ function)</a>, <a href="api/classhermes_1_1outputs_1_1HEALPixFormat.html#_CPPv311createTablei">[1]</a>, <a href="api/classhermes_1_1outputs_1_1Output.html#_CPPv311createTablei">[2]</a>
+      <li><a href="api/classhermes_1_1FITSFile.html#_CPPv311createTableN4FITS7HDUTypeEliA_PcA_PcA_PcPKc">createTable (C++ function)</a>, <a href="api/classhermes_1_1outputs_1_1HEALPixFormat.html#_CPPv311createTableiRKNSt6stringE">[1]</a>, <a href="api/classhermes_1_1outputs_1_1Output.html#_CPPv311createTableiRKNSt6stringE">[2]</a>
 </li>
       <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv36crList">crList (C++ member)</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv36crList">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1Vector3.html#_CPPv3NK5crossERK7Vector3I1TE">cross (C++ function)</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv3NK5crossERK15Vector3QuantityI1TE">[1]</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv3NK5crossERK7Vector3I1TE">[2]</a>
 </li>
-      <li><a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv38crossSec">crossSec (C++ member)</a>
+      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv38crossSec">crossSec (C++ member)</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv38crossSec">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1033,6 +1051,8 @@
 </li>
       <li><a href="api/variable_namespacehermes_1_1units_1a438535c531d8ba8a923366c446aa3c8f.html#_CPPv34deci">deci (C++ member)</a>
 </li>
+      <li><a href="api/function_Version_8h_1ae07054153f2b6877a8acf6fbf1ee7090.html#_CPPv315declare_versionKNSt6stringE">declare_version (C++ function)</a>
+</li>
       <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv318defaultOutputUnits">defaultOutputUnits (C++ member)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv318defaultOutputUnits">[1]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv318defaultOutputUnits">[2]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv318defaultOutputUnits">[3]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv318defaultOutputUnits">[4]</a>
 </li>
       <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv324defaultOutputUnitsString">defaultOutputUnitsString (C++ member)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv324defaultOutputUnitsString">[1]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv324defaultOutputUnitsString">[2]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv324defaultOutputUnitsString">[3]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv324defaultOutputUnitsString">[4]</a>
@@ -1041,9 +1061,9 @@
 </li>
       <li><a href="api/classhermes_1_1FITSFile.html#_CPPv310deleteFilev">deleteFile (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv3NK14densityProfileERK14Vector3QLength">densityProfile (C++ function)</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv3NK14densityProfileERK14Vector3QLength">[1]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv3NK14densityProfileERK14Vector3QLength">[2]</a>
+      <li><a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv3NK14densityProfileERK14Vector3QLength">densityProfile (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv311description">description (C++ member)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv311description">[1]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv311description">[2]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv311description">[3]</a>, <a href="api/classhermes_1_1Skymap.html#_CPPv311description">[4]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv311description">[5]</a>
+      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv311description">description (C++ member)</a>, <a href="api/classhermes_1_1DarkMatterIntegrator.html#_CPPv311description">[1]</a>, <a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv311description">[2]</a>, <a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv311description">[3]</a>, <a href="api/classhermes_1_1FreeFreeIntegrator.html#_CPPv311description">[4]</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv311description">[5]</a>, <a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv311description">[6]</a>, <a href="api/classhermes_1_1InverseComptonIntegrator.html#_CPPv311description">[7]</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv311description">[8]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv311description">[9]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv311description">[10]</a>, <a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv311description">[11]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv311description">[12]</a>, <a href="api/classhermes_1_1Skymap.html#_CPPv311description">[13]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv311description">[14]</a>, <a href="api/classhermes_1_1SynchroAbsorptionIntegrator.html#_CPPv311description">[15]</a>, <a href="api/classhermes_1_1SynchroIntegrator.html#_CPPv311description">[16]</a>
 </li>
       <li><a href="api/structhermes_1_1chargedgas_1_1YMW16_1_1LB.html#_CPPv36detlb1">detlb1 (C++ member)</a>
 </li>
@@ -1070,6 +1090,8 @@
       <li><a href="api/classhermes_1_1chargedgas_1_1YMW16.html#_CPPv3NK4doraEddd">dora (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1Vector3.html#_CPPv3NK3dotERK7Vector3I1TE">dot (C++ function)</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv3NK3dotERK15Vector3QuantityI1TE">[1]</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv3NK3dotERK7Vector3I1TE">[2]</a>
+</li>
+      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv38dProfile">dProfile (C++ member)</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv38dProfile">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1cosmicrays_1_1Dragon2D.html#_CPPv38Dragon2DRK3PID">Dragon2D (C++ function)</a>, <a href="api/classhermes_1_1cosmicrays_1_1Dragon2D.html#_CPPv38Dragon2DRKNSt6stringERK3PID">[1]</a>, <a href="api/classhermes_1_1cosmicrays_1_1Dragon2D.html#_CPPv38Dragon2DRKNSt6stringERKNSt6vectorI3PIDEE">[2]</a>, <a href="api/classhermes_1_1cosmicrays_1_1Dragon2D.html#_CPPv38Dragon2DRKNSt6vectorI3PIDEE">[3]</a>
 </li>
@@ -1155,6 +1177,12 @@
 </li>
       <li><a href="api/variable_namespacehermes_1adebadb30598d3cf64fe91485c3049ced.html#_CPPv320g_cancel_signal_flag">g_cancel_signal_flag (C++ member)</a>
 </li>
+      <li><a href="api/variable_Version_8h_1a6834134ebcf1a7fadc2562fc74544f46.html#_CPPv310g_GIT_DESC">g_GIT_DESC (C++ member)</a>
+</li>
+      <li><a href="api/variable_Version_8h_1a36b71113647c58eb81b6f6faf06f784b.html#_CPPv313g_GIT_REFSPEC">g_GIT_REFSPEC (C++ member)</a>
+</li>
+      <li><a href="api/variable_Version_8h_1a6e70968528819ece37e7d5f722c53efc.html#_CPPv310g_GIT_SHA1">g_GIT_SHA1 (C++ member)</a>
+</li>
       <li><a href="api/classhermes_1_1darkmatter_1_1GalacticProfile.html#_CPPv315GalacticProfilev">GalacticProfile (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1chargedgas_1_1YMW16.html#_CPPv3NK6galcenEddd">galcen (C++ function)</a>
@@ -1179,9 +1207,9 @@
 </li>
       <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv3NK13getBoundariesEv">getBoundaries (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv3NK14getCOIntensityERK10QDirection">getCOIntensity (C++ function)</a>
-</li>
       <li><a href="api/classhermes_1_1neutralgas_1_1RingData.html#_CPPv3NK20getCOIntensityInRingEiRK10QDirection">getCOIntensityInRing (C++ function)</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv3NK16getColumnDensityERK10QDirection">getColumnDensity (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1interactions_1_1BreitWheeler.html#_CPPv3NK15getCrossSectionERK7QEnergyRK7QEnergyRK6QAngle">getCrossSection (C++ function)</a>
 </li>
@@ -1193,7 +1221,7 @@
 </li>
       <li><a href="api/classhermes_1_1cosmicrays_1_1CosmicRayDensity.html#_CPPv3NK19getDensityPerEnergyERK7QEnergyRK14Vector3QLength">getDensityPerEnergy (C++ function)</a>, <a href="api/classhermes_1_1cosmicrays_1_1Dragon2D.html#_CPPv3NK19getDensityPerEnergyERK7QEnergyRK14Vector3QLength">[1]</a>, <a href="api/classhermes_1_1cosmicrays_1_1Dragon2D.html#_CPPv3NK19getDensityPerEnergyEiRK14Vector3QLength">[2]</a>, <a href="api/classhermes_1_1cosmicrays_1_1Dragon3D.html#_CPPv3NK19getDensityPerEnergyERK7QEnergyRK14Vector3QLength">[3]</a>, <a href="api/classhermes_1_1cosmicrays_1_1Dragon3D.html#_CPPv3NK19getDensityPerEnergyEiRK14Vector3QLength">[4]</a>, <a href="api/classhermes_1_1cosmicrays_1_1DummyCRDensity.html#_CPPv3NK19getDensityPerEnergyERK7QEnergyRK14Vector3QLength">[5]</a>, <a href="api/classhermes_1_1cosmicrays_1_1SimpleCRDensity.html#_CPPv3NK19getDensityPerEnergyERK7QEnergyRK14Vector3QLength">[6]</a>, <a href="api/classhermes_1_1cosmicrays_1_1Sun08CRDensity.html#_CPPv3NK19getDensityPerEnergyERK7QEnergyRK14Vector3QLength">[7]</a>, <a href="api/classhermes_1_1cosmicrays_1_1WMAP07CRDensity.html#_CPPv3NK19getDensityPerEnergyERK7QEnergyRK14Vector3QLength">[8]</a>
 </li>
-      <li><a href="api/classhermes_1_1CircularWindow.html#_CPPv3NK14getDescriptionEv">getDescription (C++ function)</a>, <a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3NK14getDescriptionEv">[1]</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv3NK14getDescriptionEv">[2]</a>, <a href="api/classhermes_1_1InvertMask.html#_CPPv3NK14getDescriptionEv">[3]</a>, <a href="api/classhermes_1_1MaskList.html#_CPPv3NK14getDescriptionEv">[4]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv3NK14getDescriptionEv">[5]</a>, <a href="api/classhermes_1_1RectangularWindow.html#_CPPv3NK14getDescriptionEv">[6]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3NK14getDescriptionEv">[7]</a>, <a href="api/classhermes_1_1Skymap.html#_CPPv3NK14getDescriptionEv">[8]</a>, <a href="api/classhermes_1_1SkymapMask.html#_CPPv3NK14getDescriptionEv">[9]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv3NK14getDescriptionEv">[10]</a>
+      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv3NK14getDescriptionEv">getDescription (C++ function)</a>, <a href="api/classhermes_1_1CircularWindow.html#_CPPv3NK14getDescriptionEv">[1]</a>, <a href="api/classhermes_1_1DarkMatterIntegrator.html#_CPPv3NK14getDescriptionEv">[2]</a>, <a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv3NK14getDescriptionEv">[3]</a>, <a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3NK14getDescriptionEv">[4]</a>, <a href="api/classhermes_1_1FreeFreeIntegrator.html#_CPPv3NK14getDescriptionEv">[5]</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv3NK14getDescriptionEv">[6]</a>, <a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv3NK14getDescriptionEv">[7]</a>, <a href="api/classhermes_1_1InverseComptonIntegrator.html#_CPPv3NK14getDescriptionEv">[8]</a>, <a href="api/classhermes_1_1InvertMask.html#_CPPv3NK14getDescriptionEv">[9]</a>, <a href="api/classhermes_1_1MaskList.html#_CPPv3NK14getDescriptionEv">[10]</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv3NK14getDescriptionEv">[11]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv3NK14getDescriptionEv">[12]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv3NK14getDescriptionEv">[13]</a>, <a href="api/classhermes_1_1RectangularWindow.html#_CPPv3NK14getDescriptionEv">[14]</a>, <a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv3NK14getDescriptionEv">[15]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3NK14getDescriptionEv">[16]</a>, <a href="api/classhermes_1_1Skymap.html#_CPPv3NK14getDescriptionEv">[17]</a>, <a href="api/classhermes_1_1SkymapMask.html#_CPPv3NK14getDescriptionEv">[18]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv3NK14getDescriptionEv">[19]</a>, <a href="api/classhermes_1_1SynchroAbsorptionIntegrator.html#_CPPv3NK14getDescriptionEv">[20]</a>, <a href="api/classhermes_1_1SynchroIntegrator.html#_CPPv3NK14getDescriptionEv">[21]</a>
 </li>
       <li><a href="api/classhermes_1_1interactions_1_1BremsstrahlungAbstract.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">getDiffCrossSection (C++ function)</a>, <a href="api/classhermes_1_1interactions_1_1BremsstrahlungAbstract.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[1]</a>, <a href="api/classhermes_1_1interactions_1_1BremsstrahlungGALPROP.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">[2]</a>, <a href="api/classhermes_1_1interactions_1_1BremsstrahlungGALPROP.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[3]</a>, <a href="api/classhermes_1_1interactions_1_1BremsstrahlungTsai74.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">[4]</a>, <a href="api/classhermes_1_1interactions_1_1BremsstrahlungTsai74.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[5]</a>, <a href="api/classhermes_1_1interactions_1_1DifferentialCrossSection.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">[6]</a>, <a href="api/classhermes_1_1interactions_1_1DifferentialCrossSection.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[7]</a>, <a href="api/classhermes_1_1interactions_1_1DummyCrossSection.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">[8]</a>, <a href="api/classhermes_1_1interactions_1_1DummyCrossSection.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[9]</a>, <a href="api/classhermes_1_1interactions_1_1Kamae06Gamma.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">[10]</a>, <a href="api/classhermes_1_1interactions_1_1Kamae06Gamma.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[11]</a>, <a href="api/classhermes_1_1interactions_1_1Kamae06Neutrino.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">[12]</a>, <a href="api/classhermes_1_1interactions_1_1Kamae06Neutrino.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[13]</a>, <a href="api/classhermes_1_1interactions_1_1KelnerAharonianGamma.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">[14]</a>, <a href="api/classhermes_1_1interactions_1_1KelnerAharonianGamma.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[15]</a>, <a href="api/classhermes_1_1interactions_1_1KelnerAharonianNeutrino.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">[16]</a>, <a href="api/classhermes_1_1interactions_1_1KelnerAharonianNeutrino.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[17]</a>, <a href="api/classhermes_1_1interactions_1_1KleinNishina.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergy">[18]</a>, <a href="api/classhermes_1_1interactions_1_1KleinNishina.html#_CPPv3NK19getDiffCrossSectionERK7QEnergyRK7QEnergyRK7QEnergy">[19]</a>
 </li>
@@ -1225,9 +1253,15 @@
 </li>
       <li><a href="api/function_namespacehermes_1ade041a25f94a13ce9c3697d51b7f06b0.html#_CPPv319getGalacticPositionRK14Vector3QLengthRK7QLengthRK10QDirection">getGalacticPosition (C++ function)</a>
 </li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv3NK10getGasTypeEv">getGasType (C++ function)</a>, <a href="api/classhermes_1_1neutralgas_1_1RingData.html#_CPPv3NK10getGasTypeEv">[1]</a>, <a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv3NK10getGasTypeEv">[2]</a>
+</li>
       <li><a href="api/classhermes_1_1Grid.html#_CPPv37getGridv">getGrid (C++ function)</a>, <a href="api/classhermes_1_1Grid2D.html#_CPPv37getGridv">[1]</a>, <a href="api/classhermes_1_1magneticfields_1_1MagneticFieldGrid.html#_CPPv37getGridv">[2]</a>, <a href="api/classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid.html#_CPPv37getGridv">[3]</a>
 </li>
       <li><a href="api/classhermes_1_1Grid.html#_CPPv3NK11getGridSizeEv">getGridSize (C++ function)</a>, <a href="api/classhermes_1_1Grid2D.html#_CPPv3NK11getGridSizeEv">[1]</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv3NK18getH2ColumnDensityERK10QDirection">getH2ColumnDensity (C++ function)</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Nakanishi06.html#_CPPv3NK12getH2DensityERK14Vector3QLength">getH2Density (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1FITSFile.html#_CPPv310getHDUTypev">getHDUType (C++ function)</a>
 </li>
@@ -1236,6 +1270,8 @@
       <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv3NK18getHIColumnDensityERK10QDirection">getHIColumnDensity (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1neutralgas_1_1RingData.html#_CPPv3NK24getHIColumnDensityInRingEiRK10QDirection">getHIColumnDensityInRing (C++ function)</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Nakanishi06.html#_CPPv3NK12getHIDensityERK14Vector3QLength">getHIDensity (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1PID.html#_CPPv3NK5getIDEv">getID (C++ function)</a>
 </li>
@@ -1249,7 +1285,7 @@
 </li>
       <li><a href="api/function_namespacehermes_1a11111cff32514fdc9229ffa19445b358.html#_CPPv316getLorentzFactorRK5QMassRK7QEnergy">getLorentzFactor (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">getLOSProfile (C++ function)</a>
+      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK5QSTEPi">getLOSProfile (C++ function)</a>, <a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[1]</a>, <a href="api/classhermes_1_1DarkMatterIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK7QEnergyi">[2]</a>, <a href="api/classhermes_1_1DarkMatterIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[3]</a>, <a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK7QNumberi">[4]</a>, <a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[5]</a>, <a href="api/classhermes_1_1FreeFreeIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK10QFrequencyi">[6]</a>, <a href="api/classhermes_1_1FreeFreeIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[7]</a>, <a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv3NK13getLOSProfileERK10QDirectionRK5QSTEPi">[8]</a>, <a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[9]</a>, <a href="api/classhermes_1_1InverseComptonIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK7QEnergyi">[10]</a>, <a href="api/classhermes_1_1InverseComptonIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[11]</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK7QEnergyi">[12]</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[13]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK5QSTEPi">[14]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[15]</a>, <a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK7QNumberi">[16]</a>, <a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[17]</a>, <a href="api/classhermes_1_1SynchroAbsorptionIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK10QFrequencyi">[18]</a>, <a href="api/classhermes_1_1SynchroAbsorptionIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[19]</a>, <a href="api/classhermes_1_1SynchroIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectionRK10QFrequencyi">[20]</a>, <a href="api/classhermes_1_1SynchroIntegrator.html#_CPPv3NK13getLOSProfileERK10QDirectioni">[21]</a>
 </li>
       <li><a href="api/classhermes_1_1CircularWindow.html#_CPPv37getMaskNSt6size_tE">getMask (C++ function)</a>, <a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3NK7getMaskEv">[1]</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv3NK7getMaskEv">[2]</a>, <a href="api/classhermes_1_1InvertMask.html#_CPPv37getMaskNSt6size_tE">[3]</a>, <a href="api/classhermes_1_1MaskList.html#_CPPv37getMaskNSt6size_tE">[4]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv3NK7getMaskEv">[5]</a>, <a href="api/classhermes_1_1RectangularWindow.html#_CPPv37getMaskNSt6size_tE">[6]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3NK7getMaskEv">[7]</a>, <a href="api/classhermes_1_1SkymapMask.html#_CPPv37getMaskNSt6size_tE">[8]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv3NK7getMaskEv">[9]</a>, <a href="components/SkymapsGroup.html#_CPPv3NK7getMaskEv">[10]</a>
 </li>
@@ -1263,6 +1299,8 @@
 </li>
       <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3NK7getNpixEv">getNpix (C++ function)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv3NK7getNpixEv">[1]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv3NK7getNpixEv">[2]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3NK7getNpixEv">[3]</a>, <a href="api/classhermes_1_1Skymap.html#_CPPv3NK7getNpixEv">[4]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv3NK7getNpixEv">[5]</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3NK8getNsideEv">getNside (C++ function)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv3NK8getNsideEv">[1]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv3NK8getNsideEv">[2]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3NK8getNsideEv">[3]</a>, <a href="api/classhermes_1_1Skymap.html#_CPPv3NK8getNsideEv">[4]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv3NK8getNsideEv">[5]</a>
 </li>
       <li><a href="api/classhermes_1_1FITSFile.html#_CPPv315getNumberOfHDUsv">getNumberOfHDUs (C++ function)</a>
@@ -1271,8 +1309,6 @@
 </li>
       <li><a href="api/classhermes_1_1Grid.html#_CPPv3NK5getNxEv">getNx (C++ function)</a>, <a href="api/classhermes_1_1Grid2D.html#_CPPv3NK5getNxEv">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classhermes_1_1Grid.html#_CPPv3NK5getNyEv">getNy (C++ function)</a>, <a href="api/classhermes_1_1Grid2D.html#_CPPv3NK5getNyEv">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1Grid.html#_CPPv3NK5getNzEv">getNz (C++ function)</a>
@@ -1286,6 +1322,8 @@
       <li><a href="api/classhermes_1_1Vector3.html#_CPPv3NK13getParallelToERK7Vector3I1TE">getParallelTo (C++ function)</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv3NK13getParallelToERK7Vector3I1TE">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1darkmatter_1_1DarkMatterSpectrum.html#_CPPv3NK21getParticlesPerEnergyE7QEnergy">getParticlesPerEnergy (C++ function)</a>, <a href="api/classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum.html#_CPPv3NK21getParticlesPerEnergyE7QEnergy">[1]</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Nakanishi06.html#_CPPv3NK11getPDensityE7GasTypeRK14Vector3QLength">getPDensity (C++ function)</a>, <a href="api/classhermes_1_1neutralgas_1_1ProfileAbstract.html#_CPPv3NK11getPDensityE7GasTypeRK14Vector3QLength">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1Vector3.html#_CPPv3NK18getPerpendicularToERK7Vector3I1TE">getPerpendicularTo (C++ function)</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv3NK18getPerpendicularToERK7Vector3I1TE">[1]</a>
 </li>
@@ -1313,9 +1351,7 @@
 </li>
       <li><a href="api/classhermes_1_1darkmatter_1_1NFWGProfile.html#_CPPv3NK9getRhoSunEv">getRhoSun (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1neutralgas_1_1NeutralGasDensity.html#_CPPv3NK13getRingNumberEv">getRingNumber (C++ function)</a>, <a href="api/classhermes_1_1neutralgas_1_1RingData.html#_CPPv3NK13getRingNumberEv">[1]</a>, <a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv3NK13getRingNumberEv">[2]</a>
-</li>
-      <li><a href="api/classhermes_1_1neutralgas_1_1RingData.html#_CPPv3NK11getRingTypeEv">getRingType (C++ function)</a>, <a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv3NK11getRingTypeEv">[1]</a>
+      <li><a href="api/classhermes_1_1neutralgas_1_1NeutralGasAbstract.html#_CPPv3NK13getRingNumberEv">getRingNumber (C++ function)</a>, <a href="api/classhermes_1_1neutralgas_1_1RingData.html#_CPPv3NK13getRingNumberEv">[1]</a>, <a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv3NK13getRingNumberEv">[2]</a>
 </li>
       <li><a href="api/classhermes_1_1Vector3.html#_CPPv3NK10getRotatedERK7Vector3I1TE1T">getRotated (C++ function)</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv3NK10getRotatedERK15Vector3QuantityI1TE1T">[1]</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv3NK10getRotatedERK7Vector3I1TE1T">[2]</a>
 </li>
@@ -1337,7 +1373,7 @@
 </li>
       <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv3NK14getSunPositionEv">getSunPosition (C++ function)</a>, <a href="api/classhermes_1_1DarkMatterIntegrator.html#_CPPv3NK14getSunPositionEv">[1]</a>, <a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv3NK14getSunPositionEv">[2]</a>, <a href="api/classhermes_1_1FreeFreeIntegrator.html#_CPPv3NK14getSunPositionEv">[3]</a>, <a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv3NK14getSunPositionEv">[4]</a>, <a href="api/classhermes_1_1InverseComptonIntegrator.html#_CPPv3NK14getSunPositionEv">[5]</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv3NK14getSunPositionEv">[6]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv3NK14getSunPositionEv">[7]</a>, <a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv3NK14getSunPositionEv">[8]</a>, <a href="api/classhermes_1_1SynchroAbsorptionIntegrator.html#_CPPv3NK14getSunPositionEv">[9]</a>, <a href="api/classhermes_1_1SynchroIntegrator.html#_CPPv3NK14getSunPositionEv">[10]</a>
 </li>
-      <li><a href="api/classhermes_1_1chargedgas_1_1ChargedGasDensity.html#_CPPv3NK14getTemperatureEv">getTemperature (C++ function)</a>, <a href="api/classhermes_1_1chargedgas_1_1HII__Cordes91.html#_CPPv3NK14getTemperatureEv">[1]</a>, <a href="api/classhermes_1_1chargedgas_1_1NE2001Simple.html#_CPPv3NK14getTemperatureEv">[2]</a>, <a href="api/classhermes_1_1chargedgas_1_1YMW16.html#_CPPv3NK14getTemperatureEv">[3]</a>, <a href="api/classhermes_1_1neutralgas_1_1NeutralGasDensity.html#_CPPv3NK14getTemperatureEv">[4]</a>, <a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv3NK14getTemperatureEv">[5]</a>
+      <li><a href="api/classhermes_1_1chargedgas_1_1ChargedGasDensity.html#_CPPv3NK14getTemperatureEv">getTemperature (C++ function)</a>, <a href="api/classhermes_1_1chargedgas_1_1HII__Cordes91.html#_CPPv3NK14getTemperatureEv">[1]</a>, <a href="api/classhermes_1_1chargedgas_1_1NE2001Simple.html#_CPPv3NK14getTemperatureEv">[2]</a>, <a href="api/classhermes_1_1chargedgas_1_1YMW16.html#_CPPv3NK14getTemperatureEv">[3]</a>, <a href="api/classhermes_1_1neutralgas_1_1NeutralGasAbstract.html#_CPPv3NK14getTemperatureEv">[4]</a>, <a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv3NK14getTemperatureEv">[5]</a>
 </li>
       <li><a href="api/classhermes_1_1Vector3.html#_CPPv3NK8getThetaEv">getTheta (C++ function)</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv3NK8getThetaEv">[1]</a>
 </li>
@@ -1408,6 +1444,8 @@
       <li><a href="api/variable_group__Units_1gafa1fd8dfc82646998379df4b3f6244b7.html#_CPPv312h_planck_bar">h_planck_bar (C++ member)</a>
 </li>
       <li><a href="api/classhermes_1_1Random.html#_CPPv34hash6time_t7clock_t">hash (C++ function)</a>
+</li>
+      <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3NK7hasMaskEv">hasMask (C++ function)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv3NK7hasMaskEv">[1]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv3NK7hasMaskEv">[2]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3NK7hasMaskEv">[3]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv3NK7hasMaskEv">[4]</a>, <a href="components/SkymapsGroup.html#_CPPv3NK7hasMaskEv">[5]</a>
 </li>
       <li><a href="api/classhermes_1_1outputs_1_1HEALPixFormat.html#_CPPv313HEALPixFormatRKNSt6stringE">HEALPixFormat (C++ function)</a>
 </li>
@@ -1641,7 +1679,7 @@
 </li>
       <li><a href="api/classhermes_1_1DarkMatterIntegrator.html#_CPPv3N6hermes20DarkMatterIntegratorE">hermes::DarkMatterIntegrator (C++ class)</a>
 </li>
-      <li><a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv3N6hermes27DispersionMeasureIntegratorE">hermes::DispersionMeasureIntegrator (C++ class)</a>
+      <li><a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv3N6hermes27DispersionMeasureIntegratorE">hermes::DispersionMeasureIntegrator (C++ class)</a>, <a href="components/IntegratorsGroup.html#_CPPv3N6hermes27DispersionMeasureIntegratorE">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3N6hermes23DispersionMeasureSkymapE">hermes::DispersionMeasureSkymap (C++ class)</a>, <a href="components/SkymapsGroup.html#_CPPv3N6hermes23DispersionMeasureSkymapE">[1]</a>
 </li>
@@ -1670,6 +1708,8 @@
       <li><a href="api/enum_namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8.html#_CPPv3N6hermes4FITS9IMGDOUBLEE">hermes::FITS::IMGDOUBLE (C++ enumerator)</a>
 </li>
       <li><a href="api/enum_namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8.html#_CPPv3N6hermes4FITS8IMGFLOATE">hermes::FITS::IMGFLOAT (C++ enumerator)</a>
+</li>
+      <li><a href="api/enum_namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8.html#_CPPv3N6hermes4FITS7IMGLONGE">hermes::FITS::IMGLONG (C++ enumerator)</a>
 </li>
       <li><a href="api/enum_namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8.html#_CPPv3N6hermes4FITS8IMGSHORTE">hermes::FITS::IMGSHORT (C++ enumerator)</a>
 </li>
@@ -1807,19 +1847,23 @@
 </li>
       <li><a href="api/function_group__Core_1ga933b649c5796ace1f70fd222262209c4.html#_CPPv3N6hermes15meanFieldVectorENSt10unique_ptrI10VectorGridEE">hermes::meanFieldVector (C++ function)</a>, <a href="api/function_namespacehermes_1a51ffa818467a42da1ac66fc0a685f92e.html#_CPPv3N6hermes15meanFieldVectorERKNSt10shared_ptrI10VectorGridEE">[1]</a>
 </li>
-      <li><a href="api/enum_group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7.html#_CPPv3N6hermes10neutralgas2COE">hermes::neutralgas::CO (C++ enumerator)</a>
+      <li><a href="api/enum_group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c.html#_CPPv3N6hermes10neutralgas7GasTypeE">hermes::neutralgas::GasType (C++ type)</a>
 </li>
-      <li><a href="api/enum_group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7.html#_CPPv3N6hermes10neutralgas2HIE">hermes::neutralgas::HI (C++ enumerator)</a>
+      <li><a href="api/enum_group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c.html#_CPPv3N6hermes10neutralgas2H2E">hermes::neutralgas::H2 (C++ enumerator)</a>
 </li>
-      <li><a href="api/classhermes_1_1neutralgas_1_1NeutralGasDensity.html#_CPPv3N6hermes10neutralgas17NeutralGasDensityE">hermes::neutralgas::NeutralGasDensity (C++ class)</a>, <a href="components/NeutralGasGroup.html#_CPPv3N6hermes10neutralgas17NeutralGasDensityE">[1]</a>
+      <li><a href="api/enum_group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c.html#_CPPv3N6hermes10neutralgas2HIE">hermes::neutralgas::HI (C++ enumerator)</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Nakanishi06.html#_CPPv3N6hermes10neutralgas11Nakanishi06E">hermes::neutralgas::Nakanishi06 (C++ class)</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1NeutralGasAbstract.html#_CPPv3N6hermes10neutralgas18NeutralGasAbstractE">hermes::neutralgas::NeutralGasAbstract (C++ class)</a>, <a href="components/NeutralGasGroup.html#_CPPv3N6hermes10neutralgas18NeutralGasAbstractE">[1]</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1ProfileAbstract.html#_CPPv3N6hermes10neutralgas15ProfileAbstractE">hermes::neutralgas::ProfileAbstract (C++ class)</a>, <a href="components/NeutralGasGroup.html#_CPPv3N6hermes10neutralgas15ProfileAbstractE">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv3N6hermes10neutralgas4RingE">hermes::neutralgas::Ring (C++ class)</a>
 </li>
       <li><a href="api/classhermes_1_1neutralgas_1_1RingData.html#_CPPv3N6hermes10neutralgas8RingDataE">hermes::neutralgas::RingData (C++ class)</a>
 </li>
       <li><a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv3N6hermes10neutralgas9RingModelE">hermes::neutralgas::RingModel (C++ class)</a>
-</li>
-      <li><a href="api/enum_group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7.html#_CPPv3N6hermes10neutralgas8RingTypeE">hermes::neutralgas::RingType (C++ type)</a>
 </li>
       <li><a href="api/function_group__Core_1ga3885df4723d99c2f118f9cce136beb61.html#_CPPv3N6hermesmlERK7Vector3I1TEK1Q">hermes::operator* (C++ function)</a>, <a href="api/function_group__Core_1ga4f33e9180938be7d97bc55d0e0dd2930.html#_CPPv3N6hermesmlERK15Vector3QuantityI1QERK7QNumber">[1]</a>, <a href="api/function_group__Core_1ga92f2fdfa289f52d0f0d6bb7e516c183f.html#_CPPv3N6hermesmlERK7Vector3I1TERK7QMField">[2]</a>, <a href="api/function_group__Core_1gac0738d2887b147eee1100671e7b5be2a.html#_CPPv3N6hermesmlERK15Vector3QuantityI1QEKd">[3]</a>, <a href="api/function_group__Core_1gacfbea51a420cdfdd343b9fec0fe7d301.html#_CPPv3N6hermesmlE1TRK7Vector3I1TE">[4]</a>, <a href="api/function_group__Core_1gad744b0b61f9f9d3c010bb33b7fc66517.html#_CPPv3N6hermesmlERK7Vector3I1TERK15Vector3QuantityI1QE">[5]</a>, <a href="api/function_group__Core_1gae75dab5b04f7983e5fca74359e452597.html#_CPPv3N6hermesmlERK15Vector3QuantityI1QERK7Vector3I1TE">[6]</a>
 </li>
@@ -1877,7 +1921,7 @@
 </li>
       <li><a href="api/function_group__Core_1ga009d2e8b110b6af0083f230fadca2a7c.html#_CPPv3N6hermes16rmsFieldStrengthENSt10unique_ptrI10ScalarGridEE">hermes::rmsFieldStrength (C++ function)</a>, <a href="api/function_group__Core_1gaf5f58beb01b5500088ddeef6b3b2f35b.html#_CPPv3N6hermes16rmsFieldStrengthENSt10unique_ptrI10VectorGridEE">[1]</a>, <a href="api/function_namespacehermes_1a1eb9dca3e91995daf5b50bcbc0e6c8f9.html#_CPPv3N6hermes16rmsFieldStrengthERKNSt10shared_ptrI10VectorGridEE">[2]</a>, <a href="api/function_namespacehermes_1ae284fd34aa7b5048eceaec5309a5b0a9.html#_CPPv3N6hermes16rmsFieldStrengthERKNSt10shared_ptrI10ScalarGridEE">[3]</a>
 </li>
-      <li><a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv3N6hermes25RotationMeasureIntegratorE">hermes::RotationMeasureIntegrator (C++ class)</a>
+      <li><a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv3N6hermes25RotationMeasureIntegratorE">hermes::RotationMeasureIntegrator (C++ class)</a>, <a href="components/IntegratorsGroup.html#_CPPv3N6hermes25RotationMeasureIntegratorE">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3N6hermes21RotationMeasureSkymapE">hermes::RotationMeasureSkymap (C++ class)</a>, <a href="components/SkymapsGroup.html#_CPPv3N6hermes21RotationMeasureSkymapE">[1]</a>
 </li>
@@ -1959,7 +2003,7 @@
 </li>
       <li><a href="api/function_group__Units_1ga5b481bbf25ead93a65e24b6044027c8d.html#_CPPv3N6hermes5unitsgeERK8QuantityI1l1t1m1I1T1N1J1A2SAERK8QuantityI1l1t1m1I1T1N1J1A2SAE">hermes::units::operator&gt;= (C++ function)</a>
 </li>
-      <li><a href="api/function_group__Units_1ga47acc6023b05d3991d472c57181f3ba0.html#_CPPv3N6hermes5units3powERK8QuantityI1l1t1m1I1T1N1J1A2SAE">hermes::units::pow (C++ function)</a>, <a href="api/function_group__Units_1ga84ef92feef6099af8083efeab01ce82f.html#_CPPv3N6hermes5units3powEd">[1]</a>, <a href="api/function_group__Units_1gaaff8a36efc24c485f8af8bb33ae62255.html#_CPPv3N6hermes5units3powERK8QuantityI1l1t1m1I1T1N1J1A2SAE">[2]</a>, <a href="api/function_namespacehermes_1_1units_1a0709379f89073a1d6e125682f9c0830e.html#_CPPv3N6hermes5units3powERK7QNumber">[3]</a>
+      <li><a href="api/function_group__Units_1ga47acc6023b05d3991d472c57181f3ba0.html#_CPPv3N6hermes5units3powERK8QuantityI1l1t1m1I1T1N1J1A2SAE">hermes::units::pow (C++ function)</a>, <a href="api/function_group__Units_1ga84ef92feef6099af8083efeab01ce82f.html#_CPPv3N6hermes5units3powEd">[1]</a>, <a href="api/function_group__Units_1gaaff8a36efc24c485f8af8bb33ae62255.html#_CPPv3N6hermes5units3powERK8QuantityI1l1t1m1I1T1N1J1A2SAE">[2]</a>
 </li>
       <li><a href="api/classhermes_1_1units_1_1Quantity.html#_CPPv3N6hermes5units8QuantityE">hermes::units::Quantity (C++ class)</a>
 </li>
@@ -2003,8 +2047,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/structhermes_1_1FITSKeyValue.html#_CPPv31i">i (C++ member)</a>
 </li>
-      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv312ICCacheTable">ICCacheTable (C++ type)</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv312ICCacheTable">[1]</a>
-</li>
       <li><a href="api/classhermes_1_1PID.html#_CPPv32id">id (C++ member)</a>
 </li>
       <li><a href="api/variable_group__Units_1ga29807d360013e2172666283dcd99b8ba.html#_CPPv34inch">inch (C++ member)</a>
@@ -2037,7 +2079,7 @@
 </li>
       <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv310integrator">integrator (C++ member)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv310integrator">[1]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv310integrator">[2]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv310integrator">[3]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv310integrator">[4]</a>
 </li>
-      <li><a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv318IntegratorTemplatev">IntegratorTemplate (C++ function)</a>
+      <li><a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv318IntegratorTemplateRKNSt6stringE">IntegratorTemplate (C++ function)</a>
 </li>
       <li><a href="api/function_namespacehermes_1a7caf30b5720f27d1b744a7c7eaa786a8.html#_CPPv322intensityToTemperatureRK10QIntensityRK10QFrequency">intensityToTemperature (C++ function)</a>
 </li>
@@ -2227,6 +2269,8 @@
 </li>
       <li><a href="api/structhermes_1_1chargedgas_1_1YMW16_1_1Dora.html#_CPPv34n30D">n30D (C++ member)</a>
 </li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Nakanishi06.html#_CPPv311Nakanishi06v">Nakanishi06 (C++ function)</a>
+</li>
       <li><a href="api/variable_namespacehermes_1_1units_1ad1e91dbaaf3d09ff684c32ea0d9872b7.html#_CPPv34nano">nano (C++ member)</a>
 </li>
       <li><a href="api/structhermes_1_1chargedgas_1_1YMW16_1_1Spiral.html#_CPPv34narm">narm (C++ member)</a>
@@ -2237,13 +2281,13 @@
 </li>
       <li><a href="api/classhermes_1_1chargedgas_1_1YMW16.html#_CPPv3NK8ne_ymw16ERK14Vector3QLength">ne_ymw16 (C++ function)</a>
 </li>
-      <li><a href="components/NeutralGasGroup.html#_CPPv3N10NeutralGas2COE">NeutralGas::CO (C++ enumerator)</a>
+      <li><a href="components/NeutralGasGroup.html#_CPPv3N10NeutralGas7GasTypeE">NeutralGas::GasType (C++ type)</a>
+</li>
+      <li><a href="components/NeutralGasGroup.html#_CPPv3N10NeutralGas2H2E">NeutralGas::H2 (C++ enumerator)</a>
 </li>
       <li><a href="components/NeutralGasGroup.html#_CPPv3N10NeutralGas2HIE">NeutralGas::HI (C++ enumerator)</a>
 </li>
-      <li><a href="components/NeutralGasGroup.html#_CPPv3N10NeutralGas8RingTypeE">NeutralGas::RingType (C++ type)</a>
-</li>
-      <li><a href="api/classhermes_1_1neutralgas_1_1NeutralGasDensity.html#_CPPv317NeutralGasDensity12QTemperature">NeutralGasDensity (C++ function)</a>, <a href="api/classhermes_1_1neutralgas_1_1NeutralGasDensity.html#_CPPv317NeutralGasDensityv">[1]</a>
+      <li><a href="api/classhermes_1_1neutralgas_1_1NeutralGasAbstract.html#_CPPv318NeutralGasAbstract12QTemperature">NeutralGasAbstract (C++ function)</a>, <a href="api/classhermes_1_1neutralgas_1_1NeutralGasAbstract.html#_CPPv318NeutralGasAbstractv">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1darkmatter_1_1NFWGProfile.html#_CPPv311NFWGProfiledd5QMass">NFWGProfile (C++ function)</a>
 </li>
@@ -2367,10 +2411,10 @@
 </li>
       <li><a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv316PiZeroIntegratorRKNSt10shared_ptrIN10cosmicrays16CosmicRayDensityEEERKNSt10shared_ptrIN10neutralgas9RingModelEEERKNSt10shared_ptrIN12interactions24DifferentialCrossSectionEEE">PiZeroIntegrator (C++ function)</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv316PiZeroIntegratorRKNSt6vectorINSt10shared_ptrIN10cosmicrays16CosmicRayDensityEEEEERKNSt10shared_ptrIN10neutralgas9RingModelEEERKNSt10shared_ptrIN12interactions24DifferentialCrossSectionEEE">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classhermes_1_1Random.html#_CPPv35pNext">pNext (C++ member)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classhermes_1_1Grid.html#_CPPv3NK17positionFromIndexEi">positionFromIndex (C++ function)</a>, <a href="api/classhermes_1_1Grid2D.html#_CPPv3NK17positionFromIndexEi">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv311positionSun">positionSun (C++ member)</a>, <a href="api/classhermes_1_1DarkMatterIntegrator.html#_CPPv311positionSun">[1]</a>, <a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv311positionSun">[2]</a>, <a href="api/classhermes_1_1FreeFreeIntegrator.html#_CPPv311positionSun">[3]</a>, <a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv311positionSun">[4]</a>, <a href="api/classhermes_1_1InverseComptonIntegrator.html#_CPPv311positionSun">[5]</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv311positionSun">[6]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv311positionSun">[7]</a>, <a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv311positionSun">[8]</a>, <a href="api/classhermes_1_1SynchroAbsorptionIntegrator.html#_CPPv311positionSun">[9]</a>, <a href="api/classhermes_1_1SynchroIntegrator.html#_CPPv311positionSun">[10]</a>
@@ -2382,6 +2426,8 @@
       <li><a href="api/classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum.html#_CPPv317PPPC4DMIDSpectrum7Channel4Mass">PPPC4DMIDSpectrum (C++ function)</a>, <a href="api/classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum.html#_CPPv317PPPC4DMIDSpectrum7Channel4MassRKNSt6stringE">[1]</a>
 </li>
       <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3NK11printPixelsEv">printPixels (C++ function)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv3NK11printPixelsEv">[1]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv3NK11printPixelsEv">[2]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3NK11printPixelsEv">[3]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv3NK11printPixelsEv">[4]</a>, <a href="components/SkymapsGroup.html#_CPPv3NK11printPixelsEv">[5]</a>
+</li>
+      <li><a href="api/classhermes_1_1neutralgas_1_1ProfileAbstract.html#_CPPv315ProfileAbstractv">ProfileAbstract (C++ function)</a>
 </li>
       <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv311progressbar">progressbar (C++ member)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv311progressbar">[1]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv311progressbar">[2]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv311progressbar">[3]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv311progressbar">[4]</a>
 </li>
@@ -2405,11 +2451,11 @@
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40.html#_CPPv36QAngle">QAngle (C++ type)</a>
 </li>
+      <li><a href="api/typedef_namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f.html#_CPPv316QAngularMomentum">QAngularMomentum (C++ type)</a>
+</li>
       <li><a href="api/typedef_namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c.html#_CPPv35QArea">QArea (C++ type)</a>
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf.html#_CPPv314QColumnDensity">QColumnDensity (C++ type)</a>
-</li>
-      <li><a href="api/typedef_namespacehermes_1_1units_1abfd2d95d5ad24fefdc11b58460cdef65.html#_CPPv38QDensity">QDensity (C++ type)</a>
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c.html#_CPPv317QDiffCrossSection">QDiffCrossSection (C++ type)</a>
 </li>
@@ -2433,6 +2479,8 @@
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c.html#_CPPv314QEnergyDensity">QEnergyDensity (C++ type)</a>
 </li>
+      <li><a href="api/typedef_namespacehermes_1_1units_1a05b6d6f0546f9bd87fd641c9e8502365.html#_CPPv322QEnergyOverTemperature">QEnergyOverTemperature (C++ type)</a>
+</li>
       <li><a href="api/typedef_namespacehermes_1_1units_1a5e81348dd8e9c30ddd626f52910a24a1.html#_CPPv311QEPotential">QEPotential (C++ type)</a>
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f.html#_CPPv312QEResistance">QEResistance (C++ type)</a>
@@ -2447,6 +2495,8 @@
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f.html#_CPPv310QIntensity">QIntensity (C++ type)</a>
 </li>
+      <li><a href="api/typedef_namespacehermes_1_1units_1acf3d4a11ac9a813c482bd3f885e43fc7.html#_CPPv314QInverseEnergy">QInverseEnergy (C++ type)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/typedef_namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0.html#_CPPv314QInverseLength">QInverseLength (C++ type)</a>
@@ -2456,6 +2506,8 @@
       <li><a href="api/typedef_namespacehermes_1_1units_1a7fafd935f08d30262bfba7261e8f76f3.html#_CPPv311QLIntensity">QLIntensity (C++ type)</a>
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59.html#_CPPv35QMass">QMass (C++ type)</a>
+</li>
+      <li><a href="api/typedef_namespacehermes_1_1units_1ace62e7f5cd9628fd2a9971b4f3657d37.html#_CPPv312QMassDensity">QMassDensity (C++ type)</a>
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1a72b849b5230560167419622406054305.html#_CPPv37QMField">QMField (C++ type)</a>
 </li>
@@ -2482,6 +2534,8 @@
       <li><a href="api/typedef_namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65.html#_CPPv316QRotationMeasure">QRotationMeasure (C++ type)</a>
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1a30f5a6207bff5e9e3503d039f5485439.html#_CPPv311QSolidAngle">QSolidAngle (C++ type)</a>
+</li>
+      <li><a href="api/typedef_namespacehermes_1_1units_1a93ce8b37e79297f83eee561b10d38502.html#_CPPv322QSpectralEnergyDensity">QSpectralEnergyDensity (C++ type)</a>
 </li>
       <li><a href="api/typedef_namespacehermes_1_1units_1ada6d27e18c6b882bd684cb05c2fea781.html#_CPPv36QSpeed">QSpeed (C++ type)</a>
 </li>
@@ -2577,9 +2631,9 @@
 </li>
       <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv34RingNSt6size_tENSt10shared_ptrI8RingDataEE7QLength7QLength">Ring (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1neutralgas_1_1RingData.html#_CPPv38RingData8RingType">RingData (C++ function)</a>
+      <li><a href="api/classhermes_1_1neutralgas_1_1RingData.html#_CPPv38RingData7GasType">RingData (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv39RingModel8RingType">RingModel (C++ function)</a>
+      <li><a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv39RingModel7GasType">RingModel (C++ function)</a>
 </li>
       <li><a href="api/structhermes_1_1chargedgas_1_1YMW16_1_1LI.html#_CPPv33RLI">RLI (C++ member)</a>
 </li>
@@ -2619,7 +2673,7 @@
 </li>
       <li><a href="api/classhermes_1_1interactions_1_1Kamae06Gamma.html#_CPPv317setCachingStorageNSt10unique_ptrI24CacheStorageCrossSectionEE">setCachingStorage (C++ function)</a>, <a href="api/classhermes_1_1interactions_1_1Kamae06Neutrino.html#_CPPv317setCachingStorageNSt10unique_ptrI24CacheStorageCrossSectionEE">[1]</a>
 </li>
-      <li><a href="api/classhermes_1_1CircularWindow.html#_CPPv314setDescriptionRKNSt6stringE">setDescription (C++ function)</a>, <a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv314setDescriptionRKNSt6stringE">[1]</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv314setDescriptionRKNSt6stringE">[2]</a>, <a href="api/classhermes_1_1InvertMask.html#_CPPv314setDescriptionRKNSt6stringE">[3]</a>, <a href="api/classhermes_1_1MaskList.html#_CPPv314setDescriptionRKNSt6stringE">[4]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv314setDescriptionRKNSt6stringE">[5]</a>, <a href="api/classhermes_1_1RectangularWindow.html#_CPPv314setDescriptionRKNSt6stringE">[6]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv314setDescriptionRKNSt6stringE">[7]</a>, <a href="api/classhermes_1_1Skymap.html#_CPPv314setDescriptionRKNSt6stringE">[8]</a>, <a href="api/classhermes_1_1SkymapMask.html#_CPPv314setDescriptionRKNSt6stringE">[9]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv314setDescriptionRKNSt6stringE">[10]</a>
+      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">setDescription (C++ function)</a>, <a href="api/classhermes_1_1CircularWindow.html#_CPPv314setDescriptionRKNSt6stringE">[1]</a>, <a href="api/classhermes_1_1DarkMatterIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">[2]</a>, <a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">[3]</a>, <a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv314setDescriptionRKNSt6stringE">[4]</a>, <a href="api/classhermes_1_1FreeFreeIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">[5]</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv314setDescriptionRKNSt6stringE">[6]</a>, <a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv314setDescriptionRKNSt6stringE">[7]</a>, <a href="api/classhermes_1_1InverseComptonIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">[8]</a>, <a href="api/classhermes_1_1InvertMask.html#_CPPv314setDescriptionRKNSt6stringE">[9]</a>, <a href="api/classhermes_1_1MaskList.html#_CPPv314setDescriptionRKNSt6stringE">[10]</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">[11]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">[12]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv314setDescriptionRKNSt6stringE">[13]</a>, <a href="api/classhermes_1_1RectangularWindow.html#_CPPv314setDescriptionRKNSt6stringE">[14]</a>, <a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">[15]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv314setDescriptionRKNSt6stringE">[16]</a>, <a href="api/classhermes_1_1Skymap.html#_CPPv314setDescriptionRKNSt6stringE">[17]</a>, <a href="api/classhermes_1_1SkymapMask.html#_CPPv314setDescriptionRKNSt6stringE">[18]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv314setDescriptionRKNSt6stringE">[19]</a>, <a href="api/classhermes_1_1SynchroAbsorptionIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">[20]</a>, <a href="api/classhermes_1_1SynchroIntegrator.html#_CPPv314setDescriptionRKNSt6stringE">[21]</a>
 </li>
       <li><a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv315setEnabledRingsNSt5arrayIbXL12EEEE">setEnabledRings (C++ function)</a>
 </li>
@@ -2677,7 +2731,7 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/classhermes_1_1chargedgas_1_1ChargedGasDensity.html#_CPPv314setTemperature12QTemperature">setTemperature (C++ function)</a>, <a href="api/classhermes_1_1chargedgas_1_1HII__Cordes91.html#_CPPv314setTemperature12QTemperature">[1]</a>, <a href="api/classhermes_1_1chargedgas_1_1NE2001Simple.html#_CPPv314setTemperature12QTemperature">[2]</a>, <a href="api/classhermes_1_1chargedgas_1_1YMW16.html#_CPPv314setTemperature12QTemperature">[3]</a>, <a href="api/classhermes_1_1neutralgas_1_1NeutralGasDensity.html#_CPPv314setTemperature12QTemperature">[4]</a>, <a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv314setTemperature12QTemperature">[5]</a>
+      <li><a href="api/classhermes_1_1chargedgas_1_1ChargedGasDensity.html#_CPPv314setTemperature12QTemperature">setTemperature (C++ function)</a>, <a href="api/classhermes_1_1chargedgas_1_1HII__Cordes91.html#_CPPv314setTemperature12QTemperature">[1]</a>, <a href="api/classhermes_1_1chargedgas_1_1NE2001Simple.html#_CPPv314setTemperature12QTemperature">[2]</a>, <a href="api/classhermes_1_1chargedgas_1_1YMW16.html#_CPPv314setTemperature12QTemperature">[3]</a>, <a href="api/classhermes_1_1neutralgas_1_1NeutralGasAbstract.html#_CPPv314setTemperature12QTemperature">[4]</a>, <a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv314setTemperature12QTemperature">[5]</a>
 </li>
       <li><a href="api/classhermes_1_1magneticfields_1_1JF12Field.html#_CPPv316setTurbulentGridNSt10shared_ptrI10VectorGridEE">setTurbulentGrid (C++ function)</a>, <a href="api/classhermes_1_1magneticfields_1_1Sun08Field.html#_CPPv316setTurbulentGridNSt10shared_ptrI10VectorGridEE">[1]</a>
 </li>
@@ -2721,7 +2775,7 @@
 </li>
       <li><a href="api/classhermes_1_1SynchroIntegrator.html#_CPPv3NK22singleElectronEmissionERK10QFrequencyRK7QEnergyRK7QMField">singleElectronEmission (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3NK4sizeEv">size (C++ function)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv3NK4sizeEv">[1]</a>, <a href="api/classhermes_1_1GammaSkymapRange.html#_CPPv3NK4sizeEv">[2]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv3NK4sizeEv">[3]</a>, <a href="api/classhermes_1_1RadioSkymapRange.html#_CPPv34sizev">[4]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3NK4sizeEv">[5]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv3NK4sizeEv">[6]</a>, <a href="components/SkymapsGroup.html#_CPPv3NK4sizeEv">[7]</a>
+      <li><a href="api/classhermes_1_1DispersionMeasureSkymap.html#_CPPv3NK4sizeEv">size (C++ function)</a>, <a href="api/classhermes_1_1GammaSkymap.html#_CPPv3NK4sizeEv">[1]</a>, <a href="api/classhermes_1_1GammaSkymapRange.html#_CPPv3NK4sizeEv">[2]</a>, <a href="api/classhermes_1_1RadioSkymap.html#_CPPv3NK4sizeEv">[3]</a>, <a href="api/classhermes_1_1RadioSkymapRange.html#_CPPv34sizev">[4]</a>, <a href="api/classhermes_1_1RotationMeasureSkymap.html#_CPPv3NK4sizeEv">[5]</a>, <a href="api/classhermes_1_1SkymapTemplate.html#_CPPv3NK4sizeEv">[6]</a>, <a href="api/classhermes_1_1neutralgas_1_1RingModel.html#_CPPv3NK4sizeEv">[7]</a>, <a href="components/SkymapsGroup.html#_CPPv3NK4sizeEv">[8]</a>
 </li>
       <li><a href="api/classhermes_1_1Skymap.html#_CPPv36SkymapNSt6size_tE">Skymap (C++ function)</a>
 </li>
@@ -2765,6 +2819,8 @@
 </li>
       <li><a href="api/typedef_namespacehermes_1ac9fffeaa9f83c8434acaa6af317a6ca0.html#_CPPv39tArrayKey">tArrayKey (C++ type)</a>
 </li>
+      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv311tCacheTable">tCacheTable (C++ type)</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv311tCacheTable">[1]</a>
+</li>
       <li><a href="api/classhermes_1_1cosmicrays_1_1CosmicRayDensity.html#_CPPv312tEnergyRange">tEnergyRange (C++ type)</a>, <a href="api/classhermes_1_1cosmicrays_1_1Dragon2D.html#_CPPv312tEnergyRange">[1]</a>, <a href="api/classhermes_1_1cosmicrays_1_1Dragon3D.html#_CPPv312tEnergyRange">[2]</a>, <a href="api/classhermes_1_1cosmicrays_1_1DummyCRDensity.html#_CPPv312tEnergyRange">[3]</a>, <a href="api/classhermes_1_1cosmicrays_1_1SimpleCRDensity.html#_CPPv312tEnergyRange">[4]</a>, <a href="api/classhermes_1_1cosmicrays_1_1Sun08CRDensity.html#_CPPv312tEnergyRange">[5]</a>, <a href="api/classhermes_1_1cosmicrays_1_1WMAP07CRDensity.html#_CPPv312tEnergyRange">[6]</a>, <a href="api/classhermes_1_1photonfields_1_1CMB.html#_CPPv312tEnergyRange">[7]</a>, <a href="api/classhermes_1_1photonfields_1_1ISRF.html#_CPPv312tEnergyRange">[8]</a>, <a href="api/classhermes_1_1photonfields_1_1PhotonField.html#_CPPv312tEnergyRange">[9]</a>
 </li>
       <li><a href="api/variable_namespacehermes_1_1units_1aa5446b28be6215dfe2ca39251d32f08c.html#_CPPv34tera">tera (C++ member)</a>
@@ -2787,7 +2843,7 @@
 </li>
       <li><a href="api/classhermes_1_1chargedgas_1_1YMW16.html#_CPPv3NK4thinEddddd">thin (C++ function)</a>
 </li>
-      <li><a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv311tLOSProfile">tLOSProfile (C++ type)</a>
+      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv311tLOSProfile">tLOSProfile (C++ type)</a>, <a href="api/classhermes_1_1DarkMatterIntegrator.html#_CPPv311tLOSProfile">[1]</a>, <a href="api/classhermes_1_1DispersionMeasureIntegrator.html#_CPPv311tLOSProfile">[2]</a>, <a href="api/classhermes_1_1FreeFreeIntegrator.html#_CPPv311tLOSProfile">[3]</a>, <a href="api/classhermes_1_1IntegratorTemplate.html#_CPPv311tLOSProfile">[4]</a>, <a href="api/classhermes_1_1InverseComptonIntegrator.html#_CPPv311tLOSProfile">[5]</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv311tLOSProfile">[6]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv311tLOSProfile">[7]</a>, <a href="api/classhermes_1_1RotationMeasureIntegrator.html#_CPPv311tLOSProfile">[8]</a>, <a href="api/classhermes_1_1SynchroAbsorptionIntegrator.html#_CPPv311tLOSProfile">[9]</a>, <a href="api/classhermes_1_1SynchroIntegrator.html#_CPPv311tLOSProfile">[10]</a>
 </li>
       <li><a href="api/function_namespacehermes_1a1564a0a913257b84fea302bb6f4984cc.html#_CPPv310toGalCoordRK10QDirection">toGalCoord (C++ function)</a>
 </li>
@@ -2835,15 +2891,13 @@
 </li>
       <li><a href="api/typedef_group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad.html#_CPPv314Vector3QLength">Vector3QLength (C++ type)</a>
 </li>
-      <li><a href="api/typedef_group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5.html#_CPPv314Vector3QMField">Vector3QMField (C++ type)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/typedef_group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5.html#_CPPv314Vector3QMField">Vector3QMField (C++ type)</a>
+</li>
       <li><a href="api/typedef_group__Core_1gadd65e2dc0cf047a5e27e5879ec68cd8f.html#_CPPv314Vector3QNumber">Vector3QNumber (C++ type)</a>
 </li>
       <li><a href="api/classhermes_1_1Vector3Quantity.html#_CPPv315Vector3QuantityRK15Vector3QuantityI1TE">Vector3Quantity (C++ function)</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv315Vector3QuantityRK15Vector3QuantityI1UE">[1]</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv315Vector3QuantityRK1T">[2]</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv315Vector3QuantityRK1TRK1TRK1T">[3]</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv315Vector3QuantityRK7Vector3I1UE">[4]</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv315Vector3Quantityv">[5]</a>
-</li>
-      <li><a href="api/classVector3Qunatity.html#_CPPv315Vector3Qunatity">Vector3Qunatity (C++ class)</a>
 </li>
       <li><a href="api/typedef_group__Core_1ga4b91c7c5257383886e740336452f40ab.html#_CPPv310VectorGrid">VectorGrid (C++ type)</a>
 </li>
@@ -2891,7 +2945,7 @@
 </li>
       <li><a href="api/classhermes_1_1outputs_1_1HEALPixFormat.html#_CPPv321writeKeyValueAsStringRKNSt6stringERKNSt6stringERKNSt6stringE">writeKeyValueAsString (C++ function)</a>, <a href="api/classhermes_1_1outputs_1_1Output.html#_CPPv321writeKeyValueAsStringRKNSt6stringERKNSt6stringERKNSt6stringE">[1]</a>
 </li>
-      <li><a href="api/classhermes_1_1outputs_1_1HEALPixFormat.html#_CPPv313writeMetadataidRKNSt6stringE">writeMetadata (C++ function)</a>, <a href="api/classhermes_1_1outputs_1_1Output.html#_CPPv313writeMetadataidRKNSt6stringE">[1]</a>
+      <li><a href="api/classhermes_1_1outputs_1_1HEALPixFormat.html#_CPPv313writeMetadataidbRKNSt6stringE">writeMetadata (C++ function)</a>, <a href="api/classhermes_1_1outputs_1_1Output.html#_CPPv313writeMetadataidbRKNSt6stringE">[1]</a>
 </li>
       <li><a href="api/structhermes_1_1chargedgas_1_1YMW16_1_1Spiral.html#_CPPv33wsg">wsg (C++ member)</a>
 </li>
@@ -2907,7 +2961,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/classhermes_1_1Vector3.html#_CPPv31x">x (C++ member)</a>, <a href="api/classhermes_1_1Vector3Quantity.html#_CPPv31x">[1]</a>
 </li>
-      <li><a href="api/classhermes_1_1BremsstrahlungIntegrator.html#_CPPv3NK10X0FunctionERK14Vector3QLength">X0Function (C++ function)</a>, <a href="api/classhermes_1_1PiZeroAbsorptionIntegrator.html#_CPPv3NK10X0FunctionERK14Vector3QLength">[1]</a>, <a href="api/classhermes_1_1PiZeroIntegrator.html#_CPPv3NK10X0FunctionERK14Vector3QLength">[2]</a>
+      <li><a href="api/classhermes_1_1neutralgas_1_1Ring.html#_CPPv3NK10X0FunctionERK10QDirection">X0Function (C++ function)</a>
 </li>
   </ul></td>
 </tr></table>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['magneticfields_2122',['MagneticFields',['../group__MagneticFields.html',1,'']]]
+  ['magneticfields_2172',['MagneticFields',['../group__MagneticFields.html',1,'']]]
 ];

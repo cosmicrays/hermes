@@ -3,23 +3,25 @@
   <compounddef id="group__NeutralGas" kind="group">
     <compoundname>NeutralGas</compoundname>
     <title>NeutralGas</title>
-    <innerclass refid="classhermes_1_1neutralgas_1_1NeutralGasDensity" prot="public">hermes::neutralgas::NeutralGasDensity</innerclass>
+    <innerclass refid="classhermes_1_1neutralgas_1_1Nakanishi06" prot="public">hermes::neutralgas::Nakanishi06</innerclass>
+    <innerclass refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract" prot="public">hermes::neutralgas::NeutralGasAbstract</innerclass>
+    <innerclass refid="classhermes_1_1neutralgas_1_1ProfileAbstract" prot="public">hermes::neutralgas::ProfileAbstract</innerclass>
     <innerclass refid="classhermes_1_1neutralgas_1_1RingData" prot="public">hermes::neutralgas::RingData</innerclass>
     <innerclass refid="classhermes_1_1neutralgas_1_1Ring" prot="public">hermes::neutralgas::Ring</innerclass>
     <innerclass refid="classhermes_1_1neutralgas_1_1RingModel" prot="public">hermes::neutralgas::RingModel</innerclass>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7" prot="public" static="no" strong="yes">
+      <memberdef kind="enum" id="group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c" prot="public" static="no" strong="yes">
         <type></type>
-        <name>RingType</name>
-        <enumvalue id="group__NeutralGas_1gga6e6e8dec15851f2136618b418cf844f7abf8c144140b15befb8ce662632a7b76e" prot="public">
+        <name>GasType</name>
+        <enumvalue id="group__NeutralGas_1gga7e38bc064644049cbee1c0882141a32cabf8c144140b15befb8ce662632a7b76e" prot="public">
           <name>HI</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="group__NeutralGas_1gga6e6e8dec15851f2136618b418cf844f7a42983b05e2f2cc22822e30beb7bdd668" prot="public">
-          <name>CO</name>
+        <enumvalue id="group__NeutralGas_1gga7e38bc064644049cbee1c0882141a32caca2bf3f6b7e18a508253e9521510a4b5" prot="public">
+          <name>H2</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -31,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/neutralgas/RingModel.h" line="21" column="20" bodyfile="include/hermes/neutralgas/RingModel.h" bodystart="21" bodyend="21"/>
+        <location file="include/hermes/neutralgas/GasType.h" line="10" column="19" bodyfile="include/hermes/neutralgas/GasType.h" bodystart="10" bodyend="10"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

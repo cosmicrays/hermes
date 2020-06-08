@@ -101,11 +101,11 @@ $(function() {
 <li>getBoundaries()
 : <a class="el" href="group__NeutralGas.html#adfdd2f7089ad96caddee54ad6d0df7d0">Ring</a>
 </li>
-<li>getCOIntensity()
-: <a class="el" href="group__NeutralGas.html#a240676bddaae8e9ba371e89f7f3c827c">Ring</a>
-</li>
 <li>getCOIntensityInRing()
 : <a class="el" href="group__NeutralGas.html#a5d958356f7e3657c793f0f5355685f07">RingData</a>
+</li>
+<li>getColumnDensity()
+: <a class="el" href="group__NeutralGas.html#ad61e3ef08a19a4c9bb00b429d4518417">Ring</a>
 </li>
 <li>getCrossSection()
 : <a class="el" href="group__Interactions.html#ac549e2dcc5bfdaf063487b160858d980">BreitWheeler</a>
@@ -129,7 +129,8 @@ $(function() {
 , <a class="el" href="group__CosmicRays.html#a34f7c51bc771e70840f5484a0a9d910d">WMAP07CRDensity</a>
 </li>
 <li>getDescription()
-: <a class="el" href="group__Skymaps.html#aea425314aebc36d0f6bf7671705158da">Skymap</a>
+: <a class="el" href="group__Integrators.html#aea425314aebc36d0f6bf7671705158da">IntegratorTemplate&lt; QPXL, QSTEP &gt;</a>
+, <a class="el" href="group__Skymaps.html#aea425314aebc36d0f6bf7671705158da">Skymap</a>
 , <a class="el" href="classhermes_1_1SkymapMask.html#aea425314aebc36d0f6bf7671705158da">SkymapMask</a>
 </li>
 <li>getDiffCrossSection()
@@ -172,7 +173,7 @@ $(function() {
 <li>getEnergyDensity()
 : <a class="el" href="group__PhotonFields.html#a5681a7d4b45773edb38b4130420f964b">CMB</a>
 , <a class="el" href="group__PhotonFields.html#a4bbc57b13d6c3008395faa91b1660239">ISRF</a>
-, <a class="el" href="group__PhotonFields.html#af667989913d861fed4bb2b1bb219cba6">PhotonField</a>
+, <a class="el" href="group__PhotonFields.html#af37cc8d1c6d8ad6f46e5367fb8f98c49">PhotonField</a>
 </li>
 <li>getEnergyScaleFactor()
 : <a class="el" href="group__CosmicRays.html#a32a1bd1740480c4569eb385789d8b16e">CosmicRayDensity</a>
@@ -204,6 +205,11 @@ $(function() {
 <li>getGalacticCentreDensity()
 : <a class="el" href="group__ChargedGas.html#a9398d3ef69f92030f82c1ac7ad780d95">NE2001Simple</a>
 </li>
+<li>getGasType()
+: <a class="el" href="group__NeutralGas.html#a5afa2fd9e40192fa392b67532412cbc3">Ring</a>
+, <a class="el" href="group__NeutralGas.html#a5afa2fd9e40192fa392b67532412cbc3">RingData</a>
+, <a class="el" href="group__NeutralGas.html#a5afa2fd9e40192fa392b67532412cbc3">RingModel</a>
+</li>
 <li>getGrid()
 : <a class="el" href="group__Core.html#a39b90220437098cf01cd2df0d0d6b129">Grid2D&lt; T &gt;</a>
 , <a class="el" href="group__Core.html#a39b90220437098cf01cd2df0d0d6b129">Grid&lt; T &gt;</a>
@@ -214,6 +220,12 @@ $(function() {
 : <a class="el" href="group__Core.html#a17b99641d4b5f11ae97ba9bbc4f18aa1">Grid2D&lt; T &gt;</a>
 , <a class="el" href="group__Core.html#a17b99641d4b5f11ae97ba9bbc4f18aa1">Grid&lt; T &gt;</a>
 </li>
+<li>getH2ColumnDensity()
+: <a class="el" href="group__NeutralGas.html#a327731ecafdea6be639c86d565b79cdf">Ring</a>
+</li>
+<li>getH2Density()
+: <a class="el" href="group__NeutralGas.html#a948735f5bc2ec2ed0c22acdd2afca72c">Nakanishi06</a>
+</li>
 <li>getHDUType()
 : <a class="el" href="classhermes_1_1FITSFile.html#acb45f31ed2af0534632afe150e38aac8">FITSFile</a>
 </li>
@@ -221,10 +233,13 @@ $(function() {
 : <a class="el" href="classhermes_1_1FITSFile.html#a5dc39ded92432da444fda9ff352312cb">FITSFile</a>
 </li>
 <li>getHIColumnDensity()
-: <a class="el" href="group__NeutralGas.html#ad98ab52efcfced4e9d1af4f75e9696a2">Ring</a>
+: <a class="el" href="group__NeutralGas.html#a6550dd46b904e8ef27dcf8e2942633d9">Ring</a>
 </li>
 <li>getHIColumnDensityInRing()
 : <a class="el" href="group__NeutralGas.html#a0ae4cfdb0d8f63e80cb5ad7d0e16a4e8">RingData</a>
+</li>
+<li>getHIDensity()
+: <a class="el" href="group__NeutralGas.html#a3fdbc6b199dddd88af7bd39f0b5aa256">Nakanishi06</a>
 </li>
 <li>getID()
 : <a class="el" href="classhermes_1_1PID.html#a9c9659a6c6ba66b4107ba59c95a24241">PID</a>
@@ -242,7 +257,9 @@ $(function() {
 : <a class="el" href="structhermes_1_1FITSKeyValue.html#af526f5a87d38bf9f80392e3472f2820a">FITSKeyValue</a>
 </li>
 <li>getLOSProfile()
-: <a class="el" href="group__Integrators.html#ac2ff004ec494feaf8631c8b8ec8f4923">DispersionMeasureIntegrator</a>
+: <a class="el" href="group__Integrators.html#adcac769d2282cdf3fcd0d885e2c11390">DispersionMeasureIntegrator</a>
+, <a class="el" href="group__Integrators.html#a15cc1af7c65e1a98191596af11f0bc8a">IntegratorTemplate&lt; QPXL, QSTEP &gt;</a>
+, <a class="el" href="group__Integrators.html#a6eeda76d418c33749feabeadb5bcd704">InverseComptonIntegrator</a>
 </li>
 <li>getMask()
 : <a class="el" href="classhermes_1_1SkymapMask.html#af2b50ac24b7c39cc310fc5c27d227bee">SkymapMask</a>
@@ -302,6 +319,10 @@ $(function() {
 : <a class="el" href="group__DarkMatter.html#a7d3eec74d359e5412500bb8fda24f9d6">DarkMatterSpectrum</a>
 , <a class="el" href="group__DarkMatter.html#acaff3ec30e04e3ccb0d408f9f73eee5d">PPPC4DMIDSpectrum</a>
 </li>
+<li>getPDensity()
+: <a class="el" href="group__NeutralGas.html#af752eba1d60ff74c91accdf7acf9c7ca">Nakanishi06</a>
+, <a class="el" href="group__NeutralGas.html#a78e64242525beffa0a480ddd8bffac18">ProfileAbstract</a>
+</li>
 <li>getPerpendicularTo()
 : <a class="el" href="group__Core.html#afd1e615641128549e73ec8db505a4842">Vector3&lt; T &gt;</a>
 </li>
@@ -346,13 +367,9 @@ $(function() {
 : <a class="el" href="group__DarkMatter.html#a133a77ec7a32944e34b3ba4a981b01e9">NFWGProfile</a>
 </li>
 <li>getRingNumber()
-: <a class="el" href="group__NeutralGas.html#a9de2d7ad692e613f675e7555dc0441d6">NeutralGasDensity</a>
+: <a class="el" href="group__NeutralGas.html#a9de2d7ad692e613f675e7555dc0441d6">NeutralGasAbstract</a>
 , <a class="el" href="group__NeutralGas.html#af5a21caa3e9135b39fcfa18517f9e7ca">RingData</a>
 , <a class="el" href="group__NeutralGas.html#ac3f595b20e28dc031bff4fcc9969fe77">RingModel</a>
-</li>
-<li>getRingType()
-: <a class="el" href="group__NeutralGas.html#acb7ae11e344b5cdaf9c49bc143fa780e">RingData</a>
-, <a class="el" href="group__NeutralGas.html#acb7ae11e344b5cdaf9c49bc143fa780e">RingModel</a>
 </li>
 <li>getRotated()
 : <a class="el" href="group__Core.html#a3ec656a746b7889c8dfc186d36033523">Vector3&lt; T &gt;</a>
@@ -388,7 +405,7 @@ $(function() {
 </li>
 <li>getTemperature()
 : <a class="el" href="group__ChargedGas.html#a0538f93ea5035c885c5f90a0d235bc28">ChargedGasDensity</a>
-, <a class="el" href="group__NeutralGas.html#a0538f93ea5035c885c5f90a0d235bc28">NeutralGasDensity</a>
+, <a class="el" href="group__NeutralGas.html#a0538f93ea5035c885c5f90a0d235bc28">NeutralGasAbstract</a>
 </li>
 <li>getTheta()
 : <a class="el" href="group__Core.html#abd9a0342bed932370f307629a5b5e845">Vector3&lt; T &gt;</a>
@@ -461,10 +478,10 @@ $(function() {
 : <a class="el" href="group__Core.html#a573409a1444c03213418c57e7687ab92">Vector3&lt; T &gt;</a>
 </li>
 <li>Grid()
-: <a class="el" href="group__Core.html#acbf505c1a493906b3e7038e54d9c6ac1">Grid&lt; T &gt;</a>
+: <a class="el" href="group__Core.html#a0ae514128f317c586dda8044544128b4">Grid&lt; T &gt;</a>
 </li>
 <li>Grid2D()
-: <a class="el" href="group__Core.html#a07f98fcd47d7febbfc822c4bc526bb65">Grid2D&lt; T &gt;</a>
+: <a class="el" href="group__Core.html#a25c2052ac0ba1af2f07b67217abb8c87">Grid2D&lt; T &gt;</a>
 </li>
 <li>gsl_function_pp()
 : <a class="el" href="classhermes_1_1gsl__function__pp.html#af98389e745cd443e59676ba29f296af0">gsl_function_pp&lt; F &gt;</a>
@@ -476,7 +493,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 26 2020 17:19:18 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2020 12:31:20 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

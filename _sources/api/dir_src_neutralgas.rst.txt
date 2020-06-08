@@ -15,6 +15,7 @@ Directory neutralgas
 Files
 -----
 
+- :ref:`file_src_neutralgas_Nakanishi06.cpp`
 - :ref:`file_src_neutralgas_RingModel.cpp`
 
 

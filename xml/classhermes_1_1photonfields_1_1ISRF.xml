@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1photonfields_1_1ISRF" kind="class" language="C++" prot="public">
     <compoundname>hermes::photonfields::ISRF</compoundname>
     <basecompoundref refid="classhermes_1_1photonfields_1_1PhotonField" prot="public" virt="non-virtual">PhotonField</basecompoundref>
-    <includes refid="ISRF_8h" local="no">include/hermes/photonfields/ISRF.h</includes>
+    <includes refid="ISRF_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/photonfields/ISRF.h</includes>
       <sectiondef kind="private-static-attrib">
       <memberdef kind="variable" id="classhermes_1_1photonfields_1_1ISRF_1ae807ac4a456d95180ee051a665b11efc" prot="private" static="yes" mutable="no">
         <type>const static int</type>

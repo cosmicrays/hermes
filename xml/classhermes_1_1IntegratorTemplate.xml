@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1IntegratorTemplate" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>hermes::IntegratorTemplate</compoundname>
     <derivedcompoundref refid="classhermes_1_1PiZeroIntegrator" prot="public" virt="non-virtual">PiZeroIntegrator</derivedcompoundref>
-    <includes refid="IntegratorTemplate_8h" local="no">include/hermes/integrators/IntegratorTemplate.h</includes>
+    <includes refid="IntegratorTemplate_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/integrators/IntegratorTemplate.h</includes>
     <templateparamlist>
       <param>
         <type>class QPXL</type>
@@ -12,6 +12,22 @@
         <type>typename QSTEP</type>
       </param>
     </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" prot="public" static="no">
+        <type>std::pair&lt; std::vector&lt; <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &gt;, std::vector&lt; double &gt; &gt;</type>
+        <definition>typedef std::pair&lt;std::vector&lt;QLength&gt;, std::vector&lt;double&gt; &gt; tLOSProfile</definition>
+        <argsstring></argsstring>
+        <name>tLOSProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the line of sight profile (integrand of integrateOverLOS) of a direction where N is equidistant number of steps from the Sun&apos;s position to the galactic border </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="120" column="19" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="protected-attrib">
       <memberdef kind="variable" id="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" prot="protected" static="no" mutable="no">
         <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref></type>
@@ -65,20 +81,37 @@
         </inbodydescription>
         <location file="include/hermes/integrators/IntegratorTemplate.h" line="41" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="41" bodyend="-1"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
-      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a379d6e97c4be0ac5d82c1d7ea76a7b3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type></type>
-        <definition>IntegratorTemplate</definition>
-        <argsstring>()</argsstring>
-        <name>IntegratorTemplate</name>
+      <memberdef kind="variable" id="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="44" column="1" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="44" bodyend="47"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="42" column="13" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1acc14d2e2cb6476d26717c80d6a2a8859" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>IntegratorTemplate</definition>
+        <argsstring>(const std::string &amp;description)</argsstring>
+        <name>IntegratorTemplate</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="45" column="1" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="45" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ad705532d91a47b4bfd2c36a6eedd9051" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type></type>
@@ -91,7 +124,39 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="48" column="9" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="48" bodyend="48"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="50" column="9" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>getDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get Description of the integrator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="53" column="13" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setDescription</definition>
+        <argsstring>(const std::string &amp;description)</argsstring>
+        <name>setDescription</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set Description of the integrator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="55" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="55" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -109,7 +174,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="54" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="54" bodyend="59"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="63" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="63" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>QSTEP</type>
@@ -123,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="63" column="7" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="63" bodyend="63"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="72" column="7" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="72" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a793c8feb6e5546bd54fa469e191c1e9d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>QPXL</type>
@@ -131,14 +196,14 @@
         <argsstring>(const QDirection &amp;dir) const =0</argsstring>
         <name>integrateOverLOS</name>
         <reimplementedby refid="classhermes_1_1DarkMatterIntegrator_1afd43ec70b4e4d01af96db0fc1e863599">integrateOverLOS</reimplementedby>
-        <reimplementedby refid="classhermes_1_1SynchroIntegrator_1af8a8743be2c993c96fa67c5c58325ca4">integrateOverLOS</reimplementedby>
-        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1a0135b3e3f31a935ce828cfd10d356d31">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1FreeFreeIntegrator_1a4f9e9dd55d67602fa0f3087ae717ad38">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1DispersionMeasureIntegrator_1af71a001ee858f30f9bbaabbd0e32a21f">integrateOverLOS</reimplementedby>
+        <reimplementedby refid="classhermes_1_1SynchroIntegrator_1a4f9e9dd55d67602fa0f3087ae717ad38">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1RotationMeasureIntegrator_1a49738e24b9641d955a925974b9d73350">integrateOverLOS</reimplementedby>
+        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1a969689cc3a68931fe776552629ab5da0">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1PiZeroIntegrator_1a969689cc3a68931fe776552629ab5da0">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a969689cc3a68931fe776552629ab5da0">integrateOverLOS</reimplementedby>
-        <reimplementedby refid="classhermes_1_1SynchroAbsorptionIntegrator_1ac85e5c8d235ac48ef387377b5dc62dc3">integrateOverLOS</reimplementedby>
+        <reimplementedby refid="classhermes_1_1SynchroAbsorptionIntegrator_1ad6057fb5ea5d2df38c566c39fa939c28">integrateOverLOS</reimplementedby>
         <param>
           <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
           <declname>dir</declname>
@@ -150,24 +215,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="73" column="14"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="82" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a16d6c89aa4ffa980f4a54b6aa8306ead" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a14afcc42b91497aa1d824a0c50a5ff89" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>QPXL</type>
         <definition>virtual QPXL integrateOverLOS</definition>
-        <argsstring>(const QDirection &amp;iterdir, const QSTEP &amp;) const =0</argsstring>
+        <argsstring>(const QDirection &amp;dir, const QSTEP &amp;) const =0</argsstring>
         <name>integrateOverLOS</name>
-        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1accb95016ba45d1c80defe9f2aab94b00">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1DarkMatterIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca">integrateOverLOS</reimplementedby>
+        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca">integrateOverLOS</reimplementedby>
-        <reimplementedby refid="classhermes_1_1SynchroAbsorptionIntegrator_1a91954f979bfab0814e7d2025f201fbc1">integrateOverLOS</reimplementedby>
-        <reimplementedby refid="classhermes_1_1SynchroIntegrator_1a91954f979bfab0814e7d2025f201fbc1">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1FreeFreeIntegrator_1ae9ac0950f4b97af77139c0182b50f776">integrateOverLOS</reimplementedby>
+        <reimplementedby refid="classhermes_1_1SynchroAbsorptionIntegrator_1ae9ac0950f4b97af77139c0182b50f776">integrateOverLOS</reimplementedby>
+        <reimplementedby refid="classhermes_1_1SynchroIntegrator_1ae9ac0950f4b97af77139c0182b50f776">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1DispersionMeasureIntegrator_1a3d28acc7cca8e12d24656238ff2ab913">integrateOverLOS</reimplementedby>
         <reimplementedby refid="classhermes_1_1RotationMeasureIntegrator_1a450aa634098c16be606461c172ae8c09">integrateOverLOS</reimplementedby>
         <param>
           <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
-          <declname>iterdir</declname>
+          <declname>dir</declname>
         </param>
         <param>
           <type>const QSTEP &amp;</type>
@@ -179,7 +244,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="79" column="14"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="88" column="14"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -197,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="86" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="86" bodyend="86"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="95" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="95" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref></type>
@@ -211,7 +276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="90" column="23" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="90" bodyend="90"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="99" column="23" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="99" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
@@ -229,14 +294,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="95" column="16" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="95" bodyend="97"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="104" column="16" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="104" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ab4e3b598849bf32d6fa6dca2abc2d5fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
         <definition>virtual void setupCacheTable</definition>
         <argsstring>(int N_x, int N_y, int N_z)</argsstring>
         <name>setupCacheTable</name>
-        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1a2a4fbd5d19983a3e2d6d7d2c50f5cdcb">setupCacheTable</reimplementedby>
+        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1aa006fd43f3d04f90fa9b36f4086955ad">setupCacheTable</reimplementedby>
         <reimplementedby refid="classhermes_1_1PiZeroIntegrator_1a922e545ec4cafa265c585e2a01528f73">setupCacheTable</reimplementedby>
         <reimplementedby refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a922e545ec4cafa265c585e2a01528f73">setupCacheTable</reimplementedby>
         <param>
@@ -258,14 +323,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="101" column="14" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="101" bodyend="101"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="110" column="14" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="110" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
         <definition>virtual void initCacheTable</definition>
         <argsstring>()</argsstring>
         <name>initCacheTable</name>
-        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1a95b9876e1a40dc5558a2e64ce5fe4179">initCacheTable</reimplementedby>
+        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1a0e908afa5957b68bb56e3ebe565a3809">initCacheTable</reimplementedby>
         <reimplementedby refid="classhermes_1_1PiZeroIntegrator_1a0e908afa5957b68bb56e3ebe565a3809">initCacheTable</reimplementedby>
         <reimplementedby refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a0e908afa5957b68bb56e3ebe565a3809">initCacheTable</reimplementedby>
         <briefdescription>
@@ -274,7 +339,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="102" column="14" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="102" bodyend="102"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="111" column="14" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="111" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -287,7 +352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="103" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="103" bodyend="103"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="112" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="112" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -300,7 +365,54 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="104" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="104" bodyend="104"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="113" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kindref="member">tLOSProfile</ref></type>
+        <definition>virtual tLOSProfile getLOSProfile</definition>
+        <argsstring>(const QDirection &amp;dir, int Nsteps) const</argsstring>
+        <name>getLOSProfile</name>
+        <reimplementedby refid="classhermes_1_1DispersionMeasureIntegrator_1adcac769d2282cdf3fcd0d885e2c11390">getLOSProfile</reimplementedby>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Nsteps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="121" column="21" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="121" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kindref="member">tLOSProfile</ref></type>
+        <definition>virtual tLOSProfile getLOSProfile</definition>
+        <argsstring>(const QDirection &amp;dir, const QSTEP &amp;, int Nsteps) const</argsstring>
+        <name>getLOSProfile</name>
+        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1a6eeda76d418c33749feabeadb5bcd704">getLOSProfile</reimplementedby>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>const QSTEP &amp;</type>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Nsteps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="124" column="21" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="124" bodyend="127"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -349,38 +461,55 @@
         <label>IntegratorTemplate&lt; QPXL, QSTEP &gt;</label>
         <link refid="classhermes_1_1IntegratorTemplate"/>
         <childnode refid="2" relation="usage">
+          <edgelabel>description</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
           <edgelabel>positionSun</edgelabel>
         </childnode>
       </node>
-      <node id="3">
+      <node id="5">
         <label>Vector3&lt; QLength &gt;</label>
         <link refid="classhermes_1_1Vector3"/>
       </node>
       <node id="2">
-        <label>Vector3Quantity&lt; QLength &gt;</label>
-        <link refid="classhermes_1_1Vector3Quantity"/>
+        <label>string</label>
         <childnode refid="3" relation="public-inheritance">
         </childnode>
       </node>
+      <node id="3">
+        <label>basic_string&lt; char &gt;</label>
+      </node>
+      <node id="4">
+        <label>Vector3Quantity&lt; QLength &gt;</label>
+        <link refid="classhermes_1_1Vector3Quantity"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
     </collaborationgraph>
-    <location file="include/hermes/integrators/IntegratorTemplate.h" line="36" column="25" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="36" bodyend="105"/>
+    <location file="include/hermes/integrators/IntegratorTemplate.h" line="36" column="25" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="36" bodyend="128"/>
     <listofallmembers>
       <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" prot="protected" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>cacheEnabled</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" prot="protected" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>cacheTableInitialized</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" prot="protected" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>description</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>getDescription</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" prot="public" virt="virtual"><scope>hermes::IntegratorTemplate</scope><name>getLOSProfile</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" prot="public" virt="virtual"><scope>hermes::IntegratorTemplate</scope><name>getLOSProfile</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>getMaxDistance</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>getSunPosition</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" prot="public" virt="virtual"><scope>hermes::IntegratorTemplate</scope><name>initCacheTable</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a793c8feb6e5546bd54fa469e191c1e9d" prot="public" virt="pure-virtual"><scope>hermes::IntegratorTemplate</scope><name>integrateOverLOS</name></member>
-      <member refid="classhermes_1_1IntegratorTemplate_1a16d6c89aa4ffa980f4a54b6aa8306ead" prot="public" virt="pure-virtual"><scope>hermes::IntegratorTemplate</scope><name>integrateOverLOS</name></member>
-      <member refid="classhermes_1_1IntegratorTemplate_1a379d6e97c4be0ac5d82c1d7ea76a7b3a" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>IntegratorTemplate</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a14afcc42b91497aa1d824a0c50a5ff89" prot="public" virt="pure-virtual"><scope>hermes::IntegratorTemplate</scope><name>integrateOverLOS</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1acc14d2e2cb6476d26717c80d6a2a8859" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>IntegratorTemplate</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>isCacheTableEnabled</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>isCacheTableInitialized</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" prot="protected" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>positionSun</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>setDescription</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>setSkymapParameter</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>setSkymapParameter</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>setSunPosition</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ab4e3b598849bf32d6fa6dca2abc2d5fc" prot="public" virt="virtual"><scope>hermes::IntegratorTemplate</scope><name>setupCacheTable</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" prot="protected" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>skymapParameter</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" prot="public" virt="non-virtual"><scope>hermes::IntegratorTemplate</scope><name>tLOSProfile</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ad705532d91a47b4bfd2c36a6eedd9051" prot="public" virt="virtual"><scope>hermes::IntegratorTemplate</scope><name>~IntegratorTemplate</name></member>
     </listofallmembers>
   </compounddef>

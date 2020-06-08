@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ringtype_2020',['RingType',['../group__NeutralGas.html#ga6e6e8dec15851f2136618b418cf844f7',1,'hermes::neutralgas']]]
+  ['mass_2069',['Mass',['../group__DarkMatter.html#ga4b82e49d40fec5c282ce4115db150889',1,'hermes::darkmatter']]]
 ];

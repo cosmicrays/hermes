@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classhermes_1_1GammaSkymapRange" kind="class" language="C++" prot="public">
     <compoundname>hermes::GammaSkymapRange</compoundname>
-    <includes refid="GammaSkymapRange_8h" local="no">include/hermes/skymaps/GammaSkymapRange.h</includes>
+    <includes refid="GammaSkymapRange_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/skymaps/GammaSkymapRange.h</includes>
       <sectiondef kind="private-type">
       <memberdef kind="typedef" id="classhermes_1_1GammaSkymapRange_1ae63b510b826d6bf74abd7ad83c928e4f" prot="private" static="no">
         <type>std::vector&lt; <ref refid="classhermes_1_1GammaSkymap" kindref="compound">GammaSkymap</ref> &gt;</type>
@@ -278,7 +278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/GammaSkymapRange.h" line="42" column="6" bodyfile="src/skymaps/GammaSkymapRange.cpp" bodystart="57" bodyend="76"/>
+        <location file="include/hermes/skymaps/GammaSkymapRange.h" line="42" column="6" bodyfile="src/skymaps/GammaSkymapRange.cpp" bodystart="57" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1GammaSkymapRange_1a958934bd0d2254dffda1b58055decfd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classhermes_1_1GammaSkymapRange_1a97b158222a8ee518fa12853cceb2d3a2" kindref="member">iterator</ref></type>
@@ -291,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/GammaSkymapRange.h" line="47" column="10" bodyfile="src/skymaps/GammaSkymapRange.cpp" bodystart="78" bodyend="78"/>
+        <location file="include/hermes/skymaps/GammaSkymapRange.h" line="47" column="10" bodyfile="src/skymaps/GammaSkymapRange.cpp" bodystart="75" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1GammaSkymapRange_1a29305669b60ca1680752e2fc3592ba99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classhermes_1_1GammaSkymapRange_1a9b06c8b9a8bd5236fc833ed0fad3ceb0" kindref="member">const_iterator</ref></type>
@@ -317,7 +317,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/skymaps/GammaSkymapRange.h" line="49" column="10" bodyfile="src/skymaps/GammaSkymapRange.cpp" bodystart="84" bodyend="84"/>
+        <location file="include/hermes/skymaps/GammaSkymapRange.h" line="49" column="10" bodyfile="src/skymaps/GammaSkymapRange.cpp" bodystart="81" bodyend="81"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1GammaSkymapRange_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classhermes_1_1GammaSkymapRange_1a9b06c8b9a8bd5236fc833ed0fad3ceb0" kindref="member">const_iterator</ref></type>

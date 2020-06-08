@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP" kind="class" language="C++" prot="public">
     <compoundname>hermes::interactions::BremsstrahlungGALPROP</compoundname>
     <basecompoundref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract" prot="public" virt="non-virtual">BremsstrahlungAbstract</basecompoundref>
-    <includes refid="BremsstrahlungGALPROP_8h" local="no">include/hermes/interactions/BremsstrahlungGALPROP.h</includes>
+    <includes refid="BremsstrahlungGALPROP_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/BremsstrahlungGALPROP.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1interactions_1_1BremsstrahlungGALPROP_1a7f9dc31ea17a0d28e0dee7ed98c7815c" prot="private" static="no" mutable="no">
         <type>bool</type>

@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1darkmatter_1_1GalacticProfile" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>hermes::darkmatter::GalacticProfile</compoundname>
     <derivedcompoundref refid="classhermes_1_1darkmatter_1_1NFWGProfile" prot="public" virt="non-virtual">NFWGProfile</derivedcompoundref>
-    <includes refid="GalacticProfile_8h" local="no">include/hermes/darkmatter/GalacticProfile.h</includes>
+    <includes refid="GalacticProfile_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/darkmatter/GalacticProfile.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classhermes_1_1darkmatter_1_1GalacticProfile_1ad5452a791c274b13aa520d06f09d9dbf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -32,7 +32,7 @@
         <location file="include/hermes/darkmatter/GalacticProfile.h" line="17" column="9" bodyfile="include/hermes/darkmatter/GalacticProfile.h" bodystart="17" bodyend="17"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1darkmatter_1_1GalacticProfile_1a6af4a7fdd3a1b048d3771a5949336b45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
-        <type>QMassDensity</type>
+        <type><ref refid="namespacehermes_1_1units_1ace62e7f5cd9628fd2a9971b4f3657d37" kindref="member">QMassDensity</ref></type>
         <definition>virtual QMassDensity getMassDensity</definition>
         <argsstring>(QLength r) const =0</argsstring>
         <name>getMassDensity</name>

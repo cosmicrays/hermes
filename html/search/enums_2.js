@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hdutype_2016',['HDUType',['../namespacehermes_1_1FITS.html#ae3cad0012491f6b195d44b53e67a6f37',1,'hermes::FITS']]]
+  ['gastype_2065',['GasType',['../group__NeutralGas.html#ga7e38bc064644049cbee1c0882141a32c',1,'hermes::neutralgas']]]
 ];

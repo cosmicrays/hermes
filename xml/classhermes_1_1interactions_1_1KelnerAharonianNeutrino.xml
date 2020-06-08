@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1interactions_1_1KelnerAharonianNeutrino" kind="class" language="C++" prot="public">
     <compoundname>hermes::interactions::KelnerAharonianNeutrino</compoundname>
     <basecompoundref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" prot="public" virt="non-virtual">DifferentialCrossSection</basecompoundref>
-    <includes refid="KelnerAharonianNeutrino_8h" local="no">include/hermes/interactions/KelnerAharonianNeutrino.h</includes>
+    <includes refid="KelnerAharonianNeutrino_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/KelnerAharonianNeutrino.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classhermes_1_1interactions_1_1KelnerAharonianNeutrino_1aca4a698629a90935764644e95262ccac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

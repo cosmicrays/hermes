@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x0function_1753',['X0Function',['../group__Integrators.html#aff64634d85b774e14a7a9263ff1aac0d',1,'hermes::PiZeroAbsorptionIntegrator::X0Function()'],['../group__Integrators.html#aff64634d85b774e14a7a9263ff1aac0d',1,'hermes::PiZeroIntegrator::X0Function()']]]
+  ['x0function_1791',['X0Function',['../group__NeutralGas.html#a1859740bd4fa628a228168841f0cbaec',1,'hermes::neutralgas::Ring']]]
 ];

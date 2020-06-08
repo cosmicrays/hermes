@@ -83,27 +83,26 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="SkymapTemplate_8h.html">hermes/skymaps/SkymapTemplate.h</a>&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacehermes.html">hermes</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="group__Skymaps.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="group__Skymaps.html#classhermes_1_1RotationMeasureSkymap">RotationMeasureSkymap</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    : <span class="keyword">public</span> <a class="code" href="group__Skymaps.html#classhermes_1_1SkymapTemplate">SkymapTemplate</a>&lt;QRotationMeasure, QNumber&gt; {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="group__Skymaps.html#a1c8b18d974e8c5c9dffcd40fcfed23c5">   20</a></span>&#160;        <a class="code" href="group__Skymaps.html#a1c8b18d974e8c5c9dffcd40fcfed23c5">RotationMeasureSkymap</a>(std::size_t nside_) : <a class="code" href="group__Skymaps.html#classhermes_1_1SkymapTemplate">SkymapTemplate</a>(nside_) {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                <a class="code" href="group__Skymaps.html#gac1f1ef686abb10ce34a22e8f813be29c">initDefaultOutputUnits</a>(1_rad / 1_m2, <span class="stringliteral">&quot;rad m^-2&quot;</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        };</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}  <span class="comment">// namespace hermes</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif  // HERMES_ROTATIONMEASURESKYMAP_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="group__Skymaps.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="group__Skymaps.html#classhermes_1_1RotationMeasureSkymap">RotationMeasureSkymap</a> : <span class="keyword">public</span> <a class="code" href="group__Skymaps.html#classhermes_1_1SkymapTemplate">SkymapTemplate</a>&lt;QRotationMeasure, QNumber&gt; {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="group__Skymaps.html#a1c8b18d974e8c5c9dffcd40fcfed23c5">   19</a></span>&#160;        <a class="code" href="group__Skymaps.html#a1c8b18d974e8c5c9dffcd40fcfed23c5">RotationMeasureSkymap</a>(std::size_t nside_) : <a class="code" href="group__Skymaps.html#classhermes_1_1SkymapTemplate">SkymapTemplate</a>(nside_) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <a class="code" href="group__Skymaps.html#gac1f1ef686abb10ce34a22e8f813be29c">initDefaultOutputUnits</a>(1_rad / 1_m2, <span class="stringliteral">&quot;rad m^-2&quot;</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        };</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}  <span class="comment">// namespace hermes</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif  // HERMES_ROTATIONMEASURESKYMAP_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aSkymapTemplate_8h_html"><div class="ttname"><a href="SkymapTemplate_8h.html">SkymapTemplate.h</a></div><div class="ttdoc">Contains SkymapTemplate definition used in all skymaps.</div></div>
-<div class="ttc" id="agroup__Skymaps_html_gac1f1ef686abb10ce34a22e8f813be29c"><div class="ttname"><a href="group__Skymaps.html#gac1f1ef686abb10ce34a22e8f813be29c">hermes::SkymapTemplate&lt; QRotationMeasure, QNumber &gt;::initDefaultOutputUnits</a></div><div class="ttdeci">void initDefaultOutputUnits(QRotationMeasure units, const std::string &amp;unitsString)</div><div class="ttdef"><b>Definition:</b> <a href="SkymapTemplate_8h_source.html#l00282">SkymapTemplate.h:282</a></div></div>
+<div class="ttc" id="agroup__Skymaps_html_gac1f1ef686abb10ce34a22e8f813be29c"><div class="ttname"><a href="group__Skymaps.html#gac1f1ef686abb10ce34a22e8f813be29c">hermes::SkymapTemplate&lt; QRotationMeasure, QNumber &gt;::initDefaultOutputUnits</a></div><div class="ttdeci">void initDefaultOutputUnits(QRotationMeasure units, const std::string &amp;unitsString)</div><div class="ttdef"><b>Definition:</b> <a href="SkymapTemplate_8h_source.html#l00314">SkymapTemplate.h:314</a></div></div>
 <div class="ttc" id="anamespacehermes_html"><div class="ttname"><a href="namespacehermes.html">hermes</a></div><div class="ttdef"><b>Definition:</b> <a href="CacheTools_8h_source.html#l00017">CacheTools.h:17</a></div></div>
 <div class="ttc" id="agroup__Skymaps_html_classhermes_1_1SkymapTemplate"><div class="ttname"><a href="group__Skymaps.html#classhermes_1_1SkymapTemplate">hermes::SkymapTemplate</a></div><div class="ttdoc">Provides a HEALPix-compatibile container template with undefined units of pixels; should be inherited...</div><div class="ttdef"><b>Definition:</b> <a href="SkymapTemplate_8h_source.html#l00038">SkymapTemplate.h:38</a></div></div>
-<div class="ttc" id="agroup__Skymaps_html_a1c8b18d974e8c5c9dffcd40fcfed23c5"><div class="ttname"><a href="group__Skymaps.html#a1c8b18d974e8c5c9dffcd40fcfed23c5">hermes::RotationMeasureSkymap::RotationMeasureSkymap</a></div><div class="ttdeci">RotationMeasureSkymap(std::size_t nside_)</div><div class="ttdef"><b>Definition:</b> <a href="RotationMeasureSkymap_8h_source.html#l00020">RotationMeasureSkymap.h:20</a></div></div>
+<div class="ttc" id="agroup__Skymaps_html_a1c8b18d974e8c5c9dffcd40fcfed23c5"><div class="ttname"><a href="group__Skymaps.html#a1c8b18d974e8c5c9dffcd40fcfed23c5">hermes::RotationMeasureSkymap::RotationMeasureSkymap</a></div><div class="ttdeci">RotationMeasureSkymap(std::size_t nside_)</div><div class="ttdef"><b>Definition:</b> <a href="RotationMeasureSkymap_8h_source.html#l00019">RotationMeasureSkymap.h:19</a></div></div>
 <div class="ttc" id="agroup__Skymaps_html_classhermes_1_1RotationMeasureSkymap"><div class="ttname"><a href="group__Skymaps.html#classhermes_1_1RotationMeasureSkymap">hermes::RotationMeasureSkymap</a></div><div class="ttdoc">A skymap container for rotation measure (RM).</div><div class="ttdef"><b>Definition:</b> <a href="RotationMeasureSkymap_8h_source.html#l00016">RotationMeasureSkymap.h:16</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 26 2020 17:19:18 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2020 12:31:19 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

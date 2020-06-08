@@ -16,3 +16,9 @@ Contents
 
    components
    api/library_root
+
+.. toctree::
+   :caption: Developers
+   :maxdepth: 2
+
+   pages/Developers.rst

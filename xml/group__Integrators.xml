@@ -26,33 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/DispersionMeasureIntegrator.h" line="18" column="5" bodyfile="include/hermes/integrators/DispersionMeasureIntegrator.h" bodystart="18" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e" prot="public" static="no">
-        <type>IntegratorTemplate&lt; QTemperature, QFrequency &gt;</type>
-        <definition>typedef IntegratorTemplate&lt;QTemperature, QFrequency&gt; RadioIntegratorTemplate</definition>
-        <argsstring></argsstring>
-        <name>RadioIntegratorTemplate</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="107" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="107" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="group__Integrators_1ga8e4aab0440286adb2c039146ba8f9fed" prot="public" static="no">
-        <type>IntegratorTemplate&lt; QDiffIntensity, QEnergy &gt;</type>
-        <definition>typedef IntegratorTemplate&lt;QDiffIntensity, QEnergy&gt; GammaIntegratorTemplate</definition>
-        <argsstring></argsstring>
-        <name>GammaIntegratorTemplate</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="108" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="108" bodyend="-1"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="131" column="5" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="131" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971" prot="public" static="no">
         <type>IntegratorTemplate&lt; QRotationMeasure, QNumber &gt;</type>
@@ -65,7 +39,33 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/RotationMeasureIntegrator.h" line="20" column="5" bodyfile="include/hermes/integrators/RotationMeasureIntegrator.h" bodystart="20" bodyend="-1"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="133" column="5" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e" prot="public" static="no">
+        <type>IntegratorTemplate&lt; QTemperature, QFrequency &gt;</type>
+        <definition>typedef IntegratorTemplate&lt;QTemperature, QFrequency&gt; RadioIntegratorTemplate</definition>
+        <argsstring></argsstring>
+        <name>RadioIntegratorTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="134" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Integrators_1ga8e4aab0440286adb2c039146ba8f9fed" prot="public" static="no">
+        <type>IntegratorTemplate&lt; QDiffIntensity, QEnergy &gt;</type>
+        <definition>typedef IntegratorTemplate&lt;QDiffIntensity, QEnergy&gt; GammaIntegratorTemplate</definition>
+        <argsstring></argsstring>
+        <name>GammaIntegratorTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="135" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

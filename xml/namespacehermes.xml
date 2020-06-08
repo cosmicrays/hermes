@@ -251,33 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/DispersionMeasureIntegrator.h" line="18" column="5" bodyfile="include/hermes/integrators/DispersionMeasureIntegrator.h" bodystart="18" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e" prot="public" static="no">
-        <type><ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref>, <ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref> &gt;</type>
-        <definition>typedef IntegratorTemplate&lt;QTemperature, QFrequency&gt; RadioIntegratorTemplate</definition>
-        <argsstring></argsstring>
-        <name>RadioIntegratorTemplate</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="107" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="107" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="group__Integrators_1ga8e4aab0440286adb2c039146ba8f9fed" prot="public" static="no">
-        <type><ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" kindref="member">QDiffIntensity</ref>, <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &gt;</type>
-        <definition>typedef IntegratorTemplate&lt;QDiffIntensity, QEnergy&gt; GammaIntegratorTemplate</definition>
-        <argsstring></argsstring>
-        <name>GammaIntegratorTemplate</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="108" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="108" bodyend="-1"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="131" column="5" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="131" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971" prot="public" static="no">
         <type><ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kindref="member">QRotationMeasure</ref>, <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &gt;</type>
@@ -290,7 +264,33 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/RotationMeasureIntegrator.h" line="20" column="5" bodyfile="include/hermes/integrators/RotationMeasureIntegrator.h" bodystart="20" bodyend="-1"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="133" column="5" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e" prot="public" static="no">
+        <type><ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref>, <ref refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kindref="member">QFrequency</ref> &gt;</type>
+        <definition>typedef IntegratorTemplate&lt;QTemperature, QFrequency&gt; RadioIntegratorTemplate</definition>
+        <argsstring></argsstring>
+        <name>RadioIntegratorTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="134" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Integrators_1ga8e4aab0440286adb2c039146ba8f9fed" prot="public" static="no">
+        <type><ref refid="classhermes_1_1IntegratorTemplate" kindref="compound">IntegratorTemplate</ref>&lt; <ref refid="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" kindref="member">QDiffIntensity</ref>, <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &gt;</type>
+        <definition>typedef IntegratorTemplate&lt;QDiffIntensity, QEnergy&gt; GammaIntegratorTemplate</definition>
+        <argsstring></argsstring>
+        <name>GammaIntegratorTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="135" column="28" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" prot="public" static="no">
         <type><ref refid="classhermes_1_1Vector3" kindref="compound">Vector3</ref>&lt; double &gt;</type>
@@ -329,7 +329,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="342" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="342" bodyend="-1"/>
+        <location file="include/hermes/Vector3Quantity.h" line="341" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="341" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" prot="public" static="no">
         <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &gt;</type>
@@ -342,7 +342,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="343" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="343" bodyend="-1"/>
+        <location file="include/hermes/Vector3Quantity.h" line="342" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="342" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" prot="public" static="no">
         <type><ref refid="classhermes_1_1Vector3Quantity" kindref="compound">Vector3Quantity</ref>&lt; <ref refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kindref="member">QMField</ref> &gt;</type>
@@ -355,7 +355,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="344" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="344" bodyend="-1"/>
+        <location file="include/hermes/Vector3Quantity.h" line="343" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="343" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -516,10 +516,10 @@
         </inbodydescription>
         <location file="include/hermes/Common.h" line="27" column="9" declfile="include/hermes/Common.h" declline="27" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespacehermes_1a26cf6e5a6eb42fca7df65a4057f4c36d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacehermes_1ac91611f6d89210b3b3353cc2b3fdc1fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
         <definition>QLength distanceToGalBorder</definition>
-        <argsstring>(const Vector3QLength &amp;positionSun, const QDirection &amp;direction, const QLength &amp;galacticBorder=30_kpc, const QLength &amp;zBorder=5_kpc)</argsstring>
+        <argsstring>(const Vector3QLength &amp;positionSun, const QDirection &amp;direction, const QLength &amp;galacticBorder=35_kpc, const QLength &amp;zBorder=5_kpc)</argsstring>
         <name>distanceToGalBorder</name>
         <param>
           <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
@@ -532,7 +532,7 @@
         <param>
           <type>const <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &amp;</type>
           <declname>galacticBorder</declname>
-          <defval>30_kpc</defval>
+          <defval>35_kpc</defval>
         </param>
         <param>
           <type>const <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &amp;</type>
@@ -1926,7 +1926,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="316" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="316" bodyend="319"/>
+        <location file="include/hermes/Vector3Quantity.h" line="315" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="315" bodyend="318"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1gad744b0b61f9f9d3c010bb33b7fc66517" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1955,7 +1955,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="321" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="321" bodyend="324"/>
+        <location file="include/hermes/Vector3Quantity.h" line="320" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="320" bodyend="323"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1ga3885df4723d99c2f118f9cce136beb61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1984,7 +1984,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="327" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="327" bodyend="329"/>
+        <location file="include/hermes/Vector3Quantity.h" line="326" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="326" bodyend="328"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1gac0738d2887b147eee1100671e7b5be2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2010,7 +2010,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="331" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="331" bodyend="334"/>
+        <location file="include/hermes/Vector3Quantity.h" line="330" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="330" bodyend="333"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1ga4f33e9180938be7d97bc55d0e0dd2930" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2036,7 +2036,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="337" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="337" bodyend="340"/>
+        <location file="include/hermes/Vector3Quantity.h" line="336" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="336" bodyend="339"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1ga92f2fdfa289f52d0f0d6bb7e516c183f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -2062,7 +2062,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="347" column="23" bodyfile="include/hermes/Vector3Quantity.h" bodystart="347" bodyend="349"/>
+        <location file="include/hermes/Vector3Quantity.h" line="346" column="23" bodyfile="include/hermes/Vector3Quantity.h" bodystart="346" bodyend="348"/>
       </memberdef>
       <memberdef kind="function" id="namespacehermes_1aefeac1d50b6dfe2bafea892a9c560370" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>

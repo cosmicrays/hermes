@@ -38,6 +38,12 @@ Functions
 ---------
 
 
+- :ref:`exhale_function_group__Units_1ga74deaf90bc12266a4de9237c1702ef82`
+
+- :ref:`exhale_function_group__Units_1ga10f54260959127ba39a468f1f0af07a9`
+
+- :ref:`exhale_function_group__Units_1ga4afa77170232d7a2fc9212b5ebd5cb9a`
+
 - :ref:`exhale_function_group__Units_1gadcd8b65269837823c559075d31edb112`
 
 - :ref:`exhale_function_group__Units_1gab68c34d9bd5b653426827c4f2600e958`
@@ -50,11 +56,19 @@ Functions
 
 - :ref:`exhale_function_group__Units_1ga854d680613682a4d51f486ef85368dd6`
 
-- :ref:`exhale_function_group__Units_1ga74deaf90bc12266a4de9237c1702ef82`
+- :ref:`exhale_function_group__Units_1ga6f14d61a042f7a471e8a8ddc5da9c1e1`
 
-- :ref:`exhale_function_group__Units_1ga10f54260959127ba39a468f1f0af07a9`
+- :ref:`exhale_function_group__Units_1gad46e77b115b067fb98bdba950be3bec1`
 
-- :ref:`exhale_function_group__Units_1ga4afa77170232d7a2fc9212b5ebd5cb9a`
+- :ref:`exhale_function_group__Units_1ga1c21aa524034e24725c28f54a85d067d`
+
+- :ref:`exhale_function_group__Units_1gac2ba17cce89bf11ffdfc00603cfabd6d`
+
+- :ref:`exhale_function_group__Units_1ga5a9b86907b0cbd70c9b1e6bac2e9433c`
+
+- :ref:`exhale_function_group__Units_1ga80f60e29b4ae350029d2deb510f517cb`
+
+- :ref:`exhale_function_group__Units_1gad15f124de41c180d6e7ef42158df3fc8`
 
 - :ref:`exhale_function_group__Units_1ga73190fbd6f80e8f3813c0a62e8585bbd`
 
@@ -85,20 +99,6 @@ Functions
 - :ref:`exhale_function_group__Units_1ga9318069295066e163b71a594c3a3374e`
 
 - :ref:`exhale_function_group__Units_1ga4d7345a97c80f77ca10318f731f12005`
-
-- :ref:`exhale_function_group__Units_1ga6f14d61a042f7a471e8a8ddc5da9c1e1`
-
-- :ref:`exhale_function_group__Units_1gad46e77b115b067fb98bdba950be3bec1`
-
-- :ref:`exhale_function_group__Units_1ga1c21aa524034e24725c28f54a85d067d`
-
-- :ref:`exhale_function_group__Units_1gac2ba17cce89bf11ffdfc00603cfabd6d`
-
-- :ref:`exhale_function_group__Units_1ga5a9b86907b0cbd70c9b1e6bac2e9433c`
-
-- :ref:`exhale_function_group__Units_1ga80f60e29b4ae350029d2deb510f517cb`
-
-- :ref:`exhale_function_group__Units_1gad15f124de41c180d6e7ef42158df3fc8`
 
 
 Variables

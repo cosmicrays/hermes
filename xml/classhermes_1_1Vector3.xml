@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1Vector3" kind="class" language="C++" prot="public">
     <compoundname>hermes::Vector3</compoundname>
     <derivedcompoundref refid="classhermes_1_1Vector3Quantity" prot="public" virt="non-virtual">Vector3Quantity&lt; T &gt;</derivedcompoundref>
-    <includes refid="Vector3_8h" local="no">include/hermes/Vector3.h</includes>
+    <includes refid="Vector3_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/Vector3.h</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>

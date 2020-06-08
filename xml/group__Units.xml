@@ -4852,9 +4852,9 @@
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="443" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="443" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="group__Units_1gaaaf6ef71d45fb71779f26fdea4390702" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__Units_1ga008273bc64c1712fd2f6f12bc7b6dc3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>hermes::units::QUANTITY_TYPE</definition>
+        <definition>QUANTITY_TYPE</definition>
         <argsstring>(2,-1, 1, 0, 0, 0, 0, 0, 0, QAngularMomentum)</argsstring>
         <name>QUANTITY_TYPE</name>
         <param>
@@ -4895,50 +4895,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="444" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="444" declcolumn="1"/>
-      </memberdef>
-      <memberdef kind="function" id="group__Units_1gae31025b8390e75e42a0f969317eb35a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>QUANTITY_TYPE</definition>
-        <argsstring>(2,-2, 1, 0, 0, 0, 0, 0, 0, QEnergy)</argsstring>
-        <name>QUANTITY_TYPE</name>
-        <param>
-          <type>2</type>
-        </param>
-        <param>
-          <type>-</type>
-          <declname>2</declname>
-        </param>
-        <param>
-          <type>1</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>QEnergy</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsQClass.h" line="445" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="445" declcolumn="1"/>
       </memberdef>
       <memberdef kind="function" id="group__Units_1ga7a9cb6a55e54afcafa707b102c8c96ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -5116,9 +5072,9 @@
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="451" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="451" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="group__Units_1ga7d4b2cbfe6684ff453459b2797c40b1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__Units_1gaf43bf1aa4ff555dfa74e7659437b1d34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>hermes::units::QUANTITY_TYPE</definition>
+        <definition>QUANTITY_TYPE</definition>
         <argsstring>(-1,-1, 1, 0, 0, 0, 0, 0, 0, QSpectralEnergyDensity)</argsstring>
         <name>QUANTITY_TYPE</name>
         <param>
@@ -5160,51 +5116,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="452" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="452" declcolumn="1"/>
-      </memberdef>
-      <memberdef kind="function" id="group__Units_1gaceba2eeeeae714a94dcb0500b05a0717" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>QUANTITY_TYPE</definition>
-        <argsstring>(-1,-2, 1, 0, 0, 0, 0, 0, 0, QEmissivity)</argsstring>
-        <name>QUANTITY_TYPE</name>
-        <param>
-          <type>-</type>
-          <declname>1</declname>
-        </param>
-        <param>
-          <type>-</type>
-          <declname>2</declname>
-        </param>
-        <param>
-          <type>1</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>QEmissivity</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsQClass.h" line="453" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="453" declcolumn="1"/>
       </memberdef>
       <memberdef kind="function" id="group__Units_1gaccef8d9b262e892b63dbb73d29fbdbf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -5250,14 +5161,14 @@
         </inbodydescription>
         <location file="include/hermes/units/UnitsHERMES.h" line="14" column="1" declfile="include/hermes/units/UnitsHERMES.h" declline="14" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="group__Units_1ga49fb0afd994e8bfd439e9090147312b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__Units_1ga75bd6af29b4260f0d25a24f568adc221" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>hermes::units::QUANTITY_TYPE</definition>
-        <argsstring>(-2, 2,-1, 0, 0, 0, 0, 0, 0, QInverseEnergy)</argsstring>
+        <definition>QUANTITY_TYPE</definition>
+        <argsstring>(-3, 2, -1, 0, 0, 0, 0, 0, 0, QICInnerIntegral)</argsstring>
         <name>QUANTITY_TYPE</name>
         <param>
           <type>-</type>
-          <declname>2</declname>
+          <declname>3</declname>
         </param>
         <param>
           <type>2</type>
@@ -5285,7 +5196,7 @@
           <type>0</type>
         </param>
         <param>
-          <type>QInverseEnergy</type>
+          <type>QICInnerIntegral</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -5293,7 +5204,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsQClass.h" line="459" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="459" declcolumn="1"/>
+        <location file="include/hermes/units/UnitsHERMES.h" line="16" column="1" declfile="include/hermes/units/UnitsHERMES.h" declline="16" declcolumn="1"/>
       </memberdef>
       <memberdef kind="function" id="group__Units_1ga5fdbd549fe45ae7d6a9d0bb1cde32022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -5474,51 +5385,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="464" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="464" declcolumn="1"/>
-      </memberdef>
-      <memberdef kind="function" id="group__Units_1ga75bd6af29b4260f0d25a24f568adc221" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>QUANTITY_TYPE</definition>
-        <argsstring>(-3, 2, -1, 0, 0, 0, 0, 0, 0, QICInnerIntegral)</argsstring>
-        <name>QUANTITY_TYPE</name>
-        <param>
-          <type>-</type>
-          <declname>3</declname>
-        </param>
-        <param>
-          <type>2</type>
-        </param>
-        <param>
-          <type>-</type>
-          <declname>1</declname>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>QICInnerIntegral</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsHERMES.h" line="16" column="1" declfile="include/hermes/units/UnitsHERMES.h" declline="16" declcolumn="1"/>
       </memberdef>
       <memberdef kind="function" id="group__Units_1ga6d4b43eccbdc8cb2d3bd577f1213e384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

@@ -18,6 +18,12 @@ Definition (``include/hermes/integrators/DispersionMeasureIntegrator.h``)
 
 
 
+Detailed Description
+--------------------
+
+Declares DispersionMeasureIntegrator 
+
+
 
 
 
@@ -37,11 +43,4 @@ Classes
 
 
 - :ref:`exhale_class_classhermes_1_1DispersionMeasureIntegrator`
-
-
-Typedefs
---------
-
-
-- :ref:`exhale_typedef_group__Integrators_1gad422d0160fa49004f7f72220d92aafc0`
 

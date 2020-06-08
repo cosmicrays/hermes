@@ -108,10 +108,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4baee7ad3d2f52b3ef699df8c5bef3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61458d35718372f83cf5b7ba0a84700d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#a61458d35718372f83cf5b7ba0a84700d">initOutput</a> () override</td></tr>
 <tr class="separator:a61458d35718372f83cf5b7ba0a84700d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0c15036210c1caf818142eb37e25dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#a4b0c15036210c1caf818142eb37e25dd">createTable</a> (int nrows) override</td></tr>
-<tr class="separator:a4b0c15036210c1caf818142eb37e25dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5a20ebde208f18a0778bd0fb06f05b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#af5a20ebde208f18a0778bd0fb06f05b3">writeMetadata</a> (int nside, double res, const std::string &amp;description) override</td></tr>
-<tr class="separator:af5a20ebde208f18a0778bd0fb06f05b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9074662a80eda499c521d788aefaacdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#a9074662a80eda499c521d788aefaacdb">createTable</a> (int nrows, const std::string &amp;unit) override</td></tr>
+<tr class="separator:a9074662a80eda499c521d788aefaacdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe23858b3749d324e495900f8d75c7c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#abe23858b3749d324e495900f8d75c7c7">writeMetadata</a> (int nside, double res, bool hasMask, const std::string &amp;description) override</td></tr>
+<tr class="separator:abe23858b3749d324e495900f8d75c7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab431b68ab733306db0acb3a84ab1eb87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#ab431b68ab733306db0acb3a84ab1eb87">writeKeyValueAsDouble</a> (const std::string &amp;key, double value, const std::string &amp;description) override</td></tr>
 <tr class="separator:ab431b68ab733306db0acb3a84ab1eb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94917b1b87df567a8147229a2001bdcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#a94917b1b87df567a8147229a2001bdcd">writeKeyValueAsString</a> (const std::string &amp;key, const std::string &amp;value, const std::string &amp;description) override</td></tr>
@@ -126,7 +126,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8h_source.html#l00017">17</a> of file <a class="el" href="HEALPixFormat_8h_source.html">HEALPixFormat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8h_source.html#l00021">21</a> of file <a class="el" href="HEALPixFormat_8h_source.html">HEALPixFormat.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4baee7ad3d2f52b3ef699df8c5bef3b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4baee7ad3d2f52b3ef699df8c5bef3b2">&#9670;&nbsp;</a></span>HEALPixFormat()</h2>
@@ -143,14 +143,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Saves output to a <code>filename</code> </p>
 
 <p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00010">10</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4b0c15036210c1caf818142eb37e25dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b0c15036210c1caf818142eb37e25dd">&#9670;&nbsp;</a></span>createTable()</h2>
+<a id="a9074662a80eda499c521d788aefaacdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9074662a80eda499c521d788aefaacdb">&#9670;&nbsp;</a></span>createTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,8 +163,18 @@ Public Attributes</h2></td></tr>
           <td class="memname">void createTable </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nrows</em></td><td>)</td>
+          <td class="paramname"><em>nrows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>unit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -172,10 +183,17 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates binary table </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nrows</td><td>Number of rows in the table </td></tr>
+    <tr><td class="paramname">unit</td><td>Physical unit of data in the table </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implements <a class="el" href="classhermes_1_1outputs_1_1Output.html#afc8ad4c377ea07c438be54de3ff49b43">Output</a>.</p>
+<p>Implements <a class="el" href="classhermes_1_1outputs_1_1Output.html#a37940aa71d1dd19ea4e97d51d7d4922e">Output</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00026">26</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00032">32</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
 
 </div>
 </div>
@@ -201,6 +219,7 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The primary header Outputs: SIMPLE = T / file does conform to <a class="el" href="namespacehermes_1_1FITS.html">FITS</a> standard BITPIX = 32 / number of bits per data pixel NAXIS = 0 / number of data axes EXTEND = T / <a class="el" href="namespacehermes_1_1FITS.html">FITS</a> dataset may contain extensions DATE = ’2099-12-31T23:59:59’ / file creation date (YYYY-MM-DDThh:mm:ss UT) END </p>
 
 <p>Implements <a class="el" href="classhermes_1_1outputs_1_1Output.html#abd22c0c243cb60dba6e0b186852a8498">Output</a>.</p>
 
@@ -244,7 +263,7 @@ Public Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classhermes_1_1outputs_1_1Output.html#a197ce849679c040045c08aba827a5b66">Output</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00072">72</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00093">93</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
 
 </div>
 </div>
@@ -290,7 +309,7 @@ Public Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classhermes_1_1outputs_1_1Output.html#a9a32074dee38a043b59277028ec0243a">Output</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00059">59</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00080">80</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
 
 </div>
 </div>
@@ -336,12 +355,12 @@ Public Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classhermes_1_1outputs_1_1Output.html#a5867a322ec3f6cc1f4bc2d04d9b15b03">Output</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00065">65</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00086">86</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
 
 </div>
 </div>
-<a id="af5a20ebde208f18a0778bd0fb06f05b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5a20ebde208f18a0778bd0fb06f05b3">&#9670;&nbsp;</a></span>writeMetadata()</h2>
+<a id="abe23858b3749d324e495900f8d75c7c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe23858b3749d324e495900f8d75c7c7">&#9670;&nbsp;</a></span>writeMetadata()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -364,6 +383,12 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>hasMask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>description</em>&#160;</td>
         </tr>
@@ -379,10 +404,11 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The healpix HDU header PIXTYPE = 'HEALPIX' / HEALPIX Pixelisation INDXSCHM= 'IMPLICIT' / Indexing : IMPLICIT or EXPLICIT ORDERING= 'RING' / Pixel ordering scheme NSIDE = 2^n / where n={0, 29} FIRSTPIX= 0 / First pixel LASTPIX = 12*nside^2-1 / Last pixel BAD_DATA= -1.6375000E+30 / Sentinel value given to missing or bad pixels COORDSYS= 'G' / Pixelisation coordinate system, G = Galactic </p>
 
-<p>Implements <a class="el" href="classhermes_1_1outputs_1_1Output.html#a39bba0b5c89b1c3e6eae9a4e2546ebe2">Output</a>.</p>
+<p>Implements <a class="el" href="classhermes_1_1outputs_1_1Output.html#ac1d59d6a91842940bdb17bc85c6b33fa">Output</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00038">38</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="HEALPixFormat_8cpp_source.html#l00043">43</a> of file <a class="el" href="HEALPixFormat_8cpp_source.html">HEALPixFormat.cpp</a>.</p>
 
 </div>
 </div>
@@ -418,7 +444,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 26 2020 17:19:18 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2020 12:31:20 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

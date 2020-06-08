@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1neutralgas_1_1Nakanishi06:
+
+Class Nakanishi06
+=================
+
+- Defined in :ref:`file_include_hermes_neutralgas_Nakanishi06.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public ProfileAbstract`` (:ref:`exhale_class_classhermes_1_1neutralgas_1_1ProfileAbstract`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::neutralgas::Nakanishi06
+   :members:
+   :protected-members:
+   :undoc-members:

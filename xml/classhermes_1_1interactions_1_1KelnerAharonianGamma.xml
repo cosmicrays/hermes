@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1interactions_1_1KelnerAharonianGamma" kind="class" language="C++" prot="public">
     <compoundname>hermes::interactions::KelnerAharonianGamma</compoundname>
     <basecompoundref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" prot="public" virt="non-virtual">DifferentialCrossSection</basecompoundref>
-    <includes refid="KelnerAharonianGamma_8h" local="no">include/hermes/interactions/KelnerAharonianGamma.h</includes>
+    <includes refid="KelnerAharonianGamma_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/KelnerAharonianGamma.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classhermes_1_1interactions_1_1KelnerAharonianGamma_1a792aaa786ced90b2dc603aa0d4946194" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

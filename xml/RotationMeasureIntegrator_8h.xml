@@ -7,6 +7,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para>Declares RotationMeasureIntegrator </para>
     </detaileddescription>
     <location file="include/hermes/integrators/RotationMeasureIntegrator.h"/>
   </compounddef>

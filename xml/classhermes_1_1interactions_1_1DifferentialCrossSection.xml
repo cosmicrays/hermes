@@ -9,7 +9,7 @@
     <derivedcompoundref refid="classhermes_1_1interactions_1_1KelnerAharonianGamma" prot="public" virt="non-virtual">KelnerAharonianGamma</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1interactions_1_1KelnerAharonianNeutrino" prot="public" virt="non-virtual">KelnerAharonianNeutrino</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1interactions_1_1KleinNishina" prot="public" virt="non-virtual">KleinNishina</derivedcompoundref>
-    <includes refid="DiffCrossSection_8h" local="no">include/hermes/interactions/DiffCrossSection.h</includes>
+    <includes refid="DiffCrossSection_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/DiffCrossSection.h</includes>
       <sectiondef kind="protected-attrib">
       <memberdef kind="variable" id="classhermes_1_1interactions_1_1DifferentialCrossSection_1a7f9dc31ea17a0d28e0dee7ed98c7815c" prot="protected" static="no" mutable="no">
         <type>bool</type>

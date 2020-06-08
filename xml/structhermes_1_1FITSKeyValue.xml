@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="structhermes_1_1FITSKeyValue" kind="struct" language="C++" prot="public">
     <compoundname>hermes::FITSKeyValue</compoundname>
-    <includes refid="FITSWrapper_8h" local="no">include/hermes/FITSWrapper.h</includes>
+    <includes refid="FITSWrapper_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/FITSWrapper.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1aa4cdb693ee7f3d1d131bb328468184b7" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="35" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="35" bodyend="-1"/>
+        <location file="include/hermes/FITSWrapper.h" line="36" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1adb6e5f36bdec00137c7cc4afef27aae3" prot="public" static="no" mutable="no">
         <type><ref refid="namespacehermes_1_1FITS_1ad8ed01ff3ff33333d8e19db4d2818bb6" kindref="member">FITS::DataType</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="36" column="16" bodyfile="include/hermes/FITSWrapper.h" bodystart="36" bodyend="-1"/>
+        <location file="include/hermes/FITSWrapper.h" line="37" column="16" bodyfile="include/hermes/FITSWrapper.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1acb559820d9ca11295b4500f179ef6392" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="39" column="5" bodyfile="include/hermes/FITSWrapper.h" bodystart="39" bodyend="-1"/>
+        <location file="include/hermes/FITSWrapper.h" line="40" column="5" bodyfile="include/hermes/FITSWrapper.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1adbef46858e30c0fab02bb4bd74e6e593" prot="public" static="no" mutable="no">
         <type>long int</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="40" column="10" bodyfile="include/hermes/FITSWrapper.h" bodystart="40" bodyend="-1"/>
+        <location file="include/hermes/FITSWrapper.h" line="41" column="10" bodyfile="include/hermes/FITSWrapper.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1af900396d7b72ff2a7002e8befe8cf8f1" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="41" column="7" bodyfile="include/hermes/FITSWrapper.h" bodystart="41" bodyend="-1"/>
+        <location file="include/hermes/FITSWrapper.h" line="42" column="7" bodyfile="include/hermes/FITSWrapper.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1a873684cefeb665f3d5e6b495de57fc0d" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="42" column="8" bodyfile="include/hermes/FITSWrapper.h" bodystart="42" bodyend="-1"/>
+        <location file="include/hermes/FITSWrapper.h" line="43" column="8" bodyfile="include/hermes/FITSWrapper.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1aa4552517be507d79e286a47269c216fa" prot="public" static="no" mutable="no">
         <type>char</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="43" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="43" bodyend="-1"/>
+        <location file="include/hermes/FITSWrapper.h" line="44" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1af419227df2d80bd64d315ae58636162e" prot="public" static="no" mutable="no">
         <type>union hermes::FITSKeyValue::@0</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="44" column="1"/>
+        <location file="include/hermes/FITSWrapper.h" line="45" column="1"/>
       </memberdef>
       <memberdef kind="variable" id="structhermes_1_1FITSKeyValue_1aa8acbaf0912936aaf36419c538469b70" prot="public" static="no" mutable="no">
         <type>void *</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="45" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="45" bodyend="-1"/>
+        <location file="include/hermes/FITSWrapper.h" line="46" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="48" column="16" bodyfile="include/hermes/FITSWrapper.h" bodystart="48" bodyend="48"/>
+        <location file="include/hermes/FITSWrapper.h" line="49" column="16" bodyfile="include/hermes/FITSWrapper.h" bodystart="49" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a70d0d77573294ab257b988d9cc9e98a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="49" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="49" bodyend="49"/>
+        <location file="include/hermes/FITSWrapper.h" line="50" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="50" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a8ee08b13ee0d8fd7e2563bd4ce1e6151" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -168,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="50" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="50" bodyend="68"/>
+        <location file="include/hermes/FITSWrapper.h" line="51" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="51" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1af526f5a87d38bf9f80392e3472f2820a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const char *</type>
@@ -181,7 +181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="69" column="12" bodyfile="include/hermes/FITSWrapper.h" bodystart="69" bodyend="69"/>
+        <location file="include/hermes/FITSWrapper.h" line="70" column="12" bodyfile="include/hermes/FITSWrapper.h" bodystart="70" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a493eeef6c08cd6bcfc92871ec84c4d17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void *</type>
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="70" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="70" bodyend="70"/>
+        <location file="include/hermes/FITSWrapper.h" line="71" column="6" bodyfile="include/hermes/FITSWrapper.h" bodystart="71" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1aa1deea04b774d9057a1cfd86b3b5a823" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
@@ -207,7 +207,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="71" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="71" bodyend="71"/>
+        <location file="include/hermes/FITSWrapper.h" line="72" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="72" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a92e6efbca663b6d446705696d3e5c73b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -220,7 +220,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="72" column="5" bodyfile="include/hermes/FITSWrapper.h" bodystart="72" bodyend="72"/>
+        <location file="include/hermes/FITSWrapper.h" line="73" column="5" bodyfile="include/hermes/FITSWrapper.h" bodystart="73" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1ac4e05041e66371a2e48597fb1faa00d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -233,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="73" column="8" bodyfile="include/hermes/FITSWrapper.h" bodystart="73" bodyend="73"/>
+        <location file="include/hermes/FITSWrapper.h" line="74" column="8" bodyfile="include/hermes/FITSWrapper.h" bodystart="74" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a1b2d6c6e47a662bd9857a1a31315b16e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -254,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="75" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="75" bodyend="81"/>
+        <location file="include/hermes/FITSWrapper.h" line="76" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="76" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1af3bad2214a27e773c9b64b345ed1b0ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -275,7 +275,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="82" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="82" bodyend="86"/>
+        <location file="include/hermes/FITSWrapper.h" line="83" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="83" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a50bc05a902e35f959f0f99ee5a42f7a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -296,7 +296,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="87" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="87" bodyend="91"/>
+        <location file="include/hermes/FITSWrapper.h" line="88" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="88" bodyend="92"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a9d311b87e7119b689969d4a7931df02b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -317,7 +317,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="92" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="92" bodyend="96"/>
+        <location file="include/hermes/FITSWrapper.h" line="93" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="93" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a13df0d4492199d6148ae173fb81b8e66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -338,7 +338,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="97" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="97" bodyend="101"/>
+        <location file="include/hermes/FITSWrapper.h" line="98" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="98" bodyend="102"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1a0edc8e14a6be7cfc70034298225ccfe3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -359,7 +359,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="102" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="102" bodyend="106"/>
+        <location file="include/hermes/FITSWrapper.h" line="103" column="1" bodyfile="include/hermes/FITSWrapper.h" bodystart="103" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="structhermes_1_1FITSKeyValue_1ae0dddbbf9131e36c4150ac4a6aa41a41" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -376,7 +376,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="107" column="10" bodyfile="include/hermes/FITSWrapper.h" bodystart="107" bodyend="107"/>
+        <location file="include/hermes/FITSWrapper.h" line="108" column="10" bodyfile="include/hermes/FITSWrapper.h" bodystart="108" bodyend="108"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -400,7 +400,7 @@
         <label>basic_string&lt; char &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="include/hermes/FITSWrapper.h" line="34" column="19" bodyfile="include/hermes/FITSWrapper.h" bodystart="34" bodyend="108"/>
+    <location file="include/hermes/FITSWrapper.h" line="35" column="19" bodyfile="include/hermes/FITSWrapper.h" bodystart="35" bodyend="109"/>
     <listofallmembers>
       <member refid="structhermes_1_1FITSKeyValue_1a873684cefeb665f3d5e6b495de57fc0d" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>d</name></member>
       <member refid="structhermes_1_1FITSKeyValue_1af900396d7b72ff2a7002e8befe8cf8f1" prot="public" virt="non-virtual"><scope>hermes::FITSKeyValue</scope><name>f</name></member>

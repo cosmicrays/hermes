@@ -1,5 +1,7 @@
 <map id="IntegratorTemplate&lt; QPXL, QSTEP &gt;" name="IntegratorTemplate&lt; QPXL, QSTEP &gt;">
-<area shape="rect" id="node1" title="Defines the main integrator interface and typical methods shared across all integrators." alt="" coords="37,171,184,212"/>
-<area shape="rect" id="node2" href="$group__Core.html" title=" " alt="" coords="5,81,216,108"/>
-<area shape="rect" id="node3" href="$group__Core.html" title=" " alt="" coords="33,5,188,32"/>
+<area shape="rect" id="node1" title="Defines the main integrator interface and typical methods shared across all integrators." alt="" coords="97,171,243,212"/>
+<area shape="rect" id="node2" title="STL class." alt="" coords="62,81,121,108"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node4" href="$group__Core.html" title=" " alt="" coords="155,81,366,108"/>
+<area shape="rect" id="node5" href="$group__Core.html" title=" " alt="" coords="189,5,343,32"/>
 </map>

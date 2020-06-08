@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1interactions_1_1DummyCrossSection" kind="class" language="C++" prot="public">
     <compoundname>hermes::interactions::DummyCrossSection</compoundname>
     <basecompoundref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" prot="public" virt="non-virtual">DifferentialCrossSection</basecompoundref>
-    <includes refid="DummyCrossSection_8h" local="no">include/hermes/interactions/DummyCrossSection.h</includes>
+    <includes refid="DummyCrossSection_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/DummyCrossSection.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1interactions_1_1DummyCrossSection_1aa5dcddab1a420be46d08313d945ea819" prot="private" static="no" mutable="no">
         <type><ref refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kindref="member">QDiffCrossSection</ref></type>

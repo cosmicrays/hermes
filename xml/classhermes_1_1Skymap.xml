@@ -7,7 +7,7 @@
     <derivedcompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QDispersionMeasure, QNumber &gt;</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QRotationMeasure, QNumber &gt;</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1SkymapTemplate" prot="public" virt="non-virtual">SkymapTemplate&lt; QTemperature, QFrequency &gt;</derivedcompoundref>
-    <includes refid="Skymap_8h" local="no">include/hermes/skymaps/Skymap.h</includes>
+    <includes refid="Skymap_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/skymaps/Skymap.h</includes>
       <sectiondef kind="protected-attrib">
       <memberdef kind="variable" id="classhermes_1_1Skymap_1a3328ec22dec02cd6bd374ba8a13e4904" prot="protected" static="no" mutable="no">
         <type>std::size_t</type>

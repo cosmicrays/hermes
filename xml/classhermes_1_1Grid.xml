@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classhermes_1_1Grid" kind="class" language="C++" prot="public">
     <compoundname>hermes::Grid</compoundname>
-    <includes refid="Grid_8h" local="no">include/hermes/Grid.h</includes>
+    <includes refid="Grid_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/Grid.h</includes>
     <templateparamlist>
       <param>
         <type>typename T</type>

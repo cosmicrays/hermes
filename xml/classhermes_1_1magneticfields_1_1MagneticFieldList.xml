@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1magneticfields_1_1MagneticFieldList" kind="class" language="C++" prot="public">
     <compoundname>hermes::magneticfields::MagneticFieldList</compoundname>
     <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
-    <includes refid="MagneticField_8h" local="no">include/hermes/magneticfields/MagneticField.h</includes>
+    <includes refid="MagneticField_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/magneticfields/MagneticField.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1MagneticFieldList_1a23ee94928bf1626c950c6498d44972bf" prot="private" static="no" mutable="no">
         <type>std::vector&lt; std::shared_ptr&lt; <ref refid="classhermes_1_1magneticfields_1_1MagneticField" kindref="compound">MagneticField</ref> &gt; &gt;</type>

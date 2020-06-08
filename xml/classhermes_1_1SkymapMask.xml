@@ -6,7 +6,7 @@
     <derivedcompoundref refid="classhermes_1_1InvertMask" prot="public" virt="non-virtual">InvertMask</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1MaskList" prot="public" virt="non-virtual">MaskList</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1RectangularWindow" prot="public" virt="non-virtual">RectangularWindow</derivedcompoundref>
-    <includes refid="SkymapMask_8h" local="no">include/hermes/skymaps/SkymapMask.h</includes>
+    <includes refid="SkymapMask_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/skymaps/SkymapMask.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1SkymapMask_1a2e1454f6988673f814408646edaeb320" prot="private" static="no" mutable="no">
         <type>std::string</type>

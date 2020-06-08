@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1photonfields_1_1CMB" kind="class" language="C++" prot="public">
     <compoundname>hermes::photonfields::CMB</compoundname>
     <basecompoundref refid="classhermes_1_1photonfields_1_1PhotonField" prot="public" virt="non-virtual">PhotonField</basecompoundref>
-    <includes refid="CMB_8h" local="no">include/hermes/photonfields/CMB.h</includes>
+    <includes refid="CMB_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/photonfields/CMB.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1photonfields_1_1CMB_1a8a1754bd130c810fae798b3ed2660adb" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c" kindref="member">QEnergyDensity</ref> &gt;</type>
@@ -84,7 +84,7 @@
         <location file="include/hermes/photonfields/CMB.h" line="39" column="16" bodyfile="include/hermes/photonfields/CMB.h" bodystart="39" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1photonfields_1_1CMB_1a65d2a40aa7e3686c6addd97591f0a267" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>QSpectralEnergyDensity</type>
+        <type><ref refid="namespacehermes_1_1units_1a93ce8b37e79297f83eee561b10d38502" kindref="member">QSpectralEnergyDensity</ref></type>
         <definition>QSpectralEnergyDensity getPlanckSpectralEnergyDensity</definition>
         <argsstring>(const QFrequency &amp;nu, const QTemperature &amp;T) const</argsstring>
         <name>getPlanckSpectralEnergyDensity</name>

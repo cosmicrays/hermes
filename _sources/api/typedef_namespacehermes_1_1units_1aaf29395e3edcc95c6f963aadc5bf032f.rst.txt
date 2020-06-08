@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f:
+
+Typedef hermes::units::QAngularMomentum
+=======================================
+
+- Defined in :ref:`file_include_hermes_units_UnitsSimple.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QAngularMomentum

@@ -1,0 +1,13 @@
+.. _exhale_function_group__Units_1ga008273bc64c1712fd2f6f12bc7b6dc3a:
+
+Function hermes::units::QUANTITY_TYPE(2, -, 1, 0, 0, 0, 0, 0, 0, QAngularMomentum)
+==================================================================================
+
+- Defined in :ref:`file_include_hermes_units_UnitsQClass.h`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::units::QUANTITY_TYPE(2, -, 1, 0, 0, 0, 0, 0, 0, QAngularMomentum)

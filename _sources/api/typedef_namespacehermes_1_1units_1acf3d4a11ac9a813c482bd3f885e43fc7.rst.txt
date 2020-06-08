@@ -1,0 +1,13 @@
+.. _exhale_typedef_namespacehermes_1_1units_1acf3d4a11ac9a813c482bd3f885e43fc7:
+
+Typedef hermes::units::QInverseEnergy
+=====================================
+
+- Defined in :ref:`file_include_hermes_units_UnitsSimple.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: hermes::units::QInverseEnergy

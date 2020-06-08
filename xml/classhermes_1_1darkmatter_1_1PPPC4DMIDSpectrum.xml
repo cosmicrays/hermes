@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum" kind="class" language="C++" prot="public">
     <compoundname>hermes::darkmatter::PPPC4DMIDSpectrum</compoundname>
     <basecompoundref refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum" prot="public" virt="non-virtual">DarkMatterSpectrum</basecompoundref>
-    <includes refid="PPPC4DMIDSpectrum_8h" local="no">include/hermes/darkmatter/PPPC4DMIDSpectrum.h</includes>
+    <includes refid="PPPC4DMIDSpectrum_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/darkmatter/PPPC4DMIDSpectrum.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a42a21beb8018ac623f4d09db1343b9cf" prot="private" static="no" mutable="no">
         <type>const std::string</type>
@@ -135,7 +135,7 @@
         <location file="include/hermes/darkmatter/PPPC4DMIDSpectrum.h" line="36" column="9" bodyfile="src/darkmatter/PPPC4DMIDSpectrum.cpp" bodystart="25" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1acaff3ec30e04e3ccb0d408f9f73eee5d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type>QInverseEnergy</type>
+        <type><ref refid="namespacehermes_1_1units_1acf3d4a11ac9a813c482bd3f885e43fc7" kindref="member">QInverseEnergy</ref></type>
         <definition>QInverseEnergy getParticlesPerEnergy</definition>
         <argsstring>(QEnergy Egamma) const override</argsstring>
         <name>getParticlesPerEnergy</name>

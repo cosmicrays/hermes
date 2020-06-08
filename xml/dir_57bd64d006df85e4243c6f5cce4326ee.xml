@@ -24,6 +24,7 @@
     <innerfile refid="Signals_8h">Signals.h</innerfile>
     <innerfile refid="Vector3_8h">Vector3.h</innerfile>
     <innerfile refid="Vector3Quantity_8h">Vector3Quantity.h</innerfile>
+    <innerfile refid="Version_8h">Version.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

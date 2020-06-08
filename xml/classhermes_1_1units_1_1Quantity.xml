@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classhermes_1_1units_1_1Quantity" kind="class" language="C++" prot="public">
     <compoundname>hermes::units::Quantity</compoundname>
-    <includes refid="UnitsQClass_8h" local="no">include/hermes/units/UnitsQClass.h</includes>
+    <includes refid="UnitsQClass_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/units/UnitsQClass.h</includes>
     <templateparamlist>
       <param>
         <type>typename LengthDim</type>

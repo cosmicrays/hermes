@@ -4,7 +4,7 @@
     <compoundname>hermes::photonfields::PhotonField</compoundname>
     <derivedcompoundref refid="classhermes_1_1photonfields_1_1CMB" prot="public" virt="non-virtual">CMB</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1photonfields_1_1ISRF" prot="public" virt="non-virtual">ISRF</derivedcompoundref>
-    <includes refid="PhotonField_8h" local="no">include/hermes/photonfields/PhotonField.h</includes>
+    <includes refid="PhotonField_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/photonfields/PhotonField.h</includes>
       <sectiondef kind="protected-type">
       <memberdef kind="typedef" id="classhermes_1_1photonfields_1_1PhotonField_1afe417b0dce3c177f9834e269e2dfa019" prot="protected" static="no">
         <type>std::vector&lt; <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &gt;</type>

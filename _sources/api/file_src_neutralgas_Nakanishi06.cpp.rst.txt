@@ -1,0 +1,35 @@
+
+.. _file_src_neutralgas_Nakanishi06.cpp:
+
+File Nakanishi06.cpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_src_neutralgas>` (``src/neutralgas``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``src/neutralgas/Nakanishi06.cpp``)
+-----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__neutralgas`
+

@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$group__Core.html#classVector3Qunatity" title="Template class for 3&#45;vectors of type Quantity." alt="" coords="5,5,132,32"/>
+<area shape="rect" id="node1" href="$group__Core.html#classhermes_1_1Vector3" title="Template class for 3&#45;vectors of type float, double, ..." alt="" coords="5,5,115,32"/>
+<area shape="rect" id="node2" href="$group__Core.html#classhermes_1_1Vector3Quantity" title="Template class for 3&#45;vectors of type Quantity." alt="" coords="163,5,328,32"/>
 </map>

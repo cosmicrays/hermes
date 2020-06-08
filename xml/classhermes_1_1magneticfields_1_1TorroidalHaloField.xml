@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1magneticfields_1_1TorroidalHaloField" kind="class" language="C++" prot="public">
     <compoundname>hermes::magneticfields::TorroidalHaloField</compoundname>
     <basecompoundref refid="classhermes_1_1magneticfields_1_1MagneticField" prot="public" virt="non-virtual">MagneticField</basecompoundref>
-    <includes refid="GalacticMagneticField_8h" local="no">include/hermes/magneticfields/GalacticMagneticField.h</includes>
+    <includes refid="GalacticMagneticField_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/magneticfields/GalacticMagneticField.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1magneticfields_1_1TorroidalHaloField_1a798947bd96f7e2615d107b383cc4b9c6" prot="private" static="no" mutable="no">
         <type>double</type>

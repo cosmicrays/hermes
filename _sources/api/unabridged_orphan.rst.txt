@@ -330,6 +330,11 @@ Files
 .. toctree::
    :maxdepth: 5
 
+   file_include_hermes_neutralgas_GasType.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
    file_include_hermes_Grid.h.rst
 
 .. toctree::
@@ -490,6 +495,16 @@ Files
 .. toctree::
    :maxdepth: 5
 
+   file_src_neutralgas_Nakanishi06.cpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_neutralgas_Nakanishi06.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
    file_src_chargedgas_NE2001Simple.cpp.rst
 
 .. toctree::
@@ -500,7 +515,7 @@ Files
 .. toctree::
    :maxdepth: 5
 
-   file_include_hermes_neutralgas_NeutralGasDensity.h.rst
+   file_include_hermes_neutralgas_NeutralGasAbstract.h.rst
 
 .. toctree::
    :maxdepth: 5
@@ -561,6 +576,11 @@ Files
    :maxdepth: 5
 
    file_include_hermes_darkmatter_PPPC4DMIDSpectrum.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_neutralgas_ProfileAbstract.h.rst
 
 .. toctree::
    :maxdepth: 5
@@ -756,6 +776,11 @@ Files
    :maxdepth: 5
 
    file_include_hermes_Vector3Quantity.h.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_include_hermes_Version.h.rst
 
 .. toctree::
    :maxdepth: 5

@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1chargedgas_1_1NE2001Simple" kind="class" language="C++" prot="public">
     <compoundname>hermes::chargedgas::NE2001Simple</compoundname>
     <basecompoundref refid="classhermes_1_1chargedgas_1_1ChargedGasDensity" prot="public" virt="non-virtual">ChargedGasDensity</basecompoundref>
-    <includes refid="NE2001Simple_8h" local="no">include/hermes/chargedgas/NE2001Simple.h</includes>
+    <includes refid="NE2001Simple_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/chargedgas/NE2001Simple.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1NE2001Simple_1a596dfd97c52bac5beb72b326501fd69b" prot="private" static="no" mutable="no">
         <type>int</type>

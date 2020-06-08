@@ -17,240 +17,6 @@
         </inbodydescription>
         <location file="include/hermes/units/UnitsDerived.h" line="131" column="20" bodyfile="include/hermes/units/UnitsDerived.h" bodystart="131" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QNumber</definition>
-        <argsstring></argsstring>
-        <name>QNumber</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="13" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="13" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QAngle</definition>
-        <argsstring></argsstring>
-        <name>QAngle</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="14" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="14" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a30f5a6207bff5e9e3503d039f5485439" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QSolidAngle</definition>
-        <argsstring></argsstring>
-        <name>QSolidAngle</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="15" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="15" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QLength</definition>
-        <argsstring></argsstring>
-        <name>QLength</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="16" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="16" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1ab16ea1563d0b091f28aae94e1ef44d20" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QTime</definition>
-        <argsstring></argsstring>
-        <name>QTime</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="17" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="17" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QEnergy</definition>
-        <argsstring></argsstring>
-        <name>QEnergy</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="18" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="18" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a72b849b5230560167419622406054305" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QMField</definition>
-        <argsstring></argsstring>
-        <name>QMField</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="19" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="19" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QMass</definition>
-        <argsstring></argsstring>
-        <name>QMass</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="20" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="20" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QTemperature</definition>
-        <argsstring></argsstring>
-        <name>QTemperature</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="21" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="21" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QIntensity</definition>
-        <argsstring></argsstring>
-        <name>QIntensity</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="22" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="22" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QFrequency</definition>
-        <argsstring></argsstring>
-        <name>QFrequency</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="23" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="23" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1afed1063e6c1cf425c9e80def217f4cba" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QECurrent</definition>
-        <argsstring></argsstring>
-        <name>QECurrent</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="24" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="24" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a4240d354c79517ce51fbc34f6a7e791a" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QSubstance</definition>
-        <argsstring></argsstring>
-        <name>QSubstance</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="25" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="25" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a7fafd935f08d30262bfba7261e8f76f3" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QLIntensity</definition>
-        <argsstring></argsstring>
-        <name>QLIntensity</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="26" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="26" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QArea</definition>
-        <argsstring></argsstring>
-        <name>QArea</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="27" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="27" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a0646abfdd66253cf534207b37bccb0d4" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QVolume</definition>
-        <argsstring></argsstring>
-        <name>QVolume</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="28" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="28" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1aa5aca56b7d2fd0c4824c1ac399f2a8fc" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QForce</definition>
-        <argsstring></argsstring>
-        <name>QForce</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="29" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="29" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a6a7ff69b5d0f535262f7981fc5f3a3e1" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QMomentum</definition>
-        <argsstring></argsstring>
-        <name>QMomentum</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="30" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="30" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1acc4e548474922dd119e8c9bf9492bace" prot="public" static="no">
         <type>double</type>
         <definition>typedef double QAMomentum</definition>
@@ -262,98 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="31" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="31" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a8800da94a80f732ff7ef93cb954a8e31" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QPressure</definition>
-        <argsstring></argsstring>
-        <name>QPressure</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="32" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="32" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a242b7c6d821226abcd4c9c1df4080b7c" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QECharge</definition>
-        <argsstring></argsstring>
-        <name>QECharge</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="33" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="33" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a825916b4e02cdff105ae3f499c221be5" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QPower</definition>
-        <argsstring></argsstring>
-        <name>QPower</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="34" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="34" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QEResistance</definition>
-        <argsstring></argsstring>
-        <name>QEResistance</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="35" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="35" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a755d56da761e757675d206a4c66da013" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QECapacitance</definition>
-        <argsstring></argsstring>
-        <name>QECapacitance</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="36" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="36" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a5e81348dd8e9c30ddd626f52910a24a1" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QEPotential</definition>
-        <argsstring></argsstring>
-        <name>QEPotential</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="37" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="37" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1ad065263541ca8902f903e26e57dc33cf" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QPDensityPerEnergy</definition>
-        <argsstring></argsstring>
-        <name>QPDensityPerEnergy</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="38" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="38" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="13" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1a90796c8083e0e96d3fd6ba1266a3ddd0" prot="public" static="no">
         <type>double</type>
@@ -366,98 +41,46 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="39" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="39" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="14" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="14" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1ada6d27e18c6b882bd684cb05c2fea781" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" prot="public" static="no">
         <type>double</type>
-        <definition>typedef double QSpeed</definition>
+        <definition>typedef double QAngle</definition>
         <argsstring></argsstring>
-        <name>QSpeed</name>
+        <name>QAngle</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="40" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="40" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="15" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="15" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a93760358a2f865d72e4c32104285f35a" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f" prot="public" static="no">
         <type>double</type>
-        <definition>typedef double QDiffFlux</definition>
+        <definition>typedef double QAngularMomentum</definition>
         <argsstring></argsstring>
-        <name>QDiffFlux</name>
+        <name>QAngularMomentum</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="41" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="41" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="16" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="16" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c" prot="public" static="no">
         <type>double</type>
-        <definition>typedef double QDiffIntensity</definition>
+        <definition>typedef double QArea</definition>
         <argsstring></argsstring>
-        <name>QDiffIntensity</name>
+        <name>QArea</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="42" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="42" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QEmissivity</definition>
-        <argsstring></argsstring>
-        <name>QEmissivity</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="43" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="43" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QPDensity</definition>
-        <argsstring></argsstring>
-        <name>QPDensity</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="44" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="44" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1abfd2d95d5ad24fefdc11b58460cdef65" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QDensity</definition>
-        <argsstring></argsstring>
-        <name>QDensity</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="45" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="45" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QInverseLength</definition>
-        <argsstring></argsstring>
-        <name>QInverseLength</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="46" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="46" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="17" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf" prot="public" static="no">
         <type>double</type>
@@ -470,33 +93,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="47" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="47" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="18" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="18" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a6fadfde6ede5563e06f8a138b9842301" prot="public" static="no">
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1ace62e7f5cd9628fd2a9971b4f3657d37" prot="public" static="no">
         <type>double</type>
-        <definition>typedef double QDispersionMeasure</definition>
+        <definition>typedef double QMassDensity</definition>
         <argsstring></argsstring>
-        <name>QDispersionMeasure</name>
+        <name>QMassDensity</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="48" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="48" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" prot="public" static="no">
-        <type>double</type>
-        <definition>typedef double QRotationMeasure</definition>
-        <argsstring></argsstring>
-        <name>QRotationMeasure</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="49" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="49" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="19" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" prot="public" static="no">
         <type>double</type>
@@ -509,7 +119,137 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="50" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="50" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="20" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a93760358a2f865d72e4c32104285f35a" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QDiffFlux</definition>
+        <argsstring></argsstring>
+        <name>QDiffFlux</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="21" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QDiffIntensity</definition>
+        <argsstring></argsstring>
+        <name>QDiffIntensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="22" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a6fadfde6ede5563e06f8a138b9842301" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QDispersionMeasure</definition>
+        <argsstring></argsstring>
+        <name>QDispersionMeasure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="23" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a755d56da761e757675d206a4c66da013" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QECapacitance</definition>
+        <argsstring></argsstring>
+        <name>QECapacitance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="24" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a242b7c6d821226abcd4c9c1df4080b7c" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QECharge</definition>
+        <argsstring></argsstring>
+        <name>QECharge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="25" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1afed1063e6c1cf425c9e80def217f4cba" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QECurrent</definition>
+        <argsstring></argsstring>
+        <name>QECurrent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="26" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a5e81348dd8e9c30ddd626f52910a24a1" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QEPotential</definition>
+        <argsstring></argsstring>
+        <name>QEPotential</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="27" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QEResistance</definition>
+        <argsstring></argsstring>
+        <name>QEResistance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="28" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QEmissivity</definition>
+        <argsstring></argsstring>
+        <name>QEmissivity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="29" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QEnergy</definition>
+        <argsstring></argsstring>
+        <name>QEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="30" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c" prot="public" static="no">
         <type>double</type>
@@ -522,7 +262,306 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="31" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1aa5aca56b7d2fd0c4824c1ac399f2a8fc" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QForce</definition>
+        <argsstring></argsstring>
+        <name>QForce</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="32" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QFrequency</definition>
+        <argsstring></argsstring>
+        <name>QFrequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="33" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QIntensity</definition>
+        <argsstring></argsstring>
+        <name>QIntensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="34" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1acf3d4a11ac9a813c482bd3f885e43fc7" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QInverseEnergy</definition>
+        <argsstring></argsstring>
+        <name>QInverseEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="35" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QInverseLength</definition>
+        <argsstring></argsstring>
+        <name>QInverseLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="36" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a7fafd935f08d30262bfba7261e8f76f3" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QLIntensity</definition>
+        <argsstring></argsstring>
+        <name>QLIntensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="37" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QLength</definition>
+        <argsstring></argsstring>
+        <name>QLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="38" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a72b849b5230560167419622406054305" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QMField</definition>
+        <argsstring></argsstring>
+        <name>QMField</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="39" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QMass</definition>
+        <argsstring></argsstring>
+        <name>QMass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="40" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a6a7ff69b5d0f535262f7981fc5f3a3e1" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QMomentum</definition>
+        <argsstring></argsstring>
+        <name>QMomentum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="41" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QNumber</definition>
+        <argsstring></argsstring>
+        <name>QNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="42" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QPDensity</definition>
+        <argsstring></argsstring>
+        <name>QPDensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="43" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1ad065263541ca8902f903e26e57dc33cf" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QPDensityPerEnergy</definition>
+        <argsstring></argsstring>
+        <name>QPDensityPerEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="44" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a825916b4e02cdff105ae3f499c221be5" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QPower</definition>
+        <argsstring></argsstring>
+        <name>QPower</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="45" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a8800da94a80f732ff7ef93cb954a8e31" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QPressure</definition>
+        <argsstring></argsstring>
+        <name>QPressure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="46" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QRotationMeasure</definition>
+        <argsstring></argsstring>
+        <name>QRotationMeasure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="47" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a30f5a6207bff5e9e3503d039f5485439" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QSolidAngle</definition>
+        <argsstring></argsstring>
+        <name>QSolidAngle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="48" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a93ce8b37e79297f83eee561b10d38502" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QSpectralEnergyDensity</definition>
+        <argsstring></argsstring>
+        <name>QSpectralEnergyDensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="49" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1ada6d27e18c6b882bd684cb05c2fea781" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QSpeed</definition>
+        <argsstring></argsstring>
+        <name>QSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="50" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a4240d354c79517ce51fbc34f6a7e791a" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QSubstance</definition>
+        <argsstring></argsstring>
+        <name>QSubstance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
         <location file="include/hermes/units/UnitsSimple.h" line="51" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QTemperature</definition>
+        <argsstring></argsstring>
+        <name>QTemperature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="52" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1ab16ea1563d0b091f28aae94e1ef44d20" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QTime</definition>
+        <argsstring></argsstring>
+        <name>QTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="53" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a0646abfdd66253cf534207b37bccb0d4" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QVolume</definition>
+        <argsstring></argsstring>
+        <name>QVolume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="54" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1a882108de6a7baeb179ec278907e91489" prot="public" static="no">
         <type>double</type>
@@ -535,7 +574,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="53" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="53" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="56" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1af1f97c9b0b9bdd6cc6b1ae114f535785" prot="public" static="no">
         <type>double</type>
@@ -548,7 +587,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="54" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="54" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="57" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1a758ac2a09e6404bedc9f6c9b0fba33b8" prot="public" static="no">
         <type>double</type>
@@ -561,7 +600,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="55" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="55" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="58" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1a6fa6e2566d07746568b0ab61b4f0e491" prot="public" static="no">
         <type>double</type>
@@ -574,7 +613,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="56" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="56" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="59" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1a7430130b27415445121268ef33e2b9f0" prot="public" static="no">
         <type>double</type>
@@ -587,7 +626,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="57" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="57" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="60" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1a9970527ffabff2dd35c43fb96f45cda7" prot="public" static="no">
         <type>double</type>
@@ -600,7 +639,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="58" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="58" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="61" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" prot="public" static="no">
         <type>double</type>
@@ -613,7 +652,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="59" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="59" bodyend="-1"/>
+        <location file="include/hermes/units/UnitsSimple.h" line="62" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacehermes_1_1units_1a05b6d6f0546f9bd87fd641c9e8502365" prot="public" static="no">
+        <type>double</type>
+        <definition>typedef double QEnergyOverTemperature</definition>
+        <argsstring></argsstring>
+        <name>QEnergyOverTemperature</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/units/UnitsSimple.h" line="63" column="16" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -744,7 +796,7 @@
         <location file="include/hermes/units/UnitsDerived.h" line="47" column="17" bodyfile="include/hermes/units/UnitsDerived.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__Units_1gaf7dc890d120ecbc8ef0cbe17b3102afa" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr QAngularMomentum</type>
+        <type>constexpr <ref refid="namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f" kindref="member">QAngularMomentum</ref></type>
         <definition>constexpr QAngularMomentum h_planck</definition>
         <argsstring></argsstring>
         <name>h_planck</name>
@@ -758,7 +810,7 @@
         <location file="include/hermes/units/UnitsDerived.h" line="48" column="28" bodyfile="include/hermes/units/UnitsDerived.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="group__Units_1gafa1fd8dfc82646998379df4b3f6244b7" prot="public" static="no" constexpr="yes" mutable="no">
-        <type>constexpr QAngularMomentum</type>
+        <type>constexpr <ref refid="namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f" kindref="member">QAngularMomentum</ref></type>
         <definition>constexpr QAngularMomentum h_planck_bar</definition>
         <argsstring></argsstring>
         <name>h_planck_bar</name>
@@ -5995,9 +6047,9 @@
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="443" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="443" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="group__Units_1gaaaf6ef71d45fb71779f26fdea4390702" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__Units_1ga008273bc64c1712fd2f6f12bc7b6dc3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>hermes::units::QUANTITY_TYPE</definition>
+        <definition>QUANTITY_TYPE</definition>
         <argsstring>(2,-1, 1, 0, 0, 0, 0, 0, 0, QAngularMomentum)</argsstring>
         <name>QUANTITY_TYPE</name>
         <param>
@@ -6029,7 +6081,7 @@
           <type>0</type>
         </param>
         <param>
-          <type>QAngularMomentum</type>
+          <type><ref refid="namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f" kindref="member">QAngularMomentum</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -6038,50 +6090,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="444" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="444" declcolumn="1"/>
-      </memberdef>
-      <memberdef kind="function" id="group__Units_1gae31025b8390e75e42a0f969317eb35a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>QUANTITY_TYPE</definition>
-        <argsstring>(2,-2, 1, 0, 0, 0, 0, 0, 0, QEnergy)</argsstring>
-        <name>QUANTITY_TYPE</name>
-        <param>
-          <type>2</type>
-        </param>
-        <param>
-          <type>-</type>
-          <declname>2</declname>
-        </param>
-        <param>
-          <type>1</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsQClass.h" line="445" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="445" declcolumn="1"/>
       </memberdef>
       <memberdef kind="function" id="group__Units_1ga7a9cb6a55e54afcafa707b102c8c96ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -6259,9 +6267,9 @@
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="451" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="451" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="group__Units_1ga7d4b2cbfe6684ff453459b2797c40b1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="group__Units_1gaf43bf1aa4ff555dfa74e7659437b1d34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>hermes::units::QUANTITY_TYPE</definition>
+        <definition>QUANTITY_TYPE</definition>
         <argsstring>(-1,-1, 1, 0, 0, 0, 0, 0, 0, QSpectralEnergyDensity)</argsstring>
         <name>QUANTITY_TYPE</name>
         <param>
@@ -6294,7 +6302,7 @@
           <type>0</type>
         </param>
         <param>
-          <type>QSpectralEnergyDensity</type>
+          <type><ref refid="namespacehermes_1_1units_1a93ce8b37e79297f83eee561b10d38502" kindref="member">QSpectralEnergyDensity</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -6303,96 +6311,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="452" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="452" declcolumn="1"/>
-      </memberdef>
-      <memberdef kind="function" id="group__Units_1gaceba2eeeeae714a94dcb0500b05a0717" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>QUANTITY_TYPE</definition>
-        <argsstring>(-1,-2, 1, 0, 0, 0, 0, 0, 0, QEmissivity)</argsstring>
-        <name>QUANTITY_TYPE</name>
-        <param>
-          <type>-</type>
-          <declname>1</declname>
-        </param>
-        <param>
-          <type>-</type>
-          <declname>2</declname>
-        </param>
-        <param>
-          <type>1</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type><ref refid="namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1" kindref="member">QEmissivity</ref></type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsQClass.h" line="453" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="453" declcolumn="1"/>
-      </memberdef>
-      <memberdef kind="function" id="group__Units_1ga49fb0afd994e8bfd439e9090147312b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>hermes::units::QUANTITY_TYPE</definition>
-        <argsstring>(-2, 2,-1, 0, 0, 0, 0, 0, 0, QInverseEnergy)</argsstring>
-        <name>QUANTITY_TYPE</name>
-        <param>
-          <type>-</type>
-          <declname>2</declname>
-        </param>
-        <param>
-          <type>2</type>
-        </param>
-        <param>
-          <type>-</type>
-          <declname>1</declname>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>0</type>
-        </param>
-        <param>
-          <type>QInverseEnergy</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsQClass.h" line="459" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="459" declcolumn="1"/>
       </memberdef>
       <memberdef kind="function" id="group__Units_1ga5fdbd549fe45ae7d6a9d0bb1cde32022" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -6473,7 +6391,7 @@
           <type>0</type>
         </param>
         <param>
-          <type>QMassDensity</type>
+          <type><ref refid="namespacehermes_1_1units_1ace62e7f5cd9628fd2a9971b4f3657d37" kindref="member">QMassDensity</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -6564,7 +6482,7 @@
           <type>0</type>
         </param>
         <param>
-          <type>QEnergyOverTemperature</type>
+          <type><ref refid="namespacehermes_1_1units_1a05b6d6f0546f9bd87fd641c9e8502365" kindref="member">QEnergyOverTemperature</ref></type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -6573,30 +6491,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="include/hermes/units/UnitsQClass.h" line="470" column="1" declfile="include/hermes/units/UnitsQClass.h" declline="470" declcolumn="1"/>
-      </memberdef>
-      <memberdef kind="function" id="namespacehermes_1_1units_1a0709379f89073a1d6e125682f9c0830e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>int</type>
-            <declname>power</declname>
-            <defname>power</defname>
-          </param>
-        </templateparamlist>
-        <type>constexpr double</type>
-        <definition>constexpr double hermes::units::pow</definition>
-        <argsstring>(const QNumber &amp;num)</argsstring>
-        <name>pow</name>
-        <param>
-          <type>const <ref refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kindref="member">QNumber</ref> &amp;</type>
-          <declname>num</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/units/UnitsSimple.h" line="62" column="18" bodyfile="include/hermes/units/UnitsSimple.h" bodystart="62" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="namespacehermes_1_1units_1a3a51d0e5f4a5ce1024da6658f0bfbfd4" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr double</type>

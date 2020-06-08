@@ -93,73 +93,75 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;hermes/Units.h&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vector3_8h.html">hermes/Vector3.h</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vector3Quantity_8h.html">hermes/Vector3Quantity.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ChargedGasDensity_8h.html">hermes/chargedgas/ChargedGasDensity.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="HII__Cordes91_8h.html">hermes/chargedgas/HII_Cordes91.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="NE2001Simple_8h.html">hermes/chargedgas/NE2001Simple.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="YMW16_8h.html">hermes/chargedgas/YMW16.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CosmicRayDensity_8h.html">hermes/cosmicrays/CosmicRayDensity.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Dragon2D_8h.html">hermes/cosmicrays/Dragon2D.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Dragon3D_8h.html">hermes/cosmicrays/Dragon3D.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DummyCRDensity_8h.html">hermes/cosmicrays/DummyCRDensity.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SimpleCRDensity_8h.html">hermes/cosmicrays/SimpleCRDensity.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Sun08CRDensity_8h.html">hermes/cosmicrays/Sun08CRDensity.h</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="WMAP07CRDensity_8h.html">hermes/cosmicrays/WMAP07CRDensity.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DarkMatterSpectrum_8h.html">hermes/darkmatter/DarkMatterSpectrum.h</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GalacticProfile_8h.html">hermes/darkmatter/GalacticProfile.h</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="NFWGProfile_8h.html">hermes/darkmatter/NFWGProfile.h</a>&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PPPC4DMIDSpectrum_8h.html">hermes/darkmatter/PPPC4DMIDSpectrum.h</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BremsstrahlungIntegrator_8h.html">hermes/integrators/BremsstrahlungIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DarkMatterIntegrator_8h.html">hermes/integrators/DarkMatterIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DispersionMeasureIntegrator_8h.html">hermes/integrators/DispersionMeasureIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="FreeFreeIntegrator_8h.html">hermes/integrators/FreeFreeIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IntegratorTemplate_8h.html">hermes/integrators/IntegratorTemplate.h</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="InverseComptonIntegrator_8h.html">hermes/integrators/InverseComptonIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="LOSIntegrationMethods_8h.html">hermes/integrators/LOSIntegrationMethods.h</a>&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PiZeroAbsorptionIntegrator_8h.html">hermes/integrators/PiZeroAbsorptionIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PiZeroIntegrator_8h.html">hermes/integrators/PiZeroIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RotationMeasureIntegrator_8h.html">hermes/integrators/RotationMeasureIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SynchroAbsorptionIntegrator_8h.html">hermes/integrators/SynchroAbsorptionIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SynchroIntegrator_8h.html">hermes/integrators/SynchroIntegrator.h</a>&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BreitWheeler_8h.html">hermes/interactions/BreitWheeler.h</a>&quot;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BremsstrahlungAbstract_8h.html">hermes/interactions/BremsstrahlungAbstract.h</a>&quot;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BremsstrahlungGALPROP_8h.html">hermes/interactions/BremsstrahlungGALPROP.h</a>&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BremsstrahlungTsai74_8h.html">hermes/interactions/BremsstrahlungTsai74.h</a>&quot;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DiffCrossSection_8h.html">hermes/interactions/DiffCrossSection.h</a>&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DummyCrossSection_8h.html">hermes/interactions/DummyCrossSection.h</a>&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Kamae06Gamma_8h.html">hermes/interactions/Kamae06Gamma.h</a>&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Kamae06Neutrino_8h.html">hermes/interactions/Kamae06Neutrino.h</a>&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="KelnerAharonianGamma_8h.html">hermes/interactions/KelnerAharonianGamma.h</a>&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="KelnerAharonianNeutrino_8h.html">hermes/interactions/KelnerAharonianNeutrino.h</a>&quot;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="KleinNishina_8h.html">hermes/interactions/KleinNishina.h</a>&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="JF12Field_8h.html">hermes/magneticfields/JF12Field.h</a>&quot;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MagneticField_8h.html">hermes/magneticfields/MagneticField.h</a>&quot;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MagneticFieldGrid_8h.html">hermes/magneticfields/MagneticFieldGrid.h</a>&quot;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PT11Field_8h.html">hermes/magneticfields/PT11Field.h</a>&quot;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Sun08Field_8h.html">hermes/magneticfields/Sun08Field.h</a>&quot;</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="WMAP07Field_8h.html">hermes/magneticfields/WMAP07Field.h</a>&quot;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="NeutralGasDensity_8h.html">hermes/neutralgas/NeutralGasDensity.h</a>&quot;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RingModel_8h.html">hermes/neutralgas/RingModel.h</a>&quot;</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="HEALPixFormat_8h.html">hermes/outputs/HEALPixFormat.h</a>&quot;</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Output_8h.html">hermes/outputs/Output.h</a>&quot;</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CMB_8h.html">hermes/photonfields/CMB.h</a>&quot;</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ISRF_8h.html">hermes/photonfields/ISRF.h</a>&quot;</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PhotonField_8h.html">hermes/photonfields/PhotonField.h</a>&quot;</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DispersionMeasureSkymap_8h.html">hermes/skymaps/DispersionMeasureSkymap.h</a>&quot;</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GammaSkymap_8h.html">hermes/skymaps/GammaSkymap.h</a>&quot;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GammaSkymapRange_8h.html">hermes/skymaps/GammaSkymapRange.h</a>&quot;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RadioSkymap_8h.html">hermes/skymaps/RadioSkymap.h</a>&quot;</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RadioSkymapRange_8h.html">hermes/skymaps/RadioSkymapRange.h</a>&quot;</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RotationMeasureSkymap_8h.html">hermes/skymaps/RotationMeasureSkymap.h</a>&quot;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Skymap_8h.html">hermes/skymaps/Skymap.h</a>&quot;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SkymapMask_8h.html">hermes/skymaps/SkymapMask.h</a>&quot;</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SkymapTemplate_8h.html">hermes/skymaps/SkymapTemplate.h</a>&quot;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif  // HERMES_H</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Version_8h.html">hermes/Version.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ChargedGasDensity_8h.html">hermes/chargedgas/ChargedGasDensity.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="HII__Cordes91_8h.html">hermes/chargedgas/HII_Cordes91.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="NE2001Simple_8h.html">hermes/chargedgas/NE2001Simple.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="YMW16_8h.html">hermes/chargedgas/YMW16.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CosmicRayDensity_8h.html">hermes/cosmicrays/CosmicRayDensity.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Dragon2D_8h.html">hermes/cosmicrays/Dragon2D.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Dragon3D_8h.html">hermes/cosmicrays/Dragon3D.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DummyCRDensity_8h.html">hermes/cosmicrays/DummyCRDensity.h</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SimpleCRDensity_8h.html">hermes/cosmicrays/SimpleCRDensity.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Sun08CRDensity_8h.html">hermes/cosmicrays/Sun08CRDensity.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="WMAP07CRDensity_8h.html">hermes/cosmicrays/WMAP07CRDensity.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DarkMatterSpectrum_8h.html">hermes/darkmatter/DarkMatterSpectrum.h</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GalacticProfile_8h.html">hermes/darkmatter/GalacticProfile.h</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="NFWGProfile_8h.html">hermes/darkmatter/NFWGProfile.h</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PPPC4DMIDSpectrum_8h.html">hermes/darkmatter/PPPC4DMIDSpectrum.h</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BremsstrahlungIntegrator_8h.html">hermes/integrators/BremsstrahlungIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DarkMatterIntegrator_8h.html">hermes/integrators/DarkMatterIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DispersionMeasureIntegrator_8h.html">hermes/integrators/DispersionMeasureIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="FreeFreeIntegrator_8h.html">hermes/integrators/FreeFreeIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IntegratorTemplate_8h.html">hermes/integrators/IntegratorTemplate.h</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="InverseComptonIntegrator_8h.html">hermes/integrators/InverseComptonIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="LOSIntegrationMethods_8h.html">hermes/integrators/LOSIntegrationMethods.h</a>&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PiZeroAbsorptionIntegrator_8h.html">hermes/integrators/PiZeroAbsorptionIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PiZeroIntegrator_8h.html">hermes/integrators/PiZeroIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RotationMeasureIntegrator_8h.html">hermes/integrators/RotationMeasureIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SynchroAbsorptionIntegrator_8h.html">hermes/integrators/SynchroAbsorptionIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SynchroIntegrator_8h.html">hermes/integrators/SynchroIntegrator.h</a>&quot;</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BreitWheeler_8h.html">hermes/interactions/BreitWheeler.h</a>&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BremsstrahlungAbstract_8h.html">hermes/interactions/BremsstrahlungAbstract.h</a>&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BremsstrahlungGALPROP_8h.html">hermes/interactions/BremsstrahlungGALPROP.h</a>&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BremsstrahlungTsai74_8h.html">hermes/interactions/BremsstrahlungTsai74.h</a>&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DiffCrossSection_8h.html">hermes/interactions/DiffCrossSection.h</a>&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DummyCrossSection_8h.html">hermes/interactions/DummyCrossSection.h</a>&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Kamae06Gamma_8h.html">hermes/interactions/Kamae06Gamma.h</a>&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Kamae06Neutrino_8h.html">hermes/interactions/Kamae06Neutrino.h</a>&quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="KelnerAharonianGamma_8h.html">hermes/interactions/KelnerAharonianGamma.h</a>&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="KelnerAharonianNeutrino_8h.html">hermes/interactions/KelnerAharonianNeutrino.h</a>&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="KleinNishina_8h.html">hermes/interactions/KleinNishina.h</a>&quot;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="JF12Field_8h.html">hermes/magneticfields/JF12Field.h</a>&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MagneticField_8h.html">hermes/magneticfields/MagneticField.h</a>&quot;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MagneticFieldGrid_8h.html">hermes/magneticfields/MagneticFieldGrid.h</a>&quot;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PT11Field_8h.html">hermes/magneticfields/PT11Field.h</a>&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Sun08Field_8h.html">hermes/magneticfields/Sun08Field.h</a>&quot;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="WMAP07Field_8h.html">hermes/magneticfields/WMAP07Field.h</a>&quot;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GasType_8h.html">hermes/neutralgas/GasType.h</a>&quot;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="NeutralGasAbstract_8h.html">hermes/neutralgas/NeutralGasAbstract.h</a>&quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ProfileAbstract_8h.html">hermes/neutralgas/ProfileAbstract.h</a>&quot;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RingModel_8h.html">hermes/neutralgas/RingModel.h</a>&quot;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="HEALPixFormat_8h.html">hermes/outputs/HEALPixFormat.h</a>&quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Output_8h.html">hermes/outputs/Output.h</a>&quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="CMB_8h.html">hermes/photonfields/CMB.h</a>&quot;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ISRF_8h.html">hermes/photonfields/ISRF.h</a>&quot;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PhotonField_8h.html">hermes/photonfields/PhotonField.h</a>&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DispersionMeasureSkymap_8h.html">hermes/skymaps/DispersionMeasureSkymap.h</a>&quot;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GammaSkymap_8h.html">hermes/skymaps/GammaSkymap.h</a>&quot;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="GammaSkymapRange_8h.html">hermes/skymaps/GammaSkymapRange.h</a>&quot;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RadioSkymap_8h.html">hermes/skymaps/RadioSkymap.h</a>&quot;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RadioSkymapRange_8h.html">hermes/skymaps/RadioSkymapRange.h</a>&quot;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RotationMeasureSkymap_8h.html">hermes/skymaps/RotationMeasureSkymap.h</a>&quot;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Skymap_8h.html">hermes/skymaps/Skymap.h</a>&quot;</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SkymapMask_8h.html">hermes/skymaps/SkymapMask.h</a>&quot;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SkymapTemplate_8h.html">hermes/skymaps/SkymapTemplate.h</a>&quot;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif  // HERMES_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aKamae06Neutrino_8h_html"><div class="ttname"><a href="Kamae06Neutrino_8h.html">Kamae06Neutrino.h</a></div></div>
 <div class="ttc" id="aRingModel_8h_html"><div class="ttname"><a href="RingModel_8h.html">RingModel.h</a></div></div>
 <div class="ttc" id="aSignals_8h_html"><div class="ttname"><a href="Signals_8h.html">Signals.h</a></div></div>
-<div class="ttc" id="aNeutralGasDensity_8h_html"><div class="ttname"><a href="NeutralGasDensity_8h.html">NeutralGasDensity.h</a></div></div>
 <div class="ttc" id="aDarkMatterIntegrator_8h_html"><div class="ttname"><a href="DarkMatterIntegrator_8h.html">DarkMatterIntegrator.h</a></div></div>
 <div class="ttc" id="aDispersionMeasureIntegrator_8h_html"><div class="ttname"><a href="DispersionMeasureIntegrator_8h.html">DispersionMeasureIntegrator.h</a></div></div>
 <div class="ttc" id="aSkymapTemplate_8h_html"><div class="ttname"><a href="SkymapTemplate_8h.html">SkymapTemplate.h</a></div><div class="ttdoc">Contains SkymapTemplate definition used in all skymaps.</div></div>
@@ -179,6 +181,7 @@ $(function() {
 <div class="ttc" id="aSkymap_8h_html"><div class="ttname"><a href="Skymap_8h.html">Skymap.h</a></div></div>
 <div class="ttc" id="aDiffCrossSection_8h_html"><div class="ttname"><a href="DiffCrossSection_8h.html">DiffCrossSection.h</a></div></div>
 <div class="ttc" id="aRotationMeasureSkymap_8h_html"><div class="ttname"><a href="RotationMeasureSkymap_8h.html">RotationMeasureSkymap.h</a></div></div>
+<div class="ttc" id="aProfileAbstract_8h_html"><div class="ttname"><a href="ProfileAbstract_8h.html">ProfileAbstract.h</a></div></div>
 <div class="ttc" id="aPPPC4DMIDSpectrum_8h_html"><div class="ttname"><a href="PPPC4DMIDSpectrum_8h.html">PPPC4DMIDSpectrum.h</a></div></div>
 <div class="ttc" id="aFreeFreeIntegrator_8h_html"><div class="ttname"><a href="FreeFreeIntegrator_8h.html">FreeFreeIntegrator.h</a></div></div>
 <div class="ttc" id="aSynchroIntegrator_8h_html"><div class="ttname"><a href="SynchroIntegrator_8h.html">SynchroIntegrator.h</a></div></div>
@@ -189,6 +192,7 @@ $(function() {
 <div class="ttc" id="aGammaSkymap_8h_html"><div class="ttname"><a href="GammaSkymap_8h.html">GammaSkymap.h</a></div></div>
 <div class="ttc" id="aSun08Field_8h_html"><div class="ttname"><a href="Sun08Field_8h.html">Sun08Field.h</a></div></div>
 <div class="ttc" id="aFITSWrapper_8h_html"><div class="ttname"><a href="FITSWrapper_8h.html">FITSWrapper.h</a></div></div>
+<div class="ttc" id="aVersion_8h_html"><div class="ttname"><a href="Version_8h.html">Version.h</a></div></div>
 <div class="ttc" id="aCMB_8h_html"><div class="ttname"><a href="CMB_8h.html">CMB.h</a></div></div>
 <div class="ttc" id="aSynchroAbsorptionIntegrator_8h_html"><div class="ttname"><a href="SynchroAbsorptionIntegrator_8h.html">SynchroAbsorptionIntegrator.h</a></div></div>
 <div class="ttc" id="aYMW16_8h_html"><div class="ttname"><a href="YMW16_8h.html">YMW16.h</a></div></div>
@@ -198,6 +202,7 @@ $(function() {
 <div class="ttc" id="aNE2001Simple_8h_html"><div class="ttname"><a href="NE2001Simple_8h.html">NE2001Simple.h</a></div></div>
 <div class="ttc" id="aRadioSkymap_8h_html"><div class="ttname"><a href="RadioSkymap_8h.html">RadioSkymap.h</a></div></div>
 <div class="ttc" id="aKelnerAharonianNeutrino_8h_html"><div class="ttname"><a href="KelnerAharonianNeutrino_8h.html">KelnerAharonianNeutrino.h</a></div></div>
+<div class="ttc" id="aGasType_8h_html"><div class="ttname"><a href="GasType_8h.html">GasType.h</a></div></div>
 <div class="ttc" id="aGridTools_8h_html"><div class="ttname"><a href="GridTools_8h.html">GridTools.h</a></div><div class="ttdoc">Grid related functions: load, dump, save, create turbulent field ...</div></div>
 <div class="ttc" id="aBremsstrahlungGALPROP_8h_html"><div class="ttname"><a href="BremsstrahlungGALPROP_8h.html">BremsstrahlungGALPROP.h</a></div></div>
 <div class="ttc" id="aMagneticFieldGrid_8h_html"><div class="ttname"><a href="MagneticFieldGrid_8h.html">MagneticFieldGrid.h</a></div></div>
@@ -206,6 +211,7 @@ $(function() {
 <div class="ttc" id="aOutput_8h_html"><div class="ttname"><a href="Output_8h.html">Output.h</a></div></div>
 <div class="ttc" id="aParticleID_8h_html"><div class="ttname"><a href="ParticleID_8h.html">ParticleID.h</a></div></div>
 <div class="ttc" id="aPiZeroAbsorptionIntegrator_8h_html"><div class="ttname"><a href="PiZeroAbsorptionIntegrator_8h.html">PiZeroAbsorptionIntegrator.h</a></div></div>
+<div class="ttc" id="aNeutralGasAbstract_8h_html"><div class="ttname"><a href="NeutralGasAbstract_8h.html">NeutralGasAbstract.h</a></div></div>
 <div class="ttc" id="aHEALPixFormat_8h_html"><div class="ttname"><a href="HEALPixFormat_8h.html">HEALPixFormat.h</a></div></div>
 <div class="ttc" id="aRotationMeasureIntegrator_8h_html"><div class="ttname"><a href="RotationMeasureIntegrator_8h.html">RotationMeasureIntegrator.h</a></div></div>
 <div class="ttc" id="aMagneticField_8h_html"><div class="ttname"><a href="MagneticField_8h.html">MagneticField.h</a></div></div>
@@ -229,7 +235,7 @@ $(function() {
 <div class="ttc" id="aBremsstrahlungAbstract_8h_html"><div class="ttname"><a href="BremsstrahlungAbstract_8h.html">BremsstrahlungAbstract.h</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 26 2020 17:19:18 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2020 12:31:19 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

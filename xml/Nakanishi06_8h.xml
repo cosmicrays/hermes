@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Nakanishi06_8h" kind="file" language="C++">
+    <compoundname>Nakanishi06.h</compoundname>
+    <innerclass refid="classhermes_1_1neutralgas_1_1Nakanishi06" prot="public">hermes::neutralgas::Nakanishi06</innerclass>
+    <innernamespace refid="namespacehermes">hermes</innernamespace>
+    <innernamespace refid="namespacehermes_1_1neutralgas">hermes::neutralgas</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hermes/neutralgas/Nakanishi06.h"/>
+  </compounddef>
+</doxygen>

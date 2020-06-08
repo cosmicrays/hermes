@@ -38,7 +38,7 @@ Functions
 
 - :ref:`exhale_function_namespacehermes_1aefeac1d50b6dfe2bafea892a9c560370`
 
-- :ref:`exhale_function_namespacehermes_1a26cf6e5a6eb42fca7df65a4057f4c36d`
+- :ref:`exhale_function_namespacehermes_1ac91611f6d89210b3b3353cc2b3fdc1fb`
 
 - :ref:`exhale_function_namespacehermes_1a6be8ab078bdc80be66f151ea9e1eaae1`
 

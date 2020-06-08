@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1neutralgas_1_1NeutralGasAbstract:
+
+Class NeutralGasAbstract
+========================
+
+- Defined in :ref:`file_include_hermes_neutralgas_NeutralGasAbstract.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public RingModel`` (:ref:`exhale_class_classhermes_1_1neutralgas_1_1RingModel`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::neutralgas::NeutralGasAbstract
+   :members:
+   :protected-members:
+   :undoc-members:

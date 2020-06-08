@@ -1,0 +1,42 @@
+
+.. _file_include_hermes_neutralgas_Nakanishi06.h:
+
+File Nakanishi06.h
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_hermes_neutralgas>` (``include/hermes/neutralgas``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/hermes/neutralgas/Nakanishi06.h``)
+--------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_hermes`
+
+- :ref:`namespace_hermes__neutralgas`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhermes_1_1neutralgas_1_1Nakanishi06`
+

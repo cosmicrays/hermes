@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1MaskList" kind="class" language="C++" prot="public">
     <compoundname>hermes::MaskList</compoundname>
     <basecompoundref refid="classhermes_1_1SkymapMask" prot="public" virt="non-virtual">SkymapMask</basecompoundref>
-    <includes refid="SkymapMask_8h" local="no">include/hermes/skymaps/SkymapMask.h</includes>
+    <includes refid="SkymapMask_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/skymaps/SkymapMask.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1MaskList_1a7a60c3f872a81e171fede9856be4caf5" prot="private" static="no" mutable="no">
         <type>std::vector&lt; std::shared_ptr&lt; <ref refid="classhermes_1_1SkymapMask" kindref="compound">SkymapMask</ref> &gt; &gt;</type>

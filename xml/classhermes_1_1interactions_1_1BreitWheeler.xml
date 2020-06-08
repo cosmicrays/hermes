@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classhermes_1_1interactions_1_1BreitWheeler" kind="class" language="C++" prot="public">
     <compoundname>hermes::interactions::BreitWheeler</compoundname>
-    <includes refid="BreitWheeler_8h" local="no">include/hermes/interactions/BreitWheeler.h</includes>
+    <includes refid="BreitWheeler_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/BreitWheeler.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classhermes_1_1interactions_1_1BreitWheeler_1a7b8da88901627b9fae1f05d26555fbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1interactions_1_1Kamae06Gamma" kind="class" language="C++" prot="public">
     <compoundname>hermes::interactions::Kamae06Gamma</compoundname>
     <basecompoundref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" prot="public" virt="non-virtual">DifferentialCrossSection</basecompoundref>
-    <includes refid="Kamae06Gamma_8h" local="no">include/hermes/interactions/Kamae06Gamma.h</includes>
+    <includes refid="Kamae06Gamma_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/Kamae06Gamma.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1interactions_1_1Kamae06Gamma_1ac624c5de1e9e5596d5533d1ef7e3f303" prot="private" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="namespacehermes_1ac1e97935e75d13cb8138971d06fa8672" kindref="member">CacheStorageCrossSection</ref> &gt;</type>

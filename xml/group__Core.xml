@@ -8,7 +8,6 @@
     <innerclass refid="classhermes_1_1Random" prot="public">hermes::Random</innerclass>
     <innerclass refid="classhermes_1_1Vector3" prot="public">hermes::Vector3</innerclass>
     <innerclass refid="classhermes_1_1Vector3Quantity" prot="public">hermes::Vector3Quantity</innerclass>
-    <innerclass refid="classVector3Qunatity" prot="public">Vector3Qunatity</innerclass>
       <sectiondef kind="typedef">
       <memberdef kind="typedef" id="group__Core_1gafc4b1fa31ba12760b259bc3097bc0699" prot="public" static="no">
         <type>Grid2D&lt; float &gt;</type>
@@ -138,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="342" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="342" bodyend="-1"/>
+        <location file="include/hermes/Vector3Quantity.h" line="341" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="341" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" prot="public" static="no">
         <type>Vector3Quantity&lt; QLength &gt;</type>
@@ -151,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="343" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="343" bodyend="-1"/>
+        <location file="include/hermes/Vector3Quantity.h" line="342" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="342" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__Core_1ga74ec160805fdb768f9d02b9f0d251ab5" prot="public" static="no">
         <type>Vector3Quantity&lt; QMField &gt;</type>
@@ -164,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="344" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="344" bodyend="-1"/>
+        <location file="include/hermes/Vector3Quantity.h" line="343" column="25" bodyfile="include/hermes/Vector3Quantity.h" bodystart="343" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -801,7 +800,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="316" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="316" bodyend="319"/>
+        <location file="include/hermes/Vector3Quantity.h" line="315" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="315" bodyend="318"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1gad744b0b61f9f9d3c010bb33b7fc66517" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -830,7 +829,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="321" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="321" bodyend="324"/>
+        <location file="include/hermes/Vector3Quantity.h" line="320" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="320" bodyend="323"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1ga3885df4723d99c2f118f9cce136beb61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -859,7 +858,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="327" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="327" bodyend="329"/>
+        <location file="include/hermes/Vector3Quantity.h" line="326" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="326" bodyend="328"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1gac0738d2887b147eee1100671e7b5be2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -885,7 +884,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="331" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="331" bodyend="334"/>
+        <location file="include/hermes/Vector3Quantity.h" line="330" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="330" bodyend="333"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1ga4f33e9180938be7d97bc55d0e0dd2930" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -911,7 +910,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="337" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="337" bodyend="340"/>
+        <location file="include/hermes/Vector3Quantity.h" line="336" column="24" bodyfile="include/hermes/Vector3Quantity.h" bodystart="336" bodyend="339"/>
       </memberdef>
       <memberdef kind="function" id="group__Core_1ga92f2fdfa289f52d0f0d6bb7e516c183f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -937,7 +936,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/Vector3Quantity.h" line="347" column="23" bodyfile="include/hermes/Vector3Quantity.h" bodystart="347" bodyend="349"/>
+        <location file="include/hermes/Vector3Quantity.h" line="346" column="23" bodyfile="include/hermes/Vector3Quantity.h" bodystart="346" bodyend="348"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

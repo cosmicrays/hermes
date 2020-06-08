@@ -1,6 +1,8 @@
 <map id="SynchroIntegrator" name="SynchroIntegrator">
-<area shape="rect" id="node1" title=" " alt="" coords="41,247,180,273"/>
-<area shape="rect" id="node2" href="$group__Integrators.html" title=" " alt="" coords="19,171,202,197"/>
-<area shape="rect" id="node3" href="$group__Core.html" title=" " alt="" coords="5,81,216,108"/>
-<area shape="rect" id="node4" href="$group__Core.html" title=" " alt="" coords="33,5,188,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="101,247,239,273"/>
+<area shape="rect" id="node2" href="$group__Integrators.html" title=" " alt="" coords="79,171,261,197"/>
+<area shape="rect" id="node3" title="STL class." alt="" coords="62,81,121,108"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node5" href="$group__Core.html" title=" " alt="" coords="155,81,366,108"/>
+<area shape="rect" id="node6" href="$group__Core.html" title=" " alt="" coords="189,5,343,32"/>
 </map>

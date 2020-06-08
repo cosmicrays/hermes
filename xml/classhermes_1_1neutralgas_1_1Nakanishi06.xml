@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classhermes_1_1neutralgas_1_1Nakanishi06" kind="class" language="C++" prot="public">
+    <compoundname>hermes::neutralgas::Nakanishi06</compoundname>
+    <basecompoundref refid="classhermes_1_1neutralgas_1_1ProfileAbstract" prot="public" virt="non-virtual">ProfileAbstract</basecompoundref>
+    <includes refid="Nakanishi06_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/neutralgas/Nakanishi06.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhermes_1_1neutralgas_1_1Nakanishi06_1a0965c7a8dc5cd9f69bbce9a87a7e55aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Nakanishi06</definition>
+        <argsstring>()</argsstring>
+        <name>Nakanishi06</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/neutralgas/Nakanishi06.h" line="15" column="1" bodyfile="src/neutralgas/Nakanishi06.cpp" bodystart="5" bodyend="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1neutralgas_1_1Nakanishi06_1a04a7bfec7192aef62ab40472569b42dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Nakanishi06</definition>
+        <argsstring>()</argsstring>
+        <name>~Nakanishi06</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/neutralgas/Nakanishi06.h" line="16" column="1" bodyfile="src/neutralgas/Nakanishi06.cpp" bodystart="6" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1neutralgas_1_1Nakanishi06_1a3fdbc6b199dddd88af7bd39f0b5aa256" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity getHIDensity</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getHIDensity</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/neutralgas/Nakanishi06.h" line="18" column="11" bodyfile="src/neutralgas/Nakanishi06.cpp" bodystart="9" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1neutralgas_1_1Nakanishi06_1a948735f5bc2ec2ed0c22acdd2afca72c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity getH2Density</definition>
+        <argsstring>(const Vector3QLength &amp;pos) const</argsstring>
+        <name>getH2Density</name>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/neutralgas/Nakanishi06.h" line="19" column="11" bodyfile="src/neutralgas/Nakanishi06.cpp" bodystart="22" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1neutralgas_1_1Nakanishi06_1af752eba1d60ff74c91accdf7acf9c7ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
+        <definition>QPDensity getPDensity</definition>
+        <argsstring>(GasType gas, const Vector3QLength &amp;pos) const override</argsstring>
+        <name>getPDensity</name>
+        <reimplements refid="classhermes_1_1neutralgas_1_1ProfileAbstract_1a78e64242525beffa0a480ddd8bffac18">getPDensity</reimplements>
+        <param>
+          <type><ref refid="group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c" kindref="member">GasType</ref></type>
+          <declname>gas</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/neutralgas/Nakanishi06.h" line="20" column="11" bodyfile="src/neutralgas/Nakanishi06.cpp" bodystart="32" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ProfileAbstract</label>
+        <link refid="classhermes_1_1neutralgas_1_1ProfileAbstract"/>
+      </node>
+      <node id="1">
+        <label>Nakanishi06</label>
+        <link refid="classhermes_1_1neutralgas_1_1Nakanishi06"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ProfileAbstract</label>
+        <link refid="classhermes_1_1neutralgas_1_1ProfileAbstract"/>
+      </node>
+      <node id="1">
+        <label>Nakanishi06</label>
+        <link refid="classhermes_1_1neutralgas_1_1Nakanishi06"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hermes/neutralgas/Nakanishi06.h" line="12" column="41" bodyfile="include/hermes/neutralgas/Nakanishi06.h" bodystart="12" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1a948735f5bc2ec2ed0c22acdd2afca72c" prot="public" virt="non-virtual"><scope>hermes::neutralgas::Nakanishi06</scope><name>getH2Density</name></member>
+      <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1a3fdbc6b199dddd88af7bd39f0b5aa256" prot="public" virt="non-virtual"><scope>hermes::neutralgas::Nakanishi06</scope><name>getHIDensity</name></member>
+      <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1af752eba1d60ff74c91accdf7acf9c7ca" prot="public" virt="virtual"><scope>hermes::neutralgas::Nakanishi06</scope><name>getPDensity</name></member>
+      <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1a0965c7a8dc5cd9f69bbce9a87a7e55aa" prot="public" virt="non-virtual"><scope>hermes::neutralgas::Nakanishi06</scope><name>Nakanishi06</name></member>
+      <member refid="classhermes_1_1neutralgas_1_1ProfileAbstract_1a64865a3e2b181e0548ca7071df3aa514" prot="public" virt="non-virtual"><scope>hermes::neutralgas::Nakanishi06</scope><name>ProfileAbstract</name></member>
+      <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1a04a7bfec7192aef62ab40472569b42dc" prot="public" virt="non-virtual"><scope>hermes::neutralgas::Nakanishi06</scope><name>~Nakanishi06</name></member>
+      <member refid="classhermes_1_1neutralgas_1_1ProfileAbstract_1a22edd6f87af840a4a4e4df469f482dc6" prot="public" virt="virtual"><scope>hermes::neutralgas::Nakanishi06</scope><name>~ProfileAbstract</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

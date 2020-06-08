@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1PiZeroAbsorptionIntegrator" kind="class" language="C++" prot="public">
     <compoundname>hermes::PiZeroAbsorptionIntegrator</compoundname>
     <basecompoundref refid="classhermes_1_1IntegratorTemplate" prot="public" virt="non-virtual">IntegratorTemplate&lt; QDiffIntensity, QEnergy &gt;</basecompoundref>
-    <includes refid="PiZeroAbsorptionIntegrator_8h" local="no">include/hermes/integrators/PiZeroAbsorptionIntegrator.h</includes>
+    <includes refid="PiZeroAbsorptionIntegrator_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/integrators/PiZeroAbsorptionIntegrator.h</includes>
       <sectiondef kind="private-type">
       <memberdef kind="typedef" id="classhermes_1_1PiZeroAbsorptionIntegrator_1ac8aa9175454f463c8273fb81dbeeafa9" prot="private" static="no">
         <type><ref refid="classhermes_1_1Grid" kindref="compound">Grid</ref>&lt; <ref refid="namespacehermes_1_1units_1a758ac2a09e6404bedc9f6c9b0fba33b8" kindref="member">QPiZeroIntegral</ref> &gt;</type>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="34" column="14" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="34" bodyend="-1"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="33" column="14" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="26" column="13" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="26" bodyend="-1"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="25" column="13" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a409b59d6d7591f05ab0168412bdb9ad0" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="classhermes_1_1neutralgas_1_1RingModel" kindref="compound">neutralgas::RingModel</ref> &gt;</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="27" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="27" bodyend="-1"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="26" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a5961dc0312b13f2aefce5aa71ff3052a" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" kindref="compound">interactions::DifferentialCrossSection</ref> &gt;</type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="28" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="28" bodyend="-1"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="27" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a932afc690b8470dd65a77c97528b3838" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="classhermes_1_1photonfields_1_1PhotonField" kindref="compound">photonfields::PhotonField</ref> &gt;</type>
@@ -70,7 +70,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="29" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="29" bodyend="-1"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="28" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a6c22e675b1493bfa2a9e07f263f198dd" prot="private" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="classhermes_1_1interactions_1_1BreitWheeler" kindref="compound">interactions::BreitWheeler</ref> &gt;</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="31" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="31" bodyend="-1"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="30" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a77f97b6440a503bd579fee351869f0eb" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="classhermes_1_1Grid" kindref="compound">ICCacheTable</ref> &gt;</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="35" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="35" bodyend="-1"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="34" column="17" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -121,7 +121,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="37" column="17" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="102" bodyend="105"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="36" column="17" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="102" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1aebb19733e373fed003938abfdcf19c24" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="39" column="6" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="42" bodyend="51"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="38" column="6" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="42" bodyend="51"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -181,7 +181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="44" column="1" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="17" bodyend="27"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="43" column="1" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="17" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a3a014804c1ce245140450320b1a036ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="49" column="1" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="29" bodyend="38"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="48" column="1" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="29" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1abdd80eec8730ff9632b95d5039a0bea0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="54" column="1" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="40" bodyend="40"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="53" column="1" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="40" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1acd5caffa87c9f060391c16b245d6a5cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -240,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="56" column="6"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="55" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1aba7a9a7b36639db4b42253b4f5196627" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
@@ -253,7 +253,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="57" column="9"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="56" column="9"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a08cb099447b9da5026714be3ed499072" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>
@@ -270,24 +270,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="59" column="11" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="208" bodyend="211"/>
-      </memberdef>
-      <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1aff64634d85b774e14a7a9263ff1aac0d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespacehermes_1_1units_1a7430130b27415445121268ef33e2b9f0" kindref="member">QRingX0Unit</ref></type>
-        <definition>QRingX0Unit X0Function</definition>
-        <argsstring>(const Vector3QLength &amp;) const</argsstring>
-        <name>X0Function</name>
-        <param>
-          <type>const <ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref> &amp;</type>
-          <defname>pos</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="60" column="13" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="213" bodyend="216"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="58" column="11" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="207" bodyend="210"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a969689cc3a68931fe776552629ab5da0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type><ref refid="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" kindref="member">QDiffIntensity</ref></type>
@@ -306,17 +289,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="62" column="16" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="107" bodyend="110"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="60" column="16" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="107" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type><ref refid="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" kindref="member">QDiffIntensity</ref></type>
         <definition>QDiffIntensity integrateOverLOS</definition>
         <argsstring>(const QDirection &amp;iterdir, const QEnergy &amp;Egamma) const override</argsstring>
         <name>integrateOverLOS</name>
-        <reimplements refid="classhermes_1_1IntegratorTemplate_1a16d6c89aa4ffa980f4a54b6aa8306ead">integrateOverLOS</reimplements>
+        <reimplements refid="classhermes_1_1IntegratorTemplate_1a14afcc42b91497aa1d824a0c50a5ff89">integrateOverLOS</reimplements>
         <param>
           <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
-          <declname>iterdir</declname>
+          <declname>dir</declname>
         </param>
         <param>
           <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
@@ -328,7 +311,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="63" column="16" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="112" bodyend="206"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="61" column="16" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="112" bodyend="205"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a1d9115d9bcc8b1e630f5f696c2959f4f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a758ac2a09e6404bedc9f6c9b0fba33b8" kindref="member">QPiZeroIntegral</ref></type>
@@ -349,7 +332,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="66" column="17" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="218" bodyend="263"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="64" column="17" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="212" bodyend="257"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1af9c9203b6788b223bc18f97097abc598" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0" kindref="member">QInverseLength</ref></type>
@@ -370,7 +353,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="69" column="16" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="265" bodyend="287"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="67" column="16" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="259" bodyend="281"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a922e545ec4cafa265c585e2a01528f73" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -397,7 +380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="72" column="6" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="53" bodyend="63"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="70" column="6" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="53" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1PiZeroAbsorptionIntegrator_1a0e908afa5957b68bb56e3ebe565a3809" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -411,7 +394,39 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="73" column="6" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="65" bodyend="100"/>
+        <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="71" column="6" bodyfile="src/integrators/PiZeroAbsorptionIntegrator.cpp" bodystart="65" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string getDescription</definition>
+        <argsstring>() const</argsstring>
+        <name>getDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get Description of the integrator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="53" column="13" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setDescription</definition>
+        <argsstring>(const std::string &amp;description)</argsstring>
+        <name>setDescription</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set Description of the integrator </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="55" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="55" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -429,7 +444,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="54" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="54" bodyend="59"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="63" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="63" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>
@@ -443,7 +458,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="63" column="7" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="63" bodyend="63"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="72" column="7" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="72" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -461,7 +476,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="86" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="86" bodyend="86"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="95" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="95" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="group__Core_1ga4bf742a0a1ff03d8ca19fe8ba13255ad" kindref="member">Vector3QLength</ref></type>
@@ -475,7 +490,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="90" column="23" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="90" bodyend="90"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="99" column="23" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="99" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref></type>
@@ -493,7 +508,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="95" column="16" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="95" bodyend="97"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="104" column="16" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="104" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -506,7 +521,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="103" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="103" bodyend="103"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="112" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="112" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -519,7 +534,69 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/integrators/IntegratorTemplate.h" line="104" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="104" bodyend="104"/>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="113" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kindref="member">tLOSProfile</ref></type>
+        <definition>virtual tLOSProfile getLOSProfile</definition>
+        <argsstring>(const QDirection &amp;dir, int Nsteps) const</argsstring>
+        <name>getLOSProfile</name>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Nsteps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="121" column="21" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="121" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kindref="member">tLOSProfile</ref></type>
+        <definition>virtual tLOSProfile getLOSProfile</definition>
+        <argsstring>(const QDirection &amp;dir, const QEnergy &amp;, int Nsteps) const</argsstring>
+        <name>getLOSProfile</name>
+        <reimplementedby refid="classhermes_1_1InverseComptonIntegrator_1a6eeda76d418c33749feabeadb5bcd704">getLOSProfile</reimplementedby>
+        <param>
+          <type>const <ref refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kindref="member">QDirection</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &amp;</type>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Nsteps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="124" column="21" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="124" bodyend="127"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" prot="public" static="no">
+        <type>std::pair&lt; std::vector&lt; <ref refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kindref="member">QLength</ref> &gt;, std::vector&lt; double &gt; &gt;</type>
+        <definition>typedef std::pair&lt;std::vector&lt;QLength&gt;, std::vector&lt;double&gt; &gt; tLOSProfile</definition>
+        <argsstring></argsstring>
+        <name>tLOSProfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the line of sight profile (integrand of integrateOverLOS) of a direction where N is equidistant number of steps from the Sun&apos;s position to the galactic border </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="120" column="19" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-attrib">
@@ -575,6 +652,19 @@
         </inbodydescription>
         <location file="include/hermes/integrators/IntegratorTemplate.h" line="41" column="6" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="41" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hermes/integrators/IntegratorTemplate.h" line="42" column="13" bodyfile="include/hermes/integrators/IntegratorTemplate.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
@@ -593,7 +683,7 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="4">
+      <node id="6">
         <label>Vector3&lt; QLength &gt;</label>
         <link refid="classhermes_1_1Vector3"/>
       </node>
@@ -601,7 +691,15 @@
         <label>GammaIntegratorTemplate</label>
         <link refid="classhermes_1_1IntegratorTemplate"/>
         <childnode refid="3" relation="usage">
+          <edgelabel>description</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
           <edgelabel>positionSun</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string</label>
+        <childnode refid="4" relation="public-inheritance">
         </childnode>
       </node>
       <node id="1">
@@ -610,14 +708,17 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
+        <label>basic_string&lt; char &gt;</label>
+      </node>
+      <node id="5">
         <label>Vector3Quantity&lt; QLength &gt;</label>
         <link refid="classhermes_1_1Vector3Quantity"/>
-        <childnode refid="4" relation="public-inheritance">
+        <childnode refid="6" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="24" column="64" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="24" bodyend="74"/>
+    <location file="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" line="23" column="64" bodyfile="include/hermes/integrators/PiZeroAbsorptionIntegrator.h" bodystart="23" bodyend="72"/>
     <listofallmembers>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a6c22e675b1493bfa2a9e07f263f198dd" prot="private" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>bwCrossSec</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" prot="protected" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>cacheEnabled</name></member>
@@ -627,8 +728,12 @@
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a8312053ead7bd578a8dcac89c605bc3a" prot="private" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>crList</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a5961dc0312b13f2aefce5aa71ff3052a" prot="private" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>crossSec</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a08cb099447b9da5026714be3ed499072" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>densityProfile</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" prot="protected" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>description</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>getDescription</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1aba7a9a7b36639db4b42253b4f5196627" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>getEnergy</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a038324a57491da96b9434bb5f80f11b2" prot="private" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>getIOEfromCache</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" prot="public" virt="virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>getLOSProfile</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" prot="public" virt="virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>getLOSProfile</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>getMaxDistance</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>getSunPosition</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1ac8aa9175454f463c8273fb81dbeeafa9" prot="private" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>ICCacheTable</name></member>
@@ -637,7 +742,7 @@
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a969689cc3a68931fe776552629ab5da0" prot="public" virt="virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>integrateOverLOS</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca" prot="public" virt="virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>integrateOverLOS</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1af9c9203b6788b223bc18f97097abc598" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>integrateOverPhotonEnergy</name></member>
-      <member refid="classhermes_1_1IntegratorTemplate_1a379d6e97c4be0ac5d82c1d7ea76a7b3a" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>IntegratorTemplate</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1acc14d2e2cb6476d26717c80d6a2a8859" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>IntegratorTemplate</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>isCacheTableEnabled</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>isCacheTableInitialized</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a409b59d6d7591f05ab0168412bdb9ad0" prot="private" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>ngdensity</name></member>
@@ -645,13 +750,14 @@
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1afa6a286877a2298c09fcfdf6cdc259d4" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>PiZeroAbsorptionIntegrator</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a3a014804c1ce245140450320b1a036ff" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>PiZeroAbsorptionIntegrator</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" prot="protected" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>positionSun</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>setDescription</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1acd5caffa87c9f060391c16b245d6a5cf" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>setEnergy</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>setSkymapParameter</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>setSkymapParameter</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>setSunPosition</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a922e545ec4cafa265c585e2a01528f73" prot="public" virt="virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>setupCacheTable</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" prot="protected" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>skymapParameter</name></member>
-      <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1aff64634d85b774e14a7a9263ff1aac0d" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>X0Function</name></member>
+      <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>tLOSProfile</name></member>
       <member refid="classhermes_1_1IntegratorTemplate_1ad705532d91a47b4bfd2c36a6eedd9051" prot="public" virt="virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>~IntegratorTemplate</name></member>
       <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1abdd80eec8730ff9632b95d5039a0bea0" prot="public" virt="non-virtual"><scope>hermes::PiZeroAbsorptionIntegrator</scope><name>~PiZeroAbsorptionIntegrator</name></member>
     </listofallmembers>

@@ -48,7 +48,11 @@ Typedefs
 --------
 
 
+- :ref:`exhale_typedef_group__Integrators_1gad422d0160fa49004f7f72220d92aafc0`
+
 - :ref:`exhale_typedef_group__Integrators_1ga8e4aab0440286adb2c039146ba8f9fed`
 
 - :ref:`exhale_typedef_group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e`
+
+- :ref:`exhale_typedef_group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971`
 

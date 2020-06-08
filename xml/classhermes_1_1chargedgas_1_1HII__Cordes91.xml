@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1chargedgas_1_1HII__Cordes91" kind="class" language="C++" prot="public">
     <compoundname>hermes::chargedgas::HII_Cordes91</compoundname>
     <basecompoundref refid="classhermes_1_1chargedgas_1_1ChargedGasDensity" prot="public" virt="non-virtual">ChargedGasDensity</basecompoundref>
-    <includes refid="HII__Cordes91_8h" local="no">include/hermes/chargedgas/HII_Cordes91.h</includes>
+    <includes refid="HII__Cordes91_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/chargedgas/HII_Cordes91.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1HII__Cordes91_1ade40b0f956fd4bc76caf5a19e58b050f" prot="private" static="no" mutable="no">
         <type><ref refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kindref="member">QPDensity</ref></type>

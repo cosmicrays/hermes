@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1interactions_1_1BremsstrahlungTsai74" kind="class" language="C++" prot="public">
     <compoundname>hermes::interactions::BremsstrahlungTsai74</compoundname>
     <basecompoundref refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract" prot="public" virt="non-virtual">BremsstrahlungAbstract</basecompoundref>
-    <includes refid="BremsstrahlungTsai74_8h" local="no">include/hermes/interactions/BremsstrahlungTsai74.h</includes>
+    <includes refid="BremsstrahlungTsai74_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/BremsstrahlungTsai74.h</includes>
       <sectiondef kind="private-func">
       <memberdef kind="function" id="classhermes_1_1interactions_1_1BremsstrahlungTsai74_1af928c21718dee164bdd00e9b74a02469" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::pair&lt; double, double &gt;</type>

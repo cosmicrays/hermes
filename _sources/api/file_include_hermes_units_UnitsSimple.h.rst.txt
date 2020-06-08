@@ -38,8 +38,6 @@ Functions
 ---------
 
 
-- :ref:`exhale_function_namespacehermes_1_1units_1a0709379f89073a1d6e125682f9c0830e`
-
 - :ref:`exhale_function_namespacehermes_1_1units_1a3a51d0e5f4a5ce1024da6658f0bfbfd4`
 
 
@@ -53,11 +51,11 @@ Typedefs
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40`
 
+- :ref:`exhale_typedef_namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f`
+
 - :ref:`exhale_typedef_namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf`
-
-- :ref:`exhale_typedef_namespacehermes_1_1units_1abfd2d95d5ad24fefdc11b58460cdef65`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c`
 
@@ -79,6 +77,8 @@ Typedefs
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c`
 
+- :ref:`exhale_typedef_namespacehermes_1_1units_1a05b6d6f0546f9bd87fd641c9e8502365`
+
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a5e81348dd8e9c30ddd626f52910a24a1`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f`
@@ -93,6 +93,8 @@ Typedefs
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f`
 
+- :ref:`exhale_typedef_namespacehermes_1_1units_1acf3d4a11ac9a813c482bd3f885e43fc7`
+
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909`
@@ -100,6 +102,8 @@ Typedefs
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a7fafd935f08d30262bfba7261e8f76f3`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59`
+
+- :ref:`exhale_typedef_namespacehermes_1_1units_1ace62e7f5cd9628fd2a9971b4f3657d37`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a72b849b5230560167419622406054305`
 
@@ -126,6 +130,8 @@ Typedefs
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1a30f5a6207bff5e9e3503d039f5485439`
+
+- :ref:`exhale_typedef_namespacehermes_1_1units_1a93ce8b37e79297f83eee561b10d38502`
 
 - :ref:`exhale_typedef_namespacehermes_1_1units_1ada6d27e18c6b882bd684cb05c2fea781`
 

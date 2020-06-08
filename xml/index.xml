@@ -66,19 +66,19 @@
     <member refid="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a9dedd234cd3afd2d62cd2973babc7721" kind="variable"><name>allTargets</name></member>
   </compound>
   <compound refid="classhermes_1_1BremsstrahlungIntegrator" kind="class"><name>hermes::BremsstrahlungIntegrator</name>
-    <member refid="classhermes_1_1BremsstrahlungIntegrator_1a58a046d283753d212055d64179f548a2" kind="variable"><name>crossSec</name></member>
+    <member refid="classhermes_1_1BremsstrahlungIntegrator_1af6f25b992d7f93a9ebc4dc58a931b346" kind="variable"><name>crossSecBrem</name></member>
     <member refid="classhermes_1_1BremsstrahlungIntegrator_1a9ea0e9cf0cef3a091e4e0b1126f2ba85" kind="function"><name>BremsstrahlungIntegrator</name></member>
     <member refid="classhermes_1_1BremsstrahlungIntegrator_1ae0a8d2c66b8300eb02381e6135cc8ff8" kind="function"><name>~BremsstrahlungIntegrator</name></member>
     <member refid="classhermes_1_1BremsstrahlungIntegrator_1ae86518c30e6f76d4cdc0ae8573ff2bfd" kind="function"><name>integrateOverEnergy</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1acd5caffa87c9f060391c16b245d6a5cf" kind="function"><name>setEnergy</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1aba7a9a7b36639db4b42253b4f5196627" kind="function"><name>getEnergy</name></member>
-    <member refid="classhermes_1_1PiZeroIntegrator_1a08cb099447b9da5026714be3ed499072" kind="function"><name>densityProfile</name></member>
-    <member refid="classhermes_1_1PiZeroIntegrator_1aff64634d85b774e14a7a9263ff1aac0d" kind="function"><name>X0Function</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a969689cc3a68931fe776552629ab5da0" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca" kind="function"><name>integrateOverLOS</name></member>
-    <member refid="classhermes_1_1IntegratorTemplate_1a16d6c89aa4ffa980f4a54b6aa8306ead" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a14afcc42b91497aa1d824a0c50a5ff89" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a922e545ec4cafa265c585e2a01528f73" kind="function"><name>setupCacheTable</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a0e908afa5957b68bb56e3ebe565a3809" kind="function"><name>initCacheTable</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
@@ -86,16 +86,22 @@
     <member refid="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" kind="function"><name>getMaxDistance</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
-    <member refid="classhermes_1_1PiZeroIntegrator_1ac8aa9175454f463c8273fb81dbeeafa9" kind="typedef"><name>ICCacheTable</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1PiZeroIntegrator_1ac09c0c783a84aa6ecf3ac71e6aa20c75" kind="typedef"><name>tCacheTable</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a8312053ead7bd578a8dcac89c605bc3a" kind="variable"><name>crList</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a409b59d6d7591f05ab0168412bdb9ad0" kind="variable"><name>ngdensity</name></member>
-    <member refid="classhermes_1_1PiZeroIntegrator_1a77f97b6440a503bd579fee351869f0eb" kind="variable"><name>cacheTable</name></member>
+    <member refid="classhermes_1_1PiZeroIntegrator_1a5961dc0312b13f2aefce5aa71ff3052a" kind="variable"><name>crossSec</name></member>
+    <member refid="classhermes_1_1PiZeroIntegrator_1a0b9a50e5c7a9f0dc0a9b31a0d80a5ab3" kind="variable"><name>dProfile</name></member>
+    <member refid="classhermes_1_1PiZeroIntegrator_1af85f79a05ff9a0982b356d0ecd2180cf" kind="variable"><name>cacheTable</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a038324a57491da96b9434bb5f80f11b2" kind="function"><name>getIOEfromCache</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1aebb19733e373fed003938abfdcf19c24" kind="function"><name>computeCacheInThread</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
   </compound>
   <compound refid="classhermes_1_1interactions_1_1BremsstrahlungTsai74" kind="class"><name>hermes::interactions::BremsstrahlungTsai74</name>
     <member refid="classhermes_1_1interactions_1_1BremsstrahlungTsai74_1af928c21718dee164bdd00e9b74a02469" kind="function"><name>RadiationLogarithms</name></member>
@@ -240,6 +246,8 @@
     <member refid="classhermes_1_1DarkMatterIntegrator_1afd43ec70b4e4d01af96db0fc1e863599" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1DarkMatterIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1DarkMatterIntegrator_1a6bb2db01e2c95d00133680f63beff8d8" kind="function"><name>spectralEmissivity</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
@@ -249,10 +257,14 @@
     <member refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" kind="function"><name>initCacheTable</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
   </compound>
   <compound refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum" kind="class"><name>hermes::darkmatter::DarkMatterSpectrum</name>
     <member refid="classhermes_1_1darkmatter_1_1DarkMatterSpectrum_1af051dd64366b5b556967a94def719e6f" kind="function"><name>DarkMatterSpectrum</name></member>
@@ -271,13 +283,14 @@
     <member refid="classhermes_1_1interactions_1_1DifferentialCrossSection_1a2cac288a0af520fdf4c67b9c425aab6e" kind="function"><name>getSigma</name></member>
   </compound>
   <compound refid="classhermes_1_1DispersionMeasureIntegrator" kind="class"><name>hermes::DispersionMeasureIntegrator</name>
-    <member refid="classhermes_1_1DispersionMeasureIntegrator_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1DispersionMeasureIntegrator_1adb02136ebc2a0960f2c5107880ab6a25" kind="variable"><name>gdensity</name></member>
     <member refid="classhermes_1_1DispersionMeasureIntegrator_1a8aac54debcd17be19c789f1241ca2636" kind="function"><name>DispersionMeasureIntegrator</name></member>
     <member refid="classhermes_1_1DispersionMeasureIntegrator_1aa622f7e0272b5fd6c123d3299a4dc235" kind="function"><name>~DispersionMeasureIntegrator</name></member>
     <member refid="classhermes_1_1DispersionMeasureIntegrator_1af71a001ee858f30f9bbaabbd0e32a21f" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1DispersionMeasureIntegrator_1a3d28acc7cca8e12d24656238ff2ab913" kind="function"><name>integrateOverLOS</name></member>
-    <member refid="classhermes_1_1DispersionMeasureIntegrator_1ac2ff004ec494feaf8631c8b8ec8f4923" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1DispersionMeasureIntegrator_1adcac769d2282cdf3fcd0d885e2c11390" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
@@ -287,10 +300,13 @@
     <member refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" kind="function"><name>initCacheTable</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
   </compound>
   <compound refid="classhermes_1_1DispersionMeasureSkymap" kind="class"><name>hermes::DispersionMeasureSkymap</name>
     <member refid="classhermes_1_1DispersionMeasureSkymap_1a35848573adcad1bbe16d4c87e6bbc55f" kind="function"><name>DispersionMeasureSkymap</name></member>
@@ -301,6 +317,7 @@
     <member refid="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" kind="function"><name>getPixel</name></member>
     <member refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" kind="function"><name>getPixelAsDouble</name></member>
     <member refid="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" kind="function"><name>getMean</name></member>
+    <member refid="group__Skymaps_1ga43328b62b3d65924b0fd4c70b43c4fe2" kind="function"><name>hasMask</name></member>
     <member refid="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" kind="function"><name>operator[]</name></member>
     <member refid="classhermes_1_1SkymapTemplate_1a3941e9e06332ecd9878d91c28cb95914" kind="function"><name>data</name></member>
     <member refid="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" kind="function"><name>setIntegrator</name></member>
@@ -565,6 +582,8 @@
     <member refid="classhermes_1_1FreeFreeIntegrator_1a1b3a613d52022c8f3bf0f13e7787bf7b" kind="function"><name>spectralEmissivityExplicit</name></member>
     <member refid="classhermes_1_1FreeFreeIntegrator_1abbefa14cd3a4d07d4685c4ab7b7eb908" kind="function"><name>spectralEmissivity</name></member>
     <member refid="classhermes_1_1FreeFreeIntegrator_1a9b28ed3112a02f704949f75ea2b613aa" kind="function"><name>absorptionCoefficient</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
@@ -574,10 +593,14 @@
     <member refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" kind="function"><name>initCacheTable</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
   </compound>
   <compound refid="classhermes_1_1darkmatter_1_1GalacticProfile" kind="class"><name>hermes::darkmatter::GalacticProfile</name>
     <member refid="classhermes_1_1darkmatter_1_1GalacticProfile_1ad5452a791c274b13aa520d06f09d9dbf" kind="function"><name>GalacticProfile</name></member>
@@ -596,6 +619,7 @@
     <member refid="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" kind="function"><name>getPixel</name></member>
     <member refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" kind="function"><name>getPixelAsDouble</name></member>
     <member refid="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" kind="function"><name>getMean</name></member>
+    <member refid="group__Skymaps_1ga43328b62b3d65924b0fd4c70b43c4fe2" kind="function"><name>hasMask</name></member>
     <member refid="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" kind="function"><name>operator[]</name></member>
     <member refid="classhermes_1_1SkymapTemplate_1a3941e9e06332ecd9878d91c28cb95914" kind="function"><name>data</name></member>
     <member refid="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" kind="function"><name>setIntegrator</name></member>
@@ -761,8 +785,8 @@
     <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a14a88cd00c024af930ea8ef3181519e8" kind="variable"><name>ffile</name></member>
     <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a4baee7ad3d2f52b3ef699df8c5bef3b2" kind="function"><name>HEALPixFormat</name></member>
     <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a61458d35718372f83cf5b7ba0a84700d" kind="function"><name>initOutput</name></member>
-    <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a4b0c15036210c1caf818142eb37e25dd" kind="function"><name>createTable</name></member>
-    <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1af5a20ebde208f18a0778bd0fb06f05b3" kind="function"><name>writeMetadata</name></member>
+    <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a9074662a80eda499c521d788aefaacdb" kind="function"><name>createTable</name></member>
+    <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1abe23858b3749d324e495900f8d75c7c7" kind="function"><name>writeMetadata</name></member>
     <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1ab431b68ab733306db0acb3a84ab1eb87" kind="function"><name>writeKeyValueAsDouble</name></member>
     <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a94917b1b87df567a8147229a2001bdcd" kind="function"><name>writeKeyValueAsString</name></member>
     <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a88c509805ae7b06a0f75c18628c5aa4c" kind="function"><name>writeColumn</name></member>
@@ -782,16 +806,20 @@
     <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" kind="function"><name>getTemperature</name></member>
   </compound>
   <compound refid="classhermes_1_1IntegratorTemplate" kind="class"><name>hermes::IntegratorTemplate</name>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
-    <member refid="classhermes_1_1IntegratorTemplate_1a379d6e97c4be0ac5d82c1d7ea76a7b3a" kind="function"><name>IntegratorTemplate</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1acc14d2e2cb6476d26717c80d6a2a8859" kind="function"><name>IntegratorTemplate</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ad705532d91a47b4bfd2c36a6eedd9051" kind="function"><name>~IntegratorTemplate</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a793c8feb6e5546bd54fa469e191c1e9d" kind="function"><name>integrateOverLOS</name></member>
-    <member refid="classhermes_1_1IntegratorTemplate_1a16d6c89aa4ffa980f4a54b6aa8306ead" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a14afcc42b91497aa1d824a0c50a5ff89" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" kind="function"><name>getSunPosition</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" kind="function"><name>getMaxDistance</name></member>
@@ -799,6 +827,8 @@
     <member refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" kind="function"><name>initCacheTable</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
   </compound>
   <compound refid="classhermes_1_1InverseComptonIntegrator" kind="class"><name>hermes::InverseComptonIntegrator</name>
     <member refid="classhermes_1_1InverseComptonIntegrator_1a8118a4f738c5a35ebe1ae62874d30a5d" kind="typedef"><name>ICCacheTable</name></member>
@@ -814,12 +844,15 @@
     <member refid="classhermes_1_1InverseComptonIntegrator_1a8a02fcb39bbdb215b46185b692292174" kind="function"><name>~InverseComptonIntegrator</name></member>
     <member refid="classhermes_1_1InverseComptonIntegrator_1acd5caffa87c9f060391c16b245d6a5cf" kind="function"><name>setEnergy</name></member>
     <member refid="classhermes_1_1InverseComptonIntegrator_1aba7a9a7b36639db4b42253b4f5196627" kind="function"><name>getEnergy</name></member>
-    <member refid="classhermes_1_1InverseComptonIntegrator_1a0135b3e3f31a935ce828cfd10d356d31" kind="function"><name>integrateOverLOS</name></member>
-    <member refid="classhermes_1_1InverseComptonIntegrator_1accb95016ba45d1c80defe9f2aab94b00" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1InverseComptonIntegrator_1a969689cc3a68931fe776552629ab5da0" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1InverseComptonIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1InverseComptonIntegrator_1adafd8dc42a6073836930f350e165fec1" kind="function"><name>integrateOverEnergy</name></member>
     <member refid="classhermes_1_1InverseComptonIntegrator_1a24db99a5dac4ae66eac07d78ffb151a7" kind="function"><name>integrateOverPhotonEnergy</name></member>
-    <member refid="classhermes_1_1InverseComptonIntegrator_1a2a4fbd5d19983a3e2d6d7d2c50f5cdcb" kind="function"><name>setupCacheTable</name></member>
-    <member refid="classhermes_1_1InverseComptonIntegrator_1a95b9876e1a40dc5558a2e64ce5fe4179" kind="function"><name>initCacheTable</name></member>
+    <member refid="classhermes_1_1InverseComptonIntegrator_1aa006fd43f3d04f90fa9b36f4086955ad" kind="function"><name>setupCacheTable</name></member>
+    <member refid="classhermes_1_1InverseComptonIntegrator_1a0e908afa5957b68bb56e3ebe565a3809" kind="function"><name>initCacheTable</name></member>
+    <member refid="classhermes_1_1InverseComptonIntegrator_1a6eeda76d418c33749feabeadb5bcd704" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
@@ -827,10 +860,13 @@
     <member refid="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" kind="function"><name>getMaxDistance</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
   </compound>
   <compound refid="classhermes_1_1InvertMask" kind="class"><name>hermes::InvertMask</name>
     <member refid="classhermes_1_1InvertMask_1a766bdcb4e331e9f0503ead96570ccb23" kind="variable"><name>mask</name></member>
@@ -1066,6 +1102,13 @@
     <member refid="classhermes_1_1magneticfields_1_1ModulatedMagneticFieldGrid_1aecbe60d2b34da88e8aa2a0872b904d38" kind="function"><name>getField</name></member>
     <member refid="classhermes_1_1magneticfields_1_1MagneticField_1a4e720656ac8e1b19c7f69cfc61451fbe" kind="function"><name>getField</name></member>
   </compound>
+  <compound refid="classhermes_1_1neutralgas_1_1Nakanishi06" kind="class"><name>hermes::neutralgas::Nakanishi06</name>
+    <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1a0965c7a8dc5cd9f69bbce9a87a7e55aa" kind="function"><name>Nakanishi06</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1a04a7bfec7192aef62ab40472569b42dc" kind="function"><name>~Nakanishi06</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1a3fdbc6b199dddd88af7bd39f0b5aa256" kind="function"><name>getHIDensity</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1a948735f5bc2ec2ed0c22acdd2afca72c" kind="function"><name>getH2Density</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Nakanishi06_1af752eba1d60ff74c91accdf7acf9c7ca" kind="function"><name>getPDensity</name></member>
+  </compound>
   <compound refid="classhermes_1_1chargedgas_1_1NE2001Simple" kind="class"><name>hermes::chargedgas::NE2001Simple</name>
     <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a596dfd97c52bac5beb72b326501fd69b" kind="variable"><name>N_arms</name></member>
     <member refid="classhermes_1_1chargedgas_1_1NE2001Simple_1a5bd76b66638dd45a4754c5c4c07bac44" kind="variable"><name>F1</name></member>
@@ -1098,14 +1141,14 @@
     <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5de9235f87784061f062f59af8491b8d" kind="function"><name>setTemperature</name></member>
     <member refid="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" kind="function"><name>getTemperature</name></member>
   </compound>
-  <compound refid="classhermes_1_1neutralgas_1_1NeutralGasDensity" kind="class"><name>hermes::neutralgas::NeutralGasDensity</name>
-    <member refid="classhermes_1_1neutralgas_1_1NeutralGasDensity_1a5e9d7b5e28dba6845c36818c59e3d709" kind="variable"><name>gasTemp</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1NeutralGasDensity_1a246304d8c1fb23cea704df4025c88e5c" kind="function"><name>NeutralGasDensity</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1NeutralGasDensity_1a291ad402282275a8ab71b71b92aa5f38" kind="function"><name>NeutralGasDensity</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1NeutralGasDensity_1a0f2c431c35d19f61c9a7b76adba05758" kind="function"><name>~NeutralGasDensity</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1NeutralGasDensity_1a9de2d7ad692e613f675e7555dc0441d6" kind="function"><name>getRingNumber</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1NeutralGasDensity_1a5de9235f87784061f062f59af8491b8d" kind="function"><name>setTemperature</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1NeutralGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" kind="function"><name>getTemperature</name></member>
+  <compound refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract" kind="class"><name>hermes::neutralgas::NeutralGasAbstract</name>
+    <member refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract_1a5e9d7b5e28dba6845c36818c59e3d709" kind="variable"><name>gasTemp</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract_1a52ed33fee556fca4baeeaf6c93ad3c5b" kind="function"><name>NeutralGasAbstract</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract_1adcaef5d3cdd9841ea0fe03e4f82c749c" kind="function"><name>NeutralGasAbstract</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract_1a4f78a1c46012643e73eca3a40bcfc90a" kind="function"><name>~NeutralGasAbstract</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract_1a9de2d7ad692e613f675e7555dc0441d6" kind="function"><name>getRingNumber</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract_1a5de9235f87784061f062f59af8491b8d" kind="function"><name>setTemperature</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract_1a0538f93ea5035c885c5f90a0d235bc28" kind="function"><name>getTemperature</name></member>
   </compound>
   <compound refid="classhermes_1_1darkmatter_1_1NFWGProfile" kind="class"><name>hermes::darkmatter::NFWGProfile</name>
     <member refid="classhermes_1_1darkmatter_1_1NFWGProfile_1a918f4f8ead6f1e3d9cb680252a65790c" kind="variable"><name>rho_cr</name></member>
@@ -1126,8 +1169,8 @@
     <member refid="classhermes_1_1outputs_1_1Output_1a356172c336fe8c0afbac8c49d5dcc703" kind="function"><name>Output</name></member>
     <member refid="classhermes_1_1outputs_1_1Output_1a8c3620b32551505c8ee5ff51b59e57aa" kind="function"><name>~Output</name></member>
     <member refid="classhermes_1_1outputs_1_1Output_1abd22c0c243cb60dba6e0b186852a8498" kind="function"><name>initOutput</name></member>
-    <member refid="classhermes_1_1outputs_1_1Output_1afc8ad4c377ea07c438be54de3ff49b43" kind="function"><name>createTable</name></member>
-    <member refid="classhermes_1_1outputs_1_1Output_1a39bba0b5c89b1c3e6eae9a4e2546ebe2" kind="function"><name>writeMetadata</name></member>
+    <member refid="classhermes_1_1outputs_1_1Output_1a37940aa71d1dd19ea4e97d51d7d4922e" kind="function"><name>createTable</name></member>
+    <member refid="classhermes_1_1outputs_1_1Output_1ac1d59d6a91842940bdb17bc85c6b33fa" kind="function"><name>writeMetadata</name></member>
     <member refid="classhermes_1_1outputs_1_1Output_1a9a32074dee38a043b59277028ec0243a" kind="function"><name>writeKeyValueAsDouble</name></member>
     <member refid="classhermes_1_1outputs_1_1Output_1a5867a322ec3f6cc1f4bc2d04d9b15b03" kind="function"><name>writeKeyValueAsString</name></member>
     <member refid="classhermes_1_1outputs_1_1Output_1a197ce849679c040045c08aba827a5b66" kind="function"><name>writeColumn</name></member>
@@ -1209,13 +1252,14 @@
     <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1acd5caffa87c9f060391c16b245d6a5cf" kind="function"><name>setEnergy</name></member>
     <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1aba7a9a7b36639db4b42253b4f5196627" kind="function"><name>getEnergy</name></member>
     <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a08cb099447b9da5026714be3ed499072" kind="function"><name>densityProfile</name></member>
-    <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1aff64634d85b774e14a7a9263ff1aac0d" kind="function"><name>X0Function</name></member>
     <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a969689cc3a68931fe776552629ab5da0" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a1d9115d9bcc8b1e630f5f696c2959f4f" kind="function"><name>integrateOverEnergy</name></member>
     <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1af9c9203b6788b223bc18f97097abc598" kind="function"><name>integrateOverPhotonEnergy</name></member>
     <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a922e545ec4cafa265c585e2a01528f73" kind="function"><name>setupCacheTable</name></member>
     <member refid="classhermes_1_1PiZeroAbsorptionIntegrator_1a0e908afa5957b68bb56e3ebe565a3809" kind="function"><name>initCacheTable</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
@@ -1223,21 +1267,27 @@
     <member refid="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" kind="function"><name>getMaxDistance</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
   </compound>
   <compound refid="classhermes_1_1PiZeroIntegrator" kind="class"><name>hermes::PiZeroIntegrator</name>
-    <member refid="classhermes_1_1PiZeroIntegrator_1ac8aa9175454f463c8273fb81dbeeafa9" kind="typedef"><name>ICCacheTable</name></member>
+    <member refid="classhermes_1_1PiZeroIntegrator_1ac09c0c783a84aa6ecf3ac71e6aa20c75" kind="typedef"><name>tCacheTable</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a8312053ead7bd578a8dcac89c605bc3a" kind="variable"><name>crList</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a409b59d6d7591f05ab0168412bdb9ad0" kind="variable"><name>ngdensity</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a5961dc0312b13f2aefce5aa71ff3052a" kind="variable"><name>crossSec</name></member>
-    <member refid="classhermes_1_1PiZeroIntegrator_1a77f97b6440a503bd579fee351869f0eb" kind="variable"><name>cacheTable</name></member>
+    <member refid="classhermes_1_1PiZeroIntegrator_1a0b9a50e5c7a9f0dc0a9b31a0d80a5ab3" kind="variable"><name>dProfile</name></member>
+    <member refid="classhermes_1_1PiZeroIntegrator_1af85f79a05ff9a0982b356d0ecd2180cf" kind="variable"><name>cacheTable</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a038324a57491da96b9434bb5f80f11b2" kind="function"><name>getIOEfromCache</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1aebb19733e373fed003938abfdcf19c24" kind="function"><name>computeCacheInThread</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a3dbec32415779e6528e4d6ea0e4a44d7" kind="function"><name>PiZeroIntegrator</name></member>
@@ -1245,21 +1295,24 @@
     <member refid="classhermes_1_1PiZeroIntegrator_1a7ba62367c9b050b5d8a751768cbb8b27" kind="function"><name>~PiZeroIntegrator</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1acd5caffa87c9f060391c16b245d6a5cf" kind="function"><name>setEnergy</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1aba7a9a7b36639db4b42253b4f5196627" kind="function"><name>getEnergy</name></member>
-    <member refid="classhermes_1_1PiZeroIntegrator_1a08cb099447b9da5026714be3ed499072" kind="function"><name>densityProfile</name></member>
-    <member refid="classhermes_1_1PiZeroIntegrator_1aff64634d85b774e14a7a9263ff1aac0d" kind="function"><name>X0Function</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a969689cc3a68931fe776552629ab5da0" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a4400b6cfc4c4c56d7fc1f6fc6f55d6ca" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a1d9115d9bcc8b1e630f5f696c2959f4f" kind="function"><name>integrateOverEnergy</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a922e545ec4cafa265c585e2a01528f73" kind="function"><name>setupCacheTable</name></member>
     <member refid="classhermes_1_1PiZeroIntegrator_1a0e908afa5957b68bb56e3ebe565a3809" kind="function"><name>initCacheTable</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
-    <member refid="classhermes_1_1IntegratorTemplate_1a16d6c89aa4ffa980f4a54b6aa8306ead" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a14afcc42b91497aa1d824a0c50a5ff89" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1adb8f68f951a25311f3d92168c44e0531" kind="function"><name>getSunPosition</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ae6b12f0a8a8d030559ea62c525dab7a4" kind="function"><name>getMaxDistance</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
   </compound>
   <compound refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum" kind="class"><name>hermes::darkmatter::PPPC4DMIDSpectrum</name>
     <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a42a21beb8018ac623f4d09db1343b9cf" kind="variable"><name>filename</name></member>
@@ -1271,6 +1324,11 @@
     <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1ab7b840ed3772c89cd67141f1bff5bc6e" kind="function"><name>PPPC4DMIDSpectrum</name></member>
     <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1a060a52a8dd70d4e4c9f8a6135c625180" kind="function"><name>getRestMassEnergy</name></member>
     <member refid="classhermes_1_1darkmatter_1_1PPPC4DMIDSpectrum_1acaff3ec30e04e3ccb0d408f9f73eee5d" kind="function"><name>getParticlesPerEnergy</name></member>
+  </compound>
+  <compound refid="classhermes_1_1neutralgas_1_1ProfileAbstract" kind="class"><name>hermes::neutralgas::ProfileAbstract</name>
+    <member refid="classhermes_1_1neutralgas_1_1ProfileAbstract_1a64865a3e2b181e0548ca7071df3aa514" kind="function"><name>ProfileAbstract</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1ProfileAbstract_1a22edd6f87af840a4a4e4df469f482dc6" kind="function"><name>~ProfileAbstract</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1ProfileAbstract_1a78e64242525beffa0a480ddd8bffac18" kind="function"><name>getPDensity</name></member>
   </compound>
   <compound refid="classhermes_1_1magneticfields_1_1PT11Field" kind="class"><name>hermes::magneticfields::PT11Field</name>
     <member refid="classhermes_1_1magneticfields_1_1PT11Field_1a06a435ffb6bc2cfd37e295dbbf454ab1" kind="variable"><name>useASS</name></member>
@@ -1327,6 +1385,7 @@
     <member refid="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" kind="function"><name>getPixel</name></member>
     <member refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" kind="function"><name>getPixelAsDouble</name></member>
     <member refid="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" kind="function"><name>getMean</name></member>
+    <member refid="group__Skymaps_1ga43328b62b3d65924b0fd4c70b43c4fe2" kind="function"><name>hasMask</name></member>
     <member refid="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" kind="function"><name>operator[]</name></member>
     <member refid="classhermes_1_1SkymapTemplate_1a3941e9e06332ecd9878d91c28cb95914" kind="function"><name>data</name></member>
     <member refid="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" kind="function"><name>setIntegrator</name></member>
@@ -1477,15 +1536,19 @@
     <member refid="classhermes_1_1neutralgas_1_1Ring_1a8c9f3716851edc57efe9f81d728bbb64" kind="variable"><name>innerR</name></member>
     <member refid="classhermes_1_1neutralgas_1_1Ring_1a28005c04650554f015c07aeb30fedc6d" kind="variable"><name>outerR</name></member>
     <member refid="classhermes_1_1neutralgas_1_1Ring_1ae2e62a0d9a14f37047f7d2fac672fee3" kind="function"><name>Ring</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Ring_1a821f8aa4732d56e6068ddd1f0802bc8e" kind="function"><name>~Ring</name></member>
     <member refid="classhermes_1_1neutralgas_1_1Ring_1a4151402f2a564cc69b74cb91d2371d8b" kind="function"><name>getIndex</name></member>
     <member refid="classhermes_1_1neutralgas_1_1Ring_1adfdd2f7089ad96caddee54ad6d0df7d0" kind="function"><name>getBoundaries</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1Ring_1a09ebdf4bfbc2999f4bf2778e942421a9" kind="function"><name>isInside</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1Ring_1ad98ab52efcfced4e9d1af4f75e9696a2" kind="function"><name>getHIColumnDensity</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1Ring_1a240676bddaae8e9ba371e89f7f3c827c" kind="function"><name>getCOIntensity</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Ring_1ab50a088d2d4ff8ecc8dc2633c4c159cb" kind="function"><name>isInside</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Ring_1a5afa2fd9e40192fa392b67532412cbc3" kind="function"><name>getGasType</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Ring_1a1859740bd4fa628a228168841f0cbaec" kind="function"><name>X0Function</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Ring_1a6550dd46b904e8ef27dcf8e2942633d9" kind="function"><name>getHIColumnDensity</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Ring_1a327731ecafdea6be639c86d565b79cdf" kind="function"><name>getH2ColumnDensity</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1Ring_1ad61e3ef08a19a4c9bb00b429d4518417" kind="function"><name>getColumnDensity</name></member>
   </compound>
   <compound refid="classhermes_1_1neutralgas_1_1RingData" kind="class"><name>hermes::neutralgas::RingData</name>
     <member refid="classhermes_1_1neutralgas_1_1RingData_1a14a88cd00c024af930ea8ef3181519e8" kind="variable"><name>ffile</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1RingData_1ac20169f9948164efe3249e61fcfc22a8" kind="variable"><name>type</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1RingData_1a9ceea445666a8a9411788b1f28af6f7c" kind="variable"><name>type</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingData_1abb198d8280f2162ece26732f2081d32e" kind="variable"><name>n_lon</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingData_1aac43ca2cafe06ce0b44d3228575e3623" kind="variable"><name>n_lat</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingData_1a1cd7c270a22d9a1cddb7d852f1dfbba9" kind="variable"><name>n_rings</name></member>
@@ -1496,10 +1559,10 @@
     <member refid="classhermes_1_1neutralgas_1_1RingData_1a44e8510f4a4386395ad02e1b090fb92d" kind="variable"><name>dataVector</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingData_1a8d12f0655b5551096edae99eafa6e803" kind="function"><name>readDataFile</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingData_1a721a9201c5b5b2e5f12271fefe31c3e9" kind="function"><name>getRawValue</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1RingData_1a8d48c44ab5f770efa2689b1d42060a7b" kind="function"><name>RingData</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1RingData_1a95a7839d41c98ef5d1a8ad39c3254880" kind="function"><name>RingData</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingData_1a0ae4cfdb0d8f63e80cb5ad7d0e16a4e8" kind="function"><name>getHIColumnDensityInRing</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingData_1a5d958356f7e3657c793f0f5355685f07" kind="function"><name>getCOIntensityInRing</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1RingData_1acb7ae11e344b5cdaf9c49bc143fa780e" kind="function"><name>getRingType</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1RingData_1a5afa2fd9e40192fa392b67532412cbc3" kind="function"><name>getGasType</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingData_1af5a21caa3e9135b39fcfa18517f9e7ca" kind="function"><name>getRingNumber</name></member>
   </compound>
   <compound refid="classhermes_1_1neutralgas_1_1RingModel" kind="class"><name>hermes::neutralgas::RingModel</name>
@@ -1512,23 +1575,24 @@
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1ac280c562eb94c93a5d6c1c8d1f79e683" kind="variable"><name>ringContainer</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1a7b052c3f83540f0b0857f0cf8ea1aa65" kind="variable"><name>enabledRings</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1a2aab2951dd81c11bf49821f690366461" kind="function"><name>fillRingContainer</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1RingModel_1a665db462a20ee4dcfec32540347b99dd" kind="function"><name>RingModel</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1RingModel_1a594649d0992f6f661c454ea02ce7c5ed" kind="function"><name>RingModel</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1a0327fe015461fe7e0b9eea841a2099eb" kind="function"><name>~RingModel</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1ada4540c32745cdcbf9d0b734ade66d30" kind="function"><name>getEnabledRings</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1a9c92ce5d964acd3d422c89831da0e8f7" kind="function"><name>setEnabledRings</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1af444879ef74e2720c0f4cd35392f4607" kind="function"><name>disableRingNo</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1a5c3c5c2414adb8bfc29028fead54cd82" kind="function"><name>enableRingNo</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1a5ff6a08bfb56a82c82a5b32d876d9b96" kind="function"><name>isRingEnabled</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1RingModel_1acb7ae11e344b5cdaf9c49bc143fa780e" kind="function"><name>getRingType</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1RingModel_1a5afa2fd9e40192fa392b67532412cbc3" kind="function"><name>getGasType</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1ac3f595b20e28dc031bff4fcc9969fe77" kind="function"><name>getRingNumber</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1ae84f2c7e9a71a1c48dde38701e6846ce" kind="function"><name>getAbundanceFractions</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1RingModel_1ade1601ccf1fa3bcf050867f0852ca4e5" kind="function"><name>size</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1a2ad696e4703ea6673b766dc368941402" kind="function"><name>operator[]</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1ae24f9eba35b1a934daaf6af7d67474b8" kind="function"><name>begin</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1a29305669b60ca1680752e2fc3592ba99" kind="function"><name>begin</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1ad8f5854d6a6b04ab4b620433df498ac8" kind="function"><name>end</name></member>
     <member refid="classhermes_1_1neutralgas_1_1RingModel_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" kind="function"><name>end</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1NeutralGasDensity_1a5de9235f87784061f062f59af8491b8d" kind="function"><name>setTemperature</name></member>
-    <member refid="classhermes_1_1neutralgas_1_1NeutralGasDensity_1a0538f93ea5035c885c5f90a0d235bc28" kind="function"><name>getTemperature</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract_1a5de9235f87784061f062f59af8491b8d" kind="function"><name>setTemperature</name></member>
+    <member refid="classhermes_1_1neutralgas_1_1NeutralGasAbstract_1a0538f93ea5035c885c5f90a0d235bc28" kind="function"><name>getTemperature</name></member>
   </compound>
   <compound refid="classhermes_1_1RotationMeasureIntegrator" kind="class"><name>hermes::RotationMeasureIntegrator</name>
     <member refid="classhermes_1_1RotationMeasureIntegrator_1a213d6ffe2b3c48e6809d4a4bb0396590" kind="variable"><name>mfield</name></member>
@@ -1538,6 +1602,8 @@
     <member refid="classhermes_1_1RotationMeasureIntegrator_1aec976f59da1ae691af539eaf30c4973f" kind="function"><name>~RotationMeasureIntegrator</name></member>
     <member refid="classhermes_1_1RotationMeasureIntegrator_1a49738e24b9641d955a925974b9d73350" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1RotationMeasureIntegrator_1a450aa634098c16be606461c172ae8c09" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
@@ -1547,10 +1613,14 @@
     <member refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" kind="function"><name>initCacheTable</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
   </compound>
   <compound refid="classhermes_1_1RotationMeasureSkymap" kind="class"><name>hermes::RotationMeasureSkymap</name>
     <member refid="classhermes_1_1RotationMeasureSkymap_1a1c8b18d974e8c5c9dffcd40fcfed23c5" kind="function"><name>RotationMeasureSkymap</name></member>
@@ -1561,6 +1631,7 @@
     <member refid="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" kind="function"><name>getPixel</name></member>
     <member refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" kind="function"><name>getPixelAsDouble</name></member>
     <member refid="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" kind="function"><name>getMean</name></member>
+    <member refid="group__Skymaps_1ga43328b62b3d65924b0fd4c70b43c4fe2" kind="function"><name>hasMask</name></member>
     <member refid="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" kind="function"><name>operator[]</name></member>
     <member refid="classhermes_1_1SkymapTemplate_1a3941e9e06332ecd9878d91c28cb95914" kind="function"><name>data</name></member>
     <member refid="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" kind="function"><name>setIntegrator</name></member>
@@ -1700,6 +1771,7 @@
     <member refid="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" kind="function"><name>getPixel</name></member>
     <member refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" kind="function"><name>getPixelAsDouble</name></member>
     <member refid="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" kind="function"><name>getMean</name></member>
+    <member refid="group__Skymaps_1ga43328b62b3d65924b0fd4c70b43c4fe2" kind="function"><name>hasMask</name></member>
     <member refid="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" kind="function"><name>operator[]</name></member>
     <member refid="classhermes_1_1SkymapTemplate_1a3941e9e06332ecd9878d91c28cb95914" kind="function"><name>data</name></member>
     <member refid="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" kind="function"><name>setIntegrator</name></member>
@@ -1829,8 +1901,10 @@
     <member refid="classhermes_1_1SynchroAbsorptionIntegrator_1a5afa425f07b8dbc66e132c2857b0b41e" kind="function"><name>~SynchroAbsorptionIntegrator</name></member>
     <member refid="classhermes_1_1SynchroAbsorptionIntegrator_1a1d34fe64eda9b4cb480b07d553fdaf11" kind="function"><name>setFrequency</name></member>
     <member refid="classhermes_1_1SynchroAbsorptionIntegrator_1ae0f3946aef9eca1173543ebbd325c913" kind="function"><name>getFrequency</name></member>
-    <member refid="classhermes_1_1SynchroAbsorptionIntegrator_1ac85e5c8d235ac48ef387377b5dc62dc3" kind="function"><name>integrateOverLOS</name></member>
-    <member refid="classhermes_1_1SynchroAbsorptionIntegrator_1a91954f979bfab0814e7d2025f201fbc1" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1SynchroAbsorptionIntegrator_1ad6057fb5ea5d2df38c566c39fa939c28" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1SynchroAbsorptionIntegrator_1ae9ac0950f4b97af77139c0182b50f776" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
@@ -1840,10 +1914,14 @@
     <member refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" kind="function"><name>initCacheTable</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
   </compound>
   <compound refid="classhermes_1_1SynchroIntegrator" kind="class"><name>hermes::SynchroIntegrator</name>
     <member refid="classhermes_1_1SynchroIntegrator_1a213d6ffe2b3c48e6809d4a4bb0396590" kind="variable"><name>mfield</name></member>
@@ -1855,10 +1933,12 @@
     <member refid="classhermes_1_1SynchroIntegrator_1a70cbf3b1fa125109c64b66ae5727d01e" kind="function"><name>~SynchroIntegrator</name></member>
     <member refid="classhermes_1_1SynchroIntegrator_1a1d34fe64eda9b4cb480b07d553fdaf11" kind="function"><name>setFrequency</name></member>
     <member refid="classhermes_1_1SynchroIntegrator_1ae0f3946aef9eca1173543ebbd325c913" kind="function"><name>getFrequency</name></member>
-    <member refid="classhermes_1_1SynchroIntegrator_1af8a8743be2c993c96fa67c5c58325ca4" kind="function"><name>integrateOverLOS</name></member>
-    <member refid="classhermes_1_1SynchroIntegrator_1a91954f979bfab0814e7d2025f201fbc1" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1SynchroIntegrator_1a4f9e9dd55d67602fa0f3087ae717ad38" kind="function"><name>integrateOverLOS</name></member>
+    <member refid="classhermes_1_1SynchroIntegrator_1ae9ac0950f4b97af77139c0182b50f776" kind="function"><name>integrateOverLOS</name></member>
     <member refid="classhermes_1_1SynchroIntegrator_1a754af28f5126fc40d0ef3e96051fa184" kind="function"><name>singleElectronEmission</name></member>
     <member refid="classhermes_1_1SynchroIntegrator_1a62d586c17b1abfa5be07ec75b9a63b31" kind="function"><name>integrateOverEnergy</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1aea425314aebc36d0f6bf7671705158da" kind="function"><name>getDescription</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a3406b56004afdbe7a1815a541d40de99" kind="function"><name>setDescription</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1af0f7a3e6a47e1eb44a3fe009927367ec" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1afd30fd96bee702a795e2c25882e77626" kind="function"><name>setSkymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a2b2a12c832121a621cabd21ae87900ff" kind="function"><name>setSunPosition</name></member>
@@ -1868,10 +1948,14 @@
     <member refid="classhermes_1_1IntegratorTemplate_1a558d4324e4fed0cae50ab689d1d11727" kind="function"><name>initCacheTable</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a83bb64e7744efbaf483a31f4e52fdcfb" kind="function"><name>isCacheTableEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1ac1710833bbbdef244069621f4ef54420" kind="function"><name>isCacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a15cc1af7c65e1a98191596af11f0bc8a" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a97848eff2c97ba1efb33db011a5349d6" kind="function"><name>getLOSProfile</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a8dd7f7fed5509f885a2dba61073b6ce3" kind="typedef"><name>tLOSProfile</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a19ff1a1ae5d7b65b42e02462e59b1f9e" kind="variable"><name>positionSun</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1acefd152ad0cbdd995e02c0421c0f917e" kind="variable"><name>skymapParameter</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1a8e64bc449067d8b532cf28aefdfe0773" kind="variable"><name>cacheEnabled</name></member>
     <member refid="classhermes_1_1IntegratorTemplate_1aec203554827f2088472e39fc768e68df" kind="variable"><name>cacheTableInitialized</name></member>
+    <member refid="classhermes_1_1IntegratorTemplate_1a2e1454f6988673f814408646edaeb320" kind="variable"><name>description</name></member>
   </compound>
   <compound refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thick" kind="struct"><name>hermes::chargedgas::YMW16::Thick</name>
     <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Thick_1a5c5a4978f8f572fecaa4cd4f99718e0c" kind="variable"><name>Ad</name></member>
@@ -2051,8 +2135,6 @@
     <member refid="classhermes_1_1Vector3_1a1cb2b5ea04251d543e49356ef54eb853" kind="variable"><name>y</name></member>
     <member refid="classhermes_1_1Vector3_1aa37b7ae12b900daed71297a80053aacf" kind="variable"><name>z</name></member>
   </compound>
-  <compound refid="classVector3Qunatity" kind="class"><name>Vector3Qunatity</name>
-  </compound>
   <compound refid="structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun" kind="struct"><name>hermes::chargedgas::YMW16::Warp_Sun</name>
     <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun_1a74dd8acdcbaca405de79072674aced4d" kind="variable"><name>Gamma_w</name></member>
     <member refid="structhermes_1_1chargedgas_1_1YMW16_1_1Warp__Sun_1a77866cf8c233a5aef5b0431c645f6bce" kind="variable"><name>z_Sun</name></member>
@@ -2162,9 +2244,9 @@
     <member refid="group__Core_1gacd3b779f87b4de87e8289f36419b921a" kind="typedef"><name>VectorQLengthGrid</name></member>
     <member refid="group__Core_1gae466bfccef775505ce0fc993bfed2f2b" kind="typedef"><name>VectorQMFieldGrid</name></member>
     <member refid="group__Integrators_1gad422d0160fa49004f7f72220d92aafc0" kind="typedef"><name>DispersionMeasureIntegratorTemplate</name></member>
+    <member refid="group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971" kind="typedef"><name>RotationMeasureIntegratorTemplate</name></member>
     <member refid="group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e" kind="typedef"><name>RadioIntegratorTemplate</name></member>
     <member refid="group__Integrators_1ga8e4aab0440286adb2c039146ba8f9fed" kind="typedef"><name>GammaIntegratorTemplate</name></member>
-    <member refid="group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971" kind="typedef"><name>RotationMeasureIntegratorTemplate</name></member>
     <member refid="group__Core_1ga1f05093f5ee1a9ecdd54476792e4c206" kind="typedef"><name>Vector3d</name></member>
     <member refid="group__Core_1gaf345ad77ba5e240c7ab72b4b2077e754" kind="typedef"><name>Vector3f</name></member>
     <member refid="group__Core_1gadd65e2dc0cf047a5e27e5879ec68cd8f" kind="typedef"><name>Vector3QNumber</name></member>
@@ -2179,7 +2261,7 @@
     <member refid="namespacehermes_1a37e2cd252b4a28a1d125d638046dfdd6" kind="function"><name>hash_combine</name></member>
     <member refid="namespacehermes_1a012863a22000a2f0a01821cf7d3fc8c5" kind="function"><name>getDataPath</name></member>
     <member refid="namespacehermes_1a8238e5ea84755ca291f5fe33eabc4e07" kind="function"><name>distanceFromGC</name></member>
-    <member refid="namespacehermes_1a26cf6e5a6eb42fca7df65a4057f4c36d" kind="function"><name>distanceToGalBorder</name></member>
+    <member refid="namespacehermes_1ac91611f6d89210b3b3353cc2b3fdc1fb" kind="function"><name>distanceToGalBorder</name></member>
     <member refid="namespacehermes_1ade041a25f94a13ce9c3697d51b7f06b0" kind="function"><name>getGalacticPosition</name></member>
     <member refid="namespacehermes_1a1564a0a913257b84fea302bb6f4984cc" kind="function"><name>toGalCoord</name></member>
     <member refid="namespacehermes_1a6be8ab078bdc80be66f151ea9e1eaae1" kind="function"><name>fromGalCoord</name></member>
@@ -2361,6 +2443,7 @@
     <member refid="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8" kind="enum"><name>ImgType</name></member>
     <member refid="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8ab0b7480ad6f8d951229c163f6a362dfd" kind="enumvalue"><name>IMGBYTE</name></member>
     <member refid="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8a83b11d8c7a06442f7d73c441403742f1" kind="enumvalue"><name>IMGSHORT</name></member>
+    <member refid="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8a23ddd25249440498ea755b1afacbc782" kind="enumvalue"><name>IMGLONG</name></member>
     <member refid="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8ab3c073d0c0188fa728bbcfba32b6fb79" kind="enumvalue"><name>IMGFLOAT</name></member>
     <member refid="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8a22a235796b432800b3ee4daf01c66712" kind="enumvalue"><name>IMGDOUBLE</name></member>
   </compound>
@@ -2370,9 +2453,9 @@
     <member refid="namespacehermes_1_1magneticfields_1a0d6b7018ba839b009cc6fc757b3e7605" kind="function"><name>logisticFunction</name></member>
   </compound>
   <compound refid="namespacehermes_1_1neutralgas" kind="namespace"><name>hermes::neutralgas</name>
-    <member refid="group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7" kind="enum"><name>RingType</name></member>
-    <member refid="group__NeutralGas_1gga6e6e8dec15851f2136618b418cf844f7abf8c144140b15befb8ce662632a7b76e" kind="enumvalue"><name>HI</name></member>
-    <member refid="group__NeutralGas_1gga6e6e8dec15851f2136618b418cf844f7a42983b05e2f2cc22822e30beb7bdd668" kind="enumvalue"><name>CO</name></member>
+    <member refid="group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c" kind="enum"><name>GasType</name></member>
+    <member refid="group__NeutralGas_1gga7e38bc064644049cbee1c0882141a32cabf8c144140b15befb8ce662632a7b76e" kind="enumvalue"><name>HI</name></member>
+    <member refid="group__NeutralGas_1gga7e38bc064644049cbee1c0882141a32caca2bf3f6b7e18a508253e9521510a4b5" kind="enumvalue"><name>H2</name></member>
   </compound>
   <compound refid="namespacehermes_1_1outputs" kind="namespace"><name>hermes::outputs</name>
   </compound>
@@ -2381,45 +2464,48 @@
   </compound>
   <compound refid="namespacehermes_1_1units" kind="namespace"><name>hermes::units</name>
     <member refid="group__Units_1gab75d65fe9cbc09c220b3e1deb06c1c8a" kind="typedef"><name>QDirection</name></member>
-    <member refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kind="typedef"><name>QNumber</name></member>
-    <member refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kind="typedef"><name>QAngle</name></member>
-    <member refid="namespacehermes_1_1units_1a30f5a6207bff5e9e3503d039f5485439" kind="typedef"><name>QSolidAngle</name></member>
-    <member refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kind="typedef"><name>QLength</name></member>
-    <member refid="namespacehermes_1_1units_1ab16ea1563d0b091f28aae94e1ef44d20" kind="typedef"><name>QTime</name></member>
-    <member refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kind="typedef"><name>QEnergy</name></member>
-    <member refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kind="typedef"><name>QMField</name></member>
-    <member refid="namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59" kind="typedef"><name>QMass</name></member>
-    <member refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kind="typedef"><name>QTemperature</name></member>
-    <member refid="namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f" kind="typedef"><name>QIntensity</name></member>
-    <member refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kind="typedef"><name>QFrequency</name></member>
-    <member refid="namespacehermes_1_1units_1afed1063e6c1cf425c9e80def217f4cba" kind="typedef"><name>QECurrent</name></member>
-    <member refid="namespacehermes_1_1units_1a4240d354c79517ce51fbc34f6a7e791a" kind="typedef"><name>QSubstance</name></member>
-    <member refid="namespacehermes_1_1units_1a7fafd935f08d30262bfba7261e8f76f3" kind="typedef"><name>QLIntensity</name></member>
-    <member refid="namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c" kind="typedef"><name>QArea</name></member>
-    <member refid="namespacehermes_1_1units_1a0646abfdd66253cf534207b37bccb0d4" kind="typedef"><name>QVolume</name></member>
-    <member refid="namespacehermes_1_1units_1aa5aca56b7d2fd0c4824c1ac399f2a8fc" kind="typedef"><name>QForce</name></member>
-    <member refid="namespacehermes_1_1units_1a6a7ff69b5d0f535262f7981fc5f3a3e1" kind="typedef"><name>QMomentum</name></member>
     <member refid="namespacehermes_1_1units_1acc4e548474922dd119e8c9bf9492bace" kind="typedef"><name>QAMomentum</name></member>
-    <member refid="namespacehermes_1_1units_1a8800da94a80f732ff7ef93cb954a8e31" kind="typedef"><name>QPressure</name></member>
-    <member refid="namespacehermes_1_1units_1a242b7c6d821226abcd4c9c1df4080b7c" kind="typedef"><name>QECharge</name></member>
-    <member refid="namespacehermes_1_1units_1a825916b4e02cdff105ae3f499c221be5" kind="typedef"><name>QPower</name></member>
-    <member refid="namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f" kind="typedef"><name>QEResistance</name></member>
-    <member refid="namespacehermes_1_1units_1a755d56da761e757675d206a4c66da013" kind="typedef"><name>QECapacitance</name></member>
-    <member refid="namespacehermes_1_1units_1a5e81348dd8e9c30ddd626f52910a24a1" kind="typedef"><name>QEPotential</name></member>
-    <member refid="namespacehermes_1_1units_1ad065263541ca8902f903e26e57dc33cf" kind="typedef"><name>QPDensityPerEnergy</name></member>
     <member refid="namespacehermes_1_1units_1a90796c8083e0e96d3fd6ba1266a3ddd0" kind="typedef"><name>QAcceleration</name></member>
-    <member refid="namespacehermes_1_1units_1ada6d27e18c6b882bd684cb05c2fea781" kind="typedef"><name>QSpeed</name></member>
+    <member refid="namespacehermes_1_1units_1af3e07db6a1feb6f96f20e33589215d40" kind="typedef"><name>QAngle</name></member>
+    <member refid="namespacehermes_1_1units_1aaf29395e3edcc95c6f963aadc5bf032f" kind="typedef"><name>QAngularMomentum</name></member>
+    <member refid="namespacehermes_1_1units_1abe6966a015d5a1f3ca75558829d00d6c" kind="typedef"><name>QArea</name></member>
+    <member refid="namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf" kind="typedef"><name>QColumnDensity</name></member>
+    <member refid="namespacehermes_1_1units_1ace62e7f5cd9628fd2a9971b4f3657d37" kind="typedef"><name>QMassDensity</name></member>
+    <member refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kind="typedef"><name>QDiffCrossSection</name></member>
     <member refid="namespacehermes_1_1units_1a93760358a2f865d72e4c32104285f35a" kind="typedef"><name>QDiffFlux</name></member>
     <member refid="namespacehermes_1_1units_1ada76cbae8b500c364499a35f1e24c0f5" kind="typedef"><name>QDiffIntensity</name></member>
-    <member refid="namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1" kind="typedef"><name>QEmissivity</name></member>
-    <member refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kind="typedef"><name>QPDensity</name></member>
-    <member refid="namespacehermes_1_1units_1abfd2d95d5ad24fefdc11b58460cdef65" kind="typedef"><name>QDensity</name></member>
-    <member refid="namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0" kind="typedef"><name>QInverseLength</name></member>
-    <member refid="namespacehermes_1_1units_1a73f8dce63834f57204084ff97dd58bcf" kind="typedef"><name>QColumnDensity</name></member>
     <member refid="namespacehermes_1_1units_1a6fadfde6ede5563e06f8a138b9842301" kind="typedef"><name>QDispersionMeasure</name></member>
-    <member refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kind="typedef"><name>QRotationMeasure</name></member>
-    <member refid="namespacehermes_1_1units_1a4a2226450548bd2c1933872630cddb2c" kind="typedef"><name>QDiffCrossSection</name></member>
+    <member refid="namespacehermes_1_1units_1a755d56da761e757675d206a4c66da013" kind="typedef"><name>QECapacitance</name></member>
+    <member refid="namespacehermes_1_1units_1a242b7c6d821226abcd4c9c1df4080b7c" kind="typedef"><name>QECharge</name></member>
+    <member refid="namespacehermes_1_1units_1afed1063e6c1cf425c9e80def217f4cba" kind="typedef"><name>QECurrent</name></member>
+    <member refid="namespacehermes_1_1units_1a5e81348dd8e9c30ddd626f52910a24a1" kind="typedef"><name>QEPotential</name></member>
+    <member refid="namespacehermes_1_1units_1a81921f7da5e61ae8b3510dacd4017d5f" kind="typedef"><name>QEResistance</name></member>
+    <member refid="namespacehermes_1_1units_1aff19f49188ecc2e366d24bf507e7a8d1" kind="typedef"><name>QEmissivity</name></member>
+    <member refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kind="typedef"><name>QEnergy</name></member>
     <member refid="namespacehermes_1_1units_1a36118aef995d85ab91489798de37611c" kind="typedef"><name>QEnergyDensity</name></member>
+    <member refid="namespacehermes_1_1units_1aa5aca56b7d2fd0c4824c1ac399f2a8fc" kind="typedef"><name>QForce</name></member>
+    <member refid="namespacehermes_1_1units_1a15830f33c3cfe7911529e7bd9e46962b" kind="typedef"><name>QFrequency</name></member>
+    <member refid="namespacehermes_1_1units_1a0703452ed5c2a2a12f88a839462bb24f" kind="typedef"><name>QIntensity</name></member>
+    <member refid="namespacehermes_1_1units_1acf3d4a11ac9a813c482bd3f885e43fc7" kind="typedef"><name>QInverseEnergy</name></member>
+    <member refid="namespacehermes_1_1units_1a960c15962cb540bdae2630fd2fa54af0" kind="typedef"><name>QInverseLength</name></member>
+    <member refid="namespacehermes_1_1units_1a7fafd935f08d30262bfba7261e8f76f3" kind="typedef"><name>QLIntensity</name></member>
+    <member refid="namespacehermes_1_1units_1a1c20dce17af7f82f171ce3c5605de909" kind="typedef"><name>QLength</name></member>
+    <member refid="namespacehermes_1_1units_1a72b849b5230560167419622406054305" kind="typedef"><name>QMField</name></member>
+    <member refid="namespacehermes_1_1units_1a9aa63b3fba22eb70c9c723863eef6b59" kind="typedef"><name>QMass</name></member>
+    <member refid="namespacehermes_1_1units_1a6a7ff69b5d0f535262f7981fc5f3a3e1" kind="typedef"><name>QMomentum</name></member>
+    <member refid="namespacehermes_1_1units_1acb8e306c9eeb1842a89b8e3bf7ea1780" kind="typedef"><name>QNumber</name></member>
+    <member refid="namespacehermes_1_1units_1ac18d9683b4f126f51b4fab7a1304400c" kind="typedef"><name>QPDensity</name></member>
+    <member refid="namespacehermes_1_1units_1ad065263541ca8902f903e26e57dc33cf" kind="typedef"><name>QPDensityPerEnergy</name></member>
+    <member refid="namespacehermes_1_1units_1a825916b4e02cdff105ae3f499c221be5" kind="typedef"><name>QPower</name></member>
+    <member refid="namespacehermes_1_1units_1a8800da94a80f732ff7ef93cb954a8e31" kind="typedef"><name>QPressure</name></member>
+    <member refid="namespacehermes_1_1units_1a1902de5339ae78e3e0816282e4ad4f65" kind="typedef"><name>QRotationMeasure</name></member>
+    <member refid="namespacehermes_1_1units_1a30f5a6207bff5e9e3503d039f5485439" kind="typedef"><name>QSolidAngle</name></member>
+    <member refid="namespacehermes_1_1units_1a93ce8b37e79297f83eee561b10d38502" kind="typedef"><name>QSpectralEnergyDensity</name></member>
+    <member refid="namespacehermes_1_1units_1ada6d27e18c6b882bd684cb05c2fea781" kind="typedef"><name>QSpeed</name></member>
+    <member refid="namespacehermes_1_1units_1a4240d354c79517ce51fbc34f6a7e791a" kind="typedef"><name>QSubstance</name></member>
+    <member refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kind="typedef"><name>QTemperature</name></member>
+    <member refid="namespacehermes_1_1units_1ab16ea1563d0b091f28aae94e1ef44d20" kind="typedef"><name>QTime</name></member>
+    <member refid="namespacehermes_1_1units_1a0646abfdd66253cf534207b37bccb0d4" kind="typedef"><name>QVolume</name></member>
     <member refid="namespacehermes_1_1units_1a882108de6a7baeb179ec278907e91489" kind="typedef"><name>QRMIntegral</name></member>
     <member refid="namespacehermes_1_1units_1af1f97c9b0b9bdd6cc6b1ae114f535785" kind="typedef"><name>QSynchroConstant</name></member>
     <member refid="namespacehermes_1_1units_1a758ac2a09e6404bedc9f6c9b0fba33b8" kind="typedef"><name>QPiZeroIntegral</name></member>
@@ -2427,6 +2513,7 @@
     <member refid="namespacehermes_1_1units_1a7430130b27415445121268ef33e2b9f0" kind="typedef"><name>QRingX0Unit</name></member>
     <member refid="namespacehermes_1_1units_1a9970527ffabff2dd35c43fb96f45cda7" kind="typedef"><name>QICInnerIntegral</name></member>
     <member refid="namespacehermes_1_1units_1ab69c0333fdf6a779b43f399201e786d3" kind="typedef"><name>QGREmissivity</name></member>
+    <member refid="namespacehermes_1_1units_1a05b6d6f0546f9bd87fd641c9e8502365" kind="typedef"><name>QEnergyOverTemperature</name></member>
     <member refid="group__Units_1gad172e8d1a294401209781f9aeaa77410" kind="variable"><name>pi</name></member>
     <member refid="group__Units_1ga124e672a37e29350060706a4e2efd8cb" kind="variable"><name>eulerGamma</name></member>
     <member refid="group__Units_1ga8806667a3ff189747ff9794a9844a799" kind="variable"><name>e_plus</name></member>
@@ -2656,20 +2743,16 @@
     <member refid="group__Units_1ga611a6f976b78c40f628f130adda54a79" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga87fa2f8162fbe8e86d23ac6cb6c0280d" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1gacd0394e2555b5ce373809568e93f8580" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1gaaaf6ef71d45fb71779f26fdea4390702" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1gae31025b8390e75e42a0f969317eb35a1" kind="function"><name>QUANTITY_TYPE</name></member>
+    <member refid="group__Units_1ga008273bc64c1712fd2f6f12bc7b6dc3a" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga7a9cb6a55e54afcafa707b102c8c96ce" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga716727b4100245ce1befdf61077da784" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1gad86e3b73d91067c41a70c016c7130e82" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1gab34690bf248225df416e7c8a77305e10" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1ga7d4b2cbfe6684ff453459b2797c40b1e" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1gaceba2eeeeae714a94dcb0500b05a0717" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1ga49fb0afd994e8bfd439e9090147312b7" kind="function"><name>QUANTITY_TYPE</name></member>
+    <member refid="group__Units_1gaf43bf1aa4ff555dfa74e7659437b1d34" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga5fdbd549fe45ae7d6a9d0bb1cde32022" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga207fd5b83767ded94f07dfbdc5ffa984" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1gae5e3d3a405b4d112ed4a9278b180c0ab" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga6d4b43eccbdc8cb2d3bd577f1213e384" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="namespacehermes_1_1units_1a0709379f89073a1d6e125682f9c0830e" kind="function"><name>pow</name></member>
     <member refid="namespacehermes_1_1units_1a3a51d0e5f4a5ce1024da6658f0bfbfd4" kind="function"><name>squared</name></member>
   </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
@@ -2780,7 +2863,13 @@
   </compound>
   <compound refid="WMAP07Field_8h" kind="file"><name>WMAP07Field.h</name>
   </compound>
-  <compound refid="NeutralGasDensity_8h" kind="file"><name>NeutralGasDensity.h</name>
+  <compound refid="GasType_8h" kind="file"><name>GasType.h</name>
+  </compound>
+  <compound refid="Nakanishi06_8h" kind="file"><name>Nakanishi06.h</name>
+  </compound>
+  <compound refid="NeutralGasAbstract_8h" kind="file"><name>NeutralGasAbstract.h</name>
+  </compound>
+  <compound refid="ProfileAbstract_8h" kind="file"><name>ProfileAbstract.h</name>
   </compound>
   <compound refid="RingModel_8h" kind="file"><name>RingModel.h</name>
   </compound>
@@ -2838,6 +2927,12 @@
   <compound refid="Vector3_8h" kind="file"><name>Vector3.h</name>
   </compound>
   <compound refid="Vector3Quantity_8h" kind="file"><name>Vector3Quantity.h</name>
+  </compound>
+  <compound refid="Version_8h" kind="file"><name>Version.h</name>
+    <member refid="Version_8h_1a6e70968528819ece37e7d5f722c53efc" kind="variable"><name>g_GIT_SHA1</name></member>
+    <member refid="Version_8h_1a36b71113647c58eb81b6f6faf06f784b" kind="variable"><name>g_GIT_REFSPEC</name></member>
+    <member refid="Version_8h_1a6834134ebcf1a7fadc2562fc74544f46" kind="variable"><name>g_GIT_DESC</name></member>
+    <member refid="Version_8h_1ae07054153f2b6877a8acf6fbf1ee7090" kind="function"><name>declare_version</name></member>
   </compound>
   <compound refid="HII__Cordes91_8cpp" kind="file"><name>HII_Cordes91.cpp</name>
   </compound>
@@ -2918,6 +3013,8 @@
   <compound refid="Sun08Field_8cpp" kind="file"><name>Sun08Field.cpp</name>
   </compound>
   <compound refid="WMAP07Field_8cpp" kind="file"><name>WMAP07Field.cpp</name>
+  </compound>
+  <compound refid="Nakanishi06_8cpp" kind="file"><name>Nakanishi06.cpp</name>
   </compound>
   <compound refid="RingModel_8cpp" kind="file"><name>RingModel.cpp</name>
   </compound>
@@ -3060,18 +3157,18 @@
   </compound>
   <compound refid="group__Integrators" kind="group"><name>Integrators</name>
     <member refid="group__Integrators_1gad422d0160fa49004f7f72220d92aafc0" kind="typedef"><name>DispersionMeasureIntegratorTemplate</name></member>
+    <member refid="group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971" kind="typedef"><name>RotationMeasureIntegratorTemplate</name></member>
     <member refid="group__Integrators_1ga01e983174f2eb53f97bf2d09a579691e" kind="typedef"><name>RadioIntegratorTemplate</name></member>
     <member refid="group__Integrators_1ga8e4aab0440286adb2c039146ba8f9fed" kind="typedef"><name>GammaIntegratorTemplate</name></member>
-    <member refid="group__Integrators_1ga7d4c7f32a31e5204b1a139756bef2971" kind="typedef"><name>RotationMeasureIntegratorTemplate</name></member>
   </compound>
   <compound refid="group__Interactions" kind="group"><name>Interactions</name>
   </compound>
   <compound refid="group__MagneticFields" kind="group"><name>MagneticFields</name>
   </compound>
   <compound refid="group__NeutralGas" kind="group"><name>NeutralGas</name>
-    <member refid="group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7" kind="enum"><name>RingType</name></member>
-    <member refid="group__NeutralGas_1gga6e6e8dec15851f2136618b418cf844f7abf8c144140b15befb8ce662632a7b76e" kind="enumvalue"><name>HI</name></member>
-    <member refid="group__NeutralGas_1gga6e6e8dec15851f2136618b418cf844f7a42983b05e2f2cc22822e30beb7bdd668" kind="enumvalue"><name>CO</name></member>
+    <member refid="group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c" kind="enum"><name>GasType</name></member>
+    <member refid="group__NeutralGas_1gga7e38bc064644049cbee1c0882141a32cabf8c144140b15befb8ce662632a7b76e" kind="enumvalue"><name>HI</name></member>
+    <member refid="group__NeutralGas_1gga7e38bc064644049cbee1c0882141a32caca2bf3f6b7e18a508253e9521510a4b5" kind="enumvalue"><name>H2</name></member>
   </compound>
   <compound refid="group__PhotonFields" kind="group"><name>PhotonFields</name>
   </compound>
@@ -3087,6 +3184,7 @@
     <member refid="group__Skymaps_1gaa4dde1aefb2b3fe9a26f256040858f31" kind="function"><name>getPixel</name></member>
     <member refid="group__Skymaps_1gaf5bbad10d566bddbe80308d77e4e78c8" kind="function"><name>getPixelAsDouble</name></member>
     <member refid="group__Skymaps_1gad667f87ac974acb3581e26af5881f330" kind="function"><name>getMean</name></member>
+    <member refid="group__Skymaps_1ga43328b62b3d65924b0fd4c70b43c4fe2" kind="function"><name>hasMask</name></member>
     <member refid="group__Skymaps_1ga20075b5ee749c3806c366710fc21dc25" kind="function"><name>operator[]</name></member>
     <member refid="group__Skymaps_1gabef15a424c177135fd05df19875b799f" kind="function"><name>printPixels</name></member>
     <member refid="group__Skymaps_1gae5f4288efe002156a0341f0cac8f6b35" kind="function"><name>setIntegrator</name></member>
@@ -3312,21 +3410,18 @@
     <member refid="group__Units_1ga611a6f976b78c40f628f130adda54a79" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga87fa2f8162fbe8e86d23ac6cb6c0280d" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1gacd0394e2555b5ce373809568e93f8580" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1gaaaf6ef71d45fb71779f26fdea4390702" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1gae31025b8390e75e42a0f969317eb35a1" kind="function"><name>QUANTITY_TYPE</name></member>
+    <member refid="group__Units_1ga008273bc64c1712fd2f6f12bc7b6dc3a" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga7a9cb6a55e54afcafa707b102c8c96ce" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga716727b4100245ce1befdf61077da784" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1gad86e3b73d91067c41a70c016c7130e82" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1gab34690bf248225df416e7c8a77305e10" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1ga7d4b2cbfe6684ff453459b2797c40b1e" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1gaceba2eeeeae714a94dcb0500b05a0717" kind="function"><name>QUANTITY_TYPE</name></member>
+    <member refid="group__Units_1gaf43bf1aa4ff555dfa74e7659437b1d34" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1gaccef8d9b262e892b63dbb73d29fbdbf2" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1ga49fb0afd994e8bfd439e9090147312b7" kind="function"><name>QUANTITY_TYPE</name></member>
+    <member refid="group__Units_1ga75bd6af29b4260f0d25a24f568adc221" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga5fdbd549fe45ae7d6a9d0bb1cde32022" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga207fd5b83767ded94f07dfbdc5ffa984" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga785427355e264e9677f6cd1980c5a7b0" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1gae5e3d3a405b4d112ed4a9278b180c0ab" kind="function"><name>QUANTITY_TYPE</name></member>
-    <member refid="group__Units_1ga75bd6af29b4260f0d25a24f568adc221" kind="function"><name>QUANTITY_TYPE</name></member>
     <member refid="group__Units_1ga6d4b43eccbdc8cb2d3bd577f1213e384" kind="function"><name>QUANTITY_TYPE</name></member>
   </compound>
   <compound refid="dir_49f588020cdc122655ea3e17ace8f834" kind="dir"><name>include/hermes/chargedgas</name>

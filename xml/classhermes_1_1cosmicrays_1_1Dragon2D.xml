@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1cosmicrays_1_1Dragon2D" kind="class" language="C++" prot="public">
     <compoundname>hermes::cosmicrays::Dragon2D</compoundname>
     <basecompoundref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity" prot="public" virt="non-virtual">CosmicRayDensity</basecompoundref>
-    <includes refid="Dragon2D_8h" local="no">include/hermes/cosmicrays/Dragon2D.h</includes>
+    <includes refid="Dragon2D_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/cosmicrays/Dragon2D.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1cosmicrays_1_1Dragon2D_1ae80f820219e45772366a2a68de6a54c4" prot="private" static="no" mutable="no">
         <type>std::string</type>

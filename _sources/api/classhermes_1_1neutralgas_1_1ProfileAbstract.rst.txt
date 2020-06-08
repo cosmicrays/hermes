@@ -1,0 +1,25 @@
+.. _exhale_class_classhermes_1_1neutralgas_1_1ProfileAbstract:
+
+Class ProfileAbstract
+=====================
+
+- Defined in :ref:`file_include_hermes_neutralgas_ProfileAbstract.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public Nakanishi06`` (:ref:`exhale_class_classhermes_1_1neutralgas_1_1Nakanishi06`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: hermes::neutralgas::ProfileAbstract
+   :members:
+   :protected-members:
+   :undoc-members:

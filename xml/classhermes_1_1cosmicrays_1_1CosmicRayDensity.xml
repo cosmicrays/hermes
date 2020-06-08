@@ -8,7 +8,7 @@
     <derivedcompoundref refid="classhermes_1_1cosmicrays_1_1SimpleCRDensity" prot="public" virt="non-virtual">SimpleCRDensity</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1cosmicrays_1_1Sun08CRDensity" prot="public" virt="non-virtual">Sun08CRDensity</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1cosmicrays_1_1WMAP07CRDensity" prot="public" virt="non-virtual">WMAP07CRDensity</derivedcompoundref>
-    <includes refid="CosmicRayDensity_8h" local="no">include/hermes/cosmicrays/CosmicRayDensity.h</includes>
+    <includes refid="CosmicRayDensity_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/cosmicrays/CosmicRayDensity.h</includes>
       <sectiondef kind="protected-type">
       <memberdef kind="typedef" id="classhermes_1_1cosmicrays_1_1CosmicRayDensity_1afe417b0dce3c177f9834e269e2dfa019" prot="protected" static="no">
         <type>std::vector&lt; <ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref> &gt;</type>

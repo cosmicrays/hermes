@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1cosmicrays_1_1Sun08CRDensity" kind="class" language="C++" prot="public">
     <compoundname>hermes::cosmicrays::Sun08CRDensity</compoundname>
     <basecompoundref refid="classhermes_1_1cosmicrays_1_1CosmicRayDensity" prot="public" virt="non-virtual">CosmicRayDensity</basecompoundref>
-    <includes refid="Sun08CRDensity_8h" local="no">include/hermes/cosmicrays/Sun08CRDensity.h</includes>
+    <includes refid="Sun08CRDensity_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/cosmicrays/Sun08CRDensity.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1cosmicrays_1_1Sun08CRDensity_1a30ae4524ed4ae18d2df6fd7658685554" prot="private" static="no" mutable="no">
         <type><ref refid="namespacehermes_1_1units_1ac285eba14ae940108acd8ef39210c167" kindref="member">QEnergy</ref></type>

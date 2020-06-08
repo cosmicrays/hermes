@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1outputs_1_1Output" kind="class" language="C++" prot="public" abstract="yes">
     <compoundname>hermes::outputs::Output</compoundname>
     <derivedcompoundref refid="classhermes_1_1outputs_1_1HEALPixFormat" prot="public" virt="non-virtual">HEALPixFormat</derivedcompoundref>
-    <includes refid="Output_8h" local="no">include/hermes/outputs/Output.h</includes>
+    <includes refid="Output_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/outputs/Output.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classhermes_1_1outputs_1_1Output_1af32570aafa2044362c74a0f7ac280a30" prot="public" static="no" mutable="no">
         <type>const std::string</type>
@@ -60,14 +60,17 @@
         </inbodydescription>
         <location file="include/hermes/outputs/Output.h" line="15" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="classhermes_1_1outputs_1_1Output_1afc8ad4c377ea07c438be54de3ff49b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classhermes_1_1outputs_1_1Output_1a37940aa71d1dd19ea4e97d51d7d4922e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
         <definition>virtual void createTable</definition>
-        <argsstring>(int)=0</argsstring>
+        <argsstring>(int, const std::string &amp;)=0</argsstring>
         <name>createTable</name>
-        <reimplementedby refid="classhermes_1_1outputs_1_1HEALPixFormat_1a4b0c15036210c1caf818142eb37e25dd">createTable</reimplementedby>
+        <reimplementedby refid="classhermes_1_1outputs_1_1HEALPixFormat_1a9074662a80eda499c521d788aefaacdb">createTable</reimplementedby>
         <param>
           <type>int</type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -77,17 +80,20 @@
         </inbodydescription>
         <location file="include/hermes/outputs/Output.h" line="16" column="14"/>
       </memberdef>
-      <memberdef kind="function" id="classhermes_1_1outputs_1_1Output_1a39bba0b5c89b1c3e6eae9a4e2546ebe2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classhermes_1_1outputs_1_1Output_1ac1d59d6a91842940bdb17bc85c6b33fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
         <definition>virtual void writeMetadata</definition>
-        <argsstring>(int, double, const std::string &amp;)=0</argsstring>
+        <argsstring>(int, double, bool, const std::string &amp;)=0</argsstring>
         <name>writeMetadata</name>
-        <reimplementedby refid="classhermes_1_1outputs_1_1HEALPixFormat_1af5a20ebde208f18a0778bd0fb06f05b3">writeMetadata</reimplementedby>
+        <reimplementedby refid="classhermes_1_1outputs_1_1HEALPixFormat_1abe23858b3749d324e495900f8d75c7c7">writeMetadata</reimplementedby>
         <param>
           <type>int</type>
         </param>
         <param>
           <type>double</type>
+        </param>
+        <param>
+          <type>bool</type>
         </param>
         <param>
           <type>const std::string &amp;</type>
@@ -208,14 +214,14 @@
     </collaborationgraph>
     <location file="include/hermes/outputs/Output.h" line="8" column="13" bodyfile="include/hermes/outputs/Output.h" bodystart="8" bodyend="24"/>
     <listofallmembers>
-      <member refid="classhermes_1_1outputs_1_1Output_1afc8ad4c377ea07c438be54de3ff49b43" prot="public" virt="pure-virtual"><scope>hermes::outputs::Output</scope><name>createTable</name></member>
+      <member refid="classhermes_1_1outputs_1_1Output_1a37940aa71d1dd19ea4e97d51d7d4922e" prot="public" virt="pure-virtual"><scope>hermes::outputs::Output</scope><name>createTable</name></member>
       <member refid="classhermes_1_1outputs_1_1Output_1abd22c0c243cb60dba6e0b186852a8498" prot="public" virt="pure-virtual"><scope>hermes::outputs::Output</scope><name>initOutput</name></member>
       <member refid="classhermes_1_1outputs_1_1Output_1a356172c336fe8c0afbac8c49d5dcc703" prot="public" virt="non-virtual"><scope>hermes::outputs::Output</scope><name>Output</name></member>
       <member refid="classhermes_1_1outputs_1_1Output_1af32570aafa2044362c74a0f7ac280a30" prot="public" virt="non-virtual"><scope>hermes::outputs::Output</scope><name>outputName</name></member>
       <member refid="classhermes_1_1outputs_1_1Output_1a197ce849679c040045c08aba827a5b66" prot="public" virt="pure-virtual"><scope>hermes::outputs::Output</scope><name>writeColumn</name></member>
       <member refid="classhermes_1_1outputs_1_1Output_1a9a32074dee38a043b59277028ec0243a" prot="public" virt="pure-virtual"><scope>hermes::outputs::Output</scope><name>writeKeyValueAsDouble</name></member>
       <member refid="classhermes_1_1outputs_1_1Output_1a5867a322ec3f6cc1f4bc2d04d9b15b03" prot="public" virt="pure-virtual"><scope>hermes::outputs::Output</scope><name>writeKeyValueAsString</name></member>
-      <member refid="classhermes_1_1outputs_1_1Output_1a39bba0b5c89b1c3e6eae9a4e2546ebe2" prot="public" virt="pure-virtual"><scope>hermes::outputs::Output</scope><name>writeMetadata</name></member>
+      <member refid="classhermes_1_1outputs_1_1Output_1ac1d59d6a91842940bdb17bc85c6b33fa" prot="public" virt="pure-virtual"><scope>hermes::outputs::Output</scope><name>writeMetadata</name></member>
       <member refid="classhermes_1_1outputs_1_1Output_1a8c3620b32551505c8ee5ff51b59e57aa" prot="public" virt="virtual"><scope>hermes::outputs::Output</scope><name>~Output</name></member>
     </listofallmembers>
   </compounddef>

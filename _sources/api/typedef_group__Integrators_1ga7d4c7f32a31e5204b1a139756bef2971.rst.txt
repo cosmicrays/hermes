@@ -3,7 +3,7 @@
 Typedef hermes::RotationMeasureIntegratorTemplate
 =================================================
 
-- Defined in :ref:`file_include_hermes_integrators_RotationMeasureIntegrator.h`
+- Defined in :ref:`file_include_hermes_integrators_IntegratorTemplate.h`
 
 
 Typedef Documentation

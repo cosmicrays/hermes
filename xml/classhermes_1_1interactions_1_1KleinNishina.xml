@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1interactions_1_1KleinNishina" kind="class" language="C++" prot="public">
     <compoundname>hermes::interactions::KleinNishina</compoundname>
     <basecompoundref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" prot="public" virt="non-virtual">DifferentialCrossSection</basecompoundref>
-    <includes refid="KleinNishina_8h" local="no">include/hermes/interactions/KleinNishina.h</includes>
+    <includes refid="KleinNishina_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/KleinNishina.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classhermes_1_1interactions_1_1KleinNishina_1a8e80b03f8e2a5d30654b5e63d8b7a5cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

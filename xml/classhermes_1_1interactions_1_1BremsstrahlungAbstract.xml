@@ -5,7 +5,7 @@
     <basecompoundref refid="classhermes_1_1interactions_1_1DifferentialCrossSection" prot="public" virt="non-virtual">DifferentialCrossSection</basecompoundref>
     <derivedcompoundref refid="classhermes_1_1interactions_1_1BremsstrahlungGALPROP" prot="public" virt="non-virtual">BremsstrahlungGALPROP</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1interactions_1_1BremsstrahlungTsai74" prot="public" virt="non-virtual">BremsstrahlungTsai74</derivedcompoundref>
-    <includes refid="BremsstrahlungAbstract_8h" local="no">include/hermes/interactions/BremsstrahlungAbstract.h</includes>
+    <includes refid="BremsstrahlungAbstract_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/interactions/BremsstrahlungAbstract.h</includes>
       <sectiondef kind="public-type">
       <memberdef kind="enum" id="classhermes_1_1interactions_1_1BremsstrahlungAbstract_1a31488d29805a596498c0234ae392d35d" prot="public" static="no" strong="yes">
         <type></type>

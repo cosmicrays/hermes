@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1outputs_1_1HEALPixFormat" kind="class" language="C++" prot="public">
     <compoundname>hermes::outputs::HEALPixFormat</compoundname>
     <basecompoundref refid="classhermes_1_1outputs_1_1Output" prot="public" virt="non-virtual">Output</basecompoundref>
-    <includes refid="HEALPixFormat_8h" local="no">include/hermes/outputs/HEALPixFormat.h</includes>
+    <includes refid="HEALPixFormat_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/outputs/HEALPixFormat.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1outputs_1_1HEALPixFormat_1ae80f820219e45772366a2a68de6a54c4" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/outputs/HEALPixFormat.h" line="19" column="13" bodyfile="include/hermes/outputs/HEALPixFormat.h" bodystart="19" bodyend="-1"/>
+        <location file="include/hermes/outputs/HEALPixFormat.h" line="23" column="13" bodyfile="include/hermes/outputs/HEALPixFormat.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classhermes_1_1outputs_1_1HEALPixFormat_1a14a88cd00c024af930ea8ef3181519e8" prot="private" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="classhermes_1_1FITSFile" kindref="compound">FITSFile</ref> &gt;</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/outputs/HEALPixFormat.h" line="20" column="17" bodyfile="include/hermes/outputs/HEALPixFormat.h" bodystart="20" bodyend="-1"/>
+        <location file="include/hermes/outputs/HEALPixFormat.h" line="24" column="17" bodyfile="include/hermes/outputs/HEALPixFormat.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -45,10 +45,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Saves output to a <computeroutput>filename</computeroutput> </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/outputs/HEALPixFormat.h" line="23" column="1" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="10" bodyend="11"/>
+        <location file="include/hermes/outputs/HEALPixFormat.h" line="28" column="1" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="10" bodyend="11"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1outputs_1_1HEALPixFormat_1a61458d35718372f83cf5b7ba0a84700d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -59,35 +60,58 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>The primary header Outputs: SIMPLE = T / file does conform to <ref refid="namespacehermes_1_1FITS" kindref="compound">FITS</ref> standard BITPIX = 32 / number of bits per data pixel NAXIS = 0 / number of data axes EXTEND = T / <ref refid="namespacehermes_1_1FITS" kindref="compound">FITS</ref> dataset may contain extensions DATE = ’2099-12-31T23:59:59’ / file creation date (YYYY-MM-DDThh:mm:ss UT) END </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/outputs/HEALPixFormat.h" line="24" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="13" bodyend="24"/>
+        <location file="include/hermes/outputs/HEALPixFormat.h" line="38" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="13" bodyend="30"/>
       </memberdef>
-      <memberdef kind="function" id="classhermes_1_1outputs_1_1HEALPixFormat_1a4b0c15036210c1caf818142eb37e25dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classhermes_1_1outputs_1_1HEALPixFormat_1a9074662a80eda499c521d788aefaacdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void createTable</definition>
-        <argsstring>(int nrows) override</argsstring>
+        <argsstring>(int nrows, const std::string &amp;unit) override</argsstring>
         <name>createTable</name>
-        <reimplements refid="classhermes_1_1outputs_1_1Output_1afc8ad4c377ea07c438be54de3ff49b43">createTable</reimplements>
+        <reimplements refid="classhermes_1_1outputs_1_1Output_1a37940aa71d1dd19ea4e97d51d7d4922e">createTable</reimplements>
         <param>
           <type>int</type>
           <declname>nrows</declname>
         </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>Creates binary table <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nrows</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of rows in the table </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>unit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Physical unit of data in the table </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/outputs/HEALPixFormat.h" line="25" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="26" bodyend="36"/>
+        <location file="include/hermes/outputs/HEALPixFormat.h" line="43" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="32" bodyend="41"/>
       </memberdef>
-      <memberdef kind="function" id="classhermes_1_1outputs_1_1HEALPixFormat_1af5a20ebde208f18a0778bd0fb06f05b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classhermes_1_1outputs_1_1HEALPixFormat_1abe23858b3749d324e495900f8d75c7c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void writeMetadata</definition>
-        <argsstring>(int nside, double res, const std::string &amp;description) override</argsstring>
+        <argsstring>(int nside, double res, bool hasMask, const std::string &amp;description) override</argsstring>
         <name>writeMetadata</name>
-        <reimplements refid="classhermes_1_1outputs_1_1Output_1a39bba0b5c89b1c3e6eae9a4e2546ebe2">writeMetadata</reimplements>
+        <reimplements refid="classhermes_1_1outputs_1_1Output_1ac1d59d6a91842940bdb17bc85c6b33fa">writeMetadata</reimplements>
         <param>
           <type>int</type>
           <declname>nside</declname>
@@ -97,16 +121,21 @@
           <declname>res</declname>
         </param>
         <param>
+          <type>bool</type>
+          <declname>hasMask</declname>
+        </param>
+        <param>
           <type>const std::string &amp;</type>
           <declname>description</declname>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>The healpix HDU header PIXTYPE = &apos;HEALPIX&apos; / HEALPIX Pixelisation INDXSCHM= &apos;IMPLICIT&apos; / Indexing : IMPLICIT or EXPLICIT ORDERING= &apos;RING&apos; / Pixel ordering scheme NSIDE = 2^n / where n={0, 29} FIRSTPIX= 0 / First pixel LASTPIX = 12*nside^2-1 / Last pixel BAD_DATA= -1.6375000E+30 / Sentinel value given to missing or bad pixels COORDSYS= &apos;G&apos; / Pixelisation coordinate system, G = Galactic </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/outputs/HEALPixFormat.h" line="26" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="38" bodyend="57"/>
+        <location file="include/hermes/outputs/HEALPixFormat.h" line="54" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="43" bodyend="78"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1outputs_1_1HEALPixFormat_1ab431b68ab733306db0acb3a84ab1eb87" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -132,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/outputs/HEALPixFormat.h" line="28" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="59" bodyend="63"/>
+        <location file="include/hermes/outputs/HEALPixFormat.h" line="56" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="80" bodyend="84"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1outputs_1_1HEALPixFormat_1a94917b1b87df567a8147229a2001bdcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -158,7 +187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/outputs/HEALPixFormat.h" line="30" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="65" bodyend="70"/>
+        <location file="include/hermes/outputs/HEALPixFormat.h" line="58" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="86" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="classhermes_1_1outputs_1_1HEALPixFormat_1a88c509805ae7b06a0f75c18628c5aa4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -180,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/outputs/HEALPixFormat.h" line="32" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="72" bodyend="74"/>
+        <location file="include/hermes/outputs/HEALPixFormat.h" line="60" column="6" bodyfile="src/outputs/HEALPixFormat.cpp" bodystart="93" bodyend="95"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -237,9 +266,9 @@
         <label>basic_string&lt; char &gt;</label>
       </node>
     </collaborationgraph>
-    <location file="include/hermes/outputs/HEALPixFormat.h" line="17" column="34" bodyfile="include/hermes/outputs/HEALPixFormat.h" bodystart="17" bodyend="33"/>
+    <location file="include/hermes/outputs/HEALPixFormat.h" line="21" column="34" bodyfile="include/hermes/outputs/HEALPixFormat.h" bodystart="21" bodyend="61"/>
     <listofallmembers>
-      <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a4b0c15036210c1caf818142eb37e25dd" prot="public" virt="virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>createTable</name></member>
+      <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a9074662a80eda499c521d788aefaacdb" prot="public" virt="virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>createTable</name></member>
       <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a14a88cd00c024af930ea8ef3181519e8" prot="private" virt="non-virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>ffile</name></member>
       <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1ae80f820219e45772366a2a68de6a54c4" prot="private" virt="non-virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>filename</name></member>
       <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a4baee7ad3d2f52b3ef699df8c5bef3b2" prot="public" virt="non-virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>HEALPixFormat</name></member>
@@ -249,7 +278,7 @@
       <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a88c509805ae7b06a0f75c18628c5aa4c" prot="public" virt="virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>writeColumn</name></member>
       <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1ab431b68ab733306db0acb3a84ab1eb87" prot="public" virt="virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>writeKeyValueAsDouble</name></member>
       <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1a94917b1b87df567a8147229a2001bdcd" prot="public" virt="virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>writeKeyValueAsString</name></member>
-      <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1af5a20ebde208f18a0778bd0fb06f05b3" prot="public" virt="virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>writeMetadata</name></member>
+      <member refid="classhermes_1_1outputs_1_1HEALPixFormat_1abe23858b3749d324e495900f8d75c7c7" prot="public" virt="virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>writeMetadata</name></member>
       <member refid="classhermes_1_1outputs_1_1Output_1a8c3620b32551505c8ee5ff51b59e57aa" prot="public" virt="virtual"><scope>hermes::outputs::HEALPixFormat</scope><name>~Output</name></member>
     </listofallmembers>
   </compounddef>

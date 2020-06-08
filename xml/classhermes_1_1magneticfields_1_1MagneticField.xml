@@ -13,7 +13,7 @@
     <derivedcompoundref refid="classhermes_1_1magneticfields_1_1TorroidalHaloField" prot="public" virt="non-virtual">TorroidalHaloField</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1magneticfields_1_1UniformMagneticField" prot="public" virt="non-virtual">UniformMagneticField</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1magneticfields_1_1WMAP07Field" prot="public" virt="non-virtual">WMAP07Field</derivedcompoundref>
-    <includes refid="MagneticField_8h" local="no">include/hermes/magneticfields/MagneticField.h</includes>
+    <includes refid="MagneticField_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/magneticfields/MagneticField.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classhermes_1_1magneticfields_1_1MagneticField_1a90c4d0bc32663120700742b3b09104cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type></type>

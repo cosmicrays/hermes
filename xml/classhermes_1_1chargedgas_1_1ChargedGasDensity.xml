@@ -5,7 +5,7 @@
     <derivedcompoundref refid="classhermes_1_1chargedgas_1_1HII__Cordes91" prot="public" virt="non-virtual">HII_Cordes91</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1chargedgas_1_1NE2001Simple" prot="public" virt="non-virtual">NE2001Simple</derivedcompoundref>
     <derivedcompoundref refid="classhermes_1_1chargedgas_1_1YMW16" prot="public" virt="non-virtual">YMW16</derivedcompoundref>
-    <includes refid="ChargedGasDensity_8h" local="no">include/hermes/chargedgas/ChargedGasDensity.h</includes>
+    <includes refid="ChargedGasDensity_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/chargedgas/ChargedGasDensity.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="classhermes_1_1chargedgas_1_1ChargedGasDensity_1a5e9d7b5e28dba6845c36818c59e3d709" prot="private" static="no" mutable="no">
         <type><ref refid="namespacehermes_1_1units_1afc7955aa972e295d1538348d16e11537" kindref="member">QTemperature</ref></type>

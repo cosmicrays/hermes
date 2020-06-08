@@ -44,10 +44,3 @@ Classes
 
 - :ref:`exhale_class_classhermes_1_1neutralgas_1_1RingModel`
 
-
-Enums
------
-
-
-- :ref:`exhale_enum_group__NeutralGas_1ga6e6e8dec15851f2136618b418cf844f7`
-

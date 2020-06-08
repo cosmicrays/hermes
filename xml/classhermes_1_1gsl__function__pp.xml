@@ -3,7 +3,7 @@
   <compounddef id="classhermes_1_1gsl__function__pp" kind="class" language="C++" prot="public">
     <compoundname>hermes::gsl_function_pp</compoundname>
     <basecompoundref prot="public" virt="non-virtual">gsl_function</basecompoundref>
-    <includes refid="Common_8h" local="no">include/hermes/Common.h</includes>
+    <includes refid="Common_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/Common.h</includes>
     <templateparamlist>
       <param>
         <type>typename F</type>

@@ -41,5 +41,6 @@ Files
 - :ref:`file_include_hermes_Signals.h`
 - :ref:`file_include_hermes_Vector3.h`
 - :ref:`file_include_hermes_Vector3Quantity.h`
+- :ref:`file_include_hermes_Version.h`
 
 

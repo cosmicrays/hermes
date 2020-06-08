@@ -1,0 +1,13 @@
+.. _exhale_enum_group__NeutralGas_1ga7e38bc064644049cbee1c0882141a32c:
+
+Enum GasType
+============
+
+- Defined in :ref:`file_include_hermes_neutralgas_GasType.h`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: hermes::neutralgas::GasType

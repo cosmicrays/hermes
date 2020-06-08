@@ -109,10 +109,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8c3620b32551505c8ee5ff51b59e57aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd22c0c243cb60dba6e0b186852a8498"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1Output.html#abd22c0c243cb60dba6e0b186852a8498">initOutput</a> ()=0</td></tr>
 <tr class="separator:abd22c0c243cb60dba6e0b186852a8498"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc8ad4c377ea07c438be54de3ff49b43"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1Output.html#afc8ad4c377ea07c438be54de3ff49b43">createTable</a> (int)=0</td></tr>
-<tr class="separator:afc8ad4c377ea07c438be54de3ff49b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39bba0b5c89b1c3e6eae9a4e2546ebe2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1Output.html#a39bba0b5c89b1c3e6eae9a4e2546ebe2">writeMetadata</a> (int, double, const std::string &amp;)=0</td></tr>
-<tr class="separator:a39bba0b5c89b1c3e6eae9a4e2546ebe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37940aa71d1dd19ea4e97d51d7d4922e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1Output.html#a37940aa71d1dd19ea4e97d51d7d4922e">createTable</a> (int, const std::string &amp;)=0</td></tr>
+<tr class="separator:a37940aa71d1dd19ea4e97d51d7d4922e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1d59d6a91842940bdb17bc85c6b33fa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1Output.html#ac1d59d6a91842940bdb17bc85c6b33fa">writeMetadata</a> (int, double, bool, const std::string &amp;)=0</td></tr>
+<tr class="separator:ac1d59d6a91842940bdb17bc85c6b33fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a32074dee38a043b59277028ec0243a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1Output.html#a9a32074dee38a043b59277028ec0243a">writeKeyValueAsDouble</a> (const std::string &amp;key, double value, const std::string &amp;description)=0</td></tr>
 <tr class="separator:a9a32074dee38a043b59277028ec0243a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5867a322ec3f6cc1f4bc2d04d9b15b03"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhermes_1_1outputs_1_1Output.html#a5867a322ec3f6cc1f4bc2d04d9b15b03">writeKeyValueAsString</a> (const std::string &amp;key, const std::string &amp;value, const std::string &amp;description)=0</td></tr>
@@ -184,8 +184,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="afc8ad4c377ea07c438be54de3ff49b43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc8ad4c377ea07c438be54de3ff49b43">&#9670;&nbsp;</a></span>createTable()</h2>
+<a id="a37940aa71d1dd19ea4e97d51d7d4922e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37940aa71d1dd19ea4e97d51d7d4922e">&#9670;&nbsp;</a></span>createTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,8 +197,18 @@ Public Attributes</h2></td></tr>
           <td class="memname">virtual void createTable </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -208,7 +218,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#a4b0c15036210c1caf818142eb37e25dd">HEALPixFormat</a>.</p>
+<p>Implemented in <a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#a9074662a80eda499c521d788aefaacdb">HEALPixFormat</a>.</p>
 
 </div>
 </div>
@@ -365,8 +375,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a39bba0b5c89b1c3e6eae9a4e2546ebe2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39bba0b5c89b1c3e6eae9a4e2546ebe2">&#9670;&nbsp;</a></span>writeMetadata()</h2>
+<a id="ac1d59d6a91842940bdb17bc85c6b33fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1d59d6a91842940bdb17bc85c6b33fa">&#9670;&nbsp;</a></span>writeMetadata()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -389,6 +399,12 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
@@ -405,7 +421,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#af5a20ebde208f18a0778bd0fb06f05b3">HEALPixFormat</a>.</p>
+<p>Implemented in <a class="el" href="classhermes_1_1outputs_1_1HEALPixFormat.html#abe23858b3749d324e495900f8d75c7c7">HEALPixFormat</a>.</p>
 
 </div>
 </div>
@@ -432,7 +448,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 26 2020 17:19:18 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2020 12:31:20 for HERMES by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

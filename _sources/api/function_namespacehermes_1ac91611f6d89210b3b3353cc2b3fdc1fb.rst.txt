@@ -1,0 +1,13 @@
+.. _exhale_function_namespacehermes_1ac91611f6d89210b3b3353cc2b3fdc1fb:
+
+Function hermes::distanceToGalBorder
+====================================
+
+- Defined in :ref:`file_src_Common.cpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: hermes::distanceToGalBorder(const Vector3QLength&, const QDirection&, const QLength&, const QLength&)

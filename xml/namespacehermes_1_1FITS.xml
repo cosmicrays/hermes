@@ -135,6 +135,14 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
+        <enumvalue id="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8a23ddd25249440498ea755b1afacbc782" prot="public">
+          <name>IMGLONG</name>
+          <initializer>= LONG_IMG</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
         <enumvalue id="namespacehermes_1_1FITS_1a39bee33e1fd856a194ce551099db32e8ab3c073d0c0188fa728bbcfba32b6fb79" prot="public">
           <name>IMGFLOAT</name>
           <initializer>= FLOAT_IMG</initializer>
@@ -157,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/hermes/FITSWrapper.h" line="26" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="26" bodyend="31"/>
+        <location file="include/hermes/FITSWrapper.h" line="26" column="13" bodyfile="include/hermes/FITSWrapper.h" bodystart="26" bodyend="32"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

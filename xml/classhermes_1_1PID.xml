@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classhermes_1_1PID" kind="class" language="C++" prot="public">
     <compoundname>hermes::PID</compoundname>
-    <includes refid="ParticleID_8h" local="no">include/hermes/ParticleID.h</includes>
+    <includes refid="ParticleID_8h" local="no">/home/andy/Projects/category_science/hermes/include/hermes/ParticleID.h</includes>
       <sectiondef kind="protected-attrib">
       <memberdef kind="variable" id="classhermes_1_1PID_1a5ed5bfe6933ed8cba853237650cc041b" prot="protected" static="no" mutable="no">
         <type>int</type>

@@ -1,4 +1,4 @@
 <map id="RotationMeasureIntegrator" name="RotationMeasureIntegrator">
-<area shape="rect" id="node1" title=" " alt="" coords="5,109,203,136"/>
+<area shape="rect" id="node1" title="Calculates rotation measure (RM) over the LOS." alt="" coords="5,109,203,136"/>
 <area shape="rect" id="node2" href="$group__Integrators.html" title=" " alt="" coords="23,5,185,61"/>
 </map>
