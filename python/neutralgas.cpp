@@ -1,8 +1,8 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
-#include "hermes/neutralgas/NeutralGasAbstract.h"
 #include "hermes/neutralgas/GasType.h"
+#include "hermes/neutralgas/NeutralGasAbstract.h"
 #include "hermes/neutralgas/RingModel.h"
 
 namespace py = pybind11;
@@ -19,14 +19,14 @@ void init(py::module &m) {
 
 	// neutral gas density models
 	py::class_<RingData, std::shared_ptr<RingData>>(subm, "RingData")
-		.def(py::init<GasType>())
-		.def("getHIColumnDensityInRing", &RingData::getHIColumnDensityInRing)
-		.def("getCOIntensityInRing", &RingData::getCOIntensityInRing);
+	    .def(py::init<GasType>())
+	    .def("getHIColumnDensityInRing", &RingData::getHIColumnDensityInRing)
+	    .def("getCOIntensityInRing", &RingData::getCOIntensityInRing);
 	py::class_<Ring, std::shared_ptr<Ring>>(subm, "Ring")
-		.def("getBoundaries", &Ring::getBoundaries)
-		.def("isInside", &Ring::isInside)
-		.def("getHIColumnDensity", &Ring::getHIColumnDensity)
-		.def("getH2ColumnDensity", &Ring::getH2ColumnDensity);
+	    .def("getBoundaries", &Ring::getBoundaries)
+	    .def("isInside", &Ring::isInside)
+	    .def("getHIColumnDensity", &Ring::getHIColumnDensity)
+	    .def("getH2ColumnDensity", &Ring::getH2ColumnDensity);
 	// NOLINTNEXTLINE(bugprone-unused-raii)
 	py::class_<NeutralGasAbstract, std::shared_ptr<NeutralGasAbstract>>(
 	    subm, "NeutralGasAbstract");

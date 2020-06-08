@@ -59,7 +59,7 @@ void RadioSkymapRange::save(
 		int npix = static_cast<int>((it)->getNpix());
 
 		output->createTable(npix, it->getOutputUnitsAsString());
-		output->writeMetadata(it->getNside(), it->getRes(),
+		output->writeMetadata(it->getNside(), it->getRes(), it->hasMask(),
 		                      it->getDescription());
 		output->writeKeyValueAsDouble(
 		    std::string("FREQ"), static_cast<double>(it->getFrequency()),

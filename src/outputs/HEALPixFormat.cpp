@@ -21,9 +21,10 @@ void HEALPixFormat::initOutput() {
 
 	ffile->createImage(FITS::IMGLONG, 0, nullnaxes);
 	ffile->writeDate();
-	
+
 	auto createdby = FITSKeyValue("SOFTWARE", "HERMES");
-	ffile->writeKeyValue(createdby, "Created by Hermes, cosmicrays.github.io/hermes");
+	ffile->writeKeyValue(createdby,
+	                     "Created by Hermes, cosmicrays.github.io/hermes");
 	auto version = FITSKeyValue("VERSION", g_GIT_DESC);
 	ffile->writeKeyValue(version, "Hermes ver. [GIT_DESC]");
 }
@@ -39,7 +40,7 @@ void HEALPixFormat::createTable(int nrows, const std::string &unit) {
 	                   extname);
 }
 
-void HEALPixFormat::writeMetadata(int nside, double res,
+void HEALPixFormat::writeMetadata(int nside, double res, bool hasMask,
                                   const std::string &description) {
 	auto str_type = FITSKeyValue("PIXTYPE", "HEALPIX");
 	ffile->writeKeyValue(str_type, "HEALPIX Pixelisation");
@@ -47,12 +48,14 @@ void HEALPixFormat::writeMetadata(int nside, double res,
 	ffile->writeKeyValue(indx_str, "Indexing: IMPLICIT or EXPLICIT");
 	auto firstpix = FITSKeyValue("FIRSTPIX", 0);
 	ffile->writeKeyValue(firstpix, "Lowest pixel index present");
-	auto lastpix = FITSKeyValue("LASTPIX", static_cast<long int>(nside2npix(nside) - 1));
+	auto lastpix =
+	    FITSKeyValue("LASTPIX", static_cast<long int>(nside2npix(nside) - 1));
 	ffile->writeKeyValue(lastpix, "Highest pixel index present");
 	auto ext_str = FITSKeyValue("EXTNAME", "xtension");
 	ffile->writeKeyValue(ext_str, "Name of this binary table extension");
 	auto bad_data = FITSKeyValue("BAD_DATA", UNSEEN);
-	ffile->writeKeyValue(bad_data, "Sentinel value given to missing or bad pixels");
+	ffile->writeKeyValue(bad_data,
+	                     "Sentinel value given to missing or bad pixels");
 	auto ordering = FITSKeyValue("ORDERING", "RING    ");
 	ffile->writeKeyValue(ordering,
 	                     "Pixel ordering scheme, either RING or NESTED");
@@ -63,10 +66,15 @@ void HEALPixFormat::writeMetadata(int nside, double res,
 	ffile->writeKeyValue(f_nside, "Resolution parameter for HEALPIX");
 	auto f_res = FITSKeyValue("RES", res);
 	ffile->writeKeyValue(f_res, "Resolution of map");
-	auto object = FITSKeyValue("OBJECT", "FULLSKY");
+	char skycoverage[8];
+	if (hasMask)
+		strcpy(skycoverage, "PARTIAL\0");
+	else
+		strcpy(skycoverage, "FULLSKY\0");
+	auto object = FITSKeyValue("OBJECT", skycoverage);
 	ffile->writeKeyValue(object, "Sky coverage, either FULLSKY or PARTIAL");
 	auto process = FITSKeyValue("PROCESS", description.c_str());
-	ffile->writeKeyValue(process, NULL);
+	ffile->writeKeyValue(process, "Physical process / Integrator used");
 }
 
 void HEALPixFormat::writeKeyValueAsDouble(const std::string &key, double value,

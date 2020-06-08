@@ -8,7 +8,7 @@
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/skymaps/DispersionMeasureSkymap.h"
 
-/** \file DispersionMeasureIntegrator.h 
+/** \file DispersionMeasureIntegrator.h
  *  Declares DispersionMeasureIntegrator
  */
 
@@ -22,7 +22,8 @@ namespace hermes {
  * \class DispersionMeasureIntegrator
  * \brief Calculates dispersion measure (DM) over the LOS
  *
- * The integrators depends only on a charged gas density model, such as chargedgas::YMW16
+ * The integrators depends only on a charged gas density model, such as
+ * chargedgas::YMW16
  */
 class DispersionMeasureIntegrator : public DispersionMeasureIntegratorTemplate {
   private:
@@ -40,7 +41,8 @@ class DispersionMeasureIntegrator : public DispersionMeasureIntegratorTemplate {
 		return QDispersionMeasure(0);
 	}
 
-	tLOSProfile getLOSProfile(const QDirection &direction, int Nsteps) const override;
+	tLOSProfile getLOSProfile(const QDirection &direction,
+	                          int Nsteps) const override;
 };
 
 /** @}*/

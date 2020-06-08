@@ -58,8 +58,9 @@ class InverseComptonIntegrator : public GammaIntegratorTemplate {
 
 	void setupCacheTable(int N_x, int N_y, int N_z) override;
 	void initCacheTable() override;
-	
-	tLOSProfile getLOSProfile(const QDirection &direction, const QEnergy &Egamma, int Nsteps) const override;
+
+	tLOSProfile getLOSProfile(const QDirection &direction,
+	                          const QEnergy &Egamma, int Nsteps) const override;
 };
 
 /** @}*/

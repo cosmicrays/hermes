@@ -45,6 +45,7 @@ void declare_default_skymap_methods(py::class_<SKYMAP> c) {
 	c.def("computePixelRange", &SKYMAP::computePixelRange);
 	c.def("getPixel", &SKYMAP::getPixel);
 	c.def("getMean", &SKYMAP::getMean);
+	c.def("hasMask", &SKYMAP::hasMask);
 	c.def("save", &SKYMAP::save);
 	c.def("__getitem__", [](const SKYMAP &s, std::size_t i) -> QPXL {
 		if (i >= s.size()) throw py::index_error();

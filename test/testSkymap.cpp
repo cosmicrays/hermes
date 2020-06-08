@@ -8,7 +8,7 @@ typedef IntegratorTemplate<QNumber, QFrequency> SimpleIntegrator;
 
 class DummyIntegrator : public SimpleIntegrator {
   public:
-	DummyIntegrator() : SimpleIntegrator("DummyIntegrator") {};
+	DummyIntegrator() : SimpleIntegrator("DummyIntegrator"){};
 	~DummyIntegrator(){};
 	QNumber integrateOverLOS(const QDirection &direction) const override {
 		QDirection galacticCentre = {90_deg, 0};
@@ -21,8 +21,9 @@ class DummyIntegrator : public SimpleIntegrator {
 	                         const QFrequency &f) const override {
 		return QNumber(0);
 	}
-	
-	tLOSProfile getLOSProfile(const QDirection &direction, int Nsteps) const override {
+
+	tLOSProfile getLOSProfile(const QDirection &direction,
+	                          int Nsteps) const override {
 		return tLOSProfile();
 	}
 };
@@ -48,6 +49,7 @@ TEST(Skymap, sizeCheck) {
 	// skymap->size() << std::endl;
 
 	EXPECT_EQ(skymap->size(), 12 * 256 * 256);
+	EXPECT_EQ(skymap->getNpix(), skymap->size());
 }
 
 TEST(Skymap, computePixel) {
@@ -74,7 +76,7 @@ TEST(SkymapMask, RectangularWindow) {
 	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
 	auto integrator = std::make_shared<DummyIntegrator>(DummyIntegrator());
 	skymap->setIntegrator(integrator);
-	
+
 	EXPECT_FALSE(skymap->hasMask());
 
 	auto GC_mask = std::make_shared<RectangularWindow>(

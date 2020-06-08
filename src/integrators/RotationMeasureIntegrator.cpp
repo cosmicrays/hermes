@@ -7,7 +7,9 @@ namespace hermes {
 RotationMeasureIntegrator::RotationMeasureIntegrator(
     const std::shared_ptr<magneticfields::MagneticField>& mfield,
     const std::shared_ptr<chargedgas::ChargedGasDensity>& gdensity)
-    : RotationMeasureIntegratorTemplate("RotationMeasure"), mfield(mfield), gdensity(gdensity) {}
+    : RotationMeasureIntegratorTemplate("RotationMeasure"),
+      mfield(mfield),
+      gdensity(gdensity) {}
 
 RotationMeasureIntegrator::~RotationMeasureIntegrator() {}
 

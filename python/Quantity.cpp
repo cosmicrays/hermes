@@ -168,7 +168,7 @@ void init_quantity(py::module &m) {
 	declare_quantity<QICInnerIntegral>(m, "QICInnerIntegral", "m^-3 kg^-1 s^2",
 	                                   apyu);
 	declare_quantity<QInverseEnergy>(m, "QInverseEnergy", "J^-1", apyu);
-	// declare_quantity<QColumnDensity>(m, "QColumnDensity", "m^-2", apyu); 
+	// declare_quantity<QColumnDensity>(m, "QColumnDensity", "m^-2", apyu);
 	declare_quantity<QRingCOIntensity>(m, "QRingCOIntensity", "m s^-1 K", apyu);
 }
 

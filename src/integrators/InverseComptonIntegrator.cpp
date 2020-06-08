@@ -172,10 +172,8 @@ QICInnerIntegral InverseComptonIntegrator::integrateOverPhotonEnergy(
 	return integral;
 }
 
-InverseComptonIntegrator::tLOSProfile
-InverseComptonIntegrator::getLOSProfile(const QDirection &direction,
-										const QEnergy &Egamma,
-                                        int Nsteps) const {
+InverseComptonIntegrator::tLOSProfile InverseComptonIntegrator::getLOSProfile(
+    const QDirection &direction, const QEnergy &Egamma, int Nsteps) const {
 	auto integrand = [this, direction, Egamma](const QLength &dist) {
 		return this->integrateOverEnergy(
 		    getGalacticPosition(getSunPosition(), dist, direction), Egamma);

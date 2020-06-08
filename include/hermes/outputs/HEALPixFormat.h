@@ -28,12 +28,12 @@ class HEALPixFormat : public Output {
 	HEALPixFormat(const std::string &filename);
 	/** The primary header
 	 Outputs:
-     SIMPLE =  T / file does conform to FITS standard
+	 SIMPLE =  T / file does conform to FITS standard
 	 BITPIX = 32 / number of bits per data pixel
 	 NAXIS  =  0 / number of data axes
 	 EXTEND =  T / FITS dataset may contain extensions
-	 DATE   = ’2099-12-31T23:59:59’ / file creation date (YYYY-MM-DDThh:mm:ss UT)
-	 END
+	 DATE   = ’2099-12-31T23:59:59’ / file creation date (YYYY-MM-DDThh:mm:ss
+	 UT) END
 	*/
 	void initOutput() override;
 	/** Creates binary table
@@ -49,9 +49,9 @@ class HEALPixFormat : public Output {
 	 FIRSTPIX= 0 / First pixel
 	 LASTPIX = 12*nside^2-1 / Last pixel
 	 BAD_DATA= -1.6375000E+30 / Sentinel value given to missing or bad pixels
-	 COORDSYS= 'G' / Pixelisation coordinate system, G = Galactic 
+	 COORDSYS= 'G' / Pixelisation coordinate system, G = Galactic
 	*/
-	void writeMetadata(int nside, double res,
+	void writeMetadata(int nside, double res, bool hasMask,
 	                   const std::string &description) override;
 	void writeKeyValueAsDouble(const std::string &key, double value,
 	                           const std::string &description) override;

@@ -11,14 +11,14 @@ namespace hermes { namespace neutralgas {
 
 class Nakanishi06 : public ProfileAbstract {
   private:
-
   public:
 	Nakanishi06();
 	~Nakanishi06();
 
 	QPDensity getHIDensity(const Vector3QLength &pos) const;
 	QPDensity getH2Density(const Vector3QLength &pos) const;
-	QPDensity getPDensity(GasType gas, const Vector3QLength &pos) const override;
+	QPDensity getPDensity(GasType gas,
+	                      const Vector3QLength &pos) const override;
 };
 
 /** @}*/

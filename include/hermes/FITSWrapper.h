@@ -24,10 +24,10 @@ enum DataType {
 enum IOMode { READ = READONLY, WRITE = READWRITE };
 enum HDUType { IMAGE = IMAGE_HDU, ASCII = ASCII_TBL, BINARY = BINARY_TBL };
 enum ImgType {
-	IMGBYTE = BYTE_IMG, /*  8-bit unsigned integers */
-	IMGSHORT = SHORT_IMG, /* 16-bit   signed integers */
-	IMGLONG = LONG_IMG, /* 32-bit   signed integers */
-	IMGFLOAT = FLOAT_IMG, /* 32-bit single precision floating point */
+	IMGBYTE = BYTE_IMG,    /*  8-bit unsigned integers */
+	IMGSHORT = SHORT_IMG,  /* 16-bit   signed integers */
+	IMGLONG = LONG_IMG,    /* 32-bit   signed integers */
+	IMGFLOAT = FLOAT_IMG,  /* 32-bit single precision floating point */
 	IMGDOUBLE = DOUBLE_IMG /* 64-bit double precision floating point */
 };
 }  // namespace FITS

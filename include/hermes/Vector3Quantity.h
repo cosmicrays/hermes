@@ -309,12 +309,6 @@ class Vector3Quantity : public Vector3<T> {
 		this->z = f;
 		return *this;
 	}
-
-	//TODO(adundovi): check if this is necessary	
-	/*operator Vector3d() const {
-		return Vector3d(static_cast<double>(this->x),
-						static_cast<double>(this->y),
-						static_cast<double>(this->x)); }*/
 };
 
 template <typename T, typename Q>

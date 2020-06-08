@@ -10,9 +10,9 @@
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/interactions/DiffCrossSection.h"
-#include "hermes/neutralgas/RingModel.h"
-#include "hermes/neutralgas/ProfileAbstract.h"
 #include "hermes/neutralgas/Nakanishi06.h"
+#include "hermes/neutralgas/ProfileAbstract.h"
+#include "hermes/neutralgas/RingModel.h"
 
 namespace hermes {
 /**

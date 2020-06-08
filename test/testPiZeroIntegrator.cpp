@@ -41,9 +41,9 @@ class TestCRDensity : public cosmicrays::CosmicRayDensity {
 TEST(PiZeroIntegrator, integrateOverEnergy) {
 	auto cr_proton = std::make_shared<cosmicrays::SimpleCRDensity>(
 	    cosmicrays::SimpleCRDensity());
-    //std::vector<PID> particletypes = {Proton};
-    //auto cr_proton = std::make_shared<cosmicrays::Dragon2D>(
-    //    cosmicrays::Dragon2D(particletypes));
+	// std::vector<PID> particletypes = {Proton};
+	// auto cr_proton = std::make_shared<cosmicrays::Dragon2D>(
+	//    cosmicrays::Dragon2D(particletypes));
 
 	// interaction
 	auto kamae = std::make_shared<interactions::Kamae06Gamma>(
@@ -55,17 +55,20 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 	auto intPiZero = std::make_shared<PiZeroIntegrator>(
 	    PiZeroIntegrator(cr_proton, ringModel, kamae));
 
-	auto res = intPiZero->integrateOverEnergy(Vector3QLength(1_kpc, 0, 0), 10_TeV);
+	auto res =
+	    intPiZero->integrateOverEnergy(Vector3QLength(1_kpc, 0, 0), 10_TeV);
 
 	EXPECT_NEAR(static_cast<double>(res), 5.7647e-33, 1e-35);
 
-	// test cache	
+	// test cache
 	intPiZero->setupCacheTable(50, 50, 10);
 	intPiZero->initCacheTable();
-	auto res_cache = intPiZero->integrateOverEnergy(Vector3QLength(1_kpc, 0, 0), 10_TeV);
+	auto res_cache =
+	    intPiZero->integrateOverEnergy(Vector3QLength(1_kpc, 0, 0), 10_TeV);
 
-	//EXPECT_GT(static_cast<double>(res_cache), 0);
-	//EXPECT_NEAR(static_cast<double>(res), static_cast<double>(res_cache), 1e-36);
+	// EXPECT_GT(static_cast<double>(res_cache), 0);
+	// EXPECT_NEAR(static_cast<double>(res), static_cast<double>(res_cache),
+	// 1e-36);
 }
 
 TEST(PiZeroIntegrator, ChannelsRatio) {

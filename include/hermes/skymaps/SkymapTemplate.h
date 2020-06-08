@@ -76,18 +76,37 @@ class SkymapTemplate : public Skymap {
 	    Getter for the skymap parameter
 	*/
 	QSTEP setSkymapParameter() const { return skymapParameter; }
-
+	/**
+	    Size of the skymap container (same as getNPix())
+	*/
 	std::size_t size() const;
+	/**
+	    Calculate the total number of unmasked pixels
+	*/
 	std::size_t getUnmaskedPixelCount() const;
 	QPXL getPixel(std::size_t ipix) const;
-	double getPixelAsDouble(std::size_t i) const;
-	QPXL getMean() const;
-	bool hasMask() const;
-	QPXL operator[](std::size_t ipix) const;
-	QPXL *data() { return fluxContainer.data(); }
-
 	/**
- 		Set the line of sight integrator
+	    Retrieve ith (\t ipix) pixel as naked double
+	*/
+	double getPixelAsDouble(std::size_t i) const;
+	/**
+	    Calculate the mean value of unmasked pixels
+	*/
+	QPXL getMean() const;
+	/**
+	    Checks if the skymap is masked
+	*/
+	bool hasMask() const;
+	/**
+	    Pixel accessor [] (same as getPixel)
+	*/
+	QPXL operator[](std::size_t ipix) const;
+	/**
+	    Returns a pointer to the pixel container
+	*/
+	QPXL *data() { return fluxContainer.data(); }
+	/**
+	    Set the line of sight integrator
 	*/
 	void setIntegrator(
 	    std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> integrator_);
@@ -212,10 +231,10 @@ QPXL SkymapTemplate<QPXL, QSTEP>::getMean() const {
 
 template <typename QPXL, typename QSTEP>
 bool SkymapTemplate<QPXL, QSTEP>::hasMask() const {
-    if (getUnmaskedPixelCount() < getNpix()) {
+	if (getUnmaskedPixelCount() < getNpix()) {
 		return true;
 	}
-    return false;
+	return false;
 }
 
 template <typename QPXL, typename QSTEP>
@@ -350,7 +369,7 @@ void SkymapTemplate<QPXL, QSTEP>::save(
     std::shared_ptr<outputs::Output> output) const {
 	output->initOutput();
 	output->createTable(static_cast<int>(npix), getOutputUnitsAsString());
-	output->writeMetadata(nside, res, description);
+	output->writeMetadata(nside, res, hasMask(), description);
 	auto tempArray = containerToRawVector();
 	output->writeColumn(npix, tempArray.data());
 }

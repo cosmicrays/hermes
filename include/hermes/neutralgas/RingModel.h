@@ -10,8 +10,8 @@
 #include "hermes/Grid.h"
 #include "hermes/ParticleID.h"
 #include "hermes/Units.h"
-#include "hermes/neutralgas/NeutralGasAbstract.h"
 #include "hermes/neutralgas/GasType.h"
+#include "hermes/neutralgas/NeutralGasAbstract.h"
 
 namespace hermes { namespace neutralgas {
 /**

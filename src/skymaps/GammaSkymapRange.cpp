@@ -62,7 +62,7 @@ void GammaSkymapRange::save(
 		int npix = static_cast<int>((it)->getNpix());
 
 		output->createTable(npix, it->getOutputUnitsAsString());
-		output->writeMetadata(it->getNside(), it->getRes(),
+		output->writeMetadata(it->getNside(), it->getRes(), it->hasMask(),
 		                      it->getDescription());
 		output->writeKeyValueAsDouble(std::string("ENERGY"),
 		                              static_cast<double>(it->getEnergy()),

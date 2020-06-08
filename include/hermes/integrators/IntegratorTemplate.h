@@ -46,18 +46,16 @@ class IntegratorTemplate {
 	    : positionSun(Vector3QLength(8.5_kpc, 0, 0)),
 	      cacheEnabled(false),
 	      cacheTableInitialized(false),
-		  description(description){};
+	      description(description){};
 	virtual ~IntegratorTemplate() {}
-	
+
 	/** Get Description of the integrator */
-	std::string getDescription() const {
-		return description;
-	}
+	std::string getDescription() const { return description; }
 	/** Set Description of the integrator */
 	void setDescription(const std::string &description) {
 		this->description = description;
 	}
-	
+
 	/**
 	    Setter for the skymap parameter
 	    (requires for the cacheTable, if enabled, to be re-initialized)
@@ -113,7 +111,7 @@ class IntegratorTemplate {
 	virtual void initCacheTable(){};
 	bool isCacheTableEnabled() const { return cacheEnabled; };
 	bool isCacheTableInitialized() const { return cacheTableInitialized; };
-	
+
 	/**
 	   Get the line of sight profile (integrand of integrateOverLOS) of
 	   a direction where N is equidistant number of steps from the Sun's
@@ -123,10 +121,10 @@ class IntegratorTemplate {
 	virtual tLOSProfile getLOSProfile(const QDirection &dir, int Nsteps) const {
 		return tLOSProfile();
 	}
-	virtual tLOSProfile getLOSProfile(const QDirection &dir, const QSTEP &, int Nsteps) const {
+	virtual tLOSProfile getLOSProfile(const QDirection &dir, const QSTEP &,
+	                                  int Nsteps) const {
 		return tLOSProfile();
 	}
-	
 };
 
 typedef IntegratorTemplate<QDispersionMeasure, QNumber>
@@ -135,7 +133,6 @@ typedef IntegratorTemplate<QRotationMeasure, QNumber>
     RotationMeasureIntegratorTemplate;
 typedef IntegratorTemplate<QTemperature, QFrequency> RadioIntegratorTemplate;
 typedef IntegratorTemplate<QDiffIntensity, QEnergy> GammaIntegratorTemplate;
-
 
 /** @}*/
 }  // namespace hermes

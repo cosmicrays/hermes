@@ -109,16 +109,13 @@ QColumnDensity Ring::getH2ColumnDensity(const QDirection &dir_) const {
 }
 
 QColumnDensity Ring::getColumnDensity(const QDirection &dir_) const {
-	if (getGasType() == GasType::HI)
-		return getHIColumnDensity(dir_);
-	if (getGasType() == GasType::H2)
-		return getH2ColumnDensity(dir_);
+	if (getGasType() == GasType::HI) return getHIColumnDensity(dir_);
+	if (getGasType() == GasType::H2) return getH2ColumnDensity(dir_);
 	return QColumnDensity(0);
 }
 
 RingModel::RingModel(GasType gas)
-    : NeutralGasAbstract(),
-	dataPtr(std::make_shared<RingData>(RingData(gas))) {
+    : NeutralGasAbstract(), dataPtr(std::make_shared<RingData>(RingData(gas))) {
 	std::fill(enabledRings.begin(), enabledRings.end(),
 	          true);  // enable all by default
 	fillRingContainer();

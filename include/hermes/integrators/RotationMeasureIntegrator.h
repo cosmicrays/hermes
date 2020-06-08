@@ -10,7 +10,7 @@
 #include "hermes/magneticfields/MagneticField.h"
 #include "hermes/skymaps/RotationMeasureSkymap.h"
 
-/** \file RotationMeasureIntegrator.h 
+/** \file RotationMeasureIntegrator.h
  *  Declares RotationMeasureIntegrator
  */
 
