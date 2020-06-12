@@ -63,6 +63,7 @@
 #include "hermes/neutralgas/NeutralGasAbstract.h"
 #include "hermes/neutralgas/ProfileAbstract.h"
 #include "hermes/neutralgas/RingModel.h"
+#include "hermes/outputs/CTAFormat.h"
 #include "hermes/outputs/HEALPixFormat.h"
 #include "hermes/outputs/Output.h"
 #include "hermes/photonfields/CMB.h"

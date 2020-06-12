@@ -59,14 +59,11 @@ class SkymapTemplate : public Skymap {
 	void initMask();
 
   public:
-	/**
-	    Constructors
-	*/
 	SkymapTemplate(std::size_t nside = 64, const QSTEP &p = QSTEP(0));
 	SkymapTemplate(std::size_t nside, const std::shared_ptr<SkymapMask> mask_);
 	SkymapTemplate(std::size_t nside, const QSTEP &p,
 	               const std::shared_ptr<SkymapMask> mask_);
-	~SkymapTemplate();
+	virtual ~SkymapTemplate();
 
 	/**
 	    Setter for the skymap parameter
@@ -368,7 +365,6 @@ std::vector<float> SkymapTemplate<QPXL, QSTEP>::containerToRawVector() const {
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::save(
     std::shared_ptr<outputs::Output> output) const {
-	output->initOutput();
 	output->createTable(static_cast<int>(npix), getOutputUnitsAsString());
 	output->writeMetadata(nside, res, hasMask(), description);
 	auto tempArray = containerToRawVector();

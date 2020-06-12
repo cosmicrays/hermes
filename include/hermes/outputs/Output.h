@@ -12,7 +12,6 @@ class Output {
 	Output() {}
 	virtual ~Output() {}
 
-	virtual void initOutput() = 0;
 	virtual void createTable(int, const std::string &) = 0;
 	virtual void writeMetadata(int, double, bool, const std::string &) = 0;
 	virtual void writeKeyValueAsDouble(const std::string &key, double value,

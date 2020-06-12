@@ -53,8 +53,6 @@ void RadioSkymapRange::compute() {
 
 void RadioSkymapRange::save(
     const std::shared_ptr<outputs::Output>& output) const {
-	output->initOutput();
-
 	for (const_iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		int npix = static_cast<int>((it)->getNpix());
 

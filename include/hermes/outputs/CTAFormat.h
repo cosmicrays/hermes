@@ -1,7 +1,7 @@
 #ifdef HERMES_HAVE_CFITSIO
 
-#ifndef HERMES_HEALPIXFORMAT_H
-#define HERMES_HEALPIXFORMAT_H
+#ifndef HERMES_CTAFORMAT_H
+#define HERMES_CTAFORMAT_H
 
 #include <memory>
 
@@ -10,7 +10,7 @@
 
 namespace hermes { namespace outputs {
 
-/* \class HEALPixFormat
+/* \class CTAFormat
  * \brief Saves skymap to the HEALPix format (used by Healpy)
  *
  * Follows Hivon et al. 2019:
@@ -18,28 +18,26 @@ namespace hermes { namespace outputs {
  * URL: https://healpix.sourceforge.io/data/examples/healpix_fits_specs.pdf
  * for the base header and common keywords
  */
-class HEALPixFormat : public Output {
+class CTAFormat : public Output {
   private:
 	std::string filename;
 	std::unique_ptr<FITSFile> ffile;
-	
-	/** The primary header
-	 Outputs:
-	 SIMPLE =  T / file does conform to FITS standard
-	 BITPIX = 32 / number of bits per data pixel
-	 NAXIS  =  0 / number of data axes
-	 EXTEND =  T / FITS dataset may contain extensions
-	 DATE   = ’2099-12-31T23:59:59’ / file creation date (YYYY-MM-DDThh:mm:ss
-	 UT) END
-	*/
-	void initOutput();
 
   public:
 	/** Saves output to a \p filename */
-	HEALPixFormat(const std::string &filename);
+	CTAFormat(const std::string &filename);
+	
 	/** Creates binary table
 	 \param nrows	Number of rows in the table
 	 \param unit	Physical unit of data in the table
+	 
+	Outputs:
+	 SIMPLE =  T / file does conform to FITS standard
+	 BITPIX =-64 / number of bits per data pixel
+	 NAXIS  =  3 / number of data axes
+	 EXTEND =  T / FITS dataset may contain extensions
+	 DATE   = ’2099-12-31T23:59:59’ / file creation date (YYYY-MM-DDThh:mm:ss
+	 UT) END
 	*/
 	void createTable(int nrows, const std::string &unit) override;
 	/** The healpix HDU header
@@ -63,6 +61,6 @@ class HEALPixFormat : public Output {
 
 }}  // namespace hermes::outputs
 
-#endif  // HERMES_HEALPIXFORMAT_H
+#endif  // HERMES_CTAFORMAT_H
 
 #endif  // HERMES_HAVE_CFITSIO

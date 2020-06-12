@@ -306,6 +306,7 @@ add_library(hermes SHARED
 	src/magneticfields/WMAP07Field.cpp
 	src/neutralgas/Nakanishi06.cpp
 	src/neutralgas/RingModel.cpp
+	src/outputs/CTAFormat.cpp
 	src/outputs/HEALPixFormat.cpp
 	src/photonfields/ISRF.cpp
 	src/skymaps/GammaSkymapRange.cpp
