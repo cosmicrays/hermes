@@ -49,9 +49,9 @@ GasType RingData::getGasType() const { return type; }
 int RingData::getRingNumber() const { return n_rings; }
 
 double RingData::getRawValue(int ring, const QDirection &dir) const {
-	QAngle lat = dir[0];
+	QAngle lat = 180_deg - dir[0];
 	QAngle lon =
-	    dir[1] + 180_deg;  // becaue the galactic centre of
+	    180_deg - dir[1];  // becaue the galactic centre of
 	                       // the ring model is in the middle of the map
 
 	int pxl_lat = static_cast<int>(round(lat / 180_deg * n_lat));
