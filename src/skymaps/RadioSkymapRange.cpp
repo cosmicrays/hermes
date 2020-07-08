@@ -61,7 +61,7 @@ void RadioSkymapRange::save(
 		                      it->getDescription());
 		output->writeKeyValueAsDouble(
 		    std::string("FREQ"), static_cast<double>(it->getFrequency()),
-		    std::string("The skymap radio frequency in Hz."));
+		    std::string("Skymap frequency/energy/... (in SI base unit)"));
 		auto tempArray = it->containerToRawVector();
 		output->writeColumn(npix, tempArray.data());
 	}

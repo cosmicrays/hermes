@@ -17,10 +17,13 @@ namespace hermes {
  */
 class RadioSkymap : public SkymapTemplate<QTemperature, QFrequency> {
   public:
-	RadioSkymap(std::size_t nside_, QFrequency freq_)
-	    : SkymapTemplate(nside_, freq_){};
+	RadioSkymap(std::size_t nside, QFrequency freq)
+	    : SkymapTemplate(nside, freq, SkymapDefinitions("FREQ")){
+	};
 
-	void setFrequency(QFrequency freq_) { setSkymapParameter(freq_); }
+	void setFrequency(QFrequency freq) {
+		setSkymapParameter(freq);
+	}
 	QFrequency getFrequency() const { return skymapParameter; }
 	void computePixel(
 	    std::size_t ipix,

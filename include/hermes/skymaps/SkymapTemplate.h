@@ -26,6 +26,17 @@ namespace hermes {
  */
 
 /**
+ \class SkymapDefinitions
+ \brief Struct for internal usage in Skymap classes
+ */
+struct SkymapDefinitions {
+	const std::string skymapParameterName;
+
+	SkymapDefinitions() : skymapParameterName("NONE") { }
+	SkymapDefinitions(const std::string &pName) : skymapParameterName(pName) { }
+};
+
+/**
  \class SkymapTemplate
  \brief Provides a HEALPix-compatibile container template with undefined units
  of pixels; should be inherited in every process-specific skymap.
@@ -46,7 +57,8 @@ class SkymapTemplate : public Skymap {
 	mutable tPixel defaultOutputUnits;
 	mutable std::string defaultOutputUnitsString;
 
-	QSTEP skymapParameter;
+	QSTEP skymapParameter = 0;
+	const SkymapDefinitions defs;
 
 	std::shared_ptr<SkymapMask> mask;
 	std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> integrator;
@@ -59,10 +71,8 @@ class SkymapTemplate : public Skymap {
 	void initMask();
 
   public:
-	SkymapTemplate(std::size_t nside = 64, const QSTEP &p = QSTEP(0));
-	SkymapTemplate(std::size_t nside, const std::shared_ptr<SkymapMask> mask_);
-	SkymapTemplate(std::size_t nside, const QSTEP &p,
-	               const std::shared_ptr<SkymapMask> mask_);
+	SkymapTemplate(std::size_t nside, const SkymapDefinitions &s);
+	SkymapTemplate(std::size_t nside = 64, const QSTEP &p = QSTEP(0), const SkymapDefinitions &s = SkymapDefinitions());
 	virtual ~SkymapTemplate();
 
 	/**
@@ -72,7 +82,7 @@ class SkymapTemplate : public Skymap {
 	/**
 	    Getter for the skymap parameter
 	*/
-	QSTEP setSkymapParameter() const { return skymapParameter; }
+	QSTEP getSkymapParameter() const { return skymapParameter; }
 	/**
 	    Size of the skymap container (same as getNPix())
 	*/
@@ -145,31 +155,21 @@ class SkymapTemplate : public Skymap {
 
 /* Constructors */
 template <typename QPXL, typename QSTEP>
-SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(std::size_t nside_, const QSTEP &p)
-    : Skymap(nside_),
-      skymapParameter(p),
-      defaultOutputUnits(QPXL(1)),
-      defaultOutputUnitsString("SI Base Units") {
-	initContainer();
-	initMask();
-}
-template <typename QPXL, typename QSTEP>
 SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
-    std::size_t nside_, const std::shared_ptr<SkymapMask> mask_)
-    : Skymap(nside_),
+    std::size_t nside, const SkymapDefinitions &s)
+    : Skymap(nside),
       skymapParameter(QSTEP(0)),
-      mask(mask_),
+	  defs(s),
       defaultOutputUnits(QPXL(1)),
       defaultOutputUnitsString("SI Base Units") {
 	initContainer();
 	initMask();
 }
 template <typename QPXL, typename QSTEP>
-SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(
-    std::size_t nside_, const QSTEP &p, const std::shared_ptr<SkymapMask> mask_)
-    : Skymap(nside_),
+SkymapTemplate<QPXL, QSTEP>::SkymapTemplate(std::size_t nside, const QSTEP &p, const SkymapDefinitions &s)
+    : Skymap(nside),
       skymapParameter(p),
-      mask(mask_),
+	  defs(s),
       defaultOutputUnits(QPXL(1)),
       defaultOutputUnitsString("SI Base Units") {
 	initContainer();
@@ -367,6 +367,9 @@ void SkymapTemplate<QPXL, QSTEP>::save(
     std::shared_ptr<outputs::Output> output) const {
 	output->createTable(static_cast<int>(npix), getOutputUnitsAsString());
 	output->writeMetadata(nside, res, hasMask(), description);
+	output->writeKeyValueAsDouble(defs.skymapParameterName,
+								  static_cast<double>(getSkymapParameter()),
+		                          std::string("Skymap frequency/energy/... (in SI base unit)"));
 	auto tempArray = containerToRawVector();
 	output->writeColumn(npix, tempArray.data());
 }

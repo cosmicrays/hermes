@@ -16,7 +16,7 @@ namespace hermes {
 class RotationMeasureSkymap : public SkymapTemplate<QRotationMeasure, QNumber> {
   private:
   public:
-	RotationMeasureSkymap(std::size_t nside_) : SkymapTemplate(nside_) {
+	RotationMeasureSkymap(std::size_t nside) : SkymapTemplate(nside) {
 		initDefaultOutputUnits(1_rad / 1_m2, "rad m^-2");
 	};
 };

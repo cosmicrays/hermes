@@ -24,14 +24,14 @@ class GammaSkymapRange {
 	void initEnergyRange();
 
   public:
-	GammaSkymapRange(std::size_t nside_, QEnergy minEn_, QEnergy maxEn_,
-	                 int enSteps_);
+	GammaSkymapRange(std::size_t nside, QEnergy minEn, QEnergy maxEn,
+	                 int enSteps);
 	~GammaSkymapRange();
 
 	void setIntegrator(
 	    const std::shared_ptr<IntegratorTemplate<QDiffIntensity, QEnergy>>&
 	        integrator_);
-	void setMask(const std::shared_ptr<SkymapMask>& mask_);
+	void setMask(const std::shared_ptr<SkymapMask>& mask);
 
 	std::size_t size() const;
 	GammaSkymap operator[](std::size_t ipix) const;

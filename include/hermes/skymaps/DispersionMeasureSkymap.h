@@ -16,9 +16,8 @@ namespace hermes {
  */
 class DispersionMeasureSkymap
     : public SkymapTemplate<QDispersionMeasure, QNumber> {
-  private:
   public:
-	DispersionMeasureSkymap(std::size_t nside_) : SkymapTemplate(nside_) {
+	DispersionMeasureSkymap(std::size_t nside) : SkymapTemplate(nside) {
 		initDefaultOutputUnits(parsec / centimetre3, "parsec^-1 cm^3");
 	};
 };

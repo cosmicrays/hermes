@@ -17,13 +17,15 @@ namespace hermes {
  */
 class GammaSkymap : public SkymapTemplate<QDiffIntensity, QEnergy> {
   public:
-	GammaSkymap(std::size_t nside_, QEnergy Egamma_)
-	    : SkymapTemplate(nside_, Egamma_) {
+	GammaSkymap(std::size_t nside, QEnergy Egamma)
+	    : SkymapTemplate(nside, Egamma, SkymapDefinitions("ENERGY")) {
 		initDefaultOutputUnits(1 / (1_GeV * 1_m2 * 1_s * 1_sr),
 		                       "GeV^-1 m^-2 s^-1 sr^-1");
 	};
 
-	void setEnergy(QEnergy Egamma_) { setSkymapParameter(Egamma_); }
+	void setEnergy(QEnergy Egamma) {
+		setSkymapParameter(Egamma);
+	}
 	QEnergy getEnergy() const { return skymapParameter; }
 
 	void computePixel(
