@@ -298,7 +298,7 @@ add_library(hermes SHARED
 	src/interactions/KelnerAharonianGamma.cpp
 	src/interactions/KelnerAharonianNeutrino.cpp
 	src/interactions/KleinNishina.cpp
-	src/magneticfields/JF12Field.cpp
+	src/magneticfields/JF12.cpp
 	src/magneticfields/MagneticField.cpp
 	src/magneticfields/MagneticFieldGrid.cpp
 	src/magneticfields/PT11Field.cpp

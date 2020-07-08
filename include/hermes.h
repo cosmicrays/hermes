@@ -53,7 +53,7 @@
 #include "hermes/interactions/KelnerAharonianGamma.h"
 #include "hermes/interactions/KelnerAharonianNeutrino.h"
 #include "hermes/interactions/KleinNishina.h"
-#include "hermes/magneticfields/JF12Field.h"
+#include "hermes/magneticfields/JF12.h"
 #include "hermes/magneticfields/MagneticField.h"
 #include "hermes/magneticfields/MagneticFieldGrid.h"
 #include "hermes/magneticfields/PT11Field.h"

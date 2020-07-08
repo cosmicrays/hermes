@@ -22,7 +22,7 @@ namespace hermes {
  * \class DispersionMeasureIntegrator
  * \brief Calculates dispersion measure (DM) over the LOS
  *
- * The integrators depends only on a charged gas density model, such as
+ * The integrator depends only on a charged gas density model, such as
  * chargedgas::YMW16
  */
 class DispersionMeasureIntegrator : public DispersionMeasureIntegratorTemplate {

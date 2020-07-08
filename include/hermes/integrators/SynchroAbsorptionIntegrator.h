@@ -5,12 +5,24 @@
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/integrators/SynchroIntegrator.h"
 
+/** \file SynchroAbsorptionIntegrator.h
+ *  Declares SynchroAbsorptionIntegrator
+ */
+
 namespace hermes {
 /**
  * \addtogroup Integrators
  * @{
  */
 
+/**
+ * \class SynchroAbsorptionIntegrator
+ * \brief Calculates synchrotron radiation (DM) over the LOS
+ *
+ * The integrator depends on a galactic magnetic field model, such as
+ * magneticfields.JF12, a cosmic ray lepton distribution and
+ * a nonrelativistic ionised gas
+ */
 class SynchroAbsorptionIntegrator : public RadioIntegratorTemplate {
   private:
 	std::shared_ptr<magneticfields::MagneticField> mfield;

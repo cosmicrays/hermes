@@ -75,8 +75,8 @@ TEST(RotationMeasureIntegrator, Orientation) {
 }
 
 TEST(RotationMeasureIntegrator, PerformanceTest) {
-	auto magfield = std::make_shared<magneticfields::JF12Field>(
-	    magneticfields::JF12Field());
+	auto magfield = std::make_shared<magneticfields::JF12>(
+	    magneticfields::JF12());
 	auto gasdenisty = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
 	auto in = std::make_shared<RotationMeasureIntegrator>(
 	    RotationMeasureIntegrator(magfield, gasdenisty));

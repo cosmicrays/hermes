@@ -130,8 +130,8 @@ TEST(SynchroIntegrator, integrateOverLOS) {
 }
 
 TEST(SynchroIntegrator, PerformanceTest) {
-	auto mfield = std::make_shared<magneticfields::JF12Field>(
-	    magneticfields::JF12Field());
+	auto mfield = std::make_shared<magneticfields::JF12>(
+	    magneticfields::JF12());
 	std::vector<PID> particletypes = {Electron, Positron};
 	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(
 	    cosmicrays::Dragon2D(particletypes));

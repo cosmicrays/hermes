@@ -1,7 +1,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
-#include "hermes/magneticfields/JF12Field.h"
+#include "hermes/magneticfields/JF12.h"
 #include "hermes/magneticfields/MagneticField.h"
 #include "hermes/magneticfields/MagneticFieldGrid.h"
 #include "hermes/magneticfields/PT11Field.h"
@@ -30,8 +30,8 @@ void init(py::module &m) {
 	    .def(py::init<>())
 	    .def("getField", &MagneticField::getField);
 
-	py::class_<JF12Field, std::shared_ptr<JF12Field>, MagneticField>(
-	    subm, "JF12Field")
+	py::class_<JF12, std::shared_ptr<JF12>, MagneticField>(
+	    subm, "JF12")
 	    .def(py::init<>())
 	    .def("getField", &MagneticField::getField);
 }

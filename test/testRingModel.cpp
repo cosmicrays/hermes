@@ -79,7 +79,7 @@ TEST_F(RingModel, RingValues) {
 		col_H2 += ring->getH2ColumnDensity(dir);
 
 	EXPECT_NEAR(static_cast<double>(col_HI), 2e26, 5e25);
-	EXPECT_NEAR(static_cast<double>(col_H2), 6.5e26, 5e25);
+	EXPECT_NEAR(static_cast<double>(col_H2), 3.2e26, 5e25);
 }
 
 int main(int argc, char **argv) {

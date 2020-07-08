@@ -50,7 +50,7 @@ void Sun08Field::setTurbulentGrid(std::shared_ptr<VectorGrid> grid) {
 
 void Sun08Field::setUseTurbulent(bool use) {
 	if ((use) and (turbulentGrid)) {
-		std::cout << "JF12Field: No turbulent field set: ignored" << std::endl;
+		std::cout << "Sun08Field: No turbulent field set: ignored" << std::endl;
 		return;
 	}
 	useTurbulent = use;

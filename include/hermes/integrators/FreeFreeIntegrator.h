@@ -9,12 +9,23 @@
 #include "hermes/integrators/IntegratorTemplate.h"
 #include "hermes/magneticfields/MagneticField.h"
 
+/** \file FreeFreeIntegrator.h
+ *  Declares FreeFreeIntegrator
+ */
+
 namespace hermes {
 /**
  * \addtogroup Integrators
  * @{
  */
 
+/**
+ * \class FreeFreeIntegrator
+ * \brief Calculates Free-free emission over the LOS
+ *
+ * The integrator depends only on a charged gas density model and results
+ * is calculated based on a specified frequency
+ */
 class FreeFreeIntegrator : public RadioIntegratorTemplate {
   private:
 	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;

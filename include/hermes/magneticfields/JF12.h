@@ -1,5 +1,5 @@
-#ifndef HERMES_JF12FIELD_H
-#define HERMES_JF12FIELD_H
+#ifndef HERMES_JF12_H
+#define HERMES_JF12_H
 
 #include <memory>
 
@@ -15,8 +15,8 @@ namespace hermes { namespace magneticfields {
  */
 
 /**
- @class JF12Field
- @brief JF12Field galactic magnetic field model
+ @class JF12
+ @brief JF12 galactic magnetic field model
 
  Implements the JF2012 magnetic field model, consisting of a large-scale regular
  and random (striated) field and a small-scale random (turbulent) field.
@@ -32,7 +32,7 @@ namespace hermes { namespace magneticfields {
  Galactic center at the origin, the x-axis pointing in the direction of
  the Sun, and the z-axis pointing towards Galactic north.
  */
-class JF12Field : public MagneticField {
+class JF12 : public MagneticField {
   private:
 	bool useRegular;
 	bool useStriated;
@@ -77,7 +77,7 @@ class JF12Field : public MagneticField {
 	QLength zHaloTurb;  // Gaussian scale height
 
   public:
-	JF12Field();
+	JF12();
 
 	// Create and set a random realization for the striated field
 	void randomStriated(int seed = 0);
@@ -130,4 +130,4 @@ class JF12Field : public MagneticField {
 /** @} */
 }}  // namespace hermes::magneticfields
 
-#endif  // HERMES_JF12FIELD_H
+#endif  // HERMES_JF12_H

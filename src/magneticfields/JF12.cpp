@@ -1,4 +1,4 @@
-#include "hermes/magneticfields/JF12Field.h"
+#include "hermes/magneticfields/JF12.h"
 
 #include <iostream>
 #include <utility>
@@ -12,7 +12,7 @@ QNumber logisticFunction(QLength x, QLength x0, QLength w) {
 	return 1. / (1. + exp(-2. * (fabs(x) - x0) / w));
 }
 
-JF12Field::JF12Field() {
+JF12::JF12() {
 	useRegular = true;
 	useStriated = false;
 	useTurbulent = false;
@@ -82,7 +82,7 @@ JF12Field::JF12Field() {
 	zHaloTurb = 2.84_kpc;
 }
 
-void JF12Field::randomStriated(int seed) {
+void JF12::randomStriated(int seed) {
 	useStriated = true;
 	int N = 100;
 	striatedGrid = std::make_shared<ScalarGrid>(
@@ -102,7 +102,7 @@ void JF12Field::randomStriated(int seed) {
 }
 
 #ifdef HERMES_HAVE_FFTW3F
-void JF12Field::randomTurbulent(int seed) {
+void JF12::randomTurbulent(int seed) {
 	useTurbulent = true;
 	// turbulent field with Kolmogorov spectrum, B_rms = 1 and Lc = 60
 	// parsec
@@ -113,49 +113,49 @@ void JF12Field::randomTurbulent(int seed) {
 }
 #endif
 
-void JF12Field::setStriatedGrid(std::shared_ptr<ScalarGrid> grid) {
+void JF12::setStriatedGrid(std::shared_ptr<ScalarGrid> grid) {
 	useStriated = true;
 	striatedGrid = std::move(grid);
 }
 
-void JF12Field::setTurbulentGrid(std::shared_ptr<VectorGrid> grid) {
+void JF12::setTurbulentGrid(std::shared_ptr<VectorGrid> grid) {
 	useTurbulent = true;
 	turbulentGrid = std::move(grid);
 }
 
-std::shared_ptr<ScalarGrid> JF12Field::getStriatedGrid() {
+std::shared_ptr<ScalarGrid> JF12::getStriatedGrid() {
 	return striatedGrid;
 }
 
-std::shared_ptr<VectorGrid> JF12Field::getTurbulentGrid() {
+std::shared_ptr<VectorGrid> JF12::getTurbulentGrid() {
 	return turbulentGrid;
 }
 
-void JF12Field::setUseRegular(bool use) { useRegular = use; }
+void JF12::setUseRegular(bool use) { useRegular = use; }
 
-void JF12Field::setUseStriated(bool use) {
+void JF12::setUseStriated(bool use) {
 	if ((use) and (striatedGrid)) {
-		std::cout << "JF12Field: No striated field set: ignored" << std::endl;
+		std::cout << "JF12: No striated field set: ignored" << std::endl;
 		return;
 	}
 	useStriated = use;
 }
 
-void JF12Field::setUseTurbulent(bool use) {
+void JF12::setUseTurbulent(bool use) {
 	if ((use) and (turbulentGrid)) {
-		std::cout << "JF12Field: No turbulent field set: ignored" << std::endl;
+		std::cout << "JF12: No turbulent field set: ignored" << std::endl;
 		return;
 	}
 	useTurbulent = use;
 }
 
-bool JF12Field::isUsingRegular() const { return useRegular; }
+bool JF12::isUsingRegular() const { return useRegular; }
 
-bool JF12Field::isUsingStriated() const { return useStriated; }
+bool JF12::isUsingStriated() const { return useStriated; }
 
-bool JF12Field::isUsingTurbulent() const { return useTurbulent; }
+bool JF12::isUsingTurbulent() const { return useTurbulent; }
 
-Vector3QMField JF12Field::getRegularField(const Vector3QLength &pos) const {
+Vector3QMField JF12::getRegularField(const Vector3QLength &pos) const {
 	Vector3d b(0.);
 
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y);  // in-plane radius
@@ -244,12 +244,12 @@ Vector3QMField JF12Field::getRegularField(const Vector3QLength &pos) const {
 	return Vector3QMField(b);
 }
 
-Vector3QMField JF12Field::getStriatedField(const Vector3QLength &pos) const {
+Vector3QMField JF12::getStriatedField(const Vector3QLength &pos) const {
 	return (getRegularField(pos) *
 	        (1. + sqrtbeta * striatedGrid->closestValue(pos)));
 }
 
-QMField JF12Field::getTurbulentStrength(const Vector3QLength &pos) const {
+QMField JF12::getTurbulentStrength(const Vector3QLength &pos) const {
 	if (pos.getR() > 20_kpc) return QMField(0);
 
 	QLength r = sqrt(pos.x * pos.x + pos.y * pos.y);  // in-plane radius
@@ -285,11 +285,11 @@ QMField JF12Field::getTurbulentStrength(const Vector3QLength &pos) const {
 	return sqrt(pow<2>(bDisk) + pow<2>(bHalo));
 }
 
-Vector3QMField JF12Field::getTurbulentField(const Vector3QLength &pos) const {
+Vector3QMField JF12::getTurbulentField(const Vector3QLength &pos) const {
 	return (turbulentGrid->interpolate(pos) * getTurbulentStrength(pos));
 }
 
-Vector3QMField JF12Field::getField(const Vector3QLength &pos_) const {
+Vector3QMField JF12::getField(const Vector3QLength &pos_) const {
 	// the JF12 model uses right-handed Cartesian and
 	// cylindrical coordinate system
 	Vector3QMField b(0.);

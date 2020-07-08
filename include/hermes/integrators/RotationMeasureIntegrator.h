@@ -24,8 +24,8 @@ namespace hermes {
  * \class RotationMeasureIntegrator
  * \brief Calculates rotation measure (RM) over the LOS
  *
- * The integrators depends on a charged gas density and galactic magnetic field,
- * for example, chargedgas::YMW16 and magneticfields::JF12Field
+ * The integrators depend on a charged gas density and a galactic magnetic field
+ * model, for example, chargedgas::YMW16 and magneticfields::JF12
  */
 class RotationMeasureIntegrator
     : public IntegratorTemplate<QRotationMeasure, QNumber> {
