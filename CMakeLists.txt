@@ -305,6 +305,7 @@ add_library(hermes SHARED
 	src/magneticfields/Sun08Field.cpp
 	src/magneticfields/WMAP07Field.cpp
 	src/neutralgas/Nakanishi06.cpp
+	src/neutralgas/RingData.cpp
 	src/neutralgas/RingModel.cpp
 	src/outputs/CTAFormat.cpp
 	src/outputs/HEALPixFormat.cpp
