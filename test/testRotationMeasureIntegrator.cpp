@@ -26,12 +26,10 @@ class TestMagneticField : public magneticfields::MagneticField {
 	}
 };
 
-class TestChargedGasDensity : public chargedgas::ChargedGasDensity {
+class TestIonizedGasDensity : public ionizedgas::IonizedGasDensity {
   public:
-	TestChargedGasDensity() {}
-	QPDensity getDensity(const Vector3QLength &pos) const {
-		return 1.0 / 1_cm3;
-	}
+	TestIonizedGasDensity() {}
+	QPDensity getDensity(const Vector3QLength &pos) const { return 1.0 / 1_cm3; }
 };
 
 TEST(Integrator, MagneticField) {
@@ -43,12 +41,9 @@ TEST(Integrator, MagneticField) {
 TEST(RotationMeasureIntegrator, Orientation) {
 	QRotationMeasure pixel;
 	auto magfield = std::make_shared<TestMagneticField>(TestMagneticField());
-	auto gasdenisty =
-	    std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
-	auto integrator = std::make_shared<RotationMeasureIntegrator>(
-	    RotationMeasureIntegrator(magfield, gasdenisty));
-	auto skymap =
-	    std::make_shared<RotationMeasureSkymap>(RotationMeasureSkymap(4));
+	auto gasdensity = std::make_shared<TestIonizedGasDensity>(TestIonizedGasDensity());
+	auto integrator = std::make_shared<RotationMeasureIntegrator>(RotationMeasureIntegrator(magfield, gasdensity));
+	auto skymap = std::make_shared<RotationMeasureSkymap>(RotationMeasureSkymap(4));
 	QDirection direction;
 
 	skymap->setIntegrator(integrator);
@@ -65,8 +60,7 @@ TEST(RotationMeasureIntegrator, Orientation) {
 		} else if (direction[0] <= 12_deg) {
 			EXPECT_LE(static_cast<double>(pixel), 0);
 			// right-hand side
-		} else if (fabs(direction[0] - 90_deg) <= 12_deg &&
-		           fabs(direction[1] - 270_deg) < 12_deg) {
+		} else if (fabs(direction[0] - 90_deg) <= 12_deg && fabs(direction[1] - 270_deg) < 12_deg) {
 			EXPECT_GE(static_cast<double>(pixel), 0);
 		} else {
 			EXPECT_EQ(static_cast<double>(pixel), 0);
@@ -75,25 +69,18 @@ TEST(RotationMeasureIntegrator, Orientation) {
 }
 
 TEST(RotationMeasureIntegrator, PerformanceTest) {
-	auto magfield = std::make_shared<magneticfields::JF12>(
-	    magneticfields::JF12());
-	auto gasdenisty = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
-	auto in = std::make_shared<RotationMeasureIntegrator>(
-	    RotationMeasureIntegrator(magfield, gasdenisty));
-	auto skymap =
-	    std::make_shared<RotationMeasureSkymap>(RotationMeasureSkymap(4));
+	auto magfield = std::make_shared<magneticfields::JF12>(magneticfields::JF12());
+	auto gasdensity = std::make_shared<ionizedgas::YMW16>(ionizedgas::YMW16());
+	auto in = std::make_shared<RotationMeasureIntegrator>(RotationMeasureIntegrator(magfield, gasdensity));
+	auto skymap = std::make_shared<RotationMeasureSkymap>(RotationMeasureSkymap(4));
 	skymap->setIntegrator(in);
 
-	std::chrono::time_point<std::chrono::system_clock> start =
-	    std::chrono::system_clock::now();
+	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
 	skymap->compute();
-	std::chrono::time_point<std::chrono::system_clock> stop =
-	    std::chrono::system_clock::now();
+	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
-	auto milliseconds =
-	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
+	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+	unsigned long pxl_speed = milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 
 	EXPECT_LE(pxl_speed, 45);  // ms
 }

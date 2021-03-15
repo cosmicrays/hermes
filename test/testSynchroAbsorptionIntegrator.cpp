@@ -5,12 +5,10 @@
 
 namespace hermes {
 
-class TestChargedGasDensity : public chargedgas::ChargedGasDensity {
+class TestIonizedGasDensity : public ionizedgas::IonizedGasDensity {
   public:
-	TestChargedGasDensity() : chargedgas::ChargedGasDensity(1e4_K) {}
-	QPDensity getDensity(const Vector3QLength &pos) const {
-		return 1.0 / 1_cm3;
-	}
+	TestIonizedGasDensity() : ionizedgas::IonizedGasDensity(1e4_K) {}
+	QPDensity getDensity(const Vector3QLength &pos) const { return 1.0 / 1_cm3; }
 };
 
 class TestCRDensity : public cosmicrays::CosmicRayDensity {
@@ -20,8 +18,7 @@ class TestCRDensity : public cosmicrays::CosmicRayDensity {
   public:
 	TestCRDensity() {
 		QFrequency freq = 22_MHz;
-		E_c = sqrt(m_electron * freq * 4_pi / (3 * e_plus * 1_muG)) *
-		      m_electron * c_squared;
+		E_c = sqrt(m_electron * freq * 4_pi / (3 * e_plus * 1_muG)) * m_electron * c_squared;
 
 		// add some energies over which the integrator integrates
 		// including E(freq_c) for which dn/dE contributes only
@@ -32,25 +29,21 @@ class TestCRDensity : public cosmicrays::CosmicRayDensity {
 		energyRange.push_back(E_c + 1_GeV);
 		energyRange.push_back(E_c + 2_GeV);
 	}
-	QPDensityPerEnergy getDensityPerEnergy(const QEnergy &E_,
-	                                       const Vector3QLength &pos_) const {
+	QPDensityPerEnergy getDensityPerEnergy(const QEnergy &E_, const Vector3QLength &pos_) const {
 		return 1.0 / (1_m3 * 1_J);
 	}
 };
 
 TEST(SynchroAbsorptionIntegrator, integrateOverLOS) {
 	auto B = Vector3QMField(0, 0, 1_muG);
-	auto mfield = std::make_shared<magneticfields::UniformMagneticField>(
-	    magneticfields::UniformMagneticField(B));
-	auto gdensity =
-	    std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
+	auto mfield = std::make_shared<magneticfields::UniformMagneticField>(magneticfields::UniformMagneticField(B));
+	auto gdensity = std::make_shared<TestIonizedGasDensity>(TestIonizedGasDensity());
 	auto crdensity = std::make_shared<TestCRDensity>(TestCRDensity());
 
-	auto intSynchro = std::make_shared<SynchroIntegrator>(
-	    SynchroIntegrator(mfield, crdensity));
+	auto intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(mfield, crdensity));
 
-	auto intAbsorp = std::make_shared<SynchroAbsorptionIntegrator>(
-	    SynchroAbsorptionIntegrator(mfield, crdensity, gdensity));
+	auto intAbsorp =
+	    std::make_shared<SynchroAbsorptionIntegrator>(SynchroAbsorptionIntegrator(mfield, crdensity, gdensity));
 
 	QDirection direction;
 	direction[0] = 90_deg;
