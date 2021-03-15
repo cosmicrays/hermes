@@ -4,31 +4,24 @@
 
 namespace hermes {
 
-DispersionMeasureIntegrator::DispersionMeasureIntegrator(
-    const std::shared_ptr<chargedgas::ChargedGasDensity> &gdensity)
-    : DispersionMeasureIntegratorTemplate("DispersionMeasure"),
-      gdensity(gdensity) {}
+DispersionMeasureIntegrator::DispersionMeasureIntegrator(const std::shared_ptr<ionizedgas::IonizedGasDensity> &gdensity)
+    : DispersionMeasureIntegratorTemplate("DispersionMeasure"), gdensity(gdensity) {}
 
 DispersionMeasureIntegrator::~DispersionMeasureIntegrator() {}
 
-QDispersionMeasure DispersionMeasureIntegrator::integrateOverLOS(
-    const QDirection &direction) const {
+QDispersionMeasure DispersionMeasureIntegrator::integrateOverLOS(const QDirection &direction) const {
 	auto integrand = [this, direction](const QLength &dist) {
-		return gdensity->getDensity(
-		    getGalacticPosition(getSunPosition(), dist, direction));
+		return gdensity->getDensity(getGalacticPosition(getSunPosition(), dist, direction));
 	};
 
-	return gslQAGIntegration<QDispersionMeasure, QPDensity>(
-	    [this, integrand](QLength dist) { return integrand(dist); }, 0,
-	    getMaxDistance(direction), 500);
+	return gslQAGIntegration<QDispersionMeasure, QPDensity>([this, integrand](QLength dist) { return integrand(dist); },
+	                                                        0, getMaxDistance(direction), 500);
 }
 
-DispersionMeasureIntegrator::tLOSProfile
-DispersionMeasureIntegrator::getLOSProfile(const QDirection &direction,
-                                           int Nsteps) const {
+DispersionMeasureIntegrator::tLOSProfile DispersionMeasureIntegrator::getLOSProfile(const QDirection &direction,
+                                                                                    int Nsteps) const {
 	auto integrand = [this, direction](const QLength &dist) {
-		return gdensity->getDensity(
-		    getGalacticPosition(getSunPosition(), dist, direction));
+		return gdensity->getDensity(getGalacticPosition(getSunPosition(), dist, direction));
 	};
 
 	QLength start = 0_m;

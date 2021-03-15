@@ -1,15 +1,15 @@
 #ifndef HERMES_HIICORDES91_H
 #define HERMES_HIICORDES91_H
 
-#include "hermes/chargedgas/ChargedGasDensity.h"
+#include "hermes/ionizedgas/IonizedGasDensity.h"
 
-namespace hermes { namespace chargedgas {
+namespace hermes { namespace ionizedgas {
 /**
- * \addtogroup ChargedGas
+ * \addtogroup IonizedGas
  * @{
  */
 
-class HII_Cordes91 : public ChargedGasDensity {
+class HII_Cordes91 : public IonizedGasDensity {
   private:
 	QPDensity fne1, fne2;
 	QLength H1, A1, H2, A2, R2;
@@ -20,6 +20,6 @@ class HII_Cordes91 : public ChargedGasDensity {
 };
 
 /** @}*/
-}}  // namespace hermes::chargedgas
+}}  // namespace hermes::ionizedgas
 
 #endif  // HERMES_HIICORDES91_H

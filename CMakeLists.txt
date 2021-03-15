@@ -340,7 +340,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/Quantity.cpp
 		python/Skymaps.cpp
 		python/Vectors.cpp
-		python/chargedgas.cpp
+		python/ionizedgas.cpp
 		python/cosmicrays.cpp
 		python/darkmatter.cpp
 		python/integrators.cpp

@@ -9,26 +9,20 @@ namespace hermes {
 SynchroAbsorptionIntegrator::SynchroAbsorptionIntegrator(
     const std::shared_ptr<magneticfields::MagneticField>& mfield_,
     const std::shared_ptr<cosmicrays::CosmicRayDensity>& crdensity_,
-    const std::shared_ptr<chargedgas::ChargedGasDensity>& gdensity_)
-    : RadioIntegratorTemplate("SynchroAbsorption"),
-      mfield(mfield_),
-      crdensity(crdensity_),
-      gdensity(gdensity_) {
-	intSynchro = std::make_shared<SynchroIntegrator>(
-	    SynchroIntegrator(mfield, crdensity));
-	intFreeFree =
-	    std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
+    const std::shared_ptr<ionizedgas::IonizedGasDensity>& gdensity_)
+    : RadioIntegratorTemplate("SynchroAbsorption"), mfield(mfield_), crdensity(crdensity_), gdensity(gdensity_) {
+	intSynchro = std::make_shared<SynchroIntegrator>(SynchroIntegrator(mfield, crdensity));
+	intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
 }
 
 SynchroAbsorptionIntegrator::~SynchroAbsorptionIntegrator() {}
 
-QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(
-    const QDirection& direction) const {
+QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(const QDirection& direction) const {
 	return integrateOverLOS(direction, 408_MHz);
 }
 
-QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(
-    const QDirection& direction_, const QFrequency& freq_) const {
+QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(const QDirection& direction_,
+                                                           const QFrequency& freq_) const {
 	Vector3QLength positionSun(8.5_kpc, 0, 0);
 	Vector3QLength pos(0.0);
 	QIntensity total_intensity(0);
@@ -42,8 +36,7 @@ QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(
 
 	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
 		pos = getGalacticPosition(positionSun, dist, direction_);
-		opticalDepth +=
-		    intFreeFree->absorptionCoefficient(pos, freq_) * delta_d;
+		opticalDepth += intFreeFree->absorptionCoefficient(pos, freq_) * delta_d;
 		opticalDepthLOS.push_back(opticalDepth);
 	}
 
@@ -52,9 +45,7 @@ QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(
 	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
 		pos = getGalacticPosition(positionSun, dist, direction_);
 		total_intensity += intSynchro->integrateOverEnergy(pos, freq_) / 4_pi *
-		                   exp((*opticalDepthIter) -
-		                       opticalDepthLOS[opticalDepthLOS.size() - 1]) *
-		                   delta_d;
+		                   exp((*opticalDepthIter) - opticalDepthLOS[opticalDepthLOS.size() - 1]) * delta_d;
 		++opticalDepthIter;
 	}
 

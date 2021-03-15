@@ -1,6 +1,6 @@
-#include "hermes/chargedgas/HII_Cordes91.h"
+#include "hermes/ionizedgas/HII_Cordes91.h"
 
-namespace hermes { namespace chargedgas {
+namespace hermes { namespace ionizedgas {
 
 HII_Cordes91::HII_Cordes91() {
 	setTemperature(1e4_K);
@@ -21,4 +21,4 @@ QPDensity HII_Cordes91::getDensity(const Vector3QLength &pos) const {
 	return ne1 + ne2;
 }
 
-}}  // namespace hermes::chargedgas
+}}  // namespace hermes::ionizedgas

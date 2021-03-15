@@ -4,8 +4,8 @@
 #include <memory>
 
 #include "hermes/Units.h"
-#include "hermes/chargedgas/ChargedGasDensity.h"
 #include "hermes/integrators/IntegratorTemplate.h"
+#include "hermes/ionizedgas/IonizedGasDensity.h"
 #include "hermes/skymaps/DispersionMeasureSkymap.h"
 
 /** \file DispersionMeasureIntegrator.h
@@ -27,22 +27,18 @@ namespace hermes {
  */
 class DispersionMeasureIntegrator : public DispersionMeasureIntegratorTemplate {
   private:
-	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
+	std::shared_ptr<ionizedgas::IonizedGasDensity> gdensity;
 
   public:
-	DispersionMeasureIntegrator(
-	    const std::shared_ptr<chargedgas::ChargedGasDensity> &gdensity);
+	DispersionMeasureIntegrator(const std::shared_ptr<ionizedgas::IonizedGasDensity> &gdensity);
 	~DispersionMeasureIntegrator();
 
-	QDispersionMeasure integrateOverLOS(
-	    const QDirection &iterdir) const override;
-	QDispersionMeasure integrateOverLOS(const QDirection &iterdir,
-	                                    const QNumber &num) const override {
+	QDispersionMeasure integrateOverLOS(const QDirection &iterdir) const override;
+	QDispersionMeasure integrateOverLOS(const QDirection &iterdir, const QNumber &num) const override {
 		return QDispersionMeasure(0);
 	}
 
-	tLOSProfile getLOSProfile(const QDirection &direction,
-	                          int Nsteps) const override;
+	tLOSProfile getLOSProfile(const QDirection &direction, int Nsteps) const override;
 };
 
 /** @}*/

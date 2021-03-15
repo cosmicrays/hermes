@@ -17,7 +17,7 @@ void init(py::module &m) {
 	py::module subm = m.def_submodule("cosmicrays");
 	subm.doc() = "cosmic rays package";
 
-	// charged gas density models
+	// ionized gas density models
 	py::class_<CosmicRayDensity, std::shared_ptr<CosmicRayDensity>>(
 	    subm, "CosmicRayDensity")
 	    .def("getDensityPerEnergy", &CosmicRayDensity::getDensityPerEnergy)

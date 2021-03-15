@@ -1,8 +1,8 @@
-#include "hermes/chargedgas/NE2001Simple.h"
+#include "hermes/ionizedgas/NE2001Simple.h"
 
 #include <iostream>
 
-namespace hermes { namespace chargedgas {
+namespace hermes { namespace ionizedgas {
 
 NE2001Simple::NE2001Simple() {
 	setTemperature(1e4_K);
@@ -117,8 +117,7 @@ QPDensity NE2001Simple::getDensity(const Vector3QLength &pos) const {
 
 QPDensity NE2001Simple::getThickDiskDensity(const Vector3QLength &pos) const {
 	QLength r = pos.getR();
-	QNumber g1 = cos(pi / 2 * 1_rad * r / A1) /
-	             cos(pi / 2 * 1_rad * R_Sun / A1) * stepFunction(A1 - r);
+	QNumber g1 = cos(pi / 2 * 1_rad * r / A1) / cos(pi / 2 * 1_rad * R_Sun / A1) * stepFunction(A1 - r);
 	return n1 * g1 * h(pos.z / H1);
 }
 
@@ -126,8 +125,7 @@ QPDensity NE2001Simple::getThinDiskDensity(const Vector3QLength &pos) const {
 	QLength r = pos.getR();
 	// QNumber g2 = exp(-(r-A2)*(r-A2)/(A2*A2)) * stepFunction(r); // paper
 	// I
-	QNumber g2 = exp(-(r - A2) * (r - A2) / (1.8_kpc * 1.8_kpc)) *
-	             stepFunction(10_kpc - r);  // original code
+	QNumber g2 = exp(-(r - A2) * (r - A2) / (1.8_kpc * 1.8_kpc)) * stepFunction(10_kpc - r);  // original code
 	return n2 * g2 * h(pos.z / H2);
 }
 
@@ -143,19 +141,16 @@ QPDensity NE2001Simple::getSpiralArmsDensity(const Vector3QLength &pos) const {
 	return n_a * G_a;
 }
 
-QPDensity NE2001Simple::getGalacticCentreDensity(
-    const Vector3QLength &pos) const {
+QPDensity NE2001Simple::getGalacticCentreDensity(const Vector3QLength &pos) const {
 	QLength r = pos.getR();
-	QLength dr =
-	    sqrt((pos.x - x_GC) * (pos.x - x_GC) + (pos.y - y_GC) * (pos.y - y_GC));
+	QLength dr = sqrt((pos.x - x_GC) * (pos.x - x_GC) + (pos.y - y_GC) * (pos.y - y_GC));
 	QLength dz = fabs(pos.z - z_GC);
 
 	if (dr > r_GC || dz > H_GC) return QPDensity(0);
 
 	// QNumber g_GC = exp(-(dr*dr/(r_GC*r_GC) + dz*dz/(H_GC*H_GC))); //
 	// paper
-	QNumber g_GC =
-	    (dr * dr / (r_GC * r_GC) + dz * dz / (H_GC * H_GC));  // original code
+	QNumber g_GC = (dr * dr / (r_GC * r_GC) + dz * dz / (H_GC * H_GC));  // original code
 
 	// return n_GC * g_GC; // paper
 	if (g_GC < QNumber(1))  // original paper
@@ -213,4 +208,4 @@ std::vector<QLength>> xy, int n) const {
 }
 */
 
-}}  // namespace hermes::chargedgas
+}}  // namespace hermes::ionizedgas
