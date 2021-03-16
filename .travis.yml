@@ -24,7 +24,7 @@ cache:
 matrix:
     include:
         - os: linux
-          dist: xenial
+          dist: bionic
           compiler: gcc
           env:
               - COMPILER_NAME=gcc CXX=g++-9 CC=gcc-9
