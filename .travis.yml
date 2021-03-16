@@ -8,8 +8,6 @@ addons:
             - gcc-6
             - g++-6
             - clang-8
-            - libclang-common-8-dev
-            - lib32stdc++6
             - libgsl-dev
             - libfftw3-dev
             - libcfitsio3-dev
@@ -58,6 +56,10 @@ matrix:
               - HERMES_DATA_PATH=$TRAVIS_BUILD_DIR/build/data/
 
 before_install:
+    - |
+      if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+        sudo apt-get update
+      fi;  
     - |
       if [ $COVERALLS ]; then
         pip install --user cpp-coveralls
