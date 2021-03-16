@@ -54,10 +54,16 @@ RingModel::RingModel(GasType gas) : NeutralGasAbstract(), dataPtr(std::make_shar
 
 void RingModel::fillRingContainer() {
 	for (std::size_t i = 0; i < dataPtr->getRingNumber(); ++i) {
-		if (getGasType() == GasType::HI)
-			ringContainer.push_back(std::make_shared<Ring>(Ring(i, dataPtr, boundariesHI[i], boundariesHI[i + 1])));
-		if (getGasType() == GasType::H2)
-			ringContainer.push_back(std::make_shared<Ring>(Ring(i, dataPtr, boundariesH2[i], boundariesH2[i + 1])));
+		if (getGasType() == GasType::HI) {
+			auto lowBoundary = boundariesHI.at(i);
+			auto highBoundary = (i < 11) ? boundariesHI.at(i + 1) : boundariesHI.at(i) + 1_kpc;
+			ringContainer.push_back(std::make_shared<Ring>(Ring(i, dataPtr, lowBoundary, highBoundary)));
+		}
+		if (getGasType() == GasType::H2) {
+			auto lowBoundary = boundariesH2.at(i);
+			auto highBoundary = (i < 11) ? boundariesH2.at(i + 1) : boundariesH2.at(i) + 1_kpc;
+			ringContainer.push_back(std::make_shared<Ring>(Ring(i, dataPtr, lowBoundary, highBoundary)));
+		}
 	}
 }
 

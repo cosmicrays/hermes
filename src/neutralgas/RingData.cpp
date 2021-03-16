@@ -56,19 +56,18 @@ double RingData::getRawValue(int ring, const QDirection &dir) const {
 
 QColumnDensity RingData::getHIColumnDensityInRing(int ring, const QDirection &dir) const {
 	// the data is given in cm^-2
+	if (ring == 11) return QColumnDensity(0);
 	return getRawValue(ring, dir) / 1_cm2;
 }
 
 QRingCOIntensity RingData::getCOIntensityInRing(int ring, const QDirection &dir) const {
 	// the data is given in K km s^-2
-	// if (ring == 10 || ring == 11) return QRingCOIntensity(0);
-	// return getRawValue(ring, dir) * 1_K * 1_km / 1_s;
 	if (ring == 0)
-		return getRawValue(10, dir) * 1_K * 1_km / 1_s;
-	else if (ring == 1)
-		return getRawValue(11, dir) * 1_K * 1_km / 1_s;
+		return (getRawValue(10, dir) + getRawValue(11, dir)) * 1_K * 1_km / 1_s;
+	else if (ring == 11)
+		return QRingCOIntensity(0);
 	else
-		return getRawValue(ring - 2, dir) * 1_K * 1_km / 1_s;
+		return getRawValue(ring - 1, dir) * 1_K * 1_km / 1_s;
 }
 
 }}  // namespace hermes::neutralgas
