@@ -86,7 +86,7 @@ QEmissivity SynchroIntegrator::integrateOverSumEnergy(
 	for (auto itE = std::next(crdensity->begin()); itE != crdensity->end();
 	     ++itE) {
 		deltaE = (*itE) - *std::prev(itE);
-		emissivity += singleElectronEmission(freq_, (*itE), B_perp) *
+		emissivity += singleElectronEmission(freq_, (*itE), fabs(B_perp)) *
 		              crdensity->getDensityPerEnergy(*itE, pos_) * deltaE;
 	}
 
@@ -106,7 +106,7 @@ QEmissivity SynchroIntegrator::integrateOverLogEnergy(
 	if (B_perp == 0_T) return emissivity;
 
 	for (auto itE = crdensity->begin(); itE != crdensity->end(); ++itE) {
-		emissivity += singleElectronEmission(freq_, (*itE), B_perp) *
+		emissivity += singleElectronEmission(freq_, (*itE), fabs(B_perp)) *
 		              crdensity->getDensityPerEnergy(*itE, pos_) * (*itE);
 	}
 
