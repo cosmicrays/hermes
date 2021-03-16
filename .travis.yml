@@ -8,6 +8,7 @@ addons:
             - gcc-6
             - g++-6
             - clang-8
+            - libclang-common-8-dev
             - libgsl-dev
             - libfftw3-dev
             - libcfitsio3-dev
