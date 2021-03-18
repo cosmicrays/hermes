@@ -10,12 +10,13 @@ addons:
             - clang-8
             - libgsl-dev
             - libfftw3-dev
-            - libcfitsio3-dev
+            - libcfitsio-dev
             - libmuparser-dev
             - python3-setuptools
             - python3-dev
             - cmake
             - lcov
+            - doxygen
         sources: &sources
             - ubuntu-toolchain-r-test
 cache:
