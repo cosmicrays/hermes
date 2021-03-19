@@ -125,7 +125,6 @@ QPDensity NE2001Simple::getThickDiskDensity(const Vector3QLength &pos) const {
 QPDensity NE2001Simple::getThinDiskDensity(const Vector3QLength &pos) const {
 	QLength r = pos.getR();
 	// QNumber g2 = exp(-(r-A2)*(r-A2)/(A2*A2)) * stepFunction(r); // paper
-	// I
 	QNumber g2 = exp(-(r - A2) * (r - A2) / (1.8_kpc * 1.8_kpc)) *
 	             stepFunction(10_kpc - r);  // original code
 	return n2 * g2 * h(pos.z / H2);

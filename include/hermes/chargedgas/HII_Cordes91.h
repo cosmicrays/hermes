@@ -9,6 +9,12 @@ namespace hermes { namespace chargedgas {
  * @{
  */
 
+/**
+ * \class HII_Cordes91
+ * \brief A model of free electron distribution based on Cordes et al. 1991.
+ *
+ * Cordes, J. M. et al. 1991, doi:10.1038/354121a0
+ */
 class HII_Cordes91 : public ChargedGasDensity {
   private:
 	QPDensity fne1, fne2;
