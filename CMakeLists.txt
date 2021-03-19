@@ -268,9 +268,9 @@ add_library(hermes SHARED
 	src/ProgressBar.cpp
 	src/Random.cpp
 	src/Signals.cpp
-	src/chargedgas/HII_Cordes91.cpp
-	src/chargedgas/NE2001Simple.cpp
-	src/chargedgas/YMW16.cpp
+	src/ionizedgas/HII_Cordes91.cpp
+	src/ionizedgas/NE2001Simple.cpp
+	src/ionizedgas/YMW16.cpp
 	src/cosmicrays/Dragon2D.cpp
 	src/cosmicrays/Dragon3D.cpp
 	src/cosmicrays/DummyCRDensity.cpp
@@ -305,6 +305,7 @@ add_library(hermes SHARED
 	src/magneticfields/Sun08Field.cpp
 	src/magneticfields/WMAP07Field.cpp
 	src/neutralgas/Nakanishi06.cpp
+	src/neutralgas/RingData.cpp
 	src/neutralgas/RingModel.cpp
 	src/outputs/CTAFormat.cpp
 	src/outputs/HEALPixFormat.cpp
@@ -339,7 +340,7 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 		python/Quantity.cpp
 		python/Skymaps.cpp
 		python/Vectors.cpp
-		python/chargedgas.cpp
+		python/ionizedgas.cpp
 		python/cosmicrays.cpp
 		python/darkmatter.cpp
 		python/integrators.cpp

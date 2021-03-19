@@ -48,8 +48,8 @@ GammaSkymap GammaSkymapRange::operator[](std::size_t i) const {
 void GammaSkymapRange::compute() {
 	for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		std::cerr << "hermes::SkymapRange: " << it - skymaps.begin() + 1 << "/"
-		          << skymaps.size() << ", Energy = " << it->getEnergy() / 1_MeV
-		          << " MeV" << std::endl;
+		          << skymaps.size() << ", Energy = " << it->getEnergy() / 1_GeV
+		          << " GeV" << std::endl;
 		it->compute();
 	}
 }

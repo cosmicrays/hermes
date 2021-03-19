@@ -15,7 +15,7 @@ void init_vectors(py::module &);
 // sub-namespace modules
 // clang-format off
 namespace cosmicrays     { void init(py::module &); }
-namespace chargedgas     { void init(py::module &); }
+namespace ionizedgas     { void init(py::module &); }
 namespace darkmatter     { void init(py::module &); }
 namespace interactions   { void init(py::module &); }
 namespace magneticfields { void init(py::module &); }
@@ -35,7 +35,7 @@ PYBIND11_MODULE(pyhermes, m) {
 	init_skymaps(m);
 	init_vectors(m);
 
-	chargedgas::init(m);
+	ionizedgas::init(m);
 	cosmicrays::init(m);
 	darkmatter::init(m);
 	interactions::init(m);

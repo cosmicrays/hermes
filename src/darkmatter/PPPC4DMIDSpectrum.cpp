@@ -61,7 +61,7 @@ void PPPC4DMIDSpectrum::loadData() {
 QInverseEnergy PPPC4DMIDSpectrum::getParticlesPerEnergy(QEnergy Egamma) const {
 	double lgx = std::log10(static_cast<double>(Egamma / getRestMassEnergy()));
 
-	if (lgx <= -8. || lgx >= 1.) return QInverseEnergy(0);
+	if (lgx < -8. || lgx > 0.) return QInverseEnergy(0);
 
 	auto lessThan = [](const std::pair<double, double> &point, double x) {
 		return point.first < x;
@@ -69,7 +69,7 @@ QInverseEnergy PPPC4DMIDSpectrum::getParticlesPerEnergy(QEnergy Egamma) const {
 
 	auto iter =
 	    std::lower_bound(spectrum.cbegin(), spectrum.cend(), lgx, lessThan);
-
+    
 	double upperX{iter->first};
 	double upperY{iter->second};
 	double lowerX{(iter - 1)->first};

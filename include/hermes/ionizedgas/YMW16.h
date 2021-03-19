@@ -1,7 +1,7 @@
 #ifndef HERMES_YMW16_H
 #define HERMES_YMW16_H
 
-#include "hermes/chargedgas/ChargedGasDensity.h"
+#include "hermes/ionizedgas/IonizedGasDensity.h"
 
 /*Copyright (C) 2016, 2017  J. M. Yao, R. N. Manchester, N. Wang.
 
@@ -32,9 +32,9 @@ Modifed and optimized for C++ and multithreading execution
 by Andrej Dundovic (andrej.dundovic@gssi.it, 2020)
 */
 
-namespace hermes { namespace chargedgas {
+namespace hermes { namespace ionizedgas {
 /**
- * \addtogroup ChargedGas
+ * \addtogroup IonizedGas
  * @{
  */
 
@@ -158,7 +158,7 @@ namespace hermes { namespace chargedgas {
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
 #define MIN(a, b) (((a) > (b)) ? (b) : (a))
 
-class YMW16 : public ChargedGasDensity {
+class YMW16 : public IonizedGasDensity {
   private:
 	QPDensity fne1, fne2;
 	QLength H1, A1, H2, A2, R2;
@@ -260,11 +260,9 @@ class YMW16 : public ChargedGasDensity {
 	double thick(double xx, double yy, double zz, double *gd, double rr) const;
 	double thin(double xx, double yy, double zz, double gd, double rr) const;
 	double galcen(double xx, double yy, double zz) const;
-	double spiral(double xx, double yy, double zz, double gd, double rr,
-	              int *ww, int *m_3) const;
+	double spiral(double xx, double yy, double zz, double gd, double rr, int *ww, int *m_3) const;
 	double gum(double xx, double yy, double zz, int *m_5) const;
-	double localbubble(double xx, double yy, double zz, double gl, double gb,
-	                   double *WW, int *m_6) const;
+	double localbubble(double xx, double yy, double zz, double gl, double gb, double *WW, int *m_6) const;
 	double nps(double xx, double yy, double zz, int *WLI, int *m_7) const;
 	double fermibubble(double xx, double yy, double zz) const;
 	double lmc(double l, double b, double d, int *w_lmc) const;
@@ -273,6 +271,6 @@ class YMW16 : public ChargedGasDensity {
 };
 
 /** @}*/
-}}  // namespace hermes::chargedgas
+}}  // namespace hermes::ionizedgas
 
 #endif  // HERMES_YMW16_H

@@ -6,28 +6,20 @@
 
 namespace hermes {
 
-class TestChargedGasDensity : public chargedgas::ChargedGasDensity {
+class TestIonizedGasDensity : public ionizedgas::IonizedGasDensity {
   public:
-	TestChargedGasDensity() : chargedgas::ChargedGasDensity(1e4_K) {}
-	QPDensity getDensity(const Vector3QLength &pos) const {
-		return 1.0 / 1_cm3;
-	}
+	TestIonizedGasDensity() : ionizedgas::IonizedGasDensity(1e4_K) {}
+	QPDensity getDensity(const Vector3QLength &pos) const { return 1.0 / 1_cm3; }
 };
 
 TEST(FreeFreeIntegrator, gauntFactor) {
-	auto gdensity =
-	    std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
-	auto intFreeFree =
-	    std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
+	auto gdensity = std::make_shared<TestIonizedGasDensity>(TestIonizedGasDensity());
+	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
 
 	// see arXiv:1407.5048
 	int Z = 1;
-	auto gammaSquared = [](QTemperature T, int Z) {
-		return Z * Z * Ry / (k_boltzmann * T);
-	};
-	auto u = [](QFrequency nu, QTemperature T) {
-		return h_planck * nu / (k_boltzmann * T);
-	};
+	auto gammaSquared = [](QTemperature T, int Z) { return Z * Z * Ry / (k_boltzmann * T); };
+	auto u = [](QFrequency nu, QTemperature T) { return h_planck * nu / (k_boltzmann * T); };
 
 	// std::cerr << gammaSquared(1e4_K, Z) << std::endl;
 	// std::cerr << u(1_GHz, 1e4_K) << std::endl;
@@ -44,10 +36,8 @@ TEST(FreeFreeIntegrator, gauntFactor) {
 }
 
 TEST(FreeFreeIntegrator, spectralEmissivityExplicit) {
-	auto gdensity =
-	    std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
-	auto intFreeFree =
-	    std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
+	auto gdensity = std::make_shared<TestIonizedGasDensity>(TestIonizedGasDensity());
+	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
 	/*
 	    auto N = 1.0/1_cm3;
 	    EXPECT_NEAR(static_cast<double>(
@@ -72,10 +62,8 @@ TEST(FreeFreeIntegrator, spectralEmissivityExplicit) {
 }
 
 TEST(FreeFreeIntegrator, integrateSkymap) {
-	auto gdensity =
-	    std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
-	auto intFreeFree =
-	    std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
+	auto gdensity = std::make_shared<TestIonizedGasDensity>(TestIonizedGasDensity());
+	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
 
 	QFrequency f = 22_GHz;
 	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(2, f));
@@ -100,27 +88,21 @@ TEST(FreeFreeIntegrator, integrateSkymap) {
 }
 
 TEST(FreeFreeIntegrator, RadioSkymapRange) {
-	auto gdensity =
-	    std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
-	auto intFreeFree =
-	    std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
+	auto gdensity = std::make_shared<TestIonizedGasDensity>(TestIonizedGasDensity());
+	auto intFreeFree = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
 
-	auto skymap_range = std::make_shared<RadioSkymapRange>(
-	    RadioSkymapRange(4, 1_MHz, 100_GHz, 10));
+	auto skymap_range = std::make_shared<RadioSkymapRange>(RadioSkymapRange(4, 1_MHz, 100_GHz, 10));
 	skymap_range->setIntegrator(intFreeFree);
 	skymap_range->compute();
 
-	auto output =
-	    std::make_shared<outputs::HEALPixFormat>(outputs::HEALPixFormat(
-	        "!FreeFreeIntegrator-RadioSkymapRange-output.fits.gz"));
+	auto output = std::make_shared<outputs::HEALPixFormat>(
+	    outputs::HEALPixFormat("!FreeFreeIntegrator-RadioSkymapRange-output.fits.gz"));
 	skymap_range->save(output);
 }
 
 TEST(FreeFreeIntegrator, absorptionCoefficient) {
-	auto gdensity =
-	    std::make_shared<TestChargedGasDensity>(TestChargedGasDensity());
-	auto integrator =
-	    std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
+	auto gdensity = std::make_shared<TestIonizedGasDensity>(TestIonizedGasDensity());
+	auto integrator = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gdensity));
 
 	/*
 	    QInverseLength absorption = integrator->absorptionCoefficient(
@@ -136,22 +118,17 @@ TEST(FreeFreeIntegrator, absorptionCoefficient) {
 }
 
 TEST(FreeFreeIntegrator, PerformanceTest) {
-	auto gasdenisty = std::make_shared<chargedgas::YMW16>(chargedgas::YMW16());
-	auto in =
-	    std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gasdenisty));
+	auto gasdensity = std::make_shared<ionizedgas::YMW16>(ionizedgas::YMW16());
+	auto in = std::make_shared<FreeFreeIntegrator>(FreeFreeIntegrator(gasdensity));
 	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(4, 100_MHz));
 	skymap->setIntegrator(in);
 
-	std::chrono::time_point<std::chrono::system_clock> start =
-	    std::chrono::system_clock::now();
+	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
 	skymap->compute();
-	std::chrono::time_point<std::chrono::system_clock> stop =
-	    std::chrono::system_clock::now();
+	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
 
-	auto milliseconds =
-	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
+	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+	unsigned long pxl_speed = milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 
 	EXPECT_LE(pxl_speed, 15);  // ms
 }

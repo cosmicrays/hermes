@@ -5,8 +5,8 @@
 #include <memory>
 
 #include "hermes/Units.h"
-#include "hermes/chargedgas/ChargedGasDensity.h"
 #include "hermes/integrators/IntegratorTemplate.h"
+#include "hermes/ionizedgas/IonizedGasDensity.h"
 #include "hermes/magneticfields/MagneticField.h"
 
 /** \file FreeFreeIntegrator.h
@@ -28,30 +28,23 @@ namespace hermes {
  */
 class FreeFreeIntegrator : public RadioIntegratorTemplate {
   private:
-	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
+	std::shared_ptr<ionizedgas::IonizedGasDensity> gdensity;
 
   public:
-	FreeFreeIntegrator(
-	    const std::shared_ptr<chargedgas::ChargedGasDensity> &gdensity);
+	FreeFreeIntegrator(const std::shared_ptr<ionizedgas::IonizedGasDensity> &gdensity);
 	~FreeFreeIntegrator();
 
 	void setFrequency(const QFrequency &freq);
 	QFrequency getFrequency() const;
 
 	QTemperature integrateOverLOS(const QDirection &iterdir) const override;
-	QTemperature integrateOverLOS(const QDirection &iterdir,
-	                              const QFrequency &freq) const override;
+	QTemperature integrateOverLOS(const QDirection &iterdir, const QFrequency &freq) const override;
 
-	QNumber gauntFactor(const QFrequency &freq, const QTemperature &T,
-	                    int Z) const;
-	QEmissivity spectralEmissivityExplicit(const QPDensity &N,
-	                                       const QPDensity &N_e,
-	                                       const QFrequency &freq,
+	QNumber gauntFactor(const QFrequency &freq, const QTemperature &T, int Z) const;
+	QEmissivity spectralEmissivityExplicit(const QPDensity &N, const QPDensity &N_e, const QFrequency &freq,
 	                                       const QTemperature &T, int Z) const;
-	QEmissivity spectralEmissivity(const Vector3QLength &pos,
-	                               const QFrequency &freq) const;
-	QInverseLength absorptionCoefficient(const Vector3QLength &pos,
-	                                     const QFrequency &freq) const;
+	QEmissivity spectralEmissivity(const Vector3QLength &pos, const QFrequency &freq) const;
+	QInverseLength absorptionCoefficient(const Vector3QLength &pos, const QFrequency &freq) const;
 };
 
 /** @}*/

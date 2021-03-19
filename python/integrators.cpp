@@ -39,7 +39,7 @@ void init_integrators(py::module &m) {
 	NEW_INTEGRATOR(dmintegrator, "DispersionMeasureIntegrator",
 	               DispersionMeasureIntegrator, QDispersionMeasure, QNumber);
 	dmintegrator.def(
-	    py::init<const std::shared_ptr<chargedgas::ChargedGasDensity>>());
+	    py::init<const std::shared_ptr<ionizedgas::IonizedGasDensity>>());
 	dmintegrator.def("getLOSProfile",
 	                 &DispersionMeasureIntegrator::getLOSProfile);
 	declare_default_integrator_methods<DispersionMeasureIntegrator>(
@@ -50,14 +50,14 @@ void init_integrators(py::module &m) {
 	               RotationMeasureIntegrator, QRotationMeasure, QNumber);
 	rmintegrator.def(
 	    py::init<const std::shared_ptr<magneticfields::MagneticField>,
-	             const std::shared_ptr<chargedgas::ChargedGasDensity>>());
+	             const std::shared_ptr<ionizedgas::IonizedGasDensity>>());
 	declare_default_integrator_methods<RotationMeasureIntegrator>(rmintegrator);
 
 	// FreeFreeIntegrator
 	NEW_INTEGRATOR(ffintegrator, "FreeFreeIntegrator", FreeFreeIntegrator,
 	               QTemperature, QFrequency);
 	ffintegrator.def(
-	    py::init<const std::shared_ptr<chargedgas::ChargedGasDensity>>());
+	    py::init<const std::shared_ptr<ionizedgas::IonizedGasDensity>>());
 	declare_default_integrator_methods<FreeFreeIntegrator>(ffintegrator);
 
 	// SynchroIntegrator
@@ -77,7 +77,7 @@ void init_integrators(py::module &m) {
 	synchroabsintegrator.def(
 	    py::init<const std::shared_ptr<magneticfields::MagneticField>,
 	             const std::shared_ptr<cosmicrays::CosmicRayDensity>,
-	             const std::shared_ptr<chargedgas::ChargedGasDensity>>());
+	             const std::shared_ptr<ionizedgas::IonizedGasDensity>>());
 	declare_default_integrator_methods<SynchroAbsorptionIntegrator>(
 	    synchroabsintegrator);
 

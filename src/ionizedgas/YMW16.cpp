@@ -1,4 +1,4 @@
-#include "hermes/chargedgas/YMW16.h"
+#include "hermes/ionizedgas/YMW16.h"
 
 /*Copyright (C) 2016, 2017  J. M. Yao, R. N. Manchester, N. Wang.
 
@@ -29,19 +29,17 @@ Modifed and optimized for C++ and multithreading execution
 by Andrej Dundovic (andrej.dundovic@gssi.it, 2020)
 */
 
-namespace hermes { namespace chargedgas {
+namespace hermes { namespace ionizedgas {
 
-YMW16::YMW16() : ChargedGasDensity(1e4_K) { initParameters(); }
+YMW16::YMW16() : IonizedGasDensity(1e4_K) { initParameters(); }
 
-YMW16::YMW16(const QTemperature &t) : ChargedGasDensity(t) { initParameters(); }
+YMW16::YMW16(const QTemperature &t) : IonizedGasDensity(t) { initParameters(); }
 
 QPDensity YMW16::getDensity(const Vector3QLength &pos) const {
 	auto conversion = [](QLength x) { return static_cast<double>(x / parsec); };
 
-	double x =
-	    -1 * conversion(pos.getY());  // change coordinates X<>Y since in YMW16
-	double y =
-	    conversion(pos.getX());  // the sun position is at (0,+8.3_kpc,6.0_pc)
+	double x = -1 * conversion(pos.getY());  // change coordinates X<>Y since in YMW16
+	double y = conversion(pos.getX());       // the sun position is at (0,+8.3_kpc,6.0_pc)
 	double z = conversion(pos.getZ());
 	QPDensity density;
 
@@ -146,8 +144,7 @@ void YMW16::initParameters() {
 	};
 }
 
-double YMW16::thick(double xx, double yy, double zz, double *gd,
-                    double rr) const {
+double YMW16::thick(double xx, double yy, double zz, double *gd, double rr) const {
 	double gdd, gg;
 
 	if (std::fabs(zz) > mc * t1.H1 || (rr - t1.Bd) > mc * t1.Ad) {
@@ -156,20 +153,15 @@ double YMW16::thick(double xx, double yy, double zz, double *gd,
 		if (rr < t1.Bd) {
 			gdd = 1;
 		} else {
-			gg = std::exp(-(rr - t1.Bd) / t1.Ad) +
-			     std::exp((rr - t1.Bd) / t1.Ad);
+			gg = std::exp(-(rr - t1.Bd) / t1.Ad) + std::exp((rr - t1.Bd) / t1.Ad);
 			gdd = std::pow(2 / gg, 2);
 		}
 	}
 	*gd = gdd;
-	return t1.n1 * gdd *
-	       std::pow(2 / (std::exp(-std::fabs(zz) / t1.H1) +
-	                     std::exp(std::fabs(zz) / t1.H1)),
-	                2);
+	return t1.n1 * gdd * std::pow(2 / (std::exp(-std::fabs(zz) / t1.H1) + std::exp(std::fabs(zz) / t1.H1)), 2);
 }
 
-double YMW16::thin(double xx, double yy, double zz, double gd,
-                   double rr) const {
+double YMW16::thin(double xx, double yy, double zz, double gd, double rr) const {
 	double g2, Hg, ex1, ex2, g3, HH;
 
 	Hg = 32 + 0.0016 * rr + 0.0000004 * std::pow(rr, 2);
@@ -180,8 +172,7 @@ double YMW16::thin(double xx, double yy, double zz, double gd,
 		g3 = (rr - t2.B2) / t2.A2;
 		g2 = std::pow(2 / (std::exp(-g3) + std::exp(g3)), 2);
 	}
-	return t2.n2 * gd * g2 *
-	       std::pow(2 / (std::exp(-zz / HH) + std::exp(zz / HH)), 2);
+	return t2.n2 * gd * g2 * std::pow(2 / (std::exp(-zz / HH) + std::exp(zz / HH)), 2);
 }
 
 double YMW16::galcen(double xx, double yy, double zz) const {
@@ -197,15 +188,12 @@ double YMW16::galcen(double xx, double yy, double zz) const {
 	} else {
 		gc = 1;
 		Ar = std::exp(-(Rgc * Rgc) / (t4.Agc * t4.Agc));
-		Az = std::pow(2. / (std::exp((zz - Zgc) / t4.Hgc) +
-		                    std::exp(-(zz - Zgc) / t4.Hgc)),
-		              2);
+		Az = std::pow(2. / (std::exp((zz - Zgc) / t4.Hgc) + std::exp(-(zz - Zgc) / t4.Hgc)), 2);
 	}
 	return t4.ngc * Ar * Az * gc;
 }
 
-double YMW16::spiral(double xx, double yy, double zz, double gd, double rr,
-                     int *ww, int *m_3) const {
+double YMW16::spiral(double xx, double yy, double zz, double gd, double rr, int *ww, int *m_3) const {
 	int i, which_arm;
 	static double rmin[5], thmin[5], tpitch[5], cspitch[5], sspitch[5];
 	double detrr = 1e10;
@@ -261,60 +249,50 @@ double YMW16::spiral(double xx, double yy, double zz, double gd, double rr,
 			// Norma-Outer
 			if (i == 0) {
 				if (theta >= 0 && theta < 0.77) {
-					armr =
-					    rmin[i] * exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
+					armr = rmin[i] * exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
 					detrr = std::fabs(rr - armr);
 				}
 				if (theta >= 0.77 && theta < 6.28) {
 					armr1 = rmin[i] * std::exp((theta - thmin[i]) * tpitch[i]);
-					armr2 = rmin[i] *
-					        std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
+					armr2 = rmin[i] * std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
 					detrr = MIN(std::fabs(rr - armr1), std::fabs(rr - armr2));
 				}
 			}
 			// Perseus
 			if (i == 1) {
 				if (theta >= 0 && theta < 2.093) {
-					armr = rmin[i] *
-					       std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
+					armr = rmin[i] * std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
 					detrr = std::fabs(rr - armr);
 				}
 				if (theta >= 2.093 && theta < 6.28) {
 					armr1 = rmin[i] * std::exp((theta - thmin[i]) * tpitch[i]);
-					armr2 = rmin[i] *
-					        std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
+					armr2 = rmin[i] * std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
 					detrr = MIN(std::fabs(rr - armr1), std::fabs(rr - armr2));
 				}
 			}
 			// Carina-Sagittarius
 			if (i == 2) {
 				if (theta >= 0 && theta < 3.81) {
-					armr1 = rmin[i] *
-					        std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
-					armr2 = rmin[i] *
-					        std::exp((theta + 4 * pi - thmin[i]) * tpitch[i]);
+					armr1 = rmin[i] * std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
+					armr2 = rmin[i] * std::exp((theta + 4 * pi - thmin[i]) * tpitch[i]);
 					detrr = MIN(std::fabs(rr - armr1), std::fabs(rr - armr2));
 				}
 				if (theta >= 3.81 && theta < 6.28) {
 					armr1 = rmin[i] * std::exp((theta - thmin[i]) * tpitch[i]);
-					armr2 = rmin[i] *
-					        std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
+					armr2 = rmin[i] * std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
 					detrr = MIN(std::fabs(rr - armr1), std::fabs(rr - armr2));
 				}
 			}
 			// Crux_Scutum
 			if (i == 3) {
 				if (theta >= 0 && theta < 5.76) {
-					armr1 = rmin[i] *
-					        std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
-					armr2 = rmin[i] *
-					        std::exp((theta + 4 * pi - thmin[i]) * tpitch[i]);
+					armr1 = rmin[i] * std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
+					armr2 = rmin[i] * std::exp((theta + 4 * pi - thmin[i]) * tpitch[i]);
 					detrr = MIN(std::fabs(rr - armr1), std::fabs(rr - armr2));
 				}
 				if (theta >= 5.76 && theta < 6.28) {
 					armr1 = rmin[i] * std::exp((theta - thmin[i]) * tpitch[i]);
-					armr2 = rmin[i] *
-					        std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
+					armr2 = rmin[i] * std::exp((theta + 2 * pi - thmin[i]) * tpitch[i]);
 					detrr = MIN(std::fabs(rr - armr1), std::fabs(rr - armr2));
 				}
 			}
@@ -338,31 +316,20 @@ double YMW16::spiral(double xx, double yy, double zz, double gd, double rr,
 				smin = detrr * cspitch[i];
 				saxis = detrr * sspitch[i];
 				if (i == 2) {
-					ga = (1 -
-					      (t3.nsg) * (std::exp(-((theta * RAD - t3.thetasg) *
-					                             (theta * RAD - t3.thetasg)) /
-					                           (t3.wsg * t3.wsg)))) *
-					     (1 + t3.ncn * std::exp(-((theta * RAD - t3.thetacn) *
-					                              (theta * RAD - t3.thetacn)) /
+					ga = (1 - (t3.nsg) * (std::exp(-((theta * RAD - t3.thetasg) * (theta * RAD - t3.thetasg)) /
+					                               (t3.wsg * t3.wsg)))) *
+					     (1 + t3.ncn * std::exp(-((theta * RAD - t3.thetacn) * (theta * RAD - t3.thetacn)) /
 					                            (t3.wcn * t3.wcn))) *
-					     std::pow(2 / (std::exp(-smin / t3.warm[i]) +
-					                   std::exp(smin / t3.warm[i])),
-					              2);
+					     std::pow(2 / (std::exp(-smin / t3.warm[i]) + std::exp(smin / t3.warm[i])), 2);
 					if (rr > 6000 && theta * RAD > t3.thetacn) {
-						ga = (1 - (t3.nsg) *
-						              (std::exp(-((theta * RAD - t3.thetasg) *
-						                          (theta * RAD - t3.thetasg)) /
-						                        (t3.wsg * t3.wsg)))) *
+						ga = (1 - (t3.nsg) * (std::exp(-((theta * RAD - t3.thetasg) * (theta * RAD - t3.thetasg)) /
+						                               (t3.wsg * t3.wsg)))) *
 						     (1 + t3.ncn) *
-						     std::pow(2 / (std::exp(-smin / t3.warm[i]) +
-						                   std::exp(smin / t3.warm[i])),
-						              2);
+						     std::pow(2 / (std::exp(-smin / t3.warm[i]) + std::exp(smin / t3.warm[i])), 2);
 					}
 
 				} else {
-					ga = std::pow(2 / (std::exp(-smin / t3.warm[i]) +
-					                   std::exp(smin / t3.warm[i])),
-					              2);
+					ga = std::pow(2 / (std::exp(-smin / t3.warm[i]) + std::exp(smin / t3.warm[i])), 2);
 				}
 
 				if (smin < sminmin) {
@@ -374,13 +341,9 @@ double YMW16::spiral(double xx, double yy, double zz, double gd, double rr,
 				(*m_3)++;
 				return 0;
 			}
-			sech2 = std::pow((2 / (std::exp((rr - t3.B2s) / t3.Aa) +
-			                       std::exp(-(rr - t3.B2s) / t3.Aa))),
-			                 2);
+			sech2 = std::pow((2 / (std::exp((rr - t3.B2s) / t3.Aa) + std::exp(-(rr - t3.B2s) / t3.Aa))), 2);
 			ga = ga * sech2 * gd;
-			uu = std::pow(2 / (std::exp((std::fabs(zz)) / HH) +
-			                   std::exp(-std::fabs(zz) / HH)),
-			              2);
+			uu = std::pow(2 / (std::exp((std::fabs(zz)) / HH) + std::exp(-std::fabs(zz) / HH)), 2);
 			ne3s += t3.narm[i] * ga * uu;
 		}
 		return ne3s;
@@ -411,22 +374,17 @@ double YMW16::gum(double xx, double yy, double zz, int *m_5) const {
 	yc = R0 * 1000 - rgalc * clc;
 	zc = dc * sbc;
 
-	theta = std::fabs(std::atan(
-	    (zz - zc) / std::sqrt((xx - xc) * (xx - xc) + (yy - yc) * (yy - yc))));
+	theta = std::fabs(std::atan((zz - zc) / std::sqrt((xx - xc) * (xx - xc) + (yy - yc) * (yy - yc))));
 	zp = ((t5.Agn) * (t5.Agn) * (t5.Kgn)) /
 	     std::sqrt(((t5.Agn) * (t5.Agn)) +
-	               ((t5.Agn) * (t5.Agn) * (t5.Kgn) * (t5.Kgn)) /
-	                   (std::tan(theta) * std::tan(theta)));
+	               ((t5.Agn) * (t5.Agn) * (t5.Kgn) * (t5.Kgn)) / (std::tan(theta) * std::tan(theta)));
 	xyp = zp / std::tan(theta);
 	if ((t5.Agn - std::fabs(xyp)) < 1e-15) {
 		alpha = pi / 2;
 	} else {
-		alpha =
-		    -std::atan((-(t5.Agn) * (t5.Kgn) * xyp) /
-		               ((t5.Agn) * std::sqrt((t5.Agn) * (t5.Agn) - xyp * xyp)));
+		alpha = -std::atan((-(t5.Agn) * (t5.Kgn) * xyp) / ((t5.Agn) * std::sqrt((t5.Agn) * (t5.Agn) - xyp * xyp)));
 	}
-	RR = std::sqrt((xx - xc) * (xx - xc) + (yy - yc) * (yy - yc) +
-	               (zz - zc) * (zz - zc));
+	RR = std::sqrt((xx - xc) * (xx - xc) + (yy - yc) * (yy - yc) + (zz - zc) * (zz - zc));
 	rp = std::sqrt((zp) * (zp) + (xyp) * (xyp));
 	Dmin = std::fabs((RR - rp) * sin(theta + alpha));
 
@@ -437,8 +395,7 @@ double YMW16::gum(double xx, double yy, double zz, int *m_5) const {
 	return (t5.ngn) * exp(-Dmin * Dmin / ((t5.Wgn) * (t5.Wgn)));
 }
 
-double YMW16::localbubble(double xx, double yy, double zz, double gl, double gb,
-                          double *WW, int *m_6) const {
+double YMW16::localbubble(double xx, double yy, double zz, double gl, double gb, double *WW, int *m_6) const {
 	double g4 = 0;
 	double g5 = 0;
 	double g6 = 0;
@@ -456,11 +413,8 @@ double YMW16::localbubble(double xx, double yy, double zz, double gl, double gb,
 
 	Y_C = 8340 + (0.34 / 0.94) * zz;  // Center of local bubble
 	COS_A = (xx * xx + (8300 - yy) * (Y_C - yy)) /
-	        (sqrt(xx * xx + (8300 - yy) * (8300 - yy)) *
-	         sqrt(xx * xx + (Y_C - yy) * (Y_C - yy)));
-	UU = sqrt(((yy - 8340) * 0.94 - 0.34 * zz) *
-	              ((yy - 8340) * 0.94 - 0.34 * zz) +
-	          xx * xx);
+	        (sqrt(xx * xx + (8300 - yy) * (8300 - yy)) * sqrt(xx * xx + (Y_C - yy) * (Y_C - yy)));
+	UU = sqrt(((yy - 8340) * 0.94 - 0.34 * zz) * ((yy - 8340) * 0.94 - 0.34 * zz) + xx * xx);
 	*WW = UU;
 	if (*m_6 >= 1) return 0;
 	if ((UU - Rlb) > (mc * t6.wlb1) || std::fabs(zz) > (mc * t6.hlb1)) {
@@ -468,43 +422,32 @@ double YMW16::localbubble(double xx, double yy, double zz, double gl, double gb,
 	} else {
 		glb1 = 1;
 		g4 = (UU - Rlb) / t6.wlb1;
-		g5 =
-		    std::pow(2 / (std::exp(-zz / t6.hlb1) + std::exp(zz / t6.hlb1)), 2);
-		VVV =
-		    MIN(std::fabs(gl + 360 - t6.thetalb1), std::fabs(t6.thetalb1 - gl));
+		g5 = std::pow(2 / (std::exp(-zz / t6.hlb1) + std::exp(zz / t6.hlb1)), 2);
+		VVV = MIN(std::fabs(gl + 360 - t6.thetalb1), std::fabs(t6.thetalb1 - gl));
 		if (VVV > (mc * t6.detlb1)) {
 			glb1 = 0;
 		} else {
 			glb1 = 1;
 		}
-		nelb1 = glb1 *
-		        std::pow(2 / (std::exp(-VVV / t6.detlb1) +
-		                      std::exp(VVV / t6.detlb1)),
-		                 2) *
-		        t6.nlb1 * std::pow(2 / (std::exp(g4) + std::exp(-g4)), 2) * g5;
+		nelb1 = glb1 * std::pow(2 / (std::exp(-VVV / t6.detlb1) + std::exp(VVV / t6.detlb1)), 2) * t6.nlb1 *
+		        std::pow(2 / (std::exp(g4) + std::exp(-g4)), 2) * g5;
 	}
-	if ((UU - Rlb) > (mc * t6.wlb2) || std::fabs(zz) > (mc * t6.hlb2))
-		nelb2 = 0;
+	if ((UU - Rlb) > (mc * t6.wlb2) || std::fabs(zz) > (mc * t6.hlb2)) nelb2 = 0;
 	if (nelb1 == 0 && nelb2 == 0) {
 		(*m_6)++;
 		return 0;
 	} else {
 		glb2 = 1;
 		g6 = (UU - Rlb) / t6.wlb2;
-		g7 =
-		    std::pow(2 / (std::exp(-zz / t6.hlb2) + std::exp(zz / t6.hlb2)), 2);
-		WWW =
-		    MIN(std::fabs(gl + 360 - t6.thetalb2), std::fabs(t6.thetalb2 - gl));
+		g7 = std::pow(2 / (std::exp(-zz / t6.hlb2) + std::exp(zz / t6.hlb2)), 2);
+		WWW = MIN(std::fabs(gl + 360 - t6.thetalb2), std::fabs(t6.thetalb2 - gl));
 		if (WWW > (mc * t6.detlb2)) {
 			glb2 = 0;
 		} else {
 			glb2 = 1;
 		}
-		nelb2 = glb2 *
-		        std::pow(2 / (std::exp(-WWW / t6.detlb2) +
-		                      std::exp(WWW / t6.detlb2)),
-		                 2) *
-		        t6.nlb2 * std::pow(2 / (std::exp(g6) + std::exp(-g6)), 2) * g7;
+		nelb2 = glb2 * std::pow(2 / (std::exp(-WWW / t6.detlb2) + std::exp(WWW / t6.detlb2)), 2) * t6.nlb2 *
+		        std::pow(2 / (std::exp(g6) + std::exp(-g6)), 2) * g7;
 	}
 
 	if (COS_A < COS_E) nelb1 = 0;
@@ -525,22 +468,16 @@ double YMW16::nps(double xx, double yy, double zz, int *WLI, int *m_7) const {
 	y_c = 8106.206;
 	z_c = 10.467;
 	double rr, theta;
-	rr = std::sqrt((xx - x_c) * (xx - x_c) + (yy - y_c) * (yy - y_c) +
-	               (zz - z_c) * (zz - z_c));
-	theta = std::acos(((xx - x_c) * (std::cos(theta_LI)) +
-	                   (zz - z_c) * (std::sin(theta_LI))) /
-	                  rr) *
-	        RAD;
+	rr = std::sqrt((xx - x_c) * (xx - x_c) + (yy - y_c) * (yy - y_c) + (zz - z_c) * (zz - z_c));
+	theta = std::acos(((xx - x_c) * (std::cos(theta_LI)) + (zz - z_c) * (std::sin(theta_LI))) / rr) * RAD;
 	*WLI = 1;
-	if (std::fabs(rr - t7.RLI) > (mc * t7.WLI) ||
-	    std::fabs(theta) > (mc * t7.detthetaLI)) {
+	if (std::fabs(rr - t7.RLI) > (mc * t7.WLI) || std::fabs(theta) > (mc * t7.detthetaLI)) {
 		if (rr > 500) (*m_7)++;
 		return 0;
 	} else
 		gLI = 1;
 
-	return gLI * (t7.nLI) *
-	       exp(-((rr - (t7.RLI)) * (rr - (t7.RLI))) / ((t7.WLI) * (t7.WLI))) *
+	return gLI * (t7.nLI) * exp(-((rr - (t7.RLI)) * (rr - (t7.RLI))) / ((t7.WLI) * (t7.WLI))) *
 	       exp((-theta * theta) / ((t7.detthetaLI) * (t7.detthetaLI)));
 }
 
@@ -548,17 +485,14 @@ double YMW16::fermibubble(double xx, double yy, double zz) const {
 	double fbnz, fbsz, na, nb, sa, sb, N, S;
 	// center of Fermi bubble
 	fbnz = 0.5 * 8300 * std::tan(50 / RAD);
-	fbsz = -(0.5 * (8300 * std::tan(50 / RAD) - 8300 * std::tan(0 / RAD)) +
-	         (8300 * std::tan(0 / RAD)));
+	fbsz = -(0.5 * (8300 * std::tan(50 / RAD) - 8300 * std::tan(0 / RAD)) + (8300 * std::tan(0 / RAD)));
 	// min_axis and max_axis of Fermi bubble
 	na = fbnz;
 	nb = 8300 * std::tan(20 / RAD);
 	sa = 0.5 * (8300 * std::tan(50 / RAD) - 8300 * std::tan(0 / RAD));
 	sb = 8300 * std::tan(20 / RAD);
-	N = (std::pow(xx, 2) / (nb * nb)) + (std::pow(yy, 2) / (nb * nb)) +
-	    (std::pow(zz - fbnz, 2) / (na * na));
-	S = (std::pow(xx, 2) / (sb * sb)) + (std::pow(yy, 2) / (sb * sb)) +
-	    (std::pow(zz - fbsz, 2) / (sa * sa));
+	N = (std::pow(xx, 2) / (nb * nb)) + (std::pow(yy, 2) / (nb * nb)) + (std::pow(zz - fbnz, 2) / (na * na));
+	S = (std::pow(xx, 2) / (sb * sb)) + (std::pow(yy, 2) / (sb * sb)) + (std::pow(zz - fbsz, 2) / (sa * sa));
 	if (N < 1 || S < 1) {
 		return 1;
 	} else {
@@ -592,26 +526,18 @@ double YMW16::lmc(double l, double b, double d, int *w_lmc) const {
 	s_delta = sin(b) * sin(delta_cp) + cos(b) * cos(delta_cp) * cos(l_cp - l);
 	c_delta = cos(asin(s_delta));
 	s_alpha_cp = (sin(l_cp - l) * cos(b)) / c_delta;
-	c_alpha_cp =
-	    (sin(b) * cos(delta_cp) - cos(b) * sin(delta_cp) * cos(l_cp - l)) /
-	    c_delta;
+	c_alpha_cp = (sin(b) * cos(delta_cp) - cos(b) * sin(delta_cp) * cos(l_cp - l)) / c_delta;
 	s_cpl = sin(alpha_cp - alpha_l);
 	c_cpl = cos(alpha_cp - alpha_l);
 	// ((alpha,delta,d)----((alpha_l,delta_l,D_l)-----get(dag,pag)
-	c_dag = c_delta * cos(delta_l) * (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl) +
-	        s_delta * sin(delta_l);
+	c_dag = c_delta * cos(delta_l) * (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl) + s_delta * sin(delta_l);
 	s_dag = std::sin(std::acos(c_dag));
 	sc_dp = -c_delta * (s_alpha_cp * c_cpl + c_alpha_cp * s_cpl);
-	ss_dp = s_delta * cos(delta_l) -
-	        c_delta * sin(delta_l) * (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl);
+	ss_dp = s_delta * cos(delta_l) - c_delta * sin(delta_l) * (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl);
 	//(xc,yc,zc,iag,npag)------get(X,Y,Z) is (x',y',z')
 	X = d * (sc_dp * cos(npag) + ss_dp * sin(npag));
-	Y = d * (cos(iag) * (ss_dp * cos(npag) - sc_dp * sin(npag)) +
-	         c_dag * sin(iag)) -
-	    D_l * sin(iag);
-	Z = d * (sin(iag) * (ss_dp * cos(npag) - sc_dp * sin(npag)) -
-	         c_dag * cos(iag)) +
-	    D_l * cos(iag);
+	Y = d * (cos(iag) * (ss_dp * cos(npag) - sc_dp * sin(npag)) + c_dag * sin(iag)) - D_l * sin(iag);
+	Z = d * (sin(iag) * (ss_dp * cos(npag) - sc_dp * sin(npag)) - c_dag * cos(iag)) + D_l * cos(iag);
 	Rl = sqrt(X * X + Y * Y);
 	if (Rl > mc * Al || fabs(Z) > mc * Hl) {
 		return 0;
@@ -619,8 +545,7 @@ double YMW16::lmc(double l, double b, double d, int *w_lmc) const {
 		gl = 1;
 		*w_lmc = 1;
 	}
-	return gl * (t9.nlmc) * std::exp(-(Rl * Rl) / (Al * Al)) *
-	       std::pow(2 / (std::exp(-Z / Hl) + std::exp(Z / Hl)), 2);
+	return gl * (t9.nlmc) * std::exp(-(Rl * Rl) / (Al * Al)) * std::pow(2 / (std::exp(-Z / Hl) + std::exp(Z / Hl)), 2);
 }
 
 double YMW16::dora(double l, double b, double d) const {
@@ -651,58 +576,40 @@ double YMW16::dora(double l, double b, double d) const {
 	double s_cpl, c_cpl, c_dag, s_dag, sc_dp, ss_dp;
 	double c_dagD, s_dagD, sc_dpD, ss_dpD;
 	//(gl,gb,d)-----get(alpha,delta,d) for a point
-	s_delta = std::sin(b) * std::sin(delta_cp) +
-	          std::cos(b) * std::cos(delta_cp) * std::cos(l_cp - l);
+	s_delta = std::sin(b) * std::sin(delta_cp) + std::cos(b) * std::cos(delta_cp) * std::cos(l_cp - l);
 	c_delta = std::cos(std::asin(s_delta));
 	s_alpha_cp = (std::sin(l_cp - l) * std::cos(b)) / c_delta;
-	c_alpha_cp = (std::sin(b) * std::cos(delta_cp) -
-	              std::cos(b) * std::sin(delta_cp) * std::cos(l_cp - l)) /
-	             c_delta;
+	c_alpha_cp = (std::sin(b) * std::cos(delta_cp) - std::cos(b) * std::sin(delta_cp) * std::cos(l_cp - l)) / c_delta;
 	s_cpl = std::sin(alpha_cp - alpha_l);
 	c_cpl = std::cos(alpha_cp - alpha_l);
 	// ((alpha,delta,d)----((alpha_l,delta_l,D_l)-----get(dag,pag)
-	c_dag = c_delta * std::cos(delta_l) *
-	            (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl) +
-	        s_delta * std::sin(delta_l);
+	c_dag = c_delta * std::cos(delta_l) * (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl) + s_delta * std::sin(delta_l);
 	s_dag = std::sin(std::acos(c_dag));
 	sc_dp = -c_delta * (s_alpha_cp * c_cpl + c_alpha_cp * s_cpl);
-	ss_dp =
-	    s_delta * std::cos(delta_l) -
-	    c_delta * std::sin(delta_l) * (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl);
+	ss_dp = s_delta * std::cos(delta_l) - c_delta * std::sin(delta_l) * (c_alpha_cp * c_cpl - s_alpha_cp * s_cpl);
 	//(xc,yc,zc,iag,npag)------get(X,Y,Z) is (x',y',z')
 	double X = d * (sc_dp * std::cos(npag) + ss_dp * std::sin(npag));
-	double Y =
-	    d * (std::cos(iag) * (ss_dp * std::cos(npag) - sc_dp * std::sin(npag)) +
-	         c_dag * std::sin(iag)) -
-	    D_l * std::sin(iag);
-	double Z =
-	    d * (std::sin(iag) * (ss_dp * std::cos(npag) - sc_dp * std::sin(npag)) -
-	         c_dag * std::cos(iag)) +
-	    D_l * std::cos(iag);
+	double Y = d * (std::cos(iag) * (ss_dp * std::cos(npag) - sc_dp * std::sin(npag)) + c_dag * std::sin(iag)) -
+	           D_l * std::sin(iag);
+	double Z = d * (std::sin(iag) * (ss_dp * std::cos(npag) - sc_dp * std::sin(npag)) - c_dag * std::cos(iag)) +
+	           D_l * std::cos(iag);
 	// Calculation for 30 Doradus
 	// 1.
 	// ((alpha_D,delta_D,D_l)----((alpha_l,delta_l,D_l)-----get(dag_D,pag_D)
 	c_dagD =
-	    std::cos(delta_D) * std::cos(delta_l) * std::cos(alpha_D - alpha_l) +
-	    std::sin(delta_D) * std::sin(delta_l);
+	    std::cos(delta_D) * std::cos(delta_l) * std::cos(alpha_D - alpha_l) + std::sin(delta_D) * std::sin(delta_l);
 	s_dagD = std::sin(std::acos(c_dagD));
 	sc_dpD = -std::cos(delta_D) * std::sin(alpha_D - alpha_l);
 	ss_dpD =
-	    std::sin(delta_D) * std::cos(delta_l) -
-	    std::cos(delta_D) * std::sin(delta_l) * std::cos(alpha_D - alpha_l);
+	    std::sin(delta_D) * std::cos(delta_l) - std::cos(delta_D) * std::sin(delta_l) * std::cos(alpha_D - alpha_l);
 
 	// 3. (xc_D,yc_D,zc_D,iag,npag)------get(X_D,Y_D,Z_D) is (x',y',z')
 	X_D = D_D * (sc_dpD * std::cos(npag) + ss_dpD * std::sin(npag));
-	Y_D = D_D * (std::cos(iag) *
-	                 (ss_dpD * std::cos(npag) - sc_dpD * std::sin(npag)) +
-	             c_dagD * std::sin(iag)) -
+	Y_D = D_D * (std::cos(iag) * (ss_dpD * std::cos(npag) - sc_dpD * std::sin(npag)) + c_dagD * std::sin(iag)) -
 	      D_l * std::sin(iag);
-	Z_D = D_D * (std::sin(iag) *
-	                 (ss_dpD * std::cos(npag) - sc_dpD * std::sin(npag)) -
-	             c_dagD * std::cos(iag)) +
+	Z_D = D_D * (std::sin(iag) * (ss_dpD * std::cos(npag) - sc_dpD * std::sin(npag)) - c_dagD * std::cos(iag)) +
 	      D_l * std::cos(iag);
-	R_D = std::sqrt((X - X_D) * (X - X_D) + (Y - Y_D) * (Y - Y_D) +
-	                (Z - Z_D) * (Z - Z_D));
+	R_D = std::sqrt((X - X_D) * (X - X_D) + (Y - Y_D) * (Y - Y_D) + (Z - Z_D) * (Z - Z_D));
 	if (R_D > (mc * A_D)) {
 		return 0;
 	} else
@@ -728,8 +635,7 @@ double YMW16::smc(double xx, double yy, double zz, int *w_smc) const {
 	xc = rgals * sls;
 	yc = R * 1000 - rgals * cls;
 	zc = ds * sbs;
-	Rsmc = sqrt((xx - xc) * (xx - xc) + (yy - yc) * (yy - yc) +
-	            (zz - zc) * (zz - zc));
+	Rsmc = sqrt((xx - xc) * (xx - xc) + (yy - yc) * (yy - yc) + (zz - zc) * (zz - zc));
 	if (Rsmc > (mc * Asmc)) {
 		return 0;
 	} else {
@@ -868,10 +774,7 @@ double YMW16::ne_ymw16(const Vector3QLength &pos) const {
 			}
 
 			/* Galactic ne */
-			ne =
-			    (1 - WLB) * ((1 - WGN) * ((1 - WLI) * (ne0 + ne4) + WLI * ne7) +
-			                 WGN * ne5) +
-			    WLB * ne6;
+			ne = (1 - WLB) * ((1 - WGN) * ((1 - WLI) * (ne0 + ne4) + WLI * ne7) + WGN * ne5) + WLB * ne6;
 		} else if (np == 0) {
 			double ne8 = lmc(glr, gbr, dist, &w_lmc);
 			double ne9 = dora(glr, gbr, dist);
@@ -888,4 +791,4 @@ double YMW16::ne_ymw16(const Vector3QLength &pos) const {
 	return ne;
 }
 
-}}  // namespace hermes::chargedgas
+}}  // namespace hermes::ionizedgas

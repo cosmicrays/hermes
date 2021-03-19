@@ -12,36 +12,13 @@
 #include "hermes/Units.h"
 #include "hermes/neutralgas/GasType.h"
 #include "hermes/neutralgas/NeutralGasAbstract.h"
+#include "hermes/neutralgas/RingData.h"
 
 namespace hermes { namespace neutralgas {
 /**
  * \addtogroup NeutralGas
  * @{
  */
-
-class RingData {
-  private:
-	std::unique_ptr<FITSFile> ffile;
-
-	const GasType type;
-	int n_lon, n_lat, n_rings;
-	double min_lon, min_lat;
-	double delta_lon, delta_lat;
-	std::vector<float> dataVector;
-
-	void readDataFile(const std::string &filename);
-	double getRawValue(int ring, const QDirection &dir) const;
-
-  public:
-	RingData(GasType gas);
-	QColumnDensity getHIColumnDensityInRing(int ring,
-	                                        const QDirection &dir) const;
-	QRingCOIntensity getCOIntensityInRing(int ring,
-	                                      const QDirection &dir) const;
-
-	GasType getGasType() const;
-	int getRingNumber() const;
-};
 
 class Ring {
   private:
@@ -50,8 +27,7 @@ class Ring {
 	QLength innerR, outerR;
 
   public:
-	Ring(std::size_t index_, std::shared_ptr<RingData> RingModelPtr_,
-	     QLength innerR_, QLength outerR_);
+	Ring(std::size_t index_, std::shared_ptr<RingData> RingModelPtr_, QLength innerR_, QLength outerR_);
 	~Ring();
 
 	std::size_t getIndex() const;
@@ -69,11 +45,12 @@ class Ring {
 class RingModel : public NeutralGasAbstract {
   private:
 	std::shared_ptr<RingData> dataPtr;
-	std::array<QLength, 12> boundaries = {0_kpc,  2_kpc,  3_kpc,  4_kpc,
-	                                      5_kpc,  6_kpc,  7_kpc,  9_kpc,
-	                                      12_kpc, 15_kpc, 18_kpc, 35_kpc};
-	std::vector<std::pair<PID, double>> abundanceFractions = {{Proton, 1},
-	                                                          {Helium, 0.1}};
+	std::array<QLength, 12> boundariesHI = {0_kpc, 2_kpc, 3_kpc,  4_kpc,  5_kpc,  6_kpc,
+	                                        7_kpc, 9_kpc, 12_kpc, 15_kpc, 18_kpc, 35_kpc};
+	std::array<QLength, 12> boundariesH2 = {0_kpc, 0.86_kpc, 2_kpc, 3_kpc,  4_kpc,  5_kpc,
+	                                        6_kpc, 7_kpc,    9_kpc, 12_kpc, 15_kpc, 18_kpc};
+
+	std::vector<std::pair<PID, double>> abundanceFractions = {{Proton, 1}, {Helium, 0.1}};
 
 	typedef std::vector<std::shared_ptr<Ring>> tRingContainer;
 	mutable tRingContainer ringContainer;

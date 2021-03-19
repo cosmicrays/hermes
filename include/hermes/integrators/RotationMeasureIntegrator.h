@@ -5,8 +5,8 @@
 #include <memory>
 
 #include "hermes/Units.h"
-#include "hermes/chargedgas/ChargedGasDensity.h"
 #include "hermes/integrators/IntegratorTemplate.h"
+#include "hermes/ionizedgas/IonizedGasDensity.h"
 #include "hermes/magneticfields/MagneticField.h"
 #include "hermes/skymaps/RotationMeasureSkymap.h"
 
@@ -27,23 +27,20 @@ namespace hermes {
  * The integrators depend on a charged gas density and a galactic magnetic field
  * model, for example, chargedgas::YMW16 and magneticfields::JF12
  */
-class RotationMeasureIntegrator
-    : public IntegratorTemplate<QRotationMeasure, QNumber> {
+class RotationMeasureIntegrator : public IntegratorTemplate<QRotationMeasure, QNumber> {
   private:
 	std::shared_ptr<magneticfields::MagneticField> mfield;
-	std::shared_ptr<chargedgas::ChargedGasDensity> gdensity;
+	std::shared_ptr<ionizedgas::IonizedGasDensity> gdensity;
 
 	QRMIntegral integralFunction(const Vector3QLength& pos) const;
 
   public:
-	RotationMeasureIntegrator(
-	    const std::shared_ptr<magneticfields::MagneticField>& mfield,
-	    const std::shared_ptr<chargedgas::ChargedGasDensity>& gdensity);
+	RotationMeasureIntegrator(const std::shared_ptr<magneticfields::MagneticField>& mfield,
+	                          const std::shared_ptr<ionizedgas::IonizedGasDensity>& gdensity);
 	~RotationMeasureIntegrator();
 
 	QRotationMeasure integrateOverLOS(const QDirection& iterdir) const override;
-	QRotationMeasure integrateOverLOS(const QDirection& iterdir,
-	                                  const QNumber& num) const override {
+	QRotationMeasure integrateOverLOS(const QDirection& iterdir, const QNumber& num) const override {
 		return QRotationMeasure(0);
 	}
 };

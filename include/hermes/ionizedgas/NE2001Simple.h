@@ -1,15 +1,15 @@
 #ifndef HERMES_NE2001SIMPLE_H
 #define HERMES_NE2001SIMPLE_H
 
-#include "hermes/chargedgas/ChargedGasDensity.h"
+#include "hermes/ionizedgas/IonizedGasDensity.h"
 
-namespace hermes { namespace chargedgas {
+namespace hermes { namespace ionizedgas {
 /**
- * \addtogroup ChargedGas
+ * \addtogroup IonizedGas
  * @{
  */
 
-class NE2001Simple : public ChargedGasDensity {
+class NE2001Simple : public IonizedGasDensity {
   private:
 	int N_arms;
 	QNumber F1, F2;
@@ -29,6 +29,6 @@ class NE2001Simple : public ChargedGasDensity {
 };
 
 /** @}*/
-}}  // namespace hermes::chargedgas
+}}  // namespace hermes::ionizedgas
 
 #endif  // HERMES_NE2001SIMPLE_H

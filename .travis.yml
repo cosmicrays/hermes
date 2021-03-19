@@ -10,12 +10,13 @@ addons:
             - clang-8
             - libgsl-dev
             - libfftw3-dev
-            - libcfitsio3-dev
+            - libcfitsio-dev
             - libmuparser-dev
             - python3-setuptools
             - python3-dev
             - cmake
             - lcov
+            - doxygen
         sources: &sources
             - ubuntu-toolchain-r-test
 cache:
@@ -24,7 +25,7 @@ cache:
 matrix:
     include:
         - os: linux
-          dist: xenial
+          dist: bionic
           compiler: gcc
           env:
               - COMPILER_NAME=gcc CXX=g++-9 CC=gcc-9
@@ -56,6 +57,10 @@ matrix:
               - HERMES_DATA_PATH=$TRAVIS_BUILD_DIR/build/data/
 
 before_install:
+    - |
+      if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+        sudo apt-get update
+      fi;  
     - |
       if [ $COVERALLS ]; then
         pip install --user cpp-coveralls
