@@ -127,7 +127,7 @@ kleinnishina));
 
     auto integrand = [intIC, dir, Egamma](const QLength &dist) {
         return intIC->integrateOverEnergy(
-                getGalacticPosition(intIC->getSunPosition(),
+                getGalacticPosition(intIC->getObsPosition(),
 dist, dir), Egamma
             ); };
 

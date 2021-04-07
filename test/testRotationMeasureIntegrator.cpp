@@ -13,12 +13,12 @@ class TestMagneticField : public magneticfields::MagneticField {
 	TestMagneticField() {}
 	Vector3QMField getField(const Vector3QLength &pos) const {
 		Vector3QLength pos_gc(0);
-		Vector3QLength pos_sun(8.5_kpc, 0, 5_kpc);
+		Vector3QLength pos_obs(8.5_kpc, 0, 5_kpc);
 		Vector3QLength pos_right(8.5_kpc, 5_kpc, 0);
 
 		if ((pos - pos_gc).getR() < 1.5_kpc) {
 			return Vector3QMField(1_T, 1_T, 1_T);
-		} else if ((pos - pos_sun).getR() < 1.5_kpc) {
+		} else if ((pos - pos_obs).getR() < 1.5_kpc) {
 			return Vector3QMField(-1_T, -1_T, -1_T);
 		} else {
 			return Vector3QMField(0);
