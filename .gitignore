@@ -36,8 +36,9 @@ build/*
 
 # Others
 doc/api/*
+.coverage
 
-#Libraries
+# Libraries
 
 # Editor stuff
 *.swp
