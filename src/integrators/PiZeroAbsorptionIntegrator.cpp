@@ -122,7 +122,7 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
 
 	QLength delta_d = 10.0_pc;
 	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
-		auto pos = getGalacticPosition(positionSun, dist, direction_);
+		auto pos = getGalacticPosition(observerPosition, dist, direction_);
 		opticalDepth += integrateOverPhotonEnergy(pos, Egamma_) * delta_d;
 		opticalDepthLOS.push_back(std::make_pair(dist, opticalDepth));
 	}
@@ -141,7 +141,7 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
 	// TODO(adundovi): implement sophisticated adaptive integration method :-)
 	auto opticalDepthIter = opticalDepthLOS.begin();
 	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
-	    pos = getGalacticPosition(positionSun, dist, direction_);
+	    pos = getGalacticPosition(observerPosition, dist, direction_);
 	    total_intensity += intSynchro->integrateOverEnergy(pos, freq_) / 4_pi *
 	                       exp((*opticalDepthIter) -
 	                           opticalDepthLOS[opticalDepthLOS.size() - 1]) *
@@ -161,7 +161,7 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
 		};
 		auto normIntegrand = [this, normI_f, direction_](const QLength &dist) {
 			return normI_f(
-			    getGalacticPosition(this->positionSun, dist, direction_));
+			    getGalacticPosition(this->observerPosition, dist, direction_));
 		};
 		QColumnDensity normIntegrals =
 		    gslQAGIntegration<QColumnDensity, QPDensity>(
@@ -181,7 +181,7 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(
 		auto losIntegrand = [this, losI_f, direction_, Egamma_,
 		                     findOpticalDepth](const QLength &dist) {
 			return losI_f(
-			           getGalacticPosition(this->positionSun, dist, direction_),
+			           getGalacticPosition(this->observerPosition, dist, direction_),
 			           Egamma_) *
 			       exp(-findOpticalDepth(dist));
 		};

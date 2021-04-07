@@ -12,7 +12,7 @@ RotationMeasureIntegrator::~RotationMeasureIntegrator() {}
 
 QRotationMeasure RotationMeasureIntegrator::integrateOverLOS(const QDirection& direction) const {
 	auto integrand = [this, direction](const QLength& dist) {
-		return this->integralFunction(getGalacticPosition(getSunPosition(), dist, direction));
+		return this->integralFunction(getGalacticPosition(getObsPosition(), dist, direction));
 	};
 
 	return simpsonIntegration<QRotationMeasure, QRMIntegral>([integrand](QLength dist) { return integrand(dist); }, 0,

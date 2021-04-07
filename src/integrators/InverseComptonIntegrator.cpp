@@ -98,7 +98,7 @@ QDiffIntensity InverseComptonIntegrator::integrateOverLOS(
     const QDirection &direction_, const QEnergy &Egamma_) const {
 	auto integrand = [this, direction_, Egamma_](const QLength &dist) {
 		return this->integrateOverEnergy(
-		    getGalacticPosition(getSunPosition(), dist, direction_), Egamma_);
+		    getGalacticPosition(getObsPosition(), dist, direction_), Egamma_);
 	};
 
 	return gslQAGIntegration<QDiffFlux, QGREmissivity>(
@@ -176,7 +176,7 @@ InverseComptonIntegrator::tLOSProfile InverseComptonIntegrator::getLOSProfile(
     const QDirection &direction, const QEnergy &Egamma, int Nsteps) const {
 	auto integrand = [this, direction, Egamma](const QLength &dist) {
 		return this->integrateOverEnergy(
-		    getGalacticPosition(getSunPosition(), dist, direction), Egamma);
+		    getGalacticPosition(getObsPosition(), dist, direction), Egamma);
 	};
 
 	QLength start = 0_m;

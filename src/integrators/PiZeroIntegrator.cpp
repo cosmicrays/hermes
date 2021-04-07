@@ -114,13 +114,13 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(const QDirection &direction_, 
 			return (ring->isInside(pos)) ? dProfile->getPDensity(gasType, pos) : 0;
 		};
 		auto normIntegrand = [this, p_Theta_f, direction_](const QLength &dist) {
-			return p_Theta_f(getGalacticPosition(this->positionSun, dist, direction_));
+			return p_Theta_f(getGalacticPosition(this->observerPosition, dist, direction_));
 		};
 
 		// optimize LOS integration limits:
 		// instead of 0 and getMaxDistance(dir)
 		auto b = ring->getBoundaries();
-		auto rho = positionSun.getRho();
+		auto rho = observerPosition.getRho();
 		QLength r_min = rho - b.second;
 		if (r_min < 0_m) r_min = 0_m;
 		QLength r_max = rho + b.second;
@@ -140,7 +140,7 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(const QDirection &direction_, 
 			                             : 0;
 		};
 		auto losIntegrand = [this, los_f, direction_, Egamma_](const QLength &dist) {
-			return los_f(getGalacticPosition(this->positionSun, dist, direction_), Egamma_);
+			return los_f(getGalacticPosition(this->observerPosition, dist, direction_), Egamma_);
 		};
 		QDiffIntensity losIntegral =
 		    simpsonIntegration<QDiffFlux, QGREmissivity>(losIntegrand, r_min, r_max, 500) / (4_pi * 1_sr);

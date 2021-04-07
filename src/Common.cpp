@@ -58,28 +58,28 @@ bool isWithinAngle(const QDirection &a, const QDirection &b, const QAngle &d) {
 }
 
 QLength distanceFromGC(const QDirection &direction,
-                       const QLength &distanceFromSun,
-                       const Vector3QLength &vecGCSun) {
-	Vector3QLength vecSunTarget;
-	vecSunTarget.setRThetaPhi(distanceFromSun, direction[0], direction[1]);
-	Vector3QLength vecGCTarget = vecSunTarget - vecGCSun;
+                       const QLength &distFromObserver,
+                       const Vector3QLength &vecGCObs) {
+	Vector3QLength vecObsTarget;
+	vecObsTarget.setRThetaPhi(distFromObserver, direction[0], direction[1]);
+	Vector3QLength vecGCTarget = vecObsTarget - vecGCObs;
 
 	return vecGCTarget.getR();
 }
 
-QLength distanceToGalBorder(const Vector3QLength &positionSun,
+QLength distanceToGalBorder(const Vector3QLength &observerPosition,
                             const QDirection &direction,
                             const QLength &galacticBorder,
                             const QLength &zBorder) {
-	static const Vector3QLength positionGC(0, 0, 0);
+	static const Vector3QLength gcPosition(0, 0, 0);
 	// static const QLength galacticBorder = 30_kpc; // for example JF12 is
 	// zero for r > 20kpc static const QLength zBorder = 5_kpc;
-	Vector3QLength vecSunToGalBorder;
-	vecSunToGalBorder.setRThetaPhi(1_m, direction[0], direction[1]);
+	Vector3QLength vecObsToGalBorder;
+	vecObsToGalBorder.setRThetaPhi(1_m, direction[0], direction[1]);
 
-	QLength a = (positionGC - positionSun).getR();
+	QLength a = (gcPosition - observerPosition).getR();
 	QLength c = galacticBorder;
-	QAngle gamma = vecSunToGalBorder.getAngleTo(positionSun - positionGC);
+	QAngle gamma = vecObsToGalBorder.getAngleTo(observerPosition - gcPosition);
 
 	QLength sphericalBorder =
 	    a * cos(gamma) + sqrt(c * c - a * a * (1 - cos(2 * gamma)) / 2.0);
@@ -88,13 +88,13 @@ QLength distanceToGalBorder(const Vector3QLength &positionSun,
 	return std::min(heightBroder, sphericalBorder);
 }
 
-Vector3QLength getGalacticPosition(const Vector3QLength &posSun,
+Vector3QLength getGalacticPosition(const Vector3QLength &observerPosition,
                                    const QLength &dist, const QDirection &dir) {
 	Vector3QLength pos(0);
 
 	// TODO(adundovi): should be more general for any observer position
 	pos.setRThetaPhi(dist, dir[0], dir[1]);
-	pos.x = posSun.x - pos.x;
+	pos.x = observerPosition.x - pos.x;
 	pos.y = -pos.y;
 
 	return pos;

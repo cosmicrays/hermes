@@ -23,7 +23,7 @@ QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(const QDirection& dir
 
 QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(const QDirection& direction_,
                                                            const QFrequency& freq_) const {
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
+	Vector3QLength observerPosition(8.5_kpc, 0, 0);
 	Vector3QLength pos(0.0);
 	QIntensity total_intensity(0);
 	QLength delta_d = 10.0_pc;
@@ -32,10 +32,10 @@ QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(const QDirection& dir
 	std::vector<QNumber> opticalDepthLOS;
 
 	// distance from the (spherical) galactic border in the given direction
-	QLength maxDistance = distanceToGalBorder(positionSun, direction_);
+	QLength maxDistance = distanceToGalBorder(observerPosition, direction_);
 
 	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, direction_);
+		pos = getGalacticPosition(observerPosition, dist, direction_);
 		opticalDepth += intFreeFree->absorptionCoefficient(pos, freq_) * delta_d;
 		opticalDepthLOS.push_back(opticalDepth);
 	}
@@ -43,7 +43,7 @@ QTemperature SynchroAbsorptionIntegrator::integrateOverLOS(const QDirection& dir
 	// TODO(adundovi): implement sophisticated adaptive integration method :-)
 	auto opticalDepthIter = opticalDepthLOS.begin();
 	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
-		pos = getGalacticPosition(positionSun, dist, direction_);
+		pos = getGalacticPosition(observerPosition, dist, direction_);
 		total_intensity += intSynchro->integrateOverEnergy(pos, freq_) / 4_pi *
 		                   exp((*opticalDepthIter) - opticalDepthLOS[opticalDepthLOS.size() - 1]) * delta_d;
 		++opticalDepthIter;

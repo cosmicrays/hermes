@@ -29,8 +29,8 @@ namespace hermes {
 
 template <typename INTEGRATOR>
 void declare_default_integrator_methods(py::class_<INTEGRATOR> c) {
-	c.def("getSunPosition", &INTEGRATOR::getSunPosition);
-	c.def("setSunPosition", &INTEGRATOR::setSunPosition);
+	c.def("getObsPosition", &INTEGRATOR::getObsPosition);
+	c.def("setObsPosition", &INTEGRATOR::setObsPosition);
 	c.def("setupCacheTable", &INTEGRATOR::setupCacheTable);
 }
 

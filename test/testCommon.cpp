@@ -56,45 +56,45 @@ TEST(Common, fromGalCoord) {
 }
 
 TEST(Common, galacticBorder) {
-	Vector3QLength positionSun(8.5_kpc, 0, 0);
+	Vector3QLength observerPosition(8.5_kpc, 0, 0);
 	QDirection direction;
 
 	// pointing towards the galactic centre
 	direction[0] = 90_deg;
 	direction[1] = 0_deg;
 	EXPECT_NEAR(static_cast<double>(
-	                distanceToGalBorder(positionSun, direction, 20_kpc)),
+	                distanceToGalBorder(observerPosition, direction, 20_kpc)),
 	            static_cast<double>(28.5_kpc), static_cast<double>(1_pc));
 	// away from the galactic centre
 	direction[0] = 90_deg;
 	direction[1] = 180_deg;
 	EXPECT_NEAR(static_cast<double>(
-	                distanceToGalBorder(positionSun, direction, 20_kpc)),
+	                distanceToGalBorder(observerPosition, direction, 20_kpc)),
 	            static_cast<double>(11.5_kpc), static_cast<double>(1_pc));
 	// left
 	direction[0] = 90_deg;
 	direction[1] = 90_deg;
 	EXPECT_NEAR(static_cast<double>(
-	                distanceToGalBorder(positionSun, direction, 20_kpc)),
+	                distanceToGalBorder(observerPosition, direction, 20_kpc)),
 	            static_cast<double>(18.103_kpc), static_cast<double>(10_pc));
 	// right
 	direction[0] = 90_deg;
 	direction[1] = 270_deg;
 	EXPECT_NEAR(static_cast<double>(
-	                distanceToGalBorder(positionSun, direction, 20_kpc)),
+	                distanceToGalBorder(observerPosition, direction, 20_kpc)),
 	            static_cast<double>(18.103_kpc), static_cast<double>(10_pc));
 	// the galactic north
 	direction[0] = 0_deg;
 	direction[1] = 0_deg;
 	EXPECT_NEAR(static_cast<double>(
-	                distanceToGalBorder(positionSun, direction, 20_kpc)),
+	                distanceToGalBorder(observerPosition, direction, 20_kpc)),
 	            static_cast<double>(5.0_kpc), static_cast<double>(10_pc));
 	// spherical border: (18.103_kpc);
 	// the galactic south
 	direction[0] = 180_deg;
 	direction[1] = 0_deg;
 	EXPECT_NEAR(static_cast<double>(
-	                distanceToGalBorder(positionSun, direction, 20_kpc)),
+	                distanceToGalBorder(observerPosition, direction, 20_kpc)),
 	            static_cast<double>(5.0_kpc), static_cast<double>(10_pc));
 	// spherical border: (18.103_kpc);
 }

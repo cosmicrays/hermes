@@ -96,7 +96,7 @@ TEST(InverseComptonIntegrator, compareLOSIntegrations) {
 
 	auto integrand = [intIC, dir, Egamma](const QLength &dist) {
 		return intIC->integrateOverEnergy(
-		    getGalacticPosition(intIC->getSunPosition(), dist, dir), Egamma);
+		    getGalacticPosition(intIC->getObsPosition(), dist, dir), Egamma);
 	};
 
 	auto result_QAG = gslQAGIntegration<QDiffFlux, QGREmissivity>(

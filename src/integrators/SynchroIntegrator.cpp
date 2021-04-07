@@ -33,7 +33,7 @@ QTemperature SynchroIntegrator::integrateOverLOS(
     const QDirection &direction, const QFrequency &freq_) const {
 	auto integrand = [this, direction, freq_](const QLength &dist) {
 		return this->integrateOverEnergy(
-		    getGalacticPosition(this->positionSun, dist, direction), freq_);
+		    getGalacticPosition(this->observerPosition, dist, direction), freq_);
 	};
 
 	QIntensity total_intensity = simpsonIntegration<QIntensity, QEmissivity>(

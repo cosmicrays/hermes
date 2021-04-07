@@ -17,7 +17,7 @@ QTemperature FreeFreeIntegrator::integrateOverLOS(const QDirection &direction) c
 
 QTemperature FreeFreeIntegrator::integrateOverLOS(const QDirection &direction, const QFrequency &freq_) const {
 	auto integrand = [this, direction, freq_](const QLength &dist) {
-		return this->spectralEmissivity(getGalacticPosition(getSunPosition(), dist, direction), freq_);
+		return this->spectralEmissivity(getGalacticPosition(getObsPosition(), dist, direction), freq_);
 	};
 
 	QIntensity total_intensity = simpsonIntegration<QIntensity, QEmissivity>(

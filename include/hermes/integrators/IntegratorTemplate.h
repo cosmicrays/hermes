@@ -35,7 +35,7 @@ namespace hermes {
 template <class QPXL, typename QSTEP>
 class IntegratorTemplate {
   protected:
-	Vector3QLength positionSun;
+	Vector3QLength observerPosition;
 	QSTEP skymapParameter;
 	bool cacheEnabled;
 	bool cacheTableInitialized;
@@ -43,7 +43,7 @@ class IntegratorTemplate {
 
   public:
 	IntegratorTemplate(const std::string &description)
-	    : positionSun(Vector3QLength(8.5_kpc, 0, 0)),
+	    : observerPosition(Vector3QLength(8.5_kpc, 0, 0)),
 	      cacheEnabled(false),
 	      cacheTableInitialized(false),
 	      description(description){};
@@ -92,17 +92,17 @@ class IntegratorTemplate {
 	    Set the position of the Sun in the galaxy as a vector (x, y, z)
 	   from which the LOS integration starts, default: (8.5_kpc, 0, 0)
 	*/
-	void setSunPosition(const Vector3QLength &pos) { positionSun = pos; }
+	void setObsPosition(const Vector3QLength &pos) { observerPosition = pos; }
 	/**
 	    Get the position of the Sun in the galaxy as a vector (x, y, z)
 	*/
-	inline Vector3QLength getSunPosition() const { return positionSun; }
+	inline Vector3QLength getObsPosition() const { return observerPosition; }
 	/**
-	    Wrapper within the class for distanceToGalBorder(positionSun,
+	    Wrapper within the class for distanceToGalBorder(observerPosition,
 	   direction) becomes getMaxDistance(direction)
 	*/
 	inline QLength getMaxDistance(const QDirection &direction) const {
-		return distanceToGalBorder(positionSun, direction);
+		return distanceToGalBorder(observerPosition, direction);
 	}
 	/**
 	    Caching helpers

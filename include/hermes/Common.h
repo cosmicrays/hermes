@@ -22,16 +22,16 @@ std::string getDataPath(const std::string &filename);
 
 /**
     Gives a distance from the galactic centre (GC) by providing the distance
-    from the Sun and the direction (theta,phi)
+    from the observer and the direction (theta,phi)
 */
-QLength distanceFromGC(QDirection direction, QLength distanceFromSun,
-                       const Vector3QLength &vecGCSun);
+QLength distanceFromGC(QDirection direction, QLength distanceFromObs,
+                       const Vector3QLength &vecGCObs);
 
 /**
     Gives a distance from an observer to the (spherical) galactic border
     in the given direction (law of cosines)
 */
-QLength distanceToGalBorder(const Vector3QLength &positionSun,
+QLength distanceToGalBorder(const Vector3QLength &observerPosition,
                             const QDirection &direction,
                             const QLength &galacticBorder = 35_kpc,
                             const QLength &zBorder = 5_kpc);
@@ -40,7 +40,7 @@ QLength distanceToGalBorder(const Vector3QLength &positionSun,
     Returns XYZ position in the (right-handed) galacto-centric
     coordinate system by giving distance and direction from the observer
 */
-Vector3QLength getGalacticPosition(const Vector3QLength &posSun,
+Vector3QLength getGalacticPosition(const Vector3QLength &observerPosition,
                                    const QLength &dist, const QDirection &dir);
 
 /**

@@ -22,7 +22,7 @@ QDiffIntensity DarkMatterIntegrator::integrateOverLOS(
     const QDirection &direction_, const QEnergy &Egamma_) const {
 	auto integrand = [this, direction_, Egamma_](const QLength &dist) {
 		return this->spectralEmissivity(
-		    getGalacticPosition(getSunPosition(), dist, direction_), Egamma_);
+		    getGalacticPosition(getObsPosition(), dist, direction_), Egamma_);
 	};
 
 	return gslQAGSIntegration<QDiffFlux, QGREmissivity>(
