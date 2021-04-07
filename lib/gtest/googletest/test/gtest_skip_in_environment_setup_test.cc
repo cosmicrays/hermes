@@ -1,4 +1,4 @@
-// Copyright 2008, Google Inc.
+// Copyright 2019, Google LLC.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -11,7 +11,7 @@
 // copyright notice, this list of conditions and the following disclaimer
 // in the documentation and/or other materials provided with the
 // distribution.
-//     * Neither the name of Google Inc. nor the names of its
+//     * Neither the name of Google LLC. nor the names of its
 // contributors may be used to endorse or promote products derived from
 // this software without specific prior written permission.
 //
@@ -27,33 +27,23 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
-// Author: preston.a.jackson@gmail.com (Preston Jackson)
-//
-// Google Test - FrameworkSample
-// widget.h
-//
+// This test verifies that skipping in the environment results in the
+// testcases being skipped.
 
-// Widget is a very simple class used for demonstrating the use of gtest. It
-// simply stores two values a string and an integer, which are returned via
-// public accessors in multiple forms.
+#include <iostream>
+#include "gtest/gtest.h"
 
-#import <string>
-
-class Widget {
+class SetupEnvironment : public testing::Environment {
  public:
-  Widget(int number, const std::string& name);
-  ~Widget();
-
-  // Public accessors to number data
-  float GetFloatValue() const;
-  int GetIntValue() const;
-
-  // Public accessors to the string data
-  std::string GetStringValue() const;
-  void GetCharPtrValue(char* buffer, size_t max_size) const;
-
- private:
-  // Data members
-  float number_;
-  std::string name_;
+  void SetUp() override { GTEST_SKIP() << "Skipping the entire environment"; }
 };
+
+TEST(Test, AlwaysFails) { EXPECT_EQ(true, false); }
+
+int main(int argc, char **argv) {
+  testing::InitGoogleTest(&argc, argv);
+
+  testing::AddGlobalTestEnvironment(new SetupEnvironment());
+
+  return RUN_ALL_TESTS();
+}

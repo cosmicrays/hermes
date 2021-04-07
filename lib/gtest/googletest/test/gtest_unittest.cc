@@ -61,9 +61,10 @@ TEST(CommandLineFlagsTest, CanBeAccessedInCodeOnceGTestHIsIncluded) {
 #include <time.h>
 
 #include <map>
-#include <vector>
 #include <ostream>
+#include <type_traits>
 #include <unordered_set>
+#include <vector>
 
 #include "gtest/gtest-spi.h"
 #include "src/gtest-internal-inl.h"
@@ -226,14 +227,12 @@ using testing::TestProperty;
 using testing::TestResult;
 using testing::TimeInMillis;
 using testing::UnitTest;
-using testing::internal::AddReference;
 using testing::internal::AlwaysFalse;
 using testing::internal::AlwaysTrue;
 using testing::internal::AppendUserMessage;
 using testing::internal::ArrayAwareFind;
 using testing::internal::ArrayEq;
 using testing::internal::CodePointToUtf8;
-using testing::internal::CompileAssertTypesEqual;
 using testing::internal::CopyArray;
 using testing::internal::CountIf;
 using testing::internal::EqFailure;
@@ -262,8 +261,6 @@ using testing::internal::OsStackTraceGetterInterface;
 using testing::internal::ParseInt32Flag;
 using testing::internal::RelationToSourceCopy;
 using testing::internal::RelationToSourceReference;
-using testing::internal::RemoveConst;
-using testing::internal::RemoveReference;
 using testing::internal::ShouldRunTestOnShard;
 using testing::internal::ShouldShard;
 using testing::internal::ShouldUseColor;
@@ -515,28 +512,36 @@ TEST_F(FormatEpochTimeInMillisAsIso8601Test, PrintsEpochStart) {
 #  pragma option push -w-ccc -w-rch
 # endif
 
-// Tests that GTEST_IS_NULL_LITERAL_(x) is true when x is a null
-// pointer literal.
-TEST(NullLiteralTest, IsTrueForNullLiterals) {
-  EXPECT_TRUE(GTEST_IS_NULL_LITERAL_(NULL));  // NOLINT
-  EXPECT_TRUE(GTEST_IS_NULL_LITERAL_(0));     // NOLINT
-  EXPECT_TRUE(GTEST_IS_NULL_LITERAL_(0u));    // NOLINT
-  EXPECT_TRUE(GTEST_IS_NULL_LITERAL_(nullptr));
-}
+// Tests that the LHS of EXPECT_EQ or ASSERT_EQ can be used as a null literal
+// when the RHS is a pointer type.
+TEST(NullLiteralTest, LHSAllowsNullLiterals) {
+  EXPECT_EQ(0, static_cast<void*>(nullptr));     // NOLINT
+  ASSERT_EQ(0, static_cast<void*>(nullptr));     // NOLINT
+  EXPECT_EQ(NULL, static_cast<void*>(nullptr));  // NOLINT
+  ASSERT_EQ(NULL, static_cast<void*>(nullptr));  // NOLINT
+  EXPECT_EQ(nullptr, static_cast<void*>(nullptr));
+  ASSERT_EQ(nullptr, static_cast<void*>(nullptr));
 
-// Tests that GTEST_IS_NULL_LITERAL_(x) is false when x is not a null
-// pointer literal.
-TEST(NullLiteralTest, IsFalseForNonNullLiterals) {
-  EXPECT_FALSE(GTEST_IS_NULL_LITERAL_(1));
-  EXPECT_FALSE(GTEST_IS_NULL_LITERAL_(0.0));
-  EXPECT_FALSE(GTEST_IS_NULL_LITERAL_('a'));
-  EXPECT_FALSE(GTEST_IS_NULL_LITERAL_(static_cast<void*>(nullptr)));
+  const int* const p = nullptr;
+  EXPECT_EQ(0, p);     // NOLINT
+  ASSERT_EQ(0, p);     // NOLINT
+  EXPECT_EQ(NULL, p);  // NOLINT
+  ASSERT_EQ(NULL, p);  // NOLINT
+  EXPECT_EQ(nullptr, p);
+  ASSERT_EQ(nullptr, p);
 }
 
 struct ConvertToAll {
   template <typename T>
   operator T() const {  // NOLINT
     return T();
+  }
+};
+
+struct ConvertToPointer {
+  template <class T>
+  operator T*() const {  // NOLINT
+    return nullptr;
   }
 };
 
@@ -548,10 +553,36 @@ struct ConvertToAllButNoPointers {
   }
 };
 
+struct MyType {};
+inline bool operator==(MyType const&, MyType const&) { return true; }
+
 TEST(NullLiteralTest, ImplicitConversion) {
-  EXPECT_FALSE(GTEST_IS_NULL_LITERAL_(ConvertToAll{}));
-  EXPECT_FALSE(GTEST_IS_NULL_LITERAL_(ConvertToAllButNoPointers{}));
+  EXPECT_EQ(ConvertToPointer{}, static_cast<void*>(nullptr));
+#if !defined(__GNUC__) || defined(__clang__)
+  // Disabled due to GCC bug gcc.gnu.org/PR89580
+  EXPECT_EQ(ConvertToAll{}, static_cast<void*>(nullptr));
+#endif
+  EXPECT_EQ(ConvertToAll{}, MyType{});
+  EXPECT_EQ(ConvertToAllButNoPointers{}, MyType{});
 }
+
+#ifdef __clang__
+#pragma clang diagnostic push
+#if __has_warning("-Wzero-as-null-pointer-constant")
+#pragma clang diagnostic error "-Wzero-as-null-pointer-constant"
+#endif
+#endif
+
+TEST(NullLiteralTest, NoConversionNoWarning) {
+  // Test that gtests detection and handling of null pointer constants
+  // doesn't trigger a warning when '0' isn't actually used as null.
+  EXPECT_EQ(0, 0);
+  ASSERT_EQ(0, 0);
+}
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 
 # ifdef __BORLANDC__
 // Restores warnings after previous "#pragma option push" suppressed them.
@@ -865,23 +896,23 @@ TEST(ContainerUtilityDeathTest, ShuffleRange) {
 
 class VectorShuffleTest : public Test {
  protected:
-  static const int kVectorSize = 20;
+  static const size_t kVectorSize = 20;
 
   VectorShuffleTest() : random_(1) {
-    for (int i = 0; i < kVectorSize; i++) {
+    for (int i = 0; i < static_cast<int>(kVectorSize); i++) {
       vector_.push_back(i);
     }
   }
 
   static bool VectorIsCorrupt(const TestingVector& vector) {
-    if (kVectorSize != static_cast<int>(vector.size())) {
+    if (kVectorSize != vector.size()) {
       return true;
     }
 
     bool found_in_vector[kVectorSize] = { false };
     for (size_t i = 0; i < vector.size(); i++) {
       const int e = vector[i];
-      if (e < 0 || e >= kVectorSize || found_in_vector[e]) {
+      if (e < 0 || e >= static_cast<int>(kVectorSize) || found_in_vector[e]) {
         return true;
       }
       found_in_vector[e] = true;
@@ -898,7 +929,7 @@ class VectorShuffleTest : public Test {
 
   static bool RangeIsShuffled(const TestingVector& vector, int begin, int end) {
     for (int i = begin; i < end; i++) {
-      if (i != vector[i]) {
+      if (i != vector[static_cast<size_t>(i)]) {
         return true;
       }
     }
@@ -922,7 +953,7 @@ class VectorShuffleTest : public Test {
   TestingVector vector_;
 };  // class VectorShuffleTest
 
-const int VectorShuffleTest::kVectorSize;
+const size_t VectorShuffleTest::kVectorSize;
 
 TEST_F(VectorShuffleTest, HandlesEmptyRange) {
   // Tests an empty range at the beginning...
@@ -974,7 +1005,7 @@ TEST_F(VectorShuffleTest, ShufflesEntireVector) {
   // Tests the first and last elements in particular to ensure that
   // there are no off-by-one problems in our shuffle algorithm.
   EXPECT_NE(0, vector_[0]);
-  EXPECT_NE(kVectorSize - 1, vector_[kVectorSize - 1]);
+  EXPECT_NE(static_cast<int>(kVectorSize - 1), vector_[kVectorSize - 1]);
 }
 
 TEST_F(VectorShuffleTest, ShufflesStartOfVector) {
@@ -984,7 +1015,8 @@ TEST_F(VectorShuffleTest, ShufflesStartOfVector) {
 
   ASSERT_PRED1(VectorIsNotCorrupt, vector_);
   EXPECT_PRED3(RangeIsShuffled, vector_, 0, kRangeSize);
-  EXPECT_PRED3(RangeIsUnshuffled, vector_, kRangeSize, kVectorSize);
+  EXPECT_PRED3(RangeIsUnshuffled, vector_, kRangeSize,
+               static_cast<int>(kVectorSize));
 }
 
 TEST_F(VectorShuffleTest, ShufflesEndOfVector) {
@@ -993,23 +1025,25 @@ TEST_F(VectorShuffleTest, ShufflesEndOfVector) {
 
   ASSERT_PRED1(VectorIsNotCorrupt, vector_);
   EXPECT_PRED3(RangeIsUnshuffled, vector_, 0, kRangeSize);
-  EXPECT_PRED3(RangeIsShuffled, vector_, kRangeSize, kVectorSize);
+  EXPECT_PRED3(RangeIsShuffled, vector_, kRangeSize,
+               static_cast<int>(kVectorSize));
 }
 
 TEST_F(VectorShuffleTest, ShufflesMiddleOfVector) {
-  int kRangeSize = kVectorSize/3;
+  const int kRangeSize = static_cast<int>(kVectorSize) / 3;
   ShuffleRange(&random_, kRangeSize, 2*kRangeSize, &vector_);
 
   ASSERT_PRED1(VectorIsNotCorrupt, vector_);
   EXPECT_PRED3(RangeIsUnshuffled, vector_, 0, kRangeSize);
   EXPECT_PRED3(RangeIsShuffled, vector_, kRangeSize, 2*kRangeSize);
-  EXPECT_PRED3(RangeIsUnshuffled, vector_, 2*kRangeSize, kVectorSize);
+  EXPECT_PRED3(RangeIsUnshuffled, vector_, 2 * kRangeSize,
+               static_cast<int>(kVectorSize));
 }
 
 TEST_F(VectorShuffleTest, ShufflesRepeatably) {
   TestingVector vector2;
-  for (int i = 0; i < kVectorSize; i++) {
-    vector2.push_back(i);
+  for (size_t i = 0; i < kVectorSize; i++) {
+    vector2.push_back(static_cast<int>(i));
   }
 
   random_.Reseed(1234);
@@ -1020,7 +1054,7 @@ TEST_F(VectorShuffleTest, ShufflesRepeatably) {
   ASSERT_PRED1(VectorIsNotCorrupt, vector_);
   ASSERT_PRED1(VectorIsNotCorrupt, vector2);
 
-  for (int i = 0; i < kVectorSize; i++) {
+  for (size_t i = 0; i < kVectorSize; i++) {
     EXPECT_EQ(vector_[i], vector2[i]) << " where i is " << i;
   }
 }
@@ -1209,12 +1243,6 @@ TEST_F(ExpectFatalFailureTest, CatchesFatalFaliure) {
   EXPECT_FATAL_FAILURE(AddFatalFailure(), "Expected fatal failure.");
 }
 
-#if GTEST_HAS_GLOBAL_STRING
-TEST_F(ExpectFatalFailureTest, AcceptsStringObject) {
-  EXPECT_FATAL_FAILURE(AddFatalFailure(), ::string("Expected fatal failure."));
-}
-#endif
-
 TEST_F(ExpectFatalFailureTest, AcceptsStdStringObject) {
   EXPECT_FATAL_FAILURE(AddFatalFailure(),
                        ::std::string("Expected fatal failure."));
@@ -1296,13 +1324,6 @@ TEST_F(ExpectNonfatalFailureTest, CatchesNonfatalFailure) {
   EXPECT_NONFATAL_FAILURE(AddNonfatalFailure(),
                           "Expected non-fatal failure.");
 }
-
-#if GTEST_HAS_GLOBAL_STRING
-TEST_F(ExpectNonfatalFailureTest, AcceptsStringObject) {
-  EXPECT_NONFATAL_FAILURE(AddNonfatalFailure(),
-                          ::string("Expected non-fatal failure."));
-}
-#endif
 
 TEST_F(ExpectNonfatalFailureTest, AcceptsStdStringObject) {
   EXPECT_NONFATAL_FAILURE(AddNonfatalFailure(),
@@ -1992,10 +2013,11 @@ void ExpectNonFatalFailureRecordingPropertyWithReservedKeyForCurrentTest(
 
 void ExpectNonFatalFailureRecordingPropertyWithReservedKeyForCurrentTestSuite(
     const char* key) {
-  const TestCase* test_case = UnitTest::GetInstance()->current_test_case();
-  ASSERT_TRUE(test_case != nullptr);
+  const testing::TestSuite* test_suite =
+      UnitTest::GetInstance()->current_test_suite();
+  ASSERT_TRUE(test_suite != nullptr);
   ExpectNonFatalFailureRecordingPropertyWithReservedKey(
-      test_case->ad_hoc_test_result(), key);
+      test_suite->ad_hoc_test_result(), key);
 }
 
 void ExpectNonFatalFailureRecordingPropertyWithReservedKeyOutsideOfTestSuite(
@@ -2025,8 +2047,10 @@ class UnitTestRecordPropertyTest :
         "time");
 
     Test::RecordProperty("test_case_key_1", "1");
+
     const testing::TestSuite* test_suite =
-        UnitTest::GetInstance()->current_test_case();
+        UnitTest::GetInstance()->current_test_suite();
+
     ASSERT_TRUE(test_suite != nullptr);
 
     ASSERT_EQ(1, test_suite->ad_hoc_test_result().test_property_count());
@@ -2143,12 +2167,12 @@ static Environment* record_property_env GTEST_ATTRIBUTE_UNUSED_ =
 
 // First, some predicates and predicate-formatters needed by the tests.
 
-// Returns true iff the argument is an even number.
+// Returns true if and only if the argument is an even number.
 bool IsEven(int n) {
   return (n % 2) == 0;
 }
 
-// A functor that returns true iff the argument is an even number.
+// A functor that returns true if and only if the argument is an even number.
 struct IsEvenFunctor {
   bool operator()(int n) { return IsEven(n); }
 };
@@ -2192,13 +2216,13 @@ struct AssertIsEvenFunctor {
   }
 };
 
-// Returns true iff the sum of the arguments is an even number.
+// Returns true if and only if the sum of the arguments is an even number.
 bool SumIsEven2(int n1, int n2) {
   return IsEven(n1 + n2);
 }
 
-// A functor that returns true iff the sum of the arguments is an even
-// number.
+// A functor that returns true if and only if the sum of the arguments is an
+// even number.
 struct SumIsEven3Functor {
   bool operator()(int n1, int n2, int n3) {
     return IsEven(n1 + n2 + n3);
@@ -3475,7 +3499,7 @@ std::string EditsToString(const std::vector<EditType>& edits) {
 std::vector<size_t> CharsToIndices(const std::string& str) {
   std::vector<size_t> out;
   for (size_t i = 0; i < str.size(); ++i) {
-    out.push_back(str[i]);
+    out.push_back(static_cast<size_t>(str[i]));
   }
   return out;
 }
@@ -4684,6 +4708,19 @@ TEST(MacroTest, FAIL) {
                        "Intentional failure.");
 }
 
+// Tests GTEST_FAIL_AT.
+TEST(MacroTest, GTEST_FAIL_AT) {
+  // Verifies that GTEST_FAIL_AT does generate a fatal failure and
+  // the failure message contains the user-streamed part.
+  EXPECT_FATAL_FAILURE(GTEST_FAIL_AT("foo.cc", 42) << "Wrong!", "Wrong!");
+
+  // Verifies that the user-streamed part is optional.
+  EXPECT_FATAL_FAILURE(GTEST_FAIL_AT("foo.cc", 42), "Failed");
+
+  // See the ADD_FAIL_AT test above to see how we test that the failure message
+  // contains the right filename and line number -- the same applies here.
+}
+
 // Tests SUCCEED
 TEST(MacroTest, SUCCEED) {
   SUCCEED();
@@ -4817,72 +4854,6 @@ TEST(EqAssertionTest, StdWideString) {
 }
 
 #endif  // GTEST_HAS_STD_WSTRING
-
-#if GTEST_HAS_GLOBAL_STRING
-// Tests using ::string values in {EXPECT|ASSERT}_EQ.
-TEST(EqAssertionTest, GlobalString) {
-  // Compares a const char* to a ::string that has identical content.
-  EXPECT_EQ("Test", ::string("Test"));
-
-  // Compares two identical ::strings.
-  const ::string str1("A * in the middle");
-  const ::string str2(str1);
-  ASSERT_EQ(str1, str2);
-
-  // Compares a ::string to a const char* that has different content.
-  EXPECT_NONFATAL_FAILURE(EXPECT_EQ(::string("Test"), "test"),
-                          "test");
-
-  // Compares two ::strings that have different contents, one of which
-  // having a NUL character in the middle.
-  ::string str3(str1);
-  str3.at(2) = '\0';
-  EXPECT_NONFATAL_FAILURE(EXPECT_EQ(str1, str3),
-                          "str3");
-
-  // Compares a ::string to a char* that has different content.
-  EXPECT_FATAL_FAILURE({  // NOLINT
-    ASSERT_EQ(::string("bar"), const_cast<char*>("foo"));
-  }, "");
-}
-
-#endif  // GTEST_HAS_GLOBAL_STRING
-
-#if GTEST_HAS_GLOBAL_WSTRING
-
-// Tests using ::wstring values in {EXPECT|ASSERT}_EQ.
-TEST(EqAssertionTest, GlobalWideString) {
-  // Compares two identical ::wstrings.
-  static const ::wstring wstr1(L"A * in the middle");
-  static const ::wstring wstr2(wstr1);
-  EXPECT_EQ(wstr1, wstr2);
-
-  // Compares a const wchar_t* to a ::wstring that has identical content.
-  const wchar_t kTestX8119[] = { 'T', 'e', 's', 't', 0x8119, '\0' };
-  ASSERT_EQ(kTestX8119, ::wstring(kTestX8119));
-
-  // Compares a const wchar_t* to a ::wstring that has different
-  // content.
-  const wchar_t kTestX8120[] = { 'T', 'e', 's', 't', 0x8120, '\0' };
-  EXPECT_NONFATAL_FAILURE({  // NOLINT
-    EXPECT_EQ(kTestX8120, ::wstring(kTestX8119));
-  }, "Test\\x8119");
-
-  // Compares a wchar_t* to a ::wstring that has different content.
-  wchar_t* const p1 = const_cast<wchar_t*>(L"foo");
-  EXPECT_NONFATAL_FAILURE(EXPECT_EQ(p1, ::wstring(L"bar")),
-                          "bar");
-
-  // Compares two ::wstrings that have different contents, one of which
-  // having a NUL character in the middle.
-  static ::wstring wstr3;
-  wstr3 = wstr1;
-  wstr3.at(2) = L'\0';
-  EXPECT_FATAL_FAILURE(ASSERT_EQ(wstr1, wstr3),
-                       "wstr3");
-}
-
-#endif  // GTEST_HAS_GLOBAL_WSTRING
 
 // Tests using char pointers in {EXPECT|ASSERT}_EQ.
 TEST(EqAssertionTest, CharPointer) {
@@ -5699,11 +5670,11 @@ class ParseFlagsTest : public Test {
 
   // Asserts that two narrow or wide string arrays are equal.
   template <typename CharType>
-  static void AssertStringArrayEq(size_t size1, CharType** array1,
-                                  size_t size2, CharType** array2) {
+  static void AssertStringArrayEq(int size1, CharType** array1, int size2,
+                                  CharType** array2) {
     ASSERT_EQ(size1, size2) << " Array sizes different.";
 
-    for (size_t i = 0; i != size1; i++) {
+    for (int i = 0; i != size1; i++) {
       ASSERT_STREQ(array1[i], array2[i]) << " where i == " << i;
     }
   }
@@ -7112,7 +7083,7 @@ class ConversionHelperDerived : public ConversionHelperBase {};
 
 // Tests that IsAProtocolMessage<T>::value is a compile-time constant.
 TEST(IsAProtocolMessageTest, ValueIsCompileTimeConstant) {
-  GTEST_COMPILE_ASSERT_(IsAProtocolMessage<ProtocolMessage>::value,
+  GTEST_COMPILE_ASSERT_(IsAProtocolMessage<::proto2::Message>::value,
                         const_true);
   GTEST_COMPILE_ASSERT_(!IsAProtocolMessage<int>::value, const_false);
 }
@@ -7121,79 +7092,21 @@ TEST(IsAProtocolMessageTest, ValueIsCompileTimeConstant) {
 // proto2::Message or a sub-class of it.
 TEST(IsAProtocolMessageTest, ValueIsTrueWhenTypeIsAProtocolMessage) {
   EXPECT_TRUE(IsAProtocolMessage< ::proto2::Message>::value);
-  EXPECT_TRUE(IsAProtocolMessage<ProtocolMessage>::value);
 }
 
 // Tests that IsAProtocolMessage<T>::value is false when T is neither
-// ProtocolMessage nor a sub-class of it.
+// ::proto2::Message nor a sub-class of it.
 TEST(IsAProtocolMessageTest, ValueIsFalseWhenTypeIsNotAProtocolMessage) {
   EXPECT_FALSE(IsAProtocolMessage<int>::value);
   EXPECT_FALSE(IsAProtocolMessage<const ConversionHelperBase>::value);
-}
-
-// Tests that CompileAssertTypesEqual compiles when the type arguments are
-// equal.
-TEST(CompileAssertTypesEqual, CompilesWhenTypesAreEqual) {
-  CompileAssertTypesEqual<void, void>();
-  CompileAssertTypesEqual<int*, int*>();
-}
-
-// Tests that RemoveReference does not affect non-reference types.
-TEST(RemoveReferenceTest, DoesNotAffectNonReferenceType) {
-  CompileAssertTypesEqual<int, RemoveReference<int>::type>();
-  CompileAssertTypesEqual<const char, RemoveReference<const char>::type>();
-}
-
-// Tests that RemoveReference removes reference from reference types.
-TEST(RemoveReferenceTest, RemovesReference) {
-  CompileAssertTypesEqual<int, RemoveReference<int&>::type>();
-  CompileAssertTypesEqual<const char, RemoveReference<const char&>::type>();
-}
-
-// Tests GTEST_REMOVE_REFERENCE_.
-
-template <typename T1, typename T2>
-void TestGTestRemoveReference() {
-  CompileAssertTypesEqual<T1, GTEST_REMOVE_REFERENCE_(T2)>();
-}
-
-TEST(RemoveReferenceTest, MacroVersion) {
-  TestGTestRemoveReference<int, int>();
-  TestGTestRemoveReference<const char, const char&>();
-}
-
-
-// Tests that RemoveConst does not affect non-const types.
-TEST(RemoveConstTest, DoesNotAffectNonConstType) {
-  CompileAssertTypesEqual<int, RemoveConst<int>::type>();
-  CompileAssertTypesEqual<char&, RemoveConst<char&>::type>();
-}
-
-// Tests that RemoveConst removes const from const types.
-TEST(RemoveConstTest, RemovesConst) {
-  CompileAssertTypesEqual<int, RemoveConst<const int>::type>();
-  CompileAssertTypesEqual<char[2], RemoveConst<const char[2]>::type>();
-  CompileAssertTypesEqual<char[2][3], RemoveConst<const char[2][3]>::type>();
-}
-
-// Tests GTEST_REMOVE_CONST_.
-
-template <typename T1, typename T2>
-void TestGTestRemoveConst() {
-  CompileAssertTypesEqual<T1, GTEST_REMOVE_CONST_(T2)>();
-}
-
-TEST(RemoveConstTest, MacroVersion) {
-  TestGTestRemoveConst<int, int>();
-  TestGTestRemoveConst<double&, double&>();
-  TestGTestRemoveConst<char, const char>();
 }
 
 // Tests GTEST_REMOVE_REFERENCE_AND_CONST_.
 
 template <typename T1, typename T2>
 void TestGTestRemoveReferenceAndConst() {
-  CompileAssertTypesEqual<T1, GTEST_REMOVE_REFERENCE_AND_CONST_(T2)>();
+  static_assert(std::is_same<T1, GTEST_REMOVE_REFERENCE_AND_CONST_(T2)>::value,
+                "GTEST_REMOVE_REFERENCE_AND_CONST_ failed.");
 }
 
 TEST(RemoveReferenceToConstTest, Works) {
@@ -7204,35 +7117,12 @@ TEST(RemoveReferenceToConstTest, Works) {
   TestGTestRemoveReferenceAndConst<const char*, const char*>();
 }
 
-// Tests that AddReference does not affect reference types.
-TEST(AddReferenceTest, DoesNotAffectReferenceType) {
-  CompileAssertTypesEqual<int&, AddReference<int&>::type>();
-  CompileAssertTypesEqual<const char&, AddReference<const char&>::type>();
-}
-
-// Tests that AddReference adds reference to non-reference types.
-TEST(AddReferenceTest, AddsReference) {
-  CompileAssertTypesEqual<int&, AddReference<int>::type>();
-  CompileAssertTypesEqual<const char&, AddReference<const char>::type>();
-}
-
-// Tests GTEST_ADD_REFERENCE_.
-
-template <typename T1, typename T2>
-void TestGTestAddReference() {
-  CompileAssertTypesEqual<T1, GTEST_ADD_REFERENCE_(T2)>();
-}
-
-TEST(AddReferenceTest, MacroVersion) {
-  TestGTestAddReference<int&, int>();
-  TestGTestAddReference<const char&, const char&>();
-}
-
 // Tests GTEST_REFERENCE_TO_CONST_.
 
 template <typename T1, typename T2>
 void TestGTestReferenceToConst() {
-  CompileAssertTypesEqual<T1, GTEST_REFERENCE_TO_CONST_(T2)>();
+  static_assert(std::is_same<T1, GTEST_REFERENCE_TO_CONST_(T2)>::value,
+                "GTEST_REFERENCE_TO_CONST_ failed.");
 }
 
 TEST(GTestReferenceToConstTest, Works) {
