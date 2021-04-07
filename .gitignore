@@ -37,6 +37,7 @@ build/*
 # Others
 doc/api/*
 .coverage
+*.dump
 
 # Libraries
 
