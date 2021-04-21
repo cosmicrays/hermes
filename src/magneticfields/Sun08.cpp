@@ -1,4 +1,4 @@
-#include "hermes/magneticfields/Sun08Field.h"
+#include "hermes/magneticfields/Sun08.h"
 
 #include <utility>
 
@@ -6,7 +6,7 @@
 
 namespace hermes { namespace magneticfields {
 
-Sun08Field::Sun08Field() {
+Sun08::Sun08() {
 	// regular field parameters
 	R_Sun = 8.5_kpc;
 	// disk
@@ -32,7 +32,7 @@ Sun08Field::Sun08Field() {
 }
 
 #ifdef HERMES_HAVE_FFTW3F
-void Sun08Field::randomTurbulent(int seed) {
+void Sun08::randomTurbulent(int seed) {
 	useTurbulent = true;
 	// turbulent field with Kolmogorov spectrum, B_rms = 1 and Lc = 60
 	// parsec
@@ -43,26 +43,26 @@ void Sun08Field::randomTurbulent(int seed) {
 }
 #endif
 
-void Sun08Field::setTurbulentGrid(std::shared_ptr<VectorGrid> grid) {
+void Sun08::setTurbulentGrid(std::shared_ptr<VectorGrid> grid) {
 	useTurbulent = true;
 	turbulentGrid = std::move(grid);
 }
 
-void Sun08Field::setUseTurbulent(bool use) {
+void Sun08::setUseTurbulent(bool use) {
 	if ((use) and (turbulentGrid)) {
-		std::cout << "Sun08Field: No turbulent field set: ignored" << std::endl;
+		std::cout << "Sun08: No turbulent field set: ignored" << std::endl;
 		return;
 	}
 	useTurbulent = use;
 }
 
-void Sun08Field::setUseHalo(bool use) { useHalo = use; }
+void Sun08::setUseHalo(bool use) { useHalo = use; }
 
-bool Sun08Field::isUsingTurbulent() const { return useTurbulent; }
+bool Sun08::isUsingTurbulent() const { return useTurbulent; }
 
-bool Sun08Field::isUsingHalo() const { return useHalo; }
+bool Sun08::isUsingHalo() const { return useHalo; }
 
-Vector3QMField Sun08Field::getRegularField(const Vector3QLength &pos_) const {
+Vector3QMField Sun08::getRegularField(const Vector3QLength &pos_) const {
 	Vector3QMField B_disk(0);
 	Vector3QMField B_halo(0);
 
@@ -106,11 +106,11 @@ Vector3QMField Sun08Field::getRegularField(const Vector3QLength &pos_) const {
 	return B_disk + B_halo;
 }
 
-Vector3QMField Sun08Field::getTurbulentField(const Vector3QLength &pos_) const {
+Vector3QMField Sun08::getTurbulentField(const Vector3QLength &pos_) const {
 	return (turbulentGrid->interpolate(pos_) * B_turbulent);
 }
 
-Vector3QMField Sun08Field::getField(const Vector3QLength &pos_) const {
+Vector3QMField Sun08::getField(const Vector3QLength &pos_) const {
 	Vector3QMField b(0.);
 
 	b = getRegularField(pos_);

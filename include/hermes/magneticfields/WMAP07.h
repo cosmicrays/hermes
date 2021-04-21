@@ -1,5 +1,5 @@
-#ifndef HERMES_WMAP07FIELD_H
-#define HERMES_WMAP07FIELD_H
+#ifndef HERMES_WMAP07_H
+#define HERMES_WMAP07_H
 
 #include "hermes/magneticfields/MagneticField.h"
 
@@ -10,16 +10,17 @@ namespace hermes { namespace magneticfields {
  */
 
 /**
- @class WMAP07Field
+ @class WMAP07
  @brief 3-year WMAP galactic magnetic field model
 
- Implemented the galactic magnetic field model used in 3-year WMAP analyses.
+ The implemention of the galactic magnetic field model used in 3-year WMAP analyses.
+ Note the distance from the galactic centre 8 kpc.
 
  See: L. Page et al 2007 ApJS 170 335,
  https://iopscience.iop.org/article/10.1086/513699
  */
 
-class WMAP07Field : public MagneticField {
+class WMAP07 : public MagneticField {
   private:
 	QMField B_0;
 	QLength r_0;
@@ -29,11 +30,11 @@ class WMAP07Field : public MagneticField {
 	QAngle psi_0;
 
   public:
-	WMAP07Field();
+	WMAP07();
 	Vector3QMField getField(const Vector3QLength &pos) const override;
 };
 
 /** @} */
 }}  // namespace hermes::magneticfields
 
-#endif  // HERMES_WMAP07FIELD_H
+#endif  // HERMES_WMAP07_H

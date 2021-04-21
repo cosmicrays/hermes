@@ -10,7 +10,7 @@ namespace hermes { namespace magneticfields {
  */
 
 /**
- @class PT11Field
+ @class PT11
  @brief Pshirkov2011 galactic magnetic field model
 
  Implements the Pshirkov2011 galactic magnetic field model, consisting of
@@ -28,7 +28,7 @@ namespace hermes { namespace magneticfields {
  sources, DOI: 10.1088/0004-637X/738/2/192, arXiv:1103.0814
  */
 
-class PT11Field : public MagneticField {
+class PT11 : public MagneticField {
   private:
 	bool useASS;   // switch for axisymmetric spiral field (ASS)
 	bool useBSS;   // switch for bisymmetric spiral field (BSS)
@@ -54,7 +54,7 @@ class PT11Field : public MagneticField {
 	void SetParams();
 
   public:
-	PT11Field();
+	PT11();
 
 	void setUseASS(bool use);
 	void setUseBSS(bool use);

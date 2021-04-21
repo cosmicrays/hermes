@@ -1,4 +1,4 @@
-#include "hermes/magneticfields/PT11Field.h"
+#include "hermes/magneticfields/PT11.h"
 
 #include <algorithm>
 
@@ -6,7 +6,7 @@
 
 namespace hermes { namespace magneticfields {
 
-PT11Field::PT11Field() : useASS(true), useBSS(false), useHalo(true) {
+PT11::PT11() : useASS(true), useBSS(false), useHalo(true) {
 	// disk parameters
 	d = -0.6_kpc;
 	R_sun = 8.5_kpc;
@@ -26,7 +26,7 @@ PT11Field::PT11Field() : useASS(true), useBSS(false), useHalo(true) {
 	setUseASS(true);
 }
 
-void PT11Field::SetParams() {
+void PT11::SetParams() {
 	cos_pitch = cos(pitch);
 	sin_pitch = sin(pitch);
 	PHI = cos_pitch / sin_pitch * log(QNumber(1) + d / R_sun) * 1_rad -
@@ -34,12 +34,12 @@ void PT11Field::SetParams() {
 	cos_PHI = cos(PHI);
 }
 
-void PT11Field::setUseASS(bool use) {
+void PT11::setUseASS(bool use) {
 	useASS = use;
 	if (not(use)) return;
 
 	if (useBSS) {
-		std::cout << "PT11Field: Disk field changed to ASS" << std::endl;
+		std::cout << "PT11: Disk field changed to ASS" << std::endl;
 		useBSS = false;
 	}
 
@@ -48,12 +48,12 @@ void PT11Field::setUseASS(bool use) {
 	SetParams();
 }
 
-void PT11Field::setUseBSS(bool use) {
+void PT11::setUseBSS(bool use) {
 	useBSS = use;
 	if (not(use)) return;
 
 	if (useASS) {
-		std::cout << "PT11Field: Disk field changed to BSS" << std::endl;
+		std::cout << "PT11: Disk field changed to BSS" << std::endl;
 		useASS = false;
 	}
 
@@ -62,15 +62,15 @@ void PT11Field::setUseBSS(bool use) {
 	SetParams();
 }
 
-void PT11Field::setUseHalo(bool use) { useHalo = use; }
+void PT11::setUseHalo(bool use) { useHalo = use; }
 
-bool PT11Field::isUsingASS() { return useASS; }
+bool PT11::isUsingASS() { return useASS; }
 
-bool PT11Field::isUsingBSS() { return useBSS; }
+bool PT11::isUsingBSS() { return useBSS; }
 
-bool PT11Field::isUsingHalo() { return useHalo; }
+bool PT11::isUsingHalo() { return useHalo; }
 
-Vector3QMField PT11Field::getField(const Vector3QLength &pos_) const {
+Vector3QMField PT11::getField(const Vector3QLength &pos_) const {
 	Vector3QLength pos = pos_;
 	// pos.set(-pos_.getY());
 

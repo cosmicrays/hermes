@@ -4,9 +4,9 @@
 #include "hermes/magneticfields/JF12.h"
 #include "hermes/magneticfields/MagneticField.h"
 #include "hermes/magneticfields/MagneticFieldGrid.h"
-#include "hermes/magneticfields/PT11Field.h"
-#include "hermes/magneticfields/Sun08Field.h"
-#include "hermes/magneticfields/WMAP07Field.h"
+#include "hermes/magneticfields/PT11.h"
+#include "hermes/magneticfields/Sun08.h"
+#include "hermes/magneticfields/WMAP07.h"
 
 namespace py = pybind11;
 
@@ -20,13 +20,13 @@ void init(py::module &m) {
 	                                                          "MagneticField")
 	    .def("getField", &MagneticField::getField);
 
-	py::class_<Sun08Field, std::shared_ptr<Sun08Field>, MagneticField>(
-	    subm, "Sun08Field")
+	py::class_<Sun08, std::shared_ptr<Sun08>, MagneticField>(
+	    subm, "Sun08")
 	    .def(py::init<>())
 	    .def("getField", &MagneticField::getField);
 
-	py::class_<PT11Field, std::shared_ptr<PT11Field>, MagneticField>(
-	    subm, "PT11Field")
+	py::class_<PT11, std::shared_ptr<PT11>, MagneticField>(
+	    subm, "PT11")
 	    .def(py::init<>())
 	    .def("getField", &MagneticField::getField);
 

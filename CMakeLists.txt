@@ -302,9 +302,9 @@ add_library(hermes SHARED
 	src/magneticfields/JF12.cpp
 	src/magneticfields/MagneticField.cpp
 	src/magneticfields/MagneticFieldGrid.cpp
-	src/magneticfields/PT11Field.cpp
-	src/magneticfields/Sun08Field.cpp
-	src/magneticfields/WMAP07Field.cpp
+	src/magneticfields/PT11.cpp
+	src/magneticfields/Sun08.cpp
+	src/magneticfields/WMAP07.cpp
 	src/neutralgas/Nakanishi06.cpp
 	src/neutralgas/RingData.cpp
 	src/neutralgas/RingModel.cpp

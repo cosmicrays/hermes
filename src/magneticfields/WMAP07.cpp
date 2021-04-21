@@ -1,10 +1,10 @@
-#include "hermes/magneticfields/WMAP07Field.h"
+#include "hermes/magneticfields/WMAP07.h"
 
 #include "hermes/Units.h"
 
 namespace hermes { namespace magneticfields {
 
-WMAP07Field::WMAP07Field() {
+WMAP07::WMAP07() {
 	// parameters from Waelkens et al. 2009 (Hammurabi)
 	B_0 = 4.0_muG;
 	r_0 = 8.0_kpc;
@@ -14,7 +14,7 @@ WMAP07Field::WMAP07Field() {
 	psi_0 = 27.0_deg;  // ~35.0_deg in the original paper
 }
 
-Vector3QMField WMAP07Field::getField(const Vector3QLength &pos_) const {
+Vector3QMField WMAP07::getField(const Vector3QLength &pos_) const {
 	Vector3QMField B(0);
 
 	QLength rho = sqrt(pos_.x * pos_.x + pos_.y * pos_.y);

@@ -1,5 +1,5 @@
-#ifndef HERMES_SUN08FIELD_H
-#define HERMES_SUN08FIELD_H
+#ifndef HERMES_SUN08_H
+#define HERMES_SUN08_H
 
 #include "hermes/Grid.h"
 #include "hermes/GridTools.h"
@@ -12,16 +12,16 @@ namespace hermes { namespace magneticfields {
  */
 
 /**
- @class Sun08Field
+ @class Sun08
  @brief
 
- Implemented the galactic magnetic field model used in 3-year WMAP analyses.
+ The implemention of the galactic magnetic field model ASS+RING from Sun et al. 2008.
 
- See: L. Page et al 2007 ApJS 170 335,
- https://iopscience.iop.org/article/10.1086/513699
+ See: Sun, X. H., et al. 2008 A&A 477.2
+ https://www.aanda.org/articles/aa/abs/2008/02/aa8671-07/aa8671-07.html
  */
 
-class Sun08Field : public MagneticField {
+class Sun08 : public MagneticField {
   private:
 	bool useTurbulent;
 	bool useHalo;
@@ -39,7 +39,7 @@ class Sun08Field : public MagneticField {
 	QMField B_turbulent;
 
   public:
-	Sun08Field();
+	Sun08();
 
 #ifdef HERMES_HAVE_FFTW3F
 	// Create a random realization for the turbulent field
@@ -72,4 +72,4 @@ class Sun08Field : public MagneticField {
 /** @} */
 }}  // namespace hermes::magneticfields
 
-#endif  // HERMES_SUN08FIELD_H
+#endif  // HERMES_SUN08_H
