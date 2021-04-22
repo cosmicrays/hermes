@@ -136,6 +136,25 @@ std::size_t getThreadId() {
 	return std::hash<std::thread::id>()(std::this_thread::get_id());
 }
 
+std::vector<std::vector<std::size_t>> getIndexedThreadChunks(
+    std::vector<std::size_t> validPixels) {
+    
+    std::size_t threads = getThreadsNumber();
+    std::vector<std::vector<std::size_t>> chunks(threads);
+   
+    while (validPixels.size()) {
+        for (std::size_t i = 0; i < threads; ++i) {
+            chunks[i].push_back(validPixels.back());
+            validPixels.pop_back();
+            if (validPixels.size() == 0) {
+                break;
+            }
+        }
+    }
+
+    return chunks;
+}
+
 std::vector<std::pair<unsigned int, unsigned int>> getThreadChunks(
     unsigned int queueSize) {
 	unsigned int tasks_per_thread = queueSize / getThreadsNumber();

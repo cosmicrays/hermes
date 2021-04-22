@@ -129,7 +129,7 @@ class SkymapTemplate : public Skymap {
 	    std::size_t ipix,
 	    const std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> &integrator_);
 	void computePixelRange(
-	    std::size_t start, std::size_t end,
+	    std::vector<std::size_t> chunk,
 	    const std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> &integrator_);
 	void compute();
 
@@ -262,15 +262,11 @@ void SkymapTemplate<QPXL, QSTEP>::computePixel(
 
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::computePixelRange(
-    std::size_t start, std::size_t end,
+    std::vector<std::size_t> chunk,
     const std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> &integrator_) {
-	for (std::size_t ipix = start; ipix < end; ++ipix) {
-		if (!isMasked(ipix)) {
-			computePixel(ipix, integrator_);
+	for (auto ipxl : chunk) {
+			computePixel(ipxl, integrator_);
 			progressbar->update();
-		} else {
-			fluxContainer[ipix] = QPXL(UNSEEN);
-		}
 	}
 }
 
@@ -296,12 +292,21 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
 	progressbar->setMutex(progressbar_mutex);
 	progressbar->start("Compute skymap");
 
-	auto job_chunks = getThreadChunks(size());
+    std::vector<std::size_t> validPixels;
+    for (std::size_t ipxl = 0; ipxl < fluxContainer.size(); ++ipxl) {
+        if (!isMasked(ipxl)) {
+            validPixels.push_back(ipxl);
+        } else {
+            fluxContainer[ipxl] = QPXL(UNSEEN);
+        }
+    }
+            
+    auto job_chunks = getIndexedThreadChunks(validPixels);
 	std::vector<std::thread> threads;
 	for (auto &chunk : job_chunks) {
 		threads.push_back(
 		    std::thread(&SkymapTemplate<QPXL, QSTEP>::computePixelRange, this,
-		                chunk.first, chunk.second, integrator));
+		                chunk, integrator));
 	}
 	for (auto &t : threads) {
 		t.join();

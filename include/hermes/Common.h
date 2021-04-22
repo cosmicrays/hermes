@@ -78,6 +78,14 @@ unsigned int getThreadsNumber();
 size_t getThreadId();
 
 /**
+    For a given vector of valid pixel indices returns N vectors
+    containing these indices distributed equally
+    where N is the number of available system threads
+*/
+std::vector<std::vector<std::size_t>> getIndexedThreadChunks(
+    std::vector<std::size_t> validPixels);
+
+/**
     For a given number of tasks, split them over available system threads;
     returns a vector of [start, stop> pairs
 */

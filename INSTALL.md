@@ -60,6 +60,11 @@ dnf install git cmake g++ gsl-devel zlib-devel cfitsio-devel fftw-devel \
 python3-virtualenv python3-virtualenvwrapper python3-devel doxygen
 ```
 
+Recommended Python modules:
+```sh
+pip install astropy healpy matplotlib numpy
+```
+
 ## Install on macOS (OS X)
 
 To obtain the required and optional packages, one can use [Homebrew](https://brew.sh):
