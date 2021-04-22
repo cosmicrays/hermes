@@ -39,8 +39,8 @@ class TestCRDensity : public cosmicrays::CosmicRayDensity {
 };
 
 TEST(PiZeroIntegrator, integrateOverEnergy) {
-	auto cr_proton = std::make_shared<cosmicrays::SimpleCRDensity>(
-	    cosmicrays::SimpleCRDensity());
+	auto cr_proton = std::make_shared<cosmicrays::SimpleCR>(
+	    cosmicrays::SimpleCR());
 	// std::vector<PID> particletypes = {Proton};
 	// auto cr_proton = std::make_shared<cosmicrays::Dragon2D>(
 	//    cosmicrays::Dragon2D(particletypes));
@@ -72,10 +72,10 @@ TEST(PiZeroIntegrator, integrateOverEnergy) {
 }
 
 TEST(PiZeroIntegrator, ChannelsRatio) {
-	auto cr_proton = std::make_shared<cosmicrays::SimpleCRDensity>(
-	    cosmicrays::SimpleCRDensity(Proton));
-	auto cr_helium = std::make_shared<cosmicrays::SimpleCRDensity>(
-	    cosmicrays::SimpleCRDensity(Helium));
+	auto cr_proton = std::make_shared<cosmicrays::SimpleCR>(
+	    cosmicrays::SimpleCR(Proton));
+	auto cr_helium = std::make_shared<cosmicrays::SimpleCR>(
+	    cosmicrays::SimpleCR(Helium));
 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> cr_all = {
 	    cr_proton, cr_helium};
 
@@ -106,8 +106,8 @@ TEST(PiZeroIntegrator, ChannelsRatio) {
 TEST(PiZeroIntegrator, PiZeroLOS) {
 	// auto crdensity =
 	// std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
-	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(
-	    cosmicrays::SimpleCRDensity());
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCR>(
+	    cosmicrays::SimpleCR());
 	auto dragonModel =
 	    std::make_shared<cosmicrays::Dragon2D>(cosmicrays::Dragon2D(Proton));
 	// interaction

@@ -39,8 +39,8 @@ class TestCRDensity : public cosmicrays::CosmicRayDensity {
 };
 
 TEST(BremsstrahlungIntegrator, integrateOverEnergy) {
-	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(
-	    cosmicrays::SimpleCRDensity());
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCR>(
+	    cosmicrays::SimpleCR());
 	// interaction
 	auto bremsstrahlungCS =
 	    std::make_shared<interactions::BremsstrahlungGALPROP>(
@@ -59,8 +59,8 @@ TEST(BremsstrahlungIntegrator, integrateOverEnergy) {
 TEST(BremsstrahlungIntegrator, LOS) {
 	// auto crdensity =
 	// std::make_shared<TestCRDensity>(TestCRDensity(1_MHz));
-	auto simpleModel = std::make_shared<cosmicrays::SimpleCRDensity>(
-	    cosmicrays::SimpleCRDensity());
+	auto simpleModel = std::make_shared<cosmicrays::SimpleCR>(
+	    cosmicrays::SimpleCR());
 
 	// interaction
 	auto bremsstrahlung = std::make_shared<interactions::BremsstrahlungTsai74>(

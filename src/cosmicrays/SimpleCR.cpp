@@ -1,19 +1,19 @@
-#include "hermes/cosmicrays/SimpleCRDensity.h"
+#include "hermes/cosmicrays/SimpleCR.h"
 
 namespace hermes { namespace cosmicrays {
 
-SimpleCRDensity::SimpleCRDensity(const PID &pid_)
+SimpleCR::SimpleCR(const PID &pid_)
     : CosmicRayDensity(pid_), minE(1_GeV), maxE(10_TeV), steps(20) {
 	makeEnergyRange();
 }
 
-SimpleCRDensity::SimpleCRDensity(const PID &pid_, QEnergy minE_, QEnergy maxE_,
+SimpleCR::SimpleCR(const PID &pid_, QEnergy minE_, QEnergy maxE_,
                                  int steps_)
     : CosmicRayDensity(pid_), minE(minE_), maxE(maxE_), steps(steps_) {
 	makeEnergyRange();
 }
 
-void SimpleCRDensity::makeEnergyRange() {
+void SimpleCR::makeEnergyRange() {
 	QEnergy energy = minE;
 	energyScaleFactor =
 	    exp(1. / static_cast<double>(steps - 1) * log(maxE / minE));
@@ -24,7 +24,7 @@ void SimpleCRDensity::makeEnergyRange() {
 	}
 }
 
-QPDensityPerEnergy SimpleCRDensity::getDensityPerEnergy(
+QPDensityPerEnergy SimpleCR::getDensityPerEnergy(
     const QEnergy &E_, const Vector3QLength &pos_) const {
 	constexpr int alpha = 3;
 	auto Phi0 = 0.1 / (1_GeV * 1_cm * 1_cm * 1_s * c_light) * 4_pi;

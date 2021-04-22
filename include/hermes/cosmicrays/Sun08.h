@@ -1,5 +1,5 @@
-#ifndef HERMES_SIMPLECRDENSITY_H
-#define HERMES_SIMPLECRDENSITY_H
+#ifndef HERMES_SUN08CRDENSITY_H
+#define HERMES_SUN08CRDENSITY_H
 
 #include "hermes/cosmicrays/CosmicRayDensity.h"
 
@@ -9,15 +9,20 @@ namespace hermes { namespace cosmicrays {
  * @{
  */
 
-class SimpleCRDensity : public CosmicRayDensity {
+class Sun08 : public CosmicRayDensity {
   private:
 	QEnergy minE, maxE;
+	int spectralIndex;
+	QEnergy E_0, E_cutoff;
+	QPDensity C_0;
+	QLength h_r, h_d, r_Earth;
 	int steps;
 	void makeEnergyRange();
+	void setParameters();
 
   public:
-	SimpleCRDensity(const PID &pid = Proton);
-	SimpleCRDensity(const PID &pid, QEnergy minE, QEnergy maxE, int steps);
+	Sun08();
+	Sun08(QEnergy minE_, QEnergy maxE_, int steps_);
 	QPDensityPerEnergy getDensityPerEnergy(
 	    const QEnergy &E_, const Vector3QLength &pos_) const override;
 };
@@ -25,4 +30,4 @@ class SimpleCRDensity : public CosmicRayDensity {
 /** @}*/
 }}  // namespace hermes::cosmicrays
 
-#endif  // HERMES_SIMPLECRDENSITY_H
+#endif  // HERMES_SUN08CRDENSITY_H

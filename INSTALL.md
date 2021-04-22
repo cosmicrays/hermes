@@ -53,6 +53,13 @@ make -j
 make install
 ```
 
+### Dependencies
+Required packages to build on RHEL/CentOS/Fedora systems:
+```sh
+dnf install git cmake g++ gsl-devel zlib-devel cfitsio-devel fftw-devel \
+python3-virtualenv python3-virtualenvwrapper python3-devel doxygen
+```
+
 ## Install on macOS (OS X)
 
 To obtain the required and optional packages, one can use [Homebrew](https://brew.sh):

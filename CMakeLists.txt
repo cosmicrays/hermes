@@ -274,10 +274,10 @@ add_library(hermes SHARED
 	src/ionizedgas/YMW16.cpp
 	src/cosmicrays/Dragon2D.cpp
 	src/cosmicrays/Dragon3D.cpp
-	src/cosmicrays/DummyCRDensity.cpp
-	src/cosmicrays/SimpleCRDensity.cpp
-	src/cosmicrays/Sun08CRDensity.cpp
-	src/cosmicrays/WMAP07CRDensity.cpp
+	src/cosmicrays/DummyCR.cpp
+	src/cosmicrays/SimpleCR.cpp
+	src/cosmicrays/Sun08.cpp
+	src/cosmicrays/WMAP07.cpp
 	src/darkmatter/NFWGProfile.cpp
 	src/darkmatter/PPPC4DMIDSpectrum.cpp
 	src/integrators/BremsstrahlungIntegrator.cpp

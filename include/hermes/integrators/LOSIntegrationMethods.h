@@ -90,7 +90,7 @@ QPXL gslQAGIntegration(std::function<INTTYPE(QLength)> f, QLength start,
 	double b = static_cast<double>(stop);
 	double abs_error = 0.0;  // disabled
 	double rel_error = 1.0e-3;
-	int key = GSL_INTEG_GAUSS15;  // GSL_INTEG_GAUSS21;
+	int key = GSL_INTEG_GAUSS15;
 	double result;
 	double error;
 

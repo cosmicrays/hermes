@@ -49,7 +49,7 @@ Egamma = 0.1*TeV
 obs_pos = Vector3QLength(8.0*kpc, 0*pc, 0*pc)
 
 skymap = GammaSkymap(nside, Egamma)
-mask = RectangularWindow([5*deg, 40*deg], [-5*deg, 90*deg]);
+mask = RectangularWindow([5*deg, 40*deg], [-5*deg, 90*deg])
 skymap.setMask(mask)
 
 neutral_gas = neutralgas.RingModel(neutralgas.GasType.HI)
