@@ -77,9 +77,6 @@ TEST(BremsstrahlungIntegrator, LOS) {
 	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(nside, 1_GeV));
 	skymap->setIntegrator(intBremsstrahlung);
 
-	// auto output =
-	// std::make_shared<HEALPix>(HEALPix("!test-pion.fits.gz"));
-
 	auto pos = Vector3QLength(8.5_kpc, 0, 0);
 	QDirection dir = {90_deg, 1_deg};
 	// std::cerr << intBremsstrahlung->integrateOverEnergy(pos, 1_GeV) <<

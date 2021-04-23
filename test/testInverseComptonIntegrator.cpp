@@ -202,38 +202,6 @@ TEST(InverseComptonIntegrator, GammaSkymapRange) {
 	gammaskymap_range->save(output);
 }
 
-TEST(InverseComptonIntegrator, PerformanceTest) {
-	std::vector<PID> particletypes = {Electron, Positron};
-	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(
-	    cosmicrays::Dragon2D(particletypes));
-	auto simpleModel = std::make_shared<cosmicrays::SimpleCR>(
-	    cosmicrays::SimpleCR());
-	auto kleinnishina = std::make_shared<interactions::KleinNishina>(
-	    interactions::KleinNishina());
-	auto photonField =
-	    std::make_shared<photonfields::ISRF>(photonfields::ISRF());
-	auto in = std::make_shared<InverseComptonIntegrator>(
-	    InverseComptonIntegrator(dragonModel, photonField, kleinnishina));
-	auto Egamma = 1_GeV;
-	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, Egamma));
-	skymap->setIntegrator(in);
-
-	in->setupCacheTable(10, 10, 2);
-
-	std::chrono::time_point<std::chrono::system_clock> start =
-	    std::chrono::system_clock::now();
-	skymap->compute();
-	std::chrono::time_point<std::chrono::system_clock> stop =
-	    std::chrono::system_clock::now();
-
-	auto milliseconds =
-	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
-
-	EXPECT_LE(pxl_speed, 1000);  // ms
-}
-
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();

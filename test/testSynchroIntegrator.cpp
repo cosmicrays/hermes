@@ -129,31 +129,6 @@ TEST(SynchroIntegrator, integrateOverLOS) {
 	// static_cast<double>(T_expected), 1e-9); // K
 }
 
-TEST(SynchroIntegrator, PerformanceTest) {
-	auto mfield = std::make_shared<magneticfields::JF12>(
-	    magneticfields::JF12());
-	std::vector<PID> particletypes = {Electron, Positron};
-	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(
-	    cosmicrays::Dragon2D(particletypes));
-	auto in = std::make_shared<SynchroIntegrator>(
-	    SynchroIntegrator(mfield, dragonModel));
-	auto skymap = std::make_shared<RadioSkymap>(RadioSkymap(4, 1_GHz));
-	skymap->setIntegrator(in);
-
-	std::chrono::time_point<std::chrono::system_clock> start =
-	    std::chrono::system_clock::now();
-	skymap->compute();
-	std::chrono::time_point<std::chrono::system_clock> stop =
-	    std::chrono::system_clock::now();
-
-	auto milliseconds =
-	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
-
-	EXPECT_LE(pxl_speed, 200);  // ms
-}
-
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();

@@ -141,37 +141,6 @@ TEST(PiZeroIntegrator, PiZeroLOS) {
 	// EXPECT_NEAR(emissivity.getValue(), 3.915573e-55, 2e-56); // J/m^3
 }
 
-TEST(PiZeroIntegrator, PerformanceTest) {
-	std::vector<PID> particletypes = {Proton};
-	auto dragonModel = std::make_shared<cosmicrays::Dragon2D>(
-	    cosmicrays::Dragon2D(particletypes));
-
-	auto kamae = std::make_shared<interactions::Kamae06Gamma>(
-	    interactions::Kamae06Gamma());
-
-	auto ringModel = std::make_shared<neutralgas::RingModel>(
-	    neutralgas::RingModel(neutralgas::GasType::H2));
-	auto in = std::make_shared<PiZeroIntegrator>(
-	    PiZeroIntegrator(dragonModel, ringModel, kamae));
-	auto skymap = std::make_shared<GammaSkymap>(GammaSkymap(4, 1_GeV));
-	skymap->setIntegrator(in);
-
-	std::chrono::time_point<std::chrono::system_clock> start =
-	    std::chrono::system_clock::now();
-	skymap->compute();
-	std::chrono::time_point<std::chrono::system_clock> stop =
-	    std::chrono::system_clock::now();
-
-	auto milliseconds =
-	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
-
-	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
-
-	EXPECT_LE(pxl_speed, 250);  // ms
-}
-
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();

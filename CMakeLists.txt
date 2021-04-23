@@ -496,6 +496,10 @@ if(ENABLE_TESTING)
 	add_executable(testDarkMatter test/testDarkMatter.cpp)
 	target_link_libraries(testDarkMatter hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
 	add_test(testDarkMatter testDarkMatter)
+
+	add_executable(testPixelTimes test/testPixelTimes.cpp)
+	target_link_libraries(testPixelTimes hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+	add_test(testPixelTimes testPixelTimes)
 endif(ENABLE_TESTING)
 
 # ----------------------------------------------------------------------------

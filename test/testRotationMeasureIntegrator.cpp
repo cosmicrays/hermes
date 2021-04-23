@@ -68,23 +68,6 @@ TEST(RotationMeasureIntegrator, Orientation) {
 	}
 }
 
-TEST(RotationMeasureIntegrator, PerformanceTest) {
-	auto magfield = std::make_shared<magneticfields::JF12>(magneticfields::JF12());
-	auto gasdensity = std::make_shared<ionizedgas::YMW16>(ionizedgas::YMW16());
-	auto in = std::make_shared<RotationMeasureIntegrator>(RotationMeasureIntegrator(magfield, gasdensity));
-	auto skymap = std::make_shared<RotationMeasureSkymap>(RotationMeasureSkymap(4));
-	skymap->setIntegrator(in);
-
-	std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-	skymap->compute();
-	std::chrono::time_point<std::chrono::system_clock> stop = std::chrono::system_clock::now();
-
-	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed = milliseconds.count() / skymap->getNpix() * getThreadsNumber();
-
-	EXPECT_LE(pxl_speed, 45);  // ms
-}
-
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
