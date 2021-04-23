@@ -6,6 +6,16 @@
 
 namespace hermes {
 
+void print_pixel_time(unsigned long t_pxl) {
+	std::cerr << 
+        "Average pixel run time (100 pixels)" <<
+        std::endl <<
+        "t_pxl * 100 = " <<
+        t_pxl * 100 <<
+        " ms" <<
+        std::endl;
+}
+
 TEST(PerformanceTest, DispersionMeasureIntegrator) {
     int nside = 16;
 	auto skymap = std::make_shared<DispersionMeasureSkymap>(DispersionMeasureSkymap(nside));
@@ -24,7 +34,7 @@ TEST(PerformanceTest, DispersionMeasureIntegrator) {
 	unsigned long pxl_speed =
 	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 
-	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+    print_pixel_time(pxl_speed);
 
 	EXPECT_LE(pxl_speed, 1);  // ms
 }
@@ -46,7 +56,7 @@ TEST(PerformanceTest, RotationMeasureIntegrator) {
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 	unsigned long pxl_speed = milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 	
-    std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+    print_pixel_time(pxl_speed);
 
 	EXPECT_LE(pxl_speed, 45);  // ms
 }
@@ -67,7 +77,7 @@ TEST(PerformanceTest, FreeFreeIntegrator) {
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
 	unsigned long pxl_speed = milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 
-    std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+    print_pixel_time(pxl_speed);
 
 	EXPECT_LE(pxl_speed, 15);  // ms
 }
@@ -96,7 +106,7 @@ TEST(PerformanceTest, SynchroIntegrator) {
 	unsigned long pxl_speed =
 	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
     
-    std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+    print_pixel_time(pxl_speed);
 
 	EXPECT_LE(pxl_speed, 200);  // ms
 }
@@ -129,7 +139,7 @@ TEST(PerformanceTest, PiZeroIntegrator) {
 	unsigned long pxl_speed =
 	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 
-	std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+    print_pixel_time(pxl_speed);
 
 	EXPECT_LE(pxl_speed, 250);  // ms
 }
@@ -162,7 +172,7 @@ TEST(PerformanceTest, InverseComptonIntegrator) {
 	unsigned long pxl_speed =
 	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 	
-    std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+    print_pixel_time(pxl_speed);
 
 	EXPECT_LE(pxl_speed, 1000);  // ms
 }
@@ -196,7 +206,7 @@ TEST(PerformanceTest, BremsstrahlungIntegrator) {
 	unsigned long pxl_speed =
 	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 	
-    std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+    print_pixel_time(pxl_speed);
 
 	EXPECT_LE(pxl_speed, 1000);  // ms
 }
@@ -229,7 +239,7 @@ TEST(PerformanceTest, DarkMatterIntegrator) {
 	unsigned long pxl_speed =
 	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
 	
-    std::cerr << "pxl spd: " << pxl_speed << " ms" << std::endl;
+    print_pixel_time(pxl_speed);
 
 	EXPECT_LE(pxl_speed, 100);  // ms
 }
