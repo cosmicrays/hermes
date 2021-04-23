@@ -6,12 +6,12 @@
 
 namespace hermes {
 
-void print_pixel_time(unsigned long t_pxl) {
+void print_pixel_time(double t_pxl) {
 	std::cerr << 
-        "Average pixel run time (100 pixels)" <<
+        "Average pixel run time" <<
         std::endl <<
-        "t_pxl * 100 = " <<
-        t_pxl * 100 <<
+        "t_pxl = " <<
+        t_pxl <<
         " ms" <<
         std::endl;
 }
@@ -31,12 +31,12 @@ TEST(PerformanceTest, DispersionMeasureIntegrator) {
 
 	auto milliseconds =
 	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
+	double time =
+	    static_cast<double>(milliseconds.count()) / skymap->getNpix() * getThreadsNumber();
 
-    print_pixel_time(pxl_speed);
+    print_pixel_time(time);
 
-	EXPECT_LE(pxl_speed, 1);  // ms
+	EXPECT_LE(time, 1);  // ms
 }
 
 TEST(PerformanceTest, RotationMeasureIntegrator) {
@@ -54,11 +54,12 @@ TEST(PerformanceTest, RotationMeasureIntegrator) {
         std::chrono::system_clock::now();
 
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed = milliseconds.count() / skymap->getNpix() * getThreadsNumber();
-	
-    print_pixel_time(pxl_speed);
+	double time =
+	    static_cast<double>(milliseconds.count()) / skymap->getNpix() * getThreadsNumber();
 
-	EXPECT_LE(pxl_speed, 45);  // ms
+    print_pixel_time(time);
+
+	EXPECT_LE(time, 45);  // ms
 }
 
 TEST(PerformanceTest, FreeFreeIntegrator) {
@@ -75,11 +76,12 @@ TEST(PerformanceTest, FreeFreeIntegrator) {
         std::chrono::system_clock::now();
 
 	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed = milliseconds.count() / skymap->getNpix() * getThreadsNumber();
+	double time =
+	    static_cast<double>(milliseconds.count()) / skymap->getNpix() * getThreadsNumber();
 
-    print_pixel_time(pxl_speed);
+    print_pixel_time(time);
 
-	EXPECT_LE(pxl_speed, 15);  // ms
+	EXPECT_LE(time, 15);  // ms
 }
 
 
@@ -103,12 +105,12 @@ TEST(PerformanceTest, SynchroIntegrator) {
 
 	auto milliseconds =
 	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
-    
-    print_pixel_time(pxl_speed);
+	double time =
+	    static_cast<double>(milliseconds.count()) / skymap->getNpix() * getThreadsNumber();
 
-	EXPECT_LE(pxl_speed, 200);  // ms
+    print_pixel_time(time);
+
+	EXPECT_LE(time, 200);  // ms
 }
 
 
@@ -136,12 +138,12 @@ TEST(PerformanceTest, PiZeroIntegrator) {
 
 	auto milliseconds =
 	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
+	double time =
+	    static_cast<double>(milliseconds.count()) / skymap->getNpix() * getThreadsNumber();
 
-    print_pixel_time(pxl_speed);
+    print_pixel_time(time);
 
-	EXPECT_LE(pxl_speed, 250);  // ms
+	EXPECT_LE(time, 250);  // ms
 }
 
 TEST(PerformanceTest, InverseComptonIntegrator) {
@@ -169,12 +171,12 @@ TEST(PerformanceTest, InverseComptonIntegrator) {
 
 	auto milliseconds =
 	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
-	
-    print_pixel_time(pxl_speed);
+	double time =
+	    static_cast<double>(milliseconds.count()) / skymap->getNpix() * getThreadsNumber();
 
-	EXPECT_LE(pxl_speed, 1000);  // ms
+    print_pixel_time(time);
+
+	EXPECT_LE(time, 1000);  // ms
 }
 
 TEST(PerformanceTest, BremsstrahlungIntegrator) {
@@ -203,12 +205,12 @@ TEST(PerformanceTest, BremsstrahlungIntegrator) {
 
 	auto milliseconds =
 	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
-	
-    print_pixel_time(pxl_speed);
+	double time =
+	    static_cast<double>(milliseconds.count()) / skymap->getNpix() * getThreadsNumber();
 
-	EXPECT_LE(pxl_speed, 1000);  // ms
+    print_pixel_time(time);
+
+	EXPECT_LE(time, 1000);  // ms
 }
 	
 TEST(PerformanceTest, DarkMatterIntegrator) {
@@ -236,12 +238,12 @@ TEST(PerformanceTest, DarkMatterIntegrator) {
 
 	auto milliseconds =
 	    std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-	unsigned long pxl_speed =
-	    milliseconds.count() / skymap->getNpix() * getThreadsNumber();
-	
-    print_pixel_time(pxl_speed);
+	double time =
+	    static_cast<double>(milliseconds.count()) / skymap->getNpix() * getThreadsNumber();
 
-	EXPECT_LE(pxl_speed, 100);  // ms
+    print_pixel_time(time);
+
+	EXPECT_LE(time, 100);  // ms
 }
 
 int main(int argc, char **argv) {
