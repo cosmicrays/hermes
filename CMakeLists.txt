@@ -329,6 +329,7 @@ find_package(PythonLibs)
 if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
 	include_directories(${PYTHON_INCLUDE_DIRS})
 	include(cmake/FindPython.cmake)
+    set(PYBIND11_PYTHON_VERSION ${PYTHON_DOT_VERSION}) 
 	add_subdirectory(lib/pybind11)
 	# for PYBIND11_EXPAND_SIDE_EFFECTS in pybind11.h - temporary,
 	#   should be removed after the fix lands to the upstream
@@ -392,7 +393,7 @@ if(DOXYGEN_FOUND AND SPHINX_EXECUTABLE)
 	                  COMMENT "Generating documentation with Sphinx")
 	add_dependencies(doc doxy)
 else()
-	MESSAGE(STATUS "Doxygen and Sphinx not found: cannot build documentation")
+    MESSAGE(STATUS "Doxygen and Sphinx not found: cannot build documentation")
 endif(DOXYGEN_FOUND AND SPHINX_EXECUTABLE)
 
 # ----------------------------------------------------------------------------
