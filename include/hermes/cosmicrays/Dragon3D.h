@@ -38,9 +38,10 @@ class Dragon3D : public CosmicRayDensity {
 	std::map<QEnergy, std::size_t> energyIndex;
 
   public:
-	Dragon3D();
-	Dragon3D(const std::string &filename_, const PID &pid_);
-	Dragon3D(const std::string &filename_, const std::vector<PID> &pids_);
+	Dragon3D(const PID &pid);
+	Dragon3D(const std::vector<PID> &pids);
+	Dragon3D(const std::string &filename, const PID &pid_);
+	Dragon3D(const std::string &filename, const std::vector<PID> &pids);
 	QPDensityPerEnergy getDensityPerEnergy(
 	    const QEnergy &E_, const Vector3QLength &pos_) const override;
 	QPDensityPerEnergy getDensityPerEnergy(int iE_,

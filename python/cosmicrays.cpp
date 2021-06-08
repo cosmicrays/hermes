@@ -49,6 +49,15 @@ void init(py::module &m) {
 	         static_cast<QPDensityPerEnergy (Dragon2D::*)(
 	             const QEnergy &, const Vector3QLength &) const>(
 	             &Dragon2D::getDensityPerEnergy));
+	py::class_<Dragon3D, std::shared_ptr<Dragon3D>, CosmicRayDensity>(
+	    subm, "Dragon3D")
+	    .def(py::init<const PID &>())
+	    .def(py::init<const std::vector<PID> &>())
+	    .def(py::init<const std::string, const std::vector<PID> &>())
+	    .def("getDensityPerEnergy",
+	         static_cast<QPDensityPerEnergy (Dragon3D::*)(
+	             const QEnergy &, const Vector3QLength &) const>(
+	             &Dragon3D::getDensityPerEnergy));
 }
 
 }}  // namespace hermes::cosmicrays

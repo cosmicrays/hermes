@@ -13,12 +13,22 @@
 #include "hermes/Common.h"
 
 #define DEFAULT_CR_FILE \
-	"CosmicRays/Fornieri20/run2d_gamma_D03,7_delta0,45_vA13.fits.gz"
+	"CosmicRays/Gaggero17/run_3D.fits.gz"
 
 namespace hermes { namespace cosmicrays {
 
 Dragon3D::Dragon3D(const std::string &filename_, const PID &pid_)
     : CosmicRayDensity(pid_), filename(filename_) {
+	readFile();
+}
+
+Dragon3D::Dragon3D(const PID &pid_)
+    : CosmicRayDensity(pid_), filename(getDataPath(DEFAULT_CR_FILE)) {
+	readFile();
+}
+
+Dragon3D::Dragon3D(const std::vector<PID> &pids_)
+    : CosmicRayDensity(pids_), filename(getDataPath(DEFAULT_CR_FILE)) {
 	readFile();
 }
 
@@ -125,8 +135,8 @@ void Dragon3D::readDensity3D() {
 		int A = ffile->readKeyValueAsInt("A");
 
 		if (isPIDEnabled(PID(Z, A))) {
-			std::cerr << "... reading species with Z = " << Z << " A = " << A
-			          << " at HDU = " << hduActual << std::endl;
+			std::cerr << "hermes: info: reading species with Z = " << Z
+			          << " A = " << A << " at HDU = " << hduActual << std::endl;
 
 			std::vector<float> rawData =
 			    ffile->readImageAsFloat(firstElement, nElements);
