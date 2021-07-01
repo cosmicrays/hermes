@@ -3,6 +3,7 @@
 #include "hermes/cosmicrays/Dragon3D.h"
 
 #include <algorithm>
+#include <array>
 #include <cassert>
 #include <cmath>
 #include <iomanip>
@@ -57,10 +58,9 @@ QPDensityPerEnergy Dragon3D::getDensityPerEnergy(
 
 QPDensityPerEnergy Dragon3D::getDensityPerEnergy(
     int iE_, const Vector3QLength &pos_) const {
+	if (pos_.x < xmin || pos_.x > xmax) return QPDensityPerEnergy(0);
+	if (pos_.y < ymin || pos_.y > ymax) return QPDensityPerEnergy(0);
 	if (pos_.z < zmin || pos_.z > zmax) return QPDensityPerEnergy(0);
-
-	QLength rho = sqrt(pos_.x * pos_.x + pos_.y * pos_.y);
-	if (rho > rmax) return QPDensityPerEnergy(0);
 
 	return (grid[iE_])->interpolate(pos_);
 }
@@ -106,6 +106,18 @@ void Dragon3D::readSpatialGrid3D() {
 		grid.push_back(std::make_unique<ScalarGridQPDensityPerEnergy>(
 		    ScalarGridQPDensityPerEnergy(origin, dimx, dimy, dimz, spacing)));
 	}
+}
+
+std::array<QLength, 2> Dragon3D::getXBoundaries() const {
+    return {xmin, xmax};
+}
+
+std::array<QLength, 2> Dragon3D::getYBoundaries() const {
+    return {ymin, ymax};
+}
+
+std::array<QLength, 2> Dragon3D::getZBoundaries() const {
+    return {zmin, zmax};
 }
 
 void Dragon3D::readDensity3D() {

@@ -3,6 +3,7 @@
 #ifndef HERMES_DRAGON3D_H
 #define HERMES_DRAGON3D_H
 
+#include <array>
 #include <map>
 #include <memory>
 #include <set>
@@ -46,6 +47,9 @@ class Dragon3D : public CosmicRayDensity {
 	    const QEnergy &E_, const Vector3QLength &pos_) const override;
 	QPDensityPerEnergy getDensityPerEnergy(int iE_,
 	                                       const Vector3QLength &pos_) const;
+    std::array<QLength, 2> getXBoundaries() const;
+    std::array<QLength, 2> getYBoundaries() const;
+    std::array<QLength, 2> getZBoundaries() const;
 };
 
 /** @}*/

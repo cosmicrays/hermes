@@ -57,7 +57,10 @@ void init(py::module &m) {
 	    .def("getDensityPerEnergy",
 	         static_cast<QPDensityPerEnergy (Dragon3D::*)(
 	             const QEnergy &, const Vector3QLength &) const>(
-	             &Dragon3D::getDensityPerEnergy));
+	             &Dragon3D::getDensityPerEnergy))
+        .def("getXBoundaries", &Dragon3D::getXBoundaries)
+        .def("getYBoundaries", &Dragon3D::getXBoundaries)
+        .def("getZBoundaries", &Dragon3D::getXBoundaries);
 }
 
 }}  // namespace hermes::cosmicrays
