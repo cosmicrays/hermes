@@ -59,8 +59,8 @@ void init(py::module &m) {
 	             const QEnergy &, const Vector3QLength &) const>(
 	             &Dragon3D::getDensityPerEnergy))
         .def("getXBoundaries", &Dragon3D::getXBoundaries)
-        .def("getYBoundaries", &Dragon3D::getXBoundaries)
-        .def("getZBoundaries", &Dragon3D::getXBoundaries);
+        .def("getYBoundaries", &Dragon3D::getYBoundaries)
+        .def("getZBoundaries", &Dragon3D::getZBoundaries);
 }
 
 }}  // namespace hermes::cosmicrays
