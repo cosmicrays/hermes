@@ -1,17 +1,20 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+cff-version: 1.1.0
+message: "Please cite the following works when using this software: https://ui.adsabs.harvard.edu/abs/2021ascl.soft07030D"
 authors:
-- family-names: "Dundovic"
-  given-names: "Andrej"
-  orcid: "https://orcid.org/0000-0001-9009-8379"
-- family-names: "Evoli"
-  given-names: "Carmelo"
-  orcid: "https://orcid.org/0000-0002-6023-5253"
-- family-names: "Gaggero"
-  given-names: "Daniele"
-  orcid: "https://orcid.org/0000-0003-3534-1406"
-title: "HERMES"
-version: 1.0.0
-doi: 10.1051/0004-6361/202140801
-date-released: 2021-05-27
-url: "https://github.com/cosmicrays/hermes"
+- family-names: Dundovic
+  given-names: Andrej
+- family-names: Evoli
+  given-names: Carmelo
+- family-names: Gaggero
+  given-names: Daniele
+title: "HERMES: High-Energy Radiative MESsengers"
+version: PLACEHOLDER
+date-released: PLACEHOLDER
+identifiers:
+ - type: "ascl-id"
+   value: "2107.030"
+ - type: "doi"
+   value: PLACEHOLDER
+ - type: "bibcode"
+   value: "2021ascl.soft07030D"
+abstract: "The HERMES (High-Energy Radiative MESsengers) computational framework for line of sight integration creates sky maps in the HEALPix-compatibile format of various galactic radiative processes, including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The code is written in C++ and provides numerous integrators, including dispersion measure, rotation measure, and Gamma-ray emissions from Dark Matter annihilation, among others."
