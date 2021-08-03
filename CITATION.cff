@@ -8,13 +8,13 @@ authors:
 - family-names: Gaggero
   given-names: Daniele
 title: "HERMES: High-Energy Radiative MESsengers"
-version: PLACEHOLDER
-date-released: PLACEHOLDER
+version: 1.0.0
+date-released: 2021-05-27
 identifiers:
  - type: "ascl-id"
    value: "2107.030"
  - type: "doi"
-   value: PLACEHOLDER
+   value: 10.1051/0004-6361/202140801
  - type: "bibcode"
    value: "2021ascl.soft07030D"
 abstract: "The HERMES (High-Energy Radiative MESsengers) computational framework for line of sight integration creates sky maps in the HEALPix-compatibile format of various galactic radiative processes, including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The code is written in C++ and provides numerous integrators, including dispersion measure, rotation measure, and Gamma-ray emissions from Dark Matter annihilation, among others."
