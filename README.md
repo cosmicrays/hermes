@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/cosmicrays/hermes/badge.svg?branch=master)](https://coveralls.io/github/cosmicrays/hermes?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/36b17ce072d6430aad28e457a5fa76d3)](https://app.codacy.com/gh/cosmicrays/hermes?utm_source=github.com&utm_medium=referral&utm_content=cosmicrays/hermes&utm_campaign=Badge_Grade_Dashboard)
 ![GitHub](https://img.shields.io/github/license/cosmicrays/hermes)
+[![arXiv](https://img.shields.io/badge/arXiv-2105.13165-red.svg)](https://arxiv.org/abs/2105.13165)
+[![ascl](https://img.shields.io/badge/ascl-2107.030-blue.svg?colorB=262255)](https://ascl.net/2107.030)
 
 ## About
 
@@ -68,6 +70,12 @@ skymap.save(output)
 ```
 
 More examples can be found in [the examples repository](https://github.com/cosmicrays/hermes-examples). Full documentation of the code is available [here](https://cosmicrays.github.io/hermes/).
+
+## How to cite HERMES
+
+If you use HERMES for your research, please cite
+
+[Dundovic et al., Astronomy and Astrophysics (2021)](https://doi.org/10.1051/0004-6361/202140801); [arXiv:2105.13165](https://arxiv.org/abs/2105.13165)
 
 ## Credits
 
