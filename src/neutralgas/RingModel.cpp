@@ -14,8 +14,9 @@
 
 namespace hermes { namespace neutralgas {
 
-Ring::Ring(std::size_t index_, std::shared_ptr<RingData> dataPtr_, QLength innerR_, QLength outerR_)
-    : index(index_), dataPtr(std::move(dataPtr_)), innerR(innerR_), outerR(outerR_) {}
+Ring::Ring(std::size_t index_, std::shared_ptr<RingData> dataPtr_, QLength innerR_, QLength outerR_,
+           QRingX0Unit XCOvalue_)
+    : index(index_), dataPtr(std::move(dataPtr_)), innerR(innerR_), outerR(outerR_), XCOvalue(XCOvalue_) {}
 
 Ring::~Ring() {}
 
@@ -28,7 +29,7 @@ bool Ring::isInside(const Vector3QLength &pos) const {
 	return (rho > innerR && rho < outerR);
 }
 
-QRingX0Unit Ring::X0Function(const QDirection &dir_) const { return 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s; }
+// QRingX0Unit Ring::X0Function(const QDirection &dir_) const { return 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s; }
 
 GasType Ring::getGasType() const { return dataPtr->getGasType(); }
 
@@ -37,7 +38,7 @@ QColumnDensity Ring::getHIColumnDensity(const QDirection &dir_) const {
 }
 
 QColumnDensity Ring::getH2ColumnDensity(const QDirection &dir_) const {
-	return 2 * X0Function(dir_) * dataPtr->getCOIntensityInRing(index, dir_);
+	return 2 * XCOvalue * dataPtr->getCOIntensityInRing(index, dir_);
 }
 
 QColumnDensity Ring::getColumnDensity(const QDirection &dir_) const {
@@ -47,6 +48,15 @@ QColumnDensity Ring::getColumnDensity(const QDirection &dir_) const {
 }
 
 RingModel::RingModel(GasType gas) : NeutralGasAbstract(), dataPtr(std::make_shared<RingData>(RingData(gas))) {
+	std::fill(XCOvalues.begin(), XCOvalues.end(), 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s);  // default value
+	std::fill(enabledRings.begin(), enabledRings.end(),
+	          true);  // enable all by default
+	fillRingContainer();
+}
+
+RingModel::RingModel(GasType gas, std::array<QRingX0Unit, 12> XCOvalues_)
+    : NeutralGasAbstract(), dataPtr(std::make_shared<RingData>(RingData(gas))) {
+	std::copy(XCOvalues_.begin(), XCOvalues_.end(), XCOvalues.begin());
 	std::fill(enabledRings.begin(), enabledRings.end(),
 	          true);  // enable all by default
 	fillRingContainer();
@@ -62,7 +72,8 @@ void RingModel::fillRingContainer() {
 		if (getGasType() == GasType::H2) {
 			auto lowBoundary = boundariesH2.at(i);
 			auto highBoundary = (i < 11) ? boundariesH2.at(i + 1) : boundariesH2.at(i) + 1_kpc;
-			ringContainer.push_back(std::make_shared<Ring>(Ring(i, dataPtr, lowBoundary, highBoundary)));
+			auto XCOvalue = XCOvalues.at(i);
+			ringContainer.push_back(std::make_shared<Ring>(Ring(i, dataPtr, lowBoundary, highBoundary, XCOvalue)));
 		}
 	}
 }

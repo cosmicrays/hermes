@@ -25,9 +25,11 @@ class Ring {
 	std::size_t index;
 	std::shared_ptr<RingData> dataPtr;
 	QLength innerR, outerR;
+	QRingX0Unit XCOvalue;
 
   public:
-	Ring(std::size_t index_, std::shared_ptr<RingData> RingModelPtr_, QLength innerR_, QLength outerR_);
+	Ring(std::size_t index_, std::shared_ptr<RingData> RingModelPtr_, QLength innerR_, QLength outerR_,
+	     QRingX0Unit XCOvalue_ = QRingX0Unit(0));
 	~Ring();
 
 	std::size_t getIndex() const;
@@ -35,7 +37,7 @@ class Ring {
 	bool isInside(const Vector3QLength &) const;
 	GasType getGasType() const;
 
-	QRingX0Unit X0Function(const QDirection &) const;
+	// QRingX0Unit X0Function(const QDirection &) const;
 
 	QColumnDensity getHIColumnDensity(const QDirection &) const;
 	QColumnDensity getH2ColumnDensity(const QDirection &) const;
@@ -49,6 +51,7 @@ class RingModel : public NeutralGasAbstract {
 	                                        7_kpc, 9_kpc, 12_kpc, 15_kpc, 18_kpc, 35_kpc};
 	std::array<QLength, 12> boundariesH2 = {0_kpc, 0.86_kpc, 2_kpc, 3_kpc,  4_kpc,  5_kpc,
 	                                        6_kpc, 7_kpc,    9_kpc, 12_kpc, 15_kpc, 18_kpc};
+	std::array<QRingX0Unit, 12> XCOvalues;
 
 	std::vector<std::pair<PID, double>> abundanceFractions = {{Proton, 1}, {Helium, 0.1}};
 
@@ -60,6 +63,7 @@ class RingModel : public NeutralGasAbstract {
 
   public:
 	RingModel(GasType gas);
+	RingModel(GasType gas, std::array<QRingX0Unit, 12> XCOvalues_);
 	~RingModel() {}
 
 	std::array<bool, 12> getEnabledRings() const;
