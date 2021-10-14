@@ -29,7 +29,7 @@ class Ring {
 
   public:
 	Ring(std::size_t index_, std::shared_ptr<RingData> RingModelPtr_, QLength innerR_, QLength outerR_,
-	     QRingX0Unit XCOvalue_ = QRingX0Unit(1.8e20));
+	     QRingX0Unit XCOvalue_ = (1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s) );
 	~Ring();
 
 	std::size_t getIndex() const;

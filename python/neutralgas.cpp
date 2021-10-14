@@ -39,7 +39,7 @@ void init(py::module &m) {
 	    .def(py::init([](GasType gas, std::array<double, 12> arr) -> std::shared_ptr<RingModel> {
                     std::array<QRingX0Unit, 12> XCOvalues;
                     transform(begin(arr), end(arr), begin(XCOvalues),
-                            [](const double e){ return static_cast<QRingX0Unit>(e); });
+                            [](const double e){ return e / (1_cm2 * 1_K * 1_km) * 1_s; });
                     return std::make_shared<RingModel>(gas, XCOvalues);}
                     ))
 	    .def("getEnabledRings", &RingModel::getEnabledRings)
