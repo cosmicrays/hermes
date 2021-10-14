@@ -36,7 +36,7 @@ TEST(PerformanceTest, DispersionMeasureIntegrator) {
 
     print_pixel_time(time);
 
-	EXPECT_LE(time, 1);  // ms
+	EXPECT_LE(time, 2);  // ms
 }
 
 TEST(PerformanceTest, RotationMeasureIntegrator) {
