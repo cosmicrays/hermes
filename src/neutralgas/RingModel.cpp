@@ -29,8 +29,6 @@ bool Ring::isInside(const Vector3QLength &pos) const {
 	return (rho > innerR && rho < outerR);
 }
 
-// QRingX0Unit Ring::X0Function(const QDirection &dir_) const { return 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s; }
-
 GasType Ring::getGasType() const { return dataPtr->getGasType(); }
 
 QColumnDensity Ring::getHIColumnDensity(const QDirection &dir_) const {
@@ -48,7 +46,8 @@ QColumnDensity Ring::getColumnDensity(const QDirection &dir_) const {
 }
 
 RingModel::RingModel(GasType gas) : NeutralGasAbstract(), dataPtr(std::make_shared<RingData>(RingData(gas))) {
-	std::fill(XCOvalues.begin(), XCOvalues.end(), 1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s);  // default value
+	std::fill(XCOvalues.begin(), XCOvalues.end(),
+            1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s);  // default value for XCO
 	std::fill(enabledRings.begin(), enabledRings.end(),
 	          true);  // enable all by default
 	fillRingContainer();

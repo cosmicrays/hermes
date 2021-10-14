@@ -119,6 +119,12 @@ void init(py::module &m) {
 	// subm.attr("mu0")		= mu0;
 	// subm.attr("epsilon0")	= epsilon0;
 	subm.attr("sun_mass") = sun_mass;
+	
+    py::module specialm = subm.def_submodule("special");
+	specialm.doc() = "special HERMES units package";
+    
+    // Special units
+    //specialm.attr("QRingX0Unit") = QRingX0Unit(1);
 }
 
 }}  // namespace hermes::units

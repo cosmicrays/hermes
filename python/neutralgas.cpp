@@ -23,7 +23,10 @@ void init(py::module &m) {
 	    .def("getHIColumnDensityInRing", &RingData::getHIColumnDensityInRing)
 	    .def("getCOIntensityInRing", &RingData::getCOIntensityInRing);
 	py::class_<Ring, std::shared_ptr<Ring>>(subm, "Ring")
-	    .def("getBoundaries", &Ring::getBoundaries)
+	    .def(py::init<std::size_t,
+                      const std::shared_ptr<RingData>,
+                      QLength, QLength>())
+        .def("getBoundaries", &Ring::getBoundaries)
 	    .def("isInside", &Ring::isInside)
 	    .def("getHIColumnDensity", &Ring::getHIColumnDensity)
 	    .def("getH2ColumnDensity", &Ring::getH2ColumnDensity);
@@ -33,6 +36,12 @@ void init(py::module &m) {
 	py::class_<RingModel, std::shared_ptr<RingModel>, NeutralGasAbstract>(
 	    subm, "RingModel")
 	    .def(py::init<GasType>(), py::arg("ring_type"))
+	    .def(py::init([](GasType gas, std::array<double, 12> arr) -> std::shared_ptr<RingModel> {
+                    std::array<QRingX0Unit, 12> XCOvalues;
+                    transform(begin(arr), end(arr), begin(XCOvalues),
+                            [](const double e){ return static_cast<QRingX0Unit>(e); });
+                    return std::make_shared<RingModel>(gas, XCOvalues);}
+                    ))
 	    .def("getEnabledRings", &RingModel::getEnabledRings)
 	    .def("setEnabledRings", &RingModel::setEnabledRings)
 	    .def("disableRingNo", &RingModel::disableRingNo)

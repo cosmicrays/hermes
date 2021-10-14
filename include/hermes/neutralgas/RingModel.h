@@ -29,15 +29,13 @@ class Ring {
 
   public:
 	Ring(std::size_t index_, std::shared_ptr<RingData> RingModelPtr_, QLength innerR_, QLength outerR_,
-	     QRingX0Unit XCOvalue_ = QRingX0Unit(0));
+	     QRingX0Unit XCOvalue_ = QRingX0Unit(1.8e20));
 	~Ring();
 
 	std::size_t getIndex() const;
 	std::pair<QLength, QLength> getBoundaries() const;
 	bool isInside(const Vector3QLength &) const;
 	GasType getGasType() const;
-
-	// QRingX0Unit X0Function(const QDirection &) const;
 
 	QColumnDensity getHIColumnDensity(const QDirection &) const;
 	QColumnDensity getH2ColumnDensity(const QDirection &) const;
