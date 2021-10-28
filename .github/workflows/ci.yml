@@ -72,8 +72,8 @@ jobs:
     - name: Configure CMake with GCC
       if: ${{ contains(env.COMPILER, 'gcc') }}
       env:
-        CXX: 'clang++'
-        CC: 'clang'
+        CXX: 'g++'
+        CC: 'gcc'
         CXX_COMPILER: 'g++'
         C_COMPILER: 'gcc'
       run: |
