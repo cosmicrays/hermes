@@ -46,7 +46,18 @@ jobs:
          GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
          PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
 
-    - name: Configure CMake
+    - name: Configure CMake with Clang
+      if: ${{ contains(env.COMPILER, 'clang') }}
+      env: 
+        CXX_COMPILER='clang++'
+        C_COMPILER='clang'
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TESTING=On -DENABLE_PYTHON=True
+
+    - name: Configure CMake with GCC
+      if: ${{ contains(env.COMPILER, 'gcc') }}
+      env: 
+        CXX_COMPILER='g++'
+        C_COMPILER='gcc'
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TESTING=On -DENABLE_PYTHON=True
 
     - name: Build
