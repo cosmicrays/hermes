@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        compiler: [gcc, clang]
+    runs-on: ${{ matrix.os }}
+    env:
+      OS: ${{ matrix.os }}
+      COMPILER: ${{ matrix.compiler }}
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install dependencies on Ubuntu
+      if: ${{ contains(env.OS, 'ubuntu') }}
+      run: sudo apt-get install -y libgsl-dev libfftw3-dev libcfitsio-dev libmuparser-dev
+      
+    - name: Install dependencies on MacOS
+      if: ${{ contains(env.OS, 'macos') }}
+      run: |
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install python3;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install jq;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python;
+
+    - name: Configure paths on MacOS
+      if: ${{ contains(env.OS, 'macos') }}
+      run: |
+         GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
+         PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
+
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TESTING=On -DENABLE_PYTHON=True
+
+    - name: Build
+      # Build your program with the given configuration
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      run: make test
+      
