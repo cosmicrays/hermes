@@ -49,15 +49,15 @@ jobs:
     - name: Configure CMake with Clang
       if: ${{ contains(env.COMPILER, 'clang') }}
       env: 
-        CXX_COMPILER='clang++'
-        C_COMPILER='clang'
+        CXX_COMPILER: 'clang++'
+        C_COMPILER: 'clang'
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TESTING=On -DENABLE_PYTHON=True
 
     - name: Configure CMake with GCC
       if: ${{ contains(env.COMPILER, 'gcc') }}
       env: 
-        CXX_COMPILER='g++'
-        C_COMPILER='gcc'
+        CXX_COMPILER: 'g++'
+        C_COMPILER: 'gcc'
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TESTING=On -DENABLE_PYTHON=True
 
     - name: Build
