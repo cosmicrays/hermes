@@ -1,6 +1,6 @@
 # HERMES - High-Energy Radiative MESsengers
 
-[![Build Status](https://github.com/cosmicrays/hermes/actions/workflows/cmake.yml/badge.svg)](https://github.com/cosmicrays/hermes/actions)
+[![Build Status](https://github.com/cosmicrays/hermes/actions/workflows/linux-build-gcc.yml/badge.svg)](https://github.com/cosmicrays/hermes/actions)
 [![Coverage Status](https://coveralls.io/repos/github/cosmicrays/hermes/badge.svg?branch=master)](https://coveralls.io/github/cosmicrays/hermes?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/36b17ce072d6430aad28e457a5fa76d3)](https://app.codacy.com/gh/cosmicrays/hermes?utm_source=github.com&utm_medium=referral&utm_content=cosmicrays/hermes&utm_campaign=Badge_Grade_Dashboard)
 ![GitHub](https://img.shields.io/github/license/cosmicrays/hermes)
