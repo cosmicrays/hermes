@@ -64,10 +64,10 @@ jobs:
         DATAFILE=$HOME/hermes_cache/hermes-data.tar.gz
         if [ -f $DATAFILE ]; then
           echo "Using data file from cache!"
-          cp $DATAFILE .
+          cp $DATAFILE ${{github.workspace}}/build/
         fi;
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TESTING=On -DENABLE_PYTHON=True
-        cp hermes-data.tar.gz $HOME/hermes_cache
+        cp ${{github.workspace}}/build/hermes-data.tar.gz $HOME/hermes_cache
 
     - name: Configure CMake with GCC
       if: ${{ contains(env.COMPILER, 'gcc') }}
@@ -80,10 +80,10 @@ jobs:
         DATAFILE=$HOME/hermes_cache/hermes-data.tar.gz
         if [ -f $DATAFILE ]; then
           echo "Using data file from cache!"
-          cp $DATAFILE .
+          cp $DATAFILE ${{github.workspace}}/build/
         fi;
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TESTING=On -DENABLE_PYTHON=True
-        cp hermes-data.tar.gz $HOME/hermes_cache
+        cp ${{github.workspace}}/build/hermes-data.tar.gz $HOME/hermes_cache
         
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
