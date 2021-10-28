@@ -1,12 +1,12 @@
 ## HERMES v1.0.1
 
-### New features:
+### New features
 
-- Variable X_CO model
+-   Variable X_CO model
 
-### Other:
+### Other
 
-- The code continuous integration migrated from Travis CI to GitHub Actions
+-   The code continuous integration migrated from Travis CI to GitHub Actions
 
 ## HERMES v1.0.0
 
