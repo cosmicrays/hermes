@@ -34,11 +34,7 @@ void init(py::module &m) {
 		    std::array<QRingX0Unit, 12> XCOvalues;
 		    transform(begin(arr), end(arr), begin(XCOvalues),
 		              [](const double e) { return e / (1_cm2 * 1_K * 1_km) * 1_s; });
-<<<<<<< HEAD
 		    return std::make_shared<RingModel>(gas, XCOvalues);
-=======
-		    return std : : make_shared<RingModel>(gas, XCOvalues);
->>>>>>> 5c0863a1c67af68860818377549fe75cfa02bf16
 	    }))
 	    .def("getEnabledRings", &RingModel::getEnabledRings)
 	    .def("setEnabledRings", &RingModel::setEnabledRings)
