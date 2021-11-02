@@ -47,7 +47,7 @@ QColumnDensity Ring::getColumnDensity(const QDirection &dir_) const {
 
 RingModel::RingModel(GasType gas) : NeutralGasAbstract(), dataPtr(std::make_shared<RingData>(RingData(gas))) {
 	std::fill(XCOvalues.begin(), XCOvalues.end(),
-            1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s);  // default value for XCO
+	          1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s);  // default value for XCO
 	std::fill(enabledRings.begin(), enabledRings.end(),
 	          true);  // enable all by default
 	fillRingContainer();
@@ -105,6 +105,13 @@ bool RingModel::isRingEnabled(int i) const {
 	if (i >= enabledRings.size()) return false;
 	return enabledRings[i];
 }
+
+void RingModel::applyXcoRescalingFactors(std::array<double, 12> rescalingFactors) {
+	std::transform(rescalingFactors.begin(), rescalingFactors.end(), XCOvalues.begin(), XCOvalues.begin(),
+	               std::multiplies<>{});
+}
+
+void RingModel::applyXcoRescalingFactorAtRing(double rescalingFactor, int i) { XCOvalues.at(i) *= rescalingFactor; }
 
 GasType RingModel::getGasType() const { return dataPtr->getGasType(); }
 

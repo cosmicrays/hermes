@@ -29,7 +29,7 @@ class Ring {
 
   public:
 	Ring(std::size_t index_, std::shared_ptr<RingData> RingModelPtr_, QLength innerR_, QLength outerR_,
-	     QRingX0Unit XCOvalue_ = (1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s) );
+	     QRingX0Unit XCOvalue_ = (1.8e20 / (1_cm2 * 1_K * 1_km) * 1_s));
 	~Ring();
 
 	std::size_t getIndex() const;
@@ -73,6 +73,9 @@ class RingModel : public NeutralGasAbstract {
 	GasType getGasType() const;
 	int getRingNumber() const override;
 	std::vector<std::pair<PID, double>> getAbundanceFractions() const;
+
+	void applyXcoRescalingFactors(std::array<double, 12> rescalingFactors);
+	void applyXcoRescalingFactorAtRing(double rescalingFactor, int i);
 
 	/** iterator goodies */
 	std::size_t size() const;
