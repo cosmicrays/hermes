@@ -49,6 +49,7 @@ class RingModel : public NeutralGasAbstract {
 	                                        7_kpc, 9_kpc, 12_kpc, 15_kpc, 18_kpc, 35_kpc};
 	std::array<QLength, 12> boundariesH2 = {0_kpc, 0.86_kpc, 2_kpc, 3_kpc,  4_kpc,  5_kpc,
 	                                        6_kpc, 7_kpc,    9_kpc, 12_kpc, 15_kpc, 18_kpc};
+	const QRingX0Unit XcoDefaultValue = 1e20 / (1_cm2 * 1_K * 1_km) * 1_s;
 	std::array<QRingX0Unit, 12> XCOvalues;
 
 	std::vector<std::pair<PID, double>> abundanceFractions = {{Proton, 1}, {Helium, 0.1}};
@@ -61,7 +62,7 @@ class RingModel : public NeutralGasAbstract {
 
   public:
 	RingModel(GasType gas);
-	RingModel(GasType gas, std::array<QRingX0Unit, 12> XCOvalues_);
+	RingModel(GasType gas, std::array<double, 12> XCOfactors);
 	~RingModel() {}
 
 	std::array<bool, 12> getEnabledRings() const;
@@ -73,9 +74,6 @@ class RingModel : public NeutralGasAbstract {
 	GasType getGasType() const;
 	int getRingNumber() const override;
 	std::vector<std::pair<PID, double>> getAbundanceFractions() const;
-
-	void applyXcoRescalingFactors(std::array<double, 12> rescalingFactors);
-	void applyXcoRescalingFactorAtRing(double rescalingFactor, int i);
 
 	/** iterator goodies */
 	std::size_t size() const;

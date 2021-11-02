@@ -31,10 +31,7 @@ void init(py::module &m) {
 	py::class_<RingModel, std::shared_ptr<RingModel>, NeutralGasAbstract>(subm, "RingModel")
 	    .def(py::init<GasType>(), py::arg("ring_type"))
 	    .def(py::init([](GasType gas, std::array<double, 12> arr) -> std::shared_ptr<RingModel> {
-		    std::array<QRingX0Unit, 12> XCOvalues;
-		    transform(begin(arr), end(arr), begin(XCOvalues),
-		              [](const double e) { return e / (1_cm2 * 1_K * 1_km) * 1_s; });
-		    return std::make_shared<RingModel>(gas, XCOvalues);
+		    return std::make_shared<RingModel>(gas, arr);
 	    }))
 	    .def("getEnabledRings", &RingModel::getEnabledRings)
 	    .def("setEnabledRings", &RingModel::setEnabledRings)
@@ -43,8 +40,6 @@ void init(py::module &m) {
 	    .def("isRingEnabled", &RingModel::isRingEnabled)
 	    .def("getGasType", &RingModel::getGasType)
 	    .def("getRingNumber", &RingModel::getRingNumber)
-	    .def("applyXcoRescalingFactors", &RingModel::applyXcoRescalingFactors)
-	    .def("applyXcoRescalingFactorAtRing", &RingModel::applyXcoRescalingFactorAtRing)
 	    .def("__getitem__",
 	         [](const RingModel &r, std::size_t i) -> std::shared_ptr<Ring> {
 		         if (i >= r.size()) throw py::index_error();
