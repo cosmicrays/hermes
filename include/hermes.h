@@ -34,6 +34,7 @@
 #include "hermes/integrators/InverseComptonIntegrator.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/integrators/PiZeroAbsorptionIntegrator.h"
+#include "hermes/integrators/PiZeroCmbAbsorptionIntegrator.h"
 #include "hermes/integrators/PiZeroIntegrator.h"
 #include "hermes/integrators/RotationMeasureIntegrator.h"
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"

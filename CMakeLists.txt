@@ -285,7 +285,7 @@ add_library(hermes SHARED
     src/integrators/DispersionMeasureIntegrator.cpp
     src/integrators/FreeFreeIntegrator.cpp
     src/integrators/InverseComptonIntegrator.cpp
-    src/integrators/PiZeroAbsorptionIntegrator.cpp
+    src/integrators/PiZeroCmbAbsorptionIntegrator.cpp
     src/integrators/PiZeroIntegrator.cpp
     src/integrators/RotationMeasureIntegrator.cpp
     src/integrators/SynchroAbsorptionIntegrator.cpp

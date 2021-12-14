@@ -15,8 +15,7 @@ class BreitWheeler {
   public:
 	BreitWheeler();
 
-	QArea getCrossSection(const QEnergy &Egamma, const QEnergy &Eph,
-	                      const QAngle &theta) const;
+	QArea getCrossSection(const QEnergy &Egamma, const QEnergy &Eph, const QAngle &theta) const;
 	QArea integratedOverTheta(const QEnergy &Egamma, const QEnergy &Eph) const;
 };
 
