@@ -8,11 +8,10 @@
 #include "hermes/ProgressBar.h"
 #include "hermes/Units.h"
 #include "hermes/cosmicrays/CosmicRayDensity.h"
-#include "hermes/integrators/IntegratorTemplate.h"
+#include "hermes/integrators/PiZeroIntegrator.h"
 #include "hermes/interactions/BreitWheeler.h"
 #include "hermes/interactions/DiffCrossSection.h"
 #include "hermes/neutralgas/RingModel.h"
-#include "hermes/photonfields/PhotonField.h"
 
 namespace hermes {
 /**
@@ -20,55 +19,44 @@ namespace hermes {
  * @{
  */
 
-class PiZeroAbsorptionIntegrator : public GammaIntegratorTemplate {
+class PiZeroAbsorptionIntegrator : public PiZeroIntegrator {
   private:
-	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList;
-	std::shared_ptr<neutralgas::RingModel> ngdensity;
-	std::shared_ptr<interactions::DifferentialCrossSection> crossSec;
-	std::shared_ptr<photonfields::PhotonField> phdensity;
+	// 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList;
+	// 	std::shared_ptr<neutralgas::RingModel> ngdensity;
+	// 	std::shared_ptr<interactions::DifferentialCrossSection> crossSec;
 
-	std::unique_ptr<interactions::BreitWheeler> bwCrossSec{
-	    std::make_unique<interactions::BreitWheeler>()};
+	std::unique_ptr<interactions::BreitWheeler> bwCrossSec{std::make_unique<interactions::BreitWheeler>()};
 
-	typedef Grid<QPiZeroIntegral> ICCacheTable;
-	std::shared_ptr<ICCacheTable> cacheTable;
+	// 	typedef Grid<QPiZeroIntegral> ICCacheTable;
+	// 	std::shared_ptr<ICCacheTable> cacheTable;
 
-	QPiZeroIntegral getIOEfromCache(const Vector3QLength &,
-	                                const QEnergy &) const;
-	void computeCacheInThread(std::size_t start, std::size_t end,
-	                          const QEnergy &Egamma,
-	                          std::shared_ptr<ProgressBar> &p);
+	// 	QPiZeroIntegral getIOEfromCache(const Vector3QLength &, const QEnergy &) const;
+	// 	void computeCacheInThread(std::size_t start, std::size_t end, const QEnergy &Egamma,
+	// 	                          std::shared_ptr<ProgressBar> &p);
 
   public:
-	PiZeroAbsorptionIntegrator(
-	    const std::shared_ptr<cosmicrays::CosmicRayDensity> &,
-	    const std::shared_ptr<neutralgas::RingModel> &,
-	    const std::shared_ptr<photonfields::PhotonField> &,
-	    const std::shared_ptr<interactions::DifferentialCrossSection> &);
-	PiZeroAbsorptionIntegrator(
-	    const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &,
-	    const std::shared_ptr<neutralgas::RingModel> &,
-	    const std::shared_ptr<photonfields::PhotonField> &,
-	    const std::shared_ptr<interactions::DifferentialCrossSection> &);
+	PiZeroAbsorptionIntegrator(const std::shared_ptr<cosmicrays::CosmicRayDensity> &,
+	                           const std::shared_ptr<neutralgas::RingModel> &,
+	                           const std::shared_ptr<interactions::DifferentialCrossSection> &);
+	PiZeroAbsorptionIntegrator(const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &,
+	                           const std::shared_ptr<neutralgas::RingModel> &,
+	                           const std::shared_ptr<interactions::DifferentialCrossSection> &);
 	~PiZeroAbsorptionIntegrator();
 
-	void setEnergy(const QEnergy &Egamma);
-	QEnergy getEnergy() const;
+	// 	void setEnergy(const QEnergy &Egamma);
+	// 	QEnergy getEnergy() const;
 
-	QPDensity densityProfile(const Vector3QLength &) const;
+	// 	QPDensity densityProfile(const Vector3QLength &) const;
 
-	QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;
-	QDiffIntensity integrateOverLOS(const QDirection &iterdir,
-	                                const QEnergy &Egamma) const override;
+	// 	QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;
+	// 	QDiffIntensity integrateOverLOS(const QDirection &iterdir, const QEnergy &Egamma) const override;
 
-	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos,
-	                                    const QEnergy &Egamma) const;
+	// 	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos, const QEnergy &Egamma) const;
 
-	QInverseLength integrateOverPhotonEnergy(const Vector3QLength &pos,
-	                                         const QEnergy &Egamma) const;
+	QInverseLength absorptionCoefficient(const QEnergy &Egamma) const;
 
-	void setupCacheTable(int, int, int) override;
-	void initCacheTable() override;
+	// 	void setupCacheTable(int, int, int) override;
+	// 	void initCacheTable() override;
 };
 
 /** @}*/
