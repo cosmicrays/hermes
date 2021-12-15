@@ -48,8 +48,8 @@ class PiZeroAbsorptionIntegrator : public PiZeroIntegrator {
 
 	// 	QPDensity densityProfile(const Vector3QLength &) const;
 
-	// 	QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;
-	// 	QDiffIntensity integrateOverLOS(const QDirection &iterdir, const QEnergy &Egamma) const override;
+	// QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;
+	QDiffIntensity integrateOverLOS(const QDirection &iterdir, const QEnergy &Egamma) const override;
 
 	// 	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos, const QEnergy &Egamma) const;
 

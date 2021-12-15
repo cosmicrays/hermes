@@ -91,85 +91,72 @@ PiZeroAbsorptionIntegrator::~PiZeroAbsorptionIntegrator() {}
 // 	return integrateOverLOS(direction, 1_GeV);
 // }
 
-// QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(const QDirection &direction_,
-//                                                             const QEnergy &Egamma_) const {
-// 	QDiffIntensity total_diff_flux(0.0);
+QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(const QDirection &direction_,
+                                                            const QEnergy &Egamma_) const {
+	QDiffIntensity total_diff_flux(0.0);
 
-// 	QNumber opticalDepth(0);
-// 	typedef std::pair<QLength, QNumber> pairLN;
-// 	std::vector<pairLN> opticalDepthLOS;
+	// QNumber opticalDepth(0);
+	// typedef std::pair<QLength, QNumber> pairLN;
+	// std::vector<pairLN> opticalDepthLOS;
 
-// 	// distance from the (spherical) galactic border in the given direction
-// 	QLength maxDistance = getMaxDistance(direction_);
+	// // distance from the (spherical) galactic border in the given direction
+	// QLength maxDistance = getMaxDistance(direction_);
 
-// 	QLength delta_d = 10.0_pc;
-// 	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
-// 		// auto pos = getGalacticPosition(observerPosition, dist, direction_);
-// 		opticalDepth += absorptionCoefficient(Egamma_) * delta_d;
-// 		opticalDepthLOS.push_back(std::make_pair(dist, opticalDepth));
-// 	}
+	// QLength delta_d = 10.0_pc;
+	// for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
+	// 	// auto pos = getGalacticPosition(observerPosition, dist, direction_);
+	// 	opticalDepth += absorptionCoefficient(Egamma_) * delta_d;
+	// 	opticalDepthLOS.push_back(std::make_pair(dist, opticalDepth));
+	// }
 
-// 	auto findOpticalDepth = [opticalDepthLOS](QLength s) -> QNumber {
-// 		auto t_pair = std::make_pair(s, 0);
-// 		auto pair = std::upper_bound(opticalDepthLOS.begin(), opticalDepthLOS.end(), t_pair,
-// 		                             [](const pairLN &a, const pairLN &b) -> bool { return a.first < b.first; });
-// 		return (*pair).second;
-// 	};
+	// auto findOpticalDepth = [opticalDepthLOS](QLength s) -> QNumber {
+	// 	auto t_pair = std::make_pair(s, 0);
+	// 	auto pair = std::upper_bound(opticalDepthLOS.begin(), opticalDepthLOS.end(), t_pair,
+	// 	                             [](const pairLN &a, const pairLN &b) -> bool { return a.first < b.first; });
+	// 	return (*pair).second;
+	// };
 
-// 	/*
-// 	// TODO(adundovi): implement sophisticated adaptive integration method :-)
-// 	auto opticalDepthIter = opticalDepthLOS.begin();
-// 	for (QLength dist = delta_d; dist <= maxDistance; dist += delta_d) {
-// 	    pos = getGalacticPosition(observerPosition, dist, direction_);
-// 	    total_intensity += intSynchro->integrateOverEnergy(pos, freq_) / 4_pi *
-// 	                       exp((*opticalDepthIter) -
-// 	                           opticalDepthLOS[opticalDepthLOS.size() - 1]) *
-// 	                       delta_d;
-// 	    ++opticalDepthIter;
-// 	}
-// 	*/
+	// Sum over rings
+	for (const auto &ring : *ngdensity) {
+		// TODO: this could be better
+		if (!ngdensity->isRingEnabled(ring->getIndex())) continue;
 
-// 	// Sum over rings
-// 	for (const auto &ring : *ngdensity) {
-// 		// TODO: this could be better
-// 		if (!ngdensity->isRingEnabled(ring->getIndex())) continue;
+		// 	// Normalization-part
+		// 	auto normI_f = [ring, this](const Vector3QLength &pos) {
+		// 		return (ring->isInside(pos)) ? this->densityProfile(pos) : 0;
+		// 	};
+		// 	auto normIntegrand = [this, normI_f, direction_](const QLength &dist) {
+		// 		return normI_f(getGalacticPosition(this->observerPosition, dist, direction_));
+		// 	};
+		// 	QColumnDensity normIntegrals =
+		// 	    gslQAGIntegration<QColumnDensity, QPDensity>(normIntegrand, 0, getMaxDistance(direction_), 500);
 
-// 		// Normalization-part
-// 		auto normI_f = [ring, this](const Vector3QLength &pos) {
-// 			return (ring->isInside(pos)) ? this->densityProfile(pos) : 0;
-// 		};
-// 		auto normIntegrand = [this, normI_f, direction_](const QLength &dist) {
-// 			return normI_f(getGalacticPosition(this->observerPosition, dist, direction_));
-// 		};
-// 		QColumnDensity normIntegrals =
-// 		    gslQAGIntegration<QColumnDensity, QPDensity>(normIntegrand, 0, getMaxDistance(direction_), 500);
+		// 	// LOS is not crossing the current ring at all
+		// 	if (normIntegrals == QColumnDensity(0)) continue;
 
-// 		// LOS is not crossing the current ring at all
-// 		if (normIntegrals == QColumnDensity(0)) continue;
+		// 	// Integral over emissivity
+		// 	auto losI_f = [ring, this](const Vector3QLength &pos, const QEnergy &Egamma_) {
+		// 		return (ring->isInside(pos)) ? this->densityProfile(pos) * this->integrateOverEnergy(pos, Egamma_) : 0;
+		// 	};
+		// 	auto losIntegrand = [this, losI_f, direction_, Egamma_, findOpticalDepth](const QLength &dist) {
+		// 		return losI_f(getGalacticPosition(this->observerPosition, dist, direction_), Egamma_) *
+		// 		       exp(-findOpticalDepth(dist));
+		// 	};
+		// 	QDiffIntensity losIntegrals =
+		// 	    simpsonIntegration<QDiffFlux, QGREmissivity>(losIntegrand, 0, getMaxDistance(direction_), 500) /
+		// 	    (4_pi * 1_sr);
 
-// 		// Integral over emissivity
-// 		auto losI_f = [ring, this](const Vector3QLength &pos, const QEnergy &Egamma_) {
-// 			return (ring->isInside(pos)) ? this->densityProfile(pos) * this->integrateOverEnergy(pos, Egamma_) : 0;
-// 		};
-// 		auto losIntegrand = [this, losI_f, direction_, Egamma_, findOpticalDepth](const QLength &dist) {
-// 			return losI_f(getGalacticPosition(this->observerPosition, dist, direction_), Egamma_) *
-// 			       exp(-findOpticalDepth(dist));
-// 		};
-// 		QDiffIntensity losIntegrals =
-// 		    simpsonIntegration<QDiffFlux, QGREmissivity>(losIntegrand, 0, getMaxDistance(direction_), 500) /
-// 		    (4_pi * 1_sr);
+		// 	// Finally, normalize LOS integrals, separatelly for HI and CO
+		// 	if (ngdensity->getGasType() == neutralgas::GasType::HI) {
+		// 		total_diff_flux += ring->getHIColumnDensity(direction_) / normIntegrals * losIntegrals;
+		// 	}
+		// 	if (ngdensity->getGasType() == neutralgas::GasType::H2) {
+		// 		total_diff_flux += ring->getH2ColumnDensity(direction_) / normIntegrals * losIntegrals;
+		// 	}
+	}
 
-// 		// Finally, normalize LOS integrals, separatelly for HI and CO
-// 		if (ngdensity->getGasType() == neutralgas::GasType::HI) {
-// 			total_diff_flux += ring->getHIColumnDensity(direction_) / normIntegrals * losIntegrals;
-// 		}
-// 		if (ngdensity->getGasType() == neutralgas::GasType::H2) {
-// 			total_diff_flux += ring->getH2ColumnDensity(direction_) / normIntegrals * losIntegrals;
-// 		}
-// 	}
-
-// 	return total_diff_flux;
-// }
+	return total_diff_flux;
+}
 
 // QPDensity PiZeroAbsorptionIntegrator::densityProfile(const Vector3QLength &pos) const { return QPDensity(1); }
 
