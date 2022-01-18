@@ -21,18 +21,7 @@ namespace hermes {
 
 class PiZeroAbsorptionIntegrator : public PiZeroIntegrator {
   private:
-	// 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList;
-	// 	std::shared_ptr<neutralgas::RingModel> ngdensity;
-	// 	std::shared_ptr<interactions::DifferentialCrossSection> crossSec;
-
 	std::unique_ptr<interactions::BreitWheeler> bwCrossSec{std::make_unique<interactions::BreitWheeler>()};
-
-	// 	typedef Grid<QPiZeroIntegral> ICCacheTable;
-	// 	std::shared_ptr<ICCacheTable> cacheTable;
-
-	// 	QPiZeroIntegral getIOEfromCache(const Vector3QLength &, const QEnergy &) const;
-	// 	void computeCacheInThread(std::size_t start, std::size_t end, const QEnergy &Egamma,
-	// 	                          std::shared_ptr<ProgressBar> &p);
 
   public:
 	PiZeroAbsorptionIntegrator(const std::shared_ptr<cosmicrays::CosmicRayDensity> &,
@@ -43,20 +32,10 @@ class PiZeroAbsorptionIntegrator : public PiZeroIntegrator {
 	                           const std::shared_ptr<interactions::DifferentialCrossSection> &);
 	~PiZeroAbsorptionIntegrator();
 
-	// 	void setEnergy(const QEnergy &Egamma);
-	// 	QEnergy getEnergy() const;
-
-	// 	QPDensity densityProfile(const Vector3QLength &) const;
-
-	// QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;
+	QDiffIntensity integrateOverLOS(const QDirection &iterdir) const override;
 	QDiffIntensity integrateOverLOS(const QDirection &iterdir, const QEnergy &Egamma) const override;
 
-	// 	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos, const QEnergy &Egamma) const;
-
 	QInverseLength absorptionCoefficient(const QEnergy &Egamma) const;
-
-	// 	void setupCacheTable(int, int, int) override;
-	// 	void initCacheTable() override;
 };
 
 /** @}*/
