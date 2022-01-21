@@ -95,9 +95,9 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(const QDirection &di
 
 auto cmbPhotonField(const QEnergy &eps) {
 	using hermes::units::expm1;
-	constexpr auto K = 1. / (M_PI * M_PI) / pow<3>(h_planck_bar * c_light);
-	constexpr auto cmbTemperature = 2.725_K;
-	constexpr auto kT = k_boltzmann * cmbTemperature;
+	const auto K = 1. / (M_PI * M_PI) / pow<3>(h_planck_bar * c_light);
+	const auto cmbTemperature = 2.725_K;
+	const auto kT = k_boltzmann * cmbTemperature;
 	return K * pow<2>(eps) / expm1(eps / kT);
 }
 
