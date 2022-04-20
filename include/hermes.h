@@ -6,6 +6,7 @@
 #include "hermes/FITSWrapper.h"
 #include "hermes/Grid.h"
 #include "hermes/GridTools.h"
+#include "hermes/Hdf5Reader.h"
 #include "hermes/HEALPixBits.h"
 #include "hermes/ParticleID.h"
 #include "hermes/ProgressBar.h"
