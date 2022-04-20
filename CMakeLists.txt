@@ -132,6 +132,20 @@ if(ENABLE_SYS_CFITSIO)
     endif(CFITSIO_FOUND)
 endif(ENABLE_SYS_CFITSIO)
 
+# HDF5 for import cosmic ray fluxes from Picard
+option(ENABLE_SYS_HDF5 "System HDF5 for hdf5 input" ON)
+if(ENABLE_SYS_HDF5)
+    find_package(HDF5 REQUIRED)
+    list(APPEND HERMES_EXTRA_INCLUDES ${HDF5_INCLUDE_DIR})
+    list(APPEND HERMES_EXTRA_LIBRARIES ${HDF5_LIBRARIES})
+    MESSAGE(STATUS "Parallel hdf5: ${HDF5_IS_PARALLEL} ")
+    if(${HDF5_IS_PARALLEL})
+        find_package(MPI)
+        list(APPEND HERMES_EXTRA_INCLUDES ${MPI_CXX_INCLUDE_PATH})
+    endif(${HDF5_IS_PARALLEL})
+    add_definitions(-DHERMES_HAVE_HDF5)
+endif(ENABLE_SYS_HDF5)
+
 # kiss (provided)
 add_subdirectory(lib/kiss)
 list(APPEND HERMES_EXTRA_LIBRARIES kiss)
@@ -266,6 +280,7 @@ add_library(hermes SHARED
     src/FITSWrapper.cpp
     src/GridTools.cpp
     src/HEALPixBits.cpp
+    src/Hdf5Reader.cpp
     src/ProgressBar.cpp
     src/Random.cpp
     src/Signals.cpp
