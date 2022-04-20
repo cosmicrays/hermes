@@ -132,7 +132,7 @@ if(ENABLE_SYS_CFITSIO)
     endif(CFITSIO_FOUND)
 endif(ENABLE_SYS_CFITSIO)
 
-# HDF5 for import cosmic ray fluxes from Picard
+# HDF5 for importing cosmic ray fluxes from Picard
 option(ENABLE_SYS_HDF5 "System HDF5 for hdf5 input" ON)
 if(ENABLE_SYS_HDF5)
     find_package(HDF5 REQUIRED)
@@ -142,6 +142,7 @@ if(ENABLE_SYS_HDF5)
     if(${HDF5_IS_PARALLEL})
         find_package(MPI)
         list(APPEND HERMES_EXTRA_INCLUDES ${MPI_CXX_INCLUDE_PATH})
+        list(APPEND HERMES_EXTRA_LIBRARIES ${MPI_CXX_LIBRARIES})
     endif(${HDF5_IS_PARALLEL})
     add_definitions(-DHERMES_HAVE_HDF5)
 endif(ENABLE_SYS_HDF5)
