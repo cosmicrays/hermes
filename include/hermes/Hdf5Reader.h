@@ -116,5 +116,70 @@ class Hdf5Reader {
 	int suppress_verbosity;
 };
 
+template <typename T, typename>
+hid_t Hdf5Reader::ReadGlobalAttribute(int indexAttr, T &AttrData) {
+	// Open Attribute using given index:
+	hid_t idAttr = H5Aopen_idx(h5group, indexAttr);
+	// Read Attribute Data
+	hid_t return_val = H5Aread(idAttr, get_hdf5_data_type<T>(), &AttrData);
+	H5Aclose(idAttr);
+	return return_val;
+}
+
+template <typename T, typename>
+hid_t Hdf5Reader::ReadGlobalAttribute(std::string AttrName, T &AttrData) {
+	// Open Attribute
+	hid_t idAttr = H5Aopen(h5group, AttrName.c_str(), H5P_DEFAULT);
+	// Read Attribute Data
+	hid_t return_val = H5Aread(idAttr, get_hdf5_data_type<T>(), &AttrData);
+	H5Aclose(idAttr);
+	return return_val;
+}
+
+template <typename T, typename>
+hid_t Hdf5Reader::ReadGlobalAttribute(std::string AttrName,
+                                      std::vector<T> &AttrData) {
+	// Open Attribute
+	hid_t attr = H5Aopen(h5group, AttrName.c_str(), H5P_DEFAULT);
+
+	// Get type of attribute
+	hid_t atype = H5Aget_type(attr);
+	// Get attribute space
+	hid_t aspace = H5Aget_space(attr);
+	// Get rank of attribute
+	int nEntries = H5Sget_simple_extent_npoints(aspace);
+
+	T rawData[nEntries];
+
+	// Read Attribute Data
+	hid_t return_val = H5Aread(attr, get_hdf5_data_type<T>(), &rawData);
+	H5Aclose(attr);
+
+	AttrData.resize(nEntries);
+
+	for (int iEntry = 0; iEntry < nEntries; ++iEntry) {
+		AttrData[iEntry] = rawData[iEntry];
+	}
+
+	return return_val;
+}
+
+template <typename T, typename>
+hid_t Hdf5Reader::ReadAttributeFromDataset(std::string DataSetName,
+                                           const std::string &AttrName,
+                                           T &AttrData) {
+	// Open the dataset
+	hid_t dataset = H5Dopen2(h5group, DataSetName.c_str(), H5P_DEFAULT);
+
+	hid_t attr = H5Aopen(dataset, AttrName.c_str(), H5P_DEFAULT);
+
+	hid_t err = H5Aread(attr, get_hdf5_data_type<T>(), &AttrData);
+
+	H5Aclose(attr);
+	H5Dclose(dataset);
+
+	return err;
+}
+
 #endif
 #endif
