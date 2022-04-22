@@ -20,6 +20,7 @@
 #include "hermes/cosmicrays/Dragon2D.h"
 #include "hermes/cosmicrays/Dragon3D.h"
 #include "hermes/cosmicrays/DummyCR.h"
+#include "hermes/cosmicrays/Picard3D.h"
 #include "hermes/cosmicrays/SimpleCR.h"
 #include "hermes/cosmicrays/Sun08.h"
 #include "hermes/cosmicrays/WMAP07.h"

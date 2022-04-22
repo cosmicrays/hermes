@@ -80,4 +80,18 @@ herr_t Hdf5Reader::ReadDataset(std::string DataSetName, std::vector<int> &dims,
 	return readErr;
 }
 
+herr_t Hdf5Reader::ReadGlobalAttribute(std::string AttrName,
+                                       std::string &AttrData) {
+	// Open Attribute
+	hid_t idAttr = H5Aopen(h5group, AttrName.c_str(), H5P_DEFAULT);
+	// Read Attribute Data
+	char attributeDataBuffer[MAXIMUM_STRING_LENGTH];
+	herr_t return_val = H5Aread(idAttr,
+	                           get_hdf5_data_type<std::string>(),
+	                           &attributeDataBuffer);
+	AttrData = attributeDataBuffer;
+	H5Aclose(idAttr);
+	return return_val;
+}
+
 #endif
