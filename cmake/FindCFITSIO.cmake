@@ -16,18 +16,13 @@
 
 # JM: Packages from different distributions have different suffixes
 find_path(CFITSIO_INCLUDE_DIR fitsio.h
-	PATH_SUFFIXES libcfitsio3 libcfitsio0 cfitsio
-	PATHS
-	$ENV{CFITSIO}
-	${_obIncDir}
-	${GNUWIN32_DIR}/include
+	PATH_SUFFIXES libcfitsio3 libcfitsio0 cfitsio include inc
+	PATHS $ENV{CFITSIO} $ENV{CFITSIO_BASE} ${_obIncDir} ${GNUWIN32_DIR}
 	)
 
 find_library(CFITSIO_LIBRARIES NAMES cfitsio
-	PATHS
-	$ENV{CFITSIO}
-	${_obLinkDir}
-	${GNUWIN32_DIR}/lib
+	PATH_SUFFIXES lib
+	PATHS $ENV{CFITSIO} ${CFITSIO_BASE} ${_obLinkDir} ${GNUWIN32_DIR}
 	)
 
 if(CFITSIO_INCLUDE_DIR AND CFITSIO_LIBRARIES)
