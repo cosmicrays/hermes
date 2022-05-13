@@ -45,16 +45,11 @@ void Picard3D::readFile() {
 
 void Picard3D::readEnergyAxis() {
 	QEnergy energy;
-
-	// Determine number of energies stored in file:
-	h5File->ReadGlobalAttribute("Entries", numberOfEnergies);
-
-	// Read individual energies from file:
+	h5File->readGlobalAttribute("Entries", numberOfEnergies);
 	for (int energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
-		// get name of dataset
 		std::string datasetName(getDatasetName(energyIndex));
 		double energyValue;
-		h5File->ReadAttributeFromDataset(datasetName, "Etot", energyValue);
+		h5File->readAttributeFromDataset(datasetName, "Etot", energyValue);
 		energy = 1_MeV * energyValue;
 		energyRange.push_back(energy);
 		energyToIndex[energy] = energyIndex;
@@ -63,9 +58,9 @@ void Picard3D::readEnergyAxis() {
 
 void Picard3D::readSpatialGrid3D() {
 	std::vector<float> xCenter, yCenter, zCenter;
-	h5File->ReadGlobalAttribute("xGridCentred", xCenter);
-	h5File->ReadGlobalAttribute("yGridCentred", yCenter);
-	h5File->ReadGlobalAttribute("zGridCentred", zCenter);
+	h5File->readGlobalAttribute("xGridCentred", xCenter);
+	h5File->readGlobalAttribute("yGridCentred", yCenter);
+	h5File->readGlobalAttribute("zGridCentred", zCenter);
 
 	xMin = xCenter[0] * 1_kpc;
 	xMax = xCenter[xCenter.size() - 1] * 1_kpc;
@@ -112,10 +107,10 @@ void Picard3D::readDensity3D() {
 
 	// Read A & Z from file
 	int numberOfNucleonsA, chargeNumberZ;
-	int attributeIndex = h5File->FindAttrIndex("A of particle");
-	h5File->ReadGlobalAttribute(attributeIndex, numberOfNucleonsA);
-	attributeIndex = h5File->FindAttrIndex("Z of particle");
-	h5File->ReadGlobalAttribute(attributeIndex, chargeNumberZ);
+	int attributeIndex = h5File->findAttributeIndex("A of particle");
+	h5File->readGlobalAttribute(attributeIndex, numberOfNucleonsA);
+	attributeIndex = h5File->findAttributeIndex("Z of particle");
+	h5File->readGlobalAttribute(attributeIndex, chargeNumberZ);
 
 	std::vector<int> datasetDimensions(3);
 	std::vector<float> datasetContent;
@@ -123,16 +118,10 @@ void Picard3D::readDensity3D() {
 	if (isPIDEnabled(PID(chargeNumberZ, numberOfNucleonsA))) {
 		std::cerr << "hermes: info: reading species with Z = " << chargeNumberZ
 		          << " A = " << numberOfNucleonsA << std::endl;
-		// loop over all energies and read spatial data.
 		for (std::size_t energyIndex = 0; energyIndex < numberOfEnergies;
 		     ++energyIndex) {
-			// get name of dataset
 			std::string datasetName(getDatasetName(energyIndex));
-
-			// Load spatial distribution at energy E
-			h5File->ReadDataset(datasetName, datasetDimensions, datasetContent);
-
-			// Store data:
+			h5File->readDataset(datasetName, datasetDimensions, datasetContent);
 			for (std::size_t xIndex = 0; xIndex < numberOfXValues; ++xIndex) {
 				for (std::size_t yIndex = 0; yIndex < numberOfYValues;
 				     ++yIndex) {
@@ -157,15 +146,11 @@ void Picard3D::readDensity3D() {
 }
 
 std::string Picard3D::getDatasetName(std::size_t energyIndex) {
-	// Attribute name, where dataset name is stored
-	std::stringstream stringStream;
-	stringStream << "Name_om";
-	stringStream << std::setfill('0') << std::setw(2) << energyIndex;
-	std::string attributeName = stringStream.str();
-
-	// Get name of dataset
+	std::stringstream datasetNameAttribute;
+	datasetNameAttribute << "Name_om";
+	datasetNameAttribute << std::setfill('0') << std::setw(2) << energyIndex;
 	std::string datasetName;
-	h5File->ReadGlobalAttribute(attributeName, datasetName);
+	h5File->readGlobalAttribute(datasetNameAttribute.str(), datasetName);
 	return datasetName;
 }
 

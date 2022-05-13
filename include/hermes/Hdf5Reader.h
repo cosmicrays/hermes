@@ -9,7 +9,6 @@
 #include <string>
 #include <vector>
 
-// Some definitions for convenience
 template <typename T>
 using Invoke = typename T::type;
 template <typename Condition>
@@ -23,165 +22,151 @@ using DisableIf = EnableIf<negation<Condition>>;
 	template <typename T, typename = DisableIf<std::is_pointer<T>>>
 
 template <typename T>
-static hid_t get_hdf5_data_type();
+static hid_t getHdf5DataType();
 
 template <>
-hid_t get_hdf5_data_type<bool>() {
+hid_t getHdf5DataType<bool>() {
 	return H5Tcopy(H5T_NATIVE_INT);
 }
 
 template <>
-hid_t get_hdf5_data_type<char>() {
+hid_t getHdf5DataType<char>() {
 	return H5Tcopy(H5T_NATIVE_CHAR);
 }
 template <>
-hid_t get_hdf5_data_type<unsigned char>() {
+hid_t getHdf5DataType<unsigned char>() {
 	return H5Tcopy(H5T_NATIVE_UCHAR);
 }
 template <>
-hid_t get_hdf5_data_type<std::string>() {
+hid_t getHdf5DataType<std::string>() {
 	hid_t datatype = H5Tcopy(H5T_C_S1);
 	H5Tset_size(datatype, MAXIMUM_STRING_LENGTH);
 	return datatype;
 }
 template <>
-hid_t get_hdf5_data_type<short>() {
+hid_t getHdf5DataType<short>() {
 	return H5Tcopy(H5T_NATIVE_SHORT);
 }
 template <>
-hid_t get_hdf5_data_type<unsigned short>() {
+hid_t getHdf5DataType<unsigned short>() {
 	return H5Tcopy(H5T_NATIVE_USHORT);
 }
 template <>
-hid_t get_hdf5_data_type<int>() {
+hid_t getHdf5DataType<int>() {
 	return H5Tcopy(H5T_NATIVE_INT);
 }
 template <>
-hid_t get_hdf5_data_type<unsigned int>() {
+hid_t getHdf5DataType<unsigned int>() {
 	return H5Tcopy(H5T_NATIVE_UINT);
 }
 template <>
-hid_t get_hdf5_data_type<long>() {
+hid_t getHdf5DataType<long>() {
 	return H5Tcopy(H5T_NATIVE_LONG);
 }
 template <>
-hid_t get_hdf5_data_type<unsigned long>() {
+hid_t getHdf5DataType<unsigned long>() {
 	return H5Tcopy(H5T_NATIVE_ULONG);
 }
 template <>
-hid_t get_hdf5_data_type<long long>() {
+hid_t getHdf5DataType<long long>() {
 	return H5Tcopy(H5T_NATIVE_LLONG);
 }
 template <>
-hid_t get_hdf5_data_type<unsigned long long>() {
+hid_t getHdf5DataType<unsigned long long>() {
 	return H5Tcopy(H5T_NATIVE_ULLONG);
 }
 
 template <>
-hid_t get_hdf5_data_type<float>() {
+hid_t getHdf5DataType<float>() {
 	return H5Tcopy(H5T_NATIVE_FLOAT);
 }
 template <>
-hid_t get_hdf5_data_type<double>() {
+hid_t getHdf5DataType<double>() {
 	return H5Tcopy(H5T_NATIVE_DOUBLE);
 }
 template <>
-hid_t get_hdf5_data_type<long double>() {
+hid_t getHdf5DataType<long double>() {
 	return H5Tcopy(H5T_NATIVE_LDOUBLE);
 }
 
 class Hdf5Reader {
   public:
-	Hdf5Reader(std::string filename, int _suppress_verbosity = 0);
-	hid_t open_file(std::string filename, int _suppress_verbosity = 0);
-	/*!Read an attribute from Data group by Index*/
-	template_noPointer hid_t ReadGlobalAttribute(int indexAttr, T &AttrData);
+	explicit Hdf5Reader(const std::string &filename);
+	hid_t openFile(const std::string &filename);
+	/*!Read an attribute from the group '/Data' via the index*/
+	template_noPointer hid_t readGlobalAttribute(int attributeIndex,
+	                                             T &attributeData);
 	/*!Read an attribute from Data group*/
-	template_noPointer hid_t ReadGlobalAttribute(std::string AttrName,
-	                                             T &AttrData);
+	template_noPointer hid_t
+	readGlobalAttribute(const std::string &attributeName, T &attributeData);
 	/*!Read a string attribute from Data group*/
-	herr_t ReadGlobalAttribute(std::string AttrName, std::string &AttrData);
+	herr_t readGlobalAttribute(const std::string &attributeName,
+	                           std::string &AttributeData);
 	/*!Read an array of attribute from Data group*/
-	template_noPointer hid_t ReadGlobalAttribute(std::string AttrName,
-	                                             std::vector<T> &AttrData);
+	template_noPointer hid_t readGlobalAttribute(
+	    const std::string &attributeName, std::vector<T> &attributeData);
 	/*!Read an attribute related to a dataset */
-	template_noPointer hid_t ReadAttributeFromDataset(
-	    std::string DataSetName, const std::string &AttrName, T &AttrData);
+	template_noPointer hid_t readAttributeFromDataset(
+	    const std::string &datasetName, const std::string &attributeName,
+	    T &attributeData);
 	/*!Find index of argument by using part of the name*/
-	int FindAttrIndex(std::string AttrNamePart);
+	int findAttributeIndex(const std::string &partOfTheAttributeName);
 
-	herr_t ReadDataset(std::string dsetName, std::vector<int> &dims,
-	                   std::vector<float> &data);
+	herr_t readDataset(const std::string &datasetName,
+	                   std::vector<int> &datasetDimensions,
+	                   std::vector<float> &datasetContent);
 
   private:
-	hid_t close_file();
-	hid_t hdf5file, h5group;
-	int suppress_verbosity;
+	hid_t closeFile() const;
+	hid_t hdf5File{}, h5Group{};
 };
 
 template <typename T, typename>
-hid_t Hdf5Reader::ReadGlobalAttribute(int indexAttr, T &AttrData) {
-	// Open Attribute using given index:
-	hid_t idAttr = H5Aopen_idx(h5group, indexAttr);
-	// Read Attribute Data
-	hid_t return_val = H5Aread(idAttr, get_hdf5_data_type<T>(), &AttrData);
-	H5Aclose(idAttr);
-	return return_val;
+hid_t Hdf5Reader::readGlobalAttribute(int attributeIndex, T &attributeData) {
+	hid_t attributeID = H5Aopen_idx(h5Group, attributeIndex);
+	hid_t readError =
+	    H5Aread(attributeID, getHdf5DataType<T>(), &attributeData);
+	H5Aclose(attributeID);
+	return readError;
 }
 
 template <typename T, typename>
-hid_t Hdf5Reader::ReadGlobalAttribute(std::string AttrName, T &AttrData) {
-	// Open Attribute
-	hid_t idAttr = H5Aopen(h5group, AttrName.c_str(), H5P_DEFAULT);
-	// Read Attribute Data
-	hid_t return_val = H5Aread(idAttr, get_hdf5_data_type<T>(), &AttrData);
-	H5Aclose(idAttr);
-	return return_val;
+hid_t Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
+                                      T &attributeData) {
+	hid_t attributeID = H5Aopen(h5Group, attributeName.c_str(), H5P_DEFAULT);
+	hid_t readError =
+	    H5Aread(attributeID, getHdf5DataType<T>(), &attributeData);
+	H5Aclose(attributeID);
+	return readError;
 }
 
 template <typename T, typename>
-hid_t Hdf5Reader::ReadGlobalAttribute(std::string AttrName,
-                                      std::vector<T> &AttrData) {
-	// Open Attribute
-	hid_t attr = H5Aopen(h5group, AttrName.c_str(), H5P_DEFAULT);
-
-	// Get type of attribute
-	hid_t atype = H5Aget_type(attr);
-	// Get attribute space
-	hid_t aspace = H5Aget_space(attr);
-	// Get rank of attribute
-	int nEntries = H5Sget_simple_extent_npoints(aspace);
-
-	T rawData[nEntries];
-
-	// Read Attribute Data
-	hid_t return_val = H5Aread(attr, get_hdf5_data_type<T>(), &rawData);
-	H5Aclose(attr);
-
-	AttrData.resize(nEntries);
-
-	for (int iEntry = 0; iEntry < nEntries; ++iEntry) {
-		AttrData[iEntry] = rawData[iEntry];
+hid_t Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
+                                      std::vector<T> &attributeData) {
+	hid_t attributeID = H5Aopen(h5Group, attributeName.c_str(), H5P_DEFAULT);
+	hid_t attributeSpace = H5Aget_space(attributeID);
+	hssize_t numberOfEntries = H5Sget_simple_extent_npoints(attributeSpace);
+	T dataBuffer[numberOfEntries];
+	hid_t readError = H5Aread(attributeID, getHdf5DataType<T>(), &dataBuffer);
+	H5Aclose(attributeID);
+	attributeData.resize(numberOfEntries);
+	for (int entryIndex = 0; entryIndex < numberOfEntries; ++entryIndex) {
+		attributeData[entryIndex] = dataBuffer[entryIndex];
 	}
-
-	return return_val;
+	return readError;
 }
 
 template <typename T, typename>
-hid_t Hdf5Reader::ReadAttributeFromDataset(std::string DataSetName,
-                                           const std::string &AttrName,
-                                           T &AttrData) {
-	// Open the dataset
-	hid_t dataset = H5Dopen2(h5group, DataSetName.c_str(), H5P_DEFAULT);
-
-	hid_t attr = H5Aopen(dataset, AttrName.c_str(), H5P_DEFAULT);
-
-	hid_t err = H5Aread(attr, get_hdf5_data_type<T>(), &AttrData);
-
-	H5Aclose(attr);
-	H5Dclose(dataset);
-
-	return err;
+hid_t Hdf5Reader::readAttributeFromDataset(const std::string &datasetName,
+                                           const std::string &attributeName,
+                                           T &attributeData) {
+	hid_t datasetID = H5Dopen2(h5Group, datasetName.c_str(), H5P_DEFAULT);
+	hid_t attributeID = H5Aopen(datasetID, attributeName.c_str(), H5P_DEFAULT);
+	hid_t readError =
+	    H5Aread(attributeID, getHdf5DataType<T>(), &attributeData);
+	H5Aclose(attributeID);
+	H5Dclose(datasetID);
+	return readError;
 }
 
 #endif

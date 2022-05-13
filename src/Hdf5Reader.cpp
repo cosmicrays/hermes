@@ -3,95 +3,74 @@
 
 #include <iostream>
 
-Hdf5Reader::Hdf5Reader(std::string filename, int _suppress_verbosity) {
-	open_file(filename, _suppress_verbosity);
-}
+Hdf5Reader::Hdf5Reader(const std::string &filename) { openFile(filename); }
 
-hid_t Hdf5Reader::open_file(std::string filename, int _suppress_verbosity) {
-	this->suppress_verbosity = _suppress_verbosity;
-
-	hdf5file = H5Fopen(filename.c_str(), H5F_ACC_RDONLY, H5P_DEFAULT);
-	h5group = H5Gopen2(hdf5file, "/Data", H5P_DEFAULT);
-
+hid_t Hdf5Reader::openFile(const std::string &filename) {
+	hdf5File = H5Fopen(filename.c_str(), H5F_ACC_RDONLY, H5P_DEFAULT);
+	h5Group = H5Gopen2(hdf5File, "/Data", H5P_DEFAULT);
 	return 0;
 }
 
-hid_t Hdf5Reader::close_file() { return H5Fclose(hdf5file); }
+hid_t Hdf5Reader::closeFile() const { return H5Fclose(hdf5File); }
 
-int Hdf5Reader::FindAttrIndex(std::string AttrNamePart) {
-	// get number of attributes in group
-	int numAttrs = H5Aget_num_attrs(h5group);
-
-	// Loop over all attributes
-	for (unsigned int iAttr = 0; iAttr < numAttrs; ++iAttr) {
-		// Open attribute
-		hid_t idAttr = H5Aopen_idx(h5group, iAttr);
-		// get name of attribute
-		int maxName = 256;
-		char bufName[maxName];
-		H5Aget_name(idAttr, maxName, bufName);
-
-		H5Aclose(idAttr);
-
-		std::string attrName(bufName);
-
-		std::size_t found = attrName.find(AttrNamePart);
-		// part was found at
-		if (found != std::string::npos) {
-			return iAttr;
+int Hdf5Reader::findAttributeIndex(
+    const std::string &partOfTheAttributeName) {
+	int numberOfAttributes = H5Aget_num_attrs(h5Group);
+	for (int attributeIndex = 0; attributeIndex < numberOfAttributes;
+	     ++attributeIndex) {
+		hid_t attributeID = H5Aopen_idx(h5Group, attributeIndex);
+		int maximumNameLength = 256;
+		char nameBuffer[maximumNameLength];
+		H5Aget_name(attributeID, maximumNameLength, nameBuffer);
+		H5Aclose(attributeID);
+		std::string attributeName(nameBuffer);
+		std::size_t searchResult = attributeName.find(partOfTheAttributeName);
+		bool foundAttribute = searchResult != std::string::npos;
+		if (foundAttribute) {
+			return attributeIndex;
 		}
 	}
 	return -1;
 }
 
-herr_t Hdf5Reader::ReadDataset(std::string DataSetName, std::vector<int> &dims,
-                               std::vector<float> &data) {
-	// Open the dataset
-	hid_t idDataset = H5Dopen2(h5group, DataSetName.c_str(), H5P_DEFAULT);
+herr_t Hdf5Reader::readDataset(const std::string &datasetName,
+                               std::vector<int> &datasetDimensions,
+                               std::vector<float> &datasetContent) {
+	hid_t datasetID = H5Dopen2(h5Group, datasetName.c_str(), H5P_DEFAULT);
+	hid_t spaceID = H5Dget_space(datasetID);
+	hssize_t numberOfEntries = H5Sget_simple_extent_npoints(spaceID);
 
-	// Get dataset space
-	hid_t idSpace = H5Dget_space(idDataset);
-
-	// Get number of data points
-	int nEntries = H5Sget_simple_extent_npoints(idSpace);
-
-	// Determine dimensionality and store in dims variable
-	int dimhdf = H5Sget_simple_extent_ndims(idSpace);
-	dims.resize(dimhdf);
-	hsize_t dimsInput[dimhdf];
-	H5Sget_simple_extent_dims(idSpace, dimsInput, NULL);
-	for (int iDir = 0; iDir < dimhdf; ++iDir) {
-		dims[iDir] = dimsInput[iDir];
+	int numberOfDimensions = H5Sget_simple_extent_ndims(spaceID);
+	datasetDimensions.resize(numberOfDimensions);
+	hsize_t dimensionsBuffer[numberOfDimensions];
+	H5Sget_simple_extent_dims(spaceID, dimensionsBuffer, nullptr);
+	for (int dimensionIndex = 0; dimensionIndex < numberOfDimensions;
+	     ++dimensionIndex) {
+		datasetDimensions[dimensionIndex] = dimensionsBuffer[dimensionIndex];
 	}
 
-	float rawData[nEntries];
-	herr_t readErr = H5Dread(idDataset, H5T_NATIVE_FLOAT, H5S_ALL, H5S_ALL,
-	                         H5P_DEFAULT, rawData);
+	float rawData[numberOfEntries];
+	herr_t readError = H5Dread(datasetID, H5T_NATIVE_FLOAT, H5S_ALL, H5S_ALL,
+	                           H5P_DEFAULT, rawData);
 
-	// Close the dataset
-	H5Dclose(idDataset);
+	H5Dclose(datasetID);
 
-	// Store raw data in std vector
-	data.resize(nEntries);
-
-	for (int iEntry = 0; iEntry < nEntries; ++iEntry) {
-		data[iEntry] = rawData[iEntry];
+	datasetContent.resize(numberOfEntries);
+	for (int entryIndex = 0; entryIndex < numberOfEntries; ++entryIndex) {
+		datasetContent[entryIndex] = rawData[entryIndex];
 	}
-	return readErr;
+	return readError;
 }
 
-herr_t Hdf5Reader::ReadGlobalAttribute(std::string AttrName,
-                                       std::string &AttrData) {
-	// Open Attribute
-	hid_t idAttr = H5Aopen(h5group, AttrName.c_str(), H5P_DEFAULT);
-	// Read Attribute Data
-	char attributeDataBuffer[MAXIMUM_STRING_LENGTH];
-	herr_t return_val = H5Aread(idAttr,
-	                           get_hdf5_data_type<std::string>(),
-	                           &attributeDataBuffer);
-	AttrData = attributeDataBuffer;
-	H5Aclose(idAttr);
-	return return_val;
+herr_t Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
+                                       std::string &AttributeData) {
+	hid_t attributeID = H5Aopen(h5Group, attributeName.c_str(), H5P_DEFAULT);
+	char dataBuffer[MAXIMUM_STRING_LENGTH];
+	herr_t readError =
+	    H5Aread(attributeID, getHdf5DataType<std::string>(), &dataBuffer);
+	AttributeData = dataBuffer;
+	H5Aclose(attributeID);
+	return readError;
 }
 
 #endif
