@@ -291,6 +291,7 @@ add_library(hermes SHARED
     src/cosmicrays/Dragon2D.cpp
     src/cosmicrays/Dragon3D.cpp
     src/cosmicrays/DummyCR.cpp
+    src/cosmicrays/Picard3D.cpp
     src/cosmicrays/SimpleCR.cpp
     src/cosmicrays/Sun08.cpp
     src/cosmicrays/WMAP07.cpp
