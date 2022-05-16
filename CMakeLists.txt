@@ -419,6 +419,10 @@ endif(DOXYGEN_FOUND AND SPHINX_EXECUTABLE)
 if(ENABLE_TESTING)
     enable_testing()
 
+    add_executable(testHdf5Reader test/testHdf5Reader.cpp)
+    target_link_libraries(testHdf5Reader hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+    add_test(testHdf5Reader testHdf5Reader)
+
     add_executable(testUnits test/testUnits.cpp)
     target_link_libraries(testUnits hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
     add_test(testUnits testUnits)
