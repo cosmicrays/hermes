@@ -117,7 +117,7 @@ class Hdf5Reader {
 	                   std::vector<float> &datasetContent);
 
   private:
-	hid_t closeFile() const;
+	hid_t closeFile();
 	hid_t hdf5File{}, h5Group{};
 };
 

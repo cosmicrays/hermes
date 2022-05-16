@@ -11,7 +11,7 @@ hid_t Hdf5Reader::openFile(const std::string &filename) {
 	return 0;
 }
 
-hid_t Hdf5Reader::closeFile() const { return H5Fclose(hdf5File); }
+hid_t Hdf5Reader::closeFile() { return H5Fclose(hdf5File); }
 
 int Hdf5Reader::findAttributeIndex(
     const std::string &partOfTheAttributeName) {
