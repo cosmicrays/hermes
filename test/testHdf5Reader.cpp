@@ -33,10 +33,10 @@ TEST(Hdf5ReaderTest, ReadGlobalAttribute) {
 	EXPECT_EQ(kElectronsOfSpecies8, 0)
 	    << "Reading of the global attribute '" << attributeName << "' failed.";
 
-	std::string nameOm00;
+	std::string datasetName;
 	attributeName = "Name_om00";
-	reader.readGlobalAttribute(attributeName, nameOm00);
-	EXPECT_EQ(nameOm00, "Hydrogen_1_E00")
+	reader.readGlobalAttribute(attributeName, datasetName);
+	EXPECT_EQ(datasetName, "Hydrogen_1_E00")
 	    << "Reading of the global attribute '" << attributeName << "' failed.";
 
 	int zOfParticle8{};
