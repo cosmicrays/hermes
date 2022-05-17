@@ -83,7 +83,8 @@ TEST(Hdf5ReaderTest, ReadAttributeFromDataset) {
 
 	double totalEnergy;
 	attributeName = "Etot";
-	reader.readAttributeFromDataset(datasetName, attributeName, totalEnergy);
+	reader.readAttributeFromDatasetOfDataGroup(datasetName, attributeName,
+	                                           totalEnergy);
 	EXPECT_DOUBLE_EQ(totalEnergy, 956.75048828125)
 	    << "Reading of the attribute '" << attributeName
 	    << "' from the dataset '" << datasetName << "' failed.";

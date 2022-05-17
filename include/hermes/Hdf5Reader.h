@@ -1,3 +1,9 @@
+/**
+ * Hdf5Reader is a class for reading HDF5 files. It has been implemented for the
+ * class Picard3D. Picard3D uses this class to import the simulation results
+ * from the Software Picard, i.e., cosmic ray fluxes.
+ */
+
 #ifdef HERMES_HAVE_HDF5
 #ifndef HERMES_HDF5READER_H
 #define HERMES_HDF5READER_H
@@ -82,32 +88,82 @@ hid_t getHdf5DataType<long double>() {
 class Hdf5Reader {
   public:
 	explicit Hdf5Reader(std::string filename);
+
 	~Hdf5Reader();
-	/*!Read an attribute from the group '/Data' via the index*/
+
+	/**
+	 * Reads the attribute of the group "/Data" with the index attributeIndex
+	 * and saves its data into attributeData.
+	 * @tparam T type of the attribute
+	 * @param attributeIndex index of the attribute
+	 * @param attributeData data of the attribute
+	 */
 	template <typename T>
 	void readAttributeFromDataGroup(int attributeIndex, T &attributeData);
-	/*!Read an attribute from Data group*/
+
+	/**
+	 * Reads the attribute of the group "/Data" with the name attributeName and
+	 * saves its data into attributeData.
+	 * @tparam T type of the attribute
+	 * @param attributeName name of the attribute
+	 * @param attributeData data of the attribute
+	 */
 	template <typename T>
 	void readAttributeFromDataGroup(const std::string &attributeName,
 	                                T &attributeData);
-	/*!Read a string attribute from Data group*/
+
+	/**
+	 * Reads the string attribute of the group "/Data" with the name
+	 * attributeName and saves its data into attributeData.
+	 * @param attributeName name of the attribute
+	 * @param attributeData data of the attribute
+	 */
 	void readAttributeFromDataGroup(const std::string &attributeName,
-	                                std::string &AttributeData);
-	/*!Read an array of attribute from Data group*/
+	                                std::string &attributeData);
+
+	/**
+	 * Reads the attribute of the group "/Data" with the name attributeName
+	 * and saves its data into the vector attributeData.
+	 * @tparam T type of the attribute
+	 * @param attributeName name of the attribute
+	 * @param attributeData data of the attribute
+	 */
 	template <typename T>
 	void readAttributeFromDataGroup(const std::string &attributeName,
 	                                std::vector<T> &attributeData);
-	/*!Read an attribute related to a dataset */
+
+	/**
+	 * Reads the attribute with the name attributeName of the dataset with the
+	 * name datasetName of the group "/Data" and saves its data into
+	 * attributeData.
+	 * @tparam T
+	 * @param datasetName name of the dataset of the group "/Data"
+	 * @param attributeName name of the attribute
+	 * @param attributeData data of the attribute
+	 */
 	template <typename T>
-	void readAttributeFromDataset(const std::string &datasetName,
-	                              const std::string &attributeName,
-	                              T &attributeData);
-	/*!Find index of argument by using part of the name*/
+	void readAttributeFromDatasetOfDataGroup(const std::string &datasetName,
+	                                         const std::string &attributeName,
+	                                         T &attributeData);
+
+	/**
+	 * Finds the index of an attribute via a part of its name.
+	 * @param partOfTheAttributeName a part of the attribute name
+	 * @return index of the attribute
+	 */
 	int findAttributeIndex(const std::string &partOfTheAttributeName);
 
+	/**
+	 * Reads the dat with the dimensions datasetDimensions of a dataset with
+	 * the name datasetName of the group with the name "/Data" and saves its
+	 * data into datasetData.
+	 * @param datasetName name of the dataset
+	 * @param datasetDimensions x, y, z dimensions of the dataset
+	 * @param datasetData data of the dataset
+	 */
 	void readDataset(const std::string &datasetName,
 	                 std::vector<int> &datasetDimensions,
-	                 std::vector<float> &datasetContent);
+	                 std::vector<float> &datasetData);
 
   private:
 	void openFile();
@@ -177,9 +233,9 @@ void Hdf5Reader::readAttributeFromDataGroup(const std::string &attributeName,
 }
 
 template <typename T>
-void Hdf5Reader::readAttributeFromDataset(const std::string &datasetName,
-                                          const std::string &attributeName,
-                                          T &attributeData) {
+void Hdf5Reader::readAttributeFromDatasetOfDataGroup(
+    const std::string &datasetName, const std::string &attributeName,
+    T &attributeData) {
 	hid_t datasetID = H5Dopen2(dataGroupID, datasetName.c_str(), H5P_DEFAULT);
 	if (datasetID == H5I_INVALID_HID) {
 		std::cerr << "hermes: error: Failed to open the dataset '"

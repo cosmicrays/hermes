@@ -50,7 +50,8 @@ void Picard3D::readEnergyAxis() {
 	for (int energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
 		std::string datasetName(getDatasetName(energyIndex));
 		double energyValue;
-		h5File->readAttributeFromDataset(datasetName, "Etot", energyValue);
+		h5File->readAttributeFromDatasetOfDataGroup(datasetName, "Etot",
+		                                            energyValue);
 		energy = 1_MeV * energyValue;
 		energyRange.push_back(energy);
 		energyToIndex[energy] = energyIndex;

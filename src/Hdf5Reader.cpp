@@ -66,7 +66,7 @@ int Hdf5Reader::findAttributeIndex(const std::string &partOfTheAttributeName) {
 
 void Hdf5Reader::readDataset(const std::string &datasetName,
                              std::vector<int> &datasetDimensions,
-                             std::vector<float> &datasetContent) {
+                             std::vector<float> &datasetData) {
 	hid_t datasetID = H5Dopen2(dataGroupID, datasetName.c_str(), H5P_DEFAULT);
 	if (datasetID == H5I_INVALID_HID) {
 		std::cerr << "hermes: error: Couldn't open the dataset '" << datasetName
@@ -106,14 +106,14 @@ void Hdf5Reader::readDataset(const std::string &datasetName,
 		    << std::endl;
 	}
 
-	datasetContent.resize(numberOfEntries);
+	datasetData.resize(numberOfEntries);
 	for (int entryIndex = 0; entryIndex < numberOfEntries; ++entryIndex) {
-		datasetContent[entryIndex] = rawData[entryIndex];
+		datasetData[entryIndex] = rawData[entryIndex];
 	}
 }
 
 void Hdf5Reader::readAttributeFromDataGroup(const std::string &attributeName,
-                                            std::string &AttributeData) {
+                                            std::string &attributeData) {
 	hid_t attributeID = openAttribute(dataGroupID, attributeName);
 	char dataBuffer[MAXIMUM_STRING_LENGTH];
 	herr_t readError =
@@ -124,7 +124,7 @@ void Hdf5Reader::readAttributeFromDataGroup(const std::string &attributeName,
 		          << "' and the HDF5 file '" << filename << "'." << std::endl;
 		std::exit(1);
 	}
-	AttributeData = dataBuffer;
+	attributeData = dataBuffer;
 	closeAttribute(attributeID, attributeName);
 }
 
