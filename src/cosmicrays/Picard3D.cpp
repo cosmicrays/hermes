@@ -11,8 +11,7 @@
 
 #include "hermes/Common.h"
 
-#define DEFAULT_CR_FILE \
-	"CosmicRays/Gaggero17/run_3D.fits.gz"  // TODO: default file for Picard3D
+#define DEFAULT_CR_FILE "CosmicRays/Picard_testing"
 
 namespace hermes { namespace cosmicrays {
 
@@ -44,8 +43,10 @@ void Picard3D::readFile() {
 }
 
 void Picard3D::readEnergyAxis() {
+	// TODO: This is wrong. Hermes needs the kinetic energy and not the total
+	//       energy. I guess that it needs the kinetic energy per nucleon?
 	QEnergy energy;
-	h5File->readGlobalAttribute("Entries", numberOfEnergies);
+	h5File->readAttributeFromDataGroup("Entries", numberOfEnergies);
 	for (int energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
 		std::string datasetName(getDatasetName(energyIndex));
 		double energyValue;
@@ -58,9 +59,9 @@ void Picard3D::readEnergyAxis() {
 
 void Picard3D::readSpatialGrid3D() {
 	std::vector<float> xCenter, yCenter, zCenter;
-	h5File->readGlobalAttribute("xGridCentred", xCenter);
-	h5File->readGlobalAttribute("yGridCentred", yCenter);
-	h5File->readGlobalAttribute("zGridCentred", zCenter);
+	h5File->readAttributeFromDataGroup("xGridCentred", xCenter);
+	h5File->readAttributeFromDataGroup("yGridCentred", yCenter);
+	h5File->readAttributeFromDataGroup("zGridCentred", zCenter);
 
 	xMin = xCenter[0] * 1_kpc;
 	xMax = xCenter[xCenter.size() - 1] * 1_kpc;
@@ -100,17 +101,18 @@ std::size_t Picard3D::getArrayIndex3D(std::size_t xIndex, std::size_t yIndex,
 }
 
 void Picard3D::readDensity3D() {
-	// It is being assumed that the velocity of the cosmic rays is approximately
-	// the speed of light, but this is not true for low energy particles.
+	// TODO: It is being assumed that the velocity of the cosmic rays is
+	//       approximately the speed of light, but this is not true for low
+	//       energy particles.
 	constexpr double fluxToDensity =
 	    static_cast<double>(4_pi / (c_light * 1_GeV));
 
 	// Read A & Z from file
 	int numberOfNucleonsA, chargeNumberZ;
 	int attributeIndex = h5File->findAttributeIndex("A of particle");
-	h5File->readGlobalAttribute(attributeIndex, numberOfNucleonsA);
+	h5File->readAttributeFromDataGroup(attributeIndex, numberOfNucleonsA);
 	attributeIndex = h5File->findAttributeIndex("Z of particle");
-	h5File->readGlobalAttribute(attributeIndex, chargeNumberZ);
+	h5File->readAttributeFromDataGroup(attributeIndex, chargeNumberZ);
 
 	std::vector<int> datasetDimensions(3);
 	std::vector<float> datasetContent;
@@ -150,7 +152,7 @@ std::string Picard3D::getDatasetName(std::size_t energyIndex) {
 	datasetNameAttribute << "Name_om";
 	datasetNameAttribute << std::setfill('0') << std::setw(2) << energyIndex;
 	std::string datasetName;
-	h5File->readGlobalAttribute(datasetNameAttribute.str(), datasetName);
+	h5File->readAttributeFromDataGroup(datasetNameAttribute.str(), datasetName);
 	return datasetName;
 }
 

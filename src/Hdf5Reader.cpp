@@ -4,35 +4,35 @@
 #include <iostream>
 
 Hdf5Reader::Hdf5Reader(std::string filename)
-    : filename(std::move(filename)), dataGroup("/Data") {
+    : filename(std::move(filename)), dataGroupName("/Data") {
 	openFile();
 }
 
 void Hdf5Reader::openFile() {
-	hdf5File = H5Fopen(filename.c_str(), H5F_ACC_RDONLY, H5P_DEFAULT);
-	if (hdf5File == H5I_INVALID_HID) {
+	fileID = H5Fopen(filename.c_str(), H5F_ACC_RDONLY, H5P_DEFAULT);
+	if (fileID == H5I_INVALID_HID) {
 		std::cerr << "hermes: error: Couldn't open the HDF5 file '" << filename
 		          << "'." << std::endl;
 		std::exit(1);
 	}
-	h5Group = H5Gopen2(hdf5File, dataGroup.c_str(), H5P_DEFAULT);
-	if (h5Group == H5I_INVALID_HID) {
-		std::cerr << "hermes: error: Couldn't open the group '" << dataGroup
+	dataGroupID = H5Gopen2(fileID, dataGroupName.c_str(), H5P_DEFAULT);
+	if (dataGroupID == H5I_INVALID_HID) {
+		std::cerr << "hermes: error: Couldn't open the group '" << dataGroupName
 		          << "' of the HDF5 file '" << filename << "'." << std::endl;
 		std::exit(1);
 	}
 }
 
 void Hdf5Reader::closeFile() {
-	herr_t closeGroupError = H5Gclose(h5Group);
+	herr_t closeGroupError = H5Gclose(dataGroupID);
 	if (closeGroupError < 0) {
 		std::cerr << "hermes: warning: An error occurred while closing the "
 		             "group '"
-		          << dataGroup << "' of the HDF5 file '" << filename << "'."
+		          << dataGroupName << "' of the HDF5 file '" << filename << "'."
 		          << std::endl;
 	}
 
-	herr_t closeFileError = H5Fclose(hdf5File);
+	herr_t closeFileError = H5Fclose(fileID);
 	if (closeFileError < 0) {
 		std::cerr << "hermes: warning: An error occurred while closing the "
 		             "HDF5 file '"
@@ -43,11 +43,11 @@ void Hdf5Reader::closeFile() {
 Hdf5Reader::~Hdf5Reader() { closeFile(); }
 
 int Hdf5Reader::findAttributeIndex(const std::string &partOfTheAttributeName) {
-	int numberOfAttributes = H5Aget_num_attrs(h5Group);
+	int numberOfAttributes = H5Aget_num_attrs(dataGroupID);
 	assert(numberOfAttributes >= 0);
 	for (int attributeIndex = 0; attributeIndex < numberOfAttributes;
 	     ++attributeIndex) {
-		hid_t attributeID = openAttribute(h5Group, attributeIndex);
+		hid_t attributeID = openAttribute(dataGroupID, attributeIndex);
 		int maximumNameLength = 256;
 		char nameBuffer[maximumNameLength];
 		ssize_t nameLength =
@@ -67,7 +67,7 @@ int Hdf5Reader::findAttributeIndex(const std::string &partOfTheAttributeName) {
 void Hdf5Reader::readDataset(const std::string &datasetName,
                              std::vector<int> &datasetDimensions,
                              std::vector<float> &datasetContent) {
-	hid_t datasetID = H5Dopen2(h5Group, datasetName.c_str(), H5P_DEFAULT);
+	hid_t datasetID = H5Dopen2(dataGroupID, datasetName.c_str(), H5P_DEFAULT);
 	if (datasetID == H5I_INVALID_HID) {
 		std::cerr << "hermes: error: Couldn't open the dataset '" << datasetName
 		          << "' of the HDF5 file '" << filename << "'." << std::endl;
@@ -112,15 +112,15 @@ void Hdf5Reader::readDataset(const std::string &datasetName,
 	}
 }
 
-void Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
-                                     std::string &AttributeData) {
-	hid_t attributeID = openAttribute(h5Group, attributeName);
+void Hdf5Reader::readAttributeFromDataGroup(const std::string &attributeName,
+                                            std::string &AttributeData) {
+	hid_t attributeID = openAttribute(dataGroupID, attributeName);
 	char dataBuffer[MAXIMUM_STRING_LENGTH];
 	herr_t readError =
 	    H5Aread(attributeID, getHdf5DataType<std::string>(), &dataBuffer);
 	if (readError < 0) {
 		std::cerr << "hermes: error: Failed to read the attribute '"
-		          << attributeName << "' of the group '" << h5Group
+		          << attributeName << "' of the group '" << dataGroupID
 		          << "' and the HDF5 file '" << filename << "'." << std::endl;
 		std::exit(1);
 	}
@@ -128,8 +128,8 @@ void Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
 	closeAttribute(attributeID, attributeName);
 }
 
-hid_t Hdf5Reader::openAttribute(hid_t group, std::string attributeName) {
-	hid_t attributeID = H5Aopen(group, attributeName.c_str(), H5P_DEFAULT);
+hid_t Hdf5Reader::openAttribute(hid_t objectID, std::string attributeName) {
+	hid_t attributeID = H5Aopen(objectID, attributeName.c_str(), H5P_DEFAULT);
 	if (attributeID == H5I_INVALID_HID) {
 		std::cerr << "hermes: error: Failed to open the attribute '"
 		          << attributeName << "' of the HDF5 file '" << filename << "'."
@@ -139,8 +139,8 @@ hid_t Hdf5Reader::openAttribute(hid_t group, std::string attributeName) {
 	return attributeID;
 }
 
-hid_t Hdf5Reader::openAttribute(hid_t group, int attributeIndex) {
-	hid_t attributeID = H5Aopen_idx(group, attributeIndex);
+hid_t Hdf5Reader::openAttribute(hid_t objectID, int attributeIndex) {
+	hid_t attributeID = H5Aopen_idx(objectID, attributeIndex);
 	if (attributeID == H5I_INVALID_HID) {
 		std::cerr
 		    << "hermes: error: Failed to open the attribute with the index '"

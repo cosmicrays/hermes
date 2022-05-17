@@ -10,56 +10,56 @@ namespace hermes {
 std::string testFilePath = getDataPath(
     "CosmicRays/Picard_testing/Picard_testing_tfinal/Hydrogen_1.h5");
 
-TEST(Hdf5ReaderTest, ReadGlobalAttribute) {
+TEST(Hdf5ReaderTest, readAttributeFromDataGroup) {
 	Hdf5Reader reader(testFilePath);
 
 	std::string attributeName;
 
 	int aOfParticle8{};
 	attributeName = "A of particle 8";
-	reader.readGlobalAttribute("A of particle 8", aOfParticle8);
+	reader.readAttributeFromDataGroup("A of particle 8", aOfParticle8);
 	EXPECT_EQ(aOfParticle8, 1)
 	    << "Reading of the global attribute '" << attributeName << "' failed.";
 
 	int entries{};
 	attributeName = "Entries";
-	reader.readGlobalAttribute(attributeName, entries);
+	reader.readAttributeFromDataGroup(attributeName, entries);
 	EXPECT_EQ(entries, 31) << "Reading of the global attribute '"
 	                       << attributeName << "' failed.";
 
 	int kElectronsOfSpecies8{};
 	attributeName = "K-electrons of species 8";
-	reader.readGlobalAttribute(attributeName, kElectronsOfSpecies8);
+	reader.readAttributeFromDataGroup(attributeName, kElectronsOfSpecies8);
 	EXPECT_EQ(kElectronsOfSpecies8, 0)
 	    << "Reading of the global attribute '" << attributeName << "' failed.";
 
 	std::string datasetName;
 	attributeName = "Name_om00";
-	reader.readGlobalAttribute(attributeName, datasetName);
+	reader.readAttributeFromDataGroup(attributeName, datasetName);
 	EXPECT_EQ(datasetName, "Hydrogen_1_E00")
 	    << "Reading of the global attribute '" << attributeName << "' failed.";
 
 	int zOfParticle8{};
 	attributeName = "Z of particle 8";
-	reader.readGlobalAttribute(attributeName, zOfParticle8);
+	reader.readAttributeFromDataGroup(attributeName, zOfParticle8);
 	EXPECT_EQ(zOfParticle8, 1)
 	    << "Reading of the global attribute '" << attributeName << "' failed.";
 
 	double time{};
 	attributeName = "time";
-	reader.readGlobalAttribute(attributeName, time);
+	reader.readAttributeFromDataGroup(attributeName, time);
 	EXPECT_DOUBLE_EQ(time, 0.)
 	    << "Reading of the global attribute '" << attributeName << "' failed.";
 
 	int timestep{};
 	attributeName = "timestep";
-	reader.readGlobalAttribute(attributeName, timestep);
+	reader.readAttributeFromDataGroup(attributeName, timestep);
 	EXPECT_EQ(timestep, 0) << "Reading of the global attribute '"
 	                       << attributeName << "' failed.";
 
 	std::vector<double> yGridCentred;
 	attributeName = "yGridCentred";
-	reader.readGlobalAttribute(attributeName, yGridCentred);
+	reader.readAttributeFromDataGroup(attributeName, yGridCentred);
 	std::vector<double> yGridCentredExpected{
 	    -20,   -18.75, -17.5, -16.25, -15,   -13.75, -12.5, -11.25, -10,
 	    -8.75, -7.5,   -6.25, -5,     -3.75, -2.5,   -1.25, 0,      1.25,
@@ -100,7 +100,7 @@ TEST(Hdf5ReaderTest, FindAttributeIndex) {
 	EXPECT_NE(attributeIndex, -1)
 	    << "Finding the index of the attribute with '" << partOfTheAttributeName
 	    << "' in the name failed.";
-	reader.readGlobalAttribute(attributeIndex, aOfParticle8);
+	reader.readAttributeFromDataGroup(attributeIndex, aOfParticle8);
 	EXPECT_EQ(aOfParticle8, 1)
 	    << "Finding the index of the attribute with '" << partOfTheAttributeName
 	    << "' in the name failed.";
@@ -111,7 +111,7 @@ TEST(Hdf5ReaderTest, FindAttributeIndex) {
 	EXPECT_NE(attributeIndex, -1)
 	    << "Finding the index of the attribute with '" << partOfTheAttributeName
 	    << "' in the name failed.";
-	reader.readGlobalAttribute(attributeIndex, zOfParticle8);
+	reader.readAttributeFromDataGroup(attributeIndex, zOfParticle8);
 	EXPECT_EQ(zOfParticle8, 1)
 	    << "Finding the index of the attribute with '" << partOfTheAttributeName
 	    << "' in the name failed.";

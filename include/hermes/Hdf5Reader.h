@@ -85,18 +85,18 @@ class Hdf5Reader {
 	~Hdf5Reader();
 	/*!Read an attribute from the group '/Data' via the index*/
 	template <typename T>
-	void readGlobalAttribute(int attributeIndex, T &attributeData);
+	void readAttributeFromDataGroup(int attributeIndex, T &attributeData);
 	/*!Read an attribute from Data group*/
 	template <typename T>
-	void readGlobalAttribute(const std::string &attributeName,
-	                         T &attributeData);
+	void readAttributeFromDataGroup(const std::string &attributeName,
+	                                T &attributeData);
 	/*!Read a string attribute from Data group*/
-	void readGlobalAttribute(const std::string &attributeName,
-	                         std::string &AttributeData);
+	void readAttributeFromDataGroup(const std::string &attributeName,
+	                                std::string &AttributeData);
 	/*!Read an array of attribute from Data group*/
 	template <typename T>
-	void readGlobalAttribute(const std::string &attributeName,
-	                         std::vector<T> &attributeData);
+	void readAttributeFromDataGroup(const std::string &attributeName,
+	                                std::vector<T> &attributeData);
 	/*!Read an attribute related to a dataset */
 	template <typename T>
 	void readAttributeFromDataset(const std::string &datasetName,
@@ -112,18 +112,20 @@ class Hdf5Reader {
   private:
 	void openFile();
 	void closeFile();
-	hid_t openAttribute(hid_t group, std::string attributeName);
-	hid_t openAttribute(hid_t group, int attributeIndex);
+	hid_t openAttribute(hid_t objectID, std::string attributeName);
+	hid_t openAttribute(hid_t objectID, int attributeIndex);
 	void closeAttribute(hid_t attributeID, int attributeIndex);
 	void closeAttribute(hid_t attributeID, const std::string &attributeName);
 	std::string filename;
-	std::string dataGroup;
-	hid_t hdf5File{}, h5Group{};
+	std::string dataGroupName;
+	hid_t fileID{};
+	hid_t dataGroupID{};
 };
 
 template <typename T>
-void Hdf5Reader::readGlobalAttribute(int attributeIndex, T &attributeData) {
-	hid_t attributeID = openAttribute(h5Group, attributeIndex);
+void Hdf5Reader::readAttributeFromDataGroup(int attributeIndex,
+                                            T &attributeData) {
+	hid_t attributeID = openAttribute(dataGroupID, attributeIndex);
 	hid_t readError =
 	    H5Aread(attributeID, getHdf5DataType<T>(), &attributeData);
 	if (readError < 0) {
@@ -137,14 +139,14 @@ void Hdf5Reader::readGlobalAttribute(int attributeIndex, T &attributeData) {
 }
 
 template <typename T>
-void Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
-                                     T &attributeData) {
-	hid_t attributeID = openAttribute(h5Group, attributeName);
+void Hdf5Reader::readAttributeFromDataGroup(const std::string &attributeName,
+                                            T &attributeData) {
+	hid_t attributeID = openAttribute(dataGroupID, attributeName);
 	herr_t readError =
 	    H5Aread(attributeID, getHdf5DataType<T>(), &attributeData);
 	if (readError < 0) {
 		std::cerr << "hermes: error: Failed to read the attribute '"
-		          << attributeName << "' of the group '" << h5Group
+		          << attributeName << "' of the group '" << dataGroupID
 		          << "' and the HDF5 file '" << filename << "'." << std::endl;
 		std::exit(1);
 	}
@@ -152,9 +154,9 @@ void Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
 }
 
 template <typename T>
-void Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
-                                     std::vector<T> &attributeData) {
-	hid_t attributeID = openAttribute(h5Group, attributeName);
+void Hdf5Reader::readAttributeFromDataGroup(const std::string &attributeName,
+                                            std::vector<T> &attributeData) {
+	hid_t attributeID = openAttribute(dataGroupID, attributeName);
 	hid_t attributeSpace = H5Aget_space(attributeID);
 	assert(attributeSpace >= 0);
 	hssize_t numberOfEntries = H5Sget_simple_extent_npoints(attributeSpace);
@@ -163,7 +165,7 @@ void Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
 	herr_t readError = H5Aread(attributeID, getHdf5DataType<T>(), &dataBuffer);
 	if (readError < 0) {
 		std::cerr << "hermes: error: Failed to read the attribute '"
-		          << attributeName << "' of the group '" << h5Group
+		          << attributeName << "' of the group '" << dataGroupID
 		          << "' and the HDF5 file '" << filename << "'." << std::endl;
 		std::exit(1);
 	}
@@ -178,10 +180,10 @@ template <typename T>
 void Hdf5Reader::readAttributeFromDataset(const std::string &datasetName,
                                           const std::string &attributeName,
                                           T &attributeData) {
-	hid_t datasetID = H5Dopen2(h5Group, datasetName.c_str(), H5P_DEFAULT);
+	hid_t datasetID = H5Dopen2(dataGroupID, datasetName.c_str(), H5P_DEFAULT);
 	if (datasetID == H5I_INVALID_HID) {
 		std::cerr << "hermes: error: Failed to open the dataset '"
-		          << datasetName << "' of the HDF5 file '" << hdf5File << "'."
+		          << datasetName << "' of the HDF5 file '" << fileID << "'."
 		          << std::endl;
 		std::exit(1);
 	}
