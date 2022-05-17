@@ -10,18 +10,6 @@
 #include <vector>
 
 template <typename T>
-using Invoke = typename T::type;
-template <typename Condition>
-using negation = std::integral_constant<bool, !bool(Condition::value)>;
-template <typename Condition>
-using EnableIf = Invoke<std::enable_if<Condition::value>>;
-template <typename Condition>
-using DisableIf = EnableIf<negation<Condition>>;
-
-#define template_noPointer \
-	template <typename T, typename = DisableIf<std::is_pointer<T>>>
-
-template <typename T>
 static hid_t getHdf5DataType();
 
 template <>
@@ -94,19 +82,19 @@ class Hdf5Reader {
 	explicit Hdf5Reader(const std::string &filename);
 	hid_t openFile(const std::string &filename);
 	/*!Read an attribute from the group '/Data' via the index*/
-	template_noPointer hid_t readGlobalAttribute(int attributeIndex,
-	                                             T &attributeData);
+	template<typename T> hid_t readGlobalAttribute(int attributeIndex,
+	                                               T &attributeData);
 	/*!Read an attribute from Data group*/
-	template_noPointer hid_t
+	template<typename T> hid_t
 	readGlobalAttribute(const std::string &attributeName, T &attributeData);
 	/*!Read a string attribute from Data group*/
 	herr_t readGlobalAttribute(const std::string &attributeName,
 	                           std::string &AttributeData);
 	/*!Read an array of attribute from Data group*/
-	template_noPointer hid_t readGlobalAttribute(
+	template<typename T> hid_t readGlobalAttribute(
 	    const std::string &attributeName, std::vector<T> &attributeData);
 	/*!Read an attribute related to a dataset */
-	template_noPointer hid_t readAttributeFromDataset(
+	template<typename T> hid_t readAttributeFromDataset(
 	    const std::string &datasetName, const std::string &attributeName,
 	    T &attributeData);
 	/*!Find index of argument by using part of the name*/
@@ -121,7 +109,7 @@ class Hdf5Reader {
 	hid_t hdf5File{}, h5Group{};
 };
 
-template <typename T, typename>
+template<typename T>
 hid_t Hdf5Reader::readGlobalAttribute(int attributeIndex, T &attributeData) {
 	hid_t attributeID = H5Aopen_idx(h5Group, attributeIndex);
 	hid_t readError =
@@ -130,7 +118,7 @@ hid_t Hdf5Reader::readGlobalAttribute(int attributeIndex, T &attributeData) {
 	return readError;
 }
 
-template <typename T, typename>
+template<typename T>
 hid_t Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
                                       T &attributeData) {
 	hid_t attributeID = H5Aopen(h5Group, attributeName.c_str(), H5P_DEFAULT);
@@ -140,7 +128,7 @@ hid_t Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
 	return readError;
 }
 
-template <typename T, typename>
+template<typename T>
 hid_t Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
                                       std::vector<T> &attributeData) {
 	hid_t attributeID = H5Aopen(h5Group, attributeName.c_str(), H5P_DEFAULT);
@@ -156,7 +144,7 @@ hid_t Hdf5Reader::readGlobalAttribute(const std::string &attributeName,
 	return readError;
 }
 
-template <typename T, typename>
+template<typename T>
 hid_t Hdf5Reader::readAttributeFromDataset(const std::string &datasetName,
                                            const std::string &attributeName,
                                            T &attributeData) {
