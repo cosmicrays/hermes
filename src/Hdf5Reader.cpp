@@ -13,8 +13,7 @@ hid_t Hdf5Reader::openFile(const std::string &filename) {
 
 hid_t Hdf5Reader::closeFile() { return H5Fclose(hdf5File); }
 
-int Hdf5Reader::findAttributeIndex(
-    const std::string &partOfTheAttributeName) {
+int Hdf5Reader::findAttributeIndex(const std::string &partOfTheAttributeName) {
 	int numberOfAttributes = H5Aget_num_attrs(h5Group);
 	for (int attributeIndex = 0; attributeIndex < numberOfAttributes;
 	     ++attributeIndex) {
