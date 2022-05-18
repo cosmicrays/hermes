@@ -4,6 +4,7 @@
 
 #include <array>
 #include <cassert>
+#include <filesystem>
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -11,35 +12,68 @@
 
 #include "hermes/Common.h"
 
-#define DEFAULT_CR_FILE "CosmicRays/Picard_testing"
+#define DEFAULT_CR_DIRECTORY "CosmicRays/Picard_testing"
 
 namespace hermes { namespace cosmicrays {
 
-Picard3D::Picard3D(std::string filename, const PID &particleID)
-    : CosmicRayDensity(particleID), filename(std::move(filename)) {
+Picard3D::Picard3D(std::string cosmicRayFluxesDirectory, const PID &particleID)
+    : CosmicRayDensity(particleID),
+      cosmicRayFluxesDirectory(std::move(cosmicRayFluxesDirectory)) {
 	readFile();
 }
 
 Picard3D::Picard3D(const PID &particleID)
-    : CosmicRayDensity(particleID), filename(getDataPath(DEFAULT_CR_FILE)) {
+    : CosmicRayDensity(particleID),
+      cosmicRayFluxesDirectory(getDataPath(DEFAULT_CR_DIRECTORY)) {
 	readFile();
 }
 
 Picard3D::Picard3D(const std::vector<PID> &particleIDs)
-    : CosmicRayDensity(particleIDs), filename(getDataPath(DEFAULT_CR_FILE)) {
+    : CosmicRayDensity(particleIDs),
+      cosmicRayFluxesDirectory(getDataPath(DEFAULT_CR_DIRECTORY)) {
 	readFile();
 }
 
-Picard3D::Picard3D(std::string filename, const std::vector<PID> &particleIds)
-    : CosmicRayDensity(particleIds), filename(std::move(filename)) {
+Picard3D::Picard3D(std::string cosmicRayFluxesDirectory,
+                   const std::vector<PID> &particleIds)
+    : CosmicRayDensity(particleIds),
+      cosmicRayFluxesDirectory(std::move(cosmicRayFluxesDirectory)) {
 	readFile();
+}
+
+std::string Picard3D::findFinalTimeStepDirectory() {
+	auto files = std::filesystem::directory_iterator(cosmicRayFluxesDirectory);
+	std::string finalTimeStepDirectory;
+	for (const auto &file : files) {
+		std::string filePath = file.path();
+		auto searchResult = filePath.find("tfinal");
+		bool isFinalTimeStep = searchResult != std::string::npos;
+		if (isFinalTimeStep) {
+			finalTimeStepDirectory = filePath;
+			break;
+		}
+	}
+	return finalTimeStepDirectory;
 }
 
 void Picard3D::readFile() {
-	h5File = std::make_unique<Hdf5Reader>(filename);
-	readEnergyAxis();
-	readSpatialGrid3D();
-	readDensity3D();
+	std::string finalTimeStepDirectory = findFinalTimeStepDirectory();
+	auto speciesFiles =
+	    std::filesystem::directory_iterator(finalTimeStepDirectory);
+	bool gotEnergyAxisAndSpatialGrid{false};
+	for (const auto &speciesFile : speciesFiles) {
+		bool isH5File = speciesFile.path().extension() == ".h5";
+		if (!isH5File) {
+			continue;
+		}
+		h5File = std::make_unique<Hdf5Reader>(speciesFile.path());
+		if (!gotEnergyAxisAndSpatialGrid) {
+			readEnergyAxis();
+			readSpatialGrid3D();
+			gotEnergyAxisAndSpatialGrid = true;
+		}
+		readDensity3D();
+	}
 }
 
 void Picard3D::readEnergyAxis() {
