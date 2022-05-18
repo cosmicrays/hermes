@@ -8,7 +8,7 @@ set(HERMES_EXTRA_SOURCES)
 set(HERMES_EXTRA_INCLUDES)
 set(HERMES_EXTRA_LIBRARIES)
 
-set (CMAKE_CXX_STANDARD 14)
+set (CMAKE_CXX_STANDARD 17)
 cmake_policy(SET CMP0048 NEW)
 
 # Set default build-type to release to enable performance improvements
