@@ -77,15 +77,14 @@ void Picard3D::readFile() {
 }
 
 void Picard3D::readEnergyAxis() {
-	// TODO: This is wrong. Hermes needs the kinetic energy and not the total
-	//       energy. I guess that it needs the kinetic energy per nucleon?
+	// TODO: Does hermes need the kinetic energy per nucleon or by nucleus?
 	QEnergy energy;
 	h5File->readAttributeFromDataGroup("Entries", numberOfEnergies);
 	for (int energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
 		std::string datasetName(getDatasetName(energyIndex));
 		double energyValue;
-		h5File->readAttributeFromDatasetOfDataGroup(datasetName, "Etot",
-		                                            energyValue);
+		h5File->readAttributeFromDatasetOfDataGroup(
+		    datasetName, "kinetic energy per nucleon", energyValue);
 		energy = 1_MeV * energyValue;
 		energyRange.push_back(energy);
 		energyToIndex[energy] = energyIndex;
@@ -136,11 +135,7 @@ std::size_t Picard3D::getArrayIndex3D(std::size_t xIndex, std::size_t yIndex,
 }
 
 void Picard3D::readDensity3D() {
-	// TODO: It is being assumed that the velocity of the cosmic rays is
-	//       approximately the speed of light, but this is not true for low
-	//       energy particles.
-	constexpr double fluxToDensity =
-	    static_cast<double>(4_pi / (c_light * 1_GeV));
+	auto fluxToDensity = 4_pi * 1_sr / c_light;
 
 	// Read A & Z from file
 	int numberOfNucleonsA, chargeNumberZ;
@@ -164,17 +159,23 @@ void Picard3D::readDensity3D() {
 				     ++yIndex) {
 					for (std::size_t zIndex = 0; zIndex < numberOfZValues;
 					     ++zIndex) {
-						// cosmicRayFlux in MeV / (sr cm² s)
-						double cosmicRayFlux = datasetContent[getArrayIndex3D(
-						    xIndex, yIndex, zIndex)];
+						// cosmic ray flux x (kinetic energy per nucleon)² in
+						// MeV / (sr cm² s)
+						auto fluxTimesEnergySquared =
+						    datasetContent[getArrayIndex3D(xIndex, yIndex,
+						                                   zIndex)] *
+						    1_MeV / (1_sr * 1_cm2 * 1_s);
 
-						// conversion from MeV / (sr cm² s) to GeV / (sr m² s)
-						cosmicRayFlux *= 10.;
+						auto kineticEnergyPerNucleon = energyRange[energyIndex];
 
-						double density = fluxToDensity * cosmicRayFlux;
-						grid[energyIndex]->addValue(
-						    xIndex, yIndex, zIndex,
-						    static_cast<QPDensityPerEnergy>(density));
+						// cosmic ray flux
+						auto flux =
+						    fluxTimesEnergySquared /
+						    (kineticEnergyPerNucleon * kineticEnergyPerNucleon);
+
+						auto density = fluxToDensity * flux;
+						grid[energyIndex]->addValue(xIndex, yIndex, zIndex,
+						                            density);
 					}
 				}
 			}
