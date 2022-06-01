@@ -22,6 +22,7 @@ class Picard3D : public CosmicRayDensity {
   private:
 	std::string cosmicRayFluxesDirectory;
 	std::unique_ptr<Hdf5Reader> h5File;
+	std::string h5Filename;
 
 	std::string findFinalTimeStepDirectory();
 	void readFile();

@@ -72,6 +72,7 @@ void Picard3D::readFile() {
 			readSpatialGrid3D();
 			gotEnergyAxisAndSpatialGrid = true;
 		}
+		h5Filename = speciesFile.path().filename();
 		readDensity3D();
 	}
 }
@@ -174,8 +175,7 @@ void Picard3D::readDensity3D() {
 	std::vector<float> datasetContent;
 
 	if (isPIDEnabled(PID(chargeNumberZ, numberOfNucleonsA))) {
-		std::cerr << "hermes: info: reading species with Z = " << chargeNumberZ
-		          << " A = " << numberOfNucleonsA << std::endl;
+		std::cout << "hermes: info: reading file " << h5Filename << std::endl;
 		for (std::size_t energyIndex = 0; energyIndex < numberOfEnergies;
 		     ++energyIndex) {
 			std::string datasetName(getDatasetName(energyIndex));
@@ -185,8 +185,7 @@ void Picard3D::readDensity3D() {
 				     ++yIndex) {
 					for (std::size_t zIndex = 0; zIndex < numberOfZValues;
 					     ++zIndex) {
-						// cosmic ray flux x (kinetic energy per nucleon)² in
-						// MeV / (sr cm² s)
+						// cosmic ray flux x (kinetic energy per nucleon)²
 						auto fluxTimesEnergySquared =
 						    datasetContent[getArrayIndex3D(xIndex, yIndex,
 						                                   zIndex)] *
@@ -194,7 +193,6 @@ void Picard3D::readDensity3D() {
 
 						auto kineticEnergyPerNucleon = energyRange[energyIndex];
 
-						// cosmic ray flux
 						auto flux =
 						    fluxTimesEnergySquared /
 						    (kineticEnergyPerNucleon * kineticEnergyPerNucleon);
