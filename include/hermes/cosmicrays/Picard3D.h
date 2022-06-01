@@ -26,6 +26,7 @@ class Picard3D : public CosmicRayDensity {
 	std::string findFinalTimeStepDirectory();
 	void readFile();
 	void readEnergyAxis();
+	void evaluateEnergyScaleFactor();
 	void readSpatialGrid3D();
 	void readDensity3D();
 	std::size_t getArrayIndex3D(std::size_t xIndex, std::size_t yIndex,

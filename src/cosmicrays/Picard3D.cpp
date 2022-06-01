@@ -76,8 +76,33 @@ void Picard3D::readFile() {
 	}
 }
 
+void Picard3D::evaluateEnergyScaleFactor() {
+	std::vector<double> energyScaleFactors;
+	double evaluatedFactor;
+	for (int i = 0; i < (numberOfEnergies - 1); ++i) {
+		evaluatedFactor = std::log(static_cast<double>(energyRange[i + 1])) -
+		                  std::log(static_cast<double>(energyRange[i]));
+		energyScaleFactors.push_back(evaluatedFactor);
+	}
+	double tolerance = 1e-6;
+	bool constantOverAllEnergies = std::all_of(
+	    energyScaleFactors.begin(), energyScaleFactors.end(),
+	    [&](double const &currentFactor) {
+		    return std::abs(evaluatedFactor - currentFactor) < tolerance;
+	    });
+	if (!constantOverAllEnergies) {
+		std::cerr << "hermes: error: Picard3D: Could not determine the energy "
+		             "scale factor because it is not constant over all "
+		             "energies. Energy grid is not supported.\n";
+		std::exit(1);
+	} else {
+		energyScaleFactor = evaluatedFactor;
+		setScaleFactor(true);
+	}
+}
+
 void Picard3D::readEnergyAxis() {
-	// TODO: Does hermes need the kinetic energy per nucleon or by nucleus?
+	// TODO: Does hermes need the kinetic energy per nucleon or per nucleus?
 	QEnergy energy;
 	h5File->readAttributeFromDataGroup("Entries", numberOfEnergies);
 	for (int energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
@@ -89,6 +114,7 @@ void Picard3D::readEnergyAxis() {
 		energyRange.push_back(energy);
 		energyToIndex[energy] = energyIndex;
 	}
+	evaluateEnergyScaleFactor();
 }
 
 void Picard3D::readSpatialGrid3D() {
