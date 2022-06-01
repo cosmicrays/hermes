@@ -50,8 +50,9 @@ class Picard3D : public CosmicRayDensity {
   public:
 	explicit Picard3D(const PID &particleID);
 	explicit Picard3D(const std::vector<PID> &particleIDs);
-	Picard3D(std::string filename, const PID &particleID);
-	Picard3D(std::string filename, const std::vector<PID> &particleIds);
+	Picard3D(std::string cosmicRayFluxesDirectory, const PID &particleID);
+	Picard3D(std::string cosmicRayFluxesDirectory,
+	         const std::vector<PID> &particleIds);
 	QPDensityPerEnergy getDensityPerEnergy(
 	    const QEnergy &energy, const Vector3QLength &position) const override;
 	QPDensityPerEnergy getDensityPerEnergy(
