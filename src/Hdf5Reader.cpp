@@ -87,7 +87,7 @@ void Hdf5Reader::readDataset(const std::string &datasetName,
 		datasetDimensions[dimensionIndex] = dimensionsBuffer[dimensionIndex];
 	}
 
-	float rawData[numberOfEntries];
+	auto *rawData = new float[numberOfEntries];
 	herr_t readError = H5Dread(datasetID, H5T_NATIVE_FLOAT, H5S_ALL, H5S_ALL,
 	                           H5P_DEFAULT, rawData);
 	if (readError < 0) {
@@ -97,7 +97,6 @@ void Hdf5Reader::readDataset(const std::string &datasetName,
 		    << std::endl;
 		std::exit(1);
 	}
-
 	herr_t closeError = H5Dclose(datasetID);
 	if (closeError < 0) {
 		std::cerr
@@ -110,6 +109,7 @@ void Hdf5Reader::readDataset(const std::string &datasetName,
 	for (int entryIndex = 0; entryIndex < numberOfEntries; ++entryIndex) {
 		datasetData[entryIndex] = rawData[entryIndex];
 	}
+	delete[] rawData;
 }
 
 void Hdf5Reader::readAttributeFromDataGroup(const std::string &attributeName,
