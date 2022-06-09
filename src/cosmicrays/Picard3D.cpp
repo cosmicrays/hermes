@@ -81,8 +81,8 @@ void Picard3D::evaluateEnergyScaleFactor() {
 	std::vector<double> energyScaleFactors;
 	double evaluatedFactor;
 	for (int i = 0; i < (numberOfEnergies - 1); ++i) {
-		evaluatedFactor = std::log(static_cast<double>(energyRange[i + 1])) -
-		                  std::log(static_cast<double>(energyRange[i]));
+		evaluatedFactor = static_cast<double>(energyRange[i + 1]) /
+		                  static_cast<double>(energyRange[i]);
 		energyScaleFactors.push_back(evaluatedFactor);
 	}
 	double tolerance = 1e-6;
