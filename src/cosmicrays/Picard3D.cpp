@@ -7,6 +7,7 @@
 #include <filesystem>
 #include <iomanip>
 #include <iostream>
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -46,8 +47,8 @@ std::string Picard3D::findFinalTimeStepDirectory() {
 	std::string finalTimeStepDirectory;
 	for (const auto &file : files) {
 		std::string filePath = file.path();
-		auto searchResult = filePath.find("tfinal");
-		bool isFinalTimeStep = searchResult != std::string::npos;
+		bool isFinalTimeStep =
+		    std::regex_match(filePath, std::regex(".*_tfinal"));
 		if (isFinalTimeStep) {
 			finalTimeStepDirectory = filePath;
 			break;
