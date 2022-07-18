@@ -36,8 +36,8 @@ Picard3D::Picard3D(const std::vector<PID> &particleIDs)
 }
 
 Picard3D::Picard3D(std::string cosmicRayFluxesDirectory,
-                   const std::vector<PID> &particleIds)
-    : CosmicRayDensity(particleIds),
+                   const std::vector<PID> &particleIDs)
+    : CosmicRayDensity(particleIDs),
       cosmicRayFluxesDirectory(std::move(cosmicRayFluxesDirectory)) {
 	readFile();
 }

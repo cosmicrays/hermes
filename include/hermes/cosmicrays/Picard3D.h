@@ -49,11 +49,31 @@ class Picard3D : public CosmicRayDensity {
 	std::map<QEnergy, std::size_t> energyToIndex;
 
   public:
+	/**
+	 * Initializes Picard3D with the test cosmic ray fluxes. It's not
+	 * recommended to use that for an actual simulation.
+	 * @param particleID particle used for the simulation
+	 */
 	explicit Picard3D(const PID &particleID);
+	/**
+	 * Initializes Picard3D with the test cosmic ray fluxes. It's not
+	 * recommended to use that for an actual simulation.
+	 * @param particleIDs particles used for the simulation
+	 */
 	explicit Picard3D(const std::vector<PID> &particleIDs);
+	/**
+	 * @param cosmicRayFluxesDirectory directory that contains the simulation
+	 *                                 results from Picard
+	 * @param particleID particle used for the simulation
+	 */
 	Picard3D(std::string cosmicRayFluxesDirectory, const PID &particleID);
+	/**
+	 * @param cosmicRayFluxesDirectory directory that contains the simulation
+	 *                                 results from Picard
+	 * @param particleIDs particles used for the simulation
+	 */
 	Picard3D(std::string cosmicRayFluxesDirectory,
-	         const std::vector<PID> &particleIds);
+	         const std::vector<PID> &particleIDs);
 	QPDensityPerEnergy getDensityPerEnergy(
 	    const QEnergy &energy, const Vector3QLength &position) const override;
 	QPDensityPerEnergy getDensityPerEnergy(
