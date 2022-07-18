@@ -149,19 +149,22 @@ void Picard3D::readSpatialGrid3D() {
 	numberOfYValues = yCenter.size();
 	numberOfZValues = zCenter.size();
 
-	QLength xGridSize = (xMax - xMin) / (numberOfXValues - 1);
-	QLength yGridSize = (yMax - yMin) / (numberOfYValues - 1);
-	QLength zGridSize = (zMax - zMin) / (numberOfZValues - 1);
+	QLength xSpacing = (xMax - xMin) / (numberOfXValues - 1);
+	QLength ySpacing = (yMax - yMin) / (numberOfYValues - 1);
+	QLength zSpacing = (zMax - zMin) / (numberOfZValues - 1);
 
-	Vector3d origin(static_cast<double>(xMin), static_cast<double>(yMin),
-	                static_cast<double>(zMin));
-	Vector3d spacing(static_cast<double>(xGridSize),
-	                 static_cast<double>(yGridSize),
-	                 static_cast<double>(zGridSize));
+	Vector3d spacing(static_cast<double>(xSpacing),
+	                 static_cast<double>(ySpacing),
+	                 static_cast<double>(zSpacing));
+
+	Vector3d gridOrigin(static_cast<double>(xMin), static_cast<double>(yMin),
+	                    static_cast<double>(zMin));
+
+	Vector3d volumeOrigin = gridOrigin - spacing * 0.5;
 
 	for (int energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
 		grid.push_back(std::make_unique<ScalarGridQPDensityPerEnergy>(
-		    ScalarGridQPDensityPerEnergy(origin, numberOfXValues,
+		    ScalarGridQPDensityPerEnergy(volumeOrigin, numberOfXValues,
 		                                 numberOfYValues, numberOfZValues,
 		                                 spacing)));
 	}
