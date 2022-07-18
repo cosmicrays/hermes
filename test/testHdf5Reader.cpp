@@ -85,7 +85,7 @@ TEST(Hdf5ReaderTest, ReadAttributeFromDataset) {
 	attributeName = "Etot";
 	reader.readAttributeFromDatasetOfDataGroup(datasetName, attributeName,
 	                                           totalEnergy);
-	EXPECT_DOUBLE_EQ(totalEnergy, 956.75048828125)
+	EXPECT_DOUBLE_EQ(totalEnergy, 956.75049597422299)
 	    << "Reading of the attribute '" << attributeName
 	    << "' from the dataset '" << datasetName << "' failed.";
 }
@@ -136,19 +136,19 @@ TEST(Hdf5ReaderTest, ReadDataset) {
 
 	size_t index = getIndex(16, 14, 8, datasetDimensions);
 	float datasetValue = datasetContent[index];
-	EXPECT_FLOAT_EQ(datasetValue, 1.3102846)
+	EXPECT_FLOAT_EQ(datasetValue, 1.1305535)
 	    << "Reading of the contents from the dataset '" << datasetName
 	    << "' failed.";
 
 	index = getIndex(13, 19, 8, datasetDimensions);
 	datasetValue = datasetContent[index];
-	EXPECT_FLOAT_EQ(datasetValue, 0.56425923)
+	EXPECT_FLOAT_EQ(datasetValue, 0.48015749)
 	    << "Reading of the contents from the dataset '" << datasetName
 	    << "' failed.";
 
 	index = getIndex(12, 20, 3, datasetDimensions);
 	datasetValue = datasetContent[index];
-	EXPECT_FLOAT_EQ(datasetValue, 0.013834016)
+	EXPECT_FLOAT_EQ(datasetValue, 0.013993724)
 	    << "Reading of the contents from the dataset '" << datasetName
 	    << "' failed.";
 }
