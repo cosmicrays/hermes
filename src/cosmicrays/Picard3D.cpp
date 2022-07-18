@@ -136,14 +136,14 @@ void Picard3D::readSpatialGrid3D() {
 	h5File->readAttributeFromDataGroup("yGridCentred", yCenter);
 	h5File->readAttributeFromDataGroup("zGridCentred", zCenter);
 
-	xMin = xCenter[0] * 1_kpc;
-	xMax = xCenter[xCenter.size() - 1] * 1_kpc;
+	xMin = xCenter.front() * 1_kpc;
+	xMax = xCenter.back() * 1_kpc;
 
-	yMin = yCenter[0] * 1_kpc;
-	yMax = yCenter[yCenter.size() - 1] * 1_kpc;
+	yMin = yCenter.front() * 1_kpc;
+	yMax = yCenter.back() * 1_kpc;
 
-	zMin = zCenter[0] * 1_kpc;
-	zMax = zCenter[zCenter.size() - 1] * 1_kpc;
+	zMin = zCenter.front() * 1_kpc;
+	zMax = zCenter.back() * 1_kpc;
 
 	numberOfXValues = xCenter.size();
 	numberOfYValues = yCenter.size();
