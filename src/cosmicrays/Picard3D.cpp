@@ -71,8 +71,11 @@ void Picard3D::readFile() {
 	    std::filesystem::directory_iterator(finalTimeStepDirectory);
 	bool gotEnergyAxisAndSpatialGrid{false};
 	for (const auto &speciesFile : speciesFiles) {
-		bool isH5File = speciesFile.path().extension() == ".h5";
-		if (!isH5File) {
+		const auto &path = speciesFile.path();
+		bool isH5File = path.extension() == ".h5";
+		bool isGammaRayFile = std::regex_match(std::string(path.filename()),
+		                                       std::regex("^Emiss_.*h5"));
+		if (!isH5File || isGammaRayFile) {
 			continue;
 		}
 		h5File = std::make_unique<Hdf5Reader>(speciesFile.path());
