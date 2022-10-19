@@ -115,7 +115,6 @@ void Picard3D::evaluateEnergyScaleFactor() {
 }
 
 void Picard3D::readEnergyAxis() {
-	// TODO: Does hermes need the kinetic energy per nucleon or per nucleus?
 	QEnergy energy;
 	h5File->readAttributeFromDataGroup("Entries", numberOfEnergies);
 	for (int energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
