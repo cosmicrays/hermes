@@ -1,3 +1,4 @@
+#ifdef HERMES_HAVE_HDF5
 #include "gtest/gtest.h"
 #include "hermes.h"
 
@@ -46,3 +47,5 @@ TEST(Picard3DTest, testDensities) {
 }
 
 }  // namespace hermes
+
+#endif
