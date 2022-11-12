@@ -133,7 +133,7 @@ if(ENABLE_SYS_CFITSIO)
 endif(ENABLE_SYS_CFITSIO)
 
 # HDF5 for importing cosmic ray fluxes from Picard
-option(ENABLE_SYS_HDF5 "System HDF5 for hdf5 input" ON)
+option(ENABLE_SYS_HDF5 "System HDF5 for hdf5 input" OFF)
 if(ENABLE_SYS_HDF5)
     find_package(HDF5 REQUIRED)
     list(APPEND HERMES_EXTRA_INCLUDES ${HDF5_INCLUDE_DIR})
