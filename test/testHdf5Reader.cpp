@@ -8,7 +8,7 @@
 namespace hermes {
 
 std::string testFilePath = getDataPath(
-    "CosmicRays/Picard_testing/Picard_testing_tfinal/Hydrogen_1.h5");
+    "CosmicRays/Picard3DTest/Hydrogen_1.h5");
 
 TEST(Hdf5ReaderTest, readAttributeFromDataGroup) {
 	Hdf5Reader reader(testFilePath);

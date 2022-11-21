@@ -13,7 +13,7 @@
 
 #include "hermes/Common.h"
 
-#define DEFAULT_CR_DIRECTORY "CosmicRays/Picard_testing"
+#define DEFAULT_CR_DIRECTORY "CosmicRays/Picard3DTest"
 
 namespace hermes { namespace cosmicrays {
 
@@ -42,31 +42,8 @@ Picard3D::Picard3D(std::string cosmicRayFluxesDirectory,
 	readFile();
 }
 
-std::string Picard3D::findFinalTimeStepDirectory() {
-	auto files = std::filesystem::directory_iterator(cosmicRayFluxesDirectory);
-	std::string finalTimeStepDirectory;
-	bool foundDirectory{false};
-	for (const auto &file : files) {
-		std::string filePath = file.path();
-		bool isFinalTimeStep =
-		    std::regex_match(filePath, std::regex(".*_tfinal"));
-		if (isFinalTimeStep) {
-			foundDirectory = true;
-			finalTimeStepDirectory = filePath;
-			break;
-		}
-	}
-	if (!foundDirectory) {
-		std::cerr << "hermes: error: Couldn't find the directory *_tfinal in "
-		             "the specified cosmic ray fluxes directory '"
-		          << cosmicRayFluxesDirectory << "'." << std::endl;
-		std::exit(1);
-	}
-	return finalTimeStepDirectory;
-}
-
 void Picard3D::readFile() {
-	std::string finalTimeStepDirectory = findFinalTimeStepDirectory();
+	std::string finalTimeStepDirectory = cosmicRayFluxesDirectory;
 	auto speciesFiles =
 	    std::filesystem::directory_iterator(finalTimeStepDirectory);
 	bool gotEnergyAxisAndSpatialGrid{false};
