@@ -34,7 +34,7 @@ jobs:
     
     - name: Install dependencies on Ubuntu
       if: ${{ contains(env.OS, 'ubuntu') }}
-      run: sudo apt-get install -y libgsl-dev libfftw3-dev libcfitsio-dev libmuparser-dev
+      run: sudo apt-get install -y libgsl-dev libfftw3-dev libcfitsio-dev libmuparser-dev libhdf5-dev
       
     - name: Install dependencies on MacOS
       if: ${{ contains(env.OS, 'macos') }}
@@ -42,6 +42,7 @@ jobs:
          HOMEBREW_NO_AUTO_UPDATE=1 brew install python3;
          HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
          HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
+         HOMEBREW_NO_AUTO_UPDATE=1 brew install hdf5;
          HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc;
          HOMEBREW_NO_AUTO_UPDATE=1 brew install jq;
          HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
