@@ -9,7 +9,7 @@ SET(PYTHONINTERP_FOUND TRUE)
 
 # find python include path
 execute_process(
-	COMMAND ${PYTHON_EXECUTABLE} -c "import sys; from distutils import sysconfig; sys.stdout.write(sysconfig.get_python_inc())"
+	COMMAND ${PYTHON_EXECUTABLE} -c "import sys; import sysconfig; sys.stdout.write(sysconfig.get_config_var(\"INCLUDEPY\"))"
 	OUTPUT_VARIABLE PYTHON_INCLUDE_PATH
 	OUTPUT_STRIP_TRAILING_WHITESPACE
 )
@@ -53,7 +53,7 @@ ENDIF(APPLE)
 
 IF(MSVC)
 	execute_process(
-		COMMAND ${PYTHON_EXECUTABLE} -c "import sys; from distutils import sysconfig; import os; prefix= sysconfig.get_config_var('prefix'); ver = sysconfig.get_python_version().replace('.', ''); lib = os.path.join(prefix,'libs\\python'+ver+'.lib'); sys.stdout.write(lib)"
+		COMMAND ${PYTHON_EXECUTABLE} -c "import sys; import sysconfig; import os; prefix= sysconfig.get_config_var('prefix'); ver = sysconfig.get_python_version().replace('.', ''); lib = os.path.join(prefix,'libs\\python'+ver+'.lib'); sys.stdout.write(lib)"
 		OUTPUT_VARIABLE PYTHON_LIBRARIES
 		OUTPUT_STRIP_TRAILING_WHITESPACE
 	)
@@ -61,7 +61,7 @@ ENDIF(MSVC)
 
 IF (MINGW)
 	execute_process(
-		COMMAND ${PYTHON_EXECUTABLE} -c "import sys; from distutils import sysconfig; import os; prefix= sysconfig.get_config_var('prefix'); ver = sysconfig.get_python_version().replace('.', ''); lib = os.path.join(prefix,'libs\\libpython'+ver+'.a'); sys.stdout.write(lib)"
+		COMMAND ${PYTHON_EXECUTABLE} -c "import sys; import sysconfig; import os; prefix= sysconfig.get_config_var('prefix'); ver = sysconfig.get_python_version().replace('.', ''); lib = os.path.join(prefix,'libs\\libpython'+ver+'.a'); sys.stdout.write(lib)"
 		OUTPUT_VARIABLE PYTHON_LIBRARIES
 		OUTPUT_STRIP_TRAILING_WHITESPACE
 	)
@@ -69,7 +69,7 @@ ENDIF(MINGW)
 
 IF(NOT OSX_USE_PYTHON_FRAMEWORK AND NOT PYTHON_LIBRARIES AND NOT MSVC AND NOT MINGW)
 	execute_process(
-		COMMAND ${PYTHON_EXECUTABLE} -c "import sys; from distutils import sysconfig; import os; libname = sysconfig.get_config_var('LDLIBRARY'); libdir = sysconfig.get_config_var('LIBPL'); lib = os.path.join(libdir,libname); out = lib if os.path.exists(lib) else os.path.join(libdir, sysconfig.get_config_var('LIBRARY')); sys.stdout.write(out);"
+		COMMAND ${PYTHON_EXECUTABLE} -c "import sys; import sysconfig; import os; libname = sysconfig.get_config_var('LDLIBRARY'); libdir = sysconfig.get_config_var('LIBPL'); lib = os.path.join(libdir,libname); out = lib if os.path.exists(lib) else os.path.join(libdir, sysconfig.get_config_var('LIBRARY')); sys.stdout.write(out);"
 		OUTPUT_VARIABLE PYTHON_LIBRARIES
 		OUTPUT_STRIP_TRAILING_WHITESPACE
 	)
@@ -77,7 +77,7 @@ ENDIF(NOT OSX_USE_PYTHON_FRAMEWORK AND NOT PYTHON_LIBRARIES AND NOT MSVC AND NOT
 
 #find the site package destinaton 
 execute_process(
-	COMMAND ${PYTHON_EXECUTABLE} -c "import sys; from distutils import sysconfig; sys.stdout.write(sysconfig.get_python_lib(1,0,prefix='${CMAKE_INSTALL_PREFIX}'))"
+	COMMAND ${PYTHON_EXECUTABLE} -c "import sys; import sysconfig; sys.stdout.write(sysconfig.get_path('platlib'))"
 	OUTPUT_VARIABLE PYTHON_SITE_PACKAGES
 	OUTPUT_STRIP_TRAILING_WHITESPACE
 )
