@@ -8,7 +8,7 @@ set(HERMES_EXTRA_SOURCES)
 set(HERMES_EXTRA_INCLUDES)
 set(HERMES_EXTRA_LIBRARIES)
 
-set (CMAKE_CXX_STANDARD 14)
+set (CMAKE_CXX_STANDARD 17)
 cmake_policy(SET CMP0048 NEW)
 
 # Set default build-type to release to enable performance improvements
@@ -131,6 +131,23 @@ if(ENABLE_SYS_CFITSIO)
         add_definitions(-DHERMES_HAVE_CFITSIO)
     endif(CFITSIO_FOUND)
 endif(ENABLE_SYS_CFITSIO)
+
+# HDF5 for importing cosmic ray fluxes from Picard
+option(ENABLE_SYS_HDF5 "System HDF5 for hdf5 input" ON)
+if(ENABLE_SYS_HDF5)
+    find_package(HDF5)
+    if(${HDF5_FOUND})
+        list(APPEND HERMES_EXTRA_INCLUDES ${HDF5_INCLUDE_DIR})
+        list(APPEND HERMES_EXTRA_LIBRARIES ${HDF5_LIBRARIES})
+        MESSAGE(STATUS "Parallel hdf5: ${HDF5_IS_PARALLEL} ")
+        if(${HDF5_IS_PARALLEL})
+            find_package(MPI)
+            list(APPEND HERMES_EXTRA_INCLUDES ${MPI_CXX_INCLUDE_PATH})
+            list(APPEND HERMES_EXTRA_LIBRARIES ${MPI_CXX_LIBRARIES})
+        endif(${HDF5_IS_PARALLEL})
+        add_definitions(-DHERMES_HAVE_HDF5)
+    endif(${HDF5_FOUND})
+endif(ENABLE_SYS_HDF5)
 
 # kiss (provided)
 add_subdirectory(lib/kiss)
@@ -266,6 +283,7 @@ add_library(hermes SHARED
     src/FITSWrapper.cpp
     src/GridTools.cpp
     src/HEALPixBits.cpp
+    src/Hdf5Reader.cpp
     src/ProgressBar.cpp
     src/Random.cpp
     src/Signals.cpp
@@ -275,6 +293,7 @@ add_library(hermes SHARED
     src/cosmicrays/Dragon2D.cpp
     src/cosmicrays/Dragon3D.cpp
     src/cosmicrays/DummyCR.cpp
+    src/cosmicrays/Picard3D.cpp
     src/cosmicrays/SimpleCR.cpp
     src/cosmicrays/Sun08.cpp
     src/cosmicrays/WMAP07.cpp
@@ -401,6 +420,14 @@ endif(DOXYGEN_FOUND AND SPHINX_EXECUTABLE)
 # ----------------------------------------------------------------------------
 if(ENABLE_TESTING)
     enable_testing()
+
+    add_executable(testPicard3D test/testPicard3D.cpp)
+    target_link_libraries(testPicard3D hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+    add_test(testPicard3D testPicard3D)
+
+    add_executable(testHdf5Reader test/testHdf5Reader.cpp)
+    target_link_libraries(testHdf5Reader hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+    add_test(testHdf5Reader testHdf5Reader)
 
     add_executable(testUnits test/testUnits.cpp)
     target_link_libraries(testUnits hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
