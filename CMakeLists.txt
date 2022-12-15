@@ -309,6 +309,7 @@ add_library(hermes SHARED
     src/integrators/RotationMeasureIntegrator.cpp
     src/integrators/SynchroAbsorptionIntegrator.cpp
     src/integrators/SynchroIntegrator.cpp
+    src/interactions/AAfragGamma.cpp
     src/interactions/BreitWheeler.cpp
     src/interactions/BremsstrahlungGALPROP.cpp
     src/interactions/BremsstrahlungTsai74.cpp

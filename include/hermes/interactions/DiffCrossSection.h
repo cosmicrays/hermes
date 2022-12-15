@@ -23,12 +23,11 @@ class DifferentialCrossSection {
 	void enableCaching();
 	void disableCaching();
 
-	virtual QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton,
+	virtual QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_gamma) const;
+	virtual QDiffCrossSection getDiffCrossSection(const QEnergy &E_electron, const QEnergy &E_photon,
 	                                              const QEnergy &E_gamma) const;
-	virtual QDiffCrossSection getDiffCrossSection(const QEnergy &E_electron,
-	                                              const QEnergy &E_photon,
-	                                              const QEnergy &E_gamma) const;
-	virtual QNumber getSigma(const PID &projectile, const PID &target) const;
+	virtual QDiffCrossSection getAADiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proton,
+	                                                const QEnergy &E_gamma) const;
 };
 
 /** @}*/
