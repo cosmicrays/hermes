@@ -11,6 +11,7 @@ secondary production in proton-proton, proton-nucleus and nucleus-nucleus intera
 */
 
 #include <memory>
+#include <vector>
 
 #include "hermes/interactions/DiffCrossSection.h"
 
@@ -20,13 +21,23 @@ namespace hermes { namespace interactions {
  * @{
  */
 
+enum class AAfragParticle { GAMMA, NUS };
+
 class AAfragGamma : public DifferentialCrossSection {
+  private:
+	std::string filename;
+	std::vector<double> xs_pp;
+	std::vector<double> xs_pHe;
+	std::vector<double> xs_Hep;
+	std::vector<double> xs_HeHe;
+	void loadData();
+
   public:
-	AAfragGamma();
+	AAfragGamma(AAfragParticle particle);
 	QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_gamma) const override;
+	QDiffCrossSection getAADiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proton,
+	                                        const QEnergy &E_gamma) const override;
 };
-
 /** @}*/
-}}  // namespace hermes::interactions
-
+}}      // namespace hermes::interactions
 #endif  // HERMES_AAFRAGGAMMA_H
