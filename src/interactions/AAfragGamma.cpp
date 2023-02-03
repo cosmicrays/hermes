@@ -44,7 +44,7 @@ void AAfragGamma::loadData() {
 		xs_HeHe.push_back(xs_hehe_i);
 	}
 	infile.close();
-	if (xs_pp.size() != XSIZE * YSIZE) throw std::runtime_error("hermes: error in reading AAfragGamma.");
+	if (xs_pp.size() != XSIZE * YSIZE) throw std::runtime_error("hermes: error in reading AAfragGamma table.");
 }
 
 QDiffCrossSection AAfragGamma::getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_gamma) const {
