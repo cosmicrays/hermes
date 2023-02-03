@@ -19,28 +19,14 @@
 namespace hermes { namespace interactions {
 
 AAfragGamma::AAfragGamma(AAfragParticle particle) : DifferentialCrossSection() {
-	// if (particle == AAfragParticle::GAMMA) {
-	// 	filename = getDataPath(DEFAULT_GAMMASPECTRUM_FILE);
-	// } else {
-	filename = getDataPath(DEFAULT_NUSPECTRUM_FILE);
-	//}
-	loadData();
-	for (double x = 1e-4; x < 1; x *= 1.1) {
-		std::cout << std::scientific << x << "\t";
-		auto E = 5_GeV;
-		auto units = 1_mbarn;
-		std::cout << E * getAADiffCrossSection(Proton, Proton, E, x * E) / units << "\t";
-		E = 20_GeV;
-		std::cout << E * getAADiffCrossSection(Proton, Proton, E, x * E) / units << "\t";
-		E = 100_GeV;
-		std::cout << E * getAADiffCrossSection(Proton, Proton, E, x * E) / units << "\t";
-		E = 1_TeV;
-		std::cout << E * getAADiffCrossSection(Proton, Proton, E, x * E) / units << "\t";
-		E = 10_TeV;
-		std::cout << E * getAADiffCrossSection(Proton, Proton, E, x * E) / units << "\t";
-		std::cout << "\n";
+	if (particle == AAfragParticle::GAMMA) {
+		filename = getDataPath(DEFAULT_GAMMASPECTRUM_FILE);
+	} else {
+		filename = getDataPath(DEFAULT_NUSPECTRUM_FILE);
 	}
+	loadData();
 }
+
 void AAfragGamma::loadData() {
 	std::ifstream infile(filename.c_str());
 	if (!infile.good()) throw std::runtime_error("hermes::AAfragGamma: could not open file " + filename);
@@ -87,15 +73,27 @@ QDiffCrossSection AAfragGamma::getAADiffCrossSection(const PID &projectile, cons
 	auto indx = [](size_t i, size_t j) { return j + YSIZE * i; };
 
 	auto value = 0.;
-	//   f(0,0) (1 - x) (1 - y) +
-	value += xs_pp.at(indx(ix, iy)) * fX * fY;
-	//   f(1,0) x (1 - y) +
-	value += xs_pp.at(indx(ix + 1, iy)) * fx * fY;
-	//   f(0,1) (1 - x) y +
-	value += xs_pp.at(indx(ix, iy + 1)) * fX * fy;
-	//   f(1,1) x y +
-	value += xs_pp.at(indx(ix + 1, iy + 1)) * fx * fy;
-
+	if (projectile == Proton && target == Proton) {
+		value += xs_pp.at(indx(ix, iy)) * fX * fY;
+		value += xs_pp.at(indx(ix + 1, iy)) * fx * fY;
+		value += xs_pp.at(indx(ix, iy + 1)) * fX * fy;
+		value += xs_pp.at(indx(ix + 1, iy + 1)) * fx * fy;
+	} else if (projectile == Proton && target == Helium) {
+		value += xs_pHe.at(indx(ix, iy)) * fX * fY;
+		value += xs_pHe.at(indx(ix + 1, iy)) * fx * fY;
+		value += xs_pHe.at(indx(ix, iy + 1)) * fX * fy;
+		value += xs_pHe.at(indx(ix + 1, iy + 1)) * fx * fy;
+	} else if (projectile == Helium && target == Proton) {
+		value += xs_Hep.at(indx(ix, iy)) * fX * fY;
+		value += xs_Hep.at(indx(ix + 1, iy)) * fx * fY;
+		value += xs_Hep.at(indx(ix, iy + 1)) * fX * fy;
+		value += xs_Hep.at(indx(ix + 1, iy + 1)) * fx * fy;
+	} else if (projectile == Helium && target == Helium) {
+		value += xs_HeHe.at(indx(ix, iy)) * fX * fY;
+		value += xs_HeHe.at(indx(ix + 1, iy)) * fx * fY;
+		value += xs_HeHe.at(indx(ix, iy + 1)) * fX * fy;
+		value += xs_HeHe.at(indx(ix + 1, iy + 1)) * fx * fy;
+	}
 	return value * 1_mbarn / 1_GeV;
 }
 
