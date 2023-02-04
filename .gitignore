@@ -38,6 +38,7 @@ build/*
 doc/api/*
 .coverage
 *.dump
+*.DS_Store
 
 # Libraries
 
