@@ -15,29 +15,41 @@ secondary production in proton-proton, proton-nucleus and nucleus-nucleus intera
 
 #include "hermes/interactions/DiffCrossSection.h"
 
+#define DEFAULT_GAMMASPECTRUM_FILE "Interactions/AAfrag2021Gamma.txt.gz"
+#define DEFAULT_NUSPECTRUM_FILE "Interactions/AAfrag2021Neutrino.txt.gz"
+
 namespace hermes { namespace interactions {
 /**
  * \addtogroup Interactions
  * @{
  */
 
-enum class AAfragParticle { GAMMA, NUS };
-
-class AAfragGamma : public DifferentialCrossSection {
-  private:
-	std::string filename;
+class AAfragXsecs : public DifferentialCrossSection {
+  protected:
 	std::vector<double> xs_pp;
 	std::vector<double> xs_pHe;
 	std::vector<double> xs_Hep;
 	std::vector<double> xs_HeHe;
-	void loadData();
+	void loadData(const std::string &filename);
 
   public:
-	AAfragGamma(AAfragParticle particle);
+	AAfragXsecs(const std::string &filename);
 	QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_gamma) const override;
-	QDiffCrossSection getAADiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proton,
-	                                        const QEnergy &E_gamma) const override;
+	QDiffCrossSection getDiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proj,
+	                                      const QEnergy &E_secondary) const override;
 };
+
+class AAfragGamma final : public AAfragXsecs {
+  public:
+	AAfragGamma() : AAfragXsecs(DEFAULT_GAMMASPECTRUM_FILE) {}
+};
+
+class AAfragNeutrino final : public AAfragXsecs {
+  public:
+	AAfragNeutrino() : AAfragXsecs(DEFAULT_NUSPECTRUM_FILE) {}
+};
+
 /** @}*/
+
 }}      // namespace hermes::interactions
 #endif  // HERMES_AAFRAGGAMMA_H

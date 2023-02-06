@@ -7,8 +7,6 @@
 
 #include "hermes/Common.h"
 
-#define DEFAULT_GAMMASPECTRUM_FILE "Interactions/AAfrag2021Gamma.txt.gz"
-#define DEFAULT_NUSPECTRUM_FILE "Interactions/AAfrag2021Neutrino.txt.gz"
 #define XSIZE 1024
 #define YSIZE 768
 #define minLogEta -5
@@ -18,16 +16,16 @@
 
 namespace hermes { namespace interactions {
 
-AAfragGamma::AAfragGamma(AAfragParticle particle) : DifferentialCrossSection() {
-	if (particle == AAfragParticle::GAMMA) {
-		filename = getDataPath(DEFAULT_GAMMASPECTRUM_FILE);
-	} else {
-		filename = getDataPath(DEFAULT_NUSPECTRUM_FILE);
-	}
-	loadData();
+AAfragXsecs::AAfragXsecs(const std::string &filename) : DifferentialCrossSection() {
+	// if (particle == AAfragParticle::GAMMA) {
+	// 	filename = getDataPath(DEFAULT_GAMMASPECTRUM_FILE);
+	// } else {
+	// 	filename = getDataPath(DEFAULT_NUSPECTRUM_FILE);
+	// }
+	loadData(getDataPath(filename));
 }
 
-void AAfragGamma::loadData() {
+void AAfragXsecs::loadData(const std::string &filename) {
 	std::ifstream infile(filename.c_str());
 	if (!infile.good()) throw std::runtime_error("hermes::AAfragGamma: could not open file " + filename);
 	std::istream *in = &infile;
@@ -47,15 +45,15 @@ void AAfragGamma::loadData() {
 	if (xs_pp.size() != XSIZE * YSIZE) throw std::runtime_error("hermes: error in reading AAfragGamma table.");
 }
 
-QDiffCrossSection AAfragGamma::getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_gamma) const {
+QDiffCrossSection AAfragXsecs::getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_gamma) const {
 	if (E_gamma > E_proton) return QDiffCrossSection(0);
 	return QDiffCrossSection(0.);
 }
 
-QDiffCrossSection AAfragGamma::getAADiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proton,
-                                                     const QEnergy &E_gamma) const {
-	auto x = std::log10(static_cast<double>(E_proton / 1_GeV));
-	auto y = std::log10(static_cast<double>(E_gamma / E_proton));
+QDiffCrossSection AAfragXsecs::getDiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proj,
+                                                   const QEnergy &E_secondary) const {
+	auto x = std::log10(static_cast<double>(E_proj / 1_GeV));
+	auto y = std::log10(static_cast<double>(E_secondary / E_proj));
 	if (x < minLogProjEnergy || x > maxLogProjEnergy) return QDiffCrossSection(0.);
 	if (y < minLogEta || y > maxLogEta) return QDiffCrossSection(0.);
 

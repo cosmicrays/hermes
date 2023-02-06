@@ -20,8 +20,9 @@ namespace hermes { namespace interactions {
 class KelnerAharonianNeutrino : public DifferentialCrossSection {
   public:
 	KelnerAharonianNeutrino();
-	QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton,
-	                                      const QEnergy &E_nu) const override;
+	QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_nu) const override;
+	QDiffCrossSection getDiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proj,
+	                                      const QEnergy &E_secondary) const override;
 };
 
 /** @}*/

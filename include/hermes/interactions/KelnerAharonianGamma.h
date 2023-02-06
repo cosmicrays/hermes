@@ -19,8 +19,9 @@ namespace hermes { namespace interactions {
 class KelnerAharonianGamma : public DifferentialCrossSection {
   public:
 	KelnerAharonianGamma();
-	QDiffCrossSection getDiffCrossSection(
-	    const QEnergy &E_proton, const QEnergy &E_gamma) const override;
+	QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_gamma) const override;
+	QDiffCrossSection getDiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proj,
+	                                      const QEnergy &E_secondary) const override;
 
 	// Parametrization based on
 	// Phys.Rev. D90 (2014) 12, 123014 (astro-ph/1406.7369)

@@ -39,10 +39,11 @@ class Kamae06Neutrino : public DifferentialCrossSection {
 	Kamae06Neutrino();
 	void setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache);
 
-	QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton,
-	                                      const QEnergy &E_nu) const override;
-	QDiffCrossSection getDiffCrossSectionDirectly(const QEnergy &E_proton,
-	                                              const QEnergy &E_nu) const;
+	QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_nu) const override;
+	QDiffCrossSection getDiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proj,
+	                                      const QEnergy &E_secondary) const override;
+
+	QDiffCrossSection getDiffCrossSectionDirectly(const QEnergy &E_proton, const QEnergy &E_nu) const;
 };
 
 /** @}*/

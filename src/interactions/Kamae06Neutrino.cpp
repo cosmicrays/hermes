@@ -4,24 +4,19 @@ namespace hermes { namespace interactions {
 
 Kamae06Neutrino::Kamae06Neutrino() : DifferentialCrossSection(false) {}
 
-void Kamae06Neutrino::setCachingStorage(
-    std::unique_ptr<CacheStorageCrossSection> cache_) {
+void Kamae06Neutrino::setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache_) {
 	cache = std::move(cache_);
 	enableCaching();
-	auto f = [this](QEnergy E_proton, QEnergy E_nu) {
-		return this->getDiffCrossSectionDirectly(E_proton, E_nu);
-	};
+	auto f = [this](QEnergy E_proton, QEnergy E_nu) { return this->getDiffCrossSectionDirectly(E_proton, E_nu); };
 	cache->setFunction(f);
 };
 
-QDiffCrossSection Kamae06Neutrino::getDiffCrossSection(
-    const QEnergy &E_proton, const QEnergy &E_nu) const {
+QDiffCrossSection Kamae06Neutrino::getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_nu) const {
 	if (cachingEnabled) return cache->getValue(E_proton, E_nu);
 	return getDiffCrossSectionDirectly(E_proton, E_nu);
 }
 
-QDiffCrossSection Kamae06Neutrino::getDiffCrossSectionDirectly(
-    const QEnergy &E_proton, const QEnergy &E_nu) const {
+QDiffCrossSection Kamae06Neutrino::getDiffCrossSectionDirectly(const QEnergy &E_proton, const QEnergy &E_nu) const {
 	PARAMSET params; /* struct where parameters are stored */
 	// memset(&params, 0, sizeof(PARAMSET));
 
@@ -36,13 +31,16 @@ QDiffCrossSection Kamae06Neutrino::getDiffCrossSectionDirectly(
 	numu_param(T_proton_GeV, &params);
 	dsigma_dlogTp += sigma_incl_tot(ID_NUMU, E_nu_GeV, T_proton_GeV, &params);
 	antinue_param(T_proton_GeV, &params);
-	dsigma_dlogTp +=
-	    sigma_incl_tot(ID_ANTINUE, E_nu_GeV, T_proton_GeV, &params);
+	dsigma_dlogTp += sigma_incl_tot(ID_ANTINUE, E_nu_GeV, T_proton_GeV, &params);
 	antinumu_param(T_proton_GeV, &params);
-	dsigma_dlogTp +=
-	    sigma_incl_tot(ID_ANTINUMU, E_nu_GeV, T_proton_GeV, &params);
+	dsigma_dlogTp += sigma_incl_tot(ID_ANTINUMU, E_nu_GeV, T_proton_GeV, &params);
 
 	return QDiffCrossSection(dsigma_dlogTp / E_nu_GeV * (1_mbarn / 1_GeV));
+}
+
+QDiffCrossSection Kamae06Neutrino::getDiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proj,
+                                                       const QEnergy &E_secondary) const {
+	return nuclearScaling(projectile, target) * getDiffCrossSection(E_proj, E_secondary);
 }
 
 }}  // namespace hermes::interactions
