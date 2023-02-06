@@ -16,14 +16,7 @@
 
 namespace hermes { namespace interactions {
 
-AAfragXsecs::AAfragXsecs(const std::string &filename) : DifferentialCrossSection() {
-	// if (particle == AAfragParticle::GAMMA) {
-	// 	filename = getDataPath(DEFAULT_GAMMASPECTRUM_FILE);
-	// } else {
-	// 	filename = getDataPath(DEFAULT_NUSPECTRUM_FILE);
-	// }
-	loadData(getDataPath(filename));
-}
+AAfragXsecs::AAfragXsecs(const std::string &filename) : DifferentialCrossSection() { loadData(getDataPath(filename)); }
 
 void AAfragXsecs::loadData(const std::string &filename) {
 	std::ifstream infile(filename.c_str());
