@@ -83,4 +83,4 @@ If you use HERMES for your research, please cite
 |----------------|-----------------------------------------------------|
 |Andrej Dundovic | Gran Sasso Science Institute, L'Aquila, Italy       |
 |Carmelo Evoli   | Gran Sasso Science Institute, L'Aquila, Italy       |
-|Daniele Gaggero | Instituto de Física Teórica UAM/CSIC, Madrid, Spain |
+|Daniele Gaggero | INFN Sezione di Pisa, Pisa, Italy                   |
