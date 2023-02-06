@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <iostream>
 #include <regex>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -18,40 +19,33 @@
 namespace hermes { namespace cosmicrays {
 
 Picard3D::Picard3D(std::string cosmicRayFluxesDirectory, const PID &particleID)
-    : CosmicRayDensity(particleID),
-      cosmicRayFluxesDirectory(std::move(cosmicRayFluxesDirectory)) {
+    : CosmicRayDensity(particleID), cosmicRayFluxesDirectory(std::move(cosmicRayFluxesDirectory)) {
 	readFile();
 }
 
 Picard3D::Picard3D(const PID &particleID)
-    : CosmicRayDensity(particleID),
-      cosmicRayFluxesDirectory(getDataPath(DEFAULT_CR_DIRECTORY)) {
+    : CosmicRayDensity(particleID), cosmicRayFluxesDirectory(getDataPath(DEFAULT_CR_DIRECTORY)) {
 	readFile();
 }
 
 Picard3D::Picard3D(const std::vector<PID> &particleIDs)
-    : CosmicRayDensity(particleIDs),
-      cosmicRayFluxesDirectory(getDataPath(DEFAULT_CR_DIRECTORY)) {
+    : CosmicRayDensity(particleIDs), cosmicRayFluxesDirectory(getDataPath(DEFAULT_CR_DIRECTORY)) {
 	readFile();
 }
 
-Picard3D::Picard3D(std::string cosmicRayFluxesDirectory,
-                   const std::vector<PID> &particleIDs)
-    : CosmicRayDensity(particleIDs),
-      cosmicRayFluxesDirectory(std::move(cosmicRayFluxesDirectory)) {
+Picard3D::Picard3D(std::string cosmicRayFluxesDirectory, const std::vector<PID> &particleIDs)
+    : CosmicRayDensity(particleIDs), cosmicRayFluxesDirectory(std::move(cosmicRayFluxesDirectory)) {
 	readFile();
 }
 
 void Picard3D::readFile() {
 	std::string finalTimeStepDirectory = cosmicRayFluxesDirectory;
-	auto speciesFiles =
-	    std::filesystem::directory_iterator(finalTimeStepDirectory);
+	auto speciesFiles = std::filesystem::directory_iterator(finalTimeStepDirectory);
 	bool gotEnergyAxisAndSpatialGrid{false};
 	for (const auto &speciesFile : speciesFiles) {
 		const auto &path = speciesFile.path();
 		bool isH5File = path.extension() == ".h5";
-		bool isGammaRayFile = std::regex_match(std::string(path.filename()),
-		                                       std::regex("^Emiss_.*h5"));
+		bool isGammaRayFile = std::regex_match(std::string(path.filename()), std::regex("^Emiss_.*h5"));
 		if (!isH5File || isGammaRayFile) {
 			continue;
 		}
@@ -70,16 +64,13 @@ void Picard3D::evaluateEnergyScaleFactor() {
 	std::vector<double> energyScaleFactors;
 	double evaluatedFactor;
 	for (int i = 0; i < (numberOfEnergies - 1); ++i) {
-		evaluatedFactor = static_cast<double>(energyRange[i + 1]) /
-		                  static_cast<double>(energyRange[i]);
+		evaluatedFactor = static_cast<double>(energyRange[i + 1]) / static_cast<double>(energyRange[i]);
 		energyScaleFactors.push_back(evaluatedFactor);
 	}
 	double tolerance = 1e-6;
-	bool constantOverAllEnergies = std::all_of(
-	    energyScaleFactors.begin(), energyScaleFactors.end(),
-	    [&](double const &currentFactor) {
-		    return std::abs(evaluatedFactor - currentFactor) < tolerance;
-	    });
+	bool constantOverAllEnergies =
+	    std::all_of(energyScaleFactors.begin(), energyScaleFactors.end(),
+	                [&](double const &currentFactor) { return std::abs(evaluatedFactor - currentFactor) < tolerance; });
 	if (!constantOverAllEnergies) {
 		std::cerr << "hermes: error: Picard3D: Could not determine the energy "
 		             "scale factor because it is not constant over all "
@@ -97,8 +88,7 @@ void Picard3D::readEnergyAxis() {
 	for (int energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
 		std::string datasetName(getDatasetName(energyIndex));
 		double energyValue;
-		h5File->readAttributeFromDatasetOfDataGroup(
-		    datasetName, "kinetic energy per nucleon", energyValue);
+		h5File->readAttributeFromDatasetOfDataGroup(datasetName, "kinetic energy per nucleon", energyValue);
 		energy = 1_MeV * energyValue;
 		energyRange.push_back(energy);
 		energyToIndex[energy] = energyIndex;
@@ -129,27 +119,20 @@ void Picard3D::readSpatialGrid3D() {
 	QLength ySpacing = (yMax - yMin) / (numberOfYValues - 1);
 	QLength zSpacing = (zMax - zMin) / (numberOfZValues - 1);
 
-	Vector3d spacing(static_cast<double>(xSpacing),
-	                 static_cast<double>(ySpacing),
-	                 static_cast<double>(zSpacing));
+	Vector3d spacing(static_cast<double>(xSpacing), static_cast<double>(ySpacing), static_cast<double>(zSpacing));
 
-	Vector3d gridOrigin(static_cast<double>(xMin), static_cast<double>(yMin),
-	                    static_cast<double>(zMin));
+	Vector3d gridOrigin(static_cast<double>(xMin), static_cast<double>(yMin), static_cast<double>(zMin));
 
 	Vector3d volumeOrigin = gridOrigin - spacing * 0.5;
 
 	for (int energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
 		grid.push_back(std::make_unique<ScalarGridQPDensityPerEnergy>(
-		    ScalarGridQPDensityPerEnergy(volumeOrigin, numberOfXValues,
-		                                 numberOfYValues, numberOfZValues,
-		                                 spacing)));
+		    ScalarGridQPDensityPerEnergy(volumeOrigin, numberOfXValues, numberOfYValues, numberOfZValues, spacing)));
 	}
 }
 
-std::size_t Picard3D::getArrayIndex3D(std::size_t xIndex, std::size_t yIndex,
-                                      std::size_t zIndex) const {
-	return zIndex * numberOfYValues * numberOfXValues +
-	       yIndex * numberOfXValues + xIndex;
+std::size_t Picard3D::getArrayIndex3D(std::size_t xIndex, std::size_t yIndex, std::size_t zIndex) const {
+	return zIndex * numberOfYValues * numberOfXValues + yIndex * numberOfXValues + xIndex;
 }
 
 void Picard3D::readDensity3D() {
@@ -167,30 +150,22 @@ void Picard3D::readDensity3D() {
 
 	if (isPIDEnabled(PID(chargeNumberZ, numberOfNucleonsA))) {
 		std::cout << "hermes: info: reading file " << h5Filename << std::endl;
-		for (std::size_t energyIndex = 0; energyIndex < numberOfEnergies;
-		     ++energyIndex) {
+		for (std::size_t energyIndex = 0; energyIndex < numberOfEnergies; ++energyIndex) {
 			std::string datasetName(getDatasetName(energyIndex));
 			h5File->readDataset(datasetName, datasetDimensions, datasetContent);
 			for (std::size_t xIndex = 0; xIndex < numberOfXValues; ++xIndex) {
-				for (std::size_t yIndex = 0; yIndex < numberOfYValues;
-				     ++yIndex) {
-					for (std::size_t zIndex = 0; zIndex < numberOfZValues;
-					     ++zIndex) {
+				for (std::size_t yIndex = 0; yIndex < numberOfYValues; ++yIndex) {
+					for (std::size_t zIndex = 0; zIndex < numberOfZValues; ++zIndex) {
 						// cosmic ray flux x (kinetic energy per nucleon)²
 						auto fluxTimesEnergySquared =
-						    datasetContent[getArrayIndex3D(xIndex, yIndex,
-						                                   zIndex)] *
-						    1_MeV / (1_sr * 1_cm2 * 1_s);
+						    datasetContent[getArrayIndex3D(xIndex, yIndex, zIndex)] * 1_MeV / (1_sr * 1_cm2 * 1_s);
 
 						auto kineticEnergyPerNucleon = energyRange[energyIndex];
 
-						auto flux =
-						    fluxTimesEnergySquared /
-						    (kineticEnergyPerNucleon * kineticEnergyPerNucleon);
+						auto flux = fluxTimesEnergySquared / (kineticEnergyPerNucleon * kineticEnergyPerNucleon);
 
 						auto density = fluxToDensity * flux;
-						grid[energyIndex]->addValue(xIndex, yIndex, zIndex,
-						                            density);
+						grid[energyIndex]->addValue(xIndex, yIndex, zIndex, density);
 					}
 				}
 			}
@@ -207,14 +182,11 @@ std::string Picard3D::getDatasetName(std::size_t energyIndex) {
 	return datasetName;
 }
 
-QPDensityPerEnergy Picard3D::getDensityPerEnergy(
-    const QEnergy &energy, const Vector3QLength &position) const {
-	return getDensityPerEnergy(static_cast<int>(energyToIndex.at(energy)),
-	                           position);
+QPDensityPerEnergy Picard3D::getDensityPerEnergy(const QEnergy &energy, const Vector3QLength &position) const {
+	return getDensityPerEnergy(static_cast<int>(energyToIndex.at(energy)), position);
 }
 
-QPDensityPerEnergy Picard3D::getDensityPerEnergy(
-    int energyIndex, const Vector3QLength &position) const {
+QPDensityPerEnergy Picard3D::getDensityPerEnergy(int energyIndex, const Vector3QLength &position) const {
 	if (position.x < xMin || position.x > xMax) return {0};
 	if (position.y < yMin || position.y > yMax) return {0};
 	if (position.z < zMin || position.z > zMax) return {0};
