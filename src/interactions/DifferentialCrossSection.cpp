@@ -26,6 +26,7 @@ QDiffCrossSection DifferentialCrossSection::getDiffCrossSection(const PID &proje
 }
 
 QNumber nuclearScaling(const PID &projectile, const PID &target) {
+	// Scaling based on Mori, 2009, APP, 31, 5, arXiv:0903.3260
 	if (projectile == Proton && target == Proton) return 1.0_num;
 	if (projectile == Proton && target == Helium) return 3.81_num;
 	if (projectile == Helium && target == Proton) return 3.68_num;
