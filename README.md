@@ -73,14 +73,29 @@ More examples can be found in [the examples repository](https://github.com/cosmi
 
 ## How to cite HERMES
 
-If you use HERMES for your research, please cite
-
-[Dundovic et al., Astronomy and Astrophysics (2021)](https://doi.org/10.1051/0004-6361/202140801); [arXiv:2105.13165](https://arxiv.org/abs/2105.13165)
+If you have used HERMES in a scientific project that lead to a publication, we'd appreciate you citing the paper associated with it:
+```
+@ARTICLE{HermesCode,
+       author = {{Dundovic}, A. and {Evoli}, C. and {Gaggero}, D. and {Grasso}, D.},
+        title = "{Simulating the Galactic multi-messenger emissions with HERMES}",
+      journal = {\aap},
+         year = 2021,
+        month = sep,
+       volume = {653},
+          eid = {A18},
+        pages = {A18},
+          doi = {10.1051/0004-6361/202140801},
+          url = {https://doi.org/10.1051/0004-6361/202140801},
+archivePrefix = {arXiv},
+       eprint = {2105.13165},
+ primaryClass = {astro-ph.HE},
+}
+```
 
 ## Credits
 
 | Name           | Institution                                         |
 |----------------|-----------------------------------------------------|
-|Andrej Dundovic | Gran Sasso Science Institute, L'Aquila, Italy       |
+|Andrej Dundovic | Institute for Cosmology and Philosophy of Nature, Križevci, Croatia |
 |Carmelo Evoli   | Gran Sasso Science Institute, L'Aquila, Italy       |
 |Daniele Gaggero | INFN Sezione di Pisa, Pisa, Italy                   |
