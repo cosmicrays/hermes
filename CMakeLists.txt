@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.1)
+cmake_minimum_required (VERSION 3.5)
 project(hermes C CXX)
 set(HERMES_RELEASE_VERSION 0.9)
 
@@ -345,8 +345,8 @@ target_link_libraries(hermes ${HERMES_EXTRA_LIBRARIES})
 # Python
 # ----------------------------------------------------------------------------
 option(ENABLE_PYTHON "Create python library via Pybind11" OFF)
-find_package(PythonInterp)
-find_package(PythonLibs)
+include(FindPython3)
+find_package(Python3 COMPONENTS Interpreter Development)
 
 if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
     include_directories(${PYTHON_INCLUDE_DIRS})
