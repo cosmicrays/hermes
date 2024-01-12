@@ -133,3 +133,5 @@ docker run --name jupyter -it --rm -p 8888:8888 -v $HOME/jupyter-work:/home/jovy
 
 where `$HOME/jupyter-work` is any directory on the host in which notebooks and files can be stored permanently, after the container is stopped and removed. It is linked to the `work` folder within the container.
 
+
+Jupyter can be accessed through a web browser following a link given in the output of the previous command (such as `http://127.0.0.1:8888/lab?token=b680...`).
