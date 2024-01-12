@@ -28,9 +28,25 @@ HERMES provides the following integrators:
 
 The complete feature list is documented on [github.io](https://cosmicrays.github.io/hermes/components.html).
 
+## Quickstart
+
+If [Docker](https://www.docker.com) or [Podman](https://podman.io) is installed,
+one can quickly enter a Jupyter notebook with HERMES already built and available:
+
+```sh
+docker run -it --rm -p 8888:8888 quay.io/cosmicrays/jupyter-hermes:latest
+```
+
+The notebook can be accessed via web browser following the link in the output
+of the above command.
+
+For more details how to use containers see [INSTALL - Use with Docker/Podman image](INSTALL.md)
+and [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/running.html).
+
 ## Install
 
-Quick procedure for those who know their way around:
+For those who know their way around, the make-install procedure is available:
+
 ```sh
 mkdir build
 cd build

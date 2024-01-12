@@ -38,12 +38,15 @@ The other method is to download a ZIP file from [the GitHub page](https://github
 ## Install on GNU/Linux
 
 Installation with [python virtualenv](https://virtualenv.pypa.io) is recommended:
+
 ```sh
 export HERMES_DIR=$HOME"/.virtualenvs/hermes"
 virtualenv -p python3 $HERMES_DIR
 source $HERMES_DIR/bin/activate
 ```
+
 Once the environment is activated, clone the repository and build it with cmake:
+
 ```sh
 cd hermes
 mkdir build
@@ -55,12 +58,14 @@ make install
 
 ### Dependencies
 Required packages to build on RHEL/CentOS/Fedora systems:
+
 ```sh
 dnf install git cmake g++ gsl-devel zlib-devel cfitsio-devel fftw-devel \
 python3-virtualenv python3-virtualenvwrapper python3-devel doxygen
 ```
 
 Recommended Python modules:
+
 ```sh
 pip install astropy healpy matplotlib numpy
 ```
@@ -68,6 +73,7 @@ pip install astropy healpy matplotlib numpy
 ## Install on macOS (OS X)
 
 To obtain the required and optional packages, one can use [Homebrew](https://brew.sh):
+
 ```sh
 brew install python3 cfitsio gsl jq
 brew link --overwrite python # to make Python3 default in Homebrew
@@ -76,6 +82,7 @@ brew link --overwrite gcc # same as above
 ```
 
 CMake offers out-of-source build, so we need to make a new folder inside of the source folder:
+
 ```sh
 cd hermes # the folder where we cloned the git repository
 mkdir build
@@ -83,17 +90,20 @@ cd build
 ```
 
 To be on the safe side regarding the Python version (if multiple versions are found on the system):
+
 ```sh
 export PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
 ```
 
 For Clang:
+
 ```sh                
 export CC=`xcrun -find cc`
 export CXX=`xcrun -find c++`
 ```
 
 Or for GCC:
+
 ```sh
 export GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
 export CC=$GCC_BREW_PATH/bin/gcc-9
@@ -101,6 +111,7 @@ export CXX=$GCC_BREW_PATH/bin/g++-9
 ```
 
 Run `cmake` to generate Makefile
+
 ```sh
 cmake .. \
   -DPYTHON_EXECUTABLE=$PYTHON_BREW_PATH/bin/python3 \
@@ -110,16 +121,31 @@ cmake .. \
 ```
 
 Finally, make the library and test executables:
+
 ```sh
 make -j
 make install
 ```
 
-## Install with Docker/Podman image
+## Use with Docker/Podman image
 
-The simplest, yet the most inflexible method of installation and usage is with [Docker](https://www.docker.com) or  [Podman](https://podman.io). One has to install Docker or Podman first on their operating system (GNU/Linux, macOS, Windows are supported).
+The simplest, yet the most inflexible method of installation and usage
+is with [Docker](https://www.docker.com) or  [Podman](https://podman.io).
+One has to install Docker or Podman first on their operating
+system (GNU/Linux, macOS, Windows are supported).
 
-To build an image based on [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html) with HERMES installed and enabled,  one has to run
+Running already prepared container is straightforward:
+
+```sh
+docker run -it --rm -p 8888:8888 quay.io/cosmicrays/jupyter-hermes:latest
+```
+
+Jupyter can be accessed through a web browser following a link
+given in the output of the previous command (such as `http://127.0.0.1:8888/lab?token=b680...`).
+
+To build an image based on [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html)
+with HERMES installed and enabled,one has to run inside
+the locally cloned HERMES repository:
 
 ```sh
 docker build -t jupyter-pyhermes .
@@ -128,10 +154,10 @@ docker build -t jupyter-pyhermes .
 Finally, the Jupyter notebook server is started within a new container
 
 ```sh
-docker run --name jupyter -it --rm -p 8888:8888 -v $HOME/jupyter-work:/home/jovyan/work localhost/jupyter-pyhermes:latest
+docker run --name jupyter -it --rm -p 8888:8888 \
+    -v $HOME/jupyter-work:/home/jovyan/work localhost/jupyter-pyhermes:latest
 ```
 
-where `$HOME/jupyter-work` is any directory on the host in which notebooks and files can be stored permanently, after the container is stopped and removed. It is linked to the `work` folder within the container.
-
-
-Jupyter can be accessed through a web browser following a link given in the output of the previous command (such as `http://127.0.0.1:8888/lab?token=b680...`).
+where `$HOME/jupyter-work` is any directory on the host in which notebooks
+and files can be stored permanently, after the container is stopped and removed.
+It is linked to the `work` folder within the container.
