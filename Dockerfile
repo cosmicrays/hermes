@@ -23,6 +23,7 @@ USER ${NB_UID}
 
 # Install Python 3 packages
 RUN mamba install --yes \
+    'conda-forge::sphinx' \
     'healpy' && \
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
@@ -32,13 +33,15 @@ RUN mamba install --yes \
 WORKDIR /tmp
 RUN git clone https://github.com/cosmicrays/hermes.git
 WORKDIR /tmp/hermes
-RUN conda init 
+ENV PATH /opt/conda/bin:$PATH
+RUN /bin/bash -c "source activate base"
 RUN mkdir build && \
     cd build && \
     CMAKE_PREFIX_PATH=${CONDA_DIR} cmake \
-         -DPython_EXECUTABLE=${CONDA_DIR}/bin/${PYTHON_VERSION} \
-         -DPython_INCLUDE_DIRS=${CONDA_DIR}/include/${PYTHON_VERSION} \
-         -DPython_LIBRARIES=${CONDA_DIR}/lib/${PYTHON_VERSION} \
+         -DPython3_EXECUTABLE=${CONDA_DIR}/bin/python${PYTHON_VERSION} \
+         -DPython3_INCLUDE_DIRS=${CONDA_DIR}/include/python${PYTHON_VERSION} \
+         -DPython3_LIBRARIES=${CONDA_DIR}/lib/python${PYTHON_VERSION} \
+         -DENABLE_PYTHON=On \
          -DCMAKE_INSTALL_PREFIX=${CONDA_DIR} \
          -DENABLE_TESTING=On .. && \
     make -j && \

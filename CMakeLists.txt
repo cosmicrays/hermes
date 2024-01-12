@@ -345,12 +345,12 @@ target_link_libraries(hermes ${HERMES_EXTRA_LIBRARIES})
 # Python
 # ----------------------------------------------------------------------------
 option(ENABLE_PYTHON "Create python library via Pybind11" OFF)
-include(FindPython)
-find_package(Python COMPONENTS Interpreter Development)
+include(FindPython3)
+find_package(Python3 COMPONENTS Interpreter Development)
 
-if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
-    include_directories(${PYTHON_INCLUDE_DIRS})
-    set(PYBIND11_PYTHON_VERSION ${PYTHON_DOT_VERSION}) 
+if(ENABLE_PYTHON AND Python3_Development_FOUND)
+    include_directories(${Python3_INCLUDE_DIRS})
+    set(PYBIND11_PYTHON_VERSION ${Python3_VERSION}) 
     add_subdirectory(lib/pybind11)
     # for PYBIND11_EXPAND_SIDE_EFFECTS in pybind11.h - temporary,
     #   should be removed after the fix lands to the upstream
@@ -381,8 +381,8 @@ if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
         LINKER_LANGUAGE CXX)
     target_link_libraries(pyhermes PRIVATE hermes)
 
-    install(TARGETS pyhermes LIBRARY DESTINATION "${PYTHON_SITE_PACKAGES}")
-endif(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
+    install(TARGETS pyhermes LIBRARY DESTINATION "${Python3_SITELIB}")
+endif(ENABLE_PYTHON AND Python3_Development_FOUND)
 
 # ------------------------------------------------------------------
 # Documentation
