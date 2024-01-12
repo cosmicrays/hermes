@@ -345,12 +345,11 @@ target_link_libraries(hermes ${HERMES_EXTRA_LIBRARIES})
 # Python
 # ----------------------------------------------------------------------------
 option(ENABLE_PYTHON "Create python library via Pybind11" OFF)
-include(FindPython3)
-find_package(Python3 COMPONENTS Interpreter Development)
+include(FindPython)
+find_package(Python COMPONENTS Interpreter Development)
 
 if(ENABLE_PYTHON AND PYTHONLIBS_FOUND)
     include_directories(${PYTHON_INCLUDE_DIRS})
-    include(cmake/FindPython.cmake)
     set(PYBIND11_PYTHON_VERSION ${PYTHON_DOT_VERSION}) 
     add_subdirectory(lib/pybind11)
     # for PYBIND11_EXPAND_SIDE_EFFECTS in pybind11.h - temporary,
