@@ -30,12 +30,12 @@ RUN mamba install --yes \
     fix-permissions "/home/${NB_USER}"
 
 ENV PATH /opt/conda/bin:$PATH
-RUN /bin/bash -c "source activate base"
-WORKDIR /tmp
-RUN git clone https://github.com/cosmicrays/hermes.git && \
-    cd hermes && \
-    mkdir build && \
-    cd build && \
+RUN /bin/bash -c "source activate base" && \
+    mkdir -p /tmp/hermes
+WORKDIR /tmp/hermes
+COPY . .
+RUN mkdir build-container && \
+    cd build-container && \
     CMAKE_PREFIX_PATH=${CONDA_DIR} cmake \
          -DPython3_EXECUTABLE=${CONDA_DIR}/bin/python${PYTHON_VERSION} \
          -DPython3_INCLUDE_DIRS=${CONDA_DIR}/include/python${PYTHON_VERSION} \
@@ -45,7 +45,8 @@ RUN git clone https://github.com/cosmicrays/hermes.git && \
          -DENABLE_TESTING=On .. && \
     make -j && \
     make install && \
-    rm -rf /tmp/hermes && \
+    git clone --depth 1 --branch master --no-checkout https://github.com/cosmicrays/hermes-examples.git && \
+    cp -r hermes-examples/jupyter /home/${NB_USER}/hermes-examples && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
