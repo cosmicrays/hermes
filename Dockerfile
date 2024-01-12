@@ -29,13 +29,12 @@ RUN mamba install --yes \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-# Install facets package which does not have a `pip` or `conda-forge` package at the moment
-WORKDIR /tmp
-RUN git clone https://github.com/cosmicrays/hermes.git
-WORKDIR /tmp/hermes
 ENV PATH /opt/conda/bin:$PATH
 RUN /bin/bash -c "source activate base"
-RUN mkdir build && \
+WORKDIR /tmp
+RUN git clone https://github.com/cosmicrays/hermes.git && \
+    cd hermes && \
+    mkdir build && \
     cd build && \
     CMAKE_PREFIX_PATH=${CONDA_DIR} cmake \
          -DPython3_EXECUTABLE=${CONDA_DIR}/bin/python${PYTHON_VERSION} \

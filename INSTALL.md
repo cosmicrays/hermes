@@ -114,3 +114,22 @@ Finally, make the library and test executables:
 make -j
 make install
 ```
+
+## Install with Docker/Podman image
+
+The simplest, yet the most inflexible method of installation and usage is with [Docker](https://www.docker.com) or  [Podman](https://podman.io). One has to install Docker or Podman first on their operating system (GNU/Linux, macOS, Windows are supported).
+
+To build an image based on [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html) with HERMES installed and enabled,  one has to run
+
+```sh
+docker build -t jupyter-pyhermes .
+```
+
+Finally, the Jupyter notebook server is started within a new container
+
+```sh
+docker run --name jupyter -it --rm -p 8888:8888 -v $HOME/jupyter-work:/home/jovyan/work localhost/jupyter-pyhermes:latest
+```
+
+where `$HOME/jupyter-work` is any directory on the host in which notebooks and files can be stored permanently, after the container is stopped and removed. It is linked to the `work` folder within the container.
+
