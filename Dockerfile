@@ -4,7 +4,7 @@ ARG REGISTRY=quay.io
 ARG OWNER=cosmicrays
 ARG BUILD_CONTAINER=$REGISTRY/jupyter/docker-stacks-foundation
 ARG RUNNER_CONTAINER=$REGISTRY/jupyter/scipy-notebook
-FROM $BUILD_CONTAINER as builder
+FROM $BUILD_CONTAINER AS builder
 
 LABEL maintainer="HERMES Developers <hermes-developers@icpn.hr>"
 
@@ -34,7 +34,7 @@ RUN mamba install --yes \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-ENV PATH /opt/conda/bin:$PATH
+ENV PATH=/opt/conda/bin:$PATH
 RUN /bin/bash -c "source activate base" && \
     mkdir -p /tmp/hermes
 WORKDIR /tmp/hermes
@@ -54,15 +54,15 @@ RUN mkdir build-container && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-FROM $RUNNER_CONTAINER as runner
+FROM $RUNNER_CONTAINER AS runner
 
 USER root
 
 RUN apt-get update --yes && \
     apt-get install --yes --no-install-recommends \
     libgsl27 \
-    libfftw3-3 \
-    libcfitsio9 && \
+    libfftw3-single3 libfftw3-double3 \
+    libcfitsio10t64 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder ${CONDA_DIR} ${CONDA_DIR}
