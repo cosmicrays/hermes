@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.5)
+cmake_minimum_required(VERSION 3.15)
 project(hermes C CXX)
 set(HERMES_RELEASE_VERSION 0.9)
 
@@ -77,7 +77,6 @@ else()
     message(WARNING "HERMES data file not found at ${CMAKE_BINARY_DIR}/hermes-data.tar.gz
     HERMES should compile, but not all components will work without them! Please install data file manually, or use the automatic download which is enabled by default.")
 endif()
-
 
 # ----------------------------------------------------------------------------
 # Dependencies
@@ -344,7 +343,7 @@ target_link_libraries(hermes ${HERMES_EXTRA_LIBRARIES})
 # ----------------------------------------------------------------------------
 # Python
 # ----------------------------------------------------------------------------
-option(ENABLE_PYTHON "Create python library via Pybind11" OFF)
+option(ENABLE_PYTHON "Create python library via Pybind11" ON)
 include(FindPython3)
 find_package(Python3 COMPONENTS Interpreter Development)
 
