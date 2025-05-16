@@ -128,13 +128,14 @@ if(ENABLE_SYS_CFITSIO)
         set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CFITSIO_C_FLAGS}")
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${CFITSIO_EXE_LINKER_FLAGS}")
         add_definitions(-DHERMES_HAVE_CFITSIO)
+        list(APPEND HERMES_SWIG_DEFINES -DHERMES_HAVE_CFITSIO)
     else()
         message(FATAL_ERROR "CFITSIO is required.")
     endif(CFITSIO_FOUND)
 endif(ENABLE_SYS_CFITSIO)
 
 # HDF5 for importing cosmic ray fluxes from Picard
-option(ENABLE_SYS_HDF5 "System HDF5 for hdf5 input" ON)
+option(ENABLE_SYS_HDF5 "System HDF5 for hdf5 input" OFF)
 if(ENABLE_SYS_HDF5)
     find_package(HDF5)
     if(${HDF5_FOUND})
@@ -534,6 +535,11 @@ if(ENABLE_TESTING)
     target_link_libraries(testPixelTimes hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
     add_test(testPixelTimes testPixelTimes)
 endif(ENABLE_TESTING)
+
+# Print out the include and library paths
+message(STATUS "HERMES_INCLUDES: ${HERMES_EXTRA_INCLUDES}")
+message(STATUS "HERMES_LIBRARIES: ${HERMES_EXTRA_LIBRARIES}")
+message(STATUS "HERMES_DEFINES: ${HERMES_SWIG_DEFINES}")
 
 # ----------------------------------------------------------------------------
 # Install
