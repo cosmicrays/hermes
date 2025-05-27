@@ -12,23 +12,17 @@
 
 #include "hermes/Common.h"
 
-#define DEFAULT_CR_FILE \
-	"CosmicRays/Fornieri20/run2d_gamma_D03,7_delta0,45_vA13.fits.gz"
+#define DEFAULT_CR_FILE "CosmicRays/DRAGON2/d2_base_max.fits.gz"
 
 namespace hermes { namespace cosmicrays {
 
-Dragon2D::Dragon2D(const std::string &filename_, const PID &pid_)
-    : CosmicRayDensity(pid_), filename(filename_) {
+Dragon2D::Dragon2D(const std::string &filename_, const PID &pid_) : CosmicRayDensity(pid_), filename(filename_) {
 	readFile();
 }
 
-Dragon2D::Dragon2D(const PID &pid_)
-    : CosmicRayDensity(pid_), filename(getDataPath(DEFAULT_CR_FILE)) {
-	readFile();
-}
+Dragon2D::Dragon2D(const PID &pid_) : CosmicRayDensity(pid_), filename(getDataPath(DEFAULT_CR_FILE)) { readFile(); }
 
-Dragon2D::Dragon2D(const std::vector<PID> &pids_)
-    : CosmicRayDensity(pids_), filename(getDataPath(DEFAULT_CR_FILE)) {
+Dragon2D::Dragon2D(const std::vector<PID> &pids_) : CosmicRayDensity(pids_), filename(getDataPath(DEFAULT_CR_FILE)) {
 	readFile();
 }
 
@@ -38,6 +32,8 @@ Dragon2D::Dragon2D(const std::string &filename_, const std::vector<PID> &pids_)
 }
 
 void Dragon2D::readFile() {
+	std::cout << "hermes: reading DRAGON2 file " << filename << std::endl;
+
 	ffile = std::make_unique<FITSFile>(FITSFile(filename));
 
 	ffile->openFile(FITS::READ);
@@ -50,13 +46,11 @@ void Dragon2D::readFile() {
 	readDensity2D();
 }
 
-QPDensityPerEnergy Dragon2D::getDensityPerEnergy(
-    const QEnergy &E_, const Vector3QLength &pos_) const {
+QPDensityPerEnergy Dragon2D::getDensityPerEnergy(const QEnergy &E_, const Vector3QLength &pos_) const {
 	return getDensityPerEnergy(static_cast<int>(energyIndex.at(E_)), pos_);
 }
 
-QPDensityPerEnergy Dragon2D::getDensityPerEnergy(
-    int iE_, const Vector3QLength &pos_) const {
+QPDensityPerEnergy Dragon2D::getDensityPerEnergy(int iE_, const Vector3QLength &pos_) const {
 	if (pos_.z < zmin || pos_.z > zmax) return QPDensityPerEnergy(0);
 
 	QLength rho = sqrt(pos_.x * pos_.x + pos_.y * pos_.y);
@@ -74,8 +68,7 @@ void Dragon2D::readEnergyAxis() {
 
 	// input files are in GeV
 	for (int i = 0; i < dimE; ++i) {
-		E = 1_GeV * std::exp(std::log(Ekmin) + static_cast<double>(i) *
-		                                           std::log(energyScaleFactor));
+		E = 1_GeV * std::exp(std::log(Ekmin) + static_cast<double>(i) * std::log(energyScaleFactor));
 		energyRange.push_back(E);
 		energyIndex[E] = i;
 	}
@@ -95,10 +88,8 @@ void Dragon2D::readSpatialGrid2D() {
 
 	// Vector3d origin(-1*rmax.getValue(), -1*rmax.getValue(),
 	// zmin.getValue());
-	Vector3d origin(-1 * static_cast<double>(rmax), static_cast<double>(zmin),
-	                0);
-	Vector3d spacing(static_cast<double>(deltar), static_cast<double>(deltaz),
-	                 0);
+	Vector3d origin(-1 * static_cast<double>(rmax), static_cast<double>(zmin), 0);
+	Vector3d spacing(static_cast<double>(deltar), static_cast<double>(deltaz), 0);
 
 	for (int i = 0; i < dimE; ++i) {
 		grid.push_back(std::make_unique<ScalarGrid2DQPDensityPerEnergy>(
@@ -106,8 +97,7 @@ void Dragon2D::readSpatialGrid2D() {
 	}
 }
 
-std::size_t Dragon2D::calcArrayIndex2D(std::size_t iE, std::size_t ir,
-                                       std::size_t iz) {
+std::size_t Dragon2D::calcArrayIndex2D(std::size_t iE, std::size_t ir, std::size_t iz) {
 	return (iz * dimr + ir) * dimE + iE;
 }
 
@@ -119,8 +109,7 @@ void Dragon2D::readDensity2D() {
 
 	auto vecSize = dimr * dimz;
 	unsigned long nElements = energyRange.size() * vecSize;
-	constexpr double fluxToDensity =
-	    static_cast<double>(4_pi / (c_light * 1_GeV));
+	constexpr double fluxToDensity = static_cast<double>(4_pi / (c_light * 1_GeV));
 
 	auto hduNumber = ffile->getNumberOfHDUs();
 	while (hduActual < hduNumber) {
@@ -138,18 +127,14 @@ void Dragon2D::readDensity2D() {
 		int A = ffile->readKeyValueAsInt("A");
 
 		if (isPIDEnabled(PID(Z, A))) {
-			std::cerr << "hermes: info: reading species with Z = " << Z
-			          << " A = " << A << " at HDU = " << hduActual << std::endl;
+			std::cerr << "hermes: info: reading species with Z = " << Z << " A = " << A << " at HDU = " << hduActual
+			          << std::endl;
 
-			std::vector<float> rawData =
-			    ffile->readImageAsFloat(firstElement, nElements);
+			std::vector<float> rawData = ffile->readImageAsFloat(firstElement, nElements);
 			for (std::size_t iE = 0; iE < dimE; ++iE) {
 				for (std::size_t ir = 0; ir < dimr; ++ir) {
 					for (std::size_t iz = 0; iz < dimz; ++iz) {
-						grid[iE]->addValue(
-						    ir, iz,
-						    fluxToDensity *
-						        rawData[calcArrayIndex2D(iE, ir, iz)]);
+						grid[iE]->addValue(ir, iz, fluxToDensity * rawData[calcArrayIndex2D(iE, ir, iz)]);
 					}
 				}
 			}

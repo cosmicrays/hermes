@@ -58,13 +58,13 @@ endif(APPLE)
 # ----------------------------------------------------------------------------
 OPTION(DOWNLOAD_DATA "Download HERMES data files" ON)
 if(DOWNLOAD_DATA)
-    message("-- Downloading data file from heat.gssi.it ~ 200 MB")
+    message("-- Downloading data file from zenodo.org ~ 300 MB")
     file(DOWNLOAD
-        https://zenodo.org/record/7603203/files/hermes-data.tar.gz-CHECKSUM
+        https://zenodo.org/record/15525185/files/hermes-data.tar.gz-CHECKSUM
         ${CMAKE_BINARY_DIR}/hermes-data.tar.gz-CHECKSUM)
         file(STRINGS ${CMAKE_BINARY_DIR}/hermes-data.tar.gz-CHECKSUM DATA_CHECKSUM LIMIT_COUNT 1 LENGTH_MINIMUM 32 LENGTH_MAXIMUM 32)
     file(DOWNLOAD
-        https://zenodo.org/record/7603203/files/hermes-data.tar.gz 
+        https://zenodo.org/record/15525185/files/hermes-data.tar.gz 
         ${CMAKE_BINARY_DIR}/hermes-data.tar.gz
         EXPECTED_MD5 "${DATA_CHECKSUM}")
     message("-- Extracting data file")
