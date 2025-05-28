@@ -30,7 +30,9 @@ jobs:
       with:
         path: |
           $HOME/hermes_cache
-        key: 'hermes-data'
+        key: ${{ runner.os }}-hermes-cache-${{ hashFiles('**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-hermes-cache-
     
     - name: Install dependencies on Ubuntu
       if: ${{ contains(env.OS, 'ubuntu') }}
