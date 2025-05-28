@@ -75,7 +75,7 @@ void RingModel::fillRingContainer() {
 	for (std::size_t i = 0; i < dataPtr->getRingNumber(); ++i) {
 		if (getGasType() == GasType::HI) {
 			auto lowBoundary = boundariesHI.at(i);
-			auto highBoundary = (i < 11) ? boundariesHI.at(i + 1) : boundariesHI.at(i) + 1_kpc;
+			auto highBoundary = (i < 11) ? boundariesHI.at(i + 1) + 0.3_kpc : boundariesHI.at(i) + 1_kpc;
 			ringContainer.push_back(std::make_shared<Ring>(Ring(i, dataPtr, lowBoundary, highBoundary)));
 		}
 		if (getGasType() == GasType::H2) {
