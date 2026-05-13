@@ -7,6 +7,7 @@
 #include "hermes/cosmicrays/DummyCR.h"
 #include "hermes/cosmicrays/SimpleCR.h"
 #include "hermes/cosmicrays/Sun08.h"
+#include "hermes/cosmicrays/UHECR.h"
 #include "hermes/cosmicrays/WMAP07.h"
 
 namespace py = pybind11;
@@ -34,6 +35,15 @@ void init(py::module &m) {
 	    .def(py::init<const PID &, const QEnergy &, const QEnergy &, int>(),
 	         py::arg("PID"), py::arg("E_min"), py::arg("E_max"),
 	         py::arg("steps"));
+	py::class_<UHECR, std::shared_ptr<UHECR>, CosmicRayDensity>(subm, "UHECR")
+	    .def(py::init<>())
+	    .def(py::init<const PID &, const QEnergy &, const QEnergy &, int>(),
+	         py::arg("PID"), py::arg("E_min"), py::arg("E_max"),
+	         py::arg("steps"))
+	    .def("getDensityPerEnergy",
+	         static_cast<QPDensityPerEnergy (UHECR::*)(
+	             const QEnergy &, const Vector3QLength &) const>(
+	             &UHECR::getDensityPerEnergy));
 	py::class_<Sun08, std::shared_ptr<Sun08>,
 	           CosmicRayDensity>(subm, "Sun08")
 	    .def(py::init<>());

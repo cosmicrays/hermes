@@ -23,6 +23,7 @@
 #include "hermes/cosmicrays/Picard3D.h"
 #include "hermes/cosmicrays/SimpleCR.h"
 #include "hermes/cosmicrays/Sun08.h"
+#include "hermes/cosmicrays/UHECR.h"
 #include "hermes/cosmicrays/WMAP07.h"
 #include "hermes/darkmatter/DarkMatterSpectrum.h"
 #include "hermes/darkmatter/GalacticProfile.h"

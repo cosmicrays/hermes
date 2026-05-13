@@ -298,6 +298,7 @@ add_library(hermes SHARED
     src/cosmicrays/Picard3D.cpp
     src/cosmicrays/SimpleCR.cpp
     src/cosmicrays/Sun08.cpp
+    src/cosmicrays/UHECR.cpp
     src/cosmicrays/WMAP07.cpp
     src/darkmatter/NFWGProfile.cpp
     src/darkmatter/PPPC4DMIDSpectrum.cpp
@@ -470,6 +471,10 @@ if(ENABLE_TESTING)
     add_executable(testCosmicRays test/testCosmicRays.cpp)
     target_link_libraries(testCosmicRays hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
     add_test(testCosmicRays testCosmicRays)
+
+    add_executable(testUHECR test/testUHECR.cpp)
+    target_link_libraries(testUHECR hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+    add_test(testUHECR testUHECR)
 
     add_executable(testYMW16 test/testYMW16.cpp)
     target_link_libraries(testYMW16 hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
