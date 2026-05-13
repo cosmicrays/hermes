@@ -322,6 +322,7 @@ add_library(hermes SHARED
     src/interactions/KelnerAharonianGamma.cpp
     src/interactions/KelnerAharonianNeutrino.cpp
     src/interactions/KleinNishina.cpp
+    src/interactions/UheYields.cpp
     src/magneticfields/JF12.cpp
     src/magneticfields/MagneticField.cpp
     src/magneticfields/MagneticFieldGrid.cpp
@@ -475,6 +476,10 @@ if(ENABLE_TESTING)
     add_executable(testUHECR test/testUHECR.cpp)
     target_link_libraries(testUHECR hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
     add_test(testUHECR testUHECR)
+
+    add_executable(testUheYields test/testUheYields.cpp)
+    target_link_libraries(testUheYields hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})
+    add_test(testUheYields testUheYields)
 
     add_executable(testYMW16 test/testYMW16.cpp)
     target_link_libraries(testYMW16 hermes gtest gtest_main pthread ${HERMES_EXTRA_LIBRARIES})

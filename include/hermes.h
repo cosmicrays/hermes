@@ -53,6 +53,8 @@
 #include "hermes/interactions/KelnerAharonianGamma.h"
 #include "hermes/interactions/KelnerAharonianNeutrino.h"
 #include "hermes/interactions/KleinNishina.h"
+#include "hermes/interactions/UheYieldsGamma.h"
+#include "hermes/interactions/UheYieldsNeutrons.h"
 #include "hermes/ionizedgas/HII_Cordes91.h"
 #include "hermes/ionizedgas/IonizedGasDensity.h"
 #include "hermes/ionizedgas/NE2001Simple.h"

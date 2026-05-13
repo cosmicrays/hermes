@@ -12,6 +12,8 @@
 #include "hermes/interactions/KelnerAharonianGamma.h"
 #include "hermes/interactions/KelnerAharonianNeutrino.h"
 #include "hermes/interactions/KleinNishina.h"
+#include "hermes/interactions/UheYieldsGamma.h"
+#include "hermes/interactions/UheYieldsNeutrons.h"
 
 namespace py = pybind11;
 
@@ -26,6 +28,11 @@ void init(py::module &m) {
 	    .def(py::init<bool>(), py::arg("cachingEnabled"))
 	    .def("enableCaching", &DifferentialCrossSection::enableCaching)
 	    .def("disableCaching", &DifferentialCrossSection::disableCaching);
+
+	py::enum_<UheHadronicModel>(subm, "UheHadronicModel")
+	    .value("Sibyll23e", UheHadronicModel::Sibyll23e)
+	    .value("QGSJetII04", UheHadronicModel::QGSJetII04)
+	    .value("EposLHC", UheHadronicModel::EposLHC);
 
 	py::class_<DummyCrossSection, std::shared_ptr<DummyCrossSection>, DifferentialCrossSection>(subm,
 	                                                                                            "DummyCrossSection")
@@ -94,6 +101,29 @@ void init(py::module &m) {
 	    .def("getDiffCrossSection", static_cast<QDiffCrossSection (KelnerAharonianNeutrino::*)(
 	                                    const PID &, const PID &, const QEnergy &, const QEnergy &) const>(
 	                                    &KelnerAharonianNeutrino::getDiffCrossSection));
+
+	py::class_<UheYieldsGamma, std::shared_ptr<UheYieldsGamma>, DifferentialCrossSection>(subm, "UheYieldsGamma")
+	    .def(py::init<UheHadronicModel>(), py::arg("model") = UheHadronicModel::Sibyll23e)
+	    .def_static("sigmaInelastic", &UheYields::sigmaInelastic)
+	    .def("getDiffCrossSection", [](const UheYieldsGamma &self, const QEnergy &E_proton,
+	                                   const QEnergy &E_gamma) { return self.getDiffCrossSection(E_proton, E_gamma); })
+	    .def("getDiffCrossSection", [](const UheYieldsGamma &self, const PID &projectile, const PID &target,
+	                                   const QEnergy &E_proj, const QEnergy &E_secondary) {
+		    return self.getDiffCrossSection(projectile, target, E_proj, E_secondary);
+	    });
+
+	py::class_<UheYieldsNeutrons, std::shared_ptr<UheYieldsNeutrons>, DifferentialCrossSection>(subm,
+	                                                                                            "UheYieldsNeutrons")
+	    .def(py::init<UheHadronicModel>(), py::arg("model") = UheHadronicModel::Sibyll23e)
+	    .def_static("sigmaInelastic", &UheYields::sigmaInelastic)
+	    .def("getDiffCrossSection",
+	         [](const UheYieldsNeutrons &self, const QEnergy &E_proton, const QEnergy &E_neutron) {
+		         return self.getDiffCrossSection(E_proton, E_neutron);
+	         })
+	    .def("getDiffCrossSection", [](const UheYieldsNeutrons &self, const PID &projectile, const PID &target,
+	                                   const QEnergy &E_proj, const QEnergy &E_secondary) {
+		    return self.getDiffCrossSection(projectile, target, E_proj, E_secondary);
+	    });
 
 	py::class_<BremsstrahlungAbstract, std::shared_ptr<BremsstrahlungAbstract>>(subm, "BremsstrahlungAbstract");
 
