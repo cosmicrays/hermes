@@ -60,11 +60,11 @@ OPTION(DOWNLOAD_DATA "Download HERMES data files" ON)
 if(DOWNLOAD_DATA)
     message("-- Downloading data file from zenodo.org ~ 300 MB")
     file(DOWNLOAD
-        https://zenodo.org/record/15525185/files/hermes-data.tar.gz-CHECKSUM
-        ${CMAKE_BINARY_DIR}/hermes-data.tar.gz-CHECKSUM)
-        file(STRINGS ${CMAKE_BINARY_DIR}/hermes-data.tar.gz-CHECKSUM DATA_CHECKSUM LIMIT_COUNT 1 LENGTH_MINIMUM 32 LENGTH_MAXIMUM 32)
+        https://zenodo.org/record/20544178/files/hermes-data-checksum.txt
+        ${CMAKE_BINARY_DIR}/hermes-data-checksum.txt)
+        file(STRINGS ${CMAKE_BINARY_DIR}/hermes-data-checksum.txt DATA_CHECKSUM LIMIT_COUNT 1 LENGTH_MINIMUM 32 LENGTH_MAXIMUM 32)
     file(DOWNLOAD
-        https://zenodo.org/record/15525185/files/hermes-data.tar.gz 
+        https://zenodo.org/record/20544178/files/hermes-data.tar.gz
         ${CMAKE_BINARY_DIR}/hermes-data.tar.gz
         EXPECTED_MD5 "${DATA_CHECKSUM}")
     message("-- Extracting data file")
@@ -300,15 +300,18 @@ add_library(hermes SHARED
     src/cosmicrays/Sun08.cpp
     src/cosmicrays/UHECR.cpp
     src/cosmicrays/WMAP07.cpp
+    src/darkmatter/HDMSpectraSpectrum.cpp
     src/darkmatter/NFWGProfile.cpp
     src/darkmatter/PPPC4DMIDSpectrum.cpp
     src/integrators/BremsstrahlungIntegrator.cpp
     src/integrators/DarkMatterIntegrator.cpp
+    src/integrators/DarkMatterNeutronIntegrator.cpp
     src/integrators/DispersionMeasureIntegrator.cpp
     src/integrators/FreeFreeIntegrator.cpp
     src/integrators/InverseComptonIntegrator.cpp
     src/integrators/PiZeroAbsorptionIntegrator.cpp
     src/integrators/PiZeroIntegrator.cpp
+    src/integrators/PiZeroNeutronDecayIntegrator.cpp
     src/integrators/RotationMeasureIntegrator.cpp
     src/integrators/SynchroAbsorptionIntegrator.cpp
     src/integrators/SynchroIntegrator.cpp
@@ -561,4 +564,3 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/include/ DESTINATION include FILES_MATCHIN
 install(DIRECTORY ${CMAKE_BINARY_DIR}/data/ DESTINATION share/hermes/data PATTERN ".git" EXCLUDE)
 install(DIRECTORY lib/cparamlib/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
 install(DIRECTORY lib/kiss/ DESTINATION include FILES_MATCHING PATTERN "*.h" PATTERN ".git" EXCLUDE)
-

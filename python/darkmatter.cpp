@@ -3,12 +3,36 @@
 
 #include "hermes/darkmatter/DarkMatterSpectrum.h"
 #include "hermes/darkmatter/GalacticProfile.h"
+#include "hermes/darkmatter/HDMSpectraSpectrum.h"
 #include "hermes/darkmatter/NFWGProfile.h"
 #include "hermes/darkmatter/PPPC4DMIDSpectrum.h"
 
 namespace py = pybind11;
 
 namespace hermes { namespace darkmatter {
+
+class PyDarkMatterSpectrum : public DarkMatterSpectrum {
+  public:
+	using DarkMatterSpectrum::DarkMatterSpectrum;
+
+	QEnergy getRestMassEnergy() const override {
+		PYBIND11_OVERRIDE_PURE(QEnergy, DarkMatterSpectrum, getRestMassEnergy, );
+	}
+
+	QInverseEnergy getParticlesPerEnergy(QEnergy Egamma) const override {
+		PYBIND11_OVERRIDE_PURE(QInverseEnergy, DarkMatterSpectrum,
+		                       getParticlesPerEnergy, Egamma);
+	}
+};
+
+class PyGalacticProfile : public GalacticProfile {
+  public:
+	using GalacticProfile::GalacticProfile;
+
+	QMassDensity getMassDensity(QLength r) const override {
+		PYBIND11_OVERRIDE_PURE(QMassDensity, GalacticProfile, getMassDensity, r);
+	}
+};
 
 void init(py::module &m) {
 	py::module subm = m.def_submodule("darkmatter");
@@ -24,9 +48,21 @@ void init(py::module &m) {
 	    .value("t", Channel::t)
 	    .value("W", Channel::W)
 	    .value("Z", Channel::Z)
+	    .value("g", Channel::g)
+	    .value("gamma", Channel::gamma)
 	    .value("h", Channel::h);
 
-	py::enum_<Mass>(subm, "Mass", py::arithmetic())
+	py::enum_<HDMSpectraProduct>(subm, "HDMSpectraProduct")
+	    .value("gamma", HDMSpectraProduct::gamma)
+	    .value("neutrino", HDMSpectraProduct::neutrino)
+	    .value("nu", HDMSpectraProduct::neutrino)
+	    .value("proton", HDMSpectraProduct::proton)
+	    .value("p", HDMSpectraProduct::proton)
+	    .value("neutron", HDMSpectraProduct::neutron)
+	    .value("n", HDMSpectraProduct::neutron);
+
+	py::enum_<Mass> pppc4dmidMass(subm, "PPPC4DMIDMass", py::arithmetic());
+	pppc4dmidMass
 	    .value("m5GeV", Mass::m5GeV)
 	    .value("m6GeV", Mass::m6GeV)
 	    .value("m8GeV", Mass::m8GeV)
@@ -88,27 +124,52 @@ void init(py::module &m) {
 	    .value("m30TeV", Mass::m30TeV)
 	    .value("m50TeV", Mass::m50TeV)
 	    .value("m100TeV", Mass::m100TeV);
+	subm.attr("Mass") = pppc4dmidMass;
 
-	// charged gas density models
-	py::class_<DarkMatterSpectrum, std::shared_ptr<DarkMatterSpectrum>>(
-	    subm, "DarkMatterSpectrum")
-	    .def("getRestMassEnergy", &DarkMatterSpectrum::getRestMassEnergy)
-	    .def("getParticlesPerEnergy",
-	         &DarkMatterSpectrum::getParticlesPerEnergy);
-	py::class_<PPPC4DMIDSpectrum, std::shared_ptr<PPPC4DMIDSpectrum>,
-	           DarkMatterSpectrum>(subm, "PPPC4DMIDSpectrum")
-	    .def(py::init<Channel, Mass>(), py::arg("Channel"), py::arg("Mass"))
-	    .def("getRestMassEnergy", &PPPC4DMIDSpectrum::getRestMassEnergy)
-	    .def("getParticlesPerEnergy",
-	         &PPPC4DMIDSpectrum::getParticlesPerEnergy);
-	py::class_<GalacticProfile, std::shared_ptr<GalacticProfile>>(
-	    subm, "GalacticProfile");
-	py::class_<NFWGProfile, std::shared_ptr<NFWGProfile>, GalacticProfile>(
-	    subm, "NFWGProfile")
-	    .def(py::init<double, double, QMass>(), py::arg("gamma"),
-	         py::arg("concentration"), py::arg("M200"))
-	    .def("getMassDensity", &NFWGProfile::getMassDensity)
-	    .def("getRhoSun", &NFWGProfile::getRhoSun);
-}
+		py::class_<DarkMatterSpectrum, PyDarkMatterSpectrum,
+		           std::shared_ptr<DarkMatterSpectrum>>(subm,
+		                                                "DarkMatterSpectrum")
+		    .def(py::init<>())
+		    .def("getRestMassEnergy", &DarkMatterSpectrum::getRestMassEnergy)
+		    .def("getParticlesPerEnergy",
+		         &DarkMatterSpectrum::getParticlesPerEnergy);
+		py::class_<PPPC4DMIDSpectrum, std::shared_ptr<PPPC4DMIDSpectrum>,
+		           DarkMatterSpectrum>(subm, "PPPC4DMIDSpectrum")
+		    .def(py::init<Channel, Mass>(), py::arg("Channel"), py::arg("Mass"))
+		    .def(py::init<Channel, Mass, const std::string &>(),
+		         py::arg("Channel"), py::arg("Mass"), py::arg("filename"))
+		    .def("getRestMassEnergy", &PPPC4DMIDSpectrum::getRestMassEnergy)
+		    .def("getParticlesPerEnergy",
+		         &PPPC4DMIDSpectrum::getParticlesPerEnergy);
+		py::class_<HDMSpectraSpectrum, std::shared_ptr<HDMSpectraSpectrum>,
+		           DarkMatterSpectrum>(subm, "HDMSpectraSpectrum")
+		    .def(py::init<Channel, QEnergy, HDMSpectraProduct>(),
+		         py::arg("Channel"), py::arg("rest_mass_energy"),
+		         py::arg("product") = HDMSpectraProduct::gamma)
+		    .def(py::init<Channel, QEnergy, HDMSpectraProduct,
+		                  const std::string &>(),
+		         py::arg("Channel"), py::arg("rest_mass_energy"),
+		         py::arg("product"),
+		         py::arg("filename"))
+		    .def("getChannel", &HDMSpectraSpectrum::getChannel)
+		    .def("getProduct", &HDMSpectraSpectrum::getProduct)
+		    .def("getFilename", &HDMSpectraSpectrum::getFilename)
+		    .def("getRestMassEnergy", &HDMSpectraSpectrum::getRestMassEnergy)
+		    .def("getParticlesPerEnergy",
+		         &HDMSpectraSpectrum::getParticlesPerEnergy);
+		py::class_<GalacticProfile, PyGalacticProfile,
+		           std::shared_ptr<GalacticProfile>>(subm, "GalacticProfile")
+		    .def(py::init<>())
+		    .def("getMassDensity", &GalacticProfile::getMassDensity);
+		py::class_<NFWGProfile, std::shared_ptr<NFWGProfile>, GalacticProfile>(
+		    subm, "NFWGProfile")
+		    .def(py::init<double, double, QMass>(), py::arg("gamma"),
+		         py::arg("concentration"), py::arg("M200"))
+		    .def("getMassDensity", &NFWGProfile::getMassDensity)
+		    .def("getScaleRadius", &NFWGProfile::getScaleRadius)
+		    .def("getVirialRadius", &NFWGProfile::getVirialRadius)
+		    .def("getScaleDensity", &NFWGProfile::getScaleDensity)
+		    .def("getRhoSun", &NFWGProfile::getRhoSun);
+	}
 
 }}  // namespace hermes::darkmatter

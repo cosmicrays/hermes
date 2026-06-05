@@ -122,6 +122,7 @@ void init_skymaps(py::module &m) {
 		         s.setIntegrator(i);
 	         })
 	    .def("setMask", &GammaSkymapRange::setMask)
+	    .def("getEnergies", &GammaSkymapRange::getEnergies)
 	    .def("compute", &GammaSkymapRange::compute)
 	    .def("save", &GammaSkymapRange::save)
 	    .def("__getitem__",

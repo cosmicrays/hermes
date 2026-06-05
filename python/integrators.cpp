@@ -3,6 +3,7 @@
 
 #include "hermes/integrators/BremsstrahlungIntegrator.h"
 #include "hermes/integrators/DarkMatterIntegrator.h"
+#include "hermes/integrators/DarkMatterNeutronIntegrator.h"
 #include "hermes/integrators/DispersionMeasureIntegrator.h"
 #include "hermes/integrators/FreeFreeIntegrator.h"
 #include "hermes/integrators/IntegratorTemplate.h"
@@ -10,6 +11,7 @@
 #include "hermes/integrators/LOSIntegrationMethods.h"
 #include "hermes/integrators/PiZeroAbsorptionIntegrator.h"
 #include "hermes/integrators/PiZeroIntegrator.h"
+#include "hermes/integrators/PiZeroNeutronDecayIntegrator.h"
 #include "hermes/integrators/RotationMeasureIntegrator.h"
 #include "hermes/integrators/SynchroAbsorptionIntegrator.h"
 #include "hermes/integrators/SynchroIntegrator.h"
@@ -104,7 +106,7 @@ void init_integrators(py::module &m) {
 	    static_cast<QDiffIntensity (BremsstrahlungIntegrator::*)(const QDirection &, const QEnergy &) const>(
 	        &BremsstrahlungIntegrator::integrateOverLOS));
 
-	// PiZeroIntegrator
+	// PiZeroAbsorptionIntegrator
 	py::class_<PiZeroAbsorptionIntegrator, InverseComptonIntegratorParentClass,
 	           std::shared_ptr<PiZeroAbsorptionIntegrator>>
 	    pizeroabsintegrator(m, "PiZeroAbsorptionIntegrator", py::buffer_protocol());
@@ -121,12 +123,123 @@ void init_integrators(py::module &m) {
 	    static_cast<QDiffIntensity (PiZeroAbsorptionIntegrator::*)(const QDirection &, const QEnergy &) const>(
 	        &PiZeroAbsorptionIntegrator::integrateOverLOS));
 
+	// PiZeroNeutronDecayIntegrator
+	py::class_<PiZeroNeutronDecayIntegrator, InverseComptonIntegratorParentClass,
+	           std::shared_ptr<PiZeroNeutronDecayIntegrator>>
+	    pizeroneutronintegrator(m, "PiZeroNeutronDecayIntegrator", py::buffer_protocol());
+	pizeroneutronintegrator.def(
+	    py::init<const std::shared_ptr<cosmicrays::CosmicRayDensity>, const std::shared_ptr<neutralgas::RingModel>,
+	             const std::shared_ptr<interactions::DifferentialCrossSection>>());
+	pizeroneutronintegrator.def(py::init<const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>,
+	                                     const std::shared_ptr<neutralgas::RingModel>,
+	                                     const std::shared_ptr<interactions::DifferentialCrossSection>>());
+	declare_default_integrator_methods<PiZeroNeutronDecayIntegrator>(pizeroneutronintegrator);
+	pizeroneutronintegrator.def("decayInverseLength", &PiZeroNeutronDecayIntegrator::decayInverseLength);
+	pizeroneutronintegrator.def(
+	    "integrateOverLOS",
+	    static_cast<QDiffIntensity (PiZeroNeutronDecayIntegrator::*)(const QDirection &, const QEnergy &) const>(
+	        &PiZeroNeutronDecayIntegrator::integrateOverLOS));
+
 	// DarkMatterIntegrator
+	py::enum_<DarkMatterProcess>(m, "DarkMatterProcess")
+	    .value("annihilation", DarkMatterProcess::annihilation)
+	    .value("decay", DarkMatterProcess::decay);
+
 	py::class_<DarkMatterIntegrator, InverseComptonIntegratorParentClass, std::shared_ptr<DarkMatterIntegrator>>
 	    darkmatterintegrator(m, "DarkMatterIntegrator", py::buffer_protocol());
 	darkmatterintegrator.def(py::init<const std::shared_ptr<darkmatter::DarkMatterSpectrum>,
-	                                  const std::shared_ptr<darkmatter::GalacticProfile>>());
+	                                  const std::shared_ptr<darkmatter::GalacticProfile>, bool>(),
+	                         py::arg("spectrum"), py::arg("profile"), py::kw_only(),
+	                         py::arg("includeAbsorption") = false);
+	darkmatterintegrator.def(py::init([](const std::shared_ptr<darkmatter::DarkMatterSpectrum> &spectrum,
+	                                     const std::shared_ptr<darkmatter::GalacticProfile> &profile,
+	                                     double sigmaV_cm3_per_s, double symmetryFactor, bool includeAbsorption) {
+		                         return std::make_shared<DarkMatterIntegrator>(spectrum, profile,
+		                                                                       sigmaV_cm3_per_s * 1_cm3 / 1_s,
+		                                                                       symmetryFactor, includeAbsorption);
+	                         }),
+	                         py::arg("spectrum"), py::arg("profile"), py::arg("sigmaV_cm3_per_s"),
+	                         py::arg("symmetryFactor") = 0.5, py::kw_only(), py::arg("includeAbsorption") = false);
+	darkmatterintegrator.def(py::init([](const std::shared_ptr<darkmatter::DarkMatterSpectrum> &spectrum,
+	                                     const std::shared_ptr<darkmatter::GalacticProfile> &profile,
+	                                     double decayTime_s, bool includeAbsorption) {
+		                         return std::make_shared<DarkMatterIntegrator>(spectrum, profile, decayTime_s * 1_s,
+		                                                                       includeAbsorption);
+	                         }),
+	                         py::arg("spectrum"), py::arg("profile"), py::arg("decayTime_s"), py::kw_only(),
+	                         py::arg("includeAbsorption") = false);
+	darkmatterintegrator.def(
+	    py::init([](const std::shared_ptr<darkmatter::DarkMatterSpectrum> &spectrum,
+	                const std::shared_ptr<darkmatter::GalacticProfile> &profile, DarkMatterProcess process,
+	                double sigmaV_cm3_per_s, double symmetryFactor, double decayTime_s, bool includeAbsorption) {
+		    return std::make_shared<DarkMatterIntegrator>(spectrum, profile, process, sigmaV_cm3_per_s * 1_cm3 / 1_s,
+		                                                  symmetryFactor, decayTime_s * 1_s, includeAbsorption);
+	    }),
+	    py::arg("spectrum"), py::arg("profile"), py::arg("process"), py::arg("sigmaV_cm3_per_s") = 3e-26,
+	    py::arg("symmetryFactor") = 0.5, py::arg("decayTime_s") = 1e28, py::kw_only(),
+	    py::arg("includeAbsorption") = false);
 	declare_default_integrator_methods<DarkMatterIntegrator>(darkmatterintegrator);
+	darkmatterintegrator.def("absorptionCoefficient", &DarkMatterIntegrator::absorptionCoefficient);
+	darkmatterintegrator.def("getAbsorptionCoefficient", &DarkMatterIntegrator::getAbsorptionCoefficient);
+	darkmatterintegrator.def("precomputeAbsorptionCoefficients",
+	                         &DarkMatterIntegrator::precomputeAbsorptionCoefficients);
+	darkmatterintegrator.def("clearAbsorptionCoefficientTable", &DarkMatterIntegrator::clearAbsorptionCoefficientTable);
+	darkmatterintegrator.def("getAbsorptionCoefficientTableSize",
+	                         &DarkMatterIntegrator::getAbsorptionCoefficientTableSize);
+	darkmatterintegrator.def("getProcess", &DarkMatterIntegrator::getProcess);
+	darkmatterintegrator.def("getSigmaV", [](const DarkMatterIntegrator &self) {
+		return static_cast<double>(self.getSigmaV() / (1_cm3 / 1_s));
+	});
+	darkmatterintegrator.def("getSymmetryFactor", &DarkMatterIntegrator::getSymmetryFactor);
+	darkmatterintegrator.def("getDecayTime", [](const DarkMatterIntegrator &self) {
+		return static_cast<double>(self.getDecayTime() / 1_s);
+	});
+	darkmatterintegrator.def("setAbsorptionEnabled", &DarkMatterIntegrator::setAbsorptionEnabled);
+	darkmatterintegrator.def("isAbsorptionEnabled", &DarkMatterIntegrator::isAbsorptionEnabled);
+
+	// DarkMatterNeutronIntegrator
+	py::class_<DarkMatterNeutronIntegrator, InverseComptonIntegratorParentClass,
+	           std::shared_ptr<DarkMatterNeutronIntegrator>>
+	    darkmatterneutronintegrator(m, "DarkMatterNeutronIntegrator", py::buffer_protocol());
+	darkmatterneutronintegrator.def(py::init<const std::shared_ptr<darkmatter::DarkMatterSpectrum>,
+	                                         const std::shared_ptr<darkmatter::GalacticProfile>>(),
+	                                py::arg("spectrum"), py::arg("profile"));
+	darkmatterneutronintegrator.def(py::init([](const std::shared_ptr<darkmatter::DarkMatterSpectrum> &spectrum,
+	                                            const std::shared_ptr<darkmatter::GalacticProfile> &profile,
+	                                            double sigmaV_cm3_per_s, double symmetryFactor) {
+		                                return std::make_shared<DarkMatterNeutronIntegrator>(
+		                                    spectrum, profile, sigmaV_cm3_per_s * 1_cm3 / 1_s, symmetryFactor);
+	                                }),
+	                                py::arg("spectrum"), py::arg("profile"), py::arg("sigmaV_cm3_per_s"),
+	                                py::arg("symmetryFactor") = 0.5);
+	darkmatterneutronintegrator.def(
+	    py::init([](const std::shared_ptr<darkmatter::DarkMatterSpectrum> &spectrum,
+	                const std::shared_ptr<darkmatter::GalacticProfile> &profile, double decayTime_s) {
+		    return std::make_shared<DarkMatterNeutronIntegrator>(spectrum, profile, decayTime_s * 1_s);
+	    }),
+	    py::arg("spectrum"), py::arg("profile"), py::arg("decayTime_s"));
+	darkmatterneutronintegrator.def(
+	    py::init([](const std::shared_ptr<darkmatter::DarkMatterSpectrum> &spectrum,
+	                const std::shared_ptr<darkmatter::GalacticProfile> &profile, DarkMatterProcess process,
+	                double sigmaV_cm3_per_s, double symmetryFactor, double decayTime_s) {
+		    return std::make_shared<DarkMatterNeutronIntegrator>(
+		        spectrum, profile, process, sigmaV_cm3_per_s * 1_cm3 / 1_s, symmetryFactor, decayTime_s * 1_s);
+	    }),
+	    py::arg("spectrum"), py::arg("profile"), py::arg("process"), py::arg("sigmaV_cm3_per_s") = 3e-26,
+	    py::arg("symmetryFactor") = 0.5, py::arg("decayTime_s") = 1e28);
+	declare_default_integrator_methods<DarkMatterNeutronIntegrator>(darkmatterneutronintegrator);
+	darkmatterneutronintegrator.def("decayInverseLength", &DarkMatterNeutronIntegrator::decayInverseLength);
+	darkmatterneutronintegrator.def("getProcess", &DarkMatterNeutronIntegrator::getProcess);
+	darkmatterneutronintegrator.def("getSigmaV", [](const DarkMatterNeutronIntegrator &self) {
+		return static_cast<double>(self.getSigmaV() / (1_cm3 / 1_s));
+	});
+	darkmatterneutronintegrator.def("getSymmetryFactor", &DarkMatterNeutronIntegrator::getSymmetryFactor);
+	darkmatterneutronintegrator.def("getDecayTime", [](const DarkMatterNeutronIntegrator &self) {
+		return static_cast<double>(self.getDecayTime() / 1_s);
+	});
+	darkmatterneutronintegrator.def("setIncludeDecay", &DarkMatterNeutronIntegrator::setIncludeDecay,
+	                                py::arg("includeDecay"));
+	darkmatterneutronintegrator.def("isDecayEnabled", &DarkMatterNeutronIntegrator::isDecayEnabled);
 }
 
 }  // namespace hermes

@@ -19,58 +19,43 @@ void init(py::module &m) {
 	subm.doc() = "cosmic rays package";
 
 	// ionized gas density models
-	py::class_<CosmicRayDensity, std::shared_ptr<CosmicRayDensity>>(
-	    subm, "CosmicRayDensity")
+	py::class_<CosmicRayDensity, std::shared_ptr<CosmicRayDensity>>(subm, "CosmicRayDensity")
 	    .def("getDensityPerEnergy", &CosmicRayDensity::getDensityPerEnergy)
 	    .def("getEnergyAxis", &CosmicRayDensity::getEnergyAxis);
-	py::class_<DummyCR, std::shared_ptr<DummyCR>,
-	           CosmicRayDensity>(subm, "DummyCR")
+	py::class_<DummyCR, std::shared_ptr<DummyCR>, CosmicRayDensity>(subm, "DummyCR")
 	    .def(py::init<>())
-	    .def(py::init<const PID &, const QEnergy &, const QEnergy &, int>(),
-	         py::arg("PID"), py::arg("E_min"), py::arg("E_max"),
-	         py::arg("steps"));
-	py::class_<SimpleCR, std::shared_ptr<SimpleCR>,
-	           CosmicRayDensity>(subm, "SimpleCR")
+	    .def(py::init<const PID &, const QEnergy &, const QEnergy &, int>(), py::arg("PID"), py::arg("E_min"),
+	         py::arg("E_max"), py::arg("steps"));
+	py::class_<SimpleCR, std::shared_ptr<SimpleCR>, CosmicRayDensity>(subm, "SimpleCR")
 	    .def(py::init<>())
-	    .def(py::init<const PID &, const QEnergy &, const QEnergy &, int>(),
-	         py::arg("PID"), py::arg("E_min"), py::arg("E_max"),
-	         py::arg("steps"));
+	    .def(py::init<const PID &, const QEnergy &, const QEnergy &, int>(), py::arg("PID"), py::arg("E_min"),
+	         py::arg("E_max"), py::arg("steps"));
 	py::class_<UHECR, std::shared_ptr<UHECR>, CosmicRayDensity>(subm, "UHECR")
 	    .def(py::init<>())
-	    .def(py::init<const PID &, const QEnergy &, const QEnergy &, int>(),
-	         py::arg("PID"), py::arg("E_min"), py::arg("E_max"),
-	         py::arg("steps"))
+	    .def(py::init<const PID &, const QEnergy &, const QEnergy &, int>(), py::arg("PID"), py::arg("E_min"),
+	         py::arg("E_max"), py::arg("steps"))
 	    .def("getDensityPerEnergy",
-	         static_cast<QPDensityPerEnergy (UHECR::*)(
-	             const QEnergy &, const Vector3QLength &) const>(
+	         static_cast<QPDensityPerEnergy (UHECR::*)(const QEnergy &, const Vector3QLength &) const>(
 	             &UHECR::getDensityPerEnergy));
-	py::class_<Sun08, std::shared_ptr<Sun08>,
-	           CosmicRayDensity>(subm, "Sun08")
-	    .def(py::init<>());
-	py::class_<WMAP07, std::shared_ptr<WMAP07>,
-	           CosmicRayDensity>(subm, "WMAP07")
-	    .def(py::init<>());
-	py::class_<Dragon2D, std::shared_ptr<Dragon2D>, CosmicRayDensity>(
-	    subm, "Dragon2D")
+	py::class_<Sun08, std::shared_ptr<Sun08>, CosmicRayDensity>(subm, "Sun08").def(py::init<>());
+	py::class_<WMAP07, std::shared_ptr<WMAP07>, CosmicRayDensity>(subm, "WMAP07").def(py::init<>());
+	py::class_<Dragon2D, std::shared_ptr<Dragon2D>, CosmicRayDensity>(subm, "Dragon2D")
 	    .def(py::init<const PID &>())
 	    .def(py::init<const std::vector<PID> &>())
 	    .def(py::init<const std::string, const std::vector<PID> &>())
 	    .def("getDensityPerEnergy",
-	         static_cast<QPDensityPerEnergy (Dragon2D::*)(
-	             const QEnergy &, const Vector3QLength &) const>(
+	         static_cast<QPDensityPerEnergy (Dragon2D::*)(const QEnergy &, const Vector3QLength &) const>(
 	             &Dragon2D::getDensityPerEnergy));
-	py::class_<Dragon3D, std::shared_ptr<Dragon3D>, CosmicRayDensity>(
-	    subm, "Dragon3D")
+	py::class_<Dragon3D, std::shared_ptr<Dragon3D>, CosmicRayDensity>(subm, "Dragon3D")
 	    .def(py::init<const PID &>())
 	    .def(py::init<const std::vector<PID> &>())
 	    .def(py::init<const std::string, const std::vector<PID> &>())
 	    .def("getDensityPerEnergy",
-	         static_cast<QPDensityPerEnergy (Dragon3D::*)(
-	             const QEnergy &, const Vector3QLength &) const>(
+	         static_cast<QPDensityPerEnergy (Dragon3D::*)(const QEnergy &, const Vector3QLength &) const>(
 	             &Dragon3D::getDensityPerEnergy))
-        .def("getXBoundaries", &Dragon3D::getXBoundaries)
-        .def("getYBoundaries", &Dragon3D::getYBoundaries)
-        .def("getZBoundaries", &Dragon3D::getZBoundaries);
+	    .def("getXBoundaries", &Dragon3D::getXBoundaries)
+	    .def("getYBoundaries", &Dragon3D::getYBoundaries)
+	    .def("getZBoundaries", &Dragon3D::getZBoundaries);
 }
 
 }}  // namespace hermes::cosmicrays

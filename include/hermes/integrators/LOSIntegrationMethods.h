@@ -2,11 +2,17 @@
 #define HERMES_LOSINTEGRATIONMETHODS_H
 
 #include <gsl/gsl_integration.h>
+#include <gsl/gsl_errno.h>
 
 #include <cassert>
+#include <cmath>
 #include <fstream>
 #include <functional>
+#include <memory>
+#include <mutex>
+#include <stdexcept>
 #include <sstream>
+#include <string>
 
 #include "hermes/Common.h"
 #include "hermes/Grid.h"
@@ -15,6 +21,30 @@
 #define GSL_LIMIT 1000
 
 namespace hermes {
+
+namespace detail {
+
+inline std::mutex &gslErrorHandlerMutex() {
+	static std::mutex mutex;
+	return mutex;
+}
+
+class ScopedGslErrorHandlerOff {
+  public:
+	ScopedGslErrorHandlerOff() : oldHandler(gsl_set_error_handler_off()) {}
+	~ScopedGslErrorHandlerOff() { gsl_set_error_handler(oldHandler); }
+
+  private:
+	gsl_error_handler_t *oldHandler;
+};
+
+inline void throwIfGslFailed(int status, const char *context) {
+	if (status == GSL_SUCCESS) return;
+	throw std::runtime_error(std::string(context) + ": " +
+	                         gsl_strerror(status));
+}
+
+}  // namespace detail
 
 // dim(QPXL) = dim(INTTYPE) * dim(L)
 template <typename QPXL, typename INTTYPE>
@@ -95,17 +125,28 @@ QPXL gslQAGIntegration(std::function<INTTYPE(QLength)> f, QLength start,
 	double error;
 
 	gsl_function F = {.function = [](double x, void *vf) -> double {
-		                  auto &func =
-		                      *static_cast<std::function<double(double)> *>(vf);
-		                  return func(x);
-	                  },
-	                  .params = &f};
+			                  auto &func = *static_cast<
+			                      std::function<INTTYPE(QLength)> *>(vf);
+			                  return static_cast<double>(func(QLength(x)));
+		                  },
+		                  .params = &f};
 
-	gsl_integration_workspace *workspace_ptr =
-	    gsl_integration_workspace_alloc(GSL_LIMIT);
-	gsl_integration_qag(&F, a, b, abs_error, rel_error, N, key, workspace_ptr,
-	                    &result, &error);
-	gsl_integration_workspace_free(workspace_ptr);
+	std::unique_ptr<gsl_integration_workspace,
+	                decltype(&gsl_integration_workspace_free)>
+	    workspace_ptr(gsl_integration_workspace_alloc(GSL_LIMIT),
+	                  gsl_integration_workspace_free);
+	if (!workspace_ptr)
+		throw std::runtime_error("gslQAGIntegration: could not allocate GSL workspace");
+	int status = GSL_SUCCESS;
+	{
+		std::lock_guard<std::mutex> lock(detail::gslErrorHandlerMutex());
+		detail::ScopedGslErrorHandlerOff disableGslAbort;
+		status = gsl_integration_qag(&F, a, b, abs_error, rel_error, N, key,
+		                             workspace_ptr.get(), &result, &error);
+	}
+	detail::throwIfGslFailed(status, "gslQAGIntegration");
+	if (!std::isfinite(result))
+		throw std::runtime_error("gslQAGIntegration: non-finite result");
 
 	return QPXL(result);
 }
@@ -121,17 +162,28 @@ QPXL gslQAGSIntegration(std::function<INTTYPE(QLength)> f, QLength start,
 	double error;
 
 	gsl_function F = {.function = [](double x, void *vf) -> double {
-		                  auto &func =
-		                      *static_cast<std::function<double(double)> *>(vf);
-		                  return func(x);
-	                  },
-	                  .params = &f};
+			                  auto &func = *static_cast<
+			                      std::function<INTTYPE(QLength)> *>(vf);
+			                  return static_cast<double>(func(QLength(x)));
+		                  },
+		                  .params = &f};
 
-	gsl_integration_workspace *workspace_ptr =
-	    gsl_integration_workspace_alloc(GSL_LIMIT);
-	gsl_integration_qags(&F, a, b, abs_error, rel_error, N, workspace_ptr,
-	                     &result, &error);
-	gsl_integration_workspace_free(workspace_ptr);
+	std::unique_ptr<gsl_integration_workspace,
+	                decltype(&gsl_integration_workspace_free)>
+	    workspace_ptr(gsl_integration_workspace_alloc(GSL_LIMIT),
+	                  gsl_integration_workspace_free);
+	if (!workspace_ptr)
+		throw std::runtime_error("gslQAGSIntegration: could not allocate GSL workspace");
+	int status = GSL_SUCCESS;
+	{
+		std::lock_guard<std::mutex> lock(detail::gslErrorHandlerMutex());
+		detail::ScopedGslErrorHandlerOff disableGslAbort;
+		status = gsl_integration_qags(&F, a, b, abs_error, rel_error, N,
+		                              workspace_ptr.get(), &result, &error);
+	}
+	detail::throwIfGslFailed(status, "gslQAGSIntegration");
+	if (!std::isfinite(result))
+		throw std::runtime_error("gslQAGSIntegration: non-finite result");
 
 	return QPXL(result);
 }
