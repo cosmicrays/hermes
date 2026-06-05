@@ -67,6 +67,21 @@ jobs:
           ls "$DATADIR/Interactions/" || echo "(Interactions directory missing)"
           exit 1
         fi
+        if [ ! -f "$DATADIR/CosmicRays/DRAGON2/d2_base_min.gz" ]; then
+          echo "ERROR: expected data file not found after extraction!"
+          ls "$DATADIR/CosmicRays/DRAGON2/" || echo "(DRAGON2 directory missing)"
+          exit 1
+        fi
+        if [ ! -f "$DATADIR/DarkMatter/PPPC4DMID/AtProduction_gammas.dat.gz" ]; then
+          echo "ERROR: expected data file not found after extraction!"
+          ls "$DATADIR/DarkMatter/PPPC4DMID/" || echo "(PPPC4DMID directory missing)"
+          exit 1
+        fi
+        if [ ! -f "$DATADIR/GasDensity/Remy18/NHrings_Ts300K.fits.gz" ]; then
+          echo "ERROR: expected data file not found after extraction!"
+          ls "$DATADIR/GasDensity/Remy18/" || echo "(Remy18 directory missing)"
+          exit 1
+        fi
         echo "Data files verified."
 
     - name: Install dependencies on Ubuntu
@@ -105,8 +120,3 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: ctest --output-on-failure -C ${{env.BUILD_TYPE}} --timeout 1200
-
-    - name: AAfrag regression test
-      working-directory: ${{github.workspace}}/build
-      run: ./testInteractions --gtest_filter=Interactions.AAfrag
-      
