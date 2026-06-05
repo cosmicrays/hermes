@@ -1,52 +1,77 @@
 #include "hermes/Common.h"
 
 #include <cstdlib>
+#include <fstream>
 #include <thread>
+#include <utility>
+#include <vector>
 
 #include "kiss/logger.h"
 #include "kiss/path.h"
 
 namespace hermes {
 
+namespace {
+
+bool fileExists(const std::string &path) {
+	std::ifstream file(path.c_str(), std::ios::binary);
+	return file.good();
+}
+
+std::string findDataPath(const std::vector<std::pair<std::string, std::string>> &candidates,
+                         const std::string &filename) {
+	for (const auto &candidate : candidates) {
+		const auto &path = candidate.second;
+		if (!is_directory(path)) continue;
+		if (!fileExists(concat_path(path, filename))) continue;
+
+		KISS_LOG_INFO << "getDataPath: use " << candidate.first << ", " << path << std::endl;
+		return path;
+	}
+
+	for (const auto &candidate : candidates) {
+		const auto &path = candidate.second;
+		if (!is_directory(path)) continue;
+
+		KISS_LOG_INFO << "getDataPath: use " << candidate.first << ", " << path << std::endl;
+		return path;
+	}
+
+	return "data";
+}
+
+}  // namespace
+
 std::string getDataPath(const std::string &filename) {
 	// adopted from CRPropa3
 	static std::string dataPath;
-	if (dataPath.size()) return concat_path(dataPath, filename);
+	if (dataPath.size() && fileExists(concat_path(dataPath, filename))) return concat_path(dataPath, filename);
+
+	std::vector<std::pair<std::string, std::string>> candidates;
 
 	const char *env_path = getenv("HERMES_DATA_PATH");
-	if (env_path) {
-		if (is_directory(env_path)) {
-			dataPath = env_path;
-			KISS_LOG_INFO << "getDataPath: use environment variable, "
-			              << dataPath << std::endl;
-			return concat_path(dataPath, filename);
-		}
-	}
+	if (env_path) candidates.push_back({"environment variable", env_path});
 
 #ifdef HERMES_INSTALL_PREFIX
-	{
-		std::string _path = HERMES_INSTALL_PREFIX "/share/hermes/data";
-		if (is_directory(_path)) {
-			dataPath = _path;
-			KISS_LOG_INFO << "getDataPath: use install prefix, " << dataPath
-			              << std::endl;
-			return concat_path(dataPath, filename);
-		}
-	}
+	candidates.push_back({"install prefix", HERMES_INSTALL_PREFIX "/share/hermes/data"});
 #endif
 
-	{
-		std::string _path = executable_path() + "../data";
-		if (is_directory(_path)) {
-			dataPath = _path;
-			KISS_LOG_INFO << "getDataPath: use executable path, " << dataPath
-			              << std::endl;
-			return concat_path(dataPath, filename);
+	candidates.push_back({"build tree", "build/data"});
+	candidates.push_back({"build tree", "../build/data"});
+	candidates.push_back({"default", "data"});
+	candidates.push_back({"default", "../data"});
+
+	try {
+		const std::string exePath = executable_path();
+		if (!exePath.empty()) {
+			candidates.push_back({"executable path", exePath + "data"});
+			candidates.push_back({"executable path", exePath + "../data"});
+			candidates.push_back({"executable path", exePath + "../build/data"});
 		}
+	} catch (const std::exception &) {
 	}
 
-	dataPath = "data";
-	KISS_LOG_INFO << "getDataPath: use default, " << dataPath << std::endl;
+	dataPath = findDataPath(candidates, filename);
 	return concat_path(dataPath, filename);
 }
 
