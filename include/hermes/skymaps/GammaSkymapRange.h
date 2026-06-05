@@ -35,6 +35,7 @@ class GammaSkymapRange {
 
 	std::size_t size() const;
 	GammaSkymap operator[](std::size_t ipix) const;
+	const std::vector<QEnergy> &getEnergies() const;
 
 	void compute();
 

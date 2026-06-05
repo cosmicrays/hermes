@@ -45,6 +45,10 @@ GammaSkymap GammaSkymapRange::operator[](std::size_t i) const {
 	return skymaps[i];
 }
 
+const std::vector<QEnergy> &GammaSkymapRange::getEnergies() const {
+	return energies;
+}
+
 void GammaSkymapRange::compute() {
 	for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		std::cerr << "hermes::SkymapRange: " << it - skymaps.begin() + 1 << "/"
