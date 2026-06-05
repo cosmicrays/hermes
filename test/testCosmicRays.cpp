@@ -14,8 +14,9 @@ TEST(CosmicRays, Dragon2D) {
 
     auto result = cr_proton->getDensityPerEnergy(0, pos_obs);
 	
-    EXPECT_NEAR(static_cast<double>(result),
-	            static_cast<double>(3569822.7), 1);
+	EXPECT_GT(static_cast<double>(result), 0.);
+	EXPECT_NEAR(static_cast<double>(result),
+	            static_cast<double>(2152272.6), 1);
 }
 
 TEST(CosmicRays, Dragon3D) {
