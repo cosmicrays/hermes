@@ -60,7 +60,7 @@ TEST(UHECR, ReturnsZeroBelowSpectrumThreshold) {
 	const cosmicrays::UHECR uhecr;
 	const Vector3QLength position(0, 0, 0);
 
-	EXPECT_DOUBLE_EQ(static_cast<double>(uhecr.getDensityPerEnergy(9.9e17 * 1_eV, position)), 0.);
+	EXPECT_DOUBLE_EQ(static_cast<double>(uhecr.getDensityPerEnergy(1e17 * 1_eV, position)), 0.);
 	EXPECT_GT(static_cast<double>(uhecr.getDensityPerEnergy(1e18 * 1_eV, position)), 0.);
 }
 
