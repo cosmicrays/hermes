@@ -56,6 +56,10 @@ std::string getDataPath(const std::string &filename) {
 	candidates.push_back({"install prefix", HERMES_INSTALL_PREFIX "/share/hermes/data"});
 #endif
 
+#ifdef HERMES_BUILD_DATA_PATH
+	candidates.push_back({"cmake build data", HERMES_BUILD_DATA_PATH});
+#endif
+
 	candidates.push_back({"build tree", "build/data"});
 	candidates.push_back({"build tree", "../build/data"});
 	candidates.push_back({"default", "data"});
@@ -82,9 +86,7 @@ bool isWithinAngle(const QDirection &a, const QDirection &b, const QAngle &d) {
 	return (v1.getAngleTo(v2) < d);
 }
 
-QLength distanceFromGC(const QDirection &direction,
-                       const QLength &distFromObserver,
-                       const Vector3QLength &vecGCObs) {
+QLength distanceFromGC(const QDirection &direction, const QLength &distFromObserver, const Vector3QLength &vecGCObs) {
 	Vector3QLength vecObsTarget;
 	vecObsTarget.setRThetaPhi(distFromObserver, direction[0], direction[1]);
 	Vector3QLength vecGCTarget = vecObsTarget - vecGCObs;
@@ -92,10 +94,8 @@ QLength distanceFromGC(const QDirection &direction,
 	return vecGCTarget.getR();
 }
 
-QLength distanceToGalBorder(const Vector3QLength &observerPosition,
-                            const QDirection &direction,
-                            const QLength &galacticBorder,
-                            const QLength &zBorder) {
+QLength distanceToGalBorder(const Vector3QLength &observerPosition, const QDirection &direction,
+                            const QLength &galacticBorder, const QLength &zBorder) {
 	static const Vector3QLength gcPosition(0, 0, 0);
 	// static const QLength galacticBorder = 30_kpc; // for example JF12 is
 	// zero for r > 20kpc static const QLength zBorder = 5_kpc;
@@ -106,15 +106,13 @@ QLength distanceToGalBorder(const Vector3QLength &observerPosition,
 	QLength c = galacticBorder;
 	QAngle gamma = vecObsToGalBorder.getAngleTo(observerPosition - gcPosition);
 
-	QLength sphericalBorder =
-	    a * cos(gamma) + sqrt(c * c - a * a * (1 - cos(2 * gamma)) / 2.0);
+	QLength sphericalBorder = a * cos(gamma) + sqrt(c * c - a * a * (1 - cos(2 * gamma)) / 2.0);
 	QLength heightBroder = fabs(zBorder / cos(direction[0]));
 
 	return std::min(heightBroder, sphericalBorder);
 }
 
-Vector3QLength getGalacticPosition(const Vector3QLength &observerPosition,
-                                   const QLength &dist, const QDirection &dir) {
+Vector3QLength getGalacticPosition(const Vector3QLength &observerPosition, const QLength &dist, const QDirection &dir) {
 	Vector3QLength pos(0);
 
 	// TODO(adundovi): should be more general for any observer position
@@ -125,20 +123,13 @@ Vector3QLength getGalacticPosition(const Vector3QLength &observerPosition,
 	return pos;
 }
 
-QDirection toGalCoord(const QDirection &d) {
-	return QDirection({pi * 0.5_rad - fmod(d[0], pi), fmod(d[1], 2_pi)});
-}
+QDirection toGalCoord(const QDirection &d) { return QDirection({pi * 0.5_rad - fmod(d[0], pi), fmod(d[1], 2_pi)}); }
 
-QDirection fromGalCoord(const QDirection &d) {
-	return QDirection({fmod(pi * 0.5_rad - d[0], pi), fmod(d[1], 2_pi)});
-}
+QDirection fromGalCoord(const QDirection &d) { return QDirection({fmod(pi * 0.5_rad - d[0], pi), fmod(d[1], 2_pi)}); }
 
-QNumber getLorentzFactor(const QMass &m, const QEnergy &E) {
-	return E / (m * c_squared);
-}
+QNumber getLorentzFactor(const QMass &m, const QEnergy &E) { return E / (m * c_squared); }
 
-QTemperature intensityToTemperature(const QIntensity &intensity_,
-                                    const QFrequency &freq_) {
+QTemperature intensityToTemperature(const QIntensity &intensity_, const QFrequency &freq_) {
 	return intensity_ * c_squared / (2 * freq_ * freq_ * k_boltzmann);
 }
 
@@ -157,39 +148,33 @@ unsigned int getThreadsNumber() {
 	return max_threads;
 }
 
-std::size_t getThreadId() {
-	return std::hash<std::thread::id>()(std::this_thread::get_id());
+std::size_t getThreadId() { return std::hash<std::thread::id>()(std::this_thread::get_id()); }
+
+std::vector<std::vector<std::size_t>> getIndexedThreadChunks(std::vector<std::size_t> validPixels) {
+	std::size_t threads = getThreadsNumber();
+	std::vector<std::vector<std::size_t>> chunks(threads);
+
+	while (validPixels.size()) {
+		for (std::size_t i = 0; i < threads; ++i) {
+			chunks[i].push_back(validPixels.back());
+			validPixels.pop_back();
+			if (validPixels.size() == 0) {
+				break;
+			}
+		}
+	}
+
+	return chunks;
 }
 
-std::vector<std::vector<std::size_t>> getIndexedThreadChunks(
-    std::vector<std::size_t> validPixels) {
-    
-    std::size_t threads = getThreadsNumber();
-    std::vector<std::vector<std::size_t>> chunks(threads);
-   
-    while (validPixels.size()) {
-        for (std::size_t i = 0; i < threads; ++i) {
-            chunks[i].push_back(validPixels.back());
-            validPixels.pop_back();
-            if (validPixels.size() == 0) {
-                break;
-            }
-        }
-    }
-
-    return chunks;
-}
-
-std::vector<std::pair<unsigned int, unsigned int>> getThreadChunks(
-    unsigned int queueSize) {
+std::vector<std::pair<unsigned int, unsigned int>> getThreadChunks(unsigned int queueSize) {
 	unsigned int tasks_per_thread = queueSize / getThreadsNumber();
 	unsigned int reminder_tasks = queueSize % getThreadsNumber();
 
 	// Init chunks of pixels:  chunk[i] = [ i, (i+1)*pixel_per_thread >
 	std::vector<std::pair<unsigned int, unsigned int>> chunks;
 	for (unsigned int i = 0; i < getThreadsNumber(); ++i) {
-		chunks.push_back(
-		    std::make_pair(i * tasks_per_thread, (i + 1) * tasks_per_thread));
+		chunks.push_back(std::make_pair(i * tasks_per_thread, (i + 1) * tasks_per_thread));
 	}
 	chunks[getThreadsNumber() - 1].second += reminder_tasks;
 

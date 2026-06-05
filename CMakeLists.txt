@@ -558,6 +558,7 @@ message(STATUS "HERMES_DEFINES: ${HERMES_SWIG_DEFINES}")
 # Install
 # ----------------------------------------------------------------------------
 add_definitions(-DHERMES_INSTALL_PREFIX="${CMAKE_INSTALL_PREFIX}")
+add_definitions(-DHERMES_BUILD_DATA_PATH="${CMAKE_BINARY_DIR}/data")
 install(TARGETS hermes DESTINATION lib)
 install(DIRECTORY include/ DESTINATION include FILES_MATCHING PATTERN "*.h")
 install(DIRECTORY ${CMAKE_BINARY_DIR}/include/ DESTINATION include FILES_MATCHING PATTERN "*.h")

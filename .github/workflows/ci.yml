@@ -15,8 +15,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
-        compiler: [gcc, clang]
+        include:
+          - os: ubuntu-latest
+            compiler: gcc
+            cc: gcc
+            cxx: g++
+          - os: ubuntu-latest
+            compiler: clang
+            cc: clang
+            cxx: clang++
+          - os: macos-latest
+            compiler: clang
+            cc: clang
+            cxx: clang++
     runs-on: ${{ matrix.os }}
     env:
       OS: ${{ matrix.os }}
@@ -25,14 +36,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Cache Gradle packages
+    - name: Cache Hermes data
       uses: actions/cache@v4
       with:
         path: |
           $HOME/hermes_cache
-        key: ${{ runner.os }}-hermes-cache-${{ hashFiles('**/gradle-wrapper.properties') }}
+        key: ${{ runner.os }}-hermes-data-${{ hashFiles('CMakeLists.txt', '.github/workflows/ci.yml') }}
         restore-keys: |
-          ${{ runner.os }}-hermes-cache-
+          ${{ runner.os }}-hermes-data-
     
     - name: Install dependencies on Ubuntu
       if: ${{ contains(env.OS, 'ubuntu') }}
@@ -50,48 +61,35 @@ jobs:
          HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
          HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python;
 
-    - name: Configure paths on MacOS
-      if: ${{ contains(env.OS, 'macos') }}
-      run: |
-         GCC_BREW_PATH=$(brew --cellar gcc)/$(brew info --json gcc | jq -r '.[0].installed[0].version');
-         PYTHON_BREW_PATH=$(brew --cellar python)/$(brew info --json python | jq -r '.[0].installed[0].version');
-
-    - name: Configure CMake with Clang
-      if: ${{ contains(env.COMPILER, 'clang') }}
+    - name: Configure CMake
       env:
-        CXX: 'clang++'
-        CC: 'clang'
-        CXX_COMPILER: 'clang++'
-        C_COMPILER: 'clang'
+        CXX: ${{ matrix.cxx }}
+        CC: ${{ matrix.cc }}
       run: |
+        mkdir -p ${{github.workspace}}/build
+        mkdir -p $HOME/hermes_cache
         DATAFILE=$HOME/hermes_cache/hermes-data.tar.gz
         if [ -f $DATAFILE ]; then
           echo "Using data file from cache!"
           cp $DATAFILE ${{github.workspace}}/build/
-        fi;
+        fi
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TESTING=On -DENABLE_PYTHON=True
-        cp ${{github.workspace}}/build/hermes-data.tar.gz $HOME/hermes_cache
-
-    - name: Configure CMake with GCC
-      if: ${{ contains(env.COMPILER, 'gcc') }}
-      env:
-        CXX: 'g++'
-        CC: 'gcc'
-        CXX_COMPILER: 'g++'
-        C_COMPILER: 'gcc'
-      run: |
-        DATAFILE=$HOME/hermes_cache/hermes-data.tar.gz
-        if [ -f $DATAFILE ]; then
-          echo "Using data file from cache!"
-          cp $DATAFILE ${{github.workspace}}/build/
-        fi;
-        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TESTING=On -DENABLE_PYTHON=True
-        cp ${{github.workspace}}/build/hermes-data.tar.gz $HOME/hermes_cache
+        if [ -f ${{github.workspace}}/build/hermes-data.tar.gz ]; then
+          cp ${{github.workspace}}/build/hermes-data.tar.gz $HOME/hermes_cache
+        fi
         
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --parallel
+
+    - name: List tests
+      working-directory: ${{github.workspace}}/build
+      run: ctest -N -C ${{env.BUILD_TYPE}}
 
     - name: Test
       working-directory: ${{github.workspace}}/build
-      run: ctest --output-on-failure -C ${{env.BUILD_TYPE}}
+      run: ctest --output-on-failure -C ${{env.BUILD_TYPE}} --timeout 1200
+
+    - name: AAfrag regression test
+      working-directory: ${{github.workspace}}/build
+      run: ./testInteractions --gtest_filter=Interactions.AAfrag
       
