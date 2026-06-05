@@ -58,7 +58,7 @@ void UHECR::makeEnergyRange() {
 }
 
 QPDensityPerEnergy UHECR::getDensityPerEnergy(const QEnergy &E_, const Vector3QLength &pos_) const {
-	if (E_ < E_min) return QPDensityPerEnergy(0);
+	if (E_ < 0.3 * E_min) return QPDensityPerEnergy(0);
 
 	const double energy = static_cast<double>(E_ / 1_eV);
 	const double logSpectrum = -alpha_1 * std::log(static_cast<double>(E_ / E_0)) +
