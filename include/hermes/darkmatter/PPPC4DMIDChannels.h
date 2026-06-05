@@ -17,6 +17,8 @@ enum class Channel {
 	t = 12,
 	W = 15,
 	Z = 18,
+	g = 19,
+	gamma = 20,
 	h = 21
 };
 

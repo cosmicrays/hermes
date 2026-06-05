@@ -1,18 +1,52 @@
 #include "hermes/darkmatter/NFWGProfile.h"
 
+#include <gsl/gsl_errno.h>
 #include <gsl/gsl_integration.h>
 
 #include <cmath>
-#include <iostream>
+#include <memory>
+#include <mutex>
+#include <stdexcept>
+#include <string>
 
 namespace hermes { namespace darkmatter {
 
-static const double f_NFW(double x, double gamma) {
+namespace {
+
+constexpr int integrationLimit = 1000;
+std::mutex gslErrorHandlerMutex;
+
+class ScopedGslErrorHandlerOff {
+  public:
+	ScopedGslErrorHandlerOff() : oldHandler(gsl_set_error_handler_off()) {}
+	~ScopedGslErrorHandlerOff() { gsl_set_error_handler(oldHandler); }
+
+  private:
+	gsl_error_handler_t *oldHandler;
+};
+
+double f_NFW(double x, double gamma) {
 	return 1. / std::pow(x, gamma) / std::pow(1 + x, 3 - gamma);
 }
 
+void validateParameters(double gamma, double concentration, QMass M_200) {
+	if (!std::isfinite(gamma) || gamma < 0. || gamma >= 2.)
+		throw std::invalid_argument(
+		    "hermes::NFWGProfile: gamma must satisfy 0 <= gamma < 2");
+	if (!std::isfinite(concentration) || concentration <= 0.)
+		throw std::invalid_argument(
+		    "hermes::NFWGProfile: concentration must be positive");
+	const double mass = static_cast<double>(M_200 / 1_kg);
+	if (!std::isfinite(mass) || M_200 <= QMass(0))
+		throw std::invalid_argument(
+		    "hermes::NFWGProfile: M_200 must be positive");
+}
+
+}  // namespace
+
 NFWGProfile::NFWGProfile(double gamma, double concentration, QMass M_200)
     : gamma(gamma), concentration(concentration), M_200(M_200) {
+	validateParameters(gamma, concentration, M_200);
 	init();
 }
 
@@ -22,13 +56,33 @@ double I_func(double x, void *params) {
 }
 
 double I(double c, double gamma) {
-	gsl_integration_workspace *w = gsl_integration_workspace_alloc(1000);
-	double result, error;
+	std::unique_ptr<gsl_integration_workspace,
+	                decltype(&gsl_integration_workspace_free)>
+	    w(gsl_integration_workspace_alloc(integrationLimit),
+	      gsl_integration_workspace_free);
+	if (!w)
+		throw std::runtime_error(
+		    "hermes::NFWGProfile: could not allocate GSL workspace");
+
+	double result = 0.;
+	double error = 0.;
 	gsl_function F;
 	F.function = &I_func;
 	F.params = &gamma;
-	gsl_integration_qags(&F, 0, c, 0, 1e-7, 1000, w, &result, &error);
-	gsl_integration_workspace_free(w);
+
+	int status = GSL_SUCCESS;
+	{
+		std::lock_guard<std::mutex> lock(gslErrorHandlerMutex);
+		ScopedGslErrorHandlerOff disableGslAbort;
+		status = gsl_integration_qags(&F, 0, c, 0, 1e-7, integrationLimit,
+		                              w.get(), &result, &error);
+	}
+	if (status != GSL_SUCCESS)
+		throw std::runtime_error("hermes::NFWGProfile: GSL integration failed: " +
+		                         std::string(gsl_strerror(status)));
+	if (!std::isfinite(result) || result <= 0.)
+		throw std::runtime_error(
+		    "hermes::NFWGProfile: invalid normalization integral");
 
 	return result;
 }
@@ -44,7 +98,13 @@ void NFWGProfile::init() {
 	        I(concentration, gamma);
 }
 
-QMassDensity NFWGProfile::getRhoSun() const { return rho_s; }
+QLength NFWGProfile::getScaleRadius() const { return r_s; }
+
+QLength NFWGProfile::getVirialRadius() const { return R_200; }
+
+QMassDensity NFWGProfile::getScaleDensity() const { return rho_s; }
+
+QMassDensity NFWGProfile::getRhoSun() const { return getScaleDensity(); }
 
 QMassDensity NFWGProfile::getMassDensity(QLength r) const {
 	auto x = r / r_s;

@@ -32,6 +32,9 @@ class NFWGProfile : public GalacticProfile {
 	NFWGProfile(double gamma, double c, QMass M_200);
 	~NFWGProfile() = default;
 	QMassDensity getMassDensity(QLength r) const override;
+	QLength getScaleRadius() const;
+	QLength getVirialRadius() const;
+	QMassDensity getScaleDensity() const;
 	QMassDensity getRhoSun() const;
 };
 
