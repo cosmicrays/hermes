@@ -30,12 +30,42 @@ class Quantity {
 
 	// The intrinsic operations for a quantity with a unit is addition and
 	// subtraction
-	constexpr Quantity const &operator+=(const Quantity &rhs) {
+	constexpr Quantity &operator+=(const Quantity &rhs) {
 		value += rhs.value;
 		return *this;
 	}
-	constexpr Quantity const &operator-=(const Quantity &rhs) {
+	constexpr Quantity &operator-=(const Quantity &rhs) {
 		value -= rhs.value;
+		return *this;
+	}
+	constexpr Quantity &operator*=(double rhs) {
+		value *= rhs;
+		return *this;
+	}
+	constexpr Quantity &operator/=(double rhs) {
+		value /= rhs;
+		return *this;
+	}
+	template <typename l, typename t, typename m, typename I, typename T,
+	          typename N, typename J, typename A, typename SA>
+	constexpr Quantity &operator*=(
+	    const Quantity<l, t, m, I, T, N, J, A, SA> &rhs) {
+		static_assert(l::num == 0 && t::num == 0 && m::num == 0 && I::num == 0 &&
+		                  T::num == 0 && N::num == 0 && J::num == 0 && A::num == 0 &&
+		                  SA::num == 0,
+		              "A quantity can only be scaled by a dimensionless quantity");
+		value *= static_cast<double>(rhs);
+		return *this;
+	}
+	template <typename l, typename t, typename m, typename I, typename T,
+	          typename N, typename J, typename A, typename SA>
+	constexpr Quantity &operator/=(
+	    const Quantity<l, t, m, I, T, N, J, A, SA> &rhs) {
+		static_assert(l::num == 0 && t::num == 0 && m::num == 0 && I::num == 0 &&
+		                  T::num == 0 && N::num == 0 && J::num == 0 && A::num == 0 &&
+		                  SA::num == 0,
+		              "A quantity can only be scaled by a dimensionless quantity");
+		value /= static_cast<double>(rhs);
 		return *this;
 	}
 
@@ -111,25 +141,6 @@ operator*(const Quantity<l1, t1, m1, I1, T1, N1, J1, A1, SA1> &lhs,
 	                                          static_cast<double>(rhs));
 }
 
-// Multiplication *=
-template <typename l1, typename t1, typename m1, typename I1, typename T1,
-          typename N1, typename J1, typename A1, typename SA1, typename l2,
-          typename t2, typename m2, typename I2, typename T2, typename N2,
-          typename J2, typename A2, typename SA2>
-constexpr Quantity<
-    std::ratio_add<l1, l2>, std::ratio_add<t1, t2>, std::ratio_add<m1, m2>,
-    std::ratio_add<I1, I2>, std::ratio_add<T1, T2>, std::ratio_add<N1, N2>,
-    std::ratio_add<J1, J2>, std::ratio_add<A1, A2>, std::ratio_add<SA1, SA2>>
-operator*=(const Quantity<l1, t1, m1, I1, T1, N1, J1, A1, SA1> &lhs,
-           const Quantity<l2, t2, m2, I2, T2, N2, J2, A2, SA2> &rhs) {
-	return Quantity<std::ratio_add<l1, l2>, std::ratio_add<t1, t2>,
-	                std::ratio_add<m1, m2>, std::ratio_add<I1, I2>,
-	                std::ratio_add<T1, T2>, std::ratio_add<N1, N2>,
-	                std::ratio_add<J1, J2>, std::ratio_add<A1, A2>,
-	                std::ratio_add<SA1, SA2>>(static_cast<double>(lhs)) *
-	       static_cast<double>(rhs);
-}
-
 // Multiplication with scalar (a*X, X*a)
 template <typename l, typename t, typename m, typename I, typename T,
           typename N, typename J, typename A, typename SA>
@@ -140,13 +151,6 @@ constexpr Quantity<l, t, m, I, T, N, J, A, SA> operator*(
 template <typename l, typename t, typename m, typename I, typename T,
           typename N, typename J, typename A, typename SA>
 constexpr Quantity<l, t, m, I, T, N, J, A, SA> operator*(
-    const Quantity<l, t, m, I, T, N, J, A, SA> &lhs, const double &rhs) {
-	return Quantity<l, t, m, I, T, N, J, A, SA>(static_cast<double>(lhs) * rhs);
-}
-
-template <typename l, typename t, typename m, typename I, typename T,
-          typename N, typename J, typename A, typename SA>
-constexpr Quantity<l, t, m, I, T, N, J, A, SA> operator*=(
     const Quantity<l, t, m, I, T, N, J, A, SA> &lhs, const double &rhs) {
 	return Quantity<l, t, m, I, T, N, J, A, SA>(static_cast<double>(lhs) * rhs);
 }
@@ -201,13 +205,6 @@ template <typename l, typename t, typename m, typename I, typename T,
           typename N, typename J, typename A, typename SA>
 constexpr Quantity<l, t, m, I, T, N, J, A, SA> operator/(
     const Quantity<l, t, m, I, T, N, J, A, SA> &lhs, double rhs) {
-	return Quantity<l, t, m, I, T, N, J, A, SA>(static_cast<double>(lhs) / rhs);
-}
-
-template <typename l, typename t, typename m, typename I, typename T,
-          typename N, typename J, typename A, typename SA>
-constexpr Quantity<l, t, m, I, T, N, J, A, SA> operator/=(
-    const Quantity<l, t, m, I, T, N, J, A, SA> &lhs, const double &rhs) {
 	return Quantity<l, t, m, I, T, N, J, A, SA>(static_cast<double>(lhs) / rhs);
 }
 

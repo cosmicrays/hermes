@@ -26,6 +26,25 @@ TEST(UnitsBasic, LengthOperations) {
 	EXPECT_EQ(w, 2293.6_m);
 }
 
+TEST(UnitsBasic, CompoundOperatorsMutateAndReturnTheLeftHandSide) {
+	QLength length = 2_m;
+	QLength *address = &length;
+	EXPECT_EQ(&(length += 3_m), address);
+	EXPECT_EQ(length, 5_m);
+	EXPECT_EQ(&(length -= 1_m), address);
+	EXPECT_EQ(length, 4_m);
+	EXPECT_EQ(&(length *= 2.5), address);
+	EXPECT_EQ(length, 10_m);
+	EXPECT_EQ(&(length /= 4.0), address);
+	EXPECT_EQ(length, 2.5_m);
+
+	QNumber scale = 4_num;
+	EXPECT_EQ(&(length *= scale), address);
+	EXPECT_EQ(length, 10_m);
+	EXPECT_EQ(&(length /= scale), address);
+	EXPECT_EQ(length, 2.5_m);
+}
+
 TEST(UnitsBasic, Literals) {
 	EXPECT_DOUBLE_EQ(static_cast<double>(1_num),
 	                 static_cast<double>(QNumber(1)));

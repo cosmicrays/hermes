@@ -251,30 +251,14 @@ class Vector3Quantity : public Vector3<T> {
 		return *this;
 	}
 
-	// element-wise multiplication
-	Vector3Quantity<T> &operator*=(const Vector3Quantity<T> &v) {
-		this->x *= v.x;
-		this->y *= v.y;
-		this->z *= v.z;
-		return *this;
-	}
-
-	Vector3Quantity<T> &operator*=(const T &f) {
+	Vector3Quantity<T> &operator*=(double f) {
 		this->x *= f;
 		this->y *= f;
 		this->z *= f;
 		return *this;
 	}
 
-	// element-wise division
-	Vector3Quantity<T> &operator/=(const Vector3Quantity<T> &v) {
-		this->x /= v.x;
-		this->y /= v.y;
-		this->z /= v.z;
-		return *this;
-	}
-
-	Vector3Quantity<T> &operator/=(const T &f) {
+	Vector3Quantity<T> &operator/=(double f) {
 		this->x /= f;
 		this->y /= f;
 		this->z /= f;
