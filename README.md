@@ -1,18 +1,17 @@
 # HERMES - High-Energy Radiative MESsengers
 
-[![Build Status](https://github.com/cosmicrays/hermes/actions/workflows/ci.yml/badge.svg)](https://github.com/cosmicrays/hermes/actions)
-[![Coverage Status](https://coveralls.io/repos/github/cosmicrays/hermes/badge.svg?branch=master)](https://coveralls.io/github/cosmicrays/hermes?branch=master)
-![GitHub](https://img.shields.io/github/license/cosmicrays/hermes)
+[![Build Status](https://github.com/HERMES-SkyMaps/hermes/actions/workflows/ci.yml/badge.svg)](https://github.com/HERMES-SkyMaps/hermes/actions)
+![GitHub](https://img.shields.io/github/license/HERMES-SkyMaps/hermes)
 [![arXiv](https://img.shields.io/badge/arXiv-2105.13165-red.svg)](https://arxiv.org/abs/2105.13165)
 [![ascl](https://img.shields.io/badge/ascl-2107.030-blue.svg?colorB=262255)](https://ascl.net/2107.030)
 
 ## About
 
-![gamma sky map from pi0](https://github.com/cosmicrays/hermes/raw/master/doc/hermes-pizero-example.png)
+![gamma sky map from pi0](doc/hermes-pizero-example.png)
 
-**HERMES** is a [publicly available](https://github.com/cosmicrays/hermes/) computational framework for the line of sight integration which creates sky maps in the [HEALPix](https://healpix.jpl.nasa.gov/)-compatibile format of various galactic radiative processes including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The name is an acronym for "High-Energy Radiative MESsengers".
+**HERMES** is a [publicly available](https://github.com/HERMES-SkyMaps/hermes/) computational framework for the line of sight integration which creates sky maps in the [HEALPix](https://healpix.jpl.nasa.gov/)-compatible format of various galactic radiative processes including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The name is an acronym for "High-Energy Radiative MESsengers".
 
-The code is written in C++ relying on features of the language's recent revisions (C++11, C++14). Once compiled, HERMES can optionally be used from Python thanks to [pybind11](https://github.com/pybind/pybind11) (Python 2.X is not supported). Some components of the code (such as galactic magnetic field models, vector and grid classes) were adopted from [CRPropa 3](https://crpropa.desy.de/), a code for cosmic ray propagation.
+The code requires C++17. Once compiled, HERMES can optionally be used from Python 3 thanks to [pybind11](https://github.com/pybind/pybind11). Some components of the code (such as galactic magnetic field models, vector and grid classes) were adopted from [CRPropa 3](https://crpropa.desy.de/), a code for cosmic ray propagation.
 
 HERMES provides the following integrators:
 
@@ -25,7 +24,7 @@ HERMES provides the following integrators:
 - Bremsstrahlung
 - Gamma-ray emissions from Dark Matter annihilation
 
-The complete feature list is documented on [github.io](https://cosmicrays.github.io/hermes/components.html).
+The complete feature list is available in the [HERMES documentation](https://hermes-skymaps.github.io/hermes-docs/components/).
 
 ## Quickstart
 
@@ -47,11 +46,13 @@ and [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/late
 For those who know their way around, the make-install procedure is available:
 
 ```sh
-mkdir build
-cd build
-cmake ..
-make -j
+cmake -S . -B build -DDOWNLOAD_DATA=ON
+cmake --build build --parallel
 ```
+
+Data download is opt-in so normal CMake configuration remains offline. See
+[INSTALL](INSTALL.md) for installation, package-consumer, and advanced option
+examples.
 
 For detailed installation guides and requirements see [INSTALL](INSTALL.md).
 
@@ -84,7 +85,7 @@ output = outputs.HEALPixFormat("!pizero-dragon2d.fits.gz")
 skymap.save(output)
 ```
 
-More examples can be found in [the examples repository](https://github.com/cosmicrays/hermes-examples). Full documentation of the code is available [here](https://cosmicrays.github.io/hermes/).
+More examples can be found in [the examples repository](https://github.com/HERMES-SkyMaps/hermes-examples). The canonical user and developer documentation is available at [hermes-skymaps.github.io/hermes-docs](https://hermes-skymaps.github.io/hermes-docs/).
 
 ## How to cite HERMES
 
