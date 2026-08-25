@@ -1,4 +1,0 @@
-Cosmic Rays
-===========
-.. doxygengroup:: CosmicRays
-

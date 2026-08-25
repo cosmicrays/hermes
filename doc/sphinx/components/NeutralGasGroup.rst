@@ -1,4 +1,0 @@
-Neutral Gas
-===========
-.. doxygengroup:: NeutralGas
-

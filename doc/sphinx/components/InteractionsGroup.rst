@@ -1,4 +1,0 @@
-Interactions
-============
-.. doxygengroup:: Interactions
-
