@@ -27,7 +27,9 @@ void init(py::module &m) {
 	py::class_<CMB, std::shared_ptr<CMB>, PhotonField>(subm, "CMB")
 	    .def(py::init<>());
 	py::class_<ISRF, std::shared_ptr<ISRF>, PhotonField>(subm, "ISRF")
-	    .def(py::init<>());
+	    .def(py::init<>())
+	    .def(py::init<const std::string &>())
+	    .def("getSize", &ISRF::getSize);
 }
 
 }}  // namespace hermes::photonfields

@@ -1,7 +1,6 @@
 #include "hermes/photonfields/ISRF.h"
 
 #include <algorithm>
-#include <cassert>
 #include <cmath>
 #include <fstream>
 #include <iomanip>
@@ -11,6 +10,10 @@
 #include <string>
 
 #include "hermes/Common.h"
+#include "hermes/FITSWrapper.h"
+#include "kiss/logger.h"
+
+#define DEFAULT_ISRF_FILE "RadiationField/Vernetto16/isrf.fits.gz"
 
 namespace hermes { namespace photonfields {
 
@@ -21,8 +24,16 @@ std::string str(const int &n) {
 }
 
 ISRF::ISRF() {
-	loadFrequencyAxis();
+	loadISRF();
+	initializeEnergyRange();
+}
 
+ISRF::ISRF(const std::string &filename) {
+	loadCombinedISRF(filename);
+	initializeEnergyRange();
+}
+
+void ISRF::initializeEnergyRange() {
 	auto logWavelenghtToFrequency = [](double lambda) {
 		return c_light / (std::pow(10, lambda) * micrometre);
 	};
@@ -42,7 +53,6 @@ ISRF::ISRF() {
 	*/
 
 	buildEnergyRange();
-	loadISRF();
 }
 
 void ISRF::buildEnergyRange() {
@@ -54,7 +64,8 @@ void ISRF::buildEnergyRange() {
 		energyRange.push_back(E);
 }
 
-void ISRF::loadFrequencyAxis() {
+void ISRF::loadLegacyFrequencyAxis() {
+	logwavelenghts.resize(freqR1 + freqR2 + freqR3);
 	double logwl = log10(0.01);  // micron
 	for (size_t i = 0; i < freqR1; ++i) {
 		logwavelenghts[i] = logwl;
@@ -73,10 +84,87 @@ void ISRF::loadFrequencyAxis() {
 std::size_t ISRF::getSize() const { return isrf.size(); }
 
 void ISRF::loadISRF() {
+	const std::string filename = getDataPath(DEFAULT_ISRF_FILE);
+	std::ifstream combinedFile(filename, std::ios::binary);
+	if (combinedFile.good()) {
+		loadCombinedISRF(filename);
+		return;
+	}
+
+	KISS_LOG_WARNING << "ISRF: combined data file not found; reading legacy "
+	                    "Vernetto16 text tables"
+	                 << std::endl;
+	loadLegacyFrequencyAxis();
+	loadLegacyISRF();
+}
+
+void ISRF::loadCombinedISRF(const std::string &filename) {
+	FITSFile file(filename);
+	file.openFile(FITS::READ);
+	file.moveToHDU(1);
+
+	const auto dimensions = file.getImageDimensions();
+	const std::vector<long> expectedDimensions = {
+	    freqR1 + freqR2 + freqR3, 24, 30};
+	if (dimensions != expectedDimensions || file.getNumberOfHDUs() != 4)
+		throw std::runtime_error(
+		    "hermes: error: Invalid Vernetto16 density-cube dimensions in " +
+		    filename);
+
+	const auto wavelengthCount = static_cast<std::size_t>(dimensions[0]);
+	const auto heightCount = static_cast<std::size_t>(dimensions[1]);
+	const auto radiusCount = static_cast<std::size_t>(dimensions[2]);
+	const auto densityCount = wavelengthCount * heightCount * radiusCount;
+	isrf = file.readImageAsDouble(1, densityCount);
+
+	file.moveToHDU(2);
+	if (file.readKeyValueAsString("EXTNAME") != "LOGWAVE" ||
+	    file.getImageDimensions() != std::vector<long>{dimensions[0]})
+		throw std::runtime_error(
+		    "hermes: error: Invalid LOGWAVE axis in " + filename);
+	logwavelenghts = file.readImageAsDouble(1, wavelengthCount);
+
+	file.moveToHDU(3);
+	if (file.readKeyValueAsString("EXTNAME") != "R_GRID" ||
+	    file.getImageDimensions() != std::vector<long>{dimensions[2]})
+		throw std::runtime_error(
+		    "hermes: error: Invalid R_GRID axis in " + filename);
+	r_id = file.readImageAsDouble(1, radiusCount);
+
+	file.moveToHDU(4);
+	if (file.readKeyValueAsString("EXTNAME") != "Z_GRID" ||
+	    file.getImageDimensions() != std::vector<long>{dimensions[1]})
+		throw std::runtime_error(
+		    "hermes: error: Invalid Z_GRID axis in " + filename);
+	z_id = file.readImageAsDouble(1, heightCount);
+
+	const auto isStrictlyIncreasing = [](const std::vector<double> &axis) {
+		return std::adjacent_find(axis.begin(), axis.end(),
+		                          [](double left, double right) {
+			                          return !std::isfinite(left) ||
+			                                 !std::isfinite(right) || left >= right;
+		                          }) == axis.end();
+	};
+	if (!isStrictlyIncreasing(logwavelenghts) ||
+	    !isStrictlyIncreasing(r_id) || !isStrictlyIncreasing(z_id) ||
+	    std::any_of(isrf.begin(), isrf.end(), [](double density) {
+		    return !std::isfinite(density) || density < 0;
+	    }))
+		throw std::runtime_error(
+		    "hermes: error: Invalid numerical values in " + filename);
+}
+
+void ISRF::loadLegacyISRF() {
 	const int max_num_of_char_in_a_line = 512;
 	const int num_of_header_lines = 1;
+	r_id = {0.0,  0.2,  0.5,  1.0,  1.5,  2.0,  2.5,  3.0,
+	        3.5,  4.0,  4.5,  5.0,  5.5,  6.0,  6.5,  7.0,
+	        7.5,  8.0,  8.5,  9.0,  9.5,  10.0, 11.0, 12.0,
+	        14.0, 16.0, 18.0, 20.0, 25.0, 30.0};
+	z_id = {0.0, 0.1, 0.2, 0.3, 0.4,  0.5,  0.6,  0.8,
+	        1.0, 1.2, 1.5, 2.0, 2.5,  3.0,  4.0,  5.0,
+	        6.0, 8.0, 10., 12., 15.0, 20.0, 25.0, 30.0};
 
-	int n = 0;
 	for (auto i : r_id) {
 		for (auto j : z_id) {
 			std::ostringstream name;
@@ -99,10 +187,13 @@ void ISRF::loadISRF() {
 				fin >> f_ >> e_;
 				if (!fin.eof()) isrf.push_back(e_);
 			}
-			n++;
 		}
 	}
-	assert(isrf.size() == r_id.size() * z_id.size() * logwavelenghts.size());
+	const auto expectedSize =
+	    r_id.size() * z_id.size() * logwavelenghts.size();
+	if (isrf.size() != expectedSize)
+		throw std::runtime_error(
+		    "hermes: error: Invalid legacy Vernetto16 table dimensions");
 }
 
 double ISRF::getISRF(std::size_t ir, std::size_t iz, std::size_t imu) const {
@@ -140,17 +231,16 @@ QEnergyDensity ISRF::getEnergyDensity(const QLength &r, const QLength &z,
 	if (logf_ < logwavelenghts.front() || logf_ > logwavelenghts.back())
 		return 0;
 
-	std::size_t ir =
-	    std::lower_bound(r_id.begin(), r_id.end(), r_) - r_id.begin();
-	std::size_t iz =
-	    std::lower_bound(z_id.begin(), z_id.end(), z_) - z_id.begin();
-	std::size_t ifreq =
-	    std::lower_bound(logwavelenghts.begin(), logwavelenghts.end(), logf_) -
-	    logwavelenghts.begin() - 1;
-
-	if (ir == r_id.size()) return 0;
-	if (iz == z_id.size()) return 0;
-	if (ifreq == logwavelenghts.size()) return 0;
+	const auto lowerGridIndex = [](const std::vector<double> &axis,
+	                               double value) {
+		auto upper = std::upper_bound(axis.begin(), axis.end(), value);
+		if (upper == axis.begin()) return std::size_t{0};
+		if (upper == axis.end()) return axis.size() - 2;
+		return static_cast<std::size_t>(upper - axis.begin() - 1);
+	};
+	const std::size_t ir = lowerGridIndex(r_id, r_);
+	const std::size_t iz = lowerGridIndex(z_id, z_);
+	const std::size_t ifreq = lowerGridIndex(logwavelenghts, logf_);
 
 	double r_d = (r_ - r_id[ir]) / (r_id[ir + 1] - r_id[ir]);
 	double z_d = (z_ - z_id[iz]) / (z_id[iz + 1] - z_id[iz]);
