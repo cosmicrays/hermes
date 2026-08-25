@@ -2,6 +2,8 @@
 
 #include <cstdlib>
 #include <fstream>
+#include <limits>
+#include <mutex>
 #include <thread>
 #include <utility>
 #include <vector>
@@ -44,13 +46,22 @@ std::string findDataPath(const std::vector<std::pair<std::string, std::string>> 
 
 std::string getDataPath(const std::string &filename) {
 	// adopted from CRPropa3
+	static std::mutex dataPathMutex;
 	static std::string dataPath;
+	std::lock_guard<std::mutex> guard(dataPathMutex);
 	if (dataPath.size() && fileExists(concat_path(dataPath, filename))) return concat_path(dataPath, filename);
 
 	std::vector<std::pair<std::string, std::string>> candidates;
 
 	const char *env_path = getenv("HERMES_DATA_PATH");
 	if (env_path) candidates.push_back({"environment variable", env_path});
+
+#ifdef HERMES_INSTALL_DATA_RELATIVE_TO_LIBRARY
+	const std::string libraryPath = library_path();
+	if (!libraryPath.empty()) {
+		candidates.push_back({"library path", concat_path(libraryPath, HERMES_INSTALL_DATA_RELATIVE_TO_LIBRARY)});
+	}
+#endif
 
 #ifdef HERMES_INSTALL_PREFIX
 	candidates.push_back({"install prefix", HERMES_INSTALL_PREFIX "/share/hermes/data"});
@@ -115,10 +126,10 @@ QLength distanceToGalBorder(const Vector3QLength &observerPosition, const QDirec
 Vector3QLength getGalacticPosition(const Vector3QLength &observerPosition, const QLength &dist, const QDirection &dir) {
 	Vector3QLength pos(0);
 
-	// TODO(adundovi): should be more general for any observer position
 	pos.setRThetaPhi(dist, dir[0], dir[1]);
 	pos.x = observerPosition.x - pos.x;
-	pos.y = -pos.y;
+	pos.y = observerPosition.y - pos.y;
+	pos.z = observerPosition.z + pos.z;
 
 	return pos;
 }
@@ -135,14 +146,16 @@ QTemperature intensityToTemperature(const QIntensity &intensity_, const QFrequen
 
 unsigned int getThreadsNumber() {
 	// From std::thread docs: the value should be considered only a hint
-	unsigned int max_threads = std::thread::hardware_concurrency();
+	const unsigned int hardware_threads = std::thread::hardware_concurrency();
+	const unsigned int max_threads = std::max(1u, hardware_threads);
 
 	const char *env_num_threads = getenv("HERMES_NUM_THREADS");
 	if (env_num_threads) {
-		unsigned int i = std::atoi(env_num_threads);
-		if (i < 1)  // just in case, since atoi throws no exceptions
-			return max_threads;
-		if (i < max_threads) return i;
+		char *end = nullptr;
+		const unsigned long requested = std::strtoul(env_num_threads, &end, 10);
+		if (end != env_num_threads && *end == '\0' && requested > 0) {
+			return static_cast<unsigned int>(std::min<unsigned long>(requested, max_threads));
+		}
 	}
 
 	return max_threads;
@@ -151,7 +164,9 @@ unsigned int getThreadsNumber() {
 std::size_t getThreadId() { return std::hash<std::thread::id>()(std::this_thread::get_id()); }
 
 std::vector<std::vector<std::size_t>> getIndexedThreadChunks(std::vector<std::size_t> validPixels) {
-	std::size_t threads = getThreadsNumber();
+	if (validPixels.empty()) return {};
+
+	const std::size_t threads = std::min<std::size_t>(getThreadsNumber(), validPixels.size());
 	std::vector<std::vector<std::size_t>> chunks(threads);
 
 	while (validPixels.size()) {
@@ -168,15 +183,19 @@ std::vector<std::vector<std::size_t>> getIndexedThreadChunks(std::vector<std::si
 }
 
 std::vector<std::pair<unsigned int, unsigned int>> getThreadChunks(unsigned int queueSize) {
-	unsigned int tasks_per_thread = queueSize / getThreadsNumber();
-	unsigned int reminder_tasks = queueSize % getThreadsNumber();
+	if (queueSize == 0) return {};
 
-	// Init chunks of pixels:  chunk[i] = [ i, (i+1)*pixel_per_thread >
+	const unsigned int threads = std::min(getThreadsNumber(), queueSize);
+	const unsigned int tasks_per_thread = queueSize / threads;
+	const unsigned int remainder = queueSize % threads;
 	std::vector<std::pair<unsigned int, unsigned int>> chunks;
-	for (unsigned int i = 0; i < getThreadsNumber(); ++i) {
-		chunks.push_back(std::make_pair(i * tasks_per_thread, (i + 1) * tasks_per_thread));
+	chunks.reserve(threads);
+	unsigned int begin = 0;
+	for (unsigned int i = 0; i < threads; ++i) {
+		const unsigned int chunk_size = tasks_per_thread + (i < remainder ? 1u : 0u);
+		chunks.emplace_back(begin, begin + chunk_size);
+		begin += chunk_size;
 	}
-	chunks[getThreadsNumber() - 1].second += reminder_tasks;
 
 	return chunks;
 }
