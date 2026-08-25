@@ -21,7 +21,7 @@ class PID {
 
 	virtual ~PID() {}
 
-	bool isNucleus() { return (A > 0); }
+	bool isNucleus() const { return (A > 0); }
 
 	int atomicNr() const { return Z; }
 
