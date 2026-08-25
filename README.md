@@ -7,7 +7,7 @@
 
 ## About
 
-![gamma sky map from pi0](doc/hermes-pizero-example.png)
+![gamma sky map from pi0](assets/hermes-pizero-example.png)
 
 **HERMES** is a [publicly available](https://github.com/HERMES-SkyMaps/hermes/) computational framework for the line of sight integration which creates sky maps in the [HEALPix](https://healpix.jpl.nasa.gov/)-compatible format of various galactic radiative processes including Faraday rotation, synchrotron and free-free radio emission, gamma-ray emission from pion-decay, bremsstrahlung and inverse-Compton. The name is an acronym for "High-Energy Radiative MESsengers".
 
