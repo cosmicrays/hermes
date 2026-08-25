@@ -1,7 +1,3 @@
-cmake_minimum_required(VERSION 2.8...3.13)
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-
 add_library(cparamlib STATIC
     antinue.c
     antinumu.c
@@ -13,5 +9,5 @@ add_library(cparamlib STATIC
     sigma.c
 )
 
-SET_TARGET_PROPERTIES(cparamlib PROPERTIES COMPILE_FLAGS -fPIC)
-
+target_include_directories(cparamlib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+set_target_properties(cparamlib PROPERTIES POSITION_INDEPENDENT_CODE ON)
