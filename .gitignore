@@ -31,16 +31,36 @@
 *.out
 *.app
 
-# CMake
-build/*
+# CMake and packaging
+/build*/
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+cmake_install.cmake
+install_manifest.txt
+Makefile
+CTestTestfile.cmake
+Testing/
+CPackConfig.cmake
+CPackSourceConfig.cmake
+_CPack_Packages/
+HERMES-*.tar.gz
 
 # Others
 doc/api/*
 .coverage
+coverage.info*
+coverageReport/
 *.dump
 *.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
 
 # Libraries
 
 # Editor stuff
 *.swp
+*.code-workspace
+.idea/
+.vscode/
