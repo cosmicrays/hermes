@@ -7,6 +7,7 @@
 #include "hermes/cosmicrays/DummyCR.h"
 #include "hermes/cosmicrays/SimpleCR.h"
 #include "hermes/cosmicrays/Sun08.h"
+#include "hermes/cosmicrays/TabulatedCR.h"
 #include "hermes/cosmicrays/UHECR.h"
 #include "hermes/cosmicrays/WMAP07.h"
 
@@ -38,6 +39,20 @@ void init(py::module &m) {
 	         static_cast<QPDensityPerEnergy (UHECR::*)(const QEnergy &, const Vector3QLength &) const>(
 	             &UHECR::getDensityPerEnergy));
 	py::class_<Sun08, std::shared_ptr<Sun08>, CosmicRayDensity>(subm, "Sun08").def(py::init<>());
+	py::class_<TabulatedCR, std::shared_ptr<TabulatedCR>, CosmicRayDensity>(
+	    subm, "TabulatedCR",
+	    "Tabulated proton spectrum with log-log interpolation and a Gaussian vertical profile.")
+	    .def(py::init<const std::string &, const QLength &, int>(),
+	         py::arg("filename"), py::arg("sigma_z") = 1_kpc,
+	         py::arg("integration_steps") = TabulatedCR::DefaultIntegrationSteps,
+	         "Read columns in GeV and (GeV cm^2 s sr)^-1.")
+	    .def(py::init<const std::string &, const QEnergy &,
+	                  const QDiffIntensity &, const QLength &, int>(),
+	         py::arg("filename"), py::arg("energy_unit"),
+	         py::arg("intensity_unit"), py::arg("sigma_z") = 1_kpc,
+	         py::arg("integration_steps") = TabulatedCR::DefaultIntegrationSteps)
+	    .def("getSigmaZ", &TabulatedCR::getSigmaZ)
+	    .def("getTabulatedEnergyAxis", &TabulatedCR::getTabulatedEnergyAxis);
 	py::class_<WMAP07, std::shared_ptr<WMAP07>, CosmicRayDensity>(subm, "WMAP07").def(py::init<>());
 	py::class_<Dragon2D, std::shared_ptr<Dragon2D>, CosmicRayDensity>(subm, "Dragon2D")
 	    .def(py::init<const PID &>())
