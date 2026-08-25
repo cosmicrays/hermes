@@ -21,7 +21,7 @@ unsigned int log2(unsigned int x) {
 	return res;
 }
 
-inline long nside2order(unsigned int nside) {
+long nside2order(unsigned int nside) {
 	return ((nside) & (nside - 1)) ? -1 : log2(nside);
 }
 
