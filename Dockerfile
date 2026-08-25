@@ -1,7 +1,6 @@
 # Copyright (c) HERMES Development Team.
 # Distributed under the terms of the GPLv3.
 ARG REGISTRY=quay.io
-ARG OWNER=cosmicrays
 ARG BUILD_CONTAINER=$REGISTRY/jupyter/docker-stacks-foundation
 ARG RUNNER_CONTAINER=$REGISTRY/jupyter/scipy-notebook
 FROM $BUILD_CONTAINER AS builder
@@ -16,8 +15,6 @@ RUN apt-get update --yes && \
     pkg-config \
     cmake \
     git \
-    doxygen \
-    graphviz \
     libgsl-dev \
     libfftw3-dev \
     libcfitsio-dev && \
@@ -27,9 +24,7 @@ USER ${NB_UID}
 
 # Install Python packages
 RUN mamba install --yes \
-    'h5py' \
-    'conda-forge::zlib' \
-    'conda-forge::sphinx' && \
+    'conda-forge::zlib' && \
     mamba clean --all -f -y && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
@@ -39,18 +34,17 @@ RUN /bin/bash -c "source activate base" && \
     mkdir -p /tmp/hermes
 WORKDIR /tmp/hermes
 COPY . .
-RUN mkdir build-container && \
-    cd build-container && \
-    CMAKE_PREFIX_PATH=${CONDA_DIR} cmake \
+RUN CMAKE_PREFIX_PATH=${CONDA_DIR} cmake -S . -B build-container \
          -DPython3_EXECUTABLE=${CONDA_DIR}/bin/python${PYTHON_VERSION} \
          -DPython3_INCLUDE_DIRS=${CONDA_DIR}/include/python${PYTHON_VERSION} \
          -DPython3_LIBRARIES=${CONDA_DIR}/lib/python${PYTHON_VERSION} \
          -DENABLE_PYTHON=On \
          -DCMAKE_INSTALL_PREFIX=${CONDA_DIR} \
-         -DENABLE_TESTING=On .. && \
-    make -j && \
-    make install && \
-    git clone --depth 1 --branch master https://github.com/cosmicrays/hermes-examples.git && \
+         -DENABLE_TESTING=On \
+         -DDOWNLOAD_DATA=On && \
+    cmake --build build-container --parallel && \
+    cmake --install build-container && \
+    git clone --depth 1 --branch master https://github.com/HERMES-SkyMaps/hermes-examples.git build-container/hermes-examples && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
