@@ -7,8 +7,9 @@ on:
     branches: [ master ]
 
 env:
-  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
+  HERMES_DATA_VERSION: 1.0.0
+  HERMES_DATA_SHA256: cf7d27aef8eca54c00e194f5b56eb23f982e0e8c40a3db374308c98d90e801d6
 
 jobs:
   build:
@@ -41,25 +42,25 @@ jobs:
       uses: actions/cache@v4
       with:
         path: ~/hermes_cache
-        key: hermes-data-v1
-        restore-keys: hermes-data-v1
+        key: hermes-data-${{ env.HERMES_DATA_VERSION }}-${{ env.HERMES_DATA_SHA256 }}
 
     - name: Download and extract Hermes data
       run: |
         set -e
-        TARBALL=~/hermes_cache/hermes-data.tar.gz
+        TARBALL=~/hermes_cache/hermes-data-${HERMES_DATA_VERSION}.tar.gz
         DATADIR=${{github.workspace}}/build/data
         mkdir -p ~/hermes_cache
         mkdir -p ${{github.workspace}}/build
         if [ -f "$TARBALL" ]; then
           echo "Data tarball found in cache, skipping download."
         else
-          echo "Downloading hermes-data.tar.gz from Zenodo..."
+          echo "Downloading HERMES data ${HERMES_DATA_VERSION} from GitHub Releases..."
           curl -L --retry 3 --retry-delay 5 --fail \
-            "https://zenodo.org/record/20544178/files/hermes-data.tar.gz" \
+            "https://github.com/HERMES-SkyMaps/hermes-data/releases/download/v${HERMES_DATA_VERSION}/hermes-data-${HERMES_DATA_VERSION}.tar.gz" \
             -o "$TARBALL"
           echo "Download complete."
         fi
+        python3 -c 'import hashlib, pathlib, sys; p = pathlib.Path(sys.argv[1]); actual = hashlib.sha256(p.read_bytes()).hexdigest(); expected = sys.argv[2]; assert actual == expected, f"checksum mismatch: {actual} != {expected}"' "$TARBALL" "$HERMES_DATA_SHA256"
         echo "Extracting data into build directory..."
         tar -xzf "$TARBALL" -C ${{github.workspace}}/build
         if [ ! -f "$DATADIR/Interactions/AAfrag2021Gamma.txt.gz" ]; then
@@ -86,7 +87,7 @@ jobs:
 
     - name: Install dependencies on Ubuntu
       if: ${{ contains(env.OS, 'ubuntu') }}
-      run: sudo apt-get install -y libgsl-dev libfftw3-dev libcfitsio-dev libmuparser-dev libhdf5-dev
+      run: sudo apt-get install -y libgsl-dev libfftw3-dev libcfitsio-dev
       
     - name: Install dependencies on MacOS
       if: ${{ contains(env.OS, 'macos') }}
@@ -94,21 +95,18 @@ jobs:
          HOMEBREW_NO_AUTO_UPDATE=1 brew install python3;
          HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
          HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
-         HOMEBREW_NO_AUTO_UPDATE=1 brew install hdf5;
-         HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc;
-         HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite gcc;
-         HOMEBREW_NO_AUTO_UPDATE=1 brew link --overwrite python;
 
     - name: Configure CMake
       env:
         CXX: ${{ matrix.cxx }}
         CC: ${{ matrix.cc }}
       run: |
-        cmake -B ${{github.workspace}}/build \
+        cmake -S ${{github.workspace}} -B ${{github.workspace}}/build \
           -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
           -DENABLE_TESTING=On \
           -DENABLE_PYTHON=True \
-          -DDOWNLOAD_DATA=OFF
+          -DDOWNLOAD_DATA=OFF \
+          -DHERMES_INSTALL_DATA=OFF
         
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --parallel
@@ -120,3 +118,32 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: ctest --output-on-failure -C ${{env.BUILD_TYPE}} --timeout 1200
+
+    - name: Test Python import
+      working-directory: ${{github.workspace}}
+      run: PYTHONPATH=${{github.workspace}}/build python3 -c "import pyhermes"
+
+    - name: Test installed CMake package
+      run: |
+        cmake --install ${{github.workspace}}/build \
+          --prefix ${{github.workspace}}/build/stage \
+          --config ${{env.BUILD_TYPE}}
+        cmake -S ${{github.workspace}}/test/package \
+          -B ${{github.workspace}}/build/package-smoke \
+          -DCMAKE_PREFIX_PATH=${{github.workspace}}/build/stage
+        cmake --build ${{github.workspace}}/build/package-smoke --parallel
+        ${{github.workspace}}/build/package-smoke/hermes_package_smoke
+        PYTHON_VERSION=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
+        PYTHONPATH=${{github.workspace}}/build/stage/lib/python${PYTHON_VERSION}/site-packages \
+          python3 -c "import pyhermes"
+        mkdir -p ${{github.workspace}}/build/stage/share/hermes/data/Interactions
+        cp ${{github.workspace}}/build/data/Interactions/AAfrag2021Gamma.txt.gz \
+          ${{github.workspace}}/build/stage/share/hermes/data/Interactions/
+        ${{github.workspace}}/build/package-smoke/hermes_package_smoke \
+          Interactions/AAfrag2021Gamma.txt.gz \
+          ${{github.workspace}}/build/stage/lib/../share/hermes/data/Interactions/AAfrag2021Gamma.txt.gz
+
+    - name: Build distributable archive
+      if: ${{ matrix.os == 'ubuntu-latest' && matrix.compiler == 'gcc' }}
+      working-directory: ${{github.workspace}}/build
+      run: cpack -G TGZ
