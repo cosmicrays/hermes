@@ -66,6 +66,8 @@ TEST(FITS, setGetKey) {
 	                     "Pixel ordering scheme, either RING or NESTED");
 	auto f_nside = FITSKeyValue("NSIDE", 16);
 	ffile->writeKeyValue(f_nside, "Resolution parameter for HEALPIX");
+	auto reference_value = FITSKeyValue("REFVAL", 3.141592653589793);
+	ffile->writeKeyValue(reference_value, "Floating-point regression value");
 
 	long int naxes[10] = {1};
 	float smallImg[100] = {0};
@@ -91,12 +93,21 @@ TEST(FITS, setGetKey) {
 	EXPECT_EQ(ext_str.getValueAsString(), new_ext_str);
 	int new_f_nside = new_ffile->readKeyValueAsInt("NSIDE");
 	EXPECT_EQ(f_nside.getValueAsInt(), new_f_nside);
+	double new_reference_value = new_ffile->readKeyValueAsDouble("REFVAL");
+	EXPECT_NEAR(reference_value.getValueAsDouble(), new_reference_value, 1e-14);
 
 	new_ffile->moveToHDU(3);
+
+	auto dimensions = new_ffile->getImageDimensions();
+	ASSERT_EQ(dimensions.size(), 1);
+	EXPECT_EQ(dimensions[0], 100);
 
 	auto imgVec = new_ffile->readImageAsFloat(1, 100);
 	EXPECT_EQ(imgVec[0], 137);
 	EXPECT_EQ(imgVec[99], 42);
+	auto doubleImgVec = new_ffile->readImageAsDouble(1, 100);
+	EXPECT_EQ(doubleImgVec[0], 137);
+	EXPECT_EQ(doubleImgVec[99], 42);
 
 	new_ffile->deleteFile();
 }

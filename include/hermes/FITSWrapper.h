@@ -43,13 +43,11 @@ struct FITSKeyValue {
 		double d;
 		char s[80];
 	};
-	void *value_ptr;
-
   public:
-	FITS::DataType getType() { return type; }
+	FITS::DataType getType() const { return type; }
 	void setType(FITS::DataType type_) { type = type_; }
 	void setTypeAsInt(int type_) {
-		switch (type) {
+		switch (type_) {
 			case TINT:
 				type = FITS::INT;
 				break;
@@ -67,43 +65,51 @@ struct FITSKeyValue {
 				break;
 		}
 	}
-	const char *getKey() { return &key[0]; }
-	void *getValueAsVoid() { return value_ptr; }
-	std::string getValueAsString() { return static_cast<std::string>(s); }
-	int getValueAsInt() { return i; }
-	double getValueAsDouble() { return d; }
+	const char *getKey() const { return key.c_str(); }
+	void *getValueAsVoid() {
+		switch (type) {
+			case FITS::STRING:
+				return s;
+			case FITS::INT:
+				return &i;
+			case FITS::LONG:
+				return &l;
+			case FITS::FLOAT:
+				return &f;
+			case FITS::DOUBLE:
+				return &d;
+		}
+		return nullptr;
+	}
+	std::string getValueAsString() const { return static_cast<std::string>(s); }
+	int getValueAsInt() const { return i; }
+	double getValueAsDouble() const { return d; }
 
 	FITSKeyValue(const std::string &key_, const std::string &value_)
 	    : type(FITS::STRING), key(key_) {
 		// ugly?
 		strncpy(s, value_.c_str(), sizeof(s));
 		s[sizeof(s) - 1] = 0;
-		value_ptr = static_cast<void *>(s);
 	};
 	FITSKeyValue(const std::string &key_, int value_)
 	    : type(FITS::INT), key(key_) {
 		i = value_;
-		value_ptr = &i;
 	};
 	FITSKeyValue(const std::string &key_, std::size_t value_)
 	    : type(FITS::LONG), key(key_) {
 		l = value_;
-		value_ptr = &l;
 	};
 	FITSKeyValue(const std::string &key_, long int value_)
 	    : type(FITS::LONG), key(key_) {
 		l = value_;
-		value_ptr = &l;
 	};
 	FITSKeyValue(const std::string &key_, float value_)
 	    : type(FITS::FLOAT), key(key_) {
 		f = value_;
-		value_ptr = &f;
 	};
 	FITSKeyValue(const std::string &key_, double value_)
 	    : type(FITS::DOUBLE), key(key_) {
 		d = value_;
-		value_ptr = &d;
 	};
 	explicit FITSKeyValue(const std::string &key_) : key(key_){};
 };
@@ -151,10 +157,13 @@ class FITSFile {
 
 	/* Image-related operations */
 	void createImage(FITS::ImgType bitpix, int naxis, long *naxes);
+	std::vector<long> getImageDimensions();
 	void writeImage(FITS::DataType dtype, int firstElement, int nElements,
 	                void *array);
 	std::vector<float> readImageAsFloat(unsigned int firstElement,
 	                                    unsigned int nElements);
+	std::vector<double> readImageAsDouble(std::size_t firstElement,
+	                                     std::size_t nElements);
 
 	void createTable(FITS::HDUType, long int nRows, int nColumns,
 	                 char *columnName[], char *columnType[], char *columnUnit[],

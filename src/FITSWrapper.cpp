@@ -100,7 +100,7 @@ FITS::HDUType FITSFile::getHDUType() {
 		throw std::runtime_error(
 		    "hermes: error: Cannot retrieve the type of the selected HDU.");
 	}
-	return intToHDUType(hduType);
+	return intToHDUType(readHDUType);
 }
 
 int FITSFile::getNumOfKeywords() {
@@ -155,18 +155,25 @@ FITSKeyValue FITSFile::readKeyValue(const std::string &key_,
 	switch (kv.getType()) {
 		case FITS::STRING:
 			fits_read_key(fptr, kv.getType(), kv.getKey(), kv.s, NULL, &status);
+			break;
 		case FITS::INT:
 			fits_read_key(fptr, kv.getType(), kv.getKey(), &kv.i, NULL,
 			              &status);
+			break;
 		case FITS::LONG:
 			fits_read_key(fptr, kv.getType(), kv.getKey(), &kv.l, NULL,
 			              &status);
+			break;
 		case FITS::FLOAT:
 			fits_read_key(fptr, kv.getType(), kv.getKey(), &kv.f, NULL,
 			              &status);
+			break;
 		case FITS::DOUBLE:
 			fits_read_key(fptr, kv.getType(), kv.getKey(), &kv.d, NULL,
 			              &status);
+			break;
+		default:
+			throw std::invalid_argument("hermes: error: Unsupported FITS keyword type.");
 	}
 
 	if (status != 0)
@@ -183,6 +190,24 @@ void FITSFile::createImage(FITS::ImgType bitpix, int naxis, long *naxes) {
 	if (status != 0)
 		throw std::runtime_error(
 		    "hermes: error: Cannot create image in FITS file.");
+}
+
+std::vector<long> FITSFile::getImageDimensions() {
+	int numberOfDimensions = 0;
+	if (fits_get_img_dim(fptr, &numberOfDimensions, &status))
+		fits_report_error(stderr, status);
+	if (status != 0 || numberOfDimensions < 0)
+		throw std::runtime_error(
+		    "hermes: error: Cannot read FITS image dimensions.");
+
+	std::vector<long> dimensions(static_cast<std::size_t>(numberOfDimensions));
+	if (numberOfDimensions > 0 &&
+	    fits_get_img_size(fptr, numberOfDimensions, dimensions.data(), &status))
+		fits_report_error(stderr, status);
+	if (status != 0)
+		throw std::runtime_error(
+		    "hermes: error: Cannot read FITS image dimensions.");
+	return dimensions;
 }
 
 void FITSFile::writeImage(FITS::DataType dataType, int firstElement,
@@ -207,6 +232,24 @@ std::vector<float> FITSFile::readImageAsFloat(unsigned int firstElement,
 		throw std::runtime_error("hermes: error: Cannot read image of size 0.");
 	if (fits_read_img(fptr, dataType, firstElement, nElements, &nullval,
 	                  arrayPtr, &anynul, &status))
+		fits_report_error(stderr, status);
+	if (status != 0)
+		throw std::runtime_error("hermes: error: Cannot read image.");
+
+	return resultArray;
+}
+
+std::vector<double> FITSFile::readImageAsDouble(std::size_t firstElement,
+                                                std::size_t nElements) {
+	if (nElements == 0)
+		throw std::runtime_error("hermes: error: Cannot read image of size 0.");
+
+	std::vector<double> resultArray(nElements, 0);
+	double nullval = 0;
+	int anynul = 0;
+	if (fits_read_img(fptr, TDOUBLE, static_cast<LONGLONG>(firstElement),
+	                  static_cast<LONGLONG>(nElements), &nullval,
+	                  resultArray.data(), &anynul, &status))
 		fits_report_error(stderr, status);
 	if (status != 0)
 		throw std::runtime_error("hermes: error: Cannot read image.");
