@@ -8,6 +8,12 @@ namespace hermes {
 GammaSkymapRange::GammaSkymapRange(std::size_t nside_, QEnergy minEn_,
                                    QEnergy maxEn_, int enSteps_)
     : nside(nside_), minEn(minEn_), maxEn(maxEn_), enSteps(enSteps_) {
+	if (enSteps < 2)
+		throw std::invalid_argument("GammaSkymapRange requires at least two energy steps");
+	if (!(minEn > QEnergy(0)))
+		throw std::invalid_argument("GammaSkymapRange minimum energy must be positive");
+	if (maxEn < minEn)
+		throw std::invalid_argument("GammaSkymapRange maximum energy must not be smaller than the minimum");
 	initEnergyRange();
 }
 
@@ -19,7 +25,7 @@ void GammaSkymapRange::initEnergyRange() {
 
 	QEnergy e;
 	for (int i = 0; i < enSteps; ++i) {
-		e = std::pow(scaleFactor, i) * minEn;
+		e = (i == enSteps - 1) ? maxEn : std::pow(scaleFactor, i) * minEn;
 		energies.push_back(e);
 		skymaps.push_back(GammaSkymap(nside, e));
 	}
@@ -42,7 +48,7 @@ void GammaSkymapRange::setMask(const std::shared_ptr<SkymapMask>& mask_) {
 std::size_t GammaSkymapRange::size() const { return skymaps.size(); }
 
 GammaSkymap GammaSkymapRange::operator[](std::size_t i) const {
-	return skymaps[i];
+	return skymaps.at(i);
 }
 
 const std::vector<QEnergy> &GammaSkymapRange::getEnergies() const {

@@ -34,7 +34,7 @@ class Skymap {
 	Skymap(std::size_t nside_);
 	virtual ~Skymap(){};
 
-	void setNside(std::size_t nside_);
+	virtual void setNside(std::size_t nside_);
 	std::size_t getNside() const;
 	void setRes(std::size_t res_);
 	std::size_t getRes() const;

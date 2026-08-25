@@ -19,6 +19,7 @@ class SkymapMask {
 
   public:
 	SkymapMask();
+	virtual ~SkymapMask() = default;
 	std::vector<bool> getMask(std::size_t nside);
 	virtual bool isAllowed(const QDirection &dir) const { return true; }
 

@@ -1,3 +1,7 @@
+#include <limits>
+#include <stdexcept>
+#include <type_traits>
+
 #include "gtest/gtest.h"
 #include "hermes.h"
 
@@ -28,6 +32,28 @@ class DummyIntegrator : public SimpleIntegrator {
 	}
 };
 
+class ThrowingIntegrator : public SimpleIntegrator {
+  public:
+	ThrowingIntegrator() : SimpleIntegrator("ThrowingIntegrator") {}
+	QNumber integrateOverLOS(const QDirection &) const override {
+		throw std::runtime_error("worker failure");
+	}
+	QNumber integrateOverLOS(const QDirection &, const QFrequency &) const override {
+		throw std::runtime_error("worker failure");
+	}
+	tLOSProfile getLOSProfile(const QDirection &, int) const override {
+		return {};
+	}
+};
+
+class RejectAllMask : public SkymapMask {
+  public:
+	bool isAllowed(const QDirection &) const override { return false; }
+};
+
+static_assert(std::has_virtual_destructor<SkymapMask>::value,
+              "SkymapMask must be safely destructible through its base class");
+
 TEST(Skymap, resNsideNpixelsConvert) {
 	int nside = 8;
 	auto skymap = std::make_shared<SimpleSkymap>(SimpleSkymap(nside));
@@ -38,6 +64,53 @@ TEST(Skymap, resNsideNpixelsConvert) {
 	skymap->setRes(4);
 	EXPECT_EQ(skymap->getNside(), 16);
 	EXPECT_EQ(skymap->getNpix(), 3072);
+	EXPECT_EQ(skymap->size(), skymap->getNpix());
+	EXPECT_EQ(skymap->getMask().size(), skymap->getNpix());
+	EXPECT_THROW(skymap->getPixel(skymap->getNpix()), std::out_of_range);
+}
+
+TEST(Skymap, RejectsInvalidResolutionAndNside) {
+	EXPECT_THROW(SimpleSkymap(0), std::invalid_argument);
+	EXPECT_THROW(SimpleSkymap(3), std::invalid_argument);
+	SimpleSkymap skymap(1);
+	EXPECT_THROW(skymap.setNside(6), std::invalid_argument);
+	EXPECT_THROW(skymap.setRes(std::numeric_limits<std::size_t>::digits),
+	             std::out_of_range);
+}
+
+TEST(Skymap, RejectsNullCollaboratorsAndEmptyMean) {
+	SimpleSkymap skymap(1);
+	EXPECT_THROW(skymap.setIntegrator(nullptr), std::invalid_argument);
+	EXPECT_THROW(skymap.setMask(nullptr), std::invalid_argument);
+	skymap.setMask(std::make_shared<RejectAllMask>());
+	EXPECT_EQ(skymap.getUnmaskedPixelCount(), 0u);
+	EXPECT_THROW(skymap.getMean(), std::runtime_error);
+}
+
+TEST(Skymap, PropagatesWorkerExceptionsToCaller) {
+	SimpleSkymap skymap(1);
+	skymap.setIntegrator(std::make_shared<ThrowingIntegrator>());
+	EXPECT_THROW(skymap.compute(), std::runtime_error);
+}
+
+TEST(SkymapRange, ValidatesBoundsAndIncludesExactEndpoints) {
+	EXPECT_THROW(GammaSkymapRange(1, 1_GeV, 10_GeV, 1), std::invalid_argument);
+	EXPECT_THROW(GammaSkymapRange(1, 0_GeV, 10_GeV, 3), std::invalid_argument);
+	EXPECT_THROW(GammaSkymapRange(1, 10_GeV, 1_GeV, 3), std::invalid_argument);
+	GammaSkymapRange gammaRange(1, 1_GeV, 100_GeV, 3);
+	ASSERT_EQ(gammaRange.size(), 3u);
+	EXPECT_EQ(gammaRange.getEnergies().front(), 1_GeV);
+	EXPECT_EQ(gammaRange.getEnergies().back(), 100_GeV);
+	EXPECT_THROW(gammaRange[3], std::out_of_range);
+
+	EXPECT_THROW(RadioSkymapRange(1, 1_Hz, 10_Hz, 1), std::invalid_argument);
+	EXPECT_THROW(RadioSkymapRange(1, 0_Hz, 10_Hz, 3), std::invalid_argument);
+	EXPECT_THROW(RadioSkymapRange(1, 10_Hz, 1_Hz, 3), std::invalid_argument);
+	RadioSkymapRange radioRange(1, 1_Hz, 100_Hz, 3);
+	ASSERT_EQ(radioRange.size(), 3u);
+	EXPECT_EQ(radioRange.getFrequencies().front(), 1_Hz);
+	EXPECT_EQ(radioRange.getFrequencies().back(), 100_Hz);
+	EXPECT_THROW(radioRange[3], std::out_of_range);
 }
 
 TEST(Skymap, sizeCheck) {

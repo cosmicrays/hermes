@@ -1,6 +1,8 @@
 #ifndef HERMES_SKYMAPTEMP_H
 #define HERMES_SKYMAPTEMP_H
 
+#include <exception>
+#include <future>
 #include <memory>
 #include <mutex>
 #include <thread>
@@ -74,6 +76,7 @@ class SkymapTemplate : public Skymap {
 	SkymapTemplate(std::size_t nside, const SkymapDefinitions &s);
 	SkymapTemplate(std::size_t nside = 64, const QSTEP &p = QSTEP(0), const SkymapDefinitions &s = SkymapDefinitions());
 	virtual ~SkymapTemplate();
+	void setNside(std::size_t nside_) override;
 
 	/**
 	    Setter for the skymap parameter
@@ -96,7 +99,7 @@ class SkymapTemplate : public Skymap {
 	    Retrieve ith pixel as naked double
 		\par i	ith pixel (starting from 0)
 	*/
-	double getPixelAsDouble(std::size_t i) const;
+	double getPixelAsDouble(std::size_t i) const override;
 	/**
 	    Calculate the mean value of unmasked pixels
 	*/
@@ -140,7 +143,7 @@ class SkymapTemplate : public Skymap {
 	std::string getOutputUnitsAsString() const;
 	std::string getUnits() const;
 	std::vector<float> containerToRawVector() const;
-	void save(std::shared_ptr<outputs::Output> output) const;
+	void save(std::shared_ptr<outputs::Output> output) const override;
 
 	/** iterator goodies */
 	typedef typename tFluxContainer::iterator iterator;
@@ -185,8 +188,7 @@ SkymapTemplate<QPXL, QSTEP>::~SkymapTemplate() {
 /* Initializers */
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::initContainer() {
-	fluxContainer.reserve(npix);
-	fluxContainer.insert(fluxContainer.begin(), npix, UNSEEN);
+	fluxContainer.assign(npix, QPXL(UNSEEN));
 }
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::initMask() {
@@ -207,12 +209,12 @@ std::size_t SkymapTemplate<QPXL, QSTEP>::getUnmaskedPixelCount() const {
 
 template <typename QPXL, typename QSTEP>
 QPXL SkymapTemplate<QPXL, QSTEP>::getPixel(std::size_t i) const {
-	return fluxContainer[i];
+	return fluxContainer.at(i);
 }
 
 template <typename QPXL, typename QSTEP>
 double SkymapTemplate<QPXL, QSTEP>::getPixelAsDouble(std::size_t i) const {
-	return static_cast<double>(fluxContainer[i]);
+	return static_cast<double>(fluxContainer.at(i));
 }
 
 template <typename QPXL, typename QSTEP>
@@ -224,6 +226,8 @@ QPXL SkymapTemplate<QPXL, QSTEP>::getMean() const {
 		accum += pxl;
 		count++;
 	}
+	if (count == 0)
+		throw std::runtime_error("Cannot calculate the mean of an empty or fully masked skymap");
 	return accum / count;
 }
 
@@ -237,7 +241,14 @@ bool SkymapTemplate<QPXL, QSTEP>::hasMask() const {
 
 template <typename QPXL, typename QSTEP>
 QPXL SkymapTemplate<QPXL, QSTEP>::operator[](std::size_t i) const {
-	return fluxContainer[i];
+	return fluxContainer.at(i);
+}
+
+template <typename QPXL, typename QSTEP>
+void SkymapTemplate<QPXL, QSTEP>::setNside(std::size_t nside_) {
+	Skymap::setNside(nside_);
+	initContainer();
+	initMask();
 }
 
 template <typename QPXL, typename QSTEP>
@@ -248,6 +259,8 @@ void SkymapTemplate<QPXL, QSTEP>::printPixels() const {
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::setIntegrator(
     std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> integrator_) {
+	if (integrator_ == nullptr)
+		throw std::invalid_argument("Skymap integrator cannot be null");
 	integrator = integrator_;
 	setDescription(integrator->getDescription());
 }
@@ -256,7 +269,7 @@ template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::computePixel(
     std::size_t ipix,
     const std::shared_ptr<IntegratorTemplate<QPXL, QSTEP>> &integrator_) {
-	fluxContainer[ipix] =
+	fluxContainer.at(ipix) =
 	    integrator_->integrateOverLOS(pix2ang_ring(getNside(), ipix));
 }
 
@@ -301,16 +314,25 @@ void SkymapTemplate<QPXL, QSTEP>::compute() {
         }
     }
             
-    auto job_chunks = getIndexedThreadChunks(validPixels);
-	std::vector<std::thread> threads;
+	auto job_chunks = getIndexedThreadChunks(validPixels);
+	std::vector<std::future<void>> jobs;
+	jobs.reserve(job_chunks.size());
 	for (auto &chunk : job_chunks) {
-		threads.push_back(
-		    std::thread(&SkymapTemplate<QPXL, QSTEP>::computePixelRange, this,
-		                chunk, integrator));
+		jobs.push_back(std::async(
+		    std::launch::async,
+		    &SkymapTemplate<QPXL, QSTEP>::computePixelRange, this, chunk,
+		    integrator));
 	}
-	for (auto &t : threads) {
-		t.join();
+
+	std::exception_ptr worker_failure;
+	for (auto &job : jobs) {
+		try {
+			job.get();
+		} catch (...) {
+			if (worker_failure == nullptr) worker_failure = std::current_exception();
+		}
 	}
+	if (worker_failure != nullptr) std::rethrow_exception(worker_failure);
 }
 
 template <typename QPXL, typename QSTEP>
@@ -381,6 +403,8 @@ void SkymapTemplate<QPXL, QSTEP>::save(
 
 template <typename QPXL, typename QSTEP>
 void SkymapTemplate<QPXL, QSTEP>::setMask(std::shared_ptr<SkymapMask> mask_) {
+	if (mask_ == nullptr)
+		throw std::invalid_argument("Skymap mask cannot be null");
 	mask = mask_;
 	initMask();
 }
@@ -392,7 +416,7 @@ std::vector<bool> SkymapTemplate<QPXL, QSTEP>::getMask() const {
 
 template <typename QPXL, typename QSTEP>
 inline bool SkymapTemplate<QPXL, QSTEP>::isMasked(std::size_t ipix) const {
-	return (maskContainer[ipix] == false);
+	return (maskContainer.at(ipix) == false);
 }
 
 template <typename QPXL, typename QSTEP>

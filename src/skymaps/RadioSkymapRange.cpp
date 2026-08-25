@@ -11,6 +11,12 @@ RadioSkymapRange::RadioSkymapRange(std::size_t nside_, QFrequency minFreq_,
       minFreq(minFreq_),
       maxFreq(maxFreq_),
       freqSteps(freqSteps_) {
+	if (freqSteps < 2)
+		throw std::invalid_argument("RadioSkymapRange requires at least two frequency steps");
+	if (!(minFreq > QFrequency(0)))
+		throw std::invalid_argument("RadioSkymapRange minimum frequency must be positive");
+	if (maxFreq < minFreq)
+		throw std::invalid_argument("RadioSkymapRange maximum frequency must not be smaller than the minimum");
 	initFrequencyRange();
 }
 
@@ -22,7 +28,7 @@ void RadioSkymapRange::initFrequencyRange() {
 
 	QFrequency f;
 	for (int i = 0; i < freqSteps; ++i) {
-		f = std::pow(scaleFactor, i) * minFreq;
+		f = (i == freqSteps - 1) ? maxFreq : std::pow(scaleFactor, i) * minFreq;
 		freqs.push_back(f);
 		skymaps.push_back(RadioSkymap(nside, f));
 	}
@@ -40,6 +46,16 @@ void RadioSkymapRange::setMask(const std::shared_ptr<SkymapMask>& mask_) {
 	for (iterator it = skymaps.begin(); it != skymaps.end(); ++it) {
 		it->setMask(mask_);
 	}
+}
+
+std::size_t RadioSkymapRange::size() const { return skymaps.size(); }
+
+RadioSkymap RadioSkymapRange::operator[](std::size_t i) const {
+	return skymaps.at(i);
+}
+
+const std::vector<QFrequency> &RadioSkymapRange::getFrequencies() const {
+	return freqs;
 }
 
 void RadioSkymapRange::compute() {

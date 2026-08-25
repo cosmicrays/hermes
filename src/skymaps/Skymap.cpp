@@ -1,5 +1,7 @@
 #include "hermes/skymaps/Skymap.h"
 
+#include <limits>
+#include <stdexcept>
 #include <typeinfo>
 
 namespace hermes {
@@ -17,16 +19,24 @@ void Skymap::setDescription(const std::string &description_) {
 }
 
 void Skymap::setNside(std::size_t nside_) {
+	if (nside_ == 0 || (nside_ & (nside_ - 1)) != 0)
+		throw std::invalid_argument("Skymap nside must be a positive power of two");
+	const std::size_t max = std::numeric_limits<std::size_t>::max();
+	if (nside_ > max / nside_ || nside_ * nside_ > max / 12)
+		throw std::out_of_range("Skymap nside is too large");
+
 	nside = nside_;
-	res = log2(nside_);
+	res = 0;
+	for (std::size_t value = nside_; value > 1; value >>= 1) ++res;
 	npix = nside2npix(nside_);
 }
 
 std::size_t Skymap::getNside() const { return nside; }
 
 void Skymap::setRes(std::size_t res_) {
-	res = res_;
-	setNside(1 << res);  // 2*res
+	if (res_ >= std::numeric_limits<std::size_t>::digits)
+		throw std::out_of_range("Skymap resolution is too large");
+	setNside(std::size_t(1) << res_);
 }
 
 std::size_t Skymap::getRes() const { return res; }

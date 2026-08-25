@@ -32,7 +32,9 @@ class RadioSkymapRange {
 	    const std::shared_ptr<IntegratorTemplate<QTemperature, QFrequency>>&
 	        integrator);
 	void setMask(const std::shared_ptr<SkymapMask>& mask);
-	std::size_t size();
+	std::size_t size() const;
+	RadioSkymap operator[](std::size_t i) const;
+	const std::vector<QFrequency> &getFrequencies() const;
 
 	void compute();
 
