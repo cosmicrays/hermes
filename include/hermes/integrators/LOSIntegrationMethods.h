@@ -24,6 +24,14 @@ namespace hermes {
 
 namespace detail {
 
+inline void validateIntegrationArguments(QLength start, QLength stop, int N,
+                                         const char *context) {
+	if (N <= 0)
+		throw std::invalid_argument(std::string(context) + ": N must be positive");
+	if (stop < start)
+		throw std::invalid_argument(std::string(context) + ": stop must not be smaller than start");
+}
+
 inline std::mutex &gslErrorHandlerMutex() {
 	static std::mutex mutex;
 	return mutex;
@@ -50,10 +58,12 @@ inline void throwIfGslFailed(int status, const char *context) {
 template <typename QPXL, typename INTTYPE>
 QPXL sumIntegration(std::function<INTTYPE(QLength)> f, QLength start,
                     QLength stop, int N = 100) {
+	detail::validateIntegrationArguments(start, stop, N, "sumIntegration");
 	QLength delta_d = (stop - start) / N;
 
 	QPXL total(0);
-	for (QLength dist = start; dist <= stop; dist += delta_d) {
+	for (int i = 0; i < N; ++i) {
+		const QLength dist = start + i * delta_d;
 		total += f(dist) * delta_d;
 	}
 	return total;
@@ -63,10 +73,12 @@ QPXL sumIntegration(std::function<INTTYPE(QLength)> f, QLength start,
 template <typename QPXL, typename INTTYPE>
 QPXL trapesoidIntegration(std::function<INTTYPE(QLength)> f, QLength start,
                           QLength stop, int N = 100) {
+	detail::validateIntegrationArguments(start, stop, N, "trapesoidIntegration");
 	QLength delta_d = (stop - start) / N;
 
 	QPXL total(0);
-	for (QLength dist = start; dist <= stop - delta_d; dist += delta_d) {
+	for (int i = 0; i < N; ++i) {
+		const QLength dist = start + i * delta_d;
 		total += (f(dist) + f(dist + delta_d)) / 2. * delta_d;
 	}
 	return total;
@@ -76,6 +88,9 @@ QPXL trapesoidIntegration(std::function<INTTYPE(QLength)> f, QLength start,
 template <typename QPXL, typename INTTYPE>
 QPXL simpsonIntegration(std::function<INTTYPE(QLength)> f, QLength start,
                         QLength stop, int N = 100) {
+	detail::validateIntegrationArguments(start, stop, N, "simpsonIntegration");
+	if (N % 2 != 0)
+		throw std::invalid_argument("simpsonIntegration: N must be even");
 	QLength a = start;
 	QLength b = stop;
 
@@ -103,6 +118,7 @@ static const double W[8] = {.1894506104, .1826034150, .1691565193, .1495959888,
 template <typename QPXL, typename INTTYPE>
 QPXL gaussIntegration(std::function<INTTYPE(QLength)> f, QLength start,
                       QLength stop, int N = 1) {
+	detail::validateIntegrationArguments(start, stop, N, "gaussIntegration");
 	const QLength XM = 0.5 * (stop + start);
 	const QLength XR = 0.5 * (stop - start);
 	INTTYPE SS = 0.;
@@ -116,6 +132,10 @@ QPXL gaussIntegration(std::function<INTTYPE(QLength)> f, QLength start,
 template <typename QPXL, typename INTTYPE>
 QPXL gslQAGIntegration(std::function<INTTYPE(QLength)> f, QLength start,
                        QLength stop, int N) {
+	detail::validateIntegrationArguments(start, stop, N, "gslQAGIntegration");
+	if (N > GSL_LIMIT)
+		throw std::invalid_argument("gslQAGIntegration: N exceeds the GSL workspace limit");
+	if (start == stop) return QPXL(0);
 	double a = static_cast<double>(start);
 	double b = static_cast<double>(stop);
 	double abs_error = 0.0;  // disabled
@@ -154,6 +174,10 @@ QPXL gslQAGIntegration(std::function<INTTYPE(QLength)> f, QLength start,
 template <typename QPXL, typename INTTYPE>
 QPXL gslQAGSIntegration(std::function<INTTYPE(QLength)> f, QLength start,
                         QLength stop, int N) {
+	detail::validateIntegrationArguments(start, stop, N, "gslQAGSIntegration");
+	if (N > GSL_LIMIT)
+		throw std::invalid_argument("gslQAGSIntegration: N exceeds the GSL workspace limit");
+	if (start == stop) return QPXL(0);
 	double a = static_cast<double>(start);
 	double b = static_cast<double>(stop);
 	double abs_error = 0.0;  // disabled
@@ -192,6 +216,10 @@ template <typename QPXL, typename INTTYPE>
 QPXL adaptiveSimpsonIntegration(std::function<INTTYPE(QLength)> f,
                                 QLength start, QLength stop, QPXL tolerance,
                                 int N = 30) {
+	detail::validateIntegrationArguments(start, stop, N, "adaptiveSimpsonIntegration");
+	if (N < 2)
+		throw std::invalid_argument("adaptiveSimpsonIntegration: N must be at least 2");
+	if (start == stop) return QPXL(0);
 	QPXL total(0);
 
 	QLength a = start;
@@ -239,7 +267,8 @@ QPXL adaptiveSimpsonIntegration(std::function<INTTYPE(QLength)> f,
 		if (fabs(S1 + S2 - v7) < v6) {
 			total += (S1 + S2);
 		} else {
-			assert(v8 < N);
+			if (v8 >= N)
+				throw std::runtime_error("adaptiveSimpsonIntegration: maximum recursion depth reached");
 
 			i += 1;  // data for the right half subinterval
 			a_i[i] = v1 + v5;
