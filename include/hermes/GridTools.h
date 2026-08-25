@@ -1,6 +1,7 @@
 #ifndef HERMES_GRIDTOOLS_H
 #define HERMES_GRIDTOOLS_H
 
+#include <memory>
 #include <string>
 
 #include "hermes/Grid.h"
@@ -28,22 +29,22 @@ namespace hermes {
  */
 
 /** Evaluate the mean vector of all grid points */
-Vector3f meanFieldVector(std::unique_ptr<VectorGrid> grid);
+Vector3f meanFieldVector(const std::shared_ptr<VectorGrid>& grid);
 
 /** Evaluate the mean of all grid points */
-double meanFieldStrength(std::unique_ptr<ScalarGrid> grid);
+double meanFieldStrength(const std::shared_ptr<ScalarGrid>& grid);
 /** Evaluate the mean of all grid points */
-double meanFieldStrength(std::unique_ptr<VectorGrid> grid);
+double meanFieldStrength(const std::shared_ptr<VectorGrid>& grid);
 
 /** Evaluate the RMS of all grid points */
-double rmsFieldStrength(std::unique_ptr<ScalarGrid> grid);
+double rmsFieldStrength(const std::shared_ptr<ScalarGrid>& grid);
 /** Evaluate the RMS of all grid points */
-double rmsFieldStrength(std::unique_ptr<VectorGrid> grid);
+double rmsFieldStrength(const std::shared_ptr<VectorGrid>& grid);
 
 /** Multiply all grid values by a given factor */
-void scaleGrid(std::unique_ptr<ScalarGrid> grid, double a);
+void scaleGrid(const std::shared_ptr<ScalarGrid>& grid, double a);
 /** Multiply all grid values by a given factor */
-void scaleGrid(std::unique_ptr<VectorGrid> grid, double a);
+void scaleGrid(const std::shared_ptr<VectorGrid>& grid, double a);
 
 #ifdef HERMES_HAVE_FFTW3F
 /**
@@ -67,44 +68,45 @@ double turbulentCorrelationLength(double lMin, double lMax,
                                   double alpha = (-11. / 3.));
 
 /** Fill vector grid from provided magnetic field */
-void fromMagneticField(std::unique_ptr<VectorGrid> grid,
-                       std::unique_ptr<magneticfields::MagneticField> field);
+void fromMagneticField(
+    const std::shared_ptr<VectorGrid>& grid,
+    const std::shared_ptr<magneticfields::MagneticField>& field);
 
 /** Fill scalar grid from provided magnetic field */
 void fromMagneticFieldStrength(
-    std::unique_ptr<ScalarGrid> grid,
-    std::unique_ptr<magneticfields::MagneticField> field);
+    const std::shared_ptr<ScalarGrid>& grid,
+    const std::shared_ptr<magneticfields::MagneticField>& field);
 
 /** Load a VectorGrid from a binary file with single precision */
-void loadGrid(std::unique_ptr<VectorGrid> grid, std::string filename,
+void loadGrid(const std::shared_ptr<VectorGrid>& grid, const std::string& filename,
               double conversion = 1);
 
 /** Load a ScalarGrid from a binary file with single precision */
-void loadGrid(std::unique_ptr<ScalarGrid> grid, std::string filename,
+void loadGrid(const std::shared_ptr<ScalarGrid>& grid, const std::string& filename,
               double conversion = 1);
 
 /** Dump a VectorGrid to a binary file */
-void dumpGrid(std::unique_ptr<VectorGrid> grid, std::string filename,
+void dumpGrid(const std::shared_ptr<VectorGrid>& grid, const std::string& filename,
               double conversion = 1);
 
 /** Dump a ScalarGrid to a binary file with single precision */
-void dumpGrid(std::unique_ptr<ScalarGrid> grid, std::string filename,
+void dumpGrid(const std::shared_ptr<ScalarGrid>& grid, const std::string& filename,
               double conversion = 1);
 
 /** Load a VectorGrid grid from a plain text file */
-void loadGridFromTxt(std::unique_ptr<VectorGrid> grid, std::string filename,
+void loadGridFromTxt(const std::shared_ptr<VectorGrid>& grid, const std::string& filename,
                      double conversion = 1);
 
 /** Load a ScalarGrid from a plain text file */
-void loadGridFromTxt(std::unique_ptr<ScalarGrid> grid, std::string filename,
+void loadGridFromTxt(const std::shared_ptr<ScalarGrid>& grid, const std::string& filename,
                      double conversion = 1);
 
 /** Dump a VectorGrid to a plain text file */
-void dumpGridToTxt(std::unique_ptr<VectorGrid> grid, std::string filename,
+void dumpGridToTxt(const std::shared_ptr<VectorGrid>& grid, const std::string& filename,
                    double conversion = 1);
 
 /** Dump a ScalarGrid to a plain text file */
-void dumpGridToTxt(std::unique_ptr<ScalarGrid> grid, std::string filename,
+void dumpGridToTxt(const std::shared_ptr<ScalarGrid>& grid, const std::string& filename,
                    double conversion = 1);
 
 /** @}*/
