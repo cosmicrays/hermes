@@ -1,17 +1,48 @@
 #include "hermes/integrators/PiZeroIntegrator.h"
 
 #include <algorithm>
+#include <cmath>
 #include <functional>
 #include <iterator>
+#include <limits>
 #include <memory>
 #include <mutex>
 #include <numeric>
+#include <stdexcept>
 #include <thread>
 
 #include "hermes/Common.h"
-#include "hermes/integrators/LOSIntegrationMethods.h"
 
 namespace hermes {
+
+namespace {
+
+struct RingLOSIntegrals {
+	QColumnDensity normalization;
+	QDiffFlux emissivity;
+};
+
+RingLOSIntegrals integrateRingSegment(const std::function<std::pair<QPDensity, QGREmissivity>(QLength)> &integrand,
+                                      const QLength &start, const QLength &stop, unsigned int steps) {
+	if (steps < 2 || steps % 2 != 0)
+		throw std::invalid_argument("integrateRingSegment: steps must be positive and even");
+	if (stop <= start) return {QColumnDensity(0), QDiffFlux(0)};
+
+	const QLength spacing = (stop - start) / steps;
+	QPDensity normalizationSum(0);
+	QGREmissivity emissivitySum(0);
+
+	for (unsigned int i = 0; i <= steps; ++i) {
+		const auto values = integrand(start + i * spacing);
+		const double weight = (i == 0 || i == steps) ? 1.0 : ((i % 2 == 0) ? 2.0 : 4.0);
+		normalizationSum += weight * values.first;
+		emissivitySum += weight * values.second;
+	}
+
+	return {spacing * normalizationSum / 3.0, spacing * emissivitySum / 3.0};
+}
+
+}  // namespace
 
 PiZeroIntegrator::PiZeroIntegrator(const std::shared_ptr<cosmicrays::CosmicRayDensity> &crDensity_,
                                    const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
@@ -20,7 +51,8 @@ PiZeroIntegrator::PiZeroIntegrator(const std::shared_ptr<cosmicrays::CosmicRayDe
       crList(std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>>{crDensity_}),
       ngdensity(ngdensity_),
       crossSec(crossSec_),
-      dProfile(std::make_unique<neutralgas::Nakanishi06>()) {}
+      dProfile(std::make_unique<neutralgas::Nakanishi06>()),
+      losIntegrationSteps(DefaultLOSIntegrationSteps) {}
 
 PiZeroIntegrator::PiZeroIntegrator(const std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> &crList_,
                                    const std::shared_ptr<neutralgas::RingModel> &ngdensity_,
@@ -29,9 +61,83 @@ PiZeroIntegrator::PiZeroIntegrator(const std::vector<std::shared_ptr<cosmicrays:
       crList(crList_),
       ngdensity(ngdensity_),
       crossSec(crossSec_),
-      dProfile(std::make_shared<neutralgas::Nakanishi06>()) {}
+      dProfile(std::make_shared<neutralgas::Nakanishi06>()),
+      losIntegrationSteps(DefaultLOSIntegrationSteps) {}
 
 PiZeroIntegrator::~PiZeroIntegrator() {}
+
+void PiZeroIntegrator::setLOSIntegrationSteps(unsigned int steps) {
+	if (steps < 2) throw std::invalid_argument("PiZeroIntegrator: LOS integration steps must be at least 2");
+	losIntegrationSteps = steps;
+}
+
+unsigned int PiZeroIntegrator::getLOSIntegrationSteps() const { return losIntegrationSteps; }
+
+std::vector<PiZeroIntegrator::LOSSegment> PiZeroIntegrator::getRingLOSIntervals(const neutralgas::Ring &ring,
+                                                                                const QDirection &direction) const {
+	const auto boundaries = ring.getBoundaries();
+	const double innerRadius = static_cast<double>(boundaries.first / 1_kpc);
+	const double outerRadius = static_cast<double>(boundaries.second / 1_kpc);
+	const double maxDistance = static_cast<double>(getMaxDistance(direction) / 1_kpc);
+
+	if (!std::isfinite(innerRadius) || !std::isfinite(outerRadius) || innerRadius < 0.0 || outerRadius <= innerRadius)
+		throw std::runtime_error("PiZeroIntegrator: invalid gas-ring boundaries");
+	if (!std::isfinite(maxDistance) || maxDistance < 0.0)
+		throw std::runtime_error("PiZeroIntegrator: invalid LOS integration limit");
+	if (maxDistance == 0.0) return {};
+
+	const double theta = static_cast<double>(direction[0] / 1_rad);
+	const double phi = static_cast<double>(direction[1] / 1_rad);
+	const double rayX = -std::sin(theta) * std::cos(phi);
+	const double rayY = -std::sin(theta) * std::sin(phi);
+	const double observerX = static_cast<double>(observerPosition.x / 1_kpc);
+	const double observerY = static_cast<double>(observerPosition.y / 1_kpc);
+	const double quadraticA = rayX * rayX + rayY * rayY;
+	const double quadraticB = 2.0 * (observerX * rayX + observerY * rayY);
+
+	std::vector<double> breakpoints = {0.0, maxDistance};
+	auto appendCylinderIntersections = [&](double radius) {
+		if (quadraticA <= 64.0 * std::numeric_limits<double>::epsilon()) return;
+
+		const double quadraticC = observerX * observerX + observerY * observerY - radius * radius;
+		double discriminant = quadraticB * quadraticB - 4.0 * quadraticA * quadraticC;
+		const double discriminantScale = quadraticB * quadraticB + std::fabs(4.0 * quadraticA * quadraticC) + 1.0;
+		const double discriminantTolerance = 64.0 * std::numeric_limits<double>::epsilon() * discriminantScale;
+		if (discriminant < -discriminantTolerance) return;
+		if (discriminant < 0.0) discriminant = 0.0;
+
+		const double rootOffset = std::sqrt(discriminant);
+		for (const double root :
+		     {(-quadraticB - rootOffset) / (2.0 * quadraticA), (-quadraticB + rootOffset) / (2.0 * quadraticA)}) {
+			if (root > 0.0 && root < maxDistance) breakpoints.push_back(root);
+		}
+	};
+
+	appendCylinderIntersections(innerRadius);
+	appendCylinderIntersections(outerRadius);
+	std::sort(breakpoints.begin(), breakpoints.end());
+
+	const double distanceTolerance = 64.0 * std::numeric_limits<double>::epsilon() * std::max(1.0, maxDistance);
+	breakpoints.erase(std::unique(breakpoints.begin(), breakpoints.end(),
+	                              [&](double a, double b) { return std::fabs(a - b) <= distanceTolerance; }),
+	                  breakpoints.end());
+
+	std::vector<LOSSegment> intervals;
+	for (std::size_t i = 1; i < breakpoints.size(); ++i) {
+		const double start = breakpoints[i - 1];
+		const double stop = breakpoints[i];
+		if (stop - start <= distanceTolerance) continue;
+
+		const double midpoint = 0.5 * (start + stop);
+		const double x = observerX + midpoint * rayX;
+		const double y = observerY + midpoint * rayY;
+		const double radiusSquared = x * x + y * y;
+		if (radiusSquared > innerRadius * innerRadius && radiusSquared < outerRadius * outerRadius)
+			intervals.emplace_back(start * 1_kpc, stop * 1_kpc);
+	}
+
+	return intervals;
+}
 
 void PiZeroIntegrator::setupCacheTable(int N_x, int N_y, int N_z) {
 	const QLength rBorder = 35_kpc;
@@ -99,54 +205,110 @@ QDiffIntensity PiZeroIntegrator::integrateOverLOS(const QDirection &direction) c
 }
 
 QDiffIntensity PiZeroIntegrator::integrateOverLOS(const QDirection &direction_, const QEnergy &Egamma_) const {
+	return integrateOverLOSWithAttenuation(direction_, Egamma_, QInverseLength(0));
+}
+
+QDiffIntensity PiZeroIntegrator::integrateOverLOSWithAttenuation(
+    const QDirection &direction_, const QEnergy &Egamma_, const QInverseLength &inverseAttenuationLength) const {
+	const double inverseLengthPerKpc = static_cast<double>(inverseAttenuationLength * 1_kpc);
+	if (!std::isfinite(inverseLengthPerKpc) || inverseAttenuationLength < QInverseLength(0))
+		throw std::invalid_argument("PiZeroIntegrator: attenuation coefficient must be finite and non-negative");
+	const bool attenuationEnabled = inverseAttenuationLength > QInverseLength(0);
+	constexpr double attenuationCutoff = 40.0;
+	constexpr double maximumOpticalDepthStep = 0.1;
+
 	QDiffIntensity total_diff_flux(0.0);
 
-	auto gasType = ngdensity->getGasType();
+	const auto gasType = ngdensity->getGasType();
 
 	// Sum over rings
 	for (const auto &ring : *ngdensity) {
-		// TODO(adundovi): this could be checked better
 		if (!ngdensity->isRingEnabled(ring->getIndex())) continue;
 
-		/** Normalization-part **/
-		// p_Theta_f(r) = profile(r) * Theta_in(r)
-		auto p_Theta_f = [ring, gasType, this](const Vector3QLength &pos) {
-			return (ring->isInside(pos)) ? dProfile->getPDensity(gasType, pos) : 0;
+		const QColumnDensity ringColumnDensity = ring->getColumnDensity(direction_);
+		if (ringColumnDensity == QColumnDensity(0)) continue;
+
+		const auto intervals = getRingLOSIntervals(*ring, direction_);
+		if (intervals.empty()) continue;
+
+		double totalIntervalLength = 0.0;
+		for (const auto &interval : intervals)
+			totalIntervalLength += static_cast<double>((interval.second - interval.first) / 1_kpc);
+		if (!(totalIntervalLength > 0.0) || !std::isfinite(totalIntervalLength))
+			throw std::runtime_error("PiZeroIntegrator: invalid gas-ring LOS interval length");
+
+		QColumnDensity normIntegral(0);
+		QDiffFlux losIntegral(0);
+		auto unattenuatedIntegrand = [this, gasType, direction_, Egamma_](const QLength &dist) {
+			const auto position = getGalacticPosition(observerPosition, dist, direction_);
+			const QPDensity profileDensity = dProfile->getPDensity(gasType, position);
+			const QGREmissivity emissivity = profileDensity * integrateOverEnergy(position, Egamma_);
+			return std::make_pair(profileDensity, emissivity);
 		};
-		auto normIntegrand = [this, p_Theta_f, direction_](const QLength &dist) {
-			return p_Theta_f(getGalacticPosition(this->observerPosition, dist, direction_));
+		auto normalizationIntegrand = [this, gasType, direction_](const QLength &dist) {
+			const auto position = getGalacticPosition(observerPosition, dist, direction_);
+			return std::make_pair(dProfile->getPDensity(gasType, position), QGREmissivity(0));
+		};
+		auto attenuatedIntegrand = [this, gasType, direction_, Egamma_, inverseAttenuationLength](
+		                                 const QLength &dist) {
+			const auto position = getGalacticPosition(observerPosition, dist, direction_);
+			const QGREmissivity emissivity = dProfile->getPDensity(gasType, position) *
+			                                integrateOverEnergy(position, Egamma_) *
+			                                exp(-inverseAttenuationLength * dist);
+			return std::make_pair(QPDensity(0), emissivity);
 		};
 
-		// optimize LOS integration limits:
-		// instead of 0 and getMaxDistance(dir)
-		auto b = ring->getBoundaries();
-		auto rho = observerPosition.getRho();
-		QLength r_min = rho - b.second;
-		if (r_min < 0_m) r_min = 0_m;
-		QLength r_max = rho + b.second;
-		if (r_max > getMaxDistance(direction_)) r_max = getMaxDistance(direction_);
+		for (const auto &interval : intervals) {
+			const double intervalLength = static_cast<double>((interval.second - interval.first) / 1_kpc);
+			unsigned int intervalSteps =
+			    static_cast<unsigned int>(std::ceil(losIntegrationSteps * intervalLength / totalIntervalLength));
+			intervalSteps = std::max(2u, intervalSteps);
+			if (intervalSteps % 2 != 0) ++intervalSteps;
 
-		QColumnDensity normIntegral = simpsonIntegration<QColumnDensity, QPDensity>(normIntegrand, r_min, r_max, 200);
+			if (!attenuationEnabled) {
+				const auto result =
+				    integrateRingSegment(unattenuatedIntegrand, interval.first, interval.second, intervalSteps);
+				normIntegral += result.normalization;
+				losIntegral += result.emissivity;
+				continue;
+			}
 
-		// LOS is not crossing the current ring at all, skip
-		if (normIntegral == QColumnDensity(0)) continue;
+			normIntegral +=
+			    integrateRingSegment(normalizationIntegrand, interval.first, interval.second, intervalSteps).normalization;
 
-		// std::cerr << "normIntegral" << normIntegral << std::endl;
+			const double opticalDepthAtStart =
+			    static_cast<double>(inverseAttenuationLength * interval.first);
+			if (opticalDepthAtStart >= attenuationCutoff) continue;
 
-		/** LOS integral over emissivity **/
-		// los_f = emissivity(r) * profile(r) * Theta_in(r)
-		auto los_f = [ring, gasType, this](const Vector3QLength &pos, const QEnergy &Egamma_) {
-			return (ring->isInside(pos)) ? dProfile->getPDensity(gasType, pos) * this->integrateOverEnergy(pos, Egamma_)
-			                             : 0;
-		};
-		auto losIntegrand = [this, los_f, direction_, Egamma_](const QLength &dist) {
-			return los_f(getGalacticPosition(this->observerPosition, dist, direction_), Egamma_);
-		};
-		QDiffIntensity losIntegral =
-		    simpsonIntegration<QDiffFlux, QGREmissivity>(losIntegrand, r_min, r_max, 500) / (4_pi * 1_sr);
+			QLength activeStop = interval.second;
+			const double opticalDepthAtStop = static_cast<double>(inverseAttenuationLength * interval.second);
+			if (opticalDepthAtStop > attenuationCutoff)
+				activeStop = attenuationCutoff / inverseAttenuationLength;
+			if (activeStop <= interval.first) continue;
 
-		// Finally, normalize LOS integrals, separatelly for HI and CO
-		total_diff_flux += ring->getColumnDensity(direction_) / normIntegral * losIntegral;
+			const double activeLength = static_cast<double>((activeStop - interval.first) / 1_kpc);
+			unsigned int activeSteps = static_cast<unsigned int>(
+			    std::ceil(losIntegrationSteps * activeLength / totalIntervalLength));
+			const double activeOpticalDepth =
+			    static_cast<double>(inverseAttenuationLength * (activeStop - interval.first));
+			const unsigned int opticalDepthSteps =
+			    static_cast<unsigned int>(std::ceil(activeOpticalDepth / maximumOpticalDepthStep));
+			activeSteps = std::max({2u, activeSteps, opticalDepthSteps});
+			if (activeSteps % 2 != 0) ++activeSteps;
+
+			losIntegral +=
+			    integrateRingSegment(attenuatedIntegrand, interval.first, activeStop, activeSteps).emissivity;
+		}
+
+		const double normalizationValue = static_cast<double>(normIntegral);
+		const double emissivityValue = static_cast<double>(losIntegral);
+		if (!std::isfinite(normalizationValue) || !std::isfinite(emissivityValue))
+			throw std::runtime_error("PiZeroIntegrator: non-finite LOS integral");
+		if (normIntegral <= QColumnDensity(0)) continue;
+
+		// The observed ring column fixes the normalization of the smooth
+		// three-dimensional gas profile along this line of sight.
+		total_diff_flux += ringColumnDensity / normIntegral * losIntegral / (4_pi * 1_sr);
 	}
 
 	return total_diff_flux;

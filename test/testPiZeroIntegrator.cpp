@@ -1,4 +1,5 @@
 #include <chrono>
+#include <cmath>
 #include <memory>
 
 #include "gtest/gtest.h"
@@ -37,6 +38,201 @@ class TestCRDensity : public cosmicrays::CosmicRayDensity {
 		}
 	}
 };
+
+class ConstantEmissivityPiZero : public PiZeroIntegrator {
+  private:
+	QPiZeroIntegral emissivity;
+
+  public:
+	ConstantEmissivityPiZero(const std::shared_ptr<neutralgas::RingModel> &ringModel,
+	                         const QPiZeroIntegral &emissivity_)
+	    : PiZeroIntegrator(std::make_shared<cosmicrays::DummyCR>(), ringModel,
+	                       std::make_shared<interactions::DummyCrossSection>(QDiffCrossSection(0))),
+	      emissivity(emissivity_) {}
+
+	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &, const QEnergy &) const override { return emissivity; }
+
+	std::vector<LOSSegment> ringIntervals(const neutralgas::Ring &ring, const QDirection &direction) const {
+		return getRingLOSIntervals(ring, direction);
+	}
+};
+
+class ConstantGasProfile : public neutralgas::ProfileAbstract {
+  public:
+	QPDensity getPDensity(neutralgas::GasType, const Vector3QLength &) const override { return 1.0 / 1_cm3; }
+};
+
+class ConstantEmissivityAbsorption : public PiZeroAbsorptionIntegrator {
+  private:
+	QPiZeroIntegral emissivity;
+
+  public:
+	ConstantEmissivityAbsorption(const std::shared_ptr<neutralgas::RingModel> &ringModel,
+	                             const QPiZeroIntegral &emissivity_)
+	    : PiZeroAbsorptionIntegrator(std::make_shared<cosmicrays::DummyCR>(), ringModel,
+	                                 std::make_shared<interactions::DummyCrossSection>(QDiffCrossSection(0))),
+	      emissivity(emissivity_) {
+		dProfile = std::make_shared<ConstantGasProfile>();
+	}
+
+	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &, const QEnergy &) const override { return emissivity; }
+
+	std::vector<LOSSegment> ringIntervals(const neutralgas::Ring &ring, const QDirection &direction) const {
+		return getRingLOSIntervals(ring, direction);
+	}
+};
+
+class ConstantEmissivityNeutronDecay : public PiZeroNeutronDecayIntegrator {
+  private:
+	QPiZeroIntegral emissivity;
+
+  public:
+	ConstantEmissivityNeutronDecay(const std::shared_ptr<neutralgas::RingModel> &ringModel,
+	                               const QPiZeroIntegral &emissivity_)
+	    : PiZeroNeutronDecayIntegrator(std::make_shared<cosmicrays::DummyCR>(), ringModel,
+	                                   std::make_shared<interactions::DummyCrossSection>(QDiffCrossSection(0))),
+	      emissivity(emissivity_) {
+		dProfile = std::make_shared<ConstantGasProfile>();
+	}
+
+	QPiZeroIntegral integrateOverEnergy(const Vector3QLength &, const QEnergy &) const override { return emissivity; }
+
+	std::vector<LOSSegment> ringIntervals(const neutralgas::Ring &ring, const QDirection &direction) const {
+		return getRingLOSIntervals(ring, direction);
+	}
+};
+
+template <typename Intervals>
+std::pair<QLength, QLength> geometricAndAttenuatedLengths(
+    const Intervals &intervals, const QInverseLength &inverseLength) {
+	QLength geometricLength(0);
+	QLength attenuatedLength(0);
+	for (const auto &interval : intervals) {
+		geometricLength += interval.second - interval.first;
+		attenuatedLength +=
+		    (exp(-inverseLength * interval.first) - exp(-inverseLength * interval.second)) / inverseLength;
+	}
+	return {geometricLength, attenuatedLength};
+}
+
+TEST(PiZeroIntegrator, LOSIntegrationStepsAreConfigurable) {
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::GasType::HI);
+	ConstantEmissivityPiZero integrator(ringModel, QPiZeroIntegral(1));
+
+	EXPECT_EQ(integrator.getLOSIntegrationSteps(), PiZeroIntegrator::DefaultLOSIntegrationSteps);
+	integrator.setLOSIntegrationSteps(128);
+	EXPECT_EQ(integrator.getLOSIntegrationSteps(), 128u);
+	EXPECT_THROW(integrator.setLOSIntegrationSteps(1), std::invalid_argument);
+}
+
+TEST(PiZeroIntegrator, RingLOSIntervalsMatchAnalyticCrossings) {
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::GasType::H2);
+	ConstantEmissivityPiZero integrator(ringModel, QPiZeroIntegral(1));
+	const auto ring = (*ringModel)[3];  // cylindrical annulus 3--4 kpc
+
+	const auto centreIntervals = integrator.ringIntervals(*ring, QDirection({90_deg, 0_deg}));
+	ASSERT_EQ(centreIntervals.size(), 2u);
+	EXPECT_NEAR(static_cast<double>(centreIntervals[0].first / 1_kpc), 4.5, 1e-12);
+	EXPECT_NEAR(static_cast<double>(centreIntervals[0].second / 1_kpc), 5.5, 1e-12);
+	EXPECT_NEAR(static_cast<double>(centreIntervals[1].first / 1_kpc), 11.5, 1e-12);
+	EXPECT_NEAR(static_cast<double>(centreIntervals[1].second / 1_kpc), 12.5, 1e-12);
+
+	const QAngle tangentLongitude = std::asin(4.0 / 8.5) * 1_rad;
+	const auto tangentIntervals = integrator.ringIntervals(*ring, QDirection({90_deg, tangentLongitude}));
+	EXPECT_TRUE(tangentIntervals.empty());
+
+	const double impactParameter = 3.99;
+	const QAngle nearTangentLongitude = std::asin(impactParameter / 8.5) * 1_rad;
+	const QAngle latitude = 5_deg;
+	const double projectedRayLength = std::cos(static_cast<double>(latitude / 1_rad));
+	const double intervalCentre =
+	    8.5 * std::cos(static_cast<double>(nearTangentLongitude / 1_rad)) / projectedRayLength;
+	const double intervalHalfWidth = std::sqrt(4.0 * 4.0 - impactParameter * impactParameter) / projectedRayLength;
+	const auto nearTangentIntervals =
+	    integrator.ringIntervals(*ring, QDirection({90_deg - latitude, nearTangentLongitude}));
+	ASSERT_EQ(nearTangentIntervals.size(), 1u);
+	EXPECT_NEAR(static_cast<double>(nearTangentIntervals[0].first / 1_kpc), intervalCentre - intervalHalfWidth, 1e-11);
+	EXPECT_NEAR(static_cast<double>(nearTangentIntervals[0].second / 1_kpc), intervalCentre + intervalHalfWidth, 1e-11);
+}
+
+TEST(PiZeroIntegrator, ConstantEmissivityExactlyCancelsRingNormalization) {
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::GasType::H2);
+	std::array<bool, 12> enabledRings{};
+	enabledRings[5] = true;  // narrow crossing around l=44.9 degrees
+	ringModel->setEnabledRings(enabledRings);
+
+	const QPiZeroIntegral emissivity(2.5);
+	ConstantEmissivityPiZero integrator(ringModel, emissivity);
+	integrator.setLOSIntegrationSteps(10);
+	const QDirection direction = {90_deg, 44.9_deg};
+	const QColumnDensity columnDensity = (*ringModel)[5]->getColumnDensity(direction);
+	ASSERT_GT(static_cast<double>(columnDensity), 0.0);
+
+	const QDiffIntensity expected = columnDensity * emissivity / (4_pi * 1_sr);
+	const QDiffIntensity actual = integrator.integrateOverLOS(direction, 10_TeV);
+	EXPECT_NEAR(static_cast<double>(actual / expected), 1.0, 1e-12);
+}
+
+TEST(PiZeroAbsorptionIntegrator, MatchesAnalyticExponentialAttenuation) {
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::GasType::H2);
+	std::array<bool, 12> enabledRings{};
+	enabledRings[3] = true;
+	ringModel->setEnabledRings(enabledRings);
+
+	const QPiZeroIntegral emissivity(2.5);
+	ConstantEmissivityAbsorption integrator(ringModel, emissivity);
+	const QDirection direction = {90_deg, 15_deg};
+	const QEnergy energy = 1_PeV;
+	const QInverseLength inverseLength = integrator.absorptionCoefficient(energy);
+	ASSERT_GT(static_cast<double>(inverseLength), 0.0);
+	EXPECT_THROW(integrator.absorptionCoefficient(QEnergy(0)), std::invalid_argument);
+
+	const auto intervals = integrator.ringIntervals(*(*ringModel)[3], direction);
+	ASSERT_EQ(intervals.size(), 2u);
+	const auto lengths = geometricAndAttenuatedLengths(intervals, inverseLength);
+	const QColumnDensity columnDensity = (*ringModel)[3]->getColumnDensity(direction);
+	ASSERT_GT(static_cast<double>(columnDensity), 0.0);
+
+	const QDiffIntensity unabsorbed = columnDensity * emissivity / (4_pi * 1_sr);
+	const QDiffIntensity expected = unabsorbed * lengths.second / lengths.first;
+	const QDiffIntensity actual = integrator.integrateOverLOS(direction, energy);
+	EXPECT_NEAR(static_cast<double>(actual / expected), 1.0, 1e-11);
+	EXPECT_LT(actual, unabsorbed);
+}
+
+TEST(PiZeroNeutronDecayIntegrator, MatchesAnalyticExponentialSurvival) {
+	auto ringModel = std::make_shared<neutralgas::RingModel>(neutralgas::GasType::H2);
+	std::array<bool, 12> enabledRings{};
+	enabledRings[3] = true;
+	ringModel->setEnabledRings(enabledRings);
+
+	const QPiZeroIntegral emissivity(2.5);
+	ConstantEmissivityNeutronDecay integrator(ringModel, emissivity);
+	const QDirection direction = {90_deg, 15_deg};
+	const QEnergy energy = 1_EeV;
+	const QInverseLength inverseLength = integrator.decayInverseLength(energy);
+	ASSERT_GT(static_cast<double>(inverseLength), 0.0);
+	EXPECT_THROW(integrator.decayInverseLength(QEnergy(0)), std::invalid_argument);
+
+	const auto intervals = integrator.ringIntervals(*(*ringModel)[3], direction);
+	ASSERT_EQ(intervals.size(), 2u);
+	const auto lengths = geometricAndAttenuatedLengths(intervals, inverseLength);
+	const QColumnDensity columnDensity = (*ringModel)[3]->getColumnDensity(direction);
+	ASSERT_GT(static_cast<double>(columnDensity), 0.0);
+
+	const QDiffIntensity undecayed = columnDensity * emissivity / (4_pi * 1_sr);
+	const QDiffIntensity expected = undecayed * lengths.second / lengths.first;
+	const QDiffIntensity actual = integrator.integrateOverLOS(direction, energy);
+	EXPECT_NEAR(static_cast<double>(actual / expected), 1.0, 1e-11);
+	EXPECT_LT(actual, undecayed);
+
+	integrator.setLOSIntegrationSteps(500);
+	const QDiffIntensity pevResult500 = integrator.integrateOverLOS(direction, 1_PeV);
+	integrator.setLOSIntegrationSteps(1000);
+	const QDiffIntensity pevResult1000 = integrator.integrateOverLOS(direction, 1_PeV);
+	EXPECT_LT(std::fabs(static_cast<double>(pevResult500 / undecayed)), 1e-100);
+	EXPECT_LT(std::fabs(static_cast<double>((pevResult500 - pevResult1000) / undecayed)), 1e-100);
+}
 
 TEST(PiZeroIntegrator, integrateOverEnergy) {
 	auto cr_proton = std::make_shared<cosmicrays::SimpleCR>(

@@ -93,6 +93,8 @@ void init_integrators(py::module &m) {
 	pizerointegrator.def("integrateOverLOS",
 	                     static_cast<QDiffIntensity (PiZeroIntegrator::*)(const QDirection &, const QEnergy &) const>(
 	                         &PiZeroIntegrator::integrateOverLOS));
+	pizerointegrator.def("setLOSIntegrationSteps", &PiZeroIntegrator::setLOSIntegrationSteps, py::arg("steps"));
+	pizerointegrator.def("getLOSIntegrationSteps", &PiZeroIntegrator::getLOSIntegrationSteps);
 
 	// BremsstrahlungIntegrator
 	py::class_<BremsstrahlungIntegrator, InverseComptonIntegratorParentClass, std::shared_ptr<BremsstrahlungIntegrator>>
@@ -105,6 +107,9 @@ void init_integrators(py::module &m) {
 	    "integrateOverLOS",
 	    static_cast<QDiffIntensity (BremsstrahlungIntegrator::*)(const QDirection &, const QEnergy &) const>(
 	        &BremsstrahlungIntegrator::integrateOverLOS));
+	bremsintegrator.def("setLOSIntegrationSteps", &BremsstrahlungIntegrator::setLOSIntegrationSteps,
+	                    py::arg("steps"));
+	bremsintegrator.def("getLOSIntegrationSteps", &BremsstrahlungIntegrator::getLOSIntegrationSteps);
 
 	// PiZeroAbsorptionIntegrator
 	py::class_<PiZeroAbsorptionIntegrator, InverseComptonIntegratorParentClass,
@@ -122,6 +127,9 @@ void init_integrators(py::module &m) {
 	    "integrateOverLOS",
 	    static_cast<QDiffIntensity (PiZeroAbsorptionIntegrator::*)(const QDirection &, const QEnergy &) const>(
 	        &PiZeroAbsorptionIntegrator::integrateOverLOS));
+	pizeroabsintegrator.def("setLOSIntegrationSteps", &PiZeroAbsorptionIntegrator::setLOSIntegrationSteps,
+	                       py::arg("steps"));
+	pizeroabsintegrator.def("getLOSIntegrationSteps", &PiZeroAbsorptionIntegrator::getLOSIntegrationSteps);
 
 	// PiZeroNeutronDecayIntegrator
 	py::class_<PiZeroNeutronDecayIntegrator, InverseComptonIntegratorParentClass,
@@ -139,6 +147,9 @@ void init_integrators(py::module &m) {
 	    "integrateOverLOS",
 	    static_cast<QDiffIntensity (PiZeroNeutronDecayIntegrator::*)(const QDirection &, const QEnergy &) const>(
 	        &PiZeroNeutronDecayIntegrator::integrateOverLOS));
+	pizeroneutronintegrator.def("setLOSIntegrationSteps", &PiZeroNeutronDecayIntegrator::setLOSIntegrationSteps,
+	                           py::arg("steps"));
+	pizeroneutronintegrator.def("getLOSIntegrationSteps", &PiZeroNeutronDecayIntegrator::getLOSIntegrationSteps);
 
 	// DarkMatterIntegrator
 	py::enum_<DarkMatterProcess>(m, "DarkMatterProcess")

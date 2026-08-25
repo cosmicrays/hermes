@@ -3,6 +3,7 @@
 
 #include <array>
 #include <memory>
+#include <utility>
 #include <vector>
 
 #include "hermes/ProgressBar.h"
@@ -22,6 +23,8 @@ namespace hermes {
 
 class PiZeroIntegrator : public GammaIntegratorTemplate {
   protected:
+	using LOSSegment = std::pair<QLength, QLength>;
+
 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList;
 	std::shared_ptr<neutralgas::RingModel> ngdensity;
 	std::shared_ptr<interactions::DifferentialCrossSection> crossSec;
@@ -30,14 +33,21 @@ class PiZeroIntegrator : public GammaIntegratorTemplate {
 
 	typedef Grid<QPiZeroIntegral> tCacheTable;
 	std::shared_ptr<tCacheTable> cacheTable;
+	unsigned int losIntegrationSteps;
 
 	QPiZeroIntegral getIOEfromCache(const Vector3QLength &,
 	                                const QEnergy &) const;
+	std::vector<LOSSegment> getRingLOSIntervals(
+	    const neutralgas::Ring &, const QDirection &) const;
+	QDiffIntensity integrateOverLOSWithAttenuation(
+	    const QDirection &, const QEnergy &, const QInverseLength &) const;
 	void computeCacheInThread(std::size_t start, std::size_t end,
 	                          const QEnergy &Egamma,
 	                          std::shared_ptr<ProgressBar> &p);
 
   public:
+	static constexpr unsigned int DefaultLOSIntegrationSteps = 500;
+
 	PiZeroIntegrator(
 	    const std::shared_ptr<cosmicrays::CosmicRayDensity> &,
 	    const std::shared_ptr<neutralgas::RingModel> &,
@@ -57,6 +67,14 @@ class PiZeroIntegrator : public GammaIntegratorTemplate {
 
 	virtual QPiZeroIntegral integrateOverEnergy(const Vector3QLength &pos,
 	                                            const QEnergy &Egamma) const;
+	/**
+	 * Set the target number of composite-Simpson subintervals per gas ring.
+	 * The budget is distributed over the exact LOS segments and rounded up to
+	 * an even number on each segment.
+	 */
+	void setLOSIntegrationSteps(unsigned int steps);
+	/** Return the target LOS integration-step budget per gas ring. */
+	unsigned int getLOSIntegrationSteps() const;
 
 	void setupCacheTable(int, int, int) override;
 	void initCacheTable() override;

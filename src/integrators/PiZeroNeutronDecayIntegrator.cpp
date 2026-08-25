@@ -1,16 +1,7 @@
 #include "hermes/integrators/PiZeroNeutronDecayIntegrator.h"
 
-#include <algorithm>
-#include <functional>
-#include <iterator>
-#include <memory>
-#include <mutex>
-#include <numeric>
-#include <thread>
-#include <utility>
-
-#include "hermes/Common.h"
-#include "hermes/integrators/LOSIntegrationMethods.h"
+#include <cmath>
+#include <stdexcept>
 
 namespace hermes {
 
@@ -38,68 +29,22 @@ QDiffIntensity PiZeroNeutronDecayIntegrator::integrateOverLOS(const QDirection &
 
 QDiffIntensity PiZeroNeutronDecayIntegrator::integrateOverLOS(const QDirection &direction_,
                                                               const QEnergy &Eneutron_) const {
-	QDiffIntensity total_diff_flux(0.0);
-
-	auto gasType = ngdensity->getGasType();
-
 	const auto K = decayInverseLength(Eneutron_);
-
-	// Sum over rings
-	for (const auto &ring : *ngdensity) {
-		// TODO: this could be better
-		if (!ngdensity->isRingEnabled(ring->getIndex())) continue;
-
-		/** Normalization-part **/
-		// p_Theta_f(r) = profile(r) * Theta_in(r)
-		auto p_Theta_f = [ring, gasType, this](const Vector3QLength &pos) {
-			return (ring->isInside(pos)) ? dProfile->getPDensity(gasType, pos) : 0;
-		};
-		auto normIntegrand = [this, p_Theta_f, direction_](const QLength &dist) {
-			return p_Theta_f(getGalacticPosition(this->observerPosition, dist, direction_));
-		};
-
-		// optimize LOS integration limits:
-		// instead of 0 and getMaxDistance(dir)
-		auto b = ring->getBoundaries();
-		auto rho = observerPosition.getRho();
-		QLength r_min = rho - b.second;
-		if (r_min < 0_m) r_min = 0_m;
-		QLength r_max = rho + b.second;
-		if (r_max > getMaxDistance(direction_)) r_max = getMaxDistance(direction_);
-
-		QColumnDensity normIntegral = simpsonIntegration<QColumnDensity, QPDensity>(normIntegrand, r_min, r_max, 200);
-
-		// LOS is not crossing the current ring at all, skip
-		if (normIntegral == QColumnDensity(0)) continue;
-
-		// std::cerr << "normIntegral" << normIntegral << std::endl;
-
-		/** LOS integral over emissivity **/
-		// los_f = emissivity(r) * profile(r) * Theta_in(r)
-		auto los_f = [ring, gasType, this](const Vector3QLength &pos, const QEnergy &Eneutron_) {
-			return (ring->isInside(pos))
-			           ? dProfile->getPDensity(gasType, pos) * this->integrateOverEnergy(pos, Eneutron_)
-			           : 0;
-		};
-		auto losIntegrand = [this, los_f, direction_, Eneutron_, K](const QLength &dist) {
-			return los_f(getGalacticPosition(this->observerPosition, dist, direction_), Eneutron_) * exp(-K * dist);
-		};
-		QDiffIntensity losIntegral =
-		    simpsonIntegration<QDiffFlux, QGREmissivity>(losIntegrand, r_min, r_max, 500) / (4_pi * 1_sr);
-
-		// Finally, normalize LOS integrals, separatelly for HI and CO
-		total_diff_flux += ring->getColumnDensity(direction_) / normIntegral * losIntegral;
-	}
-
-	return total_diff_flux;
+	return integrateOverLOSWithAttenuation(direction_, Eneutron_, K);
 }
 
 QInverseLength PiZeroNeutronDecayIntegrator::decayInverseLength(const QEnergy &Eneutron_) const {
-	QTime decayTime = 878.4 * 1_s;
-	QEnergy mn_c2 = m_neutron * c_squared;
-	auto gamma_n = Eneutron_ / mn_c2;
-	QInverseLength result = 1. / gamma_n / decayTime / c_light;
-	return QInverseLength(result);
+	const double energyValue = static_cast<double>(Eneutron_ / 1_GeV);
+	if (!std::isfinite(energyValue) || Eneutron_ <= QEnergy(0))
+		throw std::invalid_argument("PiZeroNeutronDecayIntegrator: neutron energy must be positive and finite");
+
+	const QTime decayTime = 878.4 * 1_s;
+	const QEnergy neutronRestMassEnergy = m_neutron * c_squared;
+	const auto gamma = Eneutron_ / neutronRestMassEnergy;
+	const QInverseLength result = 1. / gamma / decayTime / c_light;
+	if (!std::isfinite(static_cast<double>(result)) || result <= QInverseLength(0))
+		throw std::runtime_error("PiZeroNeutronDecayIntegrator: invalid neutron decay length");
+	return result;
 }
 
 }  // namespace hermes

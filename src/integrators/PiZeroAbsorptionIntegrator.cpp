@@ -1,15 +1,10 @@
 #include "hermes/integrators/PiZeroAbsorptionIntegrator.h"
 
-#include <algorithm>
-#include <functional>
-#include <iterator>
+#include <cmath>
 #include <memory>
 #include <mutex>
-#include <numeric>
-#include <thread>
-#include <utility>
+#include <stdexcept>
 
-#include "hermes/Common.h"
 #include "hermes/integrators/LOSIntegrationMethods.h"
 
 namespace hermes {
@@ -38,59 +33,20 @@ QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(const QDirection &di
 
 QDiffIntensity PiZeroAbsorptionIntegrator::integrateOverLOS(const QDirection &direction_,
                                                             const QEnergy &Egamma_) const {
-	QDiffIntensity total_diff_flux(0.0);
+	const auto K = getAbsorptionCoefficient(Egamma_);
+	return integrateOverLOSWithAttenuation(direction_, Egamma_, K);
+}
 
-	auto gasType = ngdensity->getGasType();
+QInverseLength PiZeroAbsorptionIntegrator::getAbsorptionCoefficient(const QEnergy &Egamma_) const {
+	const double energyKey = static_cast<double>(Egamma_ / 1_GeV);
+	if (!std::isfinite(energyKey) || Egamma_ <= QEnergy(0)) return absorptionCoefficient(Egamma_);
+	std::lock_guard<std::mutex> lock(absorptionCoefficientCacheMutex);
+	const auto cached = absorptionCoefficientCache.find(energyKey);
+	if (cached != absorptionCoefficientCache.end()) return cached->second;
 
-	const auto K = absorptionCoefficient(Egamma_);
-
-	// Sum over rings
-	for (const auto &ring : *ngdensity) {
-		// TODO: this could be better
-		if (!ngdensity->isRingEnabled(ring->getIndex())) continue;
-
-		/** Normalization-part **/
-		// p_Theta_f(r) = profile(r) * Theta_in(r)
-		auto p_Theta_f = [ring, gasType, this](const Vector3QLength &pos) {
-			return (ring->isInside(pos)) ? dProfile->getPDensity(gasType, pos) : 0;
-		};
-		auto normIntegrand = [this, p_Theta_f, direction_](const QLength &dist) {
-			return p_Theta_f(getGalacticPosition(this->observerPosition, dist, direction_));
-		};
-
-		// optimize LOS integration limits:
-		// instead of 0 and getMaxDistance(dir)
-		auto b = ring->getBoundaries();
-		auto rho = observerPosition.getRho();
-		QLength r_min = rho - b.second;
-		if (r_min < 0_m) r_min = 0_m;
-		QLength r_max = rho + b.second;
-		if (r_max > getMaxDistance(direction_)) r_max = getMaxDistance(direction_);
-
-		QColumnDensity normIntegral = simpsonIntegration<QColumnDensity, QPDensity>(normIntegrand, r_min, r_max, 200);
-
-		// LOS is not crossing the current ring at all, skip
-		if (normIntegral == QColumnDensity(0)) continue;
-
-		// std::cerr << "normIntegral" << normIntegral << std::endl;
-
-		/** LOS integral over emissivity **/
-		// los_f = emissivity(r) * profile(r) * Theta_in(r)
-		auto los_f = [ring, gasType, this](const Vector3QLength &pos, const QEnergy &Egamma_) {
-			return (ring->isInside(pos)) ? dProfile->getPDensity(gasType, pos) * this->integrateOverEnergy(pos, Egamma_)
-			                             : 0;
-		};
-		auto losIntegrand = [this, los_f, direction_, Egamma_, K](const QLength &dist) {
-			return los_f(getGalacticPosition(this->observerPosition, dist, direction_), Egamma_) * exp(-K * dist);
-		};
-		QDiffIntensity losIntegral =
-		    simpsonIntegration<QDiffFlux, QGREmissivity>(losIntegrand, r_min, r_max, 500) / (4_pi * 1_sr);
-
-		// Finally, normalize LOS integrals, separatelly for HI and CO
-		total_diff_flux += ring->getColumnDensity(direction_) / normIntegral * losIntegral;
-	}
-
-	return total_diff_flux;
+	const QInverseLength coefficient = absorptionCoefficient(Egamma_);
+	absorptionCoefficientCache.emplace(energyKey, coefficient);
+	return coefficient;
 }
 
 auto cmbPhotonField(const QEnergy &eps) {
@@ -102,6 +58,10 @@ auto cmbPhotonField(const QEnergy &eps) {
 }
 
 QInverseLength PiZeroAbsorptionIntegrator::absorptionCoefficient(const QEnergy &Egamma_) const {
+	const double energyValue = static_cast<double>(Egamma_ / 1_GeV);
+	if (!std::isfinite(energyValue) || Egamma_ <= QEnergy(0))
+		throw std::invalid_argument("PiZeroAbsorptionIntegrator: gamma-ray energy must be positive and finite");
+
 	auto integrand = [this, Egamma_](double eps) {
 		return static_cast<double>(cmbPhotonField(QEnergy(eps)) *
 		                           bwCrossSec->integratedOverTheta(Egamma_, QEnergy(eps)));
@@ -119,10 +79,22 @@ QInverseLength PiZeroAbsorptionIntegrator::absorptionCoefficient(const QEnergy &
 	gsl_function_pp<decltype(integrand)> Fp(integrand);
 	gsl_function *F = static_cast<gsl_function *>(&Fp);
 
-	gsl_integration_workspace *w = gsl_integration_workspace_alloc(GSL_LIMIT);
-	gsl_integration_qag(F, static_cast<double>(epsMin), static_cast<double>(epsMax), abs_error, rel_error, GSL_LIMIT,
-	                    key, w, &result, &error);
-	gsl_integration_workspace_free(w);
+	std::unique_ptr<gsl_integration_workspace, decltype(&gsl_integration_workspace_free)> workspace(
+	    gsl_integration_workspace_alloc(GSL_LIMIT), gsl_integration_workspace_free);
+	if (!workspace)
+		throw std::runtime_error(
+		    "PiZeroAbsorptionIntegrator::absorptionCoefficient: could not allocate GSL workspace");
+
+	int status = GSL_SUCCESS;
+	{
+		std::lock_guard<std::mutex> lock(detail::gslErrorHandlerMutex());
+		detail::ScopedGslErrorHandlerOff disableGslAbort;
+		status = gsl_integration_qag(F, static_cast<double>(epsMin), static_cast<double>(epsMax), abs_error, rel_error,
+		                             GSL_LIMIT, key, workspace.get(), &result, &error);
+	}
+	detail::throwIfGslFailed(status, "PiZeroAbsorptionIntegrator::absorptionCoefficient");
+	if (!std::isfinite(result) || result < 0.0)
+		throw std::runtime_error("PiZeroAbsorptionIntegrator::absorptionCoefficient: invalid result");
 
 	return QInverseLength(result);
 }

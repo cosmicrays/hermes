@@ -2,7 +2,9 @@
 #define HERMES_PIZEROABSORPTIONINTEGRATOR_H
 
 #include <array>
+#include <map>
 #include <memory>
+#include <mutex>
 #include <vector>
 
 #include "hermes/ProgressBar.h"
@@ -22,6 +24,10 @@ namespace hermes {
 class PiZeroAbsorptionIntegrator : public PiZeroIntegrator {
   private:
 	std::unique_ptr<interactions::BreitWheeler> bwCrossSec{std::make_unique<interactions::BreitWheeler>()};
+	mutable std::mutex absorptionCoefficientCacheMutex;
+	mutable std::map<double, QInverseLength> absorptionCoefficientCache;
+
+	QInverseLength getAbsorptionCoefficient(const QEnergy &) const;
 
   public:
 	PiZeroAbsorptionIntegrator(const std::shared_ptr<cosmicrays::CosmicRayDensity> &,
