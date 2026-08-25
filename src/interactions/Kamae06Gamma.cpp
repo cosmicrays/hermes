@@ -1,8 +1,21 @@
 #include "hermes/interactions/Kamae06Gamma.h"
 
+extern "C" {
+#include "cparamlib.h"
+}
+
 namespace hermes { namespace interactions {
 
 Kamae06Gamma::Kamae06Gamma() : DifferentialCrossSection(false) {}
+
+Kamae06Gamma::Kamae06Gamma(Kamae06Gamma &&other)
+    : DifferentialCrossSection(other.cachingEnabled), cache(std::move(other.cache)) {
+	if (cache != nullptr) {
+		cache->setFunction([this](QEnergy E_proton, QEnergy E_gamma) {
+			return getDiffCrossSectionDirectly(E_proton, E_gamma);
+		});
+	}
+}
 
 void Kamae06Gamma::setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache_) {
 	cache = std::move(cache_);

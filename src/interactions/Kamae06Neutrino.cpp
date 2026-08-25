@@ -1,8 +1,21 @@
 #include "hermes/interactions/Kamae06Neutrino.h"
 
+extern "C" {
+#include "cparamlib.h"
+}
+
 namespace hermes { namespace interactions {
 
 Kamae06Neutrino::Kamae06Neutrino() : DifferentialCrossSection(false) {}
+
+Kamae06Neutrino::Kamae06Neutrino(Kamae06Neutrino &&other)
+    : DifferentialCrossSection(other.cachingEnabled), cache(std::move(other.cache)) {
+	if (cache != nullptr) {
+		cache->setFunction([this](QEnergy E_proton, QEnergy E_nu) {
+			return getDiffCrossSectionDirectly(E_proton, E_nu);
+		});
+	}
+}
 
 void Kamae06Neutrino::setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache_) {
 	cache = std::move(cache_);

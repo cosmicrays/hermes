@@ -23,8 +23,20 @@ BremsstrahlungGALPROP::BremsstrahlungGALPROP()
       cache({std::make_unique<CacheStorageCrossSection>(),
              std::make_unique<CacheStorageCrossSection>(),
              std::make_unique<CacheStorageCrossSection>()}) {
-	// Initialize caching for all targets
+	bindCacheFunctions();
+}
+
+BremsstrahlungGALPROP::BremsstrahlungGALPROP(BremsstrahlungGALPROP &&other)
+    : BremsstrahlungAbstract(),
+      cachingEnabled(other.cachingEnabled),
+      cache(std::move(other.cache)) {
+	bindCacheFunctions();
+}
+
+void BremsstrahlungGALPROP::bindCacheFunctions() {
 	for (auto &t : allTargets) {
+		if (cache[static_cast<int>(t)] == nullptr)
+			cache[static_cast<int>(t)] = std::make_unique<CacheStorageCrossSection>();
 		cache[static_cast<int>(t)]->setFunction(
 		    [t, this](QEnergy T_electron, QEnergy E_gamma) {
 			    return this->getDiffCrossSectionForTargetDirectly(t, T_electron,

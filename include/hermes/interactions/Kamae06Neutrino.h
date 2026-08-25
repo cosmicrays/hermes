@@ -21,10 +21,6 @@ Journal (2007).
 #include "hermes/CacheTools.h"
 #include "hermes/interactions/DiffCrossSection.h"
 
-extern "C" {
-#include "cparamlib.h"
-}
-
 namespace hermes { namespace interactions {
 /**
  * \addtogroup Interactions
@@ -37,6 +33,10 @@ class Kamae06Neutrino : public DifferentialCrossSection {
 
   public:
 	Kamae06Neutrino();
+	Kamae06Neutrino(Kamae06Neutrino &&other);
+	Kamae06Neutrino(const Kamae06Neutrino &) = delete;
+	Kamae06Neutrino &operator=(const Kamae06Neutrino &) = delete;
+	Kamae06Neutrino &operator=(Kamae06Neutrino &&) = delete;
 	void setCachingStorage(std::unique_ptr<CacheStorageCrossSection> cache);
 
 	QDiffCrossSection getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_nu) const override;

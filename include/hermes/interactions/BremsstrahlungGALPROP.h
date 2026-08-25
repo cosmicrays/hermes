@@ -17,6 +17,7 @@ class BremsstrahlungGALPROP : public BremsstrahlungAbstract {
   private:
 	bool cachingEnabled;
 	std::array<std::unique_ptr<CacheStorageCrossSection>, Ntargets> cache;
+	void bindCacheFunctions();
 
 	QNumber ElwertFactor(const QNumber &beta_i, const QNumber &beta_f,
 	                     int Z) const;
@@ -48,6 +49,10 @@ class BremsstrahlungGALPROP : public BremsstrahlungAbstract {
 
   public:
 	BremsstrahlungGALPROP();
+	BremsstrahlungGALPROP(BremsstrahlungGALPROP &&other);
+	BremsstrahlungGALPROP(const BremsstrahlungGALPROP &) = delete;
+	BremsstrahlungGALPROP &operator=(const BremsstrahlungGALPROP &) = delete;
+	BremsstrahlungGALPROP &operator=(BremsstrahlungGALPROP &&) = delete;
 
 	void enableCaching();
 	void disableCaching();
