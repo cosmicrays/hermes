@@ -18,7 +18,7 @@ class DifferentialCrossSection {
 
   public:
 	DifferentialCrossSection(bool cachingEnabled = false);
-	~DifferentialCrossSection();
+	virtual ~DifferentialCrossSection();
 
 	void enableCaching();
 	void disableCaching();

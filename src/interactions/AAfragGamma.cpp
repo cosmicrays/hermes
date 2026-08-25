@@ -1,5 +1,6 @@
 #include "hermes/interactions/AAfragGamma.h"
 
+#include <algorithm>
 #include <cmath>
 #include <fstream>
 #include <izstream.hpp>
@@ -7,12 +8,16 @@
 
 #include "hermes/Common.h"
 
-#define XSIZE 1024
-#define YSIZE 768
-#define minLogEta -5
-#define maxLogEta 0
-#define minLogProjEnergy 0
-#define maxLogProjEnergy 8
+namespace {
+
+constexpr std::size_t xSize = 1024;
+constexpr std::size_t ySize = 768;
+constexpr double minLogEta = -5;
+constexpr double maxLogEta = 0;
+constexpr double minLogProjEnergy = 0;
+constexpr double maxLogProjEnergy = 8;
+
+}  // namespace
 
 namespace hermes { namespace interactions {
 
@@ -21,70 +26,69 @@ AAfragXsecs::AAfragXsecs(const std::string &filename) : DifferentialCrossSection
 void AAfragXsecs::loadData(const std::string &filename) {
 	std::ifstream infile(filename.c_str());
 	if (!infile.good()) throw std::runtime_error("hermes::AAfragGamma: could not open file " + filename);
-	std::istream *in = &infile;
-	auto izstream = new zstream::igzstream(*in);
+	zstream::igzstream izstream(infile);
 	std::string line;
-	std::getline(*izstream, line);  // skip first line which is header
-	while (std::getline(*izstream, line)) {
+	std::getline(izstream, line);  // skip first line which is header
+	while (std::getline(izstream, line)) {
 		std::stringstream stream(line);
 		double T, x, xs_pp_i, xs_phe_i, xs_hep_i, xs_hehe_i;
-		stream >> T >> x >> xs_pp_i >> xs_phe_i >> xs_hep_i >> xs_hehe_i;
+		if (!(stream >> T >> x >> xs_pp_i >> xs_phe_i >> xs_hep_i >> xs_hehe_i))
+			throw std::runtime_error("hermes::AAfragGamma: malformed row in " + filename);
 		xs_pp.push_back(xs_pp_i);
 		xs_pHe.push_back(xs_phe_i);
 		xs_Hep.push_back(xs_hep_i);
 		xs_HeHe.push_back(xs_hehe_i);
 	}
-	infile.close();
-	if (xs_pp.size() != XSIZE * YSIZE) throw std::runtime_error("hermes: error in reading AAfragGamma table.");
+	const std::size_t expectedSize = xSize * ySize;
+	if (xs_pp.size() != expectedSize || xs_pHe.size() != expectedSize ||
+	    xs_Hep.size() != expectedSize || xs_HeHe.size() != expectedSize)
+		throw std::runtime_error("hermes: error in reading AAfragGamma table.");
 }
 
 QDiffCrossSection AAfragXsecs::getDiffCrossSection(const QEnergy &E_proton, const QEnergy &E_gamma) const {
-	if (E_gamma > E_proton) return QDiffCrossSection(0);
-	return QDiffCrossSection(0.);
+	return getDiffCrossSection(Proton, Proton, E_proton, E_gamma);
 }
 
 QDiffCrossSection AAfragXsecs::getDiffCrossSection(const PID &projectile, const PID &target, const QEnergy &E_proj,
                                                    const QEnergy &E_secondary) const {
-	auto x = std::log10(static_cast<double>(E_proj / 1_GeV));
-	auto y = std::log10(static_cast<double>(E_secondary / E_proj));
+	if (!(E_proj > QEnergy(0)) || !(E_secondary > QEnergy(0)))
+		return QDiffCrossSection(0);
+
+	const std::vector<double> *table = nullptr;
+	if (projectile == Proton && target == Proton)
+		table = &xs_pp;
+	else if (projectile == Proton && target == Helium)
+		table = &xs_pHe;
+	else if (projectile == Helium && target == Proton)
+		table = &xs_Hep;
+	else if (projectile == Helium && target == Helium)
+		table = &xs_HeHe;
+	else
+		return QDiffCrossSection(0);
+
+	const double x = std::log10(static_cast<double>(E_proj / 1_GeV));
+	const double y = std::log10(static_cast<double>(E_secondary / E_proj));
 	if (x < minLogProjEnergy || x > maxLogProjEnergy) return QDiffCrossSection(0.);
 	if (y < minLogEta || y > maxLogEta) return QDiffCrossSection(0.);
 
-	// linear fraction to lower and upper neighbors
-	auto fx = (x - minLogProjEnergy) / (maxLogProjEnergy - minLogProjEnergy);
-	auto fX = 1 - fx;
-	auto fy = (y - minLogEta) / (maxLogEta - minLogEta);
-	auto fY = 1 - fy;
-
-	// lower-left point coordinates
-	size_t ix = floor(fx * (XSIZE - 1));
-	size_t iy = floor(fy * (YSIZE - 1));
+	const double gridX = (x - minLogProjEnergy) /
+	                     (maxLogProjEnergy - minLogProjEnergy) * (xSize - 1);
+	const double gridY = (y - minLogEta) /
+	                     (maxLogEta - minLogEta) * (ySize - 1);
+	const std::size_t ix = std::min<std::size_t>(
+	    static_cast<std::size_t>(std::floor(gridX)), xSize - 2);
+	const std::size_t iy = std::min<std::size_t>(
+	    static_cast<std::size_t>(std::floor(gridY)), ySize - 2);
+	const double fractionX = gridX - static_cast<double>(ix);
+	const double fractionY = gridY - static_cast<double>(iy);
 
 	// bilinear interpolation
-	auto indx = [](size_t i, size_t j) { return j + YSIZE * i; };
-
-	auto value = 0.;
-	if (projectile == Proton && target == Proton) {
-		value += xs_pp.at(indx(ix, iy)) * fX * fY;
-		value += xs_pp.at(indx(ix + 1, iy)) * fx * fY;
-		value += xs_pp.at(indx(ix, iy + 1)) * fX * fy;
-		value += xs_pp.at(indx(ix + 1, iy + 1)) * fx * fy;
-	} else if (projectile == Proton && target == Helium) {
-		value += xs_pHe.at(indx(ix, iy)) * fX * fY;
-		value += xs_pHe.at(indx(ix + 1, iy)) * fx * fY;
-		value += xs_pHe.at(indx(ix, iy + 1)) * fX * fy;
-		value += xs_pHe.at(indx(ix + 1, iy + 1)) * fx * fy;
-	} else if (projectile == Helium && target == Proton) {
-		value += xs_Hep.at(indx(ix, iy)) * fX * fY;
-		value += xs_Hep.at(indx(ix + 1, iy)) * fx * fY;
-		value += xs_Hep.at(indx(ix, iy + 1)) * fX * fy;
-		value += xs_Hep.at(indx(ix + 1, iy + 1)) * fx * fy;
-	} else if (projectile == Helium && target == Helium) {
-		value += xs_HeHe.at(indx(ix, iy)) * fX * fY;
-		value += xs_HeHe.at(indx(ix + 1, iy)) * fx * fY;
-		value += xs_HeHe.at(indx(ix, iy + 1)) * fX * fy;
-		value += xs_HeHe.at(indx(ix + 1, iy + 1)) * fx * fy;
-	}
+	const auto index = [](std::size_t i, std::size_t j) { return j + ySize * i; };
+	const double lower = table->at(index(ix, iy)) * (1 - fractionY) +
+	                     table->at(index(ix, iy + 1)) * fractionY;
+	const double upper = table->at(index(ix + 1, iy)) * (1 - fractionY) +
+	                     table->at(index(ix + 1, iy + 1)) * fractionY;
+	const double value = lower * (1 - fractionX) + upper * fractionX;
 	return value * 1_mbarn / 1_GeV;
 }
 
