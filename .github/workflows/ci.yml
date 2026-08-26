@@ -21,14 +21,17 @@ jobs:
             compiler: gcc
             cc: gcc
             cxx: g++
+            python-version: '3.14'
           - os: ubuntu-latest
             compiler: clang
             cc: clang
             cxx: clang++
+            python-version: '3.13'
           - os: macos-latest
             compiler: clang
             cc: clang
             cxx: clang++
+            python-version: '3.14'
     runs-on: ${{ matrix.os }}
     env:
       OS: ${{ matrix.os }}
@@ -36,6 +39,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
     
     - name: Cache Hermes data
       id: cache-hermes-data
@@ -92,7 +100,6 @@ jobs:
     - name: Install dependencies on MacOS
       if: ${{ contains(env.OS, 'macos') }}
       run: |
-         HOMEBREW_NO_AUTO_UPDATE=1 brew install python3;
          HOMEBREW_NO_AUTO_UPDATE=1 brew install gsl;
          HOMEBREW_NO_AUTO_UPDATE=1 brew install cfitsio;
 
