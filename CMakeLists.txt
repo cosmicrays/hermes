@@ -393,7 +393,7 @@ set_target_properties(hermes PROPERTIES
 option(ENABLE_PYTHON "Create python library via Pybind11" ON)
 if(ENABLE_PYTHON)
     find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
-    set(PYBIND11_PYTHON_VERSION ${Python3_VERSION}) 
+    set(PYBIND11_FINDPYTHON ON)
     add_subdirectory(lib/pybind11)
 
     pybind11_add_module(pyhermes
@@ -449,6 +449,12 @@ if(ENABLE_TESTING)
             COMMAND "${Python3_EXECUTABLE}" -c
                 "import pyhermes; assert hasattr(pyhermes.cosmicrays, 'TabulatedCR')")
         set_tests_properties(testPythonImport PROPERTIES
+            WORKING_DIRECTORY "$<TARGET_FILE_DIR:pyhermes>")
+
+        add_test(NAME testPythonBindings
+            COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_CURRENT_SOURCE_DIR}/test/testPythonBindings.py")
+        set_tests_properties(testPythonBindings PROPERTIES
             WORKING_DIRECTORY "$<TARGET_FILE_DIR:pyhermes>")
     endif()
 
