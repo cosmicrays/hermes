@@ -214,4 +214,36 @@ TEST(TabulatedCR, ConcurrentReadsAreDeterministic) {
 	}
 }
 
+TEST(TabulatedCR, ConcurrentPiZeroEnergyIntegrationsAreDeterministic) {
+	const auto gasData = getDataPath("GasDensity/Remy18/NHrings_Ts300K.fits.gz");
+	const auto crossSectionData = getDataPath("Interactions/AAfrag2021Gamma.txt.gz");
+	if (!std::filesystem::is_regular_file(gasData) || !std::filesystem::is_regular_file(crossSectionData)) {
+		GTEST_SKIP() << "HERMES gas or interaction data are not available";
+	}
+
+	TemporarySpectrum table("1e2 1e-4\n1e4 1e-8\n1e6 1e-12\n1e8 1e-16\n");
+	auto model = std::make_shared<cosmicrays::TabulatedCR>(table.filename(), 1_kpc, 100);
+	auto gas = std::make_shared<neutralgas::RingModel>(neutralgas::GasType::H2);
+	auto crossSection = std::make_shared<interactions::AAfragGamma>();
+	const PiZeroAbsorptionIntegrator integrator(model, gas, crossSection);
+	const QEnergy energy = 10_TeV;
+	const Vector3QLength position(4_kpc, 0_kpc, 0.2_kpc);
+	const QPiZeroIntegral expected = integrator.integrateOverEnergy(position, energy);
+
+	std::vector<std::future<QPiZeroIntegral>> integrations;
+	for (int worker = 0; worker < 8; ++worker) {
+		integrations.push_back(std::async(std::launch::async, [&integrator, position, energy] {
+			QPiZeroIntegral result(0);
+			for (int iteration = 0; iteration < 250; ++iteration) {
+				result = integrator.integrateOverEnergy(position, energy);
+			}
+			return result;
+		}));
+	}
+
+	for (auto &integration : integrations) {
+		EXPECT_EQ(integration.get(), expected);
+	}
+}
+
 }  // namespace hermes

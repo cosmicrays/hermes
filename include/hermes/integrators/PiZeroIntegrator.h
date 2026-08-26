@@ -28,6 +28,7 @@ class PiZeroIntegrator : public GammaIntegratorTemplate {
 	std::vector<std::shared_ptr<cosmicrays::CosmicRayDensity>> crList;
 	std::shared_ptr<neutralgas::RingModel> ngdensity;
 	std::shared_ptr<interactions::DifferentialCrossSection> crossSec;
+	std::vector<std::pair<PID, double>> targetAbundanceFractions;
 
 	std::shared_ptr<neutralgas::ProfileAbstract> dProfile;
 
