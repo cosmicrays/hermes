@@ -452,7 +452,9 @@ if(ENABLE_TESTING)
             WORKING_DIRECTORY "$<TARGET_FILE_DIR:pyhermes>")
 
         add_test(NAME testPythonBindings
-            COMMAND "${Python3_EXECUTABLE}"
+            COMMAND "${CMAKE_COMMAND}" -E env
+                "PYTHONPATH=$<TARGET_FILE_DIR:pyhermes>"
+                "${Python3_EXECUTABLE}" -S
                 "${CMAKE_CURRENT_SOURCE_DIR}/test/testPythonBindings.py")
         set_tests_properties(testPythonBindings PROPERTIES
             WORKING_DIRECTORY "$<TARGET_FILE_DIR:pyhermes>")
